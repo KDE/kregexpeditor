@@ -34,13 +34,8 @@ servicedir = $(kde_servicesdir)
 ##### Build rules for the parser
 
 .PHONY: parser
-parser: gen_qregexplexer.cpp gen_qregexpparser.cc
-
-gen_qregexplexer.cpp: qregexpparser.l
+parser: 
 	cd $(srcdir) && flex -Pqregexp -ogen_qregexplexer.cpp qregexpparser.l
-
-# To avoid problems with --enable-final (YYSTYPE defined twice), this file is called .cc
-gen_qregexpparser.cc: qregexpparser.y
 	cd $(srcdir) && bison -d -p qregexp -o gen_qregexpparser.cc qregexpparser.y
 
 messages:
