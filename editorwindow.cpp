@@ -280,7 +280,7 @@ void RegExpEditorWindow::cutCopyAux( QPoint pos )
     if ( !hasSelection() ) {
         RegExpWidget* widget = _top->widgetUnderPoint( pos, true );
         if ( !widget ) {
-            KMessageBox::information(this, i18n("There is no widget under cursor"), i18n("invalid operation") );
+            KMessageBox::information(this, i18n("There is no widget under cursor."), i18n("Invalid Operation") );
             return;
         }
         else {
