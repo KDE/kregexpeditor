@@ -239,7 +239,7 @@
     </example>
 
     <example id="lookaheadregexp">
-      <title>Replacing <literal>&amp;</literal> with <literal>&amp;amb;</literal> in
+      <title>Replacing <literal>&amp;</literal> with <literal>&amp;amp;</literal> in
         HTML document</title>
       <para>In HTML the special character <literal>&amp;</literal> must be
         written as <literal>&amp;amp;</literal> - this is similar to escaping in
