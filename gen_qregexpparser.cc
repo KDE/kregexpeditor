@@ -101,10 +101,10 @@
 #line 18 "qregexpparser.y"
 
 #ifdef QT_ONLY
-#  include "compat.h"
+  #include "compat.h"
 #else
-#  include <klocale.h>
-#  include <kmessagebox.h>
+  #include <klocale.h>
+  #include <kmessagebox.h>
 #endif
 
   #include <qstring.h>
@@ -273,17 +273,17 @@ union yyalloc
 #endif
 
 /* YYFINAL -- State number of the termination state. */
-#define YYFINAL  25
-#define YYLAST   31
+#define YYFINAL  27
+#define YYLAST   47
 
 /* YYNTOKENS -- Number of terminals. */
 #define YYNTOKENS  19
 /* YYNNTS -- Number of nonterminals. */
 #define YYNNTS  8
 /* YYNRULES -- Number of rules. */
-#define YYNRULES  24
+#define YYNRULES  27
 /* YYNRULES -- Number of states. */
-#define YYNSTATES  34
+#define YYNSTATES  36
 
 /* YYTRANSLATE(YYLEX) -- Bison symbol number corresponding to YYLEX.  */
 #define YYUNDEFTOK  2
@@ -330,28 +330,29 @@ static const unsigned char yytranslate[] =
    YYRHS.  */
 static const unsigned char yyprhs[] =
 {
-       0,     0,     3,     4,     6,     8,    12,    14,    17,    19,
-      22,    24,    28,    32,    36,    40,    42,    44,    46,    48,
-      50,    52,    54,    56,    58
+       0,     0,     3,     4,     6,     8,    12,    14,    17,    20,
+      22,    25,    27,    30,    32,    36,    40,    44,    48,    50,
+      52,    54,    56,    58,    60,    62,    64,    66
 };
 
 /* YYRHS -- A `-1'-separated list of the rules' RHS. */
 static const yysigned_char yyrhs[] =
 {
       21,     0,    -1,    -1,    22,    -1,    20,    -1,    22,    11,
-      23,    -1,    23,    -1,    23,    24,    -1,    24,    -1,    25,
-      12,    -1,    25,    -1,     9,    22,    10,    -1,     6,    22,
-      10,    -1,     7,    22,    10,    -1,     8,    22,    10,    -1,
-      14,    -1,    26,    -1,     4,    -1,     5,    -1,     3,    -1,
-      13,    -1,    17,    -1,    18,    -1,    15,    -1,    16,    -1
+      23,    -1,    23,    -1,    22,    11,    -1,    11,    23,    -1,
+      11,    -1,    23,    24,    -1,    24,    -1,    25,    12,    -1,
+      25,    -1,     9,    22,    10,    -1,     6,    22,    10,    -1,
+       7,    22,    10,    -1,     8,    22,    10,    -1,    14,    -1,
+      26,    -1,     4,    -1,     5,    -1,     3,    -1,    13,    -1,
+      17,    -1,    18,    -1,    15,    -1,    16,    -1
 };
 
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const unsigned char yyrline[] =
 {
-       0,    80,    80,    82,    83,    86,    96,    99,   113,   120,
-     123,   126,   129,   130,   133,   136,   137,   138,   139,   140,
-     141,   156,   157,   160,   166
+       0,    80,    80,    82,    83,    86,    96,    97,   106,   110,
+     113,   127,   134,   137,   140,   143,   144,   147,   150,   151,
+     152,   153,   154,   155,   170,   171,   174,   180
 };
 #endif
 
@@ -382,17 +383,17 @@ static const unsigned short yytoknum[] =
 /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const unsigned char yyr1[] =
 {
-       0,    19,    20,    21,    21,    22,    22,    23,    23,    24,
-      24,    25,    25,    25,    25,    25,    25,    25,    25,    25,
-      25,    25,    25,    26,    26
+       0,    19,    20,    21,    21,    22,    22,    22,    22,    22,
+      23,    23,    24,    24,    25,    25,    25,    25,    25,    25,
+      25,    25,    25,    25,    25,    25,    26,    26
 };
 
 /* YYR2[YYN] -- Number of symbols composing right hand side of rule YYN.  */
 static const unsigned char yyr2[] =
 {
-       0,     2,     0,     1,     1,     3,     1,     2,     1,     2,
-       1,     3,     3,     3,     3,     1,     1,     1,     1,     1,
-       1,     1,     1,     1,     1
+       0,     2,     0,     1,     1,     3,     1,     2,     2,     1,
+       2,     1,     2,     1,     3,     3,     3,     3,     1,     1,
+       1,     1,     1,     1,     1,     1,     1,     1
 };
 
 /* YYDEFACT[STATE-NAME] -- Default rule to reduce with in state
@@ -400,16 +401,16 @@ static const unsigned char yyr2[] =
    means the default is an error.  */
 static const unsigned char yydefact[] =
 {
-       2,    19,    17,    18,     0,     0,     0,     0,    20,    15,
-      23,    24,    21,    22,     4,     0,     3,     6,     8,    10,
-      16,     0,     0,     0,     0,     1,     0,     7,     9,    12,
-      13,    14,    11,     5
+       2,    22,    20,    21,     0,     0,     0,     0,     9,    23,
+      18,    26,    27,    24,    25,     4,     0,     3,     6,    11,
+      13,    19,     0,     0,     0,     0,     8,     1,     7,    10,
+      12,    15,    16,    17,    14,     5
 };
 
 /* YYDEFGOTO[NTERM-NUM]. */
 static const yysigned_char yydefgoto[] =
 {
-      -1,    14,    15,    16,    17,    18,    19,    20
+      -1,    15,    16,    17,    18,    19,    20,    21
 };
 
 /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
@@ -417,16 +418,16 @@ static const yysigned_char yydefgoto[] =
 #define YYPACT_NINF -18
 static const yysigned_char yypact[] =
 {
-       4,   -18,   -18,   -18,     4,     4,     4,     4,   -18,   -18,
-     -18,   -18,   -18,   -18,   -18,    14,    18,     4,   -18,     3,
-     -18,    -5,    13,    15,    17,   -18,     4,   -18,   -18,   -18,
-     -18,   -18,   -18,     4
+      -1,   -18,   -18,   -18,    -1,    -1,    -1,    -1,    18,   -18,
+     -18,   -18,   -18,   -18,   -18,   -18,    11,     8,    18,   -18,
+      16,   -18,    19,    31,    34,    36,    18,   -18,    18,   -18,
+     -18,   -18,   -18,   -18,   -18,    18
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yysigned_char yypgoto[] =
 {
-     -18,   -18,   -18,    -3,     5,   -17,   -18,   -18
+     -18,   -18,   -18,    33,    -8,   -17,   -18,   -18
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]].  What to do in state STATE-NUM.  If
@@ -436,28 +437,30 @@ static const yysigned_char yypgoto[] =
 #define YYTABLE_NINF -1
 static const unsigned char yytable[] =
 {
-      27,    21,    22,    23,    24,    29,    26,     1,     2,     3,
-       4,     5,     6,     7,    25,    28,    27,     8,     9,    10,
-      11,    12,    13,    30,    26,    31,    26,    32,    26,    26,
-       0,    33
+      26,    29,     1,     2,     3,     4,     5,     6,     7,    29,
+       8,    27,     9,    10,    11,    12,    13,    14,    29,    28,
+      35,     1,     2,     3,     4,     5,     6,     7,    30,    31,
+      28,     9,    10,    11,    12,    13,    14,    22,    23,    24,
+      25,    32,    28,     0,    33,    28,    34,    28
 };
 
 static const yysigned_char yycheck[] =
 {
-      17,     4,     5,     6,     7,    10,    11,     3,     4,     5,
-       6,     7,     8,     9,     0,    12,    33,    13,    14,    15,
-      16,    17,    18,    10,    11,    10,    11,    10,    11,    11,
-      -1,    26
+       8,    18,     3,     4,     5,     6,     7,     8,     9,    26,
+      11,     0,    13,    14,    15,    16,    17,    18,    35,    11,
+      28,     3,     4,     5,     6,     7,     8,     9,    12,    10,
+      11,    13,    14,    15,    16,    17,    18,     4,     5,     6,
+       7,    10,    11,    -1,    10,    11,    10,    11
 };
 
 /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
    symbol of state STATE-NUM.  */
 static const unsigned char yystos[] =
 {
-       0,     3,     4,     5,     6,     7,     8,     9,    13,    14,
-      15,    16,    17,    18,    20,    21,    22,    23,    24,    25,
-      26,    22,    22,    22,    22,     0,    11,    24,    12,    10,
-      10,    10,    10,    23
+       0,     3,     4,     5,     6,     7,     8,     9,    11,    13,
+      14,    15,    16,    17,    18,    20,    21,    22,    23,    24,
+      25,    26,    22,    22,    22,    22,    23,     0,    11,    24,
+      12,    10,    10,    10,    10,    23
 };
 
 #if ! defined (YYSIZE_T) && defined (__SIZE_TYPE__)
@@ -1037,7 +1040,33 @@ yyreduce:
     break;
 
   case 7:
-#line 99 "qregexpparser.y"
+#line 97 "qregexpparser.y"
+    { 
+               if ( dynamic_cast<AltnRegExp*>( yyvsp[-1].regexp ) ) {
+                 yyval.regexp = yyvsp[-1].regexp;
+               }
+               else {
+                 yyval.regexp = new AltnRegExp( false );
+                 dynamic_cast<AltnRegExp*>( yyval.regexp )->addRegExp( yyvsp[-1].regexp );
+               }
+             }
+    break;
+
+  case 8:
+#line 106 "qregexpparser.y"
+    {  
+               yyval.regexp = new AltnRegExp( false );
+               dynamic_cast<AltnRegExp*>( yyval.regexp )->addRegExp( yyvsp[0].regexp );
+             }
+    break;
+
+  case 9:
+#line 110 "qregexpparser.y"
+    { yyval.regexp = new AltnRegExp( false ); }
+    break;
+
+  case 10:
+#line 113 "qregexpparser.y"
     {
        RegExp* last = dynamic_cast<ConcRegExp*>( yyvsp[-1].regexp )->lastRegExp();
        TextRegExp *reg1, *reg2;
@@ -1054,8 +1083,8 @@ yyreduce:
      }
     break;
 
-  case 8:
-#line 113 "qregexpparser.y"
+  case 11:
+#line 127 "qregexpparser.y"
     { 
          ConcRegExp* reg = new ConcRegExp( false );
          reg->addRegExp( yyvsp[0].regexp );
@@ -1063,71 +1092,71 @@ yyreduce:
        }
     break;
 
-  case 9:
-#line 120 "qregexpparser.y"
+  case 12:
+#line 134 "qregexpparser.y"
     {
            yyval.regexp = new RepeatRegExp( false, yyvsp[0].range.min, yyvsp[0].range.max, yyvsp[-1].regexp );
          }
     break;
 
-  case 10:
-#line 123 "qregexpparser.y"
+  case 13:
+#line 137 "qregexpparser.y"
     { yyval.regexp = yyvsp[0].regexp; }
     break;
 
-  case 11:
-#line 126 "qregexpparser.y"
+  case 14:
+#line 140 "qregexpparser.y"
     { 
          yyval.regexp = yyvsp[-1].regexp; 
        }
     break;
 
-  case 12:
-#line 129 "qregexpparser.y"
+  case 15:
+#line 143 "qregexpparser.y"
     { yyval.regexp = yyvsp[-1].regexp; }
     break;
 
-  case 13:
-#line 130 "qregexpparser.y"
+  case 16:
+#line 144 "qregexpparser.y"
     { 
          yyval.regexp = new LookAheadRegExp( false, LookAheadRegExp::POSITIVE, yyvsp[-1].regexp );
        }
     break;
 
-  case 14:
-#line 133 "qregexpparser.y"
+  case 17:
+#line 147 "qregexpparser.y"
     {
          yyval.regexp = new LookAheadRegExp( false, LookAheadRegExp::NEGATIVE, yyvsp[-1].regexp );
        }
     break;
 
-  case 15:
-#line 136 "qregexpparser.y"
-    { yyval.regexp = yyvsp[0].regexp; }
-    break;
-
-  case 16:
-#line 137 "qregexpparser.y"
-    { yyval.regexp = yyvsp[0].regexp; }
-    break;
-
-  case 17:
-#line 138 "qregexpparser.y"
-    { yyval.regexp = new PositionRegExp( false, PositionRegExp::ENDLINE ); }
-    break;
-
   case 18:
-#line 139 "qregexpparser.y"
-    { yyval.regexp = new PositionRegExp( false, PositionRegExp::BEGLINE ); }
+#line 150 "qregexpparser.y"
+    { yyval.regexp = yyvsp[0].regexp; }
     break;
 
   case 19:
-#line 140 "qregexpparser.y"
-    { yyval.regexp = new DotRegExp( false ); }
+#line 151 "qregexpparser.y"
+    { yyval.regexp = yyvsp[0].regexp; }
     break;
 
   case 20:
-#line 141 "qregexpparser.y"
+#line 152 "qregexpparser.y"
+    { yyval.regexp = new PositionRegExp( false, PositionRegExp::ENDLINE ); }
+    break;
+
+  case 21:
+#line 153 "qregexpparser.y"
+    { yyval.regexp = new PositionRegExp( false, PositionRegExp::BEGLINE ); }
+    break;
+
+  case 22:
+#line 154 "qregexpparser.y"
+    { yyval.regexp = new DotRegExp( false ); }
+    break;
+
+  case 23:
+#line 155 "qregexpparser.y"
     { 
         QString match = QString::fromLocal8Bit("\\%1").arg( yyvsp[0].backRef );
         yyval.regexp = new TextRegExp( false, match );
@@ -1145,18 +1174,18 @@ yyreduce:
       }
     break;
 
-  case 21:
-#line 156 "qregexpparser.y"
+  case 24:
+#line 170 "qregexpparser.y"
     { yyval.regexp = new PositionRegExp( false, PositionRegExp::WORDBOUNDARY ); }
     break;
 
-  case 22:
-#line 157 "qregexpparser.y"
+  case 25:
+#line 171 "qregexpparser.y"
     { yyval.regexp = new PositionRegExp( false, PositionRegExp::NONWORDBOUNDARY ); }
     break;
 
-  case 23:
-#line 160 "qregexpparser.y"
+  case 26:
+#line 174 "qregexpparser.y"
     { 
        if ( yyvsp[0].ch == '{' || yyvsp[0].ch == '}' || yyvsp[0].ch == '[' || yyvsp[0].ch == ']' || yyvsp[0].ch == '\\' ) {
           yyerror( "illigal character - needs escaping" );
@@ -1165,8 +1194,8 @@ yyreduce:
      }
     break;
 
-  case 24:
-#line 166 "qregexpparser.y"
+  case 27:
+#line 180 "qregexpparser.y"
     { yyval.regexp = new TextRegExp( false, QString::fromLocal8Bit("%1").arg(yyvsp[0].ch)); }
     break;
 
@@ -1174,7 +1203,7 @@ yyreduce:
     }
 
 /* Line 1016 of /usr/share/bison/yacc.c.  */
-#line 1178 "gen_qregexpparser.cc"
+#line 1207 "gen_qregexpparser.cc"
 
   yyvsp -= yylen;
   yyssp -= yylen;
@@ -1393,7 +1422,7 @@ yyreturn:
 }
 
 
-#line 169 "qregexpparser.y"
+#line 183 "qregexpparser.y"
 
 
 RegExp* parseQtRegExp( QString qstr, bool* ok ) {

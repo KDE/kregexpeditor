@@ -94,6 +94,20 @@ expression : expression TOK_Bar term {
                dynamic_cast<AltnRegExp*>( $<regexp>$ )->addRegExp( $<regexp>3 );
              }
            | term { $<regexp>$ = $<regexp>1; }
+           | expression TOK_Bar { 
+               if ( dynamic_cast<AltnRegExp*>( $<regexp>1 ) ) {
+                 $<regexp>$ = $<regexp>1;
+               }
+               else {
+                 $<regexp>$ = new AltnRegExp( false );
+                 dynamic_cast<AltnRegExp*>( $<regexp>$ )->addRegExp( $<regexp>1 );
+               }
+             }
+           | TOK_Bar term {  
+               $<regexp>$ = new AltnRegExp( false );
+               dynamic_cast<AltnRegExp*>( $<regexp>$ )->addRegExp( $<regexp>2 );
+             }
+           | TOK_Bar { $<regexp>$ = new AltnRegExp( false ); }
            ;
 
 term : term factor {
