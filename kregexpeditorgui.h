@@ -48,7 +48,7 @@ private:
 class KRegExpEditorGUIDialog : public KDialogBase, public KRegExpEditorInterface
 {
     Q_OBJECT
-    Q_PROPERTY( QString regexp READ regExp WRITE setRegExp );
+    Q_PROPERTY( QString regexp READ regExp WRITE setRegExp )
 public:
     KRegExpEditorGUIDialog( QWidget *parent, const char *name, const QStringList &args );
 
