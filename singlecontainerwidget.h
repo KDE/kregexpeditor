@@ -17,7 +17,7 @@
  **/
 #ifndef __singlecontainer
 #define __singlecontainer
-#include <regexpwidget.h>
+#include "regexpwidget.h"
 
 /**
    Abstract class representing RegExp widgets having a single child.
