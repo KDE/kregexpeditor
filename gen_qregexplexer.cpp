@@ -437,7 +437,7 @@ char *yytext;
 #line 4 "qregexpparser.l"
   #include <qstring.h>
   #include "textrangeregexp.h"
-  #include "gen_qregexpparser.cpp.h"
+  #include "gen_qregexpparser.cc.h"
   void parseRange( char* txt, int* min, int* max );  
   RegExp* parseCharClass( char* match );
 #line 444 "gen_qregexplexer.cpp"
