@@ -112,9 +112,6 @@ QString KRegExpEditorPrivate::regexp()
 
 void KRegExpEditorPrivate::slotUpdateEditor( const QString & txt) 
 {
-  if ( _updating )
-    return;
-
   _updating = true;
   bool ok = parse( txt );
   RegExp* result = parseData();
@@ -217,9 +214,11 @@ void KRegExpEditorPrivate::slotTriggerUpdate()
    * simple regexps, and flicker-free display for complex regexps.
    * - Frerich
    */
-  _timer->start( 300, true );
-  if ( !_preventShow ) 
-    slotShowEditor();
+  if ( !_updating ) {
+    _timer->start( 300, true );
+    if ( !_preventShow ) 
+      slotShowEditor();
+  }
 }
 
 void KRegExpEditorPrivate::slotTimeout()
