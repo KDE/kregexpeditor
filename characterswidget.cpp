@@ -8,7 +8,6 @@
 #include <kdialogbase.h>
 #include "charselector.h"
 #include "myfontmetrics.h"
-#include <qgrid.h>
 #include <qcursor.h>
 #include <qapplication.h>
 

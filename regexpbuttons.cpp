@@ -4,12 +4,11 @@
 #include <klocale.h>
 #include <qtooltip.h>
 #include <qwhatsthis.h>
-#include <qsignalmapper.h>
 #include <qbuttongroup.h>
 #include <qpushbutton.h>
-#include <qsignalmapper.h>
 #include <kstandarddirs.h>
 #include <qlayout.h>
+#include <qsignalmapper.h>
 
 RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   : QDockWindow( QDockWindow::InDock, parent, name), _keepMode(false)

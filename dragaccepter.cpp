@@ -1,7 +1,5 @@
-#include "widgetfactory.h"
 #include "dragaccepter.h"
 #include "concwidget.h"
-#include "widgetfactory.h"
 
 #include <qpainter.h>
 

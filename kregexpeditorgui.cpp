@@ -7,7 +7,7 @@
 #include "kregexpeditorprivate.h"
 #include <klocale.h>
 #include <kgenericfactory.h>
-#include <kapp.h>
+#include <kapplication.h>
 #include <qlayout.h>
 
 const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");

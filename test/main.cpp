@@ -1,4 +1,4 @@
-#include <kapp.h>
+#include <kapplication.h>
 #include <kcmdlineargs.h>
 #include <kregexpeditorinterface.h>
 #include <kparts/componentfactory.h>
