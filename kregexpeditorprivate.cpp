@@ -368,7 +368,7 @@ void KRegExpEditorPrivate::setVerifyText( const QString& fileName )
     _autoVerify = false;
     QFile file( fileName );
     if ( !file.open( IO_ReadOnly ) ) {
-        KMessageBox::sorry(0, i18n("Couldn't open file '%1' for reading").arg( fileName ) );
+        KMessageBox::sorry(0, i18n("Could not open file '%1' for reading").arg( fileName ) );
     }
     else {
         QTextStream s( &file );
