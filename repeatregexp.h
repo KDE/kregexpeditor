@@ -37,7 +37,7 @@ public:
     int max() const { return _upper; }
     RegExp* child() const { return _child; }
     virtual RegExpType type() const { return REPEAT;}
-    virtual bool operator==( const RegExp& other ) const;
+    virtual bool operator==( RegExp& other );
     virtual void replacePart( CompoundRegExp* replacement ) { _child->replacePart( replacement ); }
 
 private:

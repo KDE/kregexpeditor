@@ -63,7 +63,7 @@ bool TextRegExp::load( QDomElement top, const QString& /*version*/)
     return true;
 }
 
-bool TextRegExp::operator==( const RegExp& other ) const {
+bool TextRegExp::operator==( RegExp& other ) {
     if ( other.type() != type() )
         return false;
 

@@ -80,7 +80,7 @@ bool ConcRegExp::load( QDomElement top, const QString& version )
     return true;
 }
 
-bool ConcRegExp::operator==( const RegExp& other ) const
+bool ConcRegExp::operator==( RegExp& other )
 {
     // TODO: Merge with AltnRegExp::operator==
     if ( list.count() == 1 )

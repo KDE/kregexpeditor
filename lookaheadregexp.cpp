@@ -58,7 +58,7 @@ bool LookAheadRegExp::load( QDomElement top, const QString& version )
 }
 
 
-bool LookAheadRegExp::operator==( const RegExp& other ) const
+bool LookAheadRegExp::operator==( RegExp& other )
 {
     if ( type() != other.type() )
         return false;

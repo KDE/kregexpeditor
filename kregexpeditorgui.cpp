@@ -121,7 +121,7 @@ void KRegExpEditorGUI::doSomething( QString method, void* arguments )
         _editor->setShowSyntaxCombo( (bool) arguments );
     }
     else {
-        qFatal( QString::fromLatin1("Method '%1' is not valid!").arg(method).latin1() );
+        qFatal( "%s", tr("Method '%1' is not valid!").arg(method).latin1() );
     }
 }
 

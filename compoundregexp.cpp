@@ -99,7 +99,7 @@ bool CompoundRegExp::load( QDomElement top, const QString& version )
     return false;
 }
 
-bool CompoundRegExp::operator==( const RegExp& other ) const
+bool CompoundRegExp::operator==( RegExp& other )
 {
     // Note the order is important in the comparison below.
     // Using other as the first argument, means that

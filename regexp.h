@@ -47,7 +47,7 @@ public:
     void removeChild( RegExp* child );
     void setParent( RegExp* parent );
     RegExp* clone() const;
-    virtual bool operator==( const RegExp& other ) const { return ( type() == other.type() ); }
+    virtual bool operator==( RegExp& other ) { return ( type() == other.type() ); }
 
     enum RegExpType { CONC, TEXT, DOT, POSITION, REPEAT, ALTN, COMPOUND, LOOKAHEAD, TEXTRANGE };
     virtual RegExpType type() const = 0;

@@ -39,7 +39,7 @@ public:
     virtual QDomNode toXml( QDomDocument* doc ) const;
     virtual bool load( QDomElement, const QString& version );
     virtual RegExpType type() const {return CONC; }
-    virtual bool operator==( const RegExp& other ) const;
+    virtual bool operator==( RegExp& other );
     virtual void replacePart( CompoundRegExp* replacement );
 
 private:
