@@ -38,7 +38,7 @@ public:
     RegExp* child() const { return _child; }
     TYPE lookAheadType() const { return _tp; }
     virtual RegExpType type() const { return LOOKAHEAD;}
-    virtual bool operator==( RegExp& other );
+    virtual bool operator==( const RegExp& other ) const;
     virtual void replacePart( CompoundRegExp* replacement ) { _child->replacePart( replacement ); }
 
 private:

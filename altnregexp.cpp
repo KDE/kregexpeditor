@@ -69,7 +69,7 @@ bool AltnRegExp::load( QDomElement top, const QString& version )
 
 }
 
-bool AltnRegExp::operator==( RegExp& other )
+bool AltnRegExp::operator==( const RegExp& other ) const
 {
     // TODO: merge with ConcRegExp::operator==
 

@@ -40,7 +40,7 @@ public:
     bool hidden() const { return _hidden; }
     bool allowReplace() const { return _allowReplace; }
     virtual RegExpType type() const { return COMPOUND;}
-    virtual bool operator==( RegExp& other );
+    virtual bool operator==( const RegExp& other ) const;
 
 private:
     QString _title;

@@ -41,7 +41,7 @@ public:
     virtual bool load( QDomElement, const QString& version );
     void append( QString str);
     virtual RegExpType type() const { return TEXT;}
-    virtual bool operator==( RegExp& other );
+    virtual bool operator==( const RegExp& other ) const;
 
 private:
 	QString _text;

@@ -75,7 +75,7 @@ bool RepeatRegExp::load( QDomElement top, const QString& version )
         return false;
 }
 
-bool RepeatRegExp::operator==( RegExp& other )
+bool RepeatRegExp::operator==( const RegExp& other ) const
 {
     if ( type() != other.type() )
         return false;
