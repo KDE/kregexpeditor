@@ -4,15 +4,15 @@
 #include "kmultiformlistboxfactory.h"
 #include "kmultiformlistbox-shower.h"
 #include "kmultiformlistboxentry.h"
-#include <qlist.h>
+#include <qptrlist.h>
 #include <qlayout.h>
 #include <qscrollview.h>
 #include <klocale.h>
 class QDataStream;
 
 
-typedef QList<KMultiFormListBoxEntry> KMultiFormListBoxEntryList ;
-typedef QList<QWidget> WidgetList;
+typedef QPtrList<KMultiFormListBoxEntry> KMultiFormListBoxEntryList ;
+typedef QPtrList<QWidget> WidgetList;
 class KMultiFormListBoxMultiVisible;
 
 /**

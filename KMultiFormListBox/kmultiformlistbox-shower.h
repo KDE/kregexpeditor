@@ -3,11 +3,11 @@
 
 // -------------------------------- includes ------------------------------
 #include "kmultiformlistboxentry.h"
-#include <qlist.h>
+#include <qptrlist.h>
 #include "kmultiformlistboxfactory.h"
 #include "kmultiformlistboxentry.h"
 //-------------------------------------------------------------------------
-typedef QList<KMultiFormListBoxEntry> KMultiFormListBoxEntryList ;
+typedef QPtrList<KMultiFormListBoxEntry> KMultiFormListBoxEntryList ;
 
 /**
    Abstract class defining the interface for widgets showing a number of @ref KMultiFormListBoxEntry.

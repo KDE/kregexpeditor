@@ -5,7 +5,7 @@
 #include "kmultiformlistbox-shower.h"
 #include "kmultiformlistboxentry.h"
 #include "kmultiformlistbox.h"
-#include <qlist.h>
+#include <qptrlist.h>
 #include <qlayout.h>
 #include <qscrollview.h>
 #include <klistbox.h>
@@ -36,7 +36,7 @@ private:
 
 	QVBoxLayout* _layout;
   KMultiFormListBoxFactory* _factory;
-	QList<QPushButton> _buttonList;
+	QPtrList<QPushButton> _buttonList;
   KListBox* _listbox;
 	virtual void delElement(QWidget *); // Deletes the given element
 	virtual void delAnElement();
