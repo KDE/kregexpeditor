@@ -33,6 +33,7 @@
 #include <qtooltip.h>
 #include <qlabel.h>
 #include <qtoolbutton.h>
+#include "util.h"
 
 AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)
   :QDockWindow( QDockWindow::InDock, parent, name)
@@ -40,44 +41,44 @@ AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)
   QBoxLayout* layout = boxLayout();
 
   _undo = new QToolButton( this );
-  _undo->setPixmap( getIcon(QString::fromLatin1("undo") ) );
+  _undo->setPixmap( Util::getSystemIcon(QString::fromLatin1("undo") ) );
   layout->addWidget( _undo );
   connect( _undo, SIGNAL(clicked()), this, SIGNAL(undo()) );
   QToolTip::add( _undo, i18n( "Undo" ) );
 
   _redo = new QToolButton( this );
-  _redo->setPixmap( getIcon(QString::fromLatin1("redo") ) );
+  _redo->setPixmap( Util::getSystemIcon(QString::fromLatin1("redo") ) );
   layout->addWidget( _redo );
   connect( _redo, SIGNAL(clicked()), this, SIGNAL(redo()) );
   QToolTip::add( _redo, i18n( "Redo" ) );
 
   _cut = new QToolButton( this );
-  _cut->setPixmap( getIcon(QString::fromLatin1("editcut") ) );
+  _cut->setPixmap( Util::getSystemIcon(QString::fromLatin1("editcut") ) );
   layout->addWidget( _cut );
   connect( _cut, SIGNAL(clicked()), this, SIGNAL(cut()) );
   QToolTip::add( _cut, i18n( "Cut" ) );
 
   _copy = new QToolButton( this );
-  _copy->setPixmap( getIcon(QString::fromLatin1("editcopy") ) );
+  _copy->setPixmap( Util::getSystemIcon(QString::fromLatin1("editcopy") ) );
   layout->addWidget( _copy );
   connect( _copy, SIGNAL(clicked()), this, SIGNAL(copy()) );
   QToolTip::add( _copy, i18n( "Copy" ) );
 
   _paste = new QToolButton( this );
-  _paste->setPixmap( getIcon(QString::fromLatin1("editpaste")) );
+  _paste->setPixmap( Util::getSystemIcon(QString::fromLatin1("editpaste")) );
   layout->addWidget( _paste );
   connect( _paste, SIGNAL(clicked()), this, SIGNAL(paste()) );
   QToolTip::add( _paste, i18n( "Paste" ) );
 
   _save = new QToolButton( this );
-  _save->setPixmap( getIcon(QString::fromLatin1("filesave")) );
+  _save->setPixmap( Util::getSystemIcon(QString::fromLatin1("filesave")) );
   layout->addWidget( _save );
   connect( _save, SIGNAL(clicked()), this, SIGNAL(save()) );
   QToolTip::add( _save, i18n( "Save" ) );
 
 
   QToolButton* button = new QToolButton(this);
-  button->setPixmap( getIcon( QString::fromLatin1("contexthelp") ) );
+  button->setPixmap( Util::getSystemIcon( QString::fromLatin1("contexthelp") ) );
   layout->addWidget( button );
   connect(button, SIGNAL(clicked()), this, SLOT(slotEnterWhatsThis()));
 
@@ -119,17 +120,5 @@ void AuxButtons::slotCanPaste( bool b )
 void AuxButtons::slotCanSave( bool b )
 {
   _save->setEnabled( b );
-}
-
-QPixmap AuxButtons::getIcon( const QString& name )
-{
-#ifdef QT_ONLY
-    QPixmap pix;
-    pix.convertFromImage( qembed_findImage( name ) );
-    return pix;
-#else
-  KIconLoader loader;
-  return loader.loadIcon( name, KIcon::Toolbar);
-#endif
 }
 

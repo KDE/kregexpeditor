@@ -54,7 +54,6 @@ public:
     QString regexp();
     void setMinimal( bool );
     void setCaseSensitive( bool );
-    void setShowSyntaxCombo( bool );
     static RegExpConverter* converter();
 
 protected slots:

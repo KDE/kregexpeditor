@@ -408,11 +408,6 @@ void KRegExpEditorPrivate::setSyntax( const QString& syntax )
     _verifier->setHighlighter( _converter->highlighter(_verifier) );
 }
 
-void KRegExpEditorPrivate::setShowSyntaxCombo( bool b )
-{
-    _verifyButtons->setShowSyntaxCombo( b );
-}
-
 RegExpConverter* KRegExpEditorPrivate::converter()
 {
     return _converter;

@@ -51,9 +51,6 @@ public slots:
     void slotCanPaste( bool );
     void slotCanSave( bool );
 
-protected:
-    QPixmap getIcon( const QString& name );
-
 private:
     QToolButton* _undo;
     QToolButton* _redo;

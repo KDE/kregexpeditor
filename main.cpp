@@ -40,7 +40,7 @@ int main( int argc, char* argv[] )
     QApplication myapp( argc, argv );
 #else
     KAboutData aboutData( "kregexpeditor", I18N_NOOP("RegExp Editor"),
-                          "1.0", I18N_NOOP("Editor for Regular Expressions"), 
+                          "1.0", I18N_NOOP("Editor for Regular Expressions"),
 			  KAboutData::License_GPL,
                           "(c) 2002-2003 Jesper K. Pedersen");
     KCmdLineArgs::init(argc, argv, &aboutData);
@@ -51,7 +51,6 @@ int main( int argc, char* argv[] )
     QVBoxLayout* lay = new QVBoxLayout( top, 6 );
 
     KRegExpEditorGUI* iface = new KRegExpEditorGUI( top, "_editor", QStringList() );
-    iface->doSomething( QString::fromLatin1("setShowSyntaxCombo"), (bool*) true );
     lay->addWidget( iface );
 
     QHBoxLayout* lay2 = new QHBoxLayout( lay, 6 );
