@@ -155,5 +155,5 @@ void KRegExpEditorGUI::showHelp()
 #ifndef QT_ONLY
 typedef K_TYPELIST_2( KRegExpEditorGUI, KRegExpEditorGUIDialog ) Products;
 K_EXPORT_COMPONENT_FACTORY( libkregexpeditorgui,
-                            KGenericFactory<Products>( "kregexpeditor" ) );
+                            KGenericFactory<Products>( "kregexpeditor" ) )
 #endif
