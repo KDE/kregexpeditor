@@ -26,6 +26,7 @@
 #include <kstandarddirs.h>
 #include <qlayout.h>
 #include <qsignalmapper.h>
+#include "regexpconverter.h"
 
 RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   : QDockWindow( QDockWindow::InDock, parent, name), _keepMode(false)
@@ -117,21 +118,25 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   layout->addWidget( but );
 
 
-  but = insert(WORDBOUNDARY,  "wordboundary", i18n("Word boundary"),
-               i18n("<qt>This asserts a word boundary (This part does not actually match any characters)</qt>") );
-  layout->addWidget( but );
+  _wordBoundary = insert(WORDBOUNDARY,  "wordboundary", i18n("Word boundary"),
+                         i18n("<qt>This asserts a word boundary (This part does not actually match any characters)</qt>") );
+  layout->addWidget( _wordBoundary );
 
-  but = insert(NONWORDBOUNDARY,  "nonwordboundary", i18n("Non Word boundary"),
-               i18n("<qt>This asserts a non-word boundary (This part does not actually match any characters)</qt>") );
-  layout->addWidget( but );
+  _nonWordBoundary = insert(NONWORDBOUNDARY,  "nonwordboundary", i18n("Non Word boundary"),
+                            i18n("<qt>This asserts a non-word boundary "
+                                 "(This part does not actually match any characters)</qt>") );
+  layout->addWidget( _nonWordBoundary );
 
-  but = insert(POSLOOKAHEAD,  "poslookahead", i18n("Positive Look Ahead"),
-               i18n("<qt>This asserts a regular expression (This part does not actually match any characters). You can only use this at the end of a regular expression.</qt>") );
-  layout->addWidget( but );
+  _posLookAhead = insert(POSLOOKAHEAD,  "poslookahead", i18n("Positive Look Ahead"),
+                         i18n("<qt>This asserts a regular expression (This part does not actually match any characters). "
+                              "You can only use this at the end of a regular expression.</qt>") );
+  layout->addWidget( _posLookAhead );
 
-  but = insert(NEGLOOKAHEAD,  "neglookahead", i18n("Negative Look Ahead"),
-               i18n("<qt>This asserts a regular expression that must not match (This part does not actually match any characters). You can only use this at the end of a regular expression.</qt>") );
-  layout->addWidget( but );
+  _negLookAhead = insert(NEGLOOKAHEAD,  "neglookahead", i18n("Negative Look Ahead"),
+                         i18n("<qt>This asserts a regular expression that must not match "
+                              "(This part does not actually match any characters). "
+                              "You can only use this at the end of a regular expression.</qt>") );
+  layout->addWidget( _negLookAhead );
 }
 
 DoubleClickButton* RegExpButtons::insert(RegExpType tp, const char* name, QString tooltip, QString whatsthis)
@@ -176,6 +181,15 @@ void RegExpButtons::slotSelectNewAction()
     emit doSelect();
     _grp->setButton(_grp->id(_selectBut));
   }
+}
+
+void RegExpButtons::setFeatures( int features )
+{
+    _wordBoundary->setShown( features & RegExpConverter::WordBoundary );
+    _nonWordBoundary->setShown( features & RegExpConverter::NonWordBoundary );
+    _posLookAhead->setShown( features & RegExpConverter::PosLookAhead );
+    _negLookAhead->setShown( features & RegExpConverter::NegLookAhead );
+
 }
 
 #include "regexpbuttons.moc"

@@ -28,37 +28,42 @@ class QSignalMapper;
 
 class RegExpButtons :public QDockWindow
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
-  RegExpButtons( QWidget *parent, const char *name = 0 );
+    RegExpButtons( QWidget *parent, const char *name = 0 );
+    void setFeatures( int features );
 
 protected:
-  DoubleClickButton* insert(RegExpType tp, const char* file, QString tooltip, QString whatsthis);
+    DoubleClickButton* insert(RegExpType tp, const char* file, QString tooltip, QString whatsthis);
 
 public slots:
-  void slotSelectNewAction();
-  void slotUnSelect();
+    void slotSelectNewAction();
+    void slotUnSelect();
 
 protected slots:
-  void slotSetKeepMode();
-  void slotSetNonKeepMode();
+    void slotSetKeepMode();
+    void slotSetNonKeepMode();
 
 signals:
-  void clicked( int );
-  void doSelect();
+    void clicked( int );
+    void doSelect();
 
 private:
-  QButtonGroup* _grp;
-  QPushButton* _selectBut;
-  QSignalMapper* _mapper; // single click Mapper.
+    QButtonGroup* _grp;
+    QPushButton* _selectBut;
+    QPushButton* _wordBoundary;
+    QPushButton* _nonWordBoundary;
+    QPushButton* _posLookAhead;
+    QPushButton* _negLookAhead;
+    QSignalMapper* _mapper; // single click Mapper.
 
-  /**
-     This variable is true if the use wishes to continue editing in the
-     selected mode after the previous editing is completed (that is, if the
-     user has double clicked the buttons).
-  */
-  bool _keepMode;
+    /**
+       This variable is true if the use wishes to continue editing in the
+       selected mode after the previous editing is completed (that is, if the
+       user has double clicked the buttons).
+    */
+    bool _keepMode;
 };
 
 

@@ -41,7 +41,7 @@
 #include <qwhatsthis.h>
 #include <qvalidator.h>
 #include <qregexp.h>
-#include "regexplineedit.h"
+#include "regexpconverter.h"
 
 RegExpConverter* KRegExpEditorPrivate::_converter = 0;
 
@@ -57,7 +57,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   verArea2->setMinimumSize(2,2);
 
   // The DockWindows.
-  RegExpButtons *regExpButtons = new RegExpButtons( area, "KRegExpEditorPrivate::regExpButton" );
+  _regExpButtons = new RegExpButtons( area, "KRegExpEditorPrivate::regExpButton" );
   _verifyButtons = new VerifyButtons( area, "KRegExpEditorPrivate::VerifyButtons" );
   _auxButtons = new AuxButtons( area, "KRegExpEditorPrivate::AuxButtons" );
   _userRegExps = new UserDefinedRegExps( verArea1, "KRegExpEditorPrivate::userRegExps" );
@@ -97,20 +97,20 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   rows->addWidget( verArea2 );
 
   // Connect the buttons
-  connect( regExpButtons, SIGNAL( clicked( int ) ),   _scrolledEditorWindow, SLOT( slotInsertRegExp( int ) ) );
-  connect( regExpButtons, SIGNAL( doSelect() ), _scrolledEditorWindow, SLOT( slotDoSelect() ) );
+  connect( _regExpButtons, SIGNAL( clicked( int ) ),   _scrolledEditorWindow, SLOT( slotInsertRegExp( int ) ) );
+  connect( _regExpButtons, SIGNAL( doSelect() ), _scrolledEditorWindow, SLOT( slotDoSelect() ) );
   connect( _userRegExps, SIGNAL( load( RegExp* ) ),    _scrolledEditorWindow, SLOT( slotInsertRegExp( RegExp*  ) ) );
 
-  connect( regExpButtons, SIGNAL( clicked( int ) ), _userRegExps,   SLOT( slotUnSelect() ) );
-  connect( regExpButtons, SIGNAL( doSelect() ),     _userRegExps,   SLOT( slotUnSelect() ) );
-  connect( _userRegExps, SIGNAL( load( RegExp* ) ),  regExpButtons, SLOT( slotUnSelect() ) );
+  connect( _regExpButtons, SIGNAL( clicked( int ) ), _userRegExps,   SLOT( slotUnSelect() ) );
+  connect( _regExpButtons, SIGNAL( doSelect() ),     _userRegExps,   SLOT( slotUnSelect() ) );
+  connect( _userRegExps, SIGNAL( load( RegExp* ) ),  _regExpButtons, SLOT( slotUnSelect() ) );
 
-  connect( _scrolledEditorWindow, SIGNAL( doneEditing() ), regExpButtons, SLOT( slotSelectNewAction() ) );
+  connect( _scrolledEditorWindow, SIGNAL( doneEditing() ), _regExpButtons, SLOT( slotSelectNewAction() ) );
   connect( _scrolledEditorWindow, SIGNAL( doneEditing() ), _userRegExps, SLOT( slotSelectNewAction() ) );
 
-  connect( regExpButtons, SIGNAL( clicked( int ) ), this, SLOT( slotShowEditor() ) );
+  connect( _regExpButtons, SIGNAL( clicked( int ) ), this, SLOT( slotShowEditor() ) );
   connect( _userRegExps, SIGNAL( load( RegExp* ) ), this, SLOT( slotShowEditor() ) );
-  connect( regExpButtons, SIGNAL( doSelect() ), this, SLOT( slotShowEditor() ) );
+  connect( _regExpButtons, SIGNAL( doSelect() ), this, SLOT( slotShowEditor() ) );
 
   connect( _scrolledEditorWindow, SIGNAL( savedRegexp() ), _userRegExps, SLOT( slotPopulateUserRegexps() ) );
 
@@ -396,6 +396,7 @@ void KRegExpEditorPrivate::setSyntax( const QString& syntax )
         _regexpEdit->setReadOnly( true );
         _regexpEdit->setBackgroundMode( Qt::PaletteBackground );
     }
+    _regExpButtons->setFeatures( _converter->features() );
 }
 
 void KRegExpEditorPrivate::setShowSyntaxCombo( bool b )

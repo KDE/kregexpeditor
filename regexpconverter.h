@@ -15,8 +15,18 @@
 class RegExpConverter
 {
 public:
+    enum Features {
+        WordBoundary = 0x01,
+        NonWordBoundary = 0x02,
+        WordStart = 0x04,
+        WordEnd = 0x08,
+        PosLookAhead = 0x10,
+        NegLookAhead = 0x20
+    };
+
     virtual bool canParse() = 0;
     virtual QString name() = 0;
+    virtual int features() = 0;
     virtual RegExp* parse( const QString&, bool* ok );
     QString toStr( RegExp*, bool markSelection );
 

@@ -242,3 +242,8 @@ QString EmacsRegExpConverter::name()
 {
     return QString::fromLatin1( "Emacs" );
 }
+
+int EmacsRegExpConverter::features()
+{
+    return WordStart | WordEnd;
+}

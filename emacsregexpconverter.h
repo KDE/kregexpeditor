@@ -8,6 +8,7 @@ class EmacsRegExpConverter :public RegExpConverter
 public:
     virtual bool canParse();
     virtual QString name();
+    virtual int features();
     virtual QString toString( AltnRegExp*, bool markSelection );
     virtual QString toString( ConcRegExp*, bool markSelection );
     virtual QString toString( LookAheadRegExp*, bool markSelection );

@@ -257,3 +257,8 @@ QString QtRegExpConverter::name()
 {
     return QString::fromLatin1( "Qt" );
 }
+
+int QtRegExpConverter::features()
+{
+    return WordBoundary | NonWordBoundary | PosLookAhead | NegLookAhead;
+}

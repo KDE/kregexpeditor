@@ -37,6 +37,7 @@ class VerifyButtons;
 class AuxButtons;
 class RegExpLineEdit;
 class RegExpConverter;
+class RegExpButtons;
 
 /**
    Widget used to build a regular expression
@@ -85,6 +86,7 @@ protected:
 
 private:
 	RegExpScrolledEditorWindow* _scrolledEditorWindow;
+    RegExpButtons* _regExpButtons;
     VerifyButtons* _verifyButtons;
     AuxButtons *_auxButtons;
     InfoPage* _info;
