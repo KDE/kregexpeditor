@@ -1,6 +1,6 @@
 kde_module_LTLIBRARIES = libkregexpeditorgui.la
 AM_CPPFLAGS = -DQT_NO_CAST_ASCII
-SUBDIRS = KWidgetStreamer KMultiFormListBox picts test predefined
+SUBDIRS = KWidgetStreamer KMultiFormListBox picts predefined
 INCLUDES = -I$(srcdir)/KWidgetStreamer -I$(srcdir)/KMultiFormListBox $(all_includes)
 
 noinst_HEADERS = \
