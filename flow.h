@@ -16,7 +16,7 @@
 #define FLOW_H
 
 #include <qlayout.h>
-#include <qlist.h>
+#include <qptrlist.h>
 
 class SimpleFlow : public QLayout
 {
@@ -47,7 +47,7 @@ protected:
 
 private:
     int doLayout( const QRect&, bool testonly = FALSE );
-    QList<QLayoutItem> list;
+    QPtrList<QLayoutItem> list;
     int cached_width;
     int cached_hfw;
 

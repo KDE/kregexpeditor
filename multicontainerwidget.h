@@ -2,7 +2,7 @@
 #define __multicontainerwidget
 
 #include "regexpwidget.h"
-#include <qlist.h>
+#include <qptrlist.h>
 
 /**
    Abstract RegExp widget class representing widgets having multible children.
@@ -26,7 +26,7 @@ public:
   
 protected:
   void append( RegExpWidget* child );    
-  QList<RegExpWidget> _children;
+  QPtrList<RegExpWidget> _children;
 };
 
 

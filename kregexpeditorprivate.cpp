@@ -137,7 +137,7 @@ void KRegExpEditorPrivate::recordUndoInfo()
   RegExp* regexp = _scrolledEditorWindow->regExp();
   if ( regexp->toXmlString() != _undoStack.top()->toXmlString() ) {
     _undoStack.push( regexp );
-    _redoStack = QStack<RegExp>();
+    _redoStack = QPtrStack<RegExp>();
     emitUndoRedoSignals();
   }
 }

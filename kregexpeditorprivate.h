@@ -4,7 +4,7 @@
 #include <qstring.h>
 #include <qwidget.h>
 #include <qlabel.h>
-#include <qstack.h>
+#include <qptrstack.h>
 #include <qcstring.h>
 #include "regexp.h"
 
@@ -51,8 +51,8 @@ private:
   QLineEdit* _regexpEdit;
   bool _updating;
   QLabel* _error;
-  QStack<RegExp> _undoStack;
-  QStack<RegExp> _redoStack;
+  QPtrStack<RegExp> _undoStack;
+  QPtrStack<RegExp> _redoStack;
   CompoundInfo _ci;
 };
 #endif

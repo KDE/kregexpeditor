@@ -55,7 +55,7 @@ QString TextRangeRegExp::toString() const
 	}
 
 	// Now insert the ranges.
-  for ( QListIterator<StringPair> it(_ranges); *it; ++it ) {
+  for ( QPtrListIterator<StringPair> it(_ranges); *it; ++it ) {
 		txt.append((*it)->first()+ QString::fromLatin1("-")+ (*it)->second());
 	}
 	
@@ -133,7 +133,7 @@ QDomNode TextRangeRegExp::toXml( QDomDocument* doc ) const
     top.appendChild( elm );
   }
   
-  for ( QListIterator<StringPair> it(_ranges); *it; ++it ) {
+  for ( QPtrListIterator<StringPair> it(_ranges); *it; ++it ) {
     QDomElement elm = doc->createElement( QString::fromLocal8Bit( "Range" ) );
     elm.setAttribute( QString::fromLocal8Bit( "from" ), (*it)->first() );
     elm.setAttribute( QString::fromLocal8Bit( "to" ), (*it)->second() );

@@ -1,6 +1,6 @@
 #include "multicontainerwidget.h"
 #include "dragaccepter.h"
-#include <qarray.h>
+#include <qmemarray.h>
 
 MultiContainerWidget::MultiContainerWidget( RegExpEditorWindow* editorWindow, 
                                             QWidget* parent, const char* name) 
@@ -20,7 +20,7 @@ bool MultiContainerWidget::hasSelection() const
   if ( _isSelected )
     return true;
 
-  QListIterator<RegExpWidget> it(_children);
+  QPtrListIterator<RegExpWidget> it(_children);
   ++it; // Move past the first dragAccepter
 	for ( ; *it;  it += 2 ) {
 		if ( (*it)->hasSelection() ) {
@@ -91,8 +91,8 @@ bool MultiContainerWidget::updateSelection(bool parentSelected)
 {
   bool changed = false;
   bool isSel = _isSelected;
-  QArray<bool> oldState(_children.count());
-  QArray<bool> newState(_children.count());
+  QMemArray<bool> oldState(_children.count());
+  QMemArray<bool> newState(_children.count());
   
   for (unsigned int i = 0; i<_children.count();i++) {
     oldState[i] = _children.at(i)->isSelected();
@@ -159,7 +159,7 @@ QRect MultiContainerWidget::selectionRect() const
     return QRect( mapToGlobal( QPoint(0,0) ), size() );
   else {
     QRect res;
-    QListIterator<RegExpWidget> it(_children);
+    QPtrListIterator<RegExpWidget> it(_children);
     ++it; // Move past the first dragAccepter
     for ( ; *it; it +=2 ) {
       if ( (*it)->hasSelection() ) {
@@ -217,7 +217,7 @@ RegExpWidget* MultiContainerWidget::findWidgetToEdit( QPoint globalPos )
 void MultiContainerWidget::selectWidget()
 {
   RegExpWidget::selectWidget();
-  QListIterator<RegExpWidget> it(_children);
+  QPtrListIterator<RegExpWidget> it(_children);
   for ( ; *it ; ++it ) {
     (*it)->selectWidget();
   }  
@@ -226,7 +226,7 @@ void MultiContainerWidget::selectWidget()
 
 void MultiContainerWidget::updateAll()
 {
-  for ( QListIterator<RegExpWidget> it(_children); *it ; ++it ) {
+  for ( QPtrListIterator<RegExpWidget> it(_children); *it ; ++it ) {
     (*it)->updateAll();
   }
   RegExpWidget::updateAll();

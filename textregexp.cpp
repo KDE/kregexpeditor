@@ -9,7 +9,7 @@ TextRegExp::TextRegExp(QString text)
 
 QString TextRegExp::toString() const
 {
-	QList<QChar> list;
+	QPtrList<QChar> list;
 	list.append(new QChar('$'));
 	list.append(new QChar('^'));
 	list.append(new QChar('.'));
@@ -23,7 +23,7 @@ QString TextRegExp::toString() const
 	return res;
 }
 
-QString TextRegExp::escape( QString text, QList<QChar> chars, QChar escapeChar) const
+QString TextRegExp::escape( QString text, QPtrList<QChar> chars, QChar escapeChar) const
 {
 	QString res;
 	for (unsigned int i=0; i<text.length(); i++) {

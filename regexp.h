@@ -3,7 +3,7 @@
 
 #include <qstring.h>
 #include <qstringlist.h>
-#include <qlist.h>
+#include <qptrlist.h>
 #include <qdom.h>
 #include "compoundinfo.h"
 
@@ -33,13 +33,13 @@ protected:
   RegExp* readRegExp( QDomElement top, const QString& version );
 
 private:
-  QList<RegExp> _children;
+  QPtrList<RegExp> _children;
   RegExp* _parent;
   bool _destructing;
 };
 
-typedef QList<RegExp> RegExpList;
-typedef QListIterator<RegExp> RegExpListIt;
+typedef QPtrList<RegExp> RegExpList;
+typedef QPtrListIterator<RegExp> RegExpListIt;
 
 
 

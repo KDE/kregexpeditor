@@ -41,8 +41,8 @@ CharactersWidget::CharactersWidget( TextRangeRegExp* regexp, RegExpEditorWindow*
   }
 
   // Ranges
-  QList<StringPair> ranges = regexp->range();
-  for ( QListIterator<StringPair> it(ranges); *it; ++it ) {
+  QPtrList<StringPair> ranges = regexp->range();
+  for ( QPtrListIterator<StringPair> it(ranges); *it; ++it ) {
     QString from = (*it)->first();
     QString to = (*it)->second();
     _content->addRange(from,to);
@@ -141,7 +141,7 @@ RegExp* CharactersWidget::regExp() const
 
 	// single characters
   KMultiFormListBoxEntryList list = _content->_single->elements();
-  for ( QListIterator<KMultiFormListBoxEntry> it( list ); *it; ++it ) {
+  for ( QPtrListIterator<KMultiFormListBoxEntry> it( list ); *it; ++it ) {
     SingleEntry* entry = dynamic_cast<SingleEntry*>(*it);
     if ( !entry->isEmpty() ) {
       regexp->addCharacter( entry->regexpStr() );
@@ -150,7 +150,7 @@ RegExp* CharactersWidget::regExp() const
 
   // Ranges
   list = _content->_range->elements();
-  for ( QListIterator<KMultiFormListBoxEntry> it( list ); *it; ++it ) {
+  for ( QPtrListIterator<KMultiFormListBoxEntry> it( list ); *it; ++it ) {
     RangeEntry* entry = dynamic_cast<RangeEntry*>(*it);
     if ( !entry->isEmpty() ) {
       regexp->addRange( entry->regexpFromStr(), entry->regexpToStr() );
@@ -184,7 +184,7 @@ int CharactersWidget::edit()
 void CharacterEdits::addCharacter( QString txt )
 {
   KMultiFormListBoxEntryList list = _single->elements();
-  for ( QListIterator<KMultiFormListBoxEntry> it(list); *it; ++it ) {
+  for ( QPtrListIterator<KMultiFormListBoxEntry> it(list); *it; ++it ) {
     SingleEntry* entry = dynamic_cast<SingleEntry*>( *it );
     if ( entry->isEmpty() ) {
       entry->setText( txt );
@@ -200,7 +200,7 @@ void CharacterEdits::addCharacter( QString txt )
 void CharacterEdits::addRange( QString from, QString to )
 {
   KMultiFormListBoxEntryList list = _range->elements();
-  for ( QListIterator<KMultiFormListBoxEntry> it(list); *it; ++it ) {
+  for ( QPtrListIterator<KMultiFormListBoxEntry> it(list); *it; ++it ) {
     RangeEntry* entry = dynamic_cast<RangeEntry*>( *it );
     if ( entry->isEmpty() ) {
       entry->setFrom( from );
@@ -296,7 +296,7 @@ QString CharacterEdits::text() const
   // Single characters
   KMultiFormListBoxEntryList list  = _single->elements();
   QString str;
-  for ( QListIterator<KMultiFormListBoxEntry> it( list ); *it; ++it ) {
+  for ( QPtrListIterator<KMultiFormListBoxEntry> it( list ); *it; ++it ) {
     QString txt = dynamic_cast<SingleEntry*>(*it)->text();
     if ( !txt.isEmpty() ) {
       if ( !str.isEmpty() )
@@ -309,7 +309,7 @@ QString CharacterEdits::text() const
   
   // Ranges characters
   list  = _range->elements();
-  for ( QListIterator<KMultiFormListBoxEntry> it( list ); *it; ++it ) {
+  for ( QPtrListIterator<KMultiFormListBoxEntry> it( list ); *it; ++it ) {
     RangeEntry* elm = dynamic_cast<RangeEntry*>(*it);
     QString fromText = elm->fromText();
     QString toText = elm->toText();

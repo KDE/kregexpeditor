@@ -61,7 +61,7 @@ void AltnWidget::addNewConcChild(DragAccepter *accepter, ConcWidget *child)
 
 QSize AltnWidget::sizeHint() const
 {
-  QListIterator<RegExpWidget> it(_children);
+  QPtrListIterator<RegExpWidget> it(_children);
   // Skip the first child, as we only need half of the size of the first and the
   // last drag accepter. Does, however, not apply when there only is onw child.
   if ( _children.count() != 1 )
@@ -150,7 +150,7 @@ RegExp* AltnWidget::regExp() const
 {
 	AltnRegExp *regexp = new AltnRegExp();
 	
-  QListIterator<RegExpWidget> it(_children);
+  QPtrListIterator<RegExpWidget> it(_children);
   ++it; // start with the second element
 	for ( ; *it; it+=2 ) {
     regexp->addRegExp( (*it)->regExp() );
@@ -175,7 +175,7 @@ RegExp* AltnWidget::selection() const
   if ( isSelected() )
     return regExp();
   else {
-    QListIterator<RegExpWidget> it(_children);
+    QPtrListIterator<RegExpWidget> it(_children);
     ++it; // Skip past DragAccepter
     for ( ; *it; it+=2 ) {
       if ( (*it)->hasSelection() ) {
@@ -192,7 +192,7 @@ bool AltnWidget::validateSelection() const
   }
   
   bool foundASelection = false;
-  QListIterator<RegExpWidget> it(_children);
+  QPtrListIterator<RegExpWidget> it(_children);
   ++it; // Skip past DragAccepter
   for ( ; *it; it+=2 ) {
     if ( (*it)->hasSelection() ) {

@@ -67,7 +67,7 @@ QSize ConcWidget::sizeHint() const
 {
   int childrenWidth = 0;
   int childrenHeight = 0;
-  QListIterator<RegExpWidget> it(_children);
+  QPtrListIterator<RegExpWidget> it(_children);
   
   for ( ; *it; ++it) {
     QSize thisChildSize = (*it)->sizeHint();
@@ -194,7 +194,7 @@ void ConcWidget::sizeAccepter( DragAccepter* accepter, int height, int totHeight
 
 RegExp* ConcWidget::regExp() const 
 {
-  QListIterator<RegExpWidget> it( _children );
+  QPtrListIterator<RegExpWidget> it( _children );
   ++it; // start with the second element.
 
   if ( _children.count() == 3 ) {
@@ -218,7 +218,7 @@ bool ConcWidget::updateSelection(bool parentSelected)
 
   _maxSelectedHeight = 0;
   
-  QListIterator<RegExpWidget> it(_children);
+  QPtrListIterator<RegExpWidget> it(_children);
   ++it; // Skip past the first DragAccepter
 	for ( ; *it; it +=2  ) {
     if ( (*it)->isSelected() ) {
@@ -269,7 +269,7 @@ void ConcWidget::applyRegExpToSelection( RegExpType type )
   if ( start == -1 ) {
     // No item selected at top level
 
-    QListIterator<RegExpWidget> it(_children);
+    QPtrListIterator<RegExpWidget> it(_children);
     ++it; // Skip past the first DragAccepter
     for ( ; *it ; it += 2 ) {
       if ( (*it)->hasSelection() ) {
@@ -300,7 +300,7 @@ bool ConcWidget::isSelected() const
   // A ConcWidget should be considered selected when all its elements has been selected
   // otherwise empty ConcWidgets may be left behind when for example selection is deleted.
   bool allSelected = true;
-  QListIterator<RegExpWidget> it(_children);
+  QPtrListIterator<RegExpWidget> it(_children);
   ++it; // Skip past first DragAccepter.
   for ( ; *it && allSelected; it += 2 ) {
     allSelected = allSelected && (*it)->isSelected();
@@ -318,7 +318,7 @@ RegExp* ConcWidget::selection() const
   bool foundMoreThanOne = false;
   RegExp* regexp = 0;
   
-  QListIterator<RegExpWidget> it(_children);
+  QPtrListIterator<RegExpWidget> it(_children);
   ++it; // Skip past the first DragAccepter
   for ( ; (*it) ; it += 2 ) {
     if ( (*it)->hasSelection() ) {
@@ -373,7 +373,7 @@ void ConcWidget::addNewConcChild(DragAccepter *accepter, ConcWidget *other)
 bool ConcWidget::validateSelection() const
 {
   bool cont = true;
-  QListIterator<RegExpWidget> it(_children);
+  QPtrListIterator<RegExpWidget> it(_children);
   ++it; // skip past the DragAccepter.
   for ( ; *it && cont; it += 2 ) {
     cont = (*it)->validateSelection();

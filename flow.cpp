@@ -15,7 +15,7 @@
 class SimpleFlowIterator :public QGLayoutIterator
 {
 public:
-    SimpleFlowIterator( QList<QLayoutItem> *l ) :idx(0), list(l)  {}
+    SimpleFlowIterator( QPtrList<QLayoutItem> *l ) :idx(0), list(l)  {}
     uint count() const;
     QLayoutItem *current();
     QLayoutItem *next();
@@ -23,7 +23,7 @@ public:
 
 private:
     int idx;
-    QList<QLayoutItem> *list;
+    QPtrList<QLayoutItem> *list;
 
 };
 
@@ -101,7 +101,7 @@ int SimpleFlow::doLayout( const QRect &r, bool testonly )
     int x = r.x();
     int y = r.y();
     int h = 0;		//height of this line so far.
-    QListIterator<QLayoutItem> it(list);
+    QPtrListIterator<QLayoutItem> it(list);
     QLayoutItem *o;
     while ( (o=it.current()) != 0 ) {
 	++it;
@@ -123,7 +123,7 @@ int SimpleFlow::doLayout( const QRect &r, bool testonly )
 QSize SimpleFlow::minimumSize() const
 {
     QSize s(0,0);
-    QListIterator<QLayoutItem> it(list);
+    QPtrListIterator<QLayoutItem> it(list);
     QLayoutItem *o;
     while ( (o=it.current()) != 0 ) {
 	++it;

@@ -10,7 +10,7 @@ RegExp::RegExp() : _parent(0), _destructing( false )
 RegExp::~RegExp()
 {
   _destructing = true;
-  for ( QListIterator<RegExp> it(_children); *it; ++it ) {
+  for ( QPtrListIterator<RegExp> it(_children); *it; ++it ) {
     delete *it;
   }
   if ( _parent )

@@ -25,7 +25,7 @@ public:
   void append( QString str);
 
 protected:
-	QString escape( QString text, QList<QChar> chars, QChar escapeChar) const; 
+	QString escape( QString text, QPtrList<QChar> chars, QChar escapeChar) const; 
 	
 private:
 	QString _text;

@@ -21,7 +21,7 @@ public:
   QStringList chars() const { return _chars; } 
 
 	void addRange( QString from, QString to );
-  QList<StringPair> range() const { return _ranges; }
+  QPtrList<StringPair> range() const { return _ranges; }
 
   void setNegate( bool set ) { _negate = set; }
   void setDigit( bool set ) { _digit = set; }
@@ -47,7 +47,7 @@ public:
 private:
 	bool _negate, _digit, _nonDigit, _space, _nonSpace, _wordChar, _nonWordChar;
 	QStringList _chars;
-	QList<StringPair> _ranges;
+	QPtrList<StringPair> _ranges;
 
 	QChar *carrot;
 	QChar *dash;
