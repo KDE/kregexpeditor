@@ -264,7 +264,7 @@ CharacterEdits::CharacterEdits(TextRangeRegExp* regexp, QWidget *parent, const c
 
   nonWordChar = new QCheckBox(i18n("a non-word character"),grid);
   nonDigit = new QCheckBox(i18n("A non-digit character"),grid);
-  nonSpace = new QCheckBox(i18n("A space character"), grid);
+  nonSpace = new QCheckBox(i18n("A non-space character"), grid);
 
   // Single characters
   QVGroupBox* singleBox = new QVGroupBox(i18n("Single Characters"), top );
