@@ -1,23 +1,16 @@
 #include "widgetwindow.h"
 #include "drag.h"
-#include <qlayout.h>
-#include <qpushbutton.h>
 #include <iostream>
 #include <klocale.h>
-#include <qlabel.h>
-#include <qapplication.h>
 #include <kmessagebox.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <kfiledialog.h>
-#include <qpixmap.h>
+#include <kiconloader.h>
 #include <qtooltip.h>
 #include <qwhatsthis.h>
-#include <kiconloader.h>
 #include <qsignalmapper.h>
 #include <qheader.h>
-#include <qtextstream.h>
 #include "regexp.h"
-#include "kregexpeditor.h"
 #include "flow.h"
 
 RegExpWidgetWindow::RegExpWidgetWindow( QWidget *parent, const char *name )

@@ -1,8 +1,6 @@
 #include "editorwindow.h"
 #include "concwidget.h"
 #include "drag.h"
-#include <qlabel.h>
-#include <qdragobject.h>
 #include <qlayout.h>
 #include <klocale.h>
 #include <qpainter.h>
@@ -11,13 +9,10 @@
 #include <qapplication.h>
 #include <qclipboard.h>
 #include <qpopupmenu.h>
-#include <kiconloader.h>
 #include <kfiledialog.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
+#include <kiconloader.h>
 #include "regexp.h"
-#include <qdom.h>
-#include <qtextstream.h>
-#include "kregexpeditor.h"
 
 RegExpEditorWindow::RegExpEditorWindow( QWidget *parent, const char *name)
   : QWidget(parent, name, Qt::WPaintUnclipped)

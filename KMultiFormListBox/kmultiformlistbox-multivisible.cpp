@@ -3,23 +3,10 @@
 #include "indexWindow.h"
 #include "ccp.h"
 
-#include <klocale.h>
-#include <qpushbutton.h>
-#include <qcheckbox.h>
-#include <qvbox.h>
-#include <qstring.h>
 #include <iostream.h>
-#include <qabstractlayout.h>
-#include <qpoint.h>
-#include <qlineedit.h>
-#include <qcombobox.h>
-#include <qevent.h>
-#include <qtooltip.h>
 #include <kmessagebox.h>
 #include <qbitmap.h>
 #include <string>
-#include <qcstring.h>
-#include <qdatastream.h>
 
 
 const int indexButtonWidth = 16;

@@ -1,10 +1,5 @@
-#include "kmultiformlistbox-windowed.h"
 #include "widgetwindow.h"
 #include "windowlistboxitem.h"
-#include <qlayout.h>
-#include <klistbox.h>
-#include <qpushbutton.h>
-#include <klocale.h>
 #include <kdebug.h>
 #include <kmessagebox.h>
 

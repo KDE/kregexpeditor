@@ -5,14 +5,12 @@
 #include <qpainter.h>
 #include <klocale.h>
 #include <qspinbox.h>
-#include <qhbox.h>
 #include <qradiobutton.h>
 #include <qlayout.h>
+#include <qgrid.h>
 #include <kdialogbase.h>
 #include <qvbuttongroup.h>
 #include "kwidgetstreamer.h"
-#include <qcheckbox.h>
-#include <qgrid.h>
 
 RepeatWidget::RepeatWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                            const char *name)

@@ -1,5 +1,4 @@
 #include "textrangeregexp.h"
-#include "kdebug.h"
 #include <kmessagebox.h>
 #include <klocale.h>
 

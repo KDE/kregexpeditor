@@ -3,11 +3,7 @@
 #include "concwidget.h"
 #include "widgetfactory.h"
 
-#include <klocale.h>
 #include <qpainter.h>
-#include <qapplication.h>
-#include <qclipboard.h>
-#include <qmime.h>
 
 DragAccepter::DragAccepter(RegExpEditorWindow* editorWindow, RegExpWidget *parent,
                            const char *name)

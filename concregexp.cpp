@@ -1,5 +1,4 @@
 #include "concregexp.h"
-#include "kdebug.h"
 #include "widgetfactory.h"
 
 ConcRegExp::ConcRegExp()

@@ -4,7 +4,8 @@
 
 #include "kmultiformlistbox-multivisible.h"
 #include "ccp.h"
-#include <qobjcoll.h>
+#include <qobjectlist.h>
+#include <qobjectdict.h>
 #include <qpopupmenu.h>
 #include <klocale.h>
 

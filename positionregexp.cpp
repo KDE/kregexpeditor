@@ -1,5 +1,4 @@
 #include "positionregexp.h"
-#include <kregexpeditor.h>
 
 PositionRegExp::PositionRegExp( PositionType tp )
 {

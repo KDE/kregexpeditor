@@ -1,10 +1,8 @@
 #include "charselector.h"
 #include <qwidgetstack.h>
 #include <limitedcharlineedit.h>
-#include <qlayout.h>
 #include <klocale.h>
 #include <qcombobox.h>
-#include <qhbox.h>
 #include <qstringlist.h>
 
 /**

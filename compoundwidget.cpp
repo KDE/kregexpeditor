@@ -2,8 +2,6 @@
 #include <kdialogbase.h>
 #include <qlayout.h>
 #include <qlineedit.h>
-#include <qlabel.h>
-#include <qmultilineedit.h>
 #include <kiconloader.h>
 #include <klocale.h>
 #include <qpainter.h>

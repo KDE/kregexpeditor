@@ -1,6 +1,4 @@
 #include "drag.h"
-#include <qlabel.h>
-#include <qtextstream.h>
 #include "regexp.h"
 
 RegExpWidgetDrag::RegExpWidgetDrag( QByteArray data, QWidget* dragSource ) 

@@ -3,7 +3,6 @@
 #include "positionregexp.h"
 #include <klocale.h>
 #include <qpainter.h>
-#include <qbrush.h>
 #include "myfontmetrics.h"
 //--------------------------------------------------------------------------------
 //                                ZeroWidget

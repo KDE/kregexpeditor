@@ -1,7 +1,6 @@
 #include "kmultiformlistbox-multivisible.h"
 #include "kmultiformlistbox-windowed.h"
 #include <kdebug.h>
-#include <qlayout.h>
 
 KMultiFormListBox::KMultiFormListBox( KMultiFormListBoxFactory *factory, KMultiFormListBoxType tp, QWidget *parent, 
 																		  bool showUpDownButtons, bool showHelpButton, QString addButtonText,

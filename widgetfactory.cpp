@@ -24,7 +24,6 @@
 #include "compoundregexp.h"
 #include "kregexpeditorgui.h"
 #include <kmessagebox.h>
-#include <klocale.h>
 
 bool WidgetFactory::isContainer( RegExpType tp )
 {

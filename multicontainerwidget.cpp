@@ -1,6 +1,5 @@
 #include "multicontainerwidget.h"
 #include "dragaccepter.h"
-#include <qmemarray.h>
 
 MultiContainerWidget::MultiContainerWidget( RegExpEditorWindow* editorWindow, 
                                             QWidget* parent, const char* name) 

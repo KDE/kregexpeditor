@@ -1,7 +1,6 @@
 #include "widgetwindow.h"
 #include "windowlistboxitem.h"
 #include <iostream>
-#include <klistbox.h>
 
 WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KListBox *lb) 
   :KDialogBase(Plain, i18n("Widget Configuration"), Ok | Cancel, Ok, 0, "ConfigWindow", false)

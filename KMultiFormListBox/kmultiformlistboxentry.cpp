@@ -1,5 +1,4 @@
 #include "kmultiformlistboxentry.h"
-#include <qpushbutton.h>
 //----------------------------------------------------------------------
 // This function is needed to signal which of the KMultiFormListBox entries
 // the Idx button was invoked from.

@@ -3,7 +3,6 @@
 #include "dragaccepter.h"
 #include "widgetfactory.h"
 
-#include <qapplication.h>
 #include <qpainter.h>
 
 ConcWidget::ConcWidget(RegExpEditorWindow* editorWindow, QWidget *parent,

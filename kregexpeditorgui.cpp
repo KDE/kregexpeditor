@@ -1,18 +1,11 @@
-#include <qlayout.h>
-#include <qlineedit.h>
-#include <qlabel.h>
-#include <klocale.h>
 #include "kregexpeditorgui.h"
 #include "scrollededitorwindow.h"
 #include "widgetwindow.h"
 #include "regexp.h"
 #include <unistd.h>
 #include <stdio.h>
-#include <kiconloader.h>
 #include "infopage.h"
-#include <kapp.h>
 #include "kregexpeditorprivate.h"
-#include <kregexpeditor.h>
 
 const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
 

@@ -2,16 +2,10 @@
 #include "drag.h"
 #include "regexp.h"
 #include "editorwindow.h"
-#include <qlabel.h>
-#include <qcolor.h>
 #include <iostream>
-#include <qpixmap.h>
 #include <qpainter.h>
-#include <qfontmetrics.h>
 #include <qapplication.h>
 #include <qcursor.h>
-#include <kdebug.h>
-#include <klocale.h>
 #include "concwidget.h"
 #include "dragaccepter.h"
 

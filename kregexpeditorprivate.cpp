@@ -1,6 +1,4 @@
-#include <qlayout.h>
 #include <qlineedit.h>
-#include <qlabel.h>
 #include <klocale.h>
 #include "kregexpeditorprivate.h"
 #include "scrollededitorwindow.h"
@@ -10,9 +8,7 @@
 #include <stdio.h>
 #include <kiconloader.h>
 #include "infopage.h"
-#include <kapp.h>
 #include <qsplitter.h>
-#include <qapplication.h>
 
 extern bool parse( QString str, const CompoundInfo& ci );
 extern RegExp* parseData();
