@@ -1,3 +1,6 @@
+#ifndef ERRORMAP_H
+#define ERRORMAP_H
+
 class ErrorMap 
 {
 public:
@@ -12,3 +15,5 @@ private:
     bool _lineEndError, _prevLineEndError;
     bool _lookAHeadError, _prevLookAHeadError;
 };
+
+#endif
