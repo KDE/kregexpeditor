@@ -1,10 +1,18 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=KRegExpEditor
+Name[cs]=Editor regulárních výrazů
+Name[sv]=Kregexpeditor
 Exec=kregexpeditor
 DocPath=KRegExpEditor/index.html
 GenericName=Regular Expression Editor
+GenericName[cs]=Editor regulárních výrazů
+GenericName[fr]=Éditeur d'expressions régulières
+GenericName[hu]=szerkesztő reg. kif.-ekhez
+GenericName[pt_BR]=Editor de Expressões Regulares
+GenericName[ru]=Редактор регулярных выражений
+GenericName[sv]=Editor för reguljära uttryck
 Terminal=0
 Type=Application
 X-KDE-StartupNotify=true
-Categories=Qt;KDE;Utility
+Categories=Qt;KDE;Utility;X-KDE-More
