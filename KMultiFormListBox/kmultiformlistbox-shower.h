@@ -5,7 +5,6 @@
 #include "kmultiformlistboxentry.h"
 #include <qptrlist.h>
 #include "kmultiformlistboxfactory.h"
-#include "kmultiformlistboxentry.h"
 //-------------------------------------------------------------------------
 typedef QPtrList<KMultiFormListBoxEntry> KMultiFormListBoxEntryList ;
 
@@ -15,18 +14,18 @@ typedef QPtrList<KMultiFormListBoxEntry> KMultiFormListBoxEntryList ;
    @internal
 */
 class KMultiFormListBoxShower {
-  
+
 public:
-  virtual KMultiFormListBoxEntryList elements() = 0; 
+  virtual KMultiFormListBoxEntryList elements() = 0;
 
   /** Appends the given argument to the list */
   virtual void append(KMultiFormListBoxEntry *) = 0;
 
   /** Return the element as a QWidget */
 	virtual QWidget* qWidget() = 0;
-  
+
   /** Adds an empty element. */
-  virtual void addElement() = 0; 
+  virtual void addElement() = 0;
 
   /** Deletes an element at the given index. */
 	virtual void delElement(QWidget *) = 0;

@@ -6,13 +6,12 @@
 #include <qlabel.h>
 #include <qpoint.h>
 #include <qsize.h>
-#include <qsize.h>
 class RegExp;
 class RegExpWidget;
 class QHBoxLayout;
 
-/** Widget representing the editor window of a regular expression editor. 
-    
+/** Widget representing the editor window of a regular expression editor.
+
     @internal
     This widget represent the editor part (That is the location where the
     regexp widgets are located).
@@ -25,7 +24,7 @@ class QHBoxLayout;
 
     All subclasses of @ref RegExpWidget contains a pointer to the @ref
     RegExpEditorWindow which the widget is a child of. They use this
-    pointer to start operations like rubber band selection, cut/paste etc. 
+    pointer to start operations like rubber band selection, cut/paste etc.
 */
 class RegExpEditorWindow :public QWidget
 {
@@ -59,7 +58,7 @@ public:
      returns true if the editor has a selection.
   */
   bool hasSelection() const;
-  
+
   /**
      clears the selection, and if `update', invokes update on all the
      widgets
@@ -87,21 +86,21 @@ public:
      regexp.
   */
   void applyRegExpToSelection( RegExpType tp );
-  
+
   /**
      Pops up the RMB menu, which contains cut, copy, past, ...
   */
   void showRMBMenu( bool enableCutCopy );
 
   virtual QSize sizeHint() const;
-    
+
 public slots:
 
   /**
      Set the editor window to the regular expression given as argument
   */
   void slotSetRegExp( RegExp* regexp );
-  
+
   /**
      Change editing mode to insertion. This means that the cursor will
      change to a cross (where ever inserting of the `type' is allowed),
@@ -119,11 +118,11 @@ public slots:
      Change editing state to selection.
    */
   void slotDoSelect();
-  
+
   /**
      Like @ref slotInsertRegExp above. This time, however,  data will be
      submitted in as a RegExp pointer.
-     
+
      Note this method do not do the actual insertion.
 
      This method is called when the user pastes data (using the RPM menu),
@@ -148,11 +147,11 @@ public slots:
      normal cursor.
   */
   void slotEndActions();
-  
+
   void emitChange() { emit change(); }
 
   void updateCursorUnderPoint();
-  
+
   void slotCut();
   void slotCopy();
   void slotSave();
@@ -161,11 +160,11 @@ signals:
   /**
      This signal is emitted whenever the content of the editor window is
      changed.
-     
+
      If focusPoint is non-null then this point should be made visible
   */
   void contentChanged( QPoint focusPoint );
-  
+
   /**
      This signal is emitted whenever mouse is being dragged in the editor
      window. `focusPoint' is the mouse' current position.
@@ -186,7 +185,7 @@ signals:
      see @ref RegExpScrolledEditorWindow::savedRegexp
   */
   void savedRegexp();
-  
+
   void anythingSelected( bool );
   void anythingOnClipboard( bool );
   void canSave( bool );
@@ -209,14 +208,14 @@ private:
 
   /** This points to the layout manager for the editor window */
   QHBoxLayout* _layout;
-  
+
   /** Start point and last point draw. Used when doing rubber band selection  */
   QPoint _start, _lastPoint;
 
   /** The area which the rubber band selection is over */
   QRect _selection;
 
-  /** 
+  /**
       True when a rubber band selection rectangle is drawn, and need to be
       un-drawn before next rubber band selection rectangle may be drawn.
   */
@@ -230,10 +229,10 @@ private:
 
   /** The type being inserted (see @ref insertType ) */
   RegExpType _insertTp;
-  
+
   /** The data being inserted (see @ref pasteData ) */
   RegExp* _pasteData;
-  
+
   /** Popup menu used for RMB */
   QPopupMenu* _menu;
 

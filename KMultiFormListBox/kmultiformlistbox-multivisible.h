@@ -13,7 +13,7 @@
 #include "kmultiformlistbox-shower.h"
 #include "kmultiformlistboxentry.h"
 #include "kmultiformlistbox.h"
-#include <qlist.h>
+#include <qptrlist.h>
 #include <qlayout.h>
 #include <qscrollview.h>
 //-------------------------------------------------------------------------
@@ -26,7 +26,7 @@ class KMultiFormListBoxMultiVisible :public QScrollView, KMultiFormListBoxShower
 Q_OBJECT
 
 friend class KMultiFormListBox;
-  
+
 private:
   /**
 		 @param factory A factory used to generate the instances of KMultiFormListBoxEntry
@@ -38,17 +38,17 @@ private:
   /**
 		 @return The elements in the KMultiFormListBox
   */
-  KMultiFormListBoxEntryList elements(); 
+  KMultiFormListBoxEntryList elements();
   void append(KMultiFormListBoxEntry *);
 
   QWidget* qWidget() { return this; }
-	
+
 
 public slots:
-  
+
   /**
 		 This slot should be connected to a button which lets the user know that
-		 he may get more elements in this KMultiFormListBox by pressing it. 
+		 he may get more elements in this KMultiFormListBox by pressing it.
 		 The button should be labeled ``More Entries'' or something similar.
   */
   void addElement(); // Adds an empty element to the KMultiFormListBox
@@ -72,7 +72,7 @@ protected:
      @param which A pointer to the element to cut.
   */
   void cut(KMultiFormListBoxEntry *which);
-  
+
   /**
      Copies the element pointed to by which to the clipboard.
      This function is accessed from the class @ref CCP.
@@ -107,10 +107,10 @@ protected:
   void addElemBefore(KMultiFormListBoxEntry *newElm, KMultiFormListBoxEntry *existing);
   void updateClipperContent();
   int countElements(WidgetList *);
-  
 
 
-private: 
+
+private:
   // Instance variables
 
   KMultiFormListBoxFactory *factory;

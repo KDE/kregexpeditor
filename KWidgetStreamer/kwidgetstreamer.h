@@ -1,7 +1,7 @@
 #ifndef __kwidgetstreamer
 #define __kwidgetstreamer
 #include <qmap.h>
-#include <qlist.h>
+#include <qptrlist.h>
 #include <qstringlist.h>
 #include <qobject.h>
 
@@ -35,12 +35,12 @@ public:
 
   KWidgetStreamer();
   virtual ~KWidgetStreamer() {};
-  
+
   virtual void toStream(const QObject* from, QDataStream& stream );
   virtual void fromStream(QDataStream& stream, QObject* to);
 
   PropertyMap& propertyMap() { return _map; }
-    
+
 
 protected:
   void propertyToStream( const QObject* from, QDataStream& stream );
@@ -48,7 +48,7 @@ protected:
 
 private:
   PropertyMap _map;
-  
+
 };
 
 
