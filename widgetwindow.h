@@ -32,6 +32,7 @@ public slots:
 protected slots:
   void slotLoad(QListViewItem* item);
   void slotEnterWhatsThis();
+  void slotEditUserDefined( QListViewItem* item, const QPoint& pos );
   void slotSetKeepMode();
   void slotSetNonKeepMode();
   void slotPopulateUserRegexps();
@@ -44,7 +45,7 @@ signals:
 private:
   QButtonGroup* _grp;
   QPushButton* _selectBut;
-  QSignalMapper* _mapper; // _s_igle click Mapper.
+  QSignalMapper* _mapper; // single click Mapper.
 
   /**
      This variable is true if the use wishes to continue editing in the
@@ -58,10 +59,14 @@ private:
 class WidgetWinItem :public QListViewItem 
 {
 public:
-  WidgetWinItem( QString path, QString fileName, QListView* parent );
+  WidgetWinItem( QString name, QListView* parent );
   QString fileName() const;
+  QString name() const;
+  void setName( const QString& );
+  static QString path();
+  
 private:
-  QString _fileName;
+  QString _name;
 };
   
 #endif /* __widgetwindow */
