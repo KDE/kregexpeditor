@@ -267,11 +267,11 @@ void RepeatRangeWindow::slotUpdateMaxVal( int minVal )
 QString RepeatRangeWindow::text()
 {
   switch ( _group->id(_group->selected()) ) {
-  case ANY: return i18n("Repeated any number of times");
-  case ATLEAST: return i18n("Repeated at least %1 times").arg( _leastTimes->value() );
-  case ATMOST: return i18n("Repeated at most %1 times").arg( _mostTimes->value() );
-  case EXACTLY: return i18n("Repeated exactly %1 times").arg( _exactlyTimes->value() );
-  case MINMAX: return i18n("Repeated from %1 to %2 times")
+  case ANY: return i18n("Repeated Any Number of Times");
+  case ATLEAST: return i18n("Repeated at Least %1 Times").arg( _leastTimes->value() );
+  case ATMOST: return i18n("Repeated at Most %1 Times").arg( _mostTimes->value() );
+  case EXACTLY: return i18n("Repeated Exactly %1 Times").arg( _exactlyTimes->value() );
+  case MINMAX: return i18n("Repeated From %1 to %2 Times")
                  .arg( _rangeFrom->value() ).arg( _rangeTo->value() );
   }
   qFatal("Fall through!");

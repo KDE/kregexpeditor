@@ -157,7 +157,7 @@ void UserDefinedRegExps::slotEdit( QListViewItem* item, const QPoint& pos )
 {
   QPopupMenu* menu = new QPopupMenu( this );
   menu->insertItem(i18n("Delete"), 1 );
-  menu->insertItem(i18n("Rename"), 2 );
+  menu->insertItem(i18n("Rename..."), 2 );
   if ( !item || ! dynamic_cast<WidgetWinItem*>( item ) ) {
     // menu not selected on an item
     menu->setItemEnabled( 1, false );

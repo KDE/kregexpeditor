@@ -162,9 +162,9 @@ QString CharactersWidget::text() const
 QString CharactersWidget::title() const
 {
     if (_regexp->negate())
-        return i18n("Any character except");
+        return i18n("Any Character Except");
     else
-        return i18n("One of the following characters");
+        return i18n("One of Following Characters");
 }
 
 
