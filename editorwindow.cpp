@@ -14,8 +14,8 @@
 #include <kstandarddirs.h>
 #include <kiconloader.h>
 #include "regexp.h"
-#include <qinputdialog.h>
 #include "userdefinedregexps.h"
+#include <klineeditdlg.h>
 
 RegExpEditorWindow::RegExpEditorWindow( QWidget *parent, const char *name)
   : QWidget(parent, name, Qt::WPaintUnclipped)
@@ -335,16 +335,14 @@ void RegExpEditorWindow::slotSave()
 {
   QString dir = WidgetWinItem::path();
 
-  bool ok = false;
-  QString name = QInputDialog::getText(i18n("Name for regexp"), i18n("Enter Name"), QLineEdit::Normal, QString::fromLocal8Bit(""),
-                                       &ok, this );
-  if ( !ok ) 
-    return;
-  
-  QString fileName = dir + QString::fromLocal8Bit("/") + name + QString::fromLocal8Bit(".regexp");
+  KLineEditDlg dlg(i18n("Enter name:"), QString::null, this);
+  dlg.setCaption(i18n("Name for regexp"));
+  if (!dlg.exec()) return;
+
+  QString fileName = dir + QString::fromLocal8Bit("/") + dlg.text() + QString::fromLocal8Bit(".regexp");
   QFileInfo finfo( fileName );
   if ( finfo.exists() ) {
-    int answer = KMessageBox::warningYesNo( this, i18n("<p>Overwrite named regular expression <b>%1</b></p>").arg(name) );
+    int answer = KMessageBox::warningYesNo( this, i18n("<p>Overwrite named regular expression <b>%1</b></p>").arg(dlg.text()) );
     if ( answer != KMessageBox::Yes )
       return;
   }

@@ -1,7 +1,7 @@
 #include "userdefinedregexps.h"
 #include <qheader.h>
 #include <qpopupmenu.h>
-#include <qinputdialog.h>
+#include <klineeditdlg.h>
 #include "regexp.h"
 #include <kmessagebox.h>
 #include <qdir.h>
@@ -158,25 +158,28 @@ void UserDefinedRegExps::slotEdit( QListViewItem* item, const QPoint& pos )
     bool ok = false;
     QString oldFile = winItem->fileName();
     QString oldName = winItem->name();
-    QString newName = QInputDialog::getText(i18n("Rename Item"), i18n("New Name"), QLineEdit::Normal, winItem->name(), &ok, this );
-    if ( ok && oldName != newName ) {
-      QString fileName = WidgetWinItem::path() + QString::fromLocal8Bit("/") + newName + QString::fromLocal8Bit(".regexp");
+
+    KLineEditDlg dlg(i18n("New name:"), oldName, this);
+    dlg.setCaption(i18n("Rename Item"));
+
+    if ( dlg.exec() && oldName != dlg.text() ) {
+      QString fileName = WidgetWinItem::path() + QString::fromLocal8Bit("/") + dlg.text() + QString::fromLocal8Bit(".regexp");
       QFileInfo finfo( fileName );
       if ( finfo.exists() ) {
-        int answer = KMessageBox::warningYesNo( this, i18n("<p>Overwrite named regular expression <b>%1</b>?</p>").arg(newName) );
+        int answer = KMessageBox::warningYesNo( this, i18n("<p>Overwrite named regular expression <b>%1</b>?</p>").arg(dlg.text()) );
         if ( answer != KMessageBox::Yes )
           return;
 
         // An item with this name already exists.
         delete winItem;
       }
-      else 
-        winItem->setName( newName );
+      else
+        winItem->setName( dlg.text() );
       QDir dir;
       dir.rename( oldFile, fileName  );
     }
   }
-  
+
 
   delete menu;
 }
