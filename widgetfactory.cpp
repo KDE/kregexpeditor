@@ -146,7 +146,7 @@ RegExp* WidgetFactory::createRegExp( QDomElement node, const QString& version )
   else if ( tag == QString::fromLocal8Bit( "Repeat" ) )
     regexp = new RepeatRegExp();
   else {
-    KMessageBox::sorry( 0, i18n("Unknown tag while reading XML, tag was <b>%1</b>").arg(tag),
+    KMessageBox::sorry( 0, i18n("Unknown tag while reading XML. Tag was <b>%1</b>").arg(tag),
                         i18n("Error while loading from XML file") ) ;
 
     return 0;
@@ -167,8 +167,8 @@ RegExp* WidgetFactory::createRegExp( QString str )
   QDomDocument doc;
   bool ok = doc.setContent( str );
   if ( !ok ) {
-    KMessageBox::sorry( 0, i18n("Error while loading regular expression from XML. The regular expression did most likely have unmatched tags."),
-                        i18n("Error while loadingregular expression from  XML") ) ;
+    KMessageBox::sorry( 0, i18n("Error while loading regular expression from XML. Most probably the regular expression had unmatched tags."),
+                        i18n("Error while loading regular expression from XML") ) ;
   }
   
 
@@ -181,7 +181,7 @@ RegExp* WidgetFactory::createRegExp( QString str )
   QString version = top.attribute( QString::fromLocal8Bit("version"), KRegExpEditorGUI::version );
   QDomNode child = top.firstChild();
   if ( ! child.isElement() ) {
-    KMessageBox::sorry( 0, i18n("Error while reading XML file, the element just below the tag "
+    KMessageBox::sorry( 0, i18n("Error while reading XML file. The element just below the tag "
                                 "<b>RegularExpression</b> was not an element"),
                         i18n("Error while loading from XML file") ) ;
   }

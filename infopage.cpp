@@ -23,7 +23,7 @@ InfoPage::InfoPage( QWidget* parent, const char* name )
                  "<h2>Send the author an electronic postcard</h2>"
                  "I don't get any money for my work on KDE. "
                  "I therefore appreciate it very much when users tell me what they think about my work. "
-                 "I would therefor be very happy if you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">"
+                 "I would therefore be very happy if you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">"
                  "sent me a short mail</a>, telling me that you use my regular expression editor."
 
                  "<h2>Author</h2>"

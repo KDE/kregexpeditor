@@ -334,14 +334,14 @@ void RegExpEditorWindow::slotSave()
   QString fileName = dir + QString::fromLocal8Bit("/") + name + QString::fromLocal8Bit(".regexp");
   QFileInfo finfo( fileName );
   if ( finfo.exists() ) {
-    int answer = KMessageBox::warningYesNo( this, i18n("Override named regular exppesion <b>%1</b>").arg(name) );
+    int answer = KMessageBox::warningYesNo( this, i18n("Override named regular expression <b>%1</b>").arg(name) );
     if ( answer != KMessageBox::Yes )
       return;
   }
 
   QFile file( fileName );
   if ( ! file.open(IO_WriteOnly) ) {
-    KMessageBox::sorry( this, i18n("Could not open file for writting: %1").arg(fileName) );
+    KMessageBox::sorry( this, i18n("Could not open file for writing: %1").arg(fileName) );
     return;
   }
 

@@ -121,12 +121,12 @@ atom : TOK_LeftParen expression TOK_RightParent {
         $<regexp>$ = new TextRegExp( match );
         KMessageBox::information(0,i18n("<qt>Back reference regular expressions not supported.<p>"
                                         "<tt>\\1</tt>, <tt>\\2</tt>, ... are <i>back references</i>, meaning they refer to  "
-                                        "previous macthes. "
-                                        "This is unfortunately not supported in the current version of this editor.<p>"
+                                        "previous matches. "
+                                        "Unfortunately this is not supported in the current version of this editor.<p>"
                                         "In the graphical area the text <b>%1</b> has been inserted. This is however "
-                                        "just a workarround to ensure that the application handle the regexp at all. "
-                                        "Thus as soon as you edit the regular expression in the graphical area, "
-                                        "the back reference will be replaced with matching the text <b>%2</b> litterally.")
+                                        "just a workaround to ensure that the application handles the regexp at all. "
+                                        "Therefore, as soon as you edit the regular expression in the graphical area, "
+                                        "the back reference will be replaced by matching the text <b>%2</b> literally.")
                                     .arg( match ).arg( match ),
                                  i18n("Back reference regular expressions not supported"), 
                                  QString::fromLocal8Bit("backReferenceNotSupported") );

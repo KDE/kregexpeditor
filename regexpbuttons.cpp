@@ -44,7 +44,7 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   
   but = insert(TEXT, "text", i18n("Text"), 
                i18n( "<qml>This will insert a text field, where you may write text. The text you write will "
-                     "be matched literally. (I.e. you do not need to escape any characters)</qml>" ) );
+                     "be matched literally. (i.e. you do not need to escape any characters)</qml>" ) );
   layout->addWidget( but );
 
 
@@ -62,14 +62,14 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   
   but = insert(REPEAT, "repeat", i18n("Repeated content"), 
                i18n("<qml>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
-                    "a number of times you specify.<p>"
-                    "The number of times to repeat may be specified using ranges. You may e.g. say "
+                    "a specified number of times.<p>"
+                    "The number of times to repeat may be specified using ranges. e.g. You may specify "
                     "that it should match from 2 to 4 times, that it should match exactly 5 times, or "
                     "that it should match at least one time.<p>"
                     "Examples:<br>"
                     "If you specify that it should match <i>any</i> time, and the content it surrounds "
                     "is <tt>abc</tt>, then this <i>regexp item</i> will match the empty string, "
-                    "the string <tt>abc</tt>, the string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt> "
+                    "the string <tt>abc</tt>, the string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, "
                     "etc.</qml>") );
   layout->addWidget( but );
 
@@ -85,11 +85,11 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
                i18n("<qml>This <i>regexp item</i> serves two purposes:"
                     "<ul><li>It makes it possible for you to collapse a huge <i>regexp item</i> into "
                     "a small box. This makes it easier for you to get an overview of large "
-                    "<i>regexp items</i>. This is especially useful if you load an pre-made <i>regexp item</i> "
-                    "you perhaps don't care about the inner working of."
+                    "<i>regexp items</i>. This is especially useful if you load a predefined <i>regexp item</i> "
+                    "you perhaps don't care about the inner workings of."
                     "<li>The whole <i>regexp item</i> may be referenced in a <i>replace widget</i>. "
                     "Imagine that this regular expression editor is used for search and replace, then "
-                    "you may inserted all the text match by this <i>regexp item</i> "
+                    "you may inserted all the text matched by this <i>regexp item</i> "
                     "in the <i>replace</i> widget.</ul></qml>") );
   layout->addWidget( but );
 
@@ -105,19 +105,19 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
 
 
   but = insert(WORDBOUNDARY,  "wordboundary", i18n("Word boundary"), 
-               i18n("<qml>This asserts a word boundary (This part do not actually match any characters)</qml>") );
+               i18n("<qml>This asserts a word boundary (This part does not actually match any characters)</qml>") );
   layout->addWidget( but );
   
   but = insert(NONWORDBOUNDARY,  "nonwordboundary", i18n("Non Word boundary"), 
-               i18n("<qml>This asserts a non-word boundary (This part do not actually match any characters)</qml>") );
+               i18n("<qml>This asserts a non-word boundary (This part does not actually match any characters)</qml>") );
   layout->addWidget( but );
 
   but = insert(POSLOOKAHEAD,  "poslookahead", i18n("Positive Assertion"), 
-               i18n("<qml>This asserts a regular expression (This part do not actually match any characters)</qml>") );
+               i18n("<qml>This asserts a regular expression (This part does not actually match any characters)</qml>") );
   layout->addWidget( but );
 
-  but = insert(NEGLOOKAHEAD,  "neglookahead", i18n("Negatove Assertion"), 
-               i18n("<qml>This asserts a regular expression that must not match (This part do not actually match any characters)</qml>") );
+  but = insert(NEGLOOKAHEAD,  "neglookahead", i18n("Negative Assertion"), 
+               i18n("<qml>This asserts a regular expression that must not match (This part does not actually match any characters)</qml>") );
   layout->addWidget( but );
 }
 
