@@ -40,7 +40,7 @@ class KRegExpEditorPrivate;
    @author Jesper Kjær Pedersen <blackie@kde.org>
    @version 0.1
  **/
-class KRegExpEditorGUI  :public QWidget, public KRegExpEditorInterface
+class KDE_EXPORT KRegExpEditorGUI  :public QWidget, public KRegExpEditorInterface
 {
   Q_OBJECT
   Q_PROPERTY( QString regexp READ regExp WRITE setRegExp )
@@ -69,7 +69,7 @@ private:
 	KRegExpEditorPrivate* _editor;
 };
 
-class KRegExpEditorGUIDialog : public KDialogBase, public KRegExpEditorInterface
+class KDE_EXPORT KRegExpEditorGUIDialog : public KDialogBase, public KRegExpEditorInterface
 {
     Q_OBJECT
     Q_PROPERTY( QString regexp READ regExp WRITE setRegExp )
