@@ -287,7 +287,7 @@ void RegExpEditorWindow::showRMBMenu( bool enableCutCopy )
     _menu->insertItem(SmallIconSet(QString::fromLocal8Bit("edit")),
                      i18n("&Edit"), EDIT);
     _menu->insertItem(SmallIconSet(QString::fromLocal8Bit("filesave")),
-                     i18n("&Save Regexp"), SAVE);
+                     i18n("&Save Regular Expression"), SAVE);
   }
   
   _menu->setItemEnabled( CUT, enableCutCopy );
