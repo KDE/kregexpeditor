@@ -21,7 +21,7 @@ RepeatWidget::RepeatWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
 }
 
 RepeatWidget::RepeatWidget( RepeatRegExp* regexp, RegExpEditorWindow* editorWindow,
-                            QWidget* parent, const char* name = 0)
+                            QWidget* parent, const char* name )
   :SingleContainerWidget( editorWindow, parent, name )
 {
   init();

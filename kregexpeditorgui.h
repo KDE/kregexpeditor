@@ -7,7 +7,7 @@
 #include <qvaluestack.h>
 #include <qcstring.h>
 #include <kdialogbase.h>
-#include <kregexpdialoginterface.h>
+#include <kregexpeditorinterface.h>
 
 class KRegExpEditorPrivate;
 
@@ -17,13 +17,15 @@ class KRegExpEditorPrivate;
    @author Jesper Kjær Pedersen <blackie@kde.org> 
    @version 0.1
  **/
-class KRegExpEditorGUI  :public QWidget
+class KRegExpEditorGUI  :public QWidget, public KRegExpEditorInterface
 {
   Q_OBJECT
-  Q_PROPERTY( QString regexp READ regexp WRITE slotSetRegExp )
+  Q_PROPERTY( QString regexp READ regExp WRITE setRegExp )
 public:
-  KRegExpEditorGUI( QObject *parent, const char *name = 0 );
-  virtual QString regexp() const;
+  KRegExpEditorGUI( QWidget *parent, const char *name = 0, 
+	            const QStringList & = QStringList() );
+  virtual QString regExp() const;
+  virtual void setRegExp( const QString &regexp ) { slotSetRegExp( regexp ); }
   static const QString version;
 
 signals:
@@ -41,18 +43,20 @@ private:
 	KRegExpEditorPrivate* _editor;
 };
 
-class KRegExpEditorGUIDialog : public KDialogBase, public KRegExpDialogInterface
+class KRegExpEditorGUIDialog : public KDialogBase, public KRegExpEditorInterface
 {
     Q_OBJECT
+    Q_PROPERTY( QString regexp READ regExp WRITE setRegExp );
 public:
-    KRegExpEditorGUIDialog( QObject *parent, const char *name = 0 );
+    KRegExpEditorGUIDialog( QWidget *parent, const char *name, const QStringList &args );
 
-    virtual QWidget *regExpEditor() const;
+    virtual QString regExp() const;
+    virtual void setRegExp( const QString &regExp );
 
     virtual void slotHelp();
 
 private:
-    QWidget *_editor;
+    KRegExpEditorGUI *_editor;
 };
 
 #endif

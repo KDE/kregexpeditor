@@ -13,8 +13,9 @@
 const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
 
 
-KRegExpEditorGUI::KRegExpEditorGUI(QObject *parent, const char *name) 
-  : QWidget( dynamic_cast<QWidget *>( parent ), name)
+KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent, const char *name,
+	                           const QStringList & ) 
+  : QWidget( parent, name)
 {
   QHBoxLayout* layout = new QHBoxLayout( this );
   _editor = new KRegExpEditorPrivate( this, "_editor" );
@@ -24,7 +25,7 @@ KRegExpEditorGUI::KRegExpEditorGUI(QObject *parent, const char *name)
   connect( _editor, SIGNAL( changes(bool) ), this, SIGNAL( changes(bool) ) );  
 }
 
-QString KRegExpEditorGUI::regexp() const
+QString KRegExpEditorGUI::regExp() const
 {
   return _editor->regexp();
 }
@@ -44,11 +45,12 @@ void KRegExpEditorGUI::slotSetRegExp( const QString &regexp )
   _editor->slotSetRegexp( regexp );
 }
 
-KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QObject *parent, 
-	                                        const char *name )
+KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent, 
+	                                        const char *name,
+						const QStringList & )
   : KDialogBase( KDialogBase::Plain, i18n("Regular Expression Editor"),
 	         KDialogBase::Ok | KDialogBase::Cancel | KDialogBase::Help, KDialogBase::Ok,
-		 dynamic_cast<QWidget *>( parent ) , name ? name : "KRegExpDialog" )
+		 parent, name ? name : "KRegExpDialog" )
 {
     QFrame* frame = plainPage();
     QVBoxLayout* layout = new QVBoxLayout( frame );
@@ -56,9 +58,14 @@ KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QObject *parent,
     _editor = new KRegExpEditorGUI( frame );
 }
 
-QWidget *KRegExpEditorGUIDialog::regExpEditor() const
+QString KRegExpEditorGUIDialog::regExp() const
 {
-    return _editor;
+    return _editor->regExp();
+}
+
+void KRegExpEditorGUIDialog::setRegExp( const QString &regexp )
+{
+    _editor->setRegExp( regexp );
 }
 
 void KRegExpEditorGUIDialog::slotHelp()
