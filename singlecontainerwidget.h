@@ -24,7 +24,7 @@ public:
   virtual RegExpWidget* widgetUnderPoint( QPoint globalPos, bool justVisibleWidgets );
   virtual RegExpWidget* findWidgetToEdit( QPoint globalPos );
   virtual void setConcChild( ConcWidget* child );
-  virtual void selectWidget();
+  virtual void selectWidget( bool sel );
   virtual void updateAll();
 
 protected:

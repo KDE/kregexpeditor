@@ -381,6 +381,8 @@ void RegExpEditorWindow::slotSetRegExp( RegExp* regexp )
     // It was not a ConcWidget
     _top = new ConcWidget( this, widget, this );
   }
+  _top->setToplevel();
+  
   _top->show();
   _layout->addWidget( _top );
   clearSelection( true ); // HACK?

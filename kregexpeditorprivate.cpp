@@ -13,6 +13,7 @@
 #include "userdefinedregexps.h"
 #include "auxbuttons.h"
 #include <qaccel.h>
+#include <kstandarddirs.h>
 
 extern bool parse( QString str, const CompoundInfo& ci );
 extern RegExp* parseData();
@@ -77,8 +78,10 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   _regexpEdit = new QLineEdit( this );
   layout->addWidget( _regexpEdit );
 
+  
+  QPixmap pix = KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/error.png") ), KIcon::Toolbar );
   _error = new QLabel( this );
-  _error->setPixmap(BarIcon( QString::fromLocal8Bit("solo.xpm" ) ) );
+  _error->setPixmap( pix );
   layout->addWidget( _error );
   _error->hide();
   

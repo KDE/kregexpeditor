@@ -45,6 +45,7 @@ public:
   CompoundWidget( CompoundRegExp* regexp, RegExpEditorWindow* editorWindow,
                   QWidget* parent, const char* name = 0);
 
+  virtual bool updateSelection( bool parentSelected );
   virtual QSize sizeHint() const;
   virtual RegExp* regExp() const;
   virtual RegExpType type() const { return COMPOUND; }

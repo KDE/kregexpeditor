@@ -37,8 +37,7 @@ bool RegExpWidget::updateSelection(bool parentSelected)
   bool selected = ( parentSelected ||
                     _editorWindow->selectionOverlap( mapToGlobal( QPoint(0,0) ), size() ) )
     && !_isToplevel;
-  
-  
+
   if ( _isSelected != selected ) {
     // Selection state changed
     _isSelected = selected;
@@ -100,7 +99,7 @@ void RegExpWidget::mousePressEvent ( QMouseEvent* event )
     if ( ! _editorWindow->pointSelected( QCursor::pos() ) ) {
       _editorWindow->clearSelection( true );
       if ( ! dynamic_cast<DragAccepter*>(this) && ! dynamic_cast<ConcWidget*>(this) ) {
-        selectWidget();
+        selectWidget( true );
       }
     }
     
@@ -119,7 +118,7 @@ void RegExpWidget::mouseReleaseEvent( QMouseEvent* )
   if ( _editorWindow->isInserting() && acceptWidgetInsert( _editorWindow->insertType() ) ) {
     if ( !_editorWindow->hasSelection() )
       _isSelected = true;
-      
+
     _editorWindow->applyRegExpToSelection( _editorWindow->insertType() );
     _editorWindow->clearSelection( true );
     _editorWindow->updateContent( this );
@@ -179,9 +178,9 @@ RegExpWidget* RegExpWidget::widgetUnderPoint( QPoint globalPos, bool )
     return 0;
 }
 
-void RegExpWidget::selectWidget()
+void RegExpWidget::selectWidget( bool sel)
 {
-  _isSelected = true;
+  _isSelected = sel;
   update();
 }
 

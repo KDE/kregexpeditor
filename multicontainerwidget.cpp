@@ -213,12 +213,12 @@ RegExpWidget* MultiContainerWidget::findWidgetToEdit( QPoint globalPos )
   return 0;
 }
 
-void MultiContainerWidget::selectWidget()
+void MultiContainerWidget::selectWidget( bool sel )
 {
-  RegExpWidget::selectWidget();
+  RegExpWidget::selectWidget( sel );
   QPtrListIterator<RegExpWidget> it(_children);
   for ( ; *it ; ++it ) {
-    (*it)->selectWidget();
+    (*it)->selectWidget( sel );
   }  
   update();
 }

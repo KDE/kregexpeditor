@@ -11,12 +11,6 @@
 #include <qtooltip.h>
 #include <qwhatsthis.h>
 
-//#include "drag.h"
-//#include <iostream>
-//#include <kfiledialog.h>
-//#include <kiconloader.h>
-//#include "flow.h"
-
 UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const char *name )
   : QDockWindow( QDockWindow::InDock, parent, name)
 {

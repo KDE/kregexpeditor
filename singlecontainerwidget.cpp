@@ -89,10 +89,10 @@ void SingleContainerWidget::setConcChild( ConcWidget* conc )
   _child = conc;
 }
     
-void SingleContainerWidget::selectWidget()
+void SingleContainerWidget::selectWidget( bool sel )
 {
-  RegExpWidget::selectWidget();
-  _child->selectWidget();
+  RegExpWidget::selectWidget( sel );
+  _child->selectWidget( sel );
   update();
 }
 

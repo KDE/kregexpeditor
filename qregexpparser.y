@@ -56,8 +56,8 @@
 
 empty           : /* nothing */ ;
 
-regexp :  expression { setParseResult( $<regexp>1) ; } // Is this the correct way to get the result back?
-       | empty { setParseResult( new ConcRegExp() ); } //  6 Jun. 2001  0:10 -- Jesper K. Pedersen
+regexp :  expression { setParseResult( $<regexp>1) ; }
+       | empty { setParseResult( new ConcRegExp() ); }
        ;
 
 expression : expression TOK_Bar term {

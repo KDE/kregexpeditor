@@ -111,7 +111,7 @@ public:
   virtual QRect selectionRect() const;
 
   /** Selects the RegExp widget and all its chidlren*/
-  virtual void selectWidget();
+  virtual void selectWidget( bool sel );
 
   /*======================================================================
     Misc

@@ -244,6 +244,20 @@ void CompoundWidget::mouseReleaseEvent( QMouseEvent* event)
     SingleContainerWidget::mouseReleaseEvent( event );
 }
 
+bool CompoundWidget::updateSelection( bool parentSelected )
+{
+  if ( _hidden ) {
+    bool changed = RegExpWidget::updateSelection( parentSelected );
+    _child->selectWidget( _isSelected );
+    if (changed)
+      repaint();
+    return changed;
+  }
+  else {
+    SingleContainerWidget::updateSelection( parentSelected );
+  }
+}
+
 int CompoundWidget::edit()
 {
   _configWindow->move(QCursor::pos() - QPoint(_configWindow->sizeHint().width()/2, 
