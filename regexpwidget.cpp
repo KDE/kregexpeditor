@@ -11,8 +11,8 @@
 
 RegExpWidget::RegExpWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                            const char *name)
-  : QWidget(parent, name ? name : "RegExpWidget"), _editorWindow( editorWindow ),
-    _isSelected( false ), _isToplevel( false )
+  : QWidget(parent, name ? name : "RegExpWidget", WNoMousePropagation ), 
+    _editorWindow( editorWindow ),  _isSelected( false ), _isToplevel( false )
 {
 }
 
