@@ -18,6 +18,8 @@ QString TextRegExp::toString() const
 	list.append(new QChar('?'));
 	list.append(new QChar('['));
 	list.append(new QChar(']'));
+	list.append(new QChar('('));
+	list.append(new QChar(')'));
 	list.append(new QChar('\\'));
 	QString res = escape( _text, list, QChar('\\') );
 	return res;
