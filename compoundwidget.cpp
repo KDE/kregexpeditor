@@ -31,6 +31,7 @@ CompoundDetailWindow::CompoundDetailWindow( QWidget* parent, const char* name )
   QToolTip::add( _allowReplace, i18n("When the content of this box is typed in to the ascii line,<br>"
                                      "this box will automatically be added arround it,<br>"
                                      "if this check box is selected.") );
+  _allowReplace->setChecked( true );
   
   _title->setFocus();
   
