@@ -32,7 +32,7 @@ Escape   \\.
 BackRef  \\[1-9][0-9]*
 CharClass \[^?\]?[^]]*\]
 Range \{[0-9]*(,[0-9]*)?\}
-HexChar \\x[0-9a-eA-E]{1,4}
+HexChar \\x[0-9a-fA-F]{1,4}
 OctChar \\0[0-7]{1,4}
 SpecialEsc \\[afnrtv]
 %%
@@ -249,7 +249,8 @@ RegExp* parseCharClass( char* match )
         QString str;
         for ( int j=0; j<4; j++) {
           ch = txt.at(i++);
-            if ( ch == 'a' || ch == 'A' || ch == 'b' || ch == 'B' || ch == 'c' || ch == 'C' || ch == 'd' || ch == 'D' ||
+            if ( ch == 'a' || ch == 'A' || ch == 'b' || ch == 'B' || ch == 'c' || ch == 'C' || ch == 'd' || ch == 'D' || 
+                 ch == 'e' || ch == 'E' || ch == 'f' || ch == 'F' ||
                  ch == '0' || ch == '1' || ch == '2' || ch == '3' || ch == '4' || ch == '5' || ch == '6' || ch == '7' || 
                  ch == '8' || ch == '9' )
               str += ch;
