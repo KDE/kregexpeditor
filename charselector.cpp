@@ -148,9 +148,6 @@ QString CharSelector::text() const
     i18n("\\t");
   case 9:
     return i18n("\\v");
-  defaults:
-    qWarning("Internal error: %s:%d", __FILE__, __LINE__);
-    return QString::null;
   }    
   return QString::null;
 }

@@ -74,7 +74,10 @@ RegExpWidget* WidgetFactory::createWidget( RegExpEditorWindow* win, QWidget* par
 RegExpWidget* WidgetFactory::createWidget( RegExp* regexp, RegExpEditorWindow* editorWindow,
                                            QWidget* parent )
 {
-  if ( TextRegExp* reg = dynamic_cast<TextRegExp*>( regexp ) )
+  if ( regexp == 0 ) {
+    qFatal("%s:%d Regexp is 0", __FILE__, __LINE__ );
+  }
+  else if ( TextRegExp* reg = dynamic_cast<TextRegExp*>( regexp ) )
     return new TextWidget( reg, editorWindow, parent );
   else if ( TextRangeRegExp* reg = dynamic_cast<TextRangeRegExp*>( regexp ) )
     return new CharactersWidget( reg, editorWindow, parent );
@@ -102,7 +105,7 @@ RegExpWidget* WidgetFactory::createWidget( RegExp* regexp, RegExpEditorWindow* e
       return new NonWordBoundaryWidget( editorWindow, parent );
     }
   }
-  else if ( DotRegExp* reg = dynamic_cast<DotRegExp*>( regexp ) ) 
+  else if ( dynamic_cast<DotRegExp*>( regexp ) ) 
     return new AnyCharWidget( editorWindow, parent );
   else if ( CompoundRegExp* reg = dynamic_cast<CompoundRegExp*>( regexp ) )
     return new CompoundWidget( reg, editorWindow, parent );
@@ -164,8 +167,8 @@ RegExp* WidgetFactory::createRegExp( QString str )
   QDomDocument doc;
   bool ok = doc.setContent( str );
   if ( !ok ) {
-    KMessageBox::sorry( 0, i18n("Error while loading XML file. The file did most likely have unmatched tags."),
-                        i18n("Error while loading from XML file") ) ;
+    KMessageBox::sorry( 0, i18n("Error while loading regular expression from XML. The regular expression did most likely have unmatched tags."),
+                        i18n("Error while loadingregular expression from  XML") ) ;
   }
   
 

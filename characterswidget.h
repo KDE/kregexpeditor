@@ -83,7 +83,7 @@ class SingleFactory :public KMultiFormListBoxFactory
 {
 public:
   KMultiFormListBoxEntry *create(QWidget *parent) { return new SingleEntry( parent ); }    
-  QWidget *separator(QWidget *parent) { return 0; }
+  QWidget *separator( QWidget* ) { return 0; }
 };
 
 /**
@@ -93,7 +93,7 @@ class RangeFactory :public KMultiFormListBoxFactory
 {
 public:
   KMultiFormListBoxEntry *create(QWidget *parent) { return new RangeEntry( parent ); }
-  QWidget *separator(QWidget *parent) { return 0; }
+  QWidget *separator( QWidget* ) { return 0; }
 };
 
 /**

@@ -17,5 +17,6 @@ QDomNode DotRegExp::toXml( QDomDocument* doc ) const
 bool DotRegExp::load( QDomElement top, const QString& /*version*/ ) 
 {
   // Nothing to do
+  return true;
 }
 

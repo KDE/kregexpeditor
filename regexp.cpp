@@ -67,7 +67,7 @@ RegExp* RegExp::clone() const
   return WidgetFactory::createRegExp( toXmlString() );
 }
 
-void RegExp::updateCI( CompoundInfo* ci )
+void RegExp::updateCI( CompoundInfo* )
 {
   // Default for non recursive items is to do nothing.
 }

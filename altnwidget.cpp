@@ -17,7 +17,7 @@ AltnWidget::AltnWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
 }
 
 AltnWidget::AltnWidget( AltnRegExp* regexp, RegExpEditorWindow* editorWindow,
-            QWidget* parent, const char* name = 0)
+            QWidget* parent, const char* name)
   :MultiContainerWidget( editorWindow, parent, name )
 {
   DragAccepter *accepter = new DragAccepter(editorWindow, this);
@@ -183,6 +183,8 @@ RegExp* AltnWidget::selection() const
       }
     }
   }
+  qFatal("Selection not found");
+  return 0; // compiler shut up.
 }
 
 bool AltnWidget::validateSelection() const

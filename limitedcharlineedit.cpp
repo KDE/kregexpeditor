@@ -13,7 +13,7 @@ public:
   { 
   }  
   
-  virtual QValidator::State validate( QString& txt, int &pos ) const
+  virtual QValidator::State validate( QString& txt, int & /*pos*/ ) const
   {
     if ( _mode == LimitedCharLineEdit::NORMAL ||
          (_mode == LimitedCharLineEdit::HEX && 

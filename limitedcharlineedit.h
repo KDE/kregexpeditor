@@ -19,7 +19,7 @@ protected:
 
 private:
   Mode _mode;
-  int _count;
+  unsigned int _count;
 };
 
 #endif
