@@ -24,24 +24,24 @@ class StackContainer :public QWidget
       layout->addStretch( 1 );
     }
 };
-      
+
 CharSelector::CharSelector( QWidget* parent, const char* name )
   :QWidget( parent, name ), _oldIndex(0)
 {
   QStringList items;
   QHBoxLayout* layout = new QHBoxLayout( this, 0, 6 );
 
-  _type = new QComboBox( this, "_type" );  
-  items << i18n("Normal Character") 
-        << i18n("Unicode char in hex.") 
-        << i18n("Unicode char in oct.")
+  _type = new QComboBox( this, "_type" );
+  items << i18n("Normal Character")
+        << i18n("Unicode Char in Hex.")
+        << i18n("Unicode Char in Oct.")
         << QString::fromLatin1("----")
-        << i18n("The bell character (\\a)")
-        << i18n("The form feed character (\\f)")
-        << i18n("The line feed character (\\n)")
-        << i18n("The carriage return character (\\r)")
-        << i18n("The horizontal tab character (\\t)")
-        << i18n("The vertical tab character (\\v)");
+        << i18n("The Bell Character (\\a)")
+        << i18n("The Form Feed Character (\\f)")
+        << i18n("The Line Feed Character (\\n)")
+        << i18n("The Carriage Return Character (\\r)")
+        << i18n("The Horizontal Tab Character (\\t)")
+        << i18n("The Vertical Tab Character (\\v)");
   _type->insertStringList( items );
   layout->addWidget( _type );
   

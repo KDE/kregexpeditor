@@ -258,11 +258,11 @@ CharacterEdits::CharacterEdits(TextRangeRegExp* regexp, QWidget *parent, const c
   topLayout->addWidget(predefined);
   QGrid* grid = new QGrid(3, predefined );
 
-  wordChar = new QCheckBox(i18n("a word character"),grid);
+  wordChar = new QCheckBox(i18n("A word character"),grid);
   digit = new QCheckBox(i18n("A digit character"),grid);
   space = new QCheckBox(i18n("A space character"), grid);
 
-  nonWordChar = new QCheckBox(i18n("a non-word character"),grid);
+  nonWordChar = new QCheckBox(i18n("A non-word character"),grid);
   nonDigit = new QCheckBox(i18n("A non-digit character"),grid);
   nonSpace = new QCheckBox(i18n("A non-space character"), grid);
 
