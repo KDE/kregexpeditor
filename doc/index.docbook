@@ -37,24 +37,62 @@
 </keywordset>
 </bookinfo>
 
+<!-- ====================================================================== -->
+<!--                               Introduction                             -->
+<!-- ====================================================================== -->
 <chapter id="introduction">
 <title>Introduction</title>
 
+
+<para>
+The regular expression editor is an editor for editing regular expression
+in a graphical style (in contrast to the ascii syntax). Traditionally
+regular expressions have been typed in the ascii syntax, which for example
+looks like <literal>^.*kde\b</literal>. The major drawback of
+this style is:
+<itemizedlist>
+        <listitem><para>It is hard to understand for
+        non-programmers.</para></listitem>
+
+        <listitem><para>It requires that you <emphasis>escapes</emphasis>
+        certain symbols (to match a star, you need to type <literal>\*</literal>). </para></listitem>
+
+        <listitem><para>It requires that you remember rules for
+        <emphasis>precedence</emphasis> (What does <literal>x|y*</literal>
+        match? a single <literal>x</literal> or a number of
+        <literal>y</literal>, <emphasis>OR</emphasis> a number of
+        <literal>x</literal> and <literal>y</literal>'s mixed?)</para></listitem>
+</itemizedlist>
+</para>
+
+<para>
+The regular expression editor, on the other hand, lets you
+<emphasis>draw</emphasis> your regular expression in an unambiguous
+way. The editor solves at least item two and three above. It might not make
+regular expressions available for the non-programmers, though only tests by
+users can tell that. So, are you a non programmer, which have gained the
+power of regular expression from this editor, then please 
+<ulink url="mailto:blackie@kde.org">let me know</ulink>.
+</para>
+
+</chapter>
+
+<!-- ====================================================================== -->
+<!--                       What is a Regular Expression                     -->
+<!-- ====================================================================== -->
+<chapter id="whatIsARegExp">
+<title>What is a Regular Expression</title>
 <para>
 bla bla
 </para>
 
-</chapter>
 
-<chapter id="whatIsARegExp">
-<title>What is a Regular Expression</title>
-
-<para>
-Here comes a description of regular expressions-
-</para>
 
 </chapter>
 
+<!-- ====================================================================== -->
+<!--                    Using the Regular Expresion Editor                  -->
+<!-- ====================================================================== -->
 <chapter id="theEditor">
 <title>Using the Regular Expresion Editor</title>
 
@@ -64,7 +102,21 @@ Here comes a description of the Regular Expression Editor.
 </chapter>
 
 
+<!-- ====================================================================== -->
+<!--                  Reporting a bug and Suggesting Features               -->
+<!-- ====================================================================== -->
+<chapter id="bugreport">
+  <title>Reporting bugs and Suggesting Features</title>
+  <para>Bugs reported and features are reported through the 
+  <ulink url="http://bugs.kde.org/">KDE Bug Tracking System</ulink>. <emphasis
+  role="strong">Before</emphasis> you report a bug or suggest a feature,
+  please check that it hasn't already been 
+  <ulink url="http://bugs.kde.org/db/pa/lkregexpeditor.html">reported/suggested</ulink></para>
+</chapter>
 
+<!-- ====================================================================== -->
+<!--                           Credits and Licenses                         -->
+<!-- ====================================================================== -->
 <chapter id="credits-and-license">
 <title>Credits and Licenses</title>
 
