@@ -2,13 +2,17 @@
 #include <klocale.h>
 #include "kregexpeditorprivate.h"
 #include "scrollededitorwindow.h"
-#include "widgetwindow.h"
+#include "regexpbuttons.h"
 #include "regexp.h"
 #include <unistd.h>
 #include <stdio.h>
 #include <kiconloader.h>
 #include "infopage.h"
 #include <qsplitter.h>
+#include <qdockarea.h>
+#include "userdefinedregexps.h"
+#include "auxbuttons.h"
+#include <qaccel.h>
 
 extern bool parse( QString str, const CompoundInfo& ci );
 extern RegExp* parseData();
@@ -18,42 +22,53 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   : QWidget(parent, name), _updating( false )
 {
   setMinimumSize(600,300);
-  QVBoxLayout *topLayout = new QVBoxLayout( this, 0, 6 );
-  QSplitter* splitter = new QSplitter( Horizontal, this );
-  topLayout->addWidget( splitter );
-  
-  RegExpWidgetWindow *widgetWin = 
-    new RegExpWidgetWindow( splitter, "KRegExpEditorPrivate::widgetwin" );
+  QDockArea* area = new QDockArea( Horizontal, QDockArea::Normal, this );
+  QDockArea* verArea = new QDockArea( Vertical, QDockArea::Normal, this );
+
+  // The DockWindows.
+  RegExpButtons *regExpButtons = new RegExpButtons( area, "KRegExpEditorPrivate::regExpButton" );
+  AuxButtons *auxButtons = new AuxButtons( area, "KRegExpEditorPrivate::AuxButtons" );
+  UserDefinedRegExps *userRegExps = new UserDefinedRegExps( verArea, "KRegExpEditorPrivate::userRegExps" );
+  userRegExps->setResizeEnabled( true );
+
 
   _scrolledEditorWindow = 
-    new RegExpScrolledEditorWindow( splitter, "KRegExpEditorPrivate::_scrolledEditorWindow" );
+    new RegExpScrolledEditorWindow( this, "KRegExpEditorPrivate::_scrolledEditorWindow" );
 
-  _info = new InfoPage( splitter, "_info" );
+  _info = new InfoPage( this, "_info" );
   _scrolledEditorWindow->hide();
 
-  splitter->setResizeMode( widgetWin, QSplitter::KeepSize );
-  splitter->setResizeMode( _info, QSplitter::Stretch );
-  splitter->setResizeMode( _scrolledEditorWindow, QSplitter::Stretch );
-  QValueList<int> list;
-  list << widgetWin->minimumSizeHint().width();
+  QVBoxLayout *topLayout = new QVBoxLayout( this, 0, 6, "KRegExpEditorPrivate::topLayout" );
+  topLayout->addWidget( area );
+  QHBoxLayout* rows = new QHBoxLayout; // I need to cal addLayout explicit to get stretching right.
+  topLayout->addLayout( rows, 1 );
   
-  splitter->setSizes( list );
+  rows->addWidget( verArea );
+  rows->addWidget( _scrolledEditorWindow,1 );
+  rows->addWidget( _info,1 );
 
   // Connect the buttons
-  connect( widgetWin, SIGNAL( clicked( int ) ),
-           _scrolledEditorWindow, SLOT( slotInsertRegExp( int ) ) );
-  connect( widgetWin, SIGNAL( load( RegExp* ) ),
-           _scrolledEditorWindow, SLOT( slotInsertRegExp( RegExp*  ) ) );
-  connect( widgetWin, SIGNAL( doSelect() ), _scrolledEditorWindow, SLOT( slotDoSelect() ) );
-  connect( _scrolledEditorWindow, SIGNAL( doneEditing() ),
-           widgetWin, SLOT( slotSelectNewAction() ) );
+  connect( regExpButtons, SIGNAL( clicked( int ) ),   _scrolledEditorWindow, SLOT( slotInsertRegExp( int ) ) );
+  connect( regExpButtons, SIGNAL( doSelect() ), _scrolledEditorWindow, SLOT( slotDoSelect() ) );
+  connect( userRegExps, SIGNAL( load( RegExp* ) ),    _scrolledEditorWindow, SLOT( slotInsertRegExp( RegExp*  ) ) );
 
+  connect( regExpButtons, SIGNAL( clicked( int ) ), userRegExps,   SLOT( slotUnSelect() ) );
+  connect( regExpButtons, SIGNAL( doSelect() ),     userRegExps,   SLOT( slotUnSelect() ) );
+  connect( userRegExps, SIGNAL( load( RegExp* ) ),  regExpButtons, SLOT( slotUnSelect() ) );
 
-  connect( widgetWin, SIGNAL( clicked( int ) ), this, SLOT( slotShowEditor() ) );
-  connect( widgetWin, SIGNAL( load( RegExp* ) ), this, SLOT( slotShowEditor() ) );
-  connect( widgetWin, SIGNAL( doSelect() ), this, SLOT( slotShowEditor() ) );
-  connect( _scrolledEditorWindow, SIGNAL( savedRegexp() ), widgetWin, SLOT( slotPopulateUserRegexps() ) );
-  
+  connect( _scrolledEditorWindow, SIGNAL( doneEditing() ), regExpButtons, SLOT( slotSelectNewAction() ) );
+  connect( _scrolledEditorWindow, SIGNAL( doneEditing() ), userRegExps, SLOT( slotSelectNewAction() ) );
+
+  connect( regExpButtons, SIGNAL( clicked( int ) ), this, SLOT( slotShowEditor() ) );
+  connect( userRegExps, SIGNAL( load( RegExp* ) ), this, SLOT( slotShowEditor() ) );
+  connect( regExpButtons, SIGNAL( doSelect() ), this, SLOT( slotShowEditor() ) );
+
+  connect( _scrolledEditorWindow, SIGNAL( savedRegexp() ), userRegExps, SLOT( slotPopulateUserRegexps() ) );
+
+  connect( auxButtons, SIGNAL( undo() ), this, SLOT( slotUndo() ) );
+  connect( auxButtons, SIGNAL( redo() ), this, SLOT( slotRedo() ) );
+  connect( this, SIGNAL( canUndo( bool ) ), auxButtons, SLOT( slotCanUndo( bool ) ) );
+  connect( this, SIGNAL( canRedo( bool ) ), auxButtons, SLOT( slotCanRedo( bool ) ) );
 
   // Line Edit
   QHBoxLayout* layout = new QHBoxLayout( topLayout, 6 );
@@ -74,6 +89,10 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   // Push an initial empty element on the stack.
   _undoStack.push( _scrolledEditorWindow->regExp() );
   _redoStack.setAutoDelete( true );
+
+  QAccel* accel = new QAccel( this );
+  accel->connectItem( accel->insertItem( CTRL+Key_Z ), this, SLOT( slotUndo() ) );
+  accel->connectItem( accel->insertItem( CTRL+Key_R ), this, SLOT( slotRedo() ) );
 
 }
 

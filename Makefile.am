@@ -3,7 +3,7 @@ AM_CPPFLAGS = -DQT_NO_CAST_ASCII
 SUBDIRS = KWidgetStreamer KMultiFormListBox picts
 INCLUDES = -I$(srcdir)/KWidgetStreamer -I$(srcdir)/KMultiFormListBox $(all_includes)
 
-noinst_HEADERS = kregexpeditorgui.h editorwindow.h widgetwindow.h regexpwidget.h drag.h\
+noinst_HEADERS = kregexpeditorgui.h editorwindow.h regexpwidget.h drag.h\
 		             limitedcharlineedit.h regexp.h selectablelineedit.h \
 								 dragaccepter.h repeatwidget.h concwidget.h textwidget.h \
 								 characterswidget.h zerowidgets.h multicontainerwidget.h
@@ -13,9 +13,10 @@ noinst_HEADERS = kregexpeditorgui.h editorwindow.h widgetwindow.h regexpwidget.h
 							   textregexp.h textrangeregexp.h repeatregexp.h lookaheadregexp.h \
                  concregexp.h altnregexp.h positionregexp.h dotregexp.h \
 								 infopage.h kregexpeditorprivate.h compoundregexp.h \
-								 flow.h compoundinfo.h pair.h triple.h myfontmetrics.h
+								 compoundinfo.h pair.h triple.h myfontmetrics.h \
+		             regexpbuttons.h userdefinedregexps.h auxbuttons.h
 libkregexpeditorgui_la_SOURCES = kregexpeditorgui.cpp editorwindow.cpp\
-													 widgetwindow.cpp regexpwidget.cpp drag.cpp \
+													 regexpwidget.cpp drag.cpp \
 													 concwidget.cpp \
 													 zerowidgets.cpp dragaccepter.cpp repeatwidget.cpp	\
 													 characterswidget.cpp altnwidget.cpp limitedcharlineedit.cpp \
@@ -28,8 +29,8 @@ libkregexpeditorgui_la_SOURCES = kregexpeditorgui.cpp editorwindow.cpp\
 													 dcbutton.cpp gen_qregexplexer.cpp gen_qregexpparser.cc \
 													 charselector.cpp lookaheadregexp.cpp lookaheadwidget.cpp \
 													 regexp.cpp infopage.cpp kregexpeditorprivate.cpp \
-													 compoundregexp.cpp flow.cpp compoundinfo.cpp \
-													 myfontmetrics.cpp
+													 compoundregexp.cpp compoundinfo.cpp auxbuttons.cpp \
+													 myfontmetrics.cpp regexpbuttons.cpp userdefinedregexps.cpp
 
 libkregexpeditorgui_la_LDFLAGS = $(all_libraries) -module -no-undefined $(KDE_PLUGIN)
 libkregexpeditorgui_la_LIBADD = KMultiFormListBox/libkmultiformlistbox.la \

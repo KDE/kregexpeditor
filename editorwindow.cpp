@@ -13,8 +13,8 @@
 #include <kstandarddirs.h>
 #include <kiconloader.h>
 #include "regexp.h"
-#include "widgetwindow.h"
 #include <qinputdialog.h>
+#include "userdefinedregexps.h"
 
 RegExpEditorWindow::RegExpEditorWindow( QWidget *parent, const char *name)
   : QWidget(parent, name, Qt::WPaintUnclipped)

@@ -1,6 +1,5 @@
 #include "kregexpeditorgui.h"
 #include "scrollededitorwindow.h"
-#include "widgetwindow.h"
 #include "regexp.h"
 #include <unistd.h>
 #include <stdio.h>
@@ -9,6 +8,7 @@
 #include <klocale.h>
 #include <kgenericfactory.h>
 #include <kapp.h>
+#include <qlayout.h>
 
 const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
 
