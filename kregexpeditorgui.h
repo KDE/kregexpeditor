@@ -25,19 +25,21 @@ public:
   KRegExpEditorGUI( QWidget *parent, const char *name = 0, 
 	            const QStringList & = QStringList() );
   virtual QString regExp() const;
-  virtual void setRegExp( const QString &regexp ) { slotSetRegExp( regexp ); }
+
   static const QString version;
 
 signals:
-  void canUndo( bool );
-  void canRedo( bool );
-  void changes();
-  void changes( bool );
+  /** This signal tells whether undo is available. */
+  virtual void canRedo( bool );
+  virtual void canUndo( bool );
+  virtual void changes( bool );
 
 public slots:
-  void slotRedo();
-  void slotUndo();
-  void slotSetRegExp( const QString &regexp );
+  virtual void redo();
+  virtual void undo();
+  virtual void setRegExp( const QString &regexp );
+  virtual void doSomething( QString method, void* arguments );
+  virtual void setMatchText( const QString& );
 
 private:
 	KRegExpEditorPrivate* _editor;
@@ -51,9 +53,20 @@ public:
     KRegExpEditorGUIDialog( QWidget *parent, const char *name, const QStringList &args );
 
     virtual QString regExp() const;
-    virtual void setRegExp( const QString &regExp );
 
-    virtual void slotHelp();
+signals:
+  /** This signal tells whether undo is available. */
+  virtual void canRedo( bool );
+  virtual void canUndo( bool );
+  virtual void changes( bool );
+
+public slots:
+  virtual void redo();
+  virtual void undo();
+  virtual void help();
+  virtual void setRegExp( const QString &regexp );
+  virtual void doSomething( QString method, void* arguments );
+  virtual void setMatchText( const QString& );
 
 private:
     KRegExpEditorGUI *_editor;

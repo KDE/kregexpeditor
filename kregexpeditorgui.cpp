@@ -30,32 +30,36 @@ QString KRegExpEditorGUI::regExp() const
   return _editor->regexp();
 }
 
-void KRegExpEditorGUI::slotRedo()
+void KRegExpEditorGUI::redo()
 {
   _editor->slotRedo();
 }
 
-void KRegExpEditorGUI::slotUndo()
+void KRegExpEditorGUI::undo()
 {
   _editor->slotUndo();
 }
 
-void KRegExpEditorGUI::slotSetRegExp( const QString &regexp )
+void KRegExpEditorGUI::setRegExp( const QString &regexp )
 {
   _editor->slotSetRegexp( regexp );
 }
 
 KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent, 
-	                                        const char *name,
-						const QStringList & )
+                                                const char *name,
+                                                const QStringList & )
   : KDialogBase( KDialogBase::Plain, i18n("Regular Expression Editor"),
-	         KDialogBase::Ok | KDialogBase::Cancel | KDialogBase::Help, KDialogBase::Ok,
-		 parent, name ? name : "KRegExpDialog" )
+                 KDialogBase::Ok | KDialogBase::Cancel | KDialogBase::Help, KDialogBase::Ok,
+                 parent, name ? name : "KRegExpDialog" )
 {
-    QFrame* frame = plainPage();
-    QVBoxLayout* layout = new QVBoxLayout( frame );
-    layout->setAutoAdd( true );
-    _editor = new KRegExpEditorGUI( frame );
+  QFrame* frame = plainPage();
+  QVBoxLayout* layout = new QVBoxLayout( frame );
+  layout->setAutoAdd( true );
+  _editor = new KRegExpEditorGUI( frame );
+  
+  connect( _editor, SIGNAL( canUndo(bool) ), this, SIGNAL( canUndo(bool) ) );
+  connect( _editor, SIGNAL( canRedo(bool) ), this, SIGNAL( canRedo(bool) ) );
+  connect( _editor, SIGNAL( changes(bool) ), this, SIGNAL( changes(bool) ) );  
 }
 
 QString KRegExpEditorGUIDialog::regExp() const
@@ -68,9 +72,39 @@ void KRegExpEditorGUIDialog::setRegExp( const QString &regexp )
     _editor->setRegExp( regexp );
 }
 
-void KRegExpEditorGUIDialog::slotHelp()
+void KRegExpEditorGUIDialog::help()
 {
     kapp->invokeHelp( QString::null, QString::fromLatin1( "KRegExpEditor" ) );
+}
+
+void KRegExpEditorGUIDialog::redo()
+{
+  _editor->redo();
+}
+
+void KRegExpEditorGUIDialog::undo()
+{
+  _editor->undo();
+}
+
+void KRegExpEditorGUIDialog::doSomething( QString method, void* arguments ) 
+{
+  qFatal("This method should not be invoked!");
+}
+
+void KRegExpEditorGUI::doSomething( QString method, void* arguments ) 
+{
+  qFatal("This method should not be invoked!");
+}
+
+void KRegExpEditorGUIDialog::setMatchText( const QString& )
+{
+  qFatal("This method should not be invoked!");
+}
+
+void KRegExpEditorGUI::setMatchText( const QString& )
+{
+  qFatal("This method should not be invoked!");
 }
 
 typedef K_TYPELIST_2( KRegExpEditorGUI, KRegExpEditorGUIDialog ) Products;

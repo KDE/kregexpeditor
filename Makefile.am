@@ -1,6 +1,6 @@
 kde_module_LTLIBRARIES = libkregexpeditorgui.la
 AM_CPPFLAGS = -DQT_NO_CAST_ASCII
-SUBDIRS = KWidgetStreamer KMultiFormListBox picts
+SUBDIRS = KWidgetStreamer KMultiFormListBox picts test
 INCLUDES = -I$(srcdir)/KWidgetStreamer -I$(srcdir)/KMultiFormListBox $(all_includes)
 
 noinst_HEADERS = kregexpeditorgui.h editorwindow.h regexpwidget.h drag.h\
