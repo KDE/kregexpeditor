@@ -284,7 +284,7 @@
     <!-- ====================================================================== -->
     <!--                   The organization of the screen                       -->
     <!-- ====================================================================== -->
-    <sect1>
+    <sect1 id="screenorganization">
       <title>The organization of the screen</title>
 
       <mediaobject>
@@ -540,19 +540,29 @@
   <!-- ====================================================================== -->
     <sect1 id="userdefinedregexps">
       <title>User Defined Regular Expressions</title>
-      <para></para>
+      <para>To the left of the editing area is a list box located
+        containing user defined regular expressions. Some regular
+        expressions are pre installed with your KDE installation, while
+        other you can save yourself.</para> 
+
+      <para>These regular expression serves two purposes (
+        <link linkend="screenorganization">see detailed
+          description</link>), namely (1) to offer you a set of building
+        block and (2) to make common regular expressions prettier.</para>
+
+      <para>You can save your own regular expressions by right clicking the
+        mouse button in the editing area, and choosing <literal>Save Regular
+          Expression</literal>.</para>
+
+      <para>If the regular expression you save is within a  
+        <link linkend="compoundtool">compound container</link> then the
+        regular expression will take part in making subsequent regular
+        expressions pretier.</para>
+
+      <para>User defined regular expression can be deleted or renamed by
+        pressing the right mouse button on top of the regular expression in
+        question in the list box.</para>
     </sect1>
-
-  <!-- ====================================================================== -->
-  <!--                   Cut/Copy/Paste and drag and                          -->
-  <!-- ====================================================================== -->
-    <sect1>
-      <title>Cut/Copy/Paste and drag and drop </title>
-      <para></para>
-    </sect1>
-
-  </chapter>
-
 
 
   <!-- ====================================================================== -->
