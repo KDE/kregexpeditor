@@ -159,7 +159,7 @@ RegExp* parseCharClass( char* match )
   QString txt = QString::fromLocal8Bit( match );
   txt = txt.mid(1,txt.length()-2);
   
-  int i = 0;
+  unsigned int i = 0;
   QChar ch = txt.at(i++);
   QString pendingChar;
   QString thisChar;

@@ -588,7 +588,7 @@ YY_MALLOC_DECL
 YY_DECL
 	{
 	register yy_state_type yy_current_state;
-	register char *yy_cp = NULL, *yy_bp = NULL;
+	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
 #line 18 "qregexpparser.l"
@@ -1821,7 +1821,7 @@ RegExp* parseCharClass( char* match )
   QString txt = QString::fromLocal8Bit( match );
   txt = txt.mid(1,txt.length()-2);
   
-  int i = 0;
+  unsigned int i = 0;
   QChar ch = txt.at(i++);
   QString pendingChar;
   QString thisChar;

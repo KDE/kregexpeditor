@@ -29,7 +29,7 @@ RegExpWidget* RegExpWidgetDrag::decode(QDropEvent* event, RegExpEditorWindow* wi
   return widget;
 }
 
-const char * RegExpWidgetDrag::format ( int i = 0 ) const 
+const char * RegExpWidgetDrag::format ( int i ) const 
 {
   if ( i == 0 )
     return "KRegExpEditor/widgetdrag";

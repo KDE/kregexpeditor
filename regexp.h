@@ -32,7 +32,7 @@ public:
 
   enum RegExpType { CONC, TEXT, DOT, POSITION, REPEAT, ALTN, COMPOUND, LOOKAHEAD, TEXTRANGE };
   virtual RegExpType type() const = 0;
-  virtual void replacePart( CompoundRegExp* replacement ) {};
+  virtual void replacePart( CompoundRegExp* /* replacement */ ) {};
   
 protected:
   RegExp* readRegExp( QDomElement top, const QString& version );
