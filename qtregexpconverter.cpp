@@ -247,7 +247,8 @@ QString QtRegExpConverter::toString( TextRegExp* regexp, bool /*markSelection*/ 
          << QChar('{')
          << QChar('}')
          << QChar('(')
-         << QChar(')');
+         << QChar(')')
+         << QChar('|');
 
 	QString res = escape( regexp->text(), list, QChar('\\') );
 	return res;
