@@ -98,7 +98,6 @@ void RegExpWidget::mousePressEvent ( QMouseEvent* event )
   if ( event->button() == LeftButton ) {
     if ( ! _editorWindow->pointSelected( QCursor::pos() ) ) {
       _editorWindow->clearSelection( true );
-        qDebug("%p, %s", dynamic_cast<DragAccepter*>(this), this->name() );
       if ( dynamic_cast<DragAccepter*>(this) == 0 && dynamic_cast<ConcWidget*>(this) == 0 ) {
         selectWidget( true );
       }

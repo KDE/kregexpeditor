@@ -85,45 +85,6 @@ void CharSelector::slotNewItem( int which )
   _oldIndex = which;
 }
 
-QString CharSelector::text() const
-{
-  switch ( _type->currentItem() ) {
-  case 0: // Normal Character
-    if ( !_normal->text().isEmpty() )
-      return QString::fromLocal8Bit("'") + _normal->text() + QString::fromLocal8Bit("'");
-    else
-      return QString::null;
-  case 1: // Hex
-    if ( !_hex->text().isEmpty() )
-      return QString::fromLocal8Bit("'") + _hex->text() + QString::fromLocal8Bit("'");
-    else
-      return QString::null;
-  case 2: // Oct
-    if (! _oct->text().isEmpty() )
-      return QString::fromLocal8Bit("'") + _oct->text() + QString::fromLocal8Bit("'") ;
-    else
-      return QString::null;
-  case 3: // The seperator
-    break;
-  case 4:
-    return i18n("The bell character (\\a)");
-  case 5:
-    return i18n("The form feed character (\\f)");
-  case 6:
-    return  i18n("The line feed character (\\n)");
-  case 7:
-    return  i18n("The carriage return character (\\r)");
-  case 8:
-    i18n("The horizontal tab character (\\t)");
-  case 9:
-    return i18n("The vertical tab character (\\v)");
-  defaults:
-    qWarning("Internal error: %s:%d", __FILE__, __LINE__);
-    return QString::null;
-  }
-  return QString::null;
-}
-
 void CharSelector::setText( QString text )
 {
   if ( text.at(0) == QChar('\\') ) {
@@ -164,7 +125,7 @@ bool CharSelector::isEmpty() const
     ( _type->currentItem() == 2 && _oct->text().isEmpty() );
 }
 
-QString CharSelector::regexpStr() const
+QString CharSelector::text() const
 {
   switch ( _type->currentItem() ) {
   case 0: // Normal Character

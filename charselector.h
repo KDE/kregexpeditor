@@ -16,7 +16,6 @@ public:
   QString text() const;
   void setText( QString text );
   bool isEmpty() const;
-  QString regexpStr() const;
 
 private slots:
   void slotNewItem( int which );

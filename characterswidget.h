@@ -7,6 +7,7 @@
 #include <qhbox.h>
 #include <qcheckbox.h>
 #include <qvgroupbox.h>
+#include <kdialogbase.h>
 class KDialogBase;
 class CharacterEdits;
 class TextRangeRegExp;
@@ -18,14 +19,12 @@ class CharSelector;
 */
 class CharactersWidget :public RegExpWidget
 {
-Q_OBJECT
-
 public:
   CharactersWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                    const char *label = 0);
   CharactersWidget( TextRangeRegExp* regexp, RegExpEditorWindow* editorWindow,
                     QWidget* parent, const char* name = 0 );
-  void init();
+  ~CharactersWidget();
   virtual QSize sizeHint() const;
 	virtual RegExp* regExp() const;
   virtual RegExpType type() const { return CHARSET; }
@@ -34,18 +33,15 @@ public:
   
 protected:
   virtual void paintEvent(QPaintEvent *event);
-
-protected slots:
-  void slotConfigWindowClosed();
-  void slotConfigCanceled();
+  QString text() const;
+  QString title() const;
 
 private:
-  CharacterEdits *_content;
-  KDialogBase *_configWindow;
+  TextRangeRegExp *_regexp;
+  CharacterEdits *_configWindow;
 
   mutable QSize _textSize;
   mutable QSize _contentSize;
-  QByteArray _backup;
 };
 
 
@@ -58,7 +54,6 @@ public:
   SingleEntry(QWidget* parent, const char* name = 0 );
   QString text() const;
   void setText( QString text );
-  QString regexpStr() const;
   bool isEmpty() const;
   
 private:
@@ -77,8 +72,6 @@ public:
   void setFrom( QString text );
   void setTo( QString text );
   bool isEmpty() const;
-  QString regexpFromStr() const;
-  QString regexpToStr() const;
 private:
   CharSelector *_from, *_to;  
 };
@@ -106,21 +99,25 @@ public:
 /**
    @internal
 */
-class CharacterEdits : public QWidget
+class CharacterEdits : public KDialogBase
 {
+  Q_OBJECT
 public:
-  CharacterEdits(QWidget *parent = 0, const char *name = 0);
-  QString text() const;
-  QString title() const;
+  CharacterEdits(TextRangeRegExp* _regexp, QWidget *parent = 0, const char *name = 0);
   
+public slots:
+  int exec();
+
+protected slots:
+  void slotOK();
+  
+private:
   QCheckBox *negate, *wordChar, *nonWordChar, *digit, *nonDigit, *space, *nonSpace;  
   KMultiFormListBox *_single, *_range;
 
   void addCharacter( QString txt );
   void addRange( QString from, QString to );
+  TextRangeRegExp* _regexp;  
 };
-
-QDataStream& operator<<(QDataStream& stream, const CharacterEdits& edit );
-QDataStream& operator>>(QDataStream& stream, CharacterEdits& edit );
 
 #endif // __characterswidget

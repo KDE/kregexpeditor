@@ -19,9 +19,11 @@ public:
 	
 	void addCharacter( QString ch );
   QStringList chars() const { return _chars; } 
+  void clearChars() { _chars.clear(); }
 
 	void addRange( QString from, QString to );
   QPtrList<StringPair> range() const { return _ranges; }
+  void clearRange() { _ranges.clear(); }
 
   void setNegate( bool set ) { _negate = set; }
   void setDigit( bool set ) { _digit = set; }

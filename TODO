@@ -1,5 +1,6 @@
 TODO:
 -----
+- It should not be possible to drag-move a widget to be a child of itself.
 
 Later wishes:
 -------------
