@@ -102,9 +102,11 @@ expression : expression TOK_Bar term {
                  $<regexp>$ = new AltnRegExp( false );
                  dynamic_cast<AltnRegExp*>( $<regexp>$ )->addRegExp( $<regexp>1 );
                }
+               dynamic_cast<AltnRegExp*>( $<regexp>$ )->addRegExp( new TextRegExp( false, QString::fromLatin1("") ) );
              }
            | TOK_Bar term {  
                $<regexp>$ = new AltnRegExp( false );
+               dynamic_cast<AltnRegExp*>( $<regexp>$ )->addRegExp( new TextRegExp( false, QString::fromLatin1("") ) );
                dynamic_cast<AltnRegExp*>( $<regexp>$ )->addRegExp( $<regexp>2 );
              }
            | TOK_Bar { $<regexp>$ = new AltnRegExp( false ); }
