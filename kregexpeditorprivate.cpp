@@ -22,6 +22,9 @@
 #include "verifybuttons.h"
 #include <qtooltip.h>
 #include <qwhatsthis.h>
+#include <qvalidator.h>
+#include <qregexp.h>
+#include "regexplineedit.h"
 
 extern bool parse( QString str );
 extern RegExp* parseData();
@@ -40,8 +43,8 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
 
   // The DockWindows.
   RegExpButtons *regExpButtons = new RegExpButtons( area, "KRegExpEditorPrivate::regExpButton" );
-  AuxButtons *auxButtons = new AuxButtons( area, "KRegExpEditorPrivate::AuxButtons" );
   _verifyButtons = new VerifyButtons( area, "KRegExpEditorPrivate::VerifyButtons" );
+  _auxButtons = new AuxButtons( area, "KRegExpEditorPrivate::AuxButtons" );
   _userRegExps = new UserDefinedRegExps( verArea1, "KRegExpEditorPrivate::userRegExps" );
   _userRegExps->setResizeEnabled( true );
   QWhatsThis::add( _userRegExps, i18n( "In this window you will find predefined regular expressions. Both regular expressions "
@@ -96,21 +99,22 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
 
   connect( _scrolledEditorWindow, SIGNAL( savedRegexp() ), _userRegExps, SLOT( slotPopulateUserRegexps() ) );
 
-  connect( auxButtons, SIGNAL( undo() ), this, SLOT( slotUndo() ) );
-  connect( auxButtons, SIGNAL( redo() ), this, SLOT( slotRedo() ) );
-  connect( auxButtons, SIGNAL( cut() ), _scrolledEditorWindow, SLOT( slotCut() ) );
-  connect( auxButtons, SIGNAL( copy() ), _scrolledEditorWindow, SLOT( slotCopy() ) );
-  connect( auxButtons, SIGNAL( paste() ), _scrolledEditorWindow, SLOT( slotPaste() ) );
-  connect( auxButtons, SIGNAL( save() ), _scrolledEditorWindow, SLOT( slotSave() ) );
+  connect( _auxButtons, SIGNAL( undo() ), this, SLOT( slotUndo() ) );
+  connect( _auxButtons, SIGNAL( redo() ), this, SLOT( slotRedo() ) );
+  connect( _auxButtons, SIGNAL( cut() ), _scrolledEditorWindow, SLOT( slotCut() ) );
+  connect( _auxButtons, SIGNAL( copy() ), _scrolledEditorWindow, SLOT( slotCopy() ) );
+  connect( _auxButtons, SIGNAL( paste() ), _scrolledEditorWindow, SLOT( slotPaste() ) );
+  connect( _auxButtons, SIGNAL( save() ), _scrolledEditorWindow, SLOT( slotSave() ) );
+  connect( _auxButtons, SIGNAL( changeSyntax( RegExp::Syntax ) ), this, SLOT( setSyntax( RegExp::Syntax ) ) );
   connect( _verifyButtons, SIGNAL( autoVerify( bool ) ), this, SLOT( setAutoVerify( bool ) ) );
   connect( _verifyButtons, SIGNAL( verify() ), this, SLOT( doVerify() ) );
 
-  connect( this, SIGNAL( canUndo( bool ) ), auxButtons, SLOT( slotCanUndo( bool ) ) );
-  connect( this, SIGNAL( canRedo( bool ) ), auxButtons, SLOT( slotCanRedo( bool ) ) );
-  connect( _scrolledEditorWindow, SIGNAL( anythingSelected( bool ) ), auxButtons, SLOT( slotCanCut( bool ) ) );
-  connect( _scrolledEditorWindow, SIGNAL( anythingSelected( bool ) ), auxButtons, SLOT( slotCanCopy( bool ) ) );
-  connect( _scrolledEditorWindow, SIGNAL( anythingOnClipboard( bool ) ), auxButtons, SLOT( slotCanPaste( bool ) ) );
-  connect( _scrolledEditorWindow, SIGNAL( canSave( bool ) ), auxButtons, SLOT( slotCanSave( bool ) ) );
+  connect( this, SIGNAL( canUndo( bool ) ), _auxButtons, SLOT( slotCanUndo( bool ) ) );
+  connect( this, SIGNAL( canRedo( bool ) ), _auxButtons, SLOT( slotCanRedo( bool ) ) );
+  connect( _scrolledEditorWindow, SIGNAL( anythingSelected( bool ) ), _auxButtons, SLOT( slotCanCut( bool ) ) );
+  connect( _scrolledEditorWindow, SIGNAL( anythingSelected( bool ) ), _auxButtons, SLOT( slotCanCopy( bool ) ) );
+  connect( _scrolledEditorWindow, SIGNAL( anythingOnClipboard( bool ) ), _auxButtons, SLOT( slotCanPaste( bool ) ) );
+  connect( _scrolledEditorWindow, SIGNAL( canSave( bool ) ), _auxButtons, SLOT( slotCanSave( bool ) ) );
 
   connect( _scrolledEditorWindow, SIGNAL( verifyRegExp() ), this, SLOT( maybeVerify() ) );
 
@@ -127,17 +131,17 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   // connect( _verifier, SIGNAL( goForwardPossible( bool ) ), _verifyButtons, SLOT( enableForwardButtons( bool ) ) );
   // connect( _verifier, SIGNAL( goBackwardPossible( bool ) ), _verifyButtons, SLOT( enableBackwardButtons( bool ) ) );
 
-  auxButtons->slotCanPaste( false );
-  auxButtons->slotCanCut( false );
-  auxButtons->slotCanCopy( false );
-  auxButtons->slotCanSave( false );
+  _auxButtons->slotCanPaste( false );
+  _auxButtons->slotCanCut( false );
+  _auxButtons->slotCanCopy( false );
+  _auxButtons->slotCanSave( false );
 
 
   // Line Edit
   QHBoxLayout* layout = new QHBoxLayout( topLayout, 6 );
   QLabel* label = new QLabel( i18n("ASCII syntax:"), this );
   layout->addWidget( label );
-  _regexpEdit = new QLineEdit( this );
+  _regexpEdit = new RegExpLineEdit( this );
   layout->addWidget( _regexpEdit );
   QWhatsThis::add( _regexpEdit, i18n( "This is the regular expression in ascii syntax. You are likely only interested "
                                       "in this if you are a programmer, and need to develop a regular expression "
@@ -357,6 +361,18 @@ void KRegExpEditorPrivate::setMinimal( bool b )
     _verifier->setMinimal( b );
 }
 
+void KRegExpEditorPrivate::setSyntax( RegExp::Syntax syntax )
+{
+    RegExp::setSyntax( syntax );
+    _regexpEdit->setEditable( syntax == RegExp::Qt );
+    if ( syntax != RegExp::Qt )
+        _scrolledEditorWindow->setFocus();
+    _auxButtons->setSyntax( syntax );
+}
 
+void KRegExpEditorPrivate::setShowSyntaxCombo( bool b )
+{
+    _auxButtons->setShowSyntaxCombo( b );
+}
 
 #include "kregexpeditorprivate.moc"

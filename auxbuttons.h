@@ -2,7 +2,10 @@
 #define __AUXBUTTONS_H
 
 #include <qdockwindow.h>
+#include "regexp.h"
 class QPushButton;
+class QComboBox;
+class QLabel;
 
 
 class AuxButtons :public QDockWindow
@@ -11,6 +14,8 @@ class AuxButtons :public QDockWindow
 
 public:
     AuxButtons( QWidget* parent, const char* name );
+    void setShowSyntaxCombo( bool );
+    void setSyntax( RegExp::Syntax );
 
 signals:
     void undo();
@@ -19,7 +24,8 @@ signals:
     void copy();
     void paste();
     void save();
-  
+    void changeSyntax( RegExp::Syntax );
+
 public slots:
     void slotEnterWhatsThis();
     void slotCanUndo( bool );
@@ -28,6 +34,7 @@ public slots:
     void slotCanCopy( bool );
     void slotCanPaste( bool );
     void slotCanSave( bool );
+    void slotChangeSyntax( int );
 
 private:
     QPushButton* _undo;
@@ -36,6 +43,8 @@ private:
     QPushButton* _copy;
     QPushButton* _paste;
     QPushButton* _save;
+    QComboBox* _syntax;
+    QLabel* _syntaxLabel;
 };
 
 

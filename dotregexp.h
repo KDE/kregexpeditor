@@ -10,9 +10,9 @@
 class DotRegExp :public RegExp
 {
 public:
-	
+
 	DotRegExp( bool selected );
-	
+
 	virtual QString toString( bool markSelection ) const;
     virtual bool check( ErrorMap&, bool first, bool last );
     virtual int precedence() const { return 4;}

@@ -11,10 +11,10 @@ class PositionRegExp :public RegExp
 {
 public:
 	enum PositionType { BEGLINE, ENDLINE, WORDBOUNDARY, NONWORDBOUNDARY };
-	
+
 	PositionRegExp( bool selected, PositionType tp );
-    PositionType position() const { return _tp; }  
-	
+    PositionType position() const { return _tp; }
+
 	virtual QString toString( bool markSelection ) const;
     virtual bool check( ErrorMap&, bool first, bool last );
     virtual int precedence() const { return 4;}
@@ -24,7 +24,7 @@ public:
 
 private:
 	PositionType _tp;
-	
+
 };
 
 #endif // __POSITIONREGEXP_H

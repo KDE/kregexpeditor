@@ -11,7 +11,7 @@ class RepeatRegExp :public RegExp
 {
 public:
 	RepeatRegExp( bool selected, int lower = 0, int upper = 0, RegExp* child = 0);
-	
+
 	virtual QString toString( bool markSelection ) const;
     virtual bool check( ErrorMap&, bool first, bool last );
     virtual int precedence() const { return 3;}
@@ -23,7 +23,7 @@ public:
     virtual RegExpType type() const { return REPEAT;}
     virtual bool operator==( const RegExp& other ) const;
     virtual void replacePart( CompoundRegExp* replacement ) { _child->replacePart( replacement ); }
-    
+
 private:
 	int _lower;
 	int _upper;

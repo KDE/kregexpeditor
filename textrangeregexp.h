@@ -16,9 +16,9 @@ class TextRangeRegExp :public RegExp
 public:
 	TextRangeRegExp( bool selected );
 	virtual ~TextRangeRegExp();
-	
+
 	void addCharacter( QString ch );
-    QStringList chars() const { return _chars; } 
+    QStringList chars() const { return _chars; }
     void clearChars() { _chars.clear(); }
 
 	void addRange( QString from, QString to );

@@ -12,12 +12,12 @@ void ConcRegExp::addRegExp( RegExp *regExp )
     addChild( regExp );
 }
 
-RegExpList ConcRegExp::children() 
+RegExpList ConcRegExp::children()
 {
     return list;
 }
 
-	
+
 bool ConcRegExp::check( ErrorMap& map, bool first, bool last)
 {
     bool f = first;
@@ -39,25 +39,27 @@ QString ConcRegExp::toString( bool markSelection ) const
         QString startPar = QString::fromLocal8Bit("");
         QString endPar = QString::fromLocal8Bit("");
         if ( (*it)->precedence() < precedence() ) {
-            if ( markSelection ) 
+            if ( markSelection && _syntax == Qt )
                 startPar = QString::fromLocal8Bit("(?:");
             else
-                startPar = QString::fromLocal8Bit("(");
-            endPar = QString::fromLocal8Bit(")");
+                startPar = openPar();
+            endPar = closePar();
         }
 
-        if ( !childSelected && !isSelected() && (*it)->isSelected() ) {
+        // Note these two have different tests! They are activated in each their iteration of the loop.
+        if ( markSelection && !childSelected && !isSelected() && (*it)->isSelected() ) {
             res += QString::fromLatin1("(");
             childSelected = true;
         }
 
-        if ( childSelected && !isSelected() && !(*it)->isSelected() ) {
+        if ( markSelection && childSelected && !isSelected() && !(*it)->isSelected() ) {
             res += QString::fromLatin1(")");
             childSelected= false;
         }
+
 		res += startPar + (*it)->toString( markSelection ) + endPar;
 	}
-    if ( childSelected && !isSelected() ) {
+    if ( markSelection && childSelected && !isSelected() ) {
         res += QString::fromLatin1(")");
     }
 	return res;
@@ -80,14 +82,14 @@ QDomNode ConcRegExp::toXml( QDomDocument* doc ) const
     return top;
 }
 
-bool ConcRegExp::load( QDomElement top, const QString& version ) 
+bool ConcRegExp::load( QDomElement top, const QString& version )
 {
     Q_ASSERT( top.tagName() == QString::fromLocal8Bit( "Concatenation" ) );
-  
+
     for ( QDomNode child = top.firstChild(); !child.isNull(); child = child.nextSibling() ) {
-        if ( ! child.isElement() ) 
+        if ( ! child.isElement() )
             continue; // User might have added a comment.
-    
+
         RegExp* regexp = WidgetFactory::createRegExp( child.toElement(), version );
         if ( regexp == 0 )
             return false;
@@ -101,18 +103,18 @@ bool ConcRegExp::operator==( const RegExp& other ) const
     // TODO: Merge with AltnRegExp::operator==
     if ( list.count() == 1 )
         return ( other == *(const_cast< QPtrList<RegExp>& >(list).at(0)) );
-  
-    if ( other.type() != type() ) 
+
+    if ( other.type() != type() )
         return false;
-  
+
     const ConcRegExp& theOther = dynamic_cast<const ConcRegExp&>( other );
-  
+
     if ( list.count() != theOther.list.count() )
         return false;
-  
+
     RegExpListIt it1( list );
     RegExpListIt it2( theOther.list );
-  
+
     for ( ; *it1 && *it2 ; ) {
         if ( ! (**it1 == **it2) )
             return false;
@@ -122,7 +124,7 @@ bool ConcRegExp::operator==( const RegExp& other ) const
     return true;
 }
 
-      
+
 void ConcRegExp::replacePart( CompoundRegExp* replacement )
 {
     RegExp* otherChild = replacement->child();
@@ -141,7 +143,7 @@ void ConcRegExp::replacePart( CompoundRegExp* replacement )
         RegExpListIt it3( otherConc->list );
         bool match = true;
         int count = 0;
-    
+
         // See if replacement is a sublist of list starting from what it1 points at
         for ( ; *it2 && * it3 && match ; ) {
             if (! ( **it2 == **it3 ) )

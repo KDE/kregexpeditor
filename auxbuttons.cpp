@@ -7,11 +7,13 @@
 #include <qwhatsthis.h>
 #include <qtooltip.h>
 #include <klocale.h>
+#include <qcombobox.h>
+#include <qlabel.h>
 
 AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)
   :QDockWindow( QDockWindow::InDock, parent, name)
 {
-  QBoxLayout* layout = boxLayout();  
+  QBoxLayout* layout = boxLayout();
   KIconLoader loader;
 
   _undo = new QPushButton( this );
@@ -56,11 +58,20 @@ AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)
   layout->addWidget( button );
   connect(button, SIGNAL(clicked()), this, SLOT(slotEnterWhatsThis()));
 
+  _syntaxLabel = new QLabel( i18n("Lanuage:"), this );
+  layout->addWidget( _syntaxLabel );
+  _syntax = new QComboBox( this );
+  _syntax->insertStringList( QStringList() << i18n("Qt") << i18n("Emacs") );
+  layout->addWidget( _syntax );
+  connect( _syntax, SIGNAL( activated( int ) ), this, SLOT( slotChangeSyntax( int ) ) );
+  _syntaxLabel->hide();
+  _syntax->hide();
+
   _undo->setEnabled( false );
   _redo->setEnabled( false );
 }
 
-void AuxButtons::slotEnterWhatsThis() 
+void AuxButtons::slotEnterWhatsThis()
 {
   QWhatsThis::enterWhatsThisMode ();
 }
@@ -93,4 +104,20 @@ void AuxButtons::slotCanPaste( bool b )
 void AuxButtons::slotCanSave( bool b )
 {
   _save->setEnabled( b );
+}
+
+void AuxButtons::slotChangeSyntax( int syntax )
+{
+    emit changeSyntax( (RegExp::Syntax) syntax );
+}
+
+void AuxButtons::setShowSyntaxCombo( bool b )
+{
+    _syntaxLabel->setShown( b );
+    _syntax->setShown( b );
+}
+
+void AuxButtons::setSyntax( RegExp::Syntax syntax )
+{
+    _syntax->setCurrentItem( (int) syntax );
 }

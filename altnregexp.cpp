@@ -12,7 +12,7 @@ void AltnRegExp::addRegExp( RegExp *elm )
     addChild( elm );
 }
 
-RegExpList AltnRegExp::children() 
+RegExpList AltnRegExp::children()
 {
     return list;
 }
@@ -29,10 +29,19 @@ bool AltnRegExp::check( ErrorMap& map, bool first, bool last )
 QString AltnRegExp::toString( bool markSelection ) const
 {
 	QString res;
+
+    QString bar;
+    if ( _syntax == Qt )
+        bar = QString::fromLatin1("|");
+    else if ( _syntax == Emacs )
+        bar = QString::fromLatin1("\\|");
+    else
+        qFatal("WHAT!");
+
 	bool first = true;
     for ( RegExpListIt it(list); *it; ++it ) {
 		if ( !first ) {
-			res += QString::fromLatin1("|");
+			res += bar;
 		}
 		first = false;
         if ( markSelection && !isSelected() && (*it)->isSelected() ) {
@@ -54,14 +63,14 @@ QDomNode AltnRegExp::toXml( QDomDocument* doc ) const
     return top;
 }
 
-bool AltnRegExp::load( QDomElement top, const QString& version ) 
+bool AltnRegExp::load( QDomElement top, const QString& version )
 {
     Q_ASSERT( top.tagName() == QString::fromLocal8Bit( "Alternatives" ) );
-  
+
     for ( QDomNode child = top.firstChild(); !child.isNull(); child = child.nextSibling() ) {
         if ( ! child.isElement() )
             continue; // User might have added a comment.
-    
+
         RegExp* regexp = WidgetFactory::createRegExp( child.toElement(), version );
         if ( regexp == 0 )
             return false;
@@ -75,17 +84,17 @@ bool AltnRegExp::operator==( const RegExp& other ) const
 {
     // TODO: merge with ConcRegExp::operator==
 
-    if ( other.type() != type() ) 
+    if ( other.type() != type() )
         return false;
-  
+
     const AltnRegExp& theOther = dynamic_cast<const AltnRegExp&>( other );
-  
+
     if ( list.count() != theOther.list.count() )
         return false;
-  
+
     RegExpListIt it1( list );
     RegExpListIt it2( theOther.list );
-  
+
     for ( ; *it1 && *it2 ; ) {
         if ( ! (**it1 == **it2) )
             return false;

@@ -17,14 +17,13 @@ bool RepeatRegExp::check( ErrorMap& map, bool first, bool last )
     return ( _lower == 0 );
 }
 
-QString RepeatRegExp::toString( bool markSelection ) const
+QString RepeatRegExp::toString( bool markSelection) const
 {
-	QString cText = _child->toString( markSelection );
-	
-    QString startPar = QString::fromLocal8Bit("");
-    QString endPar = QString::fromLocal8Bit("");
+    QString cText = _child->toString( markSelection );
+    QString startPar;
+    QString endPar;
 
-    if ( markSelection ) {
+    if ( markSelection && _syntax == Qt ) {
         if ( !isSelected() && _child->isSelected()) {
             startPar = QString::fromLatin1( "(" );
             endPar = QString::fromLatin1( ")" );
@@ -35,24 +34,45 @@ QString RepeatRegExp::toString( bool markSelection ) const
         }
     }
     else if ( _child->precedence() < precedence() ) {
-        startPar = QString::fromLocal8Bit("(");
-        endPar = QString::fromLocal8Bit(")");
+        startPar = openPar();
+        endPar = closePar();
     }
-  
-	if (_lower == 0 && _upper == -1) {
-		return startPar + cText +endPar + QString::fromLocal8Bit("*");
-	}
-	else if ( _lower == 0 && _upper == 1 ) {
-		return startPar + cText + endPar + QString::fromLocal8Bit("?");
-	}
-	else if ( _lower == 1 && _upper == -1 ) {
-		return startPar + cText + endPar + QString::fromLocal8Bit("+");
-	}
-	else {
-        return startPar + cText + endPar + QString::fromLocal8Bit("{") +
-            QString::number( _lower ) + QString::fromLocal8Bit(",") +
-            QString::number( _upper ) + QString::fromLocal8Bit("}");
-	}
+
+    if (_lower == 0 && _upper == -1) {
+        return startPar + cText +endPar + QString::fromLocal8Bit("*");
+    }
+    else if ( _lower == 0 && _upper == 1 ) {
+        return startPar + cText + endPar + QString::fromLocal8Bit("?");
+    }
+    else if ( _lower == 1 && _upper == -1 ) {
+        return startPar + cText + endPar + QString::fromLocal8Bit("+");
+    }
+    else {
+        if ( _syntax == Qt ) {
+            return startPar + cText + endPar + QString::fromLocal8Bit("{") +
+                QString::number( _lower ) + QString::fromLocal8Bit(",") +
+                QString::number( _upper ) + QString::fromLocal8Bit("}");
+        }
+        else if ( _syntax == Emacs ) {
+            QString res = QString::fromLatin1("");
+            for ( int i = 0; i < _lower; ++i ) {
+                res += QString::fromLatin1( "(" ) + cText + QString::fromLatin1( ")" );
+            }
+            if ( _upper != -1 ) {
+                for ( int i = _lower; i < _upper; ++i ) {
+                    res += QString::fromLatin1("(") + cText + QString::fromLatin1(")?");
+                }
+            }
+            else
+                res += QString::fromLatin1("+");
+
+            return startPar + res + endPar;
+        }
+        else {
+            qFatal("What?!");
+            return QString::null;
+        }
+    }
 }
 
 QDomNode RepeatRegExp::toXml( QDomDocument* doc ) const
@@ -64,7 +84,7 @@ QDomNode RepeatRegExp::toXml( QDomDocument* doc ) const
     return top;
 }
 
-bool RepeatRegExp::load( QDomElement top, const QString& version ) 
+bool RepeatRegExp::load( QDomElement top, const QString& version )
 {
     Q_ASSERT( top.tagName() == QString::fromLocal8Bit( "Repeat" ) );
     QString lower = top.attribute( QString::fromLocal8Bit("lower"), QString::fromLocal8Bit("0") );
@@ -86,7 +106,7 @@ bool RepeatRegExp::load( QDomElement top, const QString& version )
                             i18n("Error While Loading From XML File") ) ;
         _upper = -1;
     }
-  
+
     _child = readRegExp( top, version );
     if ( _child ) {
         addChild( _child );
@@ -104,7 +124,7 @@ bool RepeatRegExp::operator==( const RegExp& other ) const
     const RepeatRegExp& theOther = dynamic_cast<const RepeatRegExp&>( other );
     if ( _lower != theOther._lower || _upper != theOther._upper )
         return false;
-  
+
     return (*_child == *(theOther._child) );
 }
 

@@ -5,12 +5,12 @@
 #include <qfile.h>
 #include <qtextstream.h>
 #include "../kregexpeditorgui.h"
-class ShootABug :public QObject 
+class ShootABug :public QObject
 {
 public:
   virtual bool eventFilter( QObject* recv, QEvent* event )
   {
-    if ( event->type() == QEvent::MouseButtonPress && 
+    if ( event->type() == QEvent::MouseButtonPress &&
          dynamic_cast<QMouseEvent*>(event)->state() == Qt::ControlButton ) {
       // Ctrl + left mouse click.
 
@@ -32,18 +32,21 @@ int main( int argc, char* argv[] )
 {
   KCmdLineArgs::init(argc, argv, "RegExp Example","","");
   KApplication myapp( argc, argv );
-  
+
   qApp->installEventFilter( new ShootABug() );
 
   KRegExpEditorGUIDialog* iface = new KRegExpEditorGUIDialog( 0, "_editor", QStringList() );
   iface->setRegExp( QString::fromLatin1( "#include" ) );
   iface->doSomething( "setMinimal", (void*) false );
+  iface->doSomething( "setSyntax", (void*) 1 );
+  iface->doSomething( "setShowSyntaxCombo", (bool*) true );
+
   QFile file("/packages/kde-src/kdeutils/kregexpeditor/test/main.cpp");
   file.open(IO_ReadOnly);
   QTextStream stream( &file);
   QString txt = stream.read();
   iface->setMatchText( txt );
-  
+
   iface->exec();
 }
 

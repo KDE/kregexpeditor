@@ -18,11 +18,19 @@ bool LookAheadRegExp::check( ErrorMap& map, bool , bool last )
 
 QString LookAheadRegExp::toString( bool markSelection ) const
 {
-    if ( _tp == POSITIVE )
-        return QString::fromLatin1( "(?=" ) + _child->toString( markSelection ) + QString::fromLocal8Bit( ")" );
-    else
-        return QString::fromLatin1( "(?!" ) + _child->toString( markSelection ) + QString::fromLocal8Bit( ")" );
+    if ( _syntax == Qt ) {
+        if ( _tp == POSITIVE )
+            return QString::fromLatin1( "(?=" ) + _child->toString( markSelection ) + QString::fromLocal8Bit( ")" );
+        else
+            return QString::fromLatin1( "(?!" ) + _child->toString( markSelection ) + QString::fromLocal8Bit( ")" );
+    }
+    else {
+        // PENDING(blackie) enhance error handling
+        qWarning( "Look ahead not supported");
+        return QString::null;
+    }
 }
+
 
 QDomNode LookAheadRegExp::toXml( QDomDocument* doc ) const
 {
@@ -36,7 +44,7 @@ QDomNode LookAheadRegExp::toXml( QDomDocument* doc ) const
     return top;
 }
 
-bool LookAheadRegExp::load( QDomElement top, const QString& version ) 
+bool LookAheadRegExp::load( QDomElement top, const QString& version )
 {
     _child = readRegExp( top, version );
     if ( _child ) {
@@ -52,11 +60,11 @@ bool LookAheadRegExp::operator==( const RegExp& other ) const
 {
     if ( type() != other.type() )
         return false;
-  
+
     const LookAheadRegExp& theOther = dynamic_cast<const LookAheadRegExp&>( other );
-  
+
     if ( lookAheadType() != theOther.lookAheadType() )
         return false;
-  
+
     return ( *_child == *(theOther._child) );
 }

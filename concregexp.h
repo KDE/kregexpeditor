@@ -12,11 +12,11 @@ class ConcRegExp :public RegExp
 {
 public:
 	ConcRegExp( bool selected );
-	
+
 	void addRegExp( RegExp *);
     RegExpList children();
     RegExp* lastRegExp();
-	
+
 	virtual QString toString( bool markSelection ) const;
     virtual bool check( ErrorMap&, bool first, bool last );
     virtual int precedence() const { return 2;}

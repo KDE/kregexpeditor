@@ -9,10 +9,10 @@
 class CompoundRegExp :public RegExp
 {
 public:
-	CompoundRegExp( bool selected, const QString& title = QString::null, 
+	CompoundRegExp( bool selected, const QString& title = QString::null,
                     const QString& description = QString::null,
                     bool hidden = false, bool allowReplace = false, RegExp* child = 0);
-	
+
 	virtual QString toString( bool markSelection ) const;
     virtual bool check( ErrorMap&, bool first, bool last );
     virtual int precedence() const { return _child->precedence();}
@@ -21,7 +21,7 @@ public:
     QString title() const { return _title; }
     QString description() const { return _description; }
     RegExp* child() const { return _child; }
-    bool hidden() const { return _hidden; }    
+    bool hidden() const { return _hidden; }
     bool allowReplace() const { return _allowReplace; }
     virtual RegExpType type() const { return COMPOUND;}
     virtual bool operator==( const RegExp& other ) const;

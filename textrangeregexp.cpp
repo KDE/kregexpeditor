@@ -62,16 +62,16 @@ QString TextRangeRegExp::toString( bool ) const
     for ( QPtrListIterator<StringPair> it(_ranges); *it; ++it ) {
 		txt.append((*it)->first()+ QString::fromLatin1("-")+ (*it)->second());
 	}
-	
+
 	// Ok, its time to build each part of the regexp, here comes the rule:
-	// if a ']' is one of the characters, then it must be the first one in the 
+	// if a ']' is one of the characters, then it must be the first one in the
 	// list (after then opening '[' and eventually negation '^')
 	// Next if a '-' is one of the characters, then it must come
 	// finally if '^' is one of the characters, then it must not be the first
 	// one!
 
 	QString res = QString::fromLatin1("[");
-	
+
 	if ( _negate )
 		res.append(QString::fromLatin1("^"));
 
@@ -80,7 +80,7 @@ QString TextRangeRegExp::toString( bool ) const
 	if ( foundParenthesis ) {
 		res.append(QString::fromLatin1("]"));
 	}
-	
+
 	// a '-' must be the first character ( only comming after a ']')
 	if ( foundDash ) {
 		res.append(QString::fromLatin1("-"));
@@ -101,7 +101,7 @@ QString TextRangeRegExp::toString( bool ) const
         res += QString::fromLocal8Bit("\\w");
     if ( _nonWordChar )
         res += QString::fromLocal8Bit("\\W");
-  
+
 
 	if ( foundCarrot ) {
 		res.append( QChar( '^' ) );
@@ -130,13 +130,13 @@ QDomNode TextRangeRegExp::toXml( QDomDocument* doc ) const
         top.setAttribute( QString::fromLocal8Bit("wordChar"), true );
     if ( _nonWordChar )
         top.setAttribute( QString::fromLocal8Bit("nonWordChar"), true );
-  
+
     for ( QStringList::ConstIterator it = _chars.begin(); it != _chars.end(); ++it ) {
         QDomElement elm = doc->createElement( QString::fromLocal8Bit( "Character" ) );
         elm.setAttribute( QString::fromLocal8Bit( "char" ), *it );
         top.appendChild( elm );
     }
-  
+
     for ( QPtrListIterator<StringPair> it(_ranges); *it; ++it ) {
         QDomElement elm = doc->createElement( QString::fromLocal8Bit( "Range" ) );
         elm.setAttribute( QString::fromLocal8Bit( "from" ), (*it)->first() );
@@ -146,13 +146,13 @@ QDomNode TextRangeRegExp::toXml( QDomDocument* doc ) const
     return top;
 }
 
-bool TextRangeRegExp::load( QDomElement top, const QString& /*version*/ ) 
+bool TextRangeRegExp::load( QDomElement top, const QString& /*version*/ )
 {
     Q_ASSERT( top.tagName() == QString::fromLocal8Bit( "TextRange" ) );
     QString str;
     QString one = QString::fromLocal8Bit("1");
     QString zero = QString::fromLocal8Bit("0");
-  
+
     str = top.attribute( QString::fromLocal8Bit("negate"), zero );
     _negate = ( str == one );
 
@@ -178,7 +178,7 @@ bool TextRangeRegExp::load( QDomElement top, const QString& /*version*/ )
         if ( !node.isElement() )
             continue; // Skip comments.
         QDomElement child = node.toElement();
-    
+
         if ( child.tagName() == QString::fromLocal8Bit( "Character" ) ) {
             QString ch = child.attribute( QString::fromLocal8Bit( "char" ) );
             addCharacter( ch );

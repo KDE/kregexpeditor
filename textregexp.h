@@ -11,11 +11,11 @@ class TextRegExp :public RegExp
 {
 public:
 	TextRegExp( bool selected, QString text = QString::null);
-	
+
 	virtual QString toString( bool markSelection ) const;
     virtual bool check( ErrorMap&, bool first, bool last );
-    virtual int precedence() const { 
-        if ( _text.length() > 1 ) 
+    virtual int precedence() const {
+        if ( _text.length() > 1 )
             return 2;
         else
             return 4;
@@ -26,11 +26,11 @@ public:
     void append( QString str);
     virtual RegExpType type() const { return TEXT;}
     virtual bool operator==( const RegExp& other ) const;
-  
+
 
 protected:
-	QString escape( QString text, QPtrList<QChar> chars, QChar escapeChar) const; 
-	
+	QString escape( QString text, QValueList<QChar> chars, QChar escapeChar) const;
+
 private:
 	QString _text;
 };

@@ -19,7 +19,7 @@ QDomNode DotRegExp::toXml( QDomDocument* doc ) const
     return doc->createElement( QString::fromLocal8Bit("AnyChar") );
 }
 
-bool DotRegExp::load( QDomElement /* top */, const QString& /*version*/ ) 
+bool DotRegExp::load( QDomElement /* top */, const QString& /*version*/ )
 {
     // Nothing to do
     return true;

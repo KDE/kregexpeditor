@@ -9,20 +9,23 @@ TextRegExp::TextRegExp( bool selected, QString text) :RegExp( selected )
 
 QString TextRegExp::toString( bool ) const
 {
-	QPtrList<QChar> list;
-	list.append(new QChar('$'));
-	list.append(new QChar('^'));
-	list.append(new QChar('.'));
-	list.append(new QChar('*'));
-	list.append(new QChar('+'));
-	list.append(new QChar('?'));
-	list.append(new QChar('['));
-	list.append(new QChar(']'));
-	list.append(new QChar('{'));
-	list.append(new QChar('}'));
-	list.append(new QChar('('));
-	list.append(new QChar(')'));
-	list.append(new QChar('\\'));
+	QValueList<QChar> list;
+	list << QChar('$')
+         << QChar('^')
+         << QChar('.')
+         << QChar('*')
+         << QChar('+')
+         << QChar('?')
+         << QChar('[')
+         << QChar(']')
+         << QChar('\\');
+    if ( _syntax == Qt ) {
+        list << QChar('{')
+             << QChar('}')
+             << QChar('(')
+             << QChar(')');
+    }
+
 	QString res = escape( _text, list, QChar('\\') );
 	return res;
 }
@@ -32,12 +35,12 @@ bool TextRegExp::check( ErrorMap&, bool, bool )
     return false;
 }
 
-QString TextRegExp::escape( QString text, QPtrList<QChar> chars, QChar escapeChar) const
+QString TextRegExp::escape( QString text, QValueList<QChar> chars, QChar escapeChar) const
 {
 	QString res;
 	for (unsigned int i=0; i<text.length(); i++) {
 		for (unsigned int j=0; j<chars.count(); j++) {
-			if ( text.at(i) == *chars.at(j) ) {
+			if ( text.at(i) == (chars[j]) ) {
 				res.append( escapeChar );
 				break;
 			}
@@ -46,7 +49,7 @@ QString TextRegExp::escape( QString text, QPtrList<QChar> chars, QChar escapeCha
 	}
 
 	return res;
-	
+
 }
 
 void TextRegExp::append( QString str )
@@ -62,7 +65,7 @@ QDomNode TextRegExp::toXml( QDomDocument* doc ) const
     return top;
 }
 
-bool TextRegExp::load( QDomElement top, const QString& /*version*/) 
+bool TextRegExp::load( QDomElement top, const QString& /*version*/)
 {
     Q_ASSERT( top.tagName() == QString::fromLocal8Bit( "Text" ) );
     if ( top.hasChildNodes() ) {
@@ -78,18 +81,18 @@ bool TextRegExp::load( QDomElement top, const QString& /*version*/)
     else {
         _text = QString::fromLatin1( "" );
     }
-  
+
     return true;
 }
 
-bool TextRegExp::operator==( const RegExp& other ) const { 
+bool TextRegExp::operator==( const RegExp& other ) const {
     if ( other.type() != type() )
         return false;
-  
+
     const TextRegExp& theOther = dynamic_cast<const TextRegExp&>( other );
     if ( text() == theOther.text() )
         return true;
-  
+
     return false;
 }
 

@@ -11,10 +11,10 @@ class AltnRegExp :public RegExp
 {
 public:
 	AltnRegExp( bool selected );
-	
+
 	void addRegExp( RegExp * );
     RegExpList children();
-	
+
 	virtual QString toString( bool markSelection ) const;
     virtual bool check( ErrorMap&, bool first, bool last );
     virtual int precedence() const { return 1;}
@@ -23,7 +23,7 @@ public:
     virtual RegExpType type() const { return ALTN;}
     virtual bool operator==( const RegExp& other ) const;
     virtual void replacePart( CompoundRegExp* replacement );
-  
+
 private:
 	RegExpList list;
 };

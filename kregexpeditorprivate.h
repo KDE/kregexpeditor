@@ -17,11 +17,13 @@ class UserDefinedRegExps;
 class QSplitter;
 class Verifier;
 class VerifyButtons;
+class AuxButtons;
+class RegExpLineEdit;
 
 /**
    Widget used to build a regular expression
 
-   @author Jesper Kjær Pedersen <blackie@kde.org> 
+   @author Jesper Kjær Pedersen <blackie@kde.org>
    @version 0.1
 **/
 class KRegExpEditorPrivate  :public QWidget
@@ -33,6 +35,7 @@ public:
     QString regexp();
     void setMinimal( bool );
     void setCaseSensitive( bool );
+    void setShowSyntaxCombo( bool );
 
 protected slots:
     void slotUpdateEditor( const QString & );
@@ -50,28 +53,30 @@ public slots:
     void slotRedo();
     void slotSetRegexp( QString regexp );
     void setMatchText( const QString& text );
+    void setSyntax( RegExp::Syntax );
 
 signals:
     void canUndo( bool );
     void canRedo( bool );
     void changes( bool );
 
-protected:  
+protected:
     void recordUndoInfo();
     void emitUndoRedoSignals();
 
 private:
 	RegExpScrolledEditorWindow* _scrolledEditorWindow;
     VerifyButtons* _verifyButtons;
+    AuxButtons *_auxButtons;
     InfoPage* _info;
-    QLineEdit* _regexpEdit;
+    RegExpLineEdit* _regexpEdit;
     QSplitter* _editor;
     bool _updating;
     QLabel* _error;
     QPtrStack<RegExp> _undoStack;
     QPtrStack<RegExp> _redoStack;
     UserDefinedRegExps*  _userRegExps;
-    QTimer* _timer;  
+    QTimer* _timer;
     Verifier* _verifier;
     bool _autoVerify;
     ErrorMap _errorMap;

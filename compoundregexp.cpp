@@ -2,7 +2,7 @@
 #include "widgetfactory.h"
 #include <klocale.h>
 
-CompoundRegExp::CompoundRegExp( bool selected, const QString& title, const QString& description, bool hidden, 
+CompoundRegExp::CompoundRegExp( bool selected, const QString& title, const QString& description, bool hidden,
                                 bool allowReplace, RegExp* child)
     : RegExp( selected ), _title( title ), _description( description ), _hidden( hidden ), _allowReplace( allowReplace ), _child( child )
 {
@@ -15,15 +15,15 @@ bool CompoundRegExp::check( ErrorMap& map, bool first, bool last )
     return _child->check( map, first, last );
 }
 
-QString CompoundRegExp::toString( bool markSelection ) const 
+QString CompoundRegExp::toString( bool markSelection ) const
 {
-    if ( markSelection && !isSelected() && _child->isSelected() ) 
-        return QString::fromLatin1("(") + _child->toString( markSelection ) + QString::fromLatin1(")");
+    if ( markSelection && !isSelected() && _child->isSelected() )
+        return openPar() + _child->toString( markSelection ) + closePar();
     else
         return  _child->toString( markSelection );
 }
 
-QDomNode CompoundRegExp::toXml( QDomDocument* doc ) const 
+QDomNode CompoundRegExp::toXml( QDomDocument* doc ) const
 {
     QDomElement top = doc->createElement( QString::fromLocal8Bit( "Compound" ) );
     if (_hidden)
@@ -40,24 +40,24 @@ QDomNode CompoundRegExp::toXml( QDomDocument* doc ) const
     QDomText descriptionTxt = doc->createTextNode( _description );
     description.appendChild( descriptionTxt );
     top.appendChild( description );
-  
+
     top.appendChild( _child->toXml( doc ) );
 
     return top;
 }
-  
-  
-bool CompoundRegExp::load( QDomElement top, const QString& version ) 
+
+
+bool CompoundRegExp::load( QDomElement top, const QString& version )
 {
     Q_ASSERT( top.tagName() == QString::fromLocal8Bit("Compound") );
     QString str = top.attribute( QString::fromLocal8Bit( "hidden" ), QString::fromLocal8Bit("0") );
     _hidden = true; // alway hidden. (str == QString::fromLocal8Bit("1") );
-  
+
     str = top.attribute( QString::fromLocal8Bit( "allowReplace" ), QString::fromLocal8Bit("0") );
     _allowReplace = (str == QString::fromLocal8Bit("1") );
-  
+
     for ( QDomNode node = top.firstChild(); !node.isNull(); node = node.nextSibling() ) {
-        if ( !node.isElement() ) 
+        if ( !node.isElement() )
             continue; // skip past comments.
         QString txt;
         QDomElement child = node.toElement();

@@ -13,7 +13,7 @@ const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
 
 
 KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent, const char *name,
-	                           const QStringList & ) 
+	                           const QStringList & )
   : QWidget( parent, name)
 {
   QHBoxLayout* layout = new QHBoxLayout( this );
@@ -21,7 +21,7 @@ KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent, const char *name,
   layout->addWidget( _editor );
   connect( _editor, SIGNAL( canUndo(bool) ), this, SIGNAL( canUndo(bool) ) );
   connect( _editor, SIGNAL( canRedo(bool) ), this, SIGNAL( canRedo(bool) ) );
-  connect( _editor, SIGNAL( changes(bool) ), this, SIGNAL( changes(bool) ) );  
+  connect( _editor, SIGNAL( changes(bool) ), this, SIGNAL( changes(bool) ) );
 }
 
 QString KRegExpEditorGUI::regExp() const
@@ -44,7 +44,7 @@ void KRegExpEditorGUI::setRegExp( const QString &regexp )
   _editor->slotSetRegexp( regexp );
 }
 
-KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent, 
+KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent,
                                                 const char *name,
                                                 const QStringList & )
   : KDialogBase( KDialogBase::Plain, i18n("Regular Expression Editor"),
@@ -55,7 +55,7 @@ KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent,
   QVBoxLayout* layout = new QVBoxLayout( frame );
   layout->setAutoAdd( true );
   _editor = new KRegExpEditorGUI( frame );
-  
+
   connect( _editor, SIGNAL( canUndo(bool) ), this, SIGNAL( canUndo(bool) ) );
   connect( _editor, SIGNAL( canRedo(bool) ), this, SIGNAL( canRedo(bool) ) );
   connect( _editor, SIGNAL( changes(bool) ), this, SIGNAL( changes(bool) ) );
@@ -84,18 +84,24 @@ void KRegExpEditorGUIDialog::undo()
   _editor->undo();
 }
 
-void KRegExpEditorGUIDialog::doSomething( QString method, void* arguments ) 
-{ 
+void KRegExpEditorGUIDialog::doSomething( QString method, void* arguments )
+{
     _editor->doSomething( method, arguments );
 }
 
-void KRegExpEditorGUI::doSomething( QString method, void* arguments ) 
+void KRegExpEditorGUI::doSomething( QString method, void* arguments )
 {
     if ( method == QString::fromLatin1( "setCaseSensitive" ) ) {
         _editor->setCaseSensitive( (bool) arguments );
     }
     else if ( method == QString::fromLatin1("setMinimal") ) {
         _editor->setMinimal( (bool) arguments );
+    }
+    else if ( method == QString::fromLatin1("setSyntax") ) {
+        _editor->setSyntax( (RegExp::Syntax) (int) arguments );
+    }
+    else if ( method == QString::fromLatin1("setShowSyntaxCombo") ) {
+        _editor->setShowSyntaxCombo( (bool) arguments );
     }
     else {
         qFatal( QString::fromLatin1("Method '%1' is not valid!").arg(method).latin1() );
@@ -113,7 +119,7 @@ void KRegExpEditorGUI::setMatchText( const QString& txt )
 }
 
 typedef K_TYPELIST_2( KRegExpEditorGUI, KRegExpEditorGUIDialog ) Products;
-K_EXPORT_COMPONENT_FACTORY( libkregexpeditorgui, 
+K_EXPORT_COMPONENT_FACTORY( libkregexpeditorgui,
                             KGenericFactory<Products>( "kregexpeditor" ) );
 
 #include "kregexpeditorgui.moc"

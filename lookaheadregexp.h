@@ -11,9 +11,9 @@ class LookAheadRegExp :public RegExp
 {
 public:
     enum TYPE { POSITIVE, NEGATIVE };
-  
+
 	LookAheadRegExp( bool selected, TYPE tp, RegExp* child = 0);
-	
+
 	virtual QString toString( bool markSelection ) const;
     virtual bool check( ErrorMap&, bool first, bool last );
     virtual int precedence() const { return 4;}
@@ -24,7 +24,7 @@ public:
     virtual RegExpType type() const { return LOOKAHEAD;}
     virtual bool operator==( const RegExp& other ) const;
     virtual void replacePart( CompoundRegExp* replacement ) { _child->replacePart( replacement ); }
-  
+
 private:
 	RegExp* _child;
     TYPE _tp;

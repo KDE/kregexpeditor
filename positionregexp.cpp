@@ -25,10 +25,26 @@ QString PositionRegExp::toString( bool ) const
 	case ENDLINE:
 		return QString::fromLatin1("$");
 	case WORDBOUNDARY:
-		return QString::fromLatin1("\\b");
+    {
+        if ( _syntax == Qt )
+            return QString::fromLatin1("\\b");
+        else {
+            // PENDING(blackie) enhance error handling
+            qWarning("Word boundary is not supported in Emacs syntax");
+            return QString::null;
+        }
+    }
 	case NONWORDBOUNDARY:
-		return QString::fromLatin1("\\B");
+    {
+        if ( _syntax == Qt )
+            return QString::fromLatin1("\\B");
+        else {
+            // PENDING(blackie) enhance error handling
+            qWarning("Non Word boundary is not supported in Emacs syntax");
+            return QString::null;
+        }
 	}
+    }
 	Q_ASSERT( false );
 	return QString::fromLatin1("");
 }
@@ -44,7 +60,7 @@ QDomNode PositionRegExp::toXml( QDomDocument* doc ) const
     return QDomNode();
 }
 
-bool PositionRegExp::load( QDomElement /* top */, const QString& /*version*/ ) 
+bool PositionRegExp::load( QDomElement /* top */, const QString& /*version*/ )
 {
     // Nothing to do.
     return true;
