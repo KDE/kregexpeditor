@@ -34,6 +34,7 @@ RegExpEditorWindow::RegExpEditorWindow( QWidget *parent, const char *name)
   accel->connectItem( accel->insertItem( CTRL+Key_X ), this, SLOT( slotCut() ) );
   accel->connectItem( accel->insertItem( CTRL+Key_V ), this, SLOT( slotStartPasteAction() ) );
   accel->connectItem( accel->insertItem( Key_Escape ), this, SLOT( slotEndActions() ) );
+  accel->connectItem( accel->insertItem( CTRL+Key_S ), this, SLOT( slotSave() ) );
 }
 
 RegExp* RegExpEditorWindow::regExp() const

@@ -98,7 +98,8 @@ void RegExpWidget::mousePressEvent ( QMouseEvent* event )
   if ( event->button() == LeftButton ) {
     if ( ! _editorWindow->pointSelected( QCursor::pos() ) ) {
       _editorWindow->clearSelection( true );
-      if ( ! dynamic_cast<DragAccepter*>(this) && ! dynamic_cast<ConcWidget*>(this) ) {
+        qDebug("%p, %s", dynamic_cast<DragAccepter*>(this), this->name() );
+      if ( dynamic_cast<DragAccepter*>(this) == 0 && dynamic_cast<ConcWidget*>(this) == 0 ) {
         selectWidget( true );
       }
     }
@@ -110,7 +111,12 @@ void RegExpWidget::mousePressEvent ( QMouseEvent* event )
   else if ( event->button() == RightButton ) {
     _editorWindow->showRMBMenu( true );
   }
-  QWidget::mousePressEvent( event );
+  
+  // currently (Qt3.0) it seems like qt do not accept that the accept flag is set,
+  // and thus sends the event to the parent - given that the following line is in.
+  // It doesn't make any change to leave it out.
+  // 25 Oct. 2001 19:03 -- Jesper K. Pedersen 
+  //  QWidget::mousePressEvent( event );
 }
 
 void RegExpWidget::mouseReleaseEvent( QMouseEvent* )

@@ -8,7 +8,7 @@
 
 AltnWidget::AltnWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                        const char *name)
-  :MultiContainerWidget(editorWindow, parent, name)
+  :MultiContainerWidget(editorWindow, parent, name == 0 ? "AltnWidget" : name)
 {
   DragAccepter *accepter = new DragAccepter(editorWindow, this);
   accepter->resize(0,0); // See note (1) in Comments
