@@ -214,6 +214,7 @@ void RegExpEditorWindow::paintEvent( QPaintEvent* event )
 void RegExpEditorWindow::slotCut()
 {
   cut( QCursor::pos() );
+  emit change();
 }
 
 void RegExpEditorWindow::cut( QPoint pos )
