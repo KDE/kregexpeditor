@@ -45,8 +45,8 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     QBoxLayout* layout = boxLayout();
 
     _verify =  new QToolButton(this);
-    QPixmap icon = Util::getSystemIcon( QString::fromLatin1("spellcheck"));
-    _verify->setPixmap( icon );
+    QIconSet icon = Util::getSystemIconSet( QString::fromLatin1("spellcheck"));
+    _verify->setIconSet( icon );
     QToolTip::add( _verify, i18n( "Verify regular expression" ) );
     QWhatsThis::add( _verify, i18n("Shows what part of the regular expression is being matched in the <i>verifier window</i>."
                                    "(The window below the graphical editor window)."));

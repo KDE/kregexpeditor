@@ -43,3 +43,16 @@ QPixmap Util::getSystemIcon( const QString& name )
 #endif
 
 }
+
+QIconSet Util::getSystemIconSet( const QString& name )
+{
+#ifdef QT_ONLY
+    QPixmap pix;
+    pix.convertFromImage( qembed_findImage( name ) );
+    return QIconSet( pix );
+#else
+  KIconLoader loader;
+  return loader.loadIconSet( name, KIcon::Toolbar);
+#endif
+
+}
