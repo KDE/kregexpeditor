@@ -40,14 +40,19 @@ void indexWindow::hideEvent(QHideEvent *h)
 }
 
 
-int indexWindow::exec(const QPoint &start, int width) 
+int indexWindow::exec(const QPoint & /*start*/, int /*width*/)
 {
-  // calculate the height of all the elements together.
+    // This code is not xinerama safe, on the other hand this part of the widget
+    // is not used in KRegExpEditor. This is part of a widget which has
+    // never been completed, but which is used partly by KRegExpEditor.
+    // 23 Feb. 2003 11:28 -- Jesper K. Pedersen
+/*
+    // calculate the height of all the elements together.
   // I need to do it this way, as sizeHint doesn't report the correct size
   // and itemHeight doesn't neither.
   int elm_h = lb->item(0)->height(lb) * lb->count();
   elm_h += 2*lb->frameWidth();
-  
+
   QWidget *desktop = QApplication::desktop();
   int desktop_h = desktop->height();
   int rest_h = desktop_h - start.y();
@@ -58,11 +63,12 @@ int indexWindow::exec(const QPoint &start, int width)
   if (rest_h < 200 && elm_h > 200) {
     start_y = desktop_h-QMIN(elm_h,200);
   }
-  
+
   setGeometry(start.x(), start_y, width, QMIN(elm_h, below_h));
   show();
   qApp->enter_loop();
   return itemSelected;
+*/
 }
 
 #include "indexWindow.moc"
