@@ -26,24 +26,27 @@ class LimitedCharLineEdit;
 
 class CharSelector :public QWidget
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
-  CharSelector( QWidget* parent, const char* name = 0 );
-  QString text() const;
-  void setText( QString text );
-  bool isEmpty() const;
+    CharSelector( QWidget* parent, const char* name = 0 );
+    QString text() const;
+    void setText( QString text );
+    bool isEmpty() const;
+
+protected:
+    void fillComboBox();
 
 private slots:
-  void slotNewItem( int which );
+    void slotNewItem( int which );
 
 private:
-  QComboBox* _type;
-  QWidgetStack* _stack;
-  LimitedCharLineEdit* _normal;
-  LimitedCharLineEdit* _hex;
-  LimitedCharLineEdit* _oct;
-  int _oldIndex;
+    QComboBox* _type;
+    QWidgetStack* _stack;
+    LimitedCharLineEdit* _normal;
+    LimitedCharLineEdit* _hex;
+    LimitedCharLineEdit* _oct;
+    int _oldIndex;
 };
 
 #endif // __CHARSELECTOR_H

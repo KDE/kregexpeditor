@@ -54,7 +54,7 @@ public:
     QString regexp();
     void setMinimal( bool );
     void setCaseSensitive( bool );
-    static RegExpConverter* converter();
+    void setAllowNonQtSyntax( bool );
 
 protected slots:
     void slotUpdateEditor( const QString & );
@@ -101,7 +101,6 @@ private:
     Verifier* _verifier;
     bool _autoVerify;
     ErrorMap _errorMap;
-    static RegExpConverter* _converter;
 };
 
 #endif

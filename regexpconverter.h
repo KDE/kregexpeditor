@@ -24,7 +24,9 @@ public:
         WordStart = 0x04,
         WordEnd = 0x08,
         PosLookAhead = 0x10,
-        NegLookAhead = 0x20
+        NegLookAhead = 0x20,
+        CharacterRangeNonItems = 0x40,
+        ExtRange = 0x80
     };
 
     virtual bool canParse() = 0;
@@ -33,6 +35,9 @@ public:
     virtual RegExp* parse( const QString&, bool* ok );
     QString toStr( RegExp*, bool markSelection );
     virtual RegexpHighlighter* highlighter( QTextEdit* );
+
+    static void setCurrent( RegExpConverter* );
+    static RegExpConverter* current();
 
 protected:
     virtual QString toString( AltnRegExp*, bool markSelection ) = 0;
@@ -45,6 +50,9 @@ protected:
     virtual QString toString( RepeatRegExp*, bool markSelection ) = 0;
     virtual QString toString( TextRegExp*, bool markSelection ) = 0;
     QString escape( QString text, QValueList<QChar> chars, QChar escapeChar) const;
+
+private:
+    static RegExpConverter* _current;
 };
 
 #endif /* REGEXPCONVERTER_H */

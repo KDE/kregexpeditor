@@ -17,10 +17,10 @@
  **/
 
 #ifdef QT_ONLY
-  #include "compat.h"
+#include "compat.h"
 #else
-  #include <klocale.h>
-  #include "charselector.moc"
+#include <klocale.h>
+#include "charselector.moc"
 #endif
 
 #include "charselector.h"
@@ -28,6 +28,7 @@
 #include <limitedcharlineedit.h>
 #include <qcombobox.h>
 #include <qstringlist.h>
+#include "regexpconverter.h"
 
 /**
    In the class CharSelector, three LimitedCharLineEdit are used.
@@ -39,18 +40,18 @@
 */
 class StackContainer :public QWidget
 {
- public:
-  StackContainer( QWidget* child, QWidget* parent ) : QWidget( parent )
-    {
-      QHBoxLayout* layout = new QHBoxLayout( this );
-      child->reparent( this, QPoint(0,0), false );
-      layout->addWidget( child );
-      layout->addStretch( 1 );
-    }
+public:
+    StackContainer( QWidget* child, QWidget* parent ) : QWidget( parent )
+        {
+            QHBoxLayout* layout = new QHBoxLayout( this );
+            child->reparent( this, QPoint(0,0), false );
+            layout->addWidget( child );
+            layout->addStretch( 1 );
+        }
 };
 
 CharSelector::CharSelector( QWidget* parent, const char* name )
-  :QWidget( parent, name ), _oldIndex(0)
+    :QWidget( parent, name ), _oldIndex(0)
 {
   QStringList items;
   QHBoxLayout* layout = new QHBoxLayout( this, 0, 6 );
@@ -106,11 +107,18 @@ void CharSelector::slotNewItem( int which )
     _oct->setEnabled( false );
   }
 
-  _oldIndex = which;
+    _oldIndex = which;
 }
 
 void CharSelector::setText( QString text )
 {
+    // This is the best I can do about missing character range features, unless all of
+    // textrangeregexp is to be reworked. The problem is that textrangeregexp only allows to
+    // get the characters, which would be something like \a, but \a does not work with say Emacs
+    // style regexps -- ko28 Sep. 2003 10:55 -- Jesper K. Pedersen
+    bool enabled = ( RegExpConverter::current()->features() & RegExpConverter::ExtRange );
+    _type->setEnabled( enabled );
+
   if ( text.at(0) == QChar('\\') ) {
     if ( text.at(1) == QChar('x') ) {
       _hex->setText(text.mid(2));

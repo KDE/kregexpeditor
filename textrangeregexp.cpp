@@ -138,7 +138,7 @@ bool TextRangeRegExp::load( QDomElement top, const QString& /*version*/ )
 
 bool TextRangeRegExp::operator==( const RegExp& other ) const
 {
-    return ( KRegExpEditorPrivate::converter()->toStr( const_cast<TextRangeRegExp*>( this ), false ) ==
-             KRegExpEditorPrivate::converter()->toStr( const_cast<RegExp*>( &other ), false ) );
+    return ( RegExpConverter::current()->toStr( const_cast<TextRangeRegExp*>( this ), false ) ==
+             RegExpConverter::current()->toStr( const_cast<RegExp*>( &other ), false ) );
 }
 

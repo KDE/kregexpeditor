@@ -1,5 +1,6 @@
 #include "regexpconverter.h"
 
+RegExpConverter* RegExpConverter::_current = 0;
 RegExp* RegExpConverter::parse( const QString&, bool* ok )
 {
     ok = false;
@@ -48,4 +49,14 @@ QString RegExpConverter::escape( QString text, QValueList<QChar> chars, QChar es
 RegexpHighlighter* RegExpConverter::highlighter( QTextEdit* )
 {
     return 0;
+}
+
+RegExpConverter* RegExpConverter::current()
+{
+    return _current;
+}
+
+void RegExpConverter::setCurrent( RegExpConverter* converter)
+{
+    _current = converter;
 }

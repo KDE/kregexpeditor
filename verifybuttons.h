@@ -34,6 +34,7 @@ class VerifyButtons :public QDockWindow
 public:
     VerifyButtons( QWidget* parent, const char* name );
     RegExpConverter* setSyntax( const QString& );
+    void setAllowNonQtSyntax( bool );
 
 signals:
     void verify();
@@ -65,6 +66,7 @@ private:
     QToolButton* _verify;
     QLabel* _matches;
     QPopupMenu* _configMenu;
+    int _languageId;
 
     // Qt anchors do not work for <pre>...</pre>, thefore scrolling to next/prev match
     // do not work. Enable this when they work.

@@ -67,7 +67,7 @@ QByteArray RegExpWidgetDrag::encodedData ( const char* format ) const
     stream << xml;
   }
   else if ( QString::fromLocal8Bit( format ).startsWith(QString::fromLocal8Bit( "text/plain" ) ) ) {
-      stream << KRegExpEditorPrivate::converter()->toStr( _regexp, false );
+      stream << RegExpConverter::current()->toStr( _regexp, false );
   }
   else {
     qWarning("Unexpected drag and drop format: %s", format );

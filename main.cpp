@@ -51,6 +51,7 @@ int main( int argc, char* argv[] )
     QVBoxLayout* lay = new QVBoxLayout( top, 6 );
 
     KRegExpEditorGUI* iface = new KRegExpEditorGUI( top, "_editor", QStringList() );
+    iface->doSomething( QString::fromLatin1("setAllowNonQtSyntax"), (bool*) true );
     lay->addWidget( iface );
 
     QHBoxLayout* lay2 = new QHBoxLayout( lay, 6 );

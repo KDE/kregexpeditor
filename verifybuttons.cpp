@@ -117,7 +117,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     _configMenu = new QPopupMenu( this, "config menu" );
 
     // Auto Verify
-    QAction* autoVerify = new QAction( i18n("Auto Verify"), 0, this );
+    QAction* autoVerify = new QAction( i18n("Verify on the Fly"), 0, this );
     autoVerify->setToggleAction( true );
     autoVerify->setOn( true );
     connect( autoVerify, SIGNAL( toggled( bool ) ), this, SLOT( updateVerifyButton( bool ) ) );
@@ -129,7 +129,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
 
     // RegExp Languages
     QPopupMenu* languages = new QPopupMenu( _configMenu );
-    _configMenu->insertItem( i18n("RegExp Language"), languages );
+    _languageId = _configMenu->insertItem( i18n("RegExp Language"), languages );
 
     QActionGroup* grp = new QActionGroup( this );
     for( QValueList< QPair<RegExpConverter*,QAction*> >::Iterator it = _converters.begin(); it != _converters.end(); ++it ) {
@@ -141,6 +141,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     }
     grp->addTo( languages );
     connect( grp, SIGNAL( selected( QAction* ) ), this, SLOT( slotChangeSyntax( QAction* ) ) );
+    _configMenu->setItemEnabled( _languageId, false );
 }
 
 
@@ -204,4 +205,9 @@ RegExpConverter* VerifyButtons::setSyntax( const QString& which)
 void VerifyButtons::configure()
 {
     _configMenu->exec( QCursor::pos() );
+}
+
+void VerifyButtons::setAllowNonQtSyntax( bool b )
+{
+    _configMenu->setItemEnabled( _languageId, b );
 }

@@ -34,17 +34,20 @@
 #include "myfontmetrics.h"
 #include <qcursor.h>
 #include <qapplication.h>
+#include "regexpconverter.h"
+
+CharacterEdits* CharactersWidget::_configWindow = 0;
 
 CharactersWidget::CharactersWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                                    const char *name)
-    : RegExpWidget(editorWindow, parent, name), _configWindow(0)
+    : RegExpWidget(editorWindow, parent, name)
 {
     _regexp = new TextRangeRegExp( false /* not used */);
 }
 
 CharactersWidget::CharactersWidget( TextRangeRegExp* regexp, RegExpEditorWindow* editorWindow,
                                     QWidget* parent, const char* name )
-    : RegExpWidget( editorWindow, parent, name ), _configWindow(0)
+    : RegExpWidget( editorWindow, parent, name )
 {
     _regexp = dynamic_cast<TextRangeRegExp*>( regexp->clone() );
     Q_ASSERT( _regexp );
@@ -177,13 +180,14 @@ int CharactersWidget::edit()
 {
     if ( _configWindow == 0 ) {
         QApplication::setOverrideCursor( WaitCursor );
-        _configWindow = new CharacterEdits( _regexp, this, "CharactersWidget::_configWindow" );
+        // No parent here, as this window should continue to exists.
+        _configWindow = new CharacterEdits( 0, "CharactersWidget::_configWindow" );
         QApplication::restoreOverrideCursor();
     }
 
     _configWindow->move(QCursor::pos() - QPoint(_configWindow->sizeHint().width()/2,
                                                 _configWindow->sizeHint().height()/2));
-    int ret = _configWindow->exec();
+    int ret = _configWindow->exec(_regexp );
     if ( ret == QDialog::Accepted ) {
         _editorWindow->updateContent( 0 );
         update();
@@ -225,15 +229,21 @@ void CharacterEdits::addRange( QString from, QString to )
     _range->append( entry );
 }
 
-int CharacterEdits::exec()
+int CharacterEdits::exec( TextRangeRegExp* regexp )
 {
-    negate->setChecked( _regexp->negate() );
-    digit->setChecked( _regexp->digit() );
-    nonDigit->setChecked( _regexp->nonDigit() );
-    space->setChecked( _regexp->space() );
-    nonSpace->setChecked( _regexp->nonSpace() );
-    wordChar->setChecked( _regexp->wordChar() );
-    nonWordChar->setChecked( _regexp->nonWordChar() );
+    _regexp = regexp;
+    negate->setChecked( regexp->negate() );
+    digit->setChecked( regexp->digit() );
+    _nonDigit->setChecked( regexp->nonDigit() );
+    space->setChecked( regexp->space() );
+    _nonSpace->setChecked( regexp->nonSpace() );
+    wordChar->setChecked( regexp->wordChar() );
+    _nonWordChar->setChecked( regexp->nonWordChar() );
+
+    bool enabled = (RegExpConverter::current()->features() & RegExpConverter::CharacterRangeNonItems);
+    _nonWordChar->setEnabled( enabled );
+    _nonDigit->setEnabled( enabled );
+    _nonSpace->setEnabled( enabled );
 
     // Characters
 
@@ -243,7 +253,7 @@ int CharacterEdits::exec()
         if (entry)
             entry->setText( QString::fromLocal8Bit("") );
     }
-    QStringList list2 = _regexp->chars();
+    QStringList list2 = regexp->chars();
     for ( QStringList::Iterator it2( list2.begin() ); ! (*it2).isNull(); ++it2 ) {
         addCharacter( *it2 );
     }
@@ -258,22 +268,23 @@ int CharacterEdits::exec()
         }
     }
 
-    QPtrList<StringPair> ranges = _regexp->range();
+    QPtrList<StringPair> ranges = regexp->range();
     for ( QPtrListIterator<StringPair> it4(ranges); *it4; ++it4 ) {
         QString from = (*it4)->first();
         QString to = (*it4)->second();
         addRange(from,to);
     }
 
-    return KDialogBase::exec();
+    int res = KDialogBase::exec();
+    _regexp = 0;
+    return res;
 }
 
 
-CharacterEdits::CharacterEdits(TextRangeRegExp* regexp, QWidget *parent, const char *name)
+CharacterEdits::CharacterEdits( QWidget *parent, const char *name)
   : KDialogBase( parent, name == 0 ? "CharacterEdits" : name, true,
                  i18n("Specify Characters"),
-                 KDialogBase::Ok | KDialogBase::Cancel),
-    _regexp( regexp )
+                 KDialogBase::Ok | KDialogBase::Cancel)
 {
     QWidget* top = new QWidget( this );
     QVBoxLayout *topLayout = new QVBoxLayout(top, 6);
@@ -293,9 +304,9 @@ CharacterEdits::CharacterEdits(TextRangeRegExp* regexp, QWidget *parent, const c
     digit = new QCheckBox(i18n("A digit character"),grid);
     space = new QCheckBox(i18n("A space character"), grid);
 
-    nonWordChar = new QCheckBox(i18n("A non-word character"),grid);
-    nonDigit = new QCheckBox(i18n("A non-digit character"),grid);
-    nonSpace = new QCheckBox(i18n("A non-space character"), grid);
+    _nonWordChar = new QCheckBox(i18n("A non-word character"),grid);
+    _nonDigit = new QCheckBox(i18n("A non-digit character"),grid);
+    _nonSpace = new QCheckBox(i18n("A non-space character"), grid);
 
     // Single characters
     QVGroupBox* singleBox = new QVGroupBox(i18n("Single Characters"), top );
@@ -335,13 +346,13 @@ void CharacterEdits::slotOK()
     _regexp->setNegate( negate->isChecked() );
 
     _regexp->setWordChar( wordChar->isChecked() );
-    _regexp->setNonWordChar( nonWordChar->isChecked() );
+    _regexp->setNonWordChar( _nonWordChar->isChecked() );
 
     _regexp->setDigit( digit->isChecked() );
-    _regexp->setNonDigit( nonDigit->isChecked() );
+    _regexp->setNonDigit( _nonDigit->isChecked() );
 
     _regexp->setSpace( space->isChecked() );
-    _regexp->setNonSpace( nonSpace->isChecked() );
+    _regexp->setNonSpace( _nonSpace->isChecked() );
 
 	// single characters
     _regexp->clearChars();

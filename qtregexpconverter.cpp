@@ -262,7 +262,7 @@ QString QtRegExpConverter::name()
 
 int QtRegExpConverter::features()
 {
-    return WordBoundary | NonWordBoundary | PosLookAhead | NegLookAhead;
+    return WordBoundary | NonWordBoundary | PosLookAhead | NegLookAhead | CharacterRangeNonItems | ExtRange;
 }
 
 RegexpHighlighter* QtRegExpConverter::highlighter( QTextEdit* edit )

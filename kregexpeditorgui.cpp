@@ -128,6 +128,9 @@ void KRegExpEditorGUI::doSomething( QString method, void* arguments )
     else if ( method == QString::fromLatin1("setSyntax") ) {
         _editor->setSyntax( *((QString*) arguments) );
     }
+    else if ( method == QString::fromLatin1("setAllowNonQtSyntax") ) {
+        _editor->setAllowNonQtSyntax( (bool) arguments );
+    }
     else {
         qFatal( "%s", tr("Method '%1' is not valid!").arg(method).latin1() );
     }
