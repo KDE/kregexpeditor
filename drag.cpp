@@ -17,8 +17,8 @@
  **/
 #include "drag.h"
 #include "regexp.h"
-#include "kregexpeditorprivate.h"
 #include "regexpconverter.h"
+#include "widgetfactory.h"
 
 RegExpWidgetDrag::RegExpWidgetDrag( RegExp* regexp, QWidget* dragSource )
   : QDragObject( dragSource ), _regexp( regexp->clone() )

@@ -26,13 +26,7 @@
 #define __kmultiformlistboxmultivisble
 
 // -------------------------------- includes ------------------------------
-#include "kmultiformlistboxfactory.h"
-#include "kmultiformlistbox-shower.h"
-#include "kmultiformlistboxentry.h"
 #include "kmultiformlistbox.h"
-#include <qptrlist.h>
-#include <qlayout.h>
-#include <qscrollview.h>
 //-------------------------------------------------------------------------
 
 /**

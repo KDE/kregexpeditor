@@ -15,10 +15,10 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
-#ifndef __CHARSELECTOR_H
-#define __CHARSELECTOR_H
+#ifndef CHARSELECTOR_H
+#define CHARSELECTOR_H
+
 #include <qwidget.h>
-#include <qlayout.h>
 
 class QComboBox;
 class QWidgetStack;
@@ -49,4 +49,4 @@ private:
     int _oldIndex;
 };
 
-#endif // __CHARSELECTOR_H
+#endif // CHARSELECTOR_H

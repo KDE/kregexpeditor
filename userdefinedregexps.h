@@ -19,7 +19,6 @@
 #define __USERDEFINEDREGEXPS_H
 #include <qdockwindow.h>
 #include <qlistview.h>
-#include <qptrlist.h>
 class QPoint;
 class RegExp;
 class CompoundRegExp;

@@ -20,6 +20,7 @@
 
 #include "regexp.h"
 #include "pair.h"
+#include <qstringlist.h>
 
 typedef Pair<QString,QString> StringPair;
 

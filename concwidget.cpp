@@ -18,7 +18,6 @@
 #include "concregexp.h"
 #include "concwidget.h"
 #include "dragaccepter.h"
-#include "widgetfactory.h"
 
 #include <qpainter.h>
 

@@ -26,7 +26,6 @@
 #include "repeatwidget.h"
 #include "concwidget.h"
 #include "repeatregexp.h"
-#include "selectablelineedit.h"
 #include <qpainter.h>
 #include <qcursor.h>
 #include <qspinbox.h>

@@ -19,9 +19,6 @@
 #define __kmultiformlistboxshower
 
 // -------------------------------- includes ------------------------------
-#include "kmultiformlistboxentry.h"
-#include <qptrlist.h>
-#include "kmultiformlistboxfactory.h"
 //-------------------------------------------------------------------------
 typedef QPtrList<KMultiFormListBoxEntry> KMultiFormListBoxEntryList ;
 

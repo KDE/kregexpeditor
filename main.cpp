@@ -27,10 +27,6 @@
   #include <kpushbutton.h>
 #endif
 
-#include <kregexpeditorinterface.h>
-#include <qdialog.h>
-#include <qfile.h>
-#include <qtextstream.h>
 #include "kregexpeditorgui.h"
 #include <qlayout.h>
 

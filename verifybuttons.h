@@ -15,17 +15,15 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
-#ifndef __VERIFYBUTTONS_H
-#define __VERIFYBUTTONS_H
+#ifndef VERIFYBUTTONS_H
+#define VERIFYBUTTONS_H
 
 #include <qdockwindow.h>
 #include "regexpconverter.h"
-#include <qcombobox.h>
-#include <qlabel.h>
-#include <qvaluelist.h>
 class QToolButton;
 class QLabel;
 class QAction;
+class QPopupMenu;
 
 class VerifyButtons :public QDockWindow
 {
@@ -78,4 +76,4 @@ private:
 };
 
 
-#endif // __VERIFYBUTTONS_H
+#endif // VERIFYBUTTONS_H

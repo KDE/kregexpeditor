@@ -18,11 +18,8 @@
 #ifndef kregexpeditorprivate_h
 #define kregexpeditorprivate_h
 
-#include <qstring.h>
-#include <qwidget.h>
 #include <qlabel.h>
 #include <qptrstack.h>
-#include <qcstring.h>
 #include "regexp.h"
 #include "errormap.h"
 class QTimer;

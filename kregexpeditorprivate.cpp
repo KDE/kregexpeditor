@@ -30,7 +30,6 @@
 #include "kregexpeditorprivate.h"
 #include "scrollededitorwindow.h"
 #include "regexpbuttons.h"
-#include "regexp.h"
 //#include <unistd.h> // What do I need this for?
 #include <stdio.h>
 #include "infopage.h"
@@ -39,16 +38,11 @@
 #include "userdefinedregexps.h"
 #include "auxbuttons.h"
 #include <qaccel.h>
-#include <compoundregexp.h>
 #include <qtimer.h>
 #include "verifier.h"
 #include <qfile.h>
 #include "verifybuttons.h"
-#include <qtooltip.h>
 #include <qwhatsthis.h>
-#include <qvalidator.h>
-#include <qregexp.h>
-#include "regexpconverter.h"
 
 KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
     : QWidget(parent, name), _updating( false ), _autoVerify( true )

@@ -23,8 +23,6 @@
 #endif
 
 #include "infopage.h"
-#include <qmessagebox.h>
-#include <qstringlist.h>
 
 InfoPage::InfoPage( QWidget* parent, const char* name )
   :KTextBrowser( parent, name )

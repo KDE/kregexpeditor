@@ -31,17 +31,14 @@
 
 #include "editorwindow.h"
 #include "concwidget.h"
-#include "drag.h"
 #include <qlayout.h>
 #include <qpainter.h>
 #include <qaccel.h>
-#include <qapplication.h>
 #include <qcursor.h>
 #include <qclipboard.h>
 #include <qpopupmenu.h>
 #include "regexp.h"
 #include "userdefinedregexps.h"
-#include <qregexp.h>
 #include <qfileinfo.h>
 
 RegExpEditorWindow::RegExpEditorWindow( QWidget *parent, const char *name)

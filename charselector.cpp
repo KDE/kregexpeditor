@@ -24,11 +24,11 @@
 #endif
 
 #include "charselector.h"
-#include <qwidgetstack.h>
-#include <limitedcharlineedit.h>
-#include <qcombobox.h>
-#include <qstringlist.h>
+#include "limitedcharlineedit.h"
 #include "regexpconverter.h"
+#include <qlayout.h>
+#include <qwidgetstack.h>
+#include <qcombobox.h>
 
 /**
    In the class CharSelector, three LimitedCharLineEdit are used.

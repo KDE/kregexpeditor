@@ -26,9 +26,7 @@
   #include <klistbox.h>
 #endif
 
-#include "kmultiformlistboxfactory.h"
 #include "kmultiformlistbox-windowed.h"
-#include "windowlistboxitem.h"
 
 /**
    @internal

@@ -18,7 +18,6 @@
 #ifndef __windowlistboxitem
 #define __windowlistboxitem
 #include <qlistbox.h>
-#include <qstring.h>
 class WidgetWindow;
 class KMultiFormListBoxWindowed;
 class KMultiFormListBoxEntry;

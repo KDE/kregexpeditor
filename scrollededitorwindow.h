@@ -19,7 +19,6 @@
 #define __scrolledEditorWindow
 
 #include <qhbox.h>
-#include "drag.h" // for enum RegExpType. How can I avoid this include?
 class QScrollView;
 class RegExpEditorWindow;
 class RegExp;

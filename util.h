@@ -18,8 +18,8 @@
 
 #ifndef UTIL_H
 #define UTIL_H
+
 #include <qpixmap.h>
-#include <qstring.h>
 
 class Util
 {
@@ -28,5 +28,5 @@ public:
     static QPixmap getSystemIcon( const QString& name );
 };
 
-#endif /* UTIL_H */
+#endif // UTIL_H
 

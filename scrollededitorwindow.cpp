@@ -21,7 +21,6 @@
 
 #include "scrollededitorwindow.h"
 #include "editorwindow.h"
-#include <qregexp.h>
 
 RegExpScrolledEditorWindow::RegExpScrolledEditorWindow( QWidget* parent, const char* name)
     : QWidget(parent, name)

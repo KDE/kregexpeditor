@@ -19,7 +19,6 @@
 #ifndef REGEXPHIGHLIGHTER_H
 #define REGEXPHIGHLIGHTER_H
 #include <qsyntaxhighlighter.h>
-#include <qstring.h>
 
 class RegexpHighlighter :public QSyntaxHighlighter
 {

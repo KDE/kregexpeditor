@@ -18,20 +18,22 @@
 
 #ifndef REGEXPCONVERTER_H
 #define REGEXPCONVERTER_H
-#include "regexp.h"
+
 #include <qstring.h>
-#include "altnregexp.h"
-#include "concregexp.h"
-#include "lookaheadregexp.h"
-#include "textrangeregexp.h"
-#include "compoundregexp.h"
-#include "dotregexp.h"
-#include "positionregexp.h"
-#include "repeatregexp.h"
-#include "textregexp.h"
-#include <qtextedit.h>
-#include <qsyntaxhighlighter.h>
-#include "regexphighlighter.h"
+#include <qvaluelist.h>
+
+class QTextEdit;
+class AltnRegExp;
+class ConcRegExp;
+class LookAheadRegExp;
+class TextRangeRegExp;
+class CompoundRegExp;
+class DotRegExp;
+class PositionRegExp;
+class RepeatRegExp;
+class TextRegExp;
+class RegexpHighlighter;
+class RegExp;
 
 class RegExpConverter
 {

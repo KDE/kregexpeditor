@@ -25,16 +25,17 @@
 
 #include "characterswidget.h"
 #include "textrangeregexp.h"
-#include "altnregexp.h"
+#include "regexp.h"
+#include "charselector.h"
+#include "myfontmetrics.h"
+#include "regexpconverter.h"
+
 #include <qpainter.h>
 #include <qgrid.h>
 #include <iostream>
 #include <qhgroupbox.h>
-#include "charselector.h"
-#include "myfontmetrics.h"
 #include <qcursor.h>
-#include <qapplication.h>
-#include "regexpconverter.h"
+#include <qcheckbox.h>
 
 CharacterEdits* CharactersWidget::_configWindow = 0;
 

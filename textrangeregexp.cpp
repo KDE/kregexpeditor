@@ -23,7 +23,6 @@
 #endif
 
 #include "textrangeregexp.h"
-#include "kregexpeditorprivate.h"
 #include "regexpconverter.h"
 
 TextRangeRegExp::TextRangeRegExp( bool selected ) : RegExp( selected ),

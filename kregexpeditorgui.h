@@ -24,13 +24,7 @@
   #include <kdialogbase.h>
 #endif
 
-#include <qstring.h>
-#include <qwidget.h>
-#include <qlabel.h>
-#include <qvaluestack.h>
-#include <qcstring.h>
 #include <kregexpeditorinterface.h>
-#include <qstringlist.h>
 
 class KRegExpEditorPrivate;
 

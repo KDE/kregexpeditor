@@ -22,7 +22,6 @@
 #include "kmultiformlistbox-multivisible.h"
 #include "ccp.h"
 #include <qobjectlist.h>
-#include <qobjectdict.h>
 #include <qpopupmenu.h>
 #ifdef QT_ONLY
   #include "compat.h"

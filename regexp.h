@@ -15,13 +15,12 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
-#ifndef _REGEXP_H
-#define _REGEXP_H
+#ifndef REGEXP_H
+#define REGEXP_H
 
-#include <qstring.h>
-#include <qstringlist.h>
-#include <qptrlist.h>
 #include <qdom.h>
+#include <qptrlist.h>
+
 class CompoundRegExp;
 class ErrorMap;
 
@@ -69,7 +68,5 @@ private:
 typedef QPtrList<RegExp> RegExpList;
 typedef QPtrListIterator<RegExp> RegExpListIt;
 
+#endif // REGEXP_H
 
-
-
-#endif // _REGEXP_H

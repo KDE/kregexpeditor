@@ -33,7 +33,6 @@
 #include <qtooltip.h>
 #include "concwidget.h"
 #include "kwidgetstreamer.h"
-#include "compoundregexp.h"
 #include "qcheckbox.h"
 
 //================================================================================

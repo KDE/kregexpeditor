@@ -23,11 +23,6 @@
 #endif
 
 #include "verifier.h"
-#include <qregexp.h>
-#include <qtimer.h>
-#include <qtextstream.h>
-#include <qfile.h>
-#include <qprogressdialog.h>
 
 Verifier::Verifier( QWidget* parent, const char* name ) : QTextEdit( parent, name )
     /* QT_ANCHOR_DO_NOT_WORK: ,_current( 0 ) */

@@ -23,8 +23,6 @@
 #include "textregexp.h"
 #include "selectablelineedit.h"
 #include <qlayout.h>
-#include <qcursor.h>
-#include <qapplication.h>
 
 TextWidget::TextWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                        const char *name)

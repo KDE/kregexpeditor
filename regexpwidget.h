@@ -18,8 +18,6 @@
 #ifndef __regexpwidget
 #define __regexpwidget
 
-#include <qwidget.h>
-#include "widgetfactory.h"
 #include "editorwindow.h"
 
 class DragAccepter;

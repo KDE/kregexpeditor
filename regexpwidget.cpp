@@ -23,12 +23,8 @@
 #endif
 
 #include "regexpwidget.h"
-#include "drag.h"
-#include "regexp.h"
-#include "editorwindow.h"
 #include <iostream>
 #include <qpainter.h>
-#include <qapplication.h>
 #include <qcursor.h>
 #include "concwidget.h"
 #include "dragaccepter.h"

@@ -15,8 +15,8 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
-#ifndef __characterswidget
-#define __characterswidget
+#ifndef characterswidget
+#define characterswidget
 
 #ifdef QT_ONLY
 #include "compat.h"
@@ -26,15 +26,13 @@
 
 #include <kmultiformlistbox.h>
 #include "regexpwidget.h"
-#include "limitedcharlineedit.h"
-#include <qhbox.h>
-#include <qcheckbox.h>
 #include <qvgroupbox.h>
 
 class KDialogBase;
 class CharacterEdits;
 class TextRangeRegExp;
 class CharSelector;
+class QCheckBox;
 
 /**
    RegExp widget for charcter ranges.
@@ -143,4 +141,4 @@ private:
     TextRangeRegExp* _regexp;
 };
 
-#endif // __characterswidget
+#endif // characterswidget

@@ -18,7 +18,6 @@
 #include "kwidgetstreamer.h"
 #include "kmultiformlistbox.h"
 #include <qobjectlist.h>
-#include <qobjectdict.h>
 #include <qvariant.h>
 
 

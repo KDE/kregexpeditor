@@ -18,7 +18,6 @@
 #ifndef __ccp
 #define __ccp
 
-#include "kmultiformlistboxentry.h"
 
 /**
    Helper class for @ref KMultiFormListBoxMultiVisible which is used to install EventFilters.

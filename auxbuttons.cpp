@@ -26,12 +26,9 @@
 #endif
 
 #include "auxbuttons.h"
-#include <qpushbutton.h>
-#include <qpixmap.h>
 #include <qlayout.h>
 #include <qwhatsthis.h>
 #include <qtooltip.h>
-#include <qlabel.h>
 #include <qtoolbutton.h>
 #include "util.h"
 

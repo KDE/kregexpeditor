@@ -15,8 +15,8 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
-#ifndef __zerowidget
-#define __zerowidget
+#ifndef zerowidget
+#define zerowidget
 
 #include "regexpwidget.h"
 
@@ -121,5 +121,5 @@ public:
   virtual RegExpType type() const { return NONWORDBOUNDARY; }
 };
 
+#endif // zerowidget
 
-#endif // __zerowidget

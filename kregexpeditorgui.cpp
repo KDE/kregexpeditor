@@ -26,10 +26,8 @@
 #endif
 
 #include "kregexpeditorgui.h"
-#include "regexp.h"
 // #include <unistd.h> // DO I need this?
 #include <stdio.h>
-#include "infopage.h"
 #include "kregexpeditorprivate.h"
 #include <qlayout.h>
 

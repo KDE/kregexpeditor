@@ -29,10 +29,8 @@
 #endif
 
 #include "verifybuttons.h"
-#include <qfile.h>
 #include <qtooltip.h>
 #include <qlayout.h>
-#include <qlabel.h>
 #include <qwhatsthis.h>
 #include "qtregexpconverter.h"
 #include "emacsregexpconverter.h"
@@ -40,7 +38,6 @@
 #include "util.h"
 #include <qpopupmenu.h>
 #include <qaction.h>
-#include <qcursor.h>
 
 VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     :QDockWindow( QDockWindow::InDock, parent, name ), _configMenu( 0 )

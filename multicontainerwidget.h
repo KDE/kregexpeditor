@@ -19,7 +19,6 @@
 #define __multicontainerwidget
 
 #include "regexpwidget.h"
-#include <qptrlist.h>
 
 /**
    Abstract RegExp widget class representing widgets having multible children.

@@ -15,10 +15,11 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
-#ifndef __widgetfactory
-#define __widgetfactory
+#ifndef widgetfactory
+#define widgetfactory
 
 #include <qdom.h>
+
 class RegExpWidget;
 class RegExpEditorWindow;
 class QWidget;
@@ -55,5 +56,5 @@ public:
   static bool isContainer( RegExpType );
 };
 
+#endif // widgetfactory
 
-#endif // __widgetfactory

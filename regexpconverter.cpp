@@ -18,6 +18,18 @@
 
 #include "regexpconverter.h"
 
+#include "altnregexp.h"
+#include "concregexp.h"
+#include "lookaheadregexp.h"
+#include "textrangeregexp.h"
+#include "compoundregexp.h"
+#include "dotregexp.h"
+#include "positionregexp.h"
+#include "repeatregexp.h"
+#include "textregexp.h"
+#include <qtextedit.h>
+#include "regexphighlighter.h"
+
 RegExpConverter* RegExpConverter::_current = 0;
 RegExp* RegExpConverter::parse( const QString&, bool* ok )
 {
@@ -78,3 +90,4 @@ void RegExpConverter::setCurrent( RegExpConverter* converter)
 {
     _current = converter;
 }
+

@@ -15,14 +15,13 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
-#ifndef __editorwindow_h
-#define __editorwindow_h
+#ifndef editorwindow_h
+#define editorwindow_h
+
 #include "drag.h"
+#include "widgetfactory.h"
 #include <qmultilineedit.h>
-#include <qevent.h>
 #include <qlabel.h>
-#include <qpoint.h>
-#include <qsize.h>
 #include <qiconset.h>
 class RegExp;
 class RegExpWidget;
@@ -267,4 +266,4 @@ private:
     bool _isDndOperation;
 };
 
-#endif // __editorwindow_h
+#endif // editorwindow_h

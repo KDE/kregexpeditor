@@ -30,7 +30,6 @@
 #include <qtooltip.h>
 #include <qwhatsthis.h>
 #include <qbuttongroup.h>
-#include <qpushbutton.h>
 #include <qlayout.h>
 #include <qsignalmapper.h>
 #include "regexpconverter.h"

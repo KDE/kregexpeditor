@@ -15,16 +15,14 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
-#ifndef __drag_h
-#define __drag_h
-#include <qdragobject.h>
-#include <qpoint.h>
-#include <qsize.h>
-#include <qwidget.h>
-#include "widgetfactory.h"
-class RegExp;
+#ifndef drag_h
+#define drag_h
 
+#include <qdragobject.h>
+
+class RegExp;
 class RegExpWidget;
+class RegExpEditorWindow;
 
 /**
    Class used for drag and drop in the RegExp widget.
@@ -44,4 +42,4 @@ private:
   RegExp* _regexp;
 };
 
-#endif //__drag_h
+#endif // drag_h

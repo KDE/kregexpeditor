@@ -19,7 +19,6 @@
 #ifndef QTREGEXPCONVERTER_H
 #define QTREGEXPCONVERTER_H
 #include "regexpconverter.h"
-#include "regexphighlighter.h"
 
 class QtRegExpConverter :public RegExpConverter
 {

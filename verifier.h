@@ -15,10 +15,9 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
-#ifndef __VERIFIER_H
-#define __VERIFIER_H
+#ifndef VERIFIER_H
+#define VERIFIER_H
 #include <qtextedit.h>
-#include <qregexp.h>
 #include "regexphighlighter.h"
 class QTimer;
 class QProgressDialog;
@@ -59,4 +58,4 @@ private:
 
 };
 
-#endif // __VERIFIER_H
+#endif // VERIFIER_H

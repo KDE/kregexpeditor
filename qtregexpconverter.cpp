@@ -18,6 +18,16 @@
 
 #include "qtregexpconverter.h"
 #include "qtregexphighlighter.h"
+#include "regexp.h"
+#include "textregexp.h"
+#include "altnregexp.h"
+#include "concregexp.h"
+#include "lookaheadregexp.h"
+#include "textrangeregexp.h"
+#include "compoundregexp.h"
+#include "dotregexp.h"
+#include "positionregexp.h"
+#include "repeatregexp.h"
 
 extern RegExp* parseQtRegExp( QString str, bool *ok );
 extern RegExp* parseDataQtRegExp();

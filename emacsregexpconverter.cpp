@@ -17,6 +17,17 @@
  **/
 
 #include "emacsregexpconverter.h"
+#include "regexp.h"
+#include "altnregexp.h"
+#include "concregexp.h"
+#include "lookaheadregexp.h"
+#include "textrangeregexp.h"
+#include "textregexp.h"
+#include "compoundregexp.h"
+#include "dotregexp.h"
+#include "positionregexp.h"
+#include "repeatregexp.h"
+
 #include <kmessagebox.h>
 #include <klocale.h>
 bool EmacsRegExpConverter::canParse()

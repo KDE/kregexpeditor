@@ -18,9 +18,7 @@
 #ifndef __indexWindow
 #define __indexWindow
 
-#include <qwidget.h>
 #include <qlistbox.h>
-#include <qevent.h>
 
 /**
    Post a toplevel listbox synchronously.

@@ -25,7 +25,6 @@
 #include "indexWindow.h"
 #include <iostream>
 #include <qlayout.h>
-#include <qapplication.h>
 
 indexWindow::indexWindow() : QWidget(0,"", WStyle_Customize | WType_Popup)
 {

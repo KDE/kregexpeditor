@@ -15,8 +15,8 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
-#ifndef __COMPOUNDREGEXP_H
-#define __COMPOUNDREGEXP_H
+#ifndef COMPOUNDREGEXP_H
+#define COMPOUNDREGEXP_H
 #include "regexp.h"
 
 /**
@@ -51,4 +51,4 @@ private:
 };
 
 
-#endif // __COMPOUNDREGEXP_H
+#endif // COMPOUNDREGEXP_H

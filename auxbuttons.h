@@ -15,17 +15,13 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
-#ifndef __AUXBUTTONS_H
-#define __AUXBUTTONS_H
+#ifndef AUXBUTTONS_H
+#define AUXBUTTONS_H
 
 #include <qdockwindow.h>
-#include "regexp.h"
-#include "regexpconverter.h"
-#include <qvaluelist.h>
 class QComboBox;
 class QLabel;
 class QToolButton;
-
 
 class AuxButtons :public QDockWindow
 {
@@ -61,4 +57,4 @@ private:
 };
 
 
-#endif // __AUXBUTTONS_H
+#endif // AUXBUTTONS_H

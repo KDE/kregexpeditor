@@ -15,8 +15,8 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
-#ifndef __ALTNREGEXP_H
-#define __ALTNREGEXP_H
+#ifndef ALTNREGEXP_H
+#define ALTNREGEXP_H
 
 #include "regexp.h"
 
@@ -44,4 +44,4 @@ private:
 	RegExpList list;
 };
 
-#endif // __ALTNREGEXP_H
+#endif // ALTNREGEXP_H

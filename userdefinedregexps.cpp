@@ -29,11 +29,8 @@
 #include "userdefinedregexps.h"
 #include <qheader.h>
 #include <qpopupmenu.h>
-#include "regexp.h"
 #include <qdir.h>
 #include "widgetfactory.h"
-#include <qtooltip.h>
-#include <qwhatsthis.h>
 #include "compoundregexp.h"
 #include <qlayout.h>
 #include <qlabel.h>

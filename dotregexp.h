@@ -15,8 +15,8 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
-#ifndef __DOTREGEXP_H
-#define __DOTREGEXP_H
+#ifndef DOTREGEXP_H
+#define DOTREGEXP_H
 
 #include "regexp.h"
 
@@ -37,5 +37,5 @@ public:
     virtual RegExpType type() const { return DOT;}
 };
 
+#endif // DOTREGEXP_H
 
-#endif // __DOTREGEXP_H

@@ -22,20 +22,15 @@
 #endif
 
 #include "widgetfactory.h"
-#include "regexpwidget.h"
-#include "dragaccepter.h"
 #include "repeatwidget.h"
 #include "textwidget.h"
 #include "characterswidget.h"
 #include "altnwidget.h"
 #include "zerowidgets.h"
 #include "compoundwidget.h"
-#include "editorwindow.h"
 #include "concwidget.h"
 #include "lookaheadwidget.h"
-#include <qdialog.h>
 
-#include "regexp.h"
 #include "textregexp.h"
 #include "textrangeregexp.h"
 #include "repeatregexp.h"
@@ -44,7 +39,6 @@
 #include "altnregexp.h"
 #include "positionregexp.h"
 #include "dotregexp.h"
-#include "compoundregexp.h"
 #include "kregexpeditorgui.h"
 
 bool WidgetFactory::isContainer( RegExpType tp )
