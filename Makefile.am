@@ -39,4 +39,4 @@ parser:
 	cd $(srcdir) && bison -d -p qregexp -o gen_qregexpparser.cc qregexpparser.y
 
 messages:
-	$(XGETTEXT) $(libkregexpeditorgui_la_SOURCES) $(noinst_HEADERS) -o $(podir)/kregexpeditor.pot
+	$(XGETTEXT) *.cpp *.h */*.cpp */*.h -o $(podir)/kregexpeditor.pot
