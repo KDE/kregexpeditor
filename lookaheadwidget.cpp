@@ -25,14 +25,14 @@ LookAheadWidget::LookAheadWidget( LookAheadRegExp* regexp, RegExpEditorWindow* e
 void LookAheadWidget::init()
 {
   if ( _tp == POSLOOKAHEAD )
-    _text = i18n("Positive Assertion");
+    _text = i18n("Pos. Look Ahead");
   else
-    _text = i18n("Negative Assertion");
+    _text = i18n("Neg. Look Ahead");
 }
 
 RegExp* LookAheadWidget::regExp() const
 {
-  return new LookAheadRegExp( ( (_tp == POSLOOKAHEAD) ? LookAheadRegExp::POSITIVE : LookAheadRegExp::NEGATIVE),
+  return new LookAheadRegExp( isSelected(), ( (_tp == POSLOOKAHEAD) ? LookAheadRegExp::POSITIVE : LookAheadRegExp::NEGATIVE),
                               _child->regExp() );
 }
 

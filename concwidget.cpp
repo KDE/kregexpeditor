@@ -201,7 +201,7 @@ RegExp* ConcWidget::regExp() const
     return (*it)->regExp();
   }
   else {
-    ConcRegExp *regexp = new ConcRegExp();
+    ConcRegExp *regexp = new ConcRegExp( isSelected() );
     
     for ( ; *it; it+=2 ) {
       regexp->addRegExp( (*it)->regExp() );
@@ -326,7 +326,7 @@ RegExp* ConcWidget::selection() const
         foundAny = true;
       }
       else if ( !foundMoreThanOne ) {
-        ConcRegExp* reg = new ConcRegExp();
+        ConcRegExp* reg = new ConcRegExp( isSelected() );
         reg->addRegExp( regexp );
         reg->addRegExp( (*it)->selection() );
         regexp = reg;

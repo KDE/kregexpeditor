@@ -1,114 +1,116 @@
 #include "scrollededitorwindow.h"
 #include "editorwindow.h"
+#include <qregexp.h>
 
 RegExpScrolledEditorWindow::RegExpScrolledEditorWindow( QWidget* parent, const char* name)
-  : QWidget(parent, name)
+    : QWidget(parent, name)
 {
-  _scrollView = new QScrollView( this );
-  _editorWindow = new RegExpEditorWindow( _scrollView->viewport());
-  _scrollView->addChild( _editorWindow );
-  _scrollView->setResizePolicy( QScrollView::Manual );
+    _scrollView = new QScrollView( this );
+    _editorWindow = new RegExpEditorWindow( _scrollView->viewport());
+    _scrollView->addChild( _editorWindow );
+    _scrollView->setResizePolicy( QScrollView::Manual );
 
-  connect( _editorWindow, SIGNAL( contentChanged( QPoint ) ),
-           this, SLOT( slotUpdateContentSize( QPoint ) ) );
+    connect( _editorWindow, SIGNAL( contentChanged( QPoint ) ),
+             this, SLOT( slotUpdateContentSize( QPoint ) ) );
 
-  connect( _editorWindow, SIGNAL( scrolling( QPoint ) ),
-           this, SLOT( slotScroll( QPoint ) ) );
+    connect( _editorWindow, SIGNAL( scrolling( QPoint ) ),
+             this, SLOT( slotScroll( QPoint ) ) );
 
-  connect( _editorWindow, SIGNAL( doneEditing() ), this, SIGNAL( doneEditing() ) );  
+    connect( _editorWindow, SIGNAL( doneEditing() ), this, SIGNAL( doneEditing() ) );  
   
-  connect( _editorWindow, SIGNAL( change() ), this, SIGNAL( change() ) );
-  connect( _editorWindow, SIGNAL( savedRegexp() ), this, SIGNAL( savedRegexp() ) );
+    connect( _editorWindow, SIGNAL( change() ), this, SIGNAL( change() ) );
+    connect( _editorWindow, SIGNAL( savedRegexp() ), this, SIGNAL( savedRegexp() ) );
 
-  connect( _editorWindow, SIGNAL( anythingSelected(bool) ), this, SIGNAL( anythingSelected(bool) ) );
-  connect( _editorWindow, SIGNAL( anythingOnClipboard(bool) ), this, SIGNAL( anythingOnClipboard(bool) ) );
-  connect( _editorWindow, SIGNAL( canSave(bool) ), this, SIGNAL( canSave(bool) ) );
+    connect( _editorWindow, SIGNAL( anythingSelected(bool) ), this, SIGNAL( anythingSelected(bool) ) );
+    connect( _editorWindow, SIGNAL( anythingOnClipboard(bool) ), this, SIGNAL( anythingOnClipboard(bool) ) );
+    connect( _editorWindow, SIGNAL( canSave(bool) ), this, SIGNAL( canSave(bool) ) );
+    connect( _editorWindow, SIGNAL( verifyRegExp() ), this, SIGNAL( verifyRegExp() ) );
 }
 
 void RegExpScrolledEditorWindow::slotSetRegExp( RegExp* regexp )
 {
-  _editorWindow->slotSetRegExp( regexp );
-  slotUpdateContentSize(QPoint());  
+    _editorWindow->slotSetRegExp( regexp );
+    slotUpdateContentSize(QPoint());  
 }
 
 void RegExpScrolledEditorWindow::slotInsertRegExp( int tp)
 {
-  _editorWindow->slotInsertRegExp( (RegExpType) tp );
+    _editorWindow->slotInsertRegExp( (RegExpType) tp );
 }
 
 void RegExpScrolledEditorWindow::slotInsertRegExp( RegExp* regexp)
 {
-  _editorWindow->slotInsertRegExp( regexp );
+    _editorWindow->slotInsertRegExp( regexp );
 }
 
 void RegExpScrolledEditorWindow::slotDeleteSelection()
 {
-  _editorWindow->slotDeleteSelection();
+    _editorWindow->slotDeleteSelection();
 }
 
 void RegExpScrolledEditorWindow::slotDoSelect()
 {
-  _editorWindow->slotDoSelect();
+    _editorWindow->slotDoSelect();
 }
 
 void RegExpScrolledEditorWindow::slotCut()
 {
-  _editorWindow->slotCut();
+    _editorWindow->slotCut();
 }
 
 void RegExpScrolledEditorWindow::slotCopy()
 {
-  _editorWindow->slotCopy();
+    _editorWindow->slotCopy();
 }
 
 void RegExpScrolledEditorWindow::slotPaste()
 {
-  _editorWindow->slotStartPasteAction();
+    _editorWindow->slotStartPasteAction();
 }
 
 void RegExpScrolledEditorWindow::slotSave()
 {
-  _editorWindow->slotSave();
+    _editorWindow->slotSave();
 }
 
 RegExp* RegExpScrolledEditorWindow::regExp()
 {
-  return _editorWindow->regExp();
+    return _editorWindow->regExp();
 }
 
 void RegExpScrolledEditorWindow::resizeEvent( QResizeEvent *event )
 {
-  _scrollView->resize( event->size() );
-  slotUpdateContentSize(QPoint());
+    _scrollView->resize( event->size() );
+    slotUpdateContentSize(QPoint());
 }
 
 void RegExpScrolledEditorWindow::slotUpdateContentSize( QPoint focusPoint ) 
 {
-  QSize childSize = _editorWindow->sizeHint();  
-  QSize vpSize = _scrollView->viewportSize(10,10);
+    QSize childSize = _editorWindow->sizeHint();  
+    QSize vpSize = _scrollView->viewportSize(10,10);
   
-  bool change = false;
+    bool change = false;
 
-  if ( childSize.width() < vpSize.width() ) {
-    childSize.setWidth( vpSize.width() );
-    change = true;
-  }
+    if ( childSize.width() < vpSize.width() ) {
+        childSize.setWidth( vpSize.width() );
+        change = true;
+    }
 
-  if ( childSize.height() < vpSize.height() ) {
-    childSize.setHeight( vpSize.height() );
-    change = true;
-  }
+    if ( childSize.height() < vpSize.height() ) {
+        childSize.setHeight( vpSize.height() );
+        change = true;
+    }
   
-  if ( change ||
-       _scrollView->contentsWidth() != childSize.width() ||
-       _scrollView->contentsHeight() != childSize.height() ) {
-    _editorWindow->resize( childSize );
-    _scrollView->resizeContents( childSize.width(), childSize.height() );
-  }
+    if ( change ||
+         _scrollView->contentsWidth() != childSize.width() ||
+         _scrollView->contentsHeight() != childSize.height() ) {
+        _editorWindow->resize( childSize );
+        _scrollView->resizeContents( childSize.width(), childSize.height() );
+    }
 
-  if ( !focusPoint.isNull() ) {
-    _scrollView->ensureVisible ( focusPoint.x(), focusPoint.y(), 250,250 );
-  }
+    if ( !focusPoint.isNull() ) {
+        _scrollView->ensureVisible ( focusPoint.x(), focusPoint.y(), 250,250 );
+    }
   
 }
 
@@ -117,7 +119,7 @@ void RegExpScrolledEditorWindow::slotUpdateContentSize( QPoint focusPoint )
 // outside the QScrollView.
 void RegExpScrolledEditorWindow::slotScroll( QPoint focusPoint ) 
 {
-  _scrollView->ensureVisible( focusPoint.x(), focusPoint.y() );
+    _scrollView->ensureVisible( focusPoint.x(), focusPoint.y() );
 }
 
 #include "scrollededitorwindow.moc"

@@ -11,13 +11,14 @@ class DotRegExp :public RegExp
 {
 public:
 	
-	DotRegExp();
+	DotRegExp( bool selected );
 	
-	virtual QString toString() const;
-  virtual int precedence() const { return 4;}
-  virtual QDomNode toXml( QDomDocument* doc ) const;
-  virtual bool load( QDomElement, const QString& version );
-  virtual RegExpType type() const { return DOT;}
+	virtual QString toString( bool markSelection ) const;
+    virtual bool check( ErrorMap&, bool first, bool last );
+    virtual int precedence() const { return 4;}
+    virtual QDomNode toXml( QDomDocument* doc ) const;
+    virtual bool load( QDomElement, const QString& version );
+    virtual RegExpType type() const { return DOT;}
 };
 
 

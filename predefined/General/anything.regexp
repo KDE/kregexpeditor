@@ -1,7 +1,9 @@
+<?xml version="1.0" ?>
+<!DOCTYPE RegularExpression PUBLIC "-//KDE//KRegexpEditor DTD 1.0//EN" "http://www.blackie.dk/kreg.dtd">
 <RegularExpression version="1.0" >
  <Compound allowReplace="1" >
   <Title>anything</Title>
-  <Description></Description>
+  <Description>This regular expression matches anything</Description>
   <Repeat lower="0" upper="-1" >
    <AnyChar/>
   </Repeat>

@@ -23,10 +23,6 @@ public:
   void setSelected( bool selected );
   virtual QSize sizeHint() const;
 
-protected:
-  virtual void dragEnterEvent(QDragEnterEvent *event);
-  virtual void dropEvent(QDropEvent *event);
-
 protected slots:
   void slotKeyPressed();
   

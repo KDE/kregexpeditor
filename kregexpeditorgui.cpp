@@ -1,5 +1,4 @@
 #include "kregexpeditorgui.h"
-#include "scrollededitorwindow.h"
 #include "regexp.h"
 #include <unistd.h>
 #include <stdio.h>
@@ -85,24 +84,32 @@ void KRegExpEditorGUIDialog::undo()
   _editor->undo();
 }
 
-void KRegExpEditorGUIDialog::doSomething( QString /*method*/, void* /*arguments*/ ) 
-{
-  qFatal("This method should not be invoked!");
+void KRegExpEditorGUIDialog::doSomething( QString method, void* arguments ) 
+{ 
+    _editor->doSomething( method, arguments );
 }
 
-void KRegExpEditorGUI::doSomething( QString /*method*/, void* /*arguments*/ ) 
+void KRegExpEditorGUI::doSomething( QString method, void* arguments ) 
 {
-  qFatal("This method should not be invoked!");
+    if ( method == QString::fromLatin1( "setCaseSensitive" ) ) {
+        _editor->setCaseSensitive( (bool) arguments );
+    }
+    else if ( method == QString::fromLatin1("setMinimal") ) {
+        _editor->setMinimal( (bool) arguments );
+    }
+    else {
+        qFatal( QString::fromLatin1("Method '%1' is not valid!").arg(method).latin1() );
+    }
 }
 
-void KRegExpEditorGUIDialog::setMatchText( const QString& )
+void KRegExpEditorGUIDialog::setMatchText( const QString& txt )
 {
-  qFatal("This method should not be invoked!");
+    _editor->setMatchText( txt );
 }
 
-void KRegExpEditorGUI::setMatchText( const QString& )
+void KRegExpEditorGUI::setMatchText( const QString& txt )
 {
-  qFatal("This method should not be invoked!");
+    _editor->setMatchText( txt );
 }
 
 typedef K_TYPELIST_2( KRegExpEditorGUI, KRegExpEditorGUIDialog ) Products;

@@ -7,35 +7,35 @@ class QPushButton;
 
 class AuxButtons :public QDockWindow
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
-  AuxButtons( QWidget* parent, const char* name );
-  
+    AuxButtons( QWidget* parent, const char* name );
+
 signals:
-  void undo();
-  void redo();
-  void cut();
-  void copy();
-  void paste();
-  void save();
+    void undo();
+    void redo();
+    void cut();
+    void copy();
+    void paste();
+    void save();
   
 public slots:
-  void slotEnterWhatsThis();
-  void slotCanUndo( bool );
-  void slotCanRedo( bool );
-  void slotCanCut( bool );
-  void slotCanCopy( bool );
-  void slotCanPaste( bool );
-  void slotCanSave( bool );
-  
+    void slotEnterWhatsThis();
+    void slotCanUndo( bool );
+    void slotCanRedo( bool );
+    void slotCanCut( bool );
+    void slotCanCopy( bool );
+    void slotCanPaste( bool );
+    void slotCanSave( bool );
+
 private:
-  QPushButton* _undo;
-  QPushButton* _redo;
-  QPushButton* _cut;
-  QPushButton* _copy;
-  QPushButton* _paste;
-  QPushButton* _save;
+    QPushButton* _undo;
+    QPushButton* _redo;
+    QPushButton* _cut;
+    QPushButton* _copy;
+    QPushButton* _paste;
+    QPushButton* _save;
 };
 
 

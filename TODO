@@ -1,6 +1,10 @@
 TODO:
 -----
 
+When the user drops something on the regular expression area that is of
+mime type text/plain, then ask the user whether he want it parsed as a
+regular expression or whether he wants it inserted as plain text (that is the text escaped)
+
 Later wishes:
 -------------
 - Make the KMultiFormListBox widget support that a line can show several entries.

@@ -56,7 +56,7 @@ AnyCharWidget::AnyCharWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
 
 RegExp* AnyCharWidget::regExp() const 
 {
-	return new DotRegExp();
+	return new DotRegExp( isSelected() );
 }
 
 
@@ -72,7 +72,7 @@ BegLineWidget::BegLineWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
 
 RegExp* BegLineWidget::regExp() const
 {
-	return new PositionRegExp( PositionRegExp::BEGLINE );
+	return new PositionRegExp( isSelected(), PositionRegExp::BEGLINE );
 	
 }
 
@@ -87,7 +87,7 @@ EndLineWidget::EndLineWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
 
 RegExp* EndLineWidget::regExp() const
 {
-	return new PositionRegExp( PositionRegExp::ENDLINE );
+	return new PositionRegExp( isSelected(), PositionRegExp::ENDLINE );
 }
 
 //--------------------------------------------------------------------------------
@@ -102,7 +102,7 @@ WordBoundaryWidget::WordBoundaryWidget(RegExpEditorWindow* editorWindow, QWidget
 
 RegExp* WordBoundaryWidget::regExp() const 
 {
-	return new PositionRegExp( PositionRegExp::WORDBOUNDARY );
+	return new PositionRegExp( isSelected(), PositionRegExp::WORDBOUNDARY );
 }
 
 //--------------------------------------------------------------------------------
@@ -117,6 +117,6 @@ NonWordBoundaryWidget::NonWordBoundaryWidget(RegExpEditorWindow* editorWindow, Q
 
 RegExp* NonWordBoundaryWidget::regExp() const
 {
-	return new PositionRegExp( PositionRegExp::NONWORDBOUNDARY );
+	return new PositionRegExp( isSelected(), PositionRegExp::NONWORDBOUNDARY );
 }
 

@@ -11,19 +11,20 @@
 class ConcRegExp :public RegExp
 {
 public:
-	ConcRegExp();
+	ConcRegExp( bool selected );
 	
 	void addRegExp( RegExp *);
-  RegExpList children();
-  RegExp* lastRegExp();
+    RegExpList children();
+    RegExp* lastRegExp();
 	
-	virtual QString toString() const;
-  virtual int precedence() const { return 2;}
-  virtual QDomNode toXml( QDomDocument* doc ) const;
-  virtual bool load( QDomElement, const QString& version );
-  virtual RegExpType type() const {return CONC; }
-  virtual bool operator==( const RegExp& other ) const;
-  virtual void replacePart( CompoundRegExp* replacement );
+	virtual QString toString( bool markSelection ) const;
+    virtual bool check( ErrorMap&, bool first, bool last );
+    virtual int precedence() const { return 2;}
+    virtual QDomNode toXml( QDomDocument* doc ) const;
+    virtual bool load( QDomElement, const QString& version );
+    virtual RegExpType type() const {return CONC; }
+    virtual bool operator==( const RegExp& other ) const;
+    virtual void replacePart( CompoundRegExp* replacement );
 
 private:
 	RegExpList list;

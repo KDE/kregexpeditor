@@ -120,31 +120,31 @@ RegExp* WidgetFactory::createRegExp( QDomElement node, const QString& version )
   QString tag = node.tagName();
   RegExp* regexp;
   if ( tag == QString::fromLocal8Bit( "TextRange" ) )
-    regexp = new TextRangeRegExp();
+    regexp = new TextRangeRegExp( false );
   else if ( tag == QString::fromLocal8Bit( "Text" ) ) 
-    regexp = new TextRegExp();
+    regexp = new TextRegExp( false );
   else if ( tag == QString::fromLocal8Bit( "Concatenation" ) )
-    regexp = new ConcRegExp();
+    regexp = new ConcRegExp( false );
   else if ( tag == QString::fromLocal8Bit( "Alternatives" ) )
-    regexp = new AltnRegExp();
+    regexp = new AltnRegExp( false );
   else if ( tag == QString::fromLocal8Bit( "BegLine" ) )
-    regexp = new PositionRegExp( PositionRegExp::BEGLINE );
+    regexp = new PositionRegExp( false, PositionRegExp::BEGLINE );
   else if ( tag == QString::fromLocal8Bit( "EndLine" ) )
-    regexp = new PositionRegExp( PositionRegExp::ENDLINE );
+    regexp = new PositionRegExp( false, PositionRegExp::ENDLINE );
   else if ( tag == QString::fromLocal8Bit( "WordBoundary" ) )
-    regexp = new PositionRegExp( PositionRegExp::WORDBOUNDARY );
+    regexp = new PositionRegExp( false, PositionRegExp::WORDBOUNDARY );
   else if ( tag == QString::fromLocal8Bit( "NonWordBoundary" ) )
-    regexp = new PositionRegExp( PositionRegExp::NONWORDBOUNDARY );
+    regexp = new PositionRegExp( false, PositionRegExp::NONWORDBOUNDARY );
   else if ( tag == QString::fromLocal8Bit( "PositiveLookAhead" ) )
-    regexp = new LookAheadRegExp( LookAheadRegExp::POSITIVE );
+    regexp = new LookAheadRegExp( false, LookAheadRegExp::POSITIVE );
   else if ( tag == QString::fromLocal8Bit( "NegativeLookAhead" ) )
-    regexp = new LookAheadRegExp( LookAheadRegExp::NEGATIVE );
+    regexp = new LookAheadRegExp( false, LookAheadRegExp::NEGATIVE );
   else if ( tag == QString::fromLocal8Bit( "Compound" ) )
-    regexp = new CompoundRegExp();
+    regexp = new CompoundRegExp( false );
   else if ( tag == QString::fromLocal8Bit( "AnyChar" ) )
-    regexp = new DotRegExp();
+    regexp = new DotRegExp( false );
   else if ( tag == QString::fromLocal8Bit( "Repeat" ) )
-    regexp = new RepeatRegExp();
+    regexp = new RepeatRegExp( false );
   else {
     KMessageBox::sorry( 0, i18n("<p>Unknown tag while reading XML. Tag was <b>%1</b></p>").arg(tag),
                         i18n("Error While Loading From XML File") ) ;

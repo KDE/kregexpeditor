@@ -10,21 +10,22 @@
 class TextRegExp :public RegExp
 {
 public:
-	TextRegExp(QString text = QString::null);
+	TextRegExp( bool selected, QString text = QString::null);
 	
-	virtual QString toString() const;
-  virtual int precedence() const { 
-    if ( _text.length() > 1 ) 
-      return 2;
-    else
-      return 4;
-  }
-  QString text() const { return _text; }
-  virtual QDomNode toXml( QDomDocument* doc ) const;
-  virtual bool load( QDomElement, const QString& version );
-  void append( QString str);
-  virtual RegExpType type() const { return TEXT;}
-  virtual bool operator==( const RegExp& other ) const;
+	virtual QString toString( bool markSelection ) const;
+    virtual bool check( ErrorMap&, bool first, bool last );
+    virtual int precedence() const { 
+        if ( _text.length() > 1 ) 
+            return 2;
+        else
+            return 4;
+    }
+    QString text() const { return _text; }
+    virtual QDomNode toXml( QDomDocument* doc ) const;
+    virtual bool load( QDomElement, const QString& version );
+    void append( QString str);
+    virtual RegExpType type() const { return TEXT;}
+    virtual bool operator==( const RegExp& other ) const;
   
 
 protected:

@@ -229,8 +229,8 @@ void CompoundWidget::slotConfigCanceled()
 
 RegExp* CompoundWidget::regExp() const
 {
-  return new CompoundRegExp( _content->title(), _content->description(), _hidden, 
-                             _content->allowReplace(), _child->regExp() );
+  return new CompoundRegExp( isSelected(), _content->title(), _content->description(), 
+                             _hidden, _content->allowReplace(), _child->regExp() );
 }
 
 void CompoundWidget::mousePressEvent( QMouseEvent* event )

@@ -58,7 +58,7 @@
 empty           : /* nothing */ ;
 
 regexp :  expression { setParseResult( $<regexp>1) ; }
-       | empty { setParseResult( new ConcRegExp() ); }
+       | empty { setParseResult( new ConcRegExp( false ) ); }
        ;
 
 expression : expression TOK_Bar term {
@@ -66,7 +66,7 @@ expression : expression TOK_Bar term {
                  $<regexp>$ = $<regexp>1;
                }
                else {
-                 $<regexp>$ = new AltnRegExp();
+                 $<regexp>$ = new AltnRegExp( false );
                  dynamic_cast<AltnRegExp*>( $<regexp>$ )->addRegExp( $<regexp>1 );
                }
                dynamic_cast<AltnRegExp*>( $<regexp>$ )->addRegExp( $<regexp>3 );
@@ -89,14 +89,14 @@ term : term factor {
        $<regexp>$ = $<regexp>1;
      }
      | factor { 
-         ConcRegExp* reg = new ConcRegExp();
+         ConcRegExp* reg = new ConcRegExp( false );
          reg->addRegExp( $<regexp>1 );
          $<regexp>$ = reg;
        }
      ;
 
 factor : atom TOK_Quantifier {
-           $<regexp>$ = new RepeatRegExp( $<range>2.min, $<range>2.max, $<regexp>1 );
+           $<regexp>$ = new RepeatRegExp( false, $<range>2.min, $<range>2.max, $<regexp>1 );
          }
        | atom { $<regexp>$ = $<regexp>1; }
        ;
@@ -106,19 +106,19 @@ atom : TOK_LeftParen expression TOK_RightParent {
        }
      | TOK_MagicLeftParent expression TOK_RightParent { $<regexp>$ = $<regexp>2; }
      | TOK_PosLookAhead expression TOK_RightParent { 
-         $<regexp>$ = new LookAheadRegExp( LookAheadRegExp::POSITIVE, $<regexp>2 );
+         $<regexp>$ = new LookAheadRegExp( false, LookAheadRegExp::POSITIVE, $<regexp>2 );
        }
      | TOK_NegLookAhead expression TOK_RightParent {
-         $<regexp>$ = new LookAheadRegExp( LookAheadRegExp::NEGATIVE, $<regexp>2 );
+         $<regexp>$ = new LookAheadRegExp( false, LookAheadRegExp::NEGATIVE, $<regexp>2 );
        }
      | TOK_CharClass { $<regexp>$ = $<regexp>1; }
      | char { $<regexp>$ = $<regexp>1; }
-     | TOK_Dollar { $<regexp>$ = new PositionRegExp( PositionRegExp::ENDLINE ); }
-     | TOK_Carat  { $<regexp>$ = new PositionRegExp( PositionRegExp::BEGLINE ); }
-     | TOK_Dot { $<regexp>$ = new DotRegExp(); }
+     | TOK_Dollar { $<regexp>$ = new PositionRegExp( false, PositionRegExp::ENDLINE ); }
+     | TOK_Carat  { $<regexp>$ = new PositionRegExp( false, PositionRegExp::BEGLINE ); }
+     | TOK_Dot { $<regexp>$ = new DotRegExp( false ); }
      | TOK_BackRef { 
         QString match = QString::fromLocal8Bit("\\%1").arg( $<backRef>1 );
-        $<regexp>$ = new TextRegExp( match );
+        $<regexp>$ = new TextRegExp( false, match );
         KMessageBox::information(0,i18n("<qt>Back reference regular expressions are not supported.<p>"
                                         "<tt>\\1</tt>, <tt>\\2</tt>, ... are <i>back references</i>, meaning they refer to  "
                                         "previous matches. "
@@ -131,12 +131,17 @@ atom : TOK_LeftParen expression TOK_RightParent {
                                  i18n("Back reference regular expressions not supported"), 
                                  QString::fromLocal8Bit("backReferenceNotSupported") );
       }
-     | TOK_PosWordChar { $<regexp>$ = new PositionRegExp( PositionRegExp::WORDBOUNDARY ); }
-     | TOK_PosNonWordChar { $<regexp>$ = new PositionRegExp( PositionRegExp::NONWORDBOUNDARY ); }
+     | TOK_PosWordChar { $<regexp>$ = new PositionRegExp( false, PositionRegExp::WORDBOUNDARY ); }
+     | TOK_PosNonWordChar { $<regexp>$ = new PositionRegExp( false, PositionRegExp::NONWORDBOUNDARY ); }
      ;
 
-char : TOK_Char { $<regexp>$ = new TextRegExp( QString::fromLocal8Bit("%1").arg($<ch>1)); }
-     | TOK_EscapeChar { $<regexp>$ = new TextRegExp( QString::fromLocal8Bit("%1").arg($<ch>1)); }
+char : TOK_Char { 
+       if ( $<ch>1 == '{' || $<ch>1 == '}' || $<ch>1 == '[' || $<ch>1 == ']' || $<ch>1 == '\\' ) {
+          yyerror( "illigal character - needs escaping" );
+       }
+       $<regexp>$ = new TextRegExp( false, QString::fromLocal8Bit("%1").arg($<ch>1)); 
+     }
+     | TOK_EscapeChar { $<regexp>$ = new TextRegExp( false, QString::fromLocal8Bit("%1").arg($<ch>1)); }
      ; 
 
 %%

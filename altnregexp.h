@@ -10,18 +10,19 @@
 class AltnRegExp :public RegExp
 {
 public:
-	AltnRegExp();
+	AltnRegExp( bool selected );
 	
 	void addRegExp( RegExp * );
-  RegExpList children();
+    RegExpList children();
 	
-	virtual QString toString() const;
-  virtual int precedence() const { return 1;}
-  virtual QDomNode toXml( QDomDocument* doc ) const;
-  virtual bool load( QDomElement, const QString& version );
-  virtual RegExpType type() const { return ALTN;}
-  virtual bool operator==( const RegExp& other ) const;
-  virtual void replacePart( CompoundRegExp* replacement );
+	virtual QString toString( bool markSelection ) const;
+    virtual bool check( ErrorMap&, bool first, bool last );
+    virtual int precedence() const { return 1;}
+    virtual QDomNode toXml( QDomDocument* doc ) const;
+    virtual bool load( QDomElement, const QString& version );
+    virtual RegExpType type() const { return ALTN;}
+    virtual bool operator==( const RegExp& other ) const;
+    virtual void replacePart( CompoundRegExp* replacement );
   
 private:
 	RegExpList list;

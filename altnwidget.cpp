@@ -148,7 +148,7 @@ void AltnWidget::paintEvent( QPaintEvent *e)
 
 RegExp* AltnWidget::regExp() const
 {
-	AltnRegExp *regexp = new AltnRegExp();
+	AltnRegExp *regexp = new AltnRegExp( isSelected() );
 	
   QPtrListIterator<RegExpWidget> it(_children);
   ++it; // start with the second element

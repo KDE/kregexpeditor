@@ -16,39 +16,67 @@
 #include <kstandarddirs.h>
 #include <compoundregexp.h>
 #include <qtimer.h>
+#include "verifier.h"
+#include <kmessagebox.h>
+#include <qfile.h>
+#include "verifybuttons.h"
+#include <qtooltip.h>
+#include <qwhatsthis.h>
 
 extern bool parse( QString str );
 extern RegExp* parseData();
 
 
 KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name) 
-  : QWidget(parent, name), _updating( false )
+    : QWidget(parent, name), _updating( false ), _autoVerify( false )
 {
   setMinimumSize(730,300);
   QDockArea* area = new QDockArea( Horizontal, QDockArea::Normal, this );
-  QDockArea* verArea = new QDockArea( Vertical, QDockArea::Normal, this );
+  area->setMinimumSize(2,2);
+  QDockArea* verArea1 = new QDockArea( Vertical, QDockArea::Normal, this );
+  verArea1->setMinimumSize(2,2);
+  QDockArea* verArea2 = new QDockArea( Vertical, QDockArea::Reverse, this );
+  verArea2->setMinimumSize(2,2);
 
   // The DockWindows.
   RegExpButtons *regExpButtons = new RegExpButtons( area, "KRegExpEditorPrivate::regExpButton" );
   AuxButtons *auxButtons = new AuxButtons( area, "KRegExpEditorPrivate::AuxButtons" );
-  _userRegExps = new UserDefinedRegExps( verArea, "KRegExpEditorPrivate::userRegExps" );
+  _verifyButtons = new VerifyButtons( area, "KRegExpEditorPrivate::VerifyButtons" );
+  _userRegExps = new UserDefinedRegExps( verArea1, "KRegExpEditorPrivate::userRegExps" );
   _userRegExps->setResizeEnabled( true );
+  QWhatsThis::add( _userRegExps, i18n( "In this window you will find predefined regular expressions. Both regular expressions "
+                                       "you have developed and saved, and regular expressions shipped with the system." ));
 
+  // Editor window
+  _editor = new QSplitter( Vertical, this, "KRegExpEditorPrivate::_editor" );
 
   _scrolledEditorWindow = 
-    new RegExpScrolledEditorWindow( this, "KRegExpEditorPrivate::_scrolledEditorWindow" );
+    new RegExpScrolledEditorWindow( _editor, "KRegExpEditorPrivate::_scrolledEditorWindow" );
+  QWhatsThis::add( _scrolledEditorWindow, i18n( "In this window you will develop your regular expressions. "
+                                               "select one of the actions from the action buttons above, and click the mouse in this "
+                                               "window to insert the given action."));
 
   _info = new InfoPage( this, "_info" );
-  _scrolledEditorWindow->hide();
+  _verifier = new Verifier( _editor, "KRegExpEditorPrivate::_verifier" );
+  connect( _verifier, SIGNAL( textChanged() ), this, SLOT( maybeVerify() ) );
+  QWhatsThis::add( _verifier, i18n("Type in some text in this window, and see what the regular expression you have developed matches.<p>"
+                                   "Each second match will be colored in red and each second match will be colored blue, simply so you "
+                                   "can distinguish them from each other.<p>"
+                                   "If you select part of the regular expression in the editor window, then this part will be "
+                                   "highlighted - This allows you to <i>debug</i> your regular expressions") );
+  
+  _editor->hide();
+  _editor->setSizes( QValueList<int>() << _editor->height()/2 << _editor->height()/2 );
 
   QVBoxLayout *topLayout = new QVBoxLayout( this, 0, 6, "KRegExpEditorPrivate::topLayout" );
   topLayout->addWidget( area );
   QHBoxLayout* rows = new QHBoxLayout; // I need to cal addLayout explicit to get stretching right.
   topLayout->addLayout( rows, 1 );
   
-  rows->addWidget( verArea );
-  rows->addWidget( _scrolledEditorWindow,1 );
-  rows->addWidget( _info,1 );
+  rows->addWidget( verArea1 );
+  rows->addWidget( _editor, 1 );
+  rows->addWidget( _info, 1 );
+  rows->addWidget( verArea2 );
 
   // Connect the buttons
   connect( regExpButtons, SIGNAL( clicked( int ) ),   _scrolledEditorWindow, SLOT( slotInsertRegExp( int ) ) );
@@ -74,6 +102,8 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   connect( auxButtons, SIGNAL( copy() ), _scrolledEditorWindow, SLOT( slotCopy() ) );
   connect( auxButtons, SIGNAL( paste() ), _scrolledEditorWindow, SLOT( slotPaste() ) );
   connect( auxButtons, SIGNAL( save() ), _scrolledEditorWindow, SLOT( slotSave() ) );
+  connect( _verifyButtons, SIGNAL( autoVerify( bool ) ), this, SLOT( setAutoVerify( bool ) ) );
+  connect( _verifyButtons, SIGNAL( verify() ), this, SLOT( doVerify() ) );
 
   connect( this, SIGNAL( canUndo( bool ) ), auxButtons, SLOT( slotCanUndo( bool ) ) );
   connect( this, SIGNAL( canRedo( bool ) ), auxButtons, SLOT( slotCanRedo( bool ) ) );
@@ -82,6 +112,20 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   connect( _scrolledEditorWindow, SIGNAL( anythingOnClipboard( bool ) ), auxButtons, SLOT( slotCanPaste( bool ) ) );
   connect( _scrolledEditorWindow, SIGNAL( canSave( bool ) ), auxButtons, SLOT( slotCanSave( bool ) ) );
 
+  connect( _scrolledEditorWindow, SIGNAL( verifyRegExp() ), this, SLOT( maybeVerify() ) );
+
+  connect( _verifyButtons, SIGNAL( loadVerifyText( const QString& ) ), this, SLOT( setVerifyText( const QString& ) ) );
+  connect( _verifier, SIGNAL( countChanged( int ) ), _verifyButtons, SLOT( setMatchCount( int ) ) );
+
+  // Qt anchors do not work for <pre>...</pre>, thefore scrolling to next/prev match
+  // do not work. Enable this when they work.
+  // connect( _verifyButtons, SIGNAL( gotoFirst() ), _verifier, SLOT( gotoFirst() ) );
+  // connect( _verifyButtons, SIGNAL( gotoPrev() ), _verifier, SLOT( gotoPrev() ) );
+  // connect( _verifyButtons, SIGNAL( gotoNext() ), _verifier, SLOT( gotoNext() ) );
+  // connect( _verifyButtons, SIGNAL( gotoLast() ), _verifier, SLOT( gotoLast() ) );
+  // connect( _verifier, SIGNAL( goForwardPossible( bool ) ), _verifyButtons, SLOT( enableForwardButtons( bool ) ) );
+  // connect( _verifier, SIGNAL( goBackwardPossible( bool ) ), _verifyButtons, SLOT( enableBackwardButtons( bool ) ) );
+  
   auxButtons->slotCanPaste( false );
   auxButtons->slotCanCut( false );
   auxButtons->slotCanCopy( false );
@@ -94,6 +138,11 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   layout->addWidget( label );
   _regexpEdit = new QLineEdit( this );
   layout->addWidget( _regexpEdit );
+  QWhatsThis::add( _regexpEdit, i18n( "This is the regular expression in ascii syntax. You are likely only interested "
+                                      "in this if you are a programmer, and need to develop a regular expression "
+                                      "using QRegExp.<p>"
+                                      "You may both develop your regular expression using the graphical editor, and by "
+                                      "typing regular expression in this line edit") );
 
   QPixmap pix = KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/error.png") ), KIcon::Toolbar );
   _error = new QLabel( this );
@@ -120,7 +169,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
 QString KRegExpEditorPrivate::regexp()
 {
   RegExp* regexp = _scrolledEditorWindow->regExp();
-  QString res = regexp->toString();
+  QString res = regexp->toString( false );
   delete regexp;
   return res;
 }
@@ -138,10 +187,14 @@ void KRegExpEditorPrivate::slotUpdateEditor( const QString & txt)
     
     _scrolledEditorWindow->slotSetRegExp( result );
     _error->hide();
+    maybeVerify( );
     recordUndoInfo();
+    result->check( _errorMap );
   }
   else {
     _error->show();
+    if ( _autoVerify )
+        _verifier->clearRegexp();
   }
   delete result;
   _updating = false;
@@ -154,8 +207,9 @@ void KRegExpEditorPrivate::slotUpdateLineEdit()
   _updating = true;
   
   RegExp* regexp = _scrolledEditorWindow->regExp();
+  regexp->check( _errorMap );
 
-  QString str = regexp->toString();
+  QString str = regexp->toString( false );
   _regexpEdit->setText( str );
   delete regexp;
 
@@ -184,6 +238,7 @@ void KRegExpEditorPrivate::slotRedo()
     _scrolledEditorWindow->slotSetRegExp( _undoStack.top() );
     slotUpdateLineEdit();
     emitUndoRedoSignals();
+    maybeVerify();
   }
 }
 
@@ -194,6 +249,7 @@ void KRegExpEditorPrivate::slotUndo()
     _scrolledEditorWindow->slotSetRegExp( _undoStack.top() );
     slotUpdateLineEdit();
     emitUndoRedoSignals();
+    maybeVerify();
   }
 }
 
@@ -202,7 +258,7 @@ void KRegExpEditorPrivate::slotShowEditor()
   if ( _info ) {
     delete _info;
     _info = 0;
-    _scrolledEditorWindow->show();
+    _editor->show();
   }
 }
 
@@ -237,5 +293,68 @@ void KRegExpEditorPrivate::slotTimeout()
 {
   slotUpdateEditor( _regexpEdit->text() );
 }
+
+void KRegExpEditorPrivate::setMatchText( const QString& text )
+{
+    bool autoVerify = _autoVerify;
+    _autoVerify = false;
+    _verifier->setText( text );
+    _autoVerify = autoVerify;
+}
+
+void KRegExpEditorPrivate::maybeVerify()
+{
+    if ( _autoVerify )
+        doVerify();
+    else
+        _verifyButtons->setMatchCount(-1);
+}
+
+void KRegExpEditorPrivate::doVerify()
+{
+    bool autoVerify = _autoVerify; // prevent loop due to verify emit changed, which calls maybeVerify
+    _autoVerify = false;
+    RegExp* regexp = _scrolledEditorWindow->regExp();
+    _verifier->verify( regexp->toString( true ) );
+    delete regexp;
+    _autoVerify = autoVerify;
+}
+
+void KRegExpEditorPrivate::setAutoVerify( bool on ) 
+{
+    _autoVerify = on;
+    doVerify();
+}
+
+void KRegExpEditorPrivate::setVerifyText( const QString& fileName )
+{
+    bool autoVerify = _autoVerify;
+    _autoVerify = false;
+    QFile file( fileName );
+    if ( !file.open( IO_ReadOnly ) ) {
+        KMessageBox::sorry(0, i18n("Couldn't open file '%1' for reading").arg( fileName ) );
+    }
+    else {
+        QTextStream s( &file );
+        QString txt = s.read();
+        file.close();
+        RegExp* regexp = _scrolledEditorWindow->regExp();
+        _verifier->verify( regexp->toString( true ), txt );
+        delete regexp;
+    }
+    _autoVerify = autoVerify;
+}
+
+void KRegExpEditorPrivate::setCaseSensitive( bool b )
+{
+    _verifier->setCaseSensitive( b );
+}
+
+void KRegExpEditorPrivate::setMinimal( bool b ) 
+{
+    _verifier->setMinimal( b );
+}
+
+
 
 #include "kregexpeditorprivate.moc"

@@ -11,8 +11,7 @@
 AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)
   :QDockWindow( QDockWindow::InDock, parent, name)
 {
-  QBoxLayout* layout = boxLayout();
-  
+  QBoxLayout* layout = boxLayout();  
   KIconLoader loader;
 
   _undo = new QPushButton( this );
@@ -95,5 +94,3 @@ void AuxButtons::slotCanSave( bool b )
 {
   _save->setEnabled( b );
 }
-
-

@@ -155,7 +155,6 @@ void UserDefinedRegExps::slotEdit( QListViewItem* item, const QPoint& pos )
     WidgetWinItem* winItem = dynamic_cast<WidgetWinItem*>( item );
     Q_ASSERT( winItem );
 
-    bool ok = false;
     QString oldFile = winItem->fileName();
     QString oldName = winItem->name();
 

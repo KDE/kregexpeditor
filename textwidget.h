@@ -12,33 +12,33 @@ class TextRegExp;
 */
 class TextWidget : public RegExpWidget
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
-  TextWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
-             const char *name = 0);
-  TextWidget( TextRegExp* regexp,  RegExpEditorWindow* editorWindow,
-              QWidget* parent, const char* name = 0);
-  virtual QSize sizeHint() const;
+    TextWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
+               const char *name = 0);
+    TextWidget( TextRegExp* regexp,  RegExpEditorWindow* editorWindow,
+                QWidget* parent, const char* name = 0);
+    virtual QSize sizeHint() const;
 	virtual RegExp* regExp() const;
-  virtual RegExpType type() const { return TEXT; }
-  virtual void updateAll();
+    virtual RegExpType type() const { return TEXT; }
+    virtual void updateAll();
+    virtual void selectWidget( bool );
 
 protected:
-  void init( const QString& text );
-  virtual void paintEvent( QPaintEvent *e );
-  virtual bool updateSelection( bool parentSelected );
-  virtual void clearSelection( bool update );
-  virtual bool eventFilter( QObject*, QEvent* );
+    void init( const QString& text );
+    virtual void paintEvent( QPaintEvent *e );
+    virtual bool updateSelection( bool parentSelected );
+    virtual void clearSelection();
+    virtual bool eventFilter( QObject*, QEvent* );
 
 protected slots:
-  void slotUpdate();
+    void slotUpdate();
 
 private:
-  QString text;
-  SelectableLineEdit *_edit;
-
-  QSize textSize, boxSize, editSize;
+    QString text;
+    SelectableLineEdit *_edit;
+    QSize textSize, boxSize, editSize;
 };
 
 

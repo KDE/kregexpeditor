@@ -3,6 +3,7 @@
 #include "selectablelineedit.h"
 #include <qlayout.h>
 #include <qcursor.h>
+#include <qapplication.h>
 TextWidget::TextWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                        const char *name)
   :RegExpWidget(editorWindow, parent, name)
@@ -21,6 +22,7 @@ void TextWidget::init( const QString& txt )
 {
   QHBoxLayout *lay = new QHBoxLayout(this);
   _edit = new SelectableLineEdit( this, this, "TextWidget::edit" );
+  _edit->setDragEnabled( false ); //otherwise QLineEdit::mouseMoveEvent will set the cursor over and over again.
   lay->addWidget(_edit);
 
   _edit->setText( txt );
@@ -52,6 +54,11 @@ void TextWidget::paintEvent( QPaintEvent *e)
   RegExpWidget::paintEvent(e);
 }
 
+void TextWidget::selectWidget( bool sel )
+{
+    _edit->setSelected( sel );
+}
+
 bool TextWidget::updateSelection(bool parentSelected)
 {
   bool changed = RegExpWidget::updateSelection( parentSelected );
@@ -67,43 +74,63 @@ void TextWidget::updateAll()
   update();
 }
 
-void TextWidget::clearSelection( bool )
+void TextWidget::clearSelection()
 {
   _isSelected = false;
   _edit->setSelected( false );
 }
 
-
-
 RegExp* TextWidget::regExp() const
 {
-	return new TextRegExp( _edit->text() ); 
+	return new TextRegExp( isSelected(), _edit->text() ); 
 }
 
 bool TextWidget::eventFilter( QObject*, QEvent* event)
 {
-  if ( event->type() == QEvent::MouseButtonRelease ) {
-    if ( _editorWindow->isInserting() && acceptWidgetInsert( _editorWindow->insertType() ) ) {
-      mouseReleaseEvent( dynamic_cast<QMouseEvent*>(event) );
-      return true;
+    // This is an event filter (in contrast to methods in SelectableLineEdit),
+    // otherwise lots of functions would need to be exported from TextWidget.
+    if ( event->type() == QEvent::MouseButtonRelease ) {
+        if ( _editorWindow->isInserting() ) {
+            if ( acceptWidgetInsert( _editorWindow->insertType() ) ) {
+                mouseReleaseEvent( dynamic_cast<QMouseEvent*>(event) );
+            }
+            return true;
+        }
     }
-  }
-  else if ( event->type() == QEvent::Enter ) {
-    if ( _editorWindow->isInserting() ) {
-      QCursor cursor;
-      if ( acceptWidgetInsert( _editorWindow->insertType() ) )
-        cursor = CrossCursor;
-      else
-        cursor = ForbiddenCursor;
-      _edit->setCursor( cursor );
-      return true;
+    else if ( event->type() == QEvent::MouseButtonPress ) {
+        if ( _editorWindow->isInserting() ) {
+            return true;
+        }
+        else  if ( isSelected() ) {
+            QMouseEvent* e = static_cast<QMouseEvent*>( event );
+            QMouseEvent ev( event->type(), mapTo(_editorWindow, e->pos()),
+                            e->button(), e->state());
+            QApplication::sendEvent( _editorWindow, &ev );
+            return true;
+        }
     }
-    else {
-      _edit->setCursor( ibeamCursor );
-      return false;
-    }  
-  }
-  return false;
+    
+    else if ( event->type() == QEvent::Enter ) {
+        if ( _editorWindow->isInserting() ) {
+            if ( acceptWidgetInsert( _editorWindow->insertType() ) ) {
+                _edit->setCursor(crossCursor);
+            }
+            else {
+                _edit->setCursor(forbiddenCursor);
+            }
+        }
+        else if (  isSelected() ) {
+            _edit->setCursor( arrowCursor );
+        }
+        else {
+            _edit->setCursor( ibeamCursor );
+        }  
+    }
+    else if ( event->type() == QEvent::MouseButtonDblClick &&  _editorWindow->isInserting() ) {
+        return true;
+    }
+    return false;
 }
+
 
 #include "textwidget.moc"

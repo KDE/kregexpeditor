@@ -690,7 +690,7 @@ case 3:
 YY_RULE_SETUP
 #line 21 "qregexpparser.l"
 { 
-             TextRangeRegExp* regexp = new TextRangeRegExp(); 
+             TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setDigit( true );
              qregexplval.regexp = regexp;
              return TOK_CharClass;
@@ -700,7 +700,7 @@ case 4:
 YY_RULE_SETUP
 #line 27 "qregexpparser.l"
 { 
-             TextRangeRegExp* regexp = new TextRangeRegExp(); 
+             TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setNonDigit( true );
              qregexplval.regexp = regexp;
              return TOK_CharClass;
@@ -710,7 +710,7 @@ case 5:
 YY_RULE_SETUP
 #line 33 "qregexpparser.l"
 { 
-             TextRangeRegExp* regexp = new TextRangeRegExp(); 
+             TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setSpace( true );
              qregexplval.regexp = regexp;
              return TOK_CharClass;
@@ -720,7 +720,7 @@ case 6:
 YY_RULE_SETUP
 #line 39 "qregexpparser.l"
 { 
-             TextRangeRegExp* regexp = new TextRangeRegExp(); 
+             TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setNonSpace( true );
              qregexplval.regexp = regexp;
              return TOK_CharClass;
@@ -730,7 +730,7 @@ case 7:
 YY_RULE_SETUP
 #line 45 "qregexpparser.l"
 { 
-             TextRangeRegExp* regexp = new TextRangeRegExp(); 
+             TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setWordChar( true );
              qregexplval.regexp = regexp;
              return TOK_CharClass;
@@ -740,7 +740,7 @@ case 8:
 YY_RULE_SETUP
 #line 51 "qregexpparser.l"
 { 
-             TextRangeRegExp* regexp = new TextRangeRegExp(); 
+             TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setNonWordChar( true );
              qregexplval.regexp = regexp;
              return TOK_CharClass;
@@ -750,7 +750,7 @@ case 9:
 YY_RULE_SETUP
 #line 57 "qregexpparser.l"
 {
-               TextRangeRegExp* regexp = new TextRangeRegExp();
+               TextRangeRegExp* regexp = new TextRangeRegExp( false );
                regexp->addCharacter( QString::fromLocal8Bit( yytext ) );
                qregexplval.regexp = regexp;
                return TOK_CharClass;
@@ -760,7 +760,7 @@ case 10:
 YY_RULE_SETUP
 #line 64 "qregexpparser.l"
 {
-             TextRangeRegExp* regexp = new TextRangeRegExp(); 
+             TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->addCharacter( QString::fromLocal8Bit(yytext) );
              qregexplval.regexp = regexp;
              return TOK_CharClass;
@@ -770,7 +770,7 @@ case 11:
 YY_RULE_SETUP
 #line 70 "qregexpparser.l"
 {
-             TextRangeRegExp* regexp = new TextRangeRegExp(); 
+             TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->addCharacter( QString::fromLocal8Bit(yytext) );
              qregexplval.regexp = regexp;
              return TOK_CharClass;
@@ -1817,7 +1817,7 @@ void parseRange( char* txt, int* min, int* max )
 */
 RegExp* parseCharClass( char* match )
 {
-  TextRangeRegExp* res = new TextRangeRegExp();
+  TextRangeRegExp* res = new TextRangeRegExp( false );
   QString txt = QString::fromLocal8Bit( match );
   txt = txt.mid(1,txt.length()-2);
   

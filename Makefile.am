@@ -9,7 +9,7 @@ noinst_HEADERS = \
   scrollededitorwindow.h compoundwidget.h singlecontainerwidget.h widgetfactory.h dcbutton.h charselector.h        \
   lookaheadwidget.h textregexp.h textrangeregexp.h repeatregexp.h lookaheadregexp.h concregexp.h altnregexp.h      \
   positionregexp.h dotregexp.h infopage.h kregexpeditorprivate.h compoundregexp.h pair.h triple.h myfontmetrics.h  \
-  regexpbuttons.h userdefinedregexps.h auxbuttons.h
+  regexpbuttons.h userdefinedregexps.h auxbuttons.h verifier.h verifybuttons.h errormap.h
 
 libkregexpeditorgui_la_SOURCES = \
   kregexpeditorgui.cpp editorwindow.cpp regexpwidget.cpp drag.cpp  concwidget.cpp  zerowidgets.cpp dragaccepter.cpp \
@@ -18,7 +18,8 @@ libkregexpeditorgui_la_SOURCES = \
   selectablelineedit.cpp multicontainerwidget.cpp  scrollededitorwindow.cpp compoundwidget.cpp                      \
   singlecontainerwidget.cpp widgetfactory.cpp  dcbutton.cpp gen_qregexplexer.cpp gen_qregexpparser.cc               \
   charselector.cpp lookaheadregexp.cpp lookaheadwidget.cpp  regexp.cpp infopage.cpp kregexpeditorprivate.cpp        \
-  compoundregexp.cpp auxbuttons.cpp  myfontmetrics.cpp regexpbuttons.cpp userdefinedregexps.cpp
+  compoundregexp.cpp auxbuttons.cpp  myfontmetrics.cpp regexpbuttons.cpp userdefinedregexps.cpp verifier.cpp        \
+  verifybuttons.cpp errormap.cpp
 
 libkregexpeditorgui_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN) -module
 libkregexpeditorgui_la_LIBADD = KMultiFormListBox/libkmultiformlistbox.la \
@@ -33,9 +34,10 @@ servicedir = $(kde_servicesdir)
 ##### Build rules for the parser
 
 .PHONY: parser
-parser: 
+parser:
 	cd $(srcdir) && flex -Pqregexp -ogen_qregexplexer.cpp qregexpparser.l
 	cd $(srcdir) && bison -d -p qregexp -o gen_qregexpparser.cc qregexpparser.y
 
 messages:
+	$(srcdir)/extractrc-from-regexp $(srcdir)/predefined/General/*.regexp > predefined-regexps.cpp
 	$(XGETTEXT) *.cpp *.h */*.cpp */*.h -o $(podir)/kregexpeditor.pot

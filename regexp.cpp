@@ -1,8 +1,9 @@
 #include "regexp.h"
 #include "widgetfactory.h"
 #include "kregexpeditorgui.h"
+#include "errormap.h"
 
-RegExp::RegExp() : _parent(0), _destructing( false )
+RegExp::RegExp( bool selected ) : _parent(0), _destructing( false ), _selected( selected )
 {
   // Nothing to do
 }
@@ -57,7 +58,7 @@ QString RegExp::toXmlString() const
   QDomNode elm = toXml( &doc );
   
   top.appendChild( elm );
-  QString xmlString = doc.toString();
+  QString xmlString = QString::fromLocal8Bit("<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<!DOCTYPE RegularExpression PUBLIC \"-//KDE//KRegexpEditor DTD 1.0//EN\" \"http://www.blackie.dk/kreg.dtd\">\n") + doc.toString();
 
   return xmlString;
 }
@@ -65,4 +66,11 @@ QString RegExp::toXmlString() const
 RegExp* RegExp::clone() const 
 {
   return WidgetFactory::createRegExp( toXmlString() );
+}
+
+void RegExp::check( ErrorMap& map ) 
+{
+    map.start();
+    check( map, true, true );
+    map.end();
 }

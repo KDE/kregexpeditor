@@ -7,6 +7,7 @@ SelectableLineEdit::SelectableLineEdit( RegExpWidget* owner, QWidget* parent, co
 {
   connect( this, SIGNAL( textChanged( const QString & ) ), this, 
            SLOT( slotKeyPressed() ) );
+  setAcceptDrops( false );
 }
 
 void SelectableLineEdit::setSelected( bool selected )
@@ -20,16 +21,6 @@ void SelectableLineEdit::setSelected( bool selected )
     unsetPalette();
   }
   repaint();
-}
-
-void SelectableLineEdit::dragEnterEvent(QDragEnterEvent *event)
-{
-  QApplication::sendEvent( _owner, event );
-}
-
-void SelectableLineEdit::dropEvent(QDropEvent *event)
-{
-  QApplication::sendEvent( _owner, event );
 }
 
 QSize SelectableLineEdit::sizeHint() const 

@@ -14,39 +14,40 @@ typedef Pair<QString,QString> StringPair;
 class TextRangeRegExp :public RegExp
 {
 public:
-	TextRangeRegExp( );
+	TextRangeRegExp( bool selected );
 	virtual ~TextRangeRegExp();
 	
 	void addCharacter( QString ch );
-  QStringList chars() const { return _chars; } 
-  void clearChars() { _chars.clear(); }
+    QStringList chars() const { return _chars; } 
+    void clearChars() { _chars.clear(); }
 
 	void addRange( QString from, QString to );
-  QPtrList<StringPair> range() const { return _ranges; }
-  void clearRange() { _ranges.clear(); }
+    QPtrList<StringPair> range() const { return _ranges; }
+    void clearRange() { _ranges.clear(); }
 
-  void setNegate( bool set ) { _negate = set; }
-  void setDigit( bool set ) { _digit = set; }
-  void setNonDigit( bool set ) { _nonDigit = set; }
-  void setSpace( bool set ) { _space = set; }
-  void setNonSpace( bool set ) { _nonSpace = set; }
-  void setWordChar( bool set ) { _wordChar = set; }
-  void setNonWordChar( bool set ) { _nonWordChar = set; }
+    void setNegate( bool set ) { _negate = set; }
+    void setDigit( bool set ) { _digit = set; }
+    void setNonDigit( bool set ) { _nonDigit = set; }
+    void setSpace( bool set ) { _space = set; }
+    void setNonSpace( bool set ) { _nonSpace = set; }
+    void setWordChar( bool set ) { _wordChar = set; }
+    void setNonWordChar( bool set ) { _nonWordChar = set; }
 
-  bool negate() const { return _negate; }
-  bool digit() const { return _digit; }
-  bool nonDigit() const { return _nonDigit; }
-  bool space() const { return _space; }
-  bool nonSpace() const { return _nonSpace; }
-  bool wordChar() const { return _wordChar; }
-  bool nonWordChar() const { return _nonWordChar; }
+    bool negate() const { return _negate; }
+    bool digit() const { return _digit; }
+    bool nonDigit() const { return _nonDigit; }
+    bool space() const { return _space; }
+    bool nonSpace() const { return _nonSpace; }
+    bool wordChar() const { return _wordChar; }
+    bool nonWordChar() const { return _nonWordChar; }
 
-	virtual QString toString() const;
-  virtual int precedence() const { return 4;}
-  virtual QDomNode toXml( QDomDocument* doc ) const;
-  virtual bool load( QDomElement, const QString& version );
-  virtual RegExpType type() const { return TEXTRANGE;}
-  virtual bool operator==( const RegExp& other ) const;
+	virtual QString toString( bool markSelection ) const;
+    virtual bool check( ErrorMap&, bool first, bool last );
+    virtual int precedence() const { return 4;}
+    virtual QDomNode toXml( QDomDocument* doc ) const;
+    virtual bool load( QDomElement, const QString& version );
+    virtual RegExpType type() const { return TEXTRANGE;}
+    virtual bool operator==( const RegExp& other ) const;
 
 private:
 	bool _negate, _digit, _nonDigit, _space, _nonSpace, _wordChar, _nonWordChar;

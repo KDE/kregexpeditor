@@ -108,12 +108,12 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
                i18n("<qt>This asserts a non-word boundary (This part does not actually match any characters)</qt>") );
   layout->addWidget( but );
 
-  but = insert(POSLOOKAHEAD,  "poslookahead", i18n("Positive Assertion"), 
-               i18n("<qt>This asserts a regular expression (This part does not actually match any characters)</qt>") );
+  but = insert(POSLOOKAHEAD,  "poslookahead", i18n("Positive Look Ahead"), 
+               i18n("<qt>This asserts a regular expression (This part does not actually match any characters). You can only use this at the end of a regular expression.</qt>") );
   layout->addWidget( but );
 
-  but = insert(NEGLOOKAHEAD,  "neglookahead", i18n("Negative Assertion"), 
-               i18n("<qt>This asserts a regular expression that must not match (This part does not actually match any characters)</qt>") );
+  but = insert(NEGLOOKAHEAD,  "neglookahead", i18n("Negative Look Ahead"), 
+               i18n("<qt>This asserts a regular expression that must not match (This part does not actually match any characters). You can only use this at the end of a regular expression.</qt>") );
   layout->addWidget( but );
 }
 

@@ -13,58 +13,64 @@ class RegExp;
 */
 class RegExpScrolledEditorWindow :public QWidget
 {
-Q_OBJECT
+    Q_OBJECT
 public:
-  RegExpScrolledEditorWindow( QWidget *parent = 0, const char* name = 0);
-  RegExp* regExp();
+    RegExpScrolledEditorWindow( QWidget *parent = 0, const char* name = 0);
+    RegExp* regExp();
 
 private:
-  RegExpScrolledEditorWindow() {}; // Dont use!
+    RegExpScrolledEditorWindow() {}; // Dont use!
   
 
 protected:
-  virtual void resizeEvent( QResizeEvent* );
+    virtual void resizeEvent( QResizeEvent* );
   
 public slots:
-  void slotSetRegExp( RegExp* );
-  void slotInsertRegExp( int );
-  void slotInsertRegExp( RegExp* );
-  void slotDeleteSelection();
-  void slotDoSelect();
-  void slotCut();
-  void slotCopy();
-  void slotSave();
-  void slotPaste();
+    void slotSetRegExp( RegExp* );
+    void slotInsertRegExp( int );
+    void slotInsertRegExp( RegExp* );
+    void slotDeleteSelection();
+    void slotDoSelect();
+    void slotCut();
+    void slotCopy();
+    void slotSave();
+    void slotPaste();
 
 protected slots:
-  void slotUpdateContentSize( QPoint focusPoint );
-  void slotScroll( QPoint focusPoint );
+    void slotUpdateContentSize( QPoint focusPoint );
+    void slotScroll( QPoint focusPoint );
 
-signals:
-  /**
-     This signal is emited when the user has completed an editing
-     action. The application may chose to call @ref slotDoSelect as a
-     consequence to reset to selection mode.
-  */
-  void doneEditing();
+    signals:
+    /**
+       This signal is emited when the user has completed an editing
+       action. The application may chose to call @ref slotDoSelect as a
+       consequence to reset to selection mode.
+    */
+    void doneEditing();
 
-  /**
-     This signal is emited whenever a change has taked place in the editor widget
-  */
-  void change();
+    /**
+       This signal is emited whenever a change has taked place in the editor widget
+    */
+    void change();
 
-  /**
-     This signal is emitted when the user saves a regular expression.
-  */
-  void savedRegexp();
+    /**
+       This signal is emitted when the user saves a regular expression.
+    */
+    void savedRegexp();
 
-  void anythingSelected( bool );
-  void anythingOnClipboard( bool );
-  void canSave( bool );
+    void anythingSelected( bool );
+    void anythingOnClipboard( bool );
+    void canSave( bool );
 
+    /**
+       This signal is emitted when the regular expression has changed, or 
+       when the selection has changed.
+     */
+    void verifyRegExp();
+   
 private:
-  RegExpEditorWindow* _editorWindow;
-  QScrollView* _scrollView;
+    RegExpEditorWindow* _editorWindow;
+    QScrollView* _scrollView;
 };
 
 #endif // __scrolledEditorWindow

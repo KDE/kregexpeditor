@@ -1,11 +1,10 @@
 #include <kapplication.h>
 #include <kcmdlineargs.h>
 #include <kregexpeditorinterface.h>
-#include <kparts/componentfactory.h>
 #include <qdialog.h>
 #include <qfile.h>
 #include <qtextstream.h>
-
+#include "../kregexpeditorgui.h"
 class ShootABug :public QObject 
 {
 public:
@@ -36,35 +35,15 @@ int main( int argc, char* argv[] )
   
   qApp->installEventFilter( new ShootABug() );
 
-  int error = 0;
-  QDialog* m_editorDialog = KParts::ComponentFactory::createInstanceFromQuery<QDialog>( "KRegExpEditor/KRegExpEditor", QString::null, 0, 0, QStringList(), &error );
-  switch ( error )
-  {
-      case KParts::ComponentFactory::ErrNoServiceFound:
-	  qDebug( "cannot find KRegExpEditor service." ); return 1;
-      case KParts::ComponentFactory::ErrServiceProvidesNoLibrary:
-	  qDebug( "service provides no library field." ); return 1;
-      case KParts::ComponentFactory::ErrNoFactory:
-	  qDebug( "shared library does not provide a factory." ); return 1;
-      case KParts::ComponentFactory::ErrNoComponent:
-	  qDebug( "factory does not provide a QDialog component." ); return 1;
-      default: break;
-  };
-
-  Q_ASSERT( m_editorDialog );
-  
-  KRegExpEditorInterface *iface = static_cast<KRegExpEditorInterface *>( m_editorDialog->qt_cast( "KRegExpEditorInterface" ) );
-
-  Q_ASSERT( iface );
-
-  iface->setRegExp( QString::fromLatin1( ".*" ) );
+  KRegExpEditorGUIDialog* iface = new KRegExpEditorGUIDialog( 0, "_editor", QStringList() );
+  iface->setRegExp( QString::fromLatin1( "#include" ) );
+  iface->doSomething( "setMinimal", (void*) false );
   QFile file("/packages/kde-src/kdeutils/kregexpeditor/test/main.cpp");
   file.open(IO_ReadOnly);
   QTextStream stream( &file);
   QString txt = stream.read();
   iface->setMatchText( txt );
   
-  m_editorDialog->exec();
-  delete m_editorDialog;
+  iface->exec();
 }
 

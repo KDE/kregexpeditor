@@ -116,7 +116,7 @@ void RepeatWidget::paintEvent( QPaintEvent *e )
 
 RegExp* RepeatWidget::regExp() const 
 {
-	return new RepeatRegExp( _content->min(), _content->max(), _child->regExp() );
+	return new RepeatRegExp( isSelected(), _content->min(), _content->max(), _child->regExp() );
 }
 
 void RepeatWidget::slotConfigWindowClosed()
