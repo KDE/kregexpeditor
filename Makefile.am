@@ -46,7 +46,7 @@ libkregexpeditorgui_la_LIBADD = libkregexpeditorcommon.la
 
 bin_PROGRAMS = kregexpeditor
 kregexpeditor_SOURCES = main.cpp
-kregexpeditor_LDFLAGS = $(all_libraries)
+kregexpeditor_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 kregexpeditor_LDADD =  libkregexpeditorcommon.la $(LIB_KIO)
 kregexpeditor_INCLUDES =  $(all_includes)
 
