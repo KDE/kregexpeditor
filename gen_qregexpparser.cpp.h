@@ -25,4 +25,4 @@ typedef union {
 #define	TOK_PosNonWordChar	272
 
 
-extern YYSTYPE yylval;
+extern YYSTYPE qregexplval;

@@ -25,7 +25,7 @@ libkregexpeditorgui_la_SOURCES = kregexpeditorgui.cpp editorwindow.cpp\
 													 selectablelineedit.cpp multicontainerwidget.cpp \
 													 scrollededitorwindow.cpp compoundwidget.cpp \
 													 singlecontainerwidget.cpp widgetfactory.cpp \
-													 dcbutton.cpp gen_qregexplexer.cpp gen_qregexpparser.cpp \
+													 dcbutton.cpp gen_qregexplexer.cpp gen_qregexpparser.cc \
 													 charselector.cpp lookaheadregexp.cpp lookaheadwidget.cpp \
 													 regexp.cpp infopage.cpp kregexpeditorprivate.cpp \
 													 compoundregexp.cpp flow.cpp compoundinfo.cpp
@@ -44,10 +44,11 @@ servicedir = $(kde_servicesdir)
 ##### Build rules for the parser
 
 .PHONY: parser
-parser: gen_qregexplexer.cpp gen_qregexpparser.cpp
+parser: gen_qregexplexer.cpp gen_qregexpparser.cc
 
 gen_qregexplexer.cpp: qregexpparser.l
-	cd $(srcdir) && flex -ogen_qregexplexer.cpp qregexpparser.l
+	cd $(srcdir) && flex -Pqregexp -ogen_qregexplexer.cpp qregexpparser.l
 
-gen_qregexpparser.cpp: qregexpparser.y
-	cd $(srcdir) && bison -d -o gen_qregexpparser.cpp qregexpparser.y
+# To avoid problems with --enable-final (YYSTYPE defined twice), this file is called .cc
+gen_qregexpparser.cc: qregexpparser.y
+	cd $(srcdir) && bison -d -p qregexp -o gen_qregexpparser.cc qregexpparser.y
