@@ -161,8 +161,12 @@ DoubleClickButton* RegExpButtons::insert(RegExpType tp, const char* name, QStrin
 
 void RegExpButtons::slotUnSelect()
 {
-  if ( _grp->selected() )
-    dynamic_cast<QPushButton*>(_grp->selected())->setOn( false );
+  if ( _grp->selected() ) {
+    QPushButton *pb = dynamic_cast<QPushButton*>(_grp->selected());
+    if (pb) {
+      pb->setOn( false );
+    }
+  }
 }
 
 void RegExpButtons::slotSetKeepMode( )

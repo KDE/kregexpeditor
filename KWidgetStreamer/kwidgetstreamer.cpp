@@ -25,6 +25,7 @@
 void KWidgetStreamer::toStream(const QObject* from, QDataStream& stream )
 {
   if ( from->inherits("KMultiFormListBox") ) {
+    // Hmm, we'll trust Qt that this dynamic_cast won't fail!
     dynamic_cast<const KMultiFormListBox*>(from)->toStream( stream );
   }
 
@@ -34,6 +35,7 @@ void KWidgetStreamer::toStream(const QObject* from, QDataStream& stream )
 void KWidgetStreamer::fromStream( QDataStream& stream, QObject* to )
 {
   if ( to->inherits("KMultiFormListBox") ) {
+    // Hmm, we'll trust Qt that this dynamic_cast won't fail!
     dynamic_cast<KMultiFormListBox*>(to)->fromStream( stream );
   }
 

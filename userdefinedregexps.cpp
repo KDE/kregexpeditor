@@ -111,7 +111,7 @@ void UserDefinedRegExps::createItems( const QString& _title, const QString& dir,
     // Inserth the regexp into the list of compound regexps
     if ( regexp->type() == RegExp::COMPOUND ) {
       CompoundRegExp* cregexp = dynamic_cast<CompoundRegExp*>( regexp );
-      if ( cregexp->allowReplace() )
+      if ( cregexp && cregexp->allowReplace() )
         _regExps.append( cregexp );
     }
   }
@@ -135,8 +135,10 @@ void UserDefinedRegExps::slotLoad(QListViewItem* item)
     return;
   }
 
-  RegExp* regexp = dynamic_cast<WidgetWinItem*>(item)->regExp();
-  emit load( regexp );
+  WidgetWinItem* wwi = dynamic_cast<WidgetWinItem*>(item);
+  if (wwi) {
+    emit load( wwi->regExp() );
+  }
 }
 
 void UserDefinedRegExps::slotEdit( QListViewItem* item, const QPoint& pos )
@@ -152,7 +154,7 @@ void UserDefinedRegExps::slotEdit( QListViewItem* item, const QPoint& pos )
   else {
     // Only allow rename and delete of users own regexps.
     WidgetWinItem* winItem = dynamic_cast<WidgetWinItem*>( item );
-    if ( ! winItem->isUsersRegExp() ) {
+    if ( winItem && ! winItem->isUsersRegExp() ) {
       menu->setItemEnabled( 1, false );
       menu->setItemEnabled( 2, false );
     }

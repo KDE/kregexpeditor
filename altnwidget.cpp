@@ -234,7 +234,9 @@ void AltnWidget::updateDrawLineInfo()
 {
   for ( unsigned int i=0; i < _children.count(); i+=2 ) {
     bool line = ( i != 0 && i!= _children.count()-1 );
-    dynamic_cast<DragAccepter*>(_children.at(i))->setDrawLine( line );
+    DragAccepter *accepter = dynamic_cast<DragAccepter*>(_children.at(i));
+    if (accepter)
+      accepter->setDrawLine( line );
   }
 }
 

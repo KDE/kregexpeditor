@@ -128,6 +128,8 @@ void ConcWidget::paintEvent( QPaintEvent *e)
 
     for (unsigned int i = 1; i < _children.count(); i += 2 ) {
       DragAccepter* accepter = dynamic_cast<DragAccepter*>(_children.at(i-1));
+      if (!accepter)
+        continue;
       RegExpWidget* child = _children.at(i);
 
       QSize childSize = child->sizeHint();
@@ -176,6 +178,7 @@ void ConcWidget::paintEvent( QPaintEvent *e)
     //---------------------- Finally place the last accepter.
     DragAccepter* accepter =
       dynamic_cast<DragAccepter*>(_children.at(_children.count()-1));
+    // dynamic_cast is ASSERTed at top
     int x = offset;
     int h = lastHeight;
     int w = accepter->sizeHint().width() + extra;

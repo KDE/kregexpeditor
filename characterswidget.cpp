@@ -138,10 +138,12 @@ QString CharactersWidget::text() const
     QPtrList<StringPair> range = _regexp->range();
     for ( QPtrListIterator<StringPair> it( range ); *it; ++it ) {
         StringPair* elm = dynamic_cast<StringPair*>(*it);
-        QString fromText = elm->first();
-        QString toText = elm->second();
+        if (elm) {
+            QString fromText = elm->first();
+            QString toText = elm->second();
 
-        res += QString::fromLocal8Bit("- ") + i18n("from ") + fromText + i18n(" to ") + toText + QString::fromLocal8Bit("\n");
+            res += QString::fromLocal8Bit("- ") + i18n("from ") + fromText + i18n(" to ") + toText + QString::fromLocal8Bit("\n");
+        }
     }
     return res.left(res.length()-1);
 }
@@ -187,7 +189,7 @@ void CharacterEdits::addCharacter( QString txt )
     KMultiFormListBoxEntryList list = _single->elements();
     for ( QPtrListIterator<KMultiFormListBoxEntry> it(list); *it; ++it ) {
         SingleEntry* entry = dynamic_cast<SingleEntry*>( *it );
-        if ( entry->isEmpty() ) {
+        if ( entry && entry->isEmpty() ) {
             entry->setText( txt );
             return;
         }
@@ -203,7 +205,7 @@ void CharacterEdits::addRange( QString from, QString to )
     KMultiFormListBoxEntryList list = _range->elements();
     for ( QPtrListIterator<KMultiFormListBoxEntry> it(list); *it; ++it ) {
         RangeEntry* entry = dynamic_cast<RangeEntry*>( *it );
-        if ( entry->isEmpty() ) {
+        if ( entry && entry->isEmpty() ) {
             entry->setFrom( from );
             entry->setTo( to );
             return;
@@ -231,7 +233,8 @@ int CharacterEdits::exec()
     KMultiFormListBoxEntryList list1 = _single->elements();
     for ( QPtrListIterator<KMultiFormListBoxEntry> it(list1); *it; ++it ) {
         SingleEntry* entry = dynamic_cast<SingleEntry*>( *it );
-        entry->setText( QString::fromLocal8Bit("") );
+        if (entry)
+            entry->setText( QString::fromLocal8Bit("") );
     }
     QStringList list2 = _regexp->chars();
     for ( QStringList::Iterator it( list2.begin() ); ! (*it).isNull(); ++it ) {
@@ -242,8 +245,10 @@ int CharacterEdits::exec()
     KMultiFormListBoxEntryList list3 = _range->elements();
     for ( QPtrListIterator<KMultiFormListBoxEntry> it(list3); *it; ++it ) {
         RangeEntry* entry = dynamic_cast<RangeEntry*>( *it );
-        entry->setFrom( QString::fromLocal8Bit("") );
-        entry->setTo( QString::fromLocal8Bit("") );
+        if (entry) {
+            entry->setFrom( QString::fromLocal8Bit("") );
+            entry->setTo( QString::fromLocal8Bit("") );
+        }
     }
 
     QPtrList<StringPair> ranges = _regexp->range();
@@ -336,7 +341,7 @@ void CharacterEdits::slotOK()
     KMultiFormListBoxEntryList list = _single->elements();
     for ( QPtrListIterator<KMultiFormListBoxEntry> it( list ); *it; ++it ) {
         SingleEntry* entry = dynamic_cast<SingleEntry*>(*it);
-        if ( !entry->isEmpty() ) {
+        if ( entry && !entry->isEmpty() ) {
             _regexp->addCharacter( entry->text() );
         }
     }
@@ -346,7 +351,7 @@ void CharacterEdits::slotOK()
     list = _range->elements();
     for ( QPtrListIterator<KMultiFormListBoxEntry> it( list ); *it; ++it ) {
         RangeEntry* entry = dynamic_cast<RangeEntry*>(*it);
-        if ( !entry->isEmpty() ) {
+        if ( entry && !entry->isEmpty() ) {
             _regexp->addRange( entry->fromText(), entry->toText() );
         }
     }

@@ -68,7 +68,9 @@ void DragAccepter::mouseReleaseEvent( QMouseEvent* event )
 
       Q_ASSERT( elm );
 
-      dynamic_cast<RegExpWidget*>(parent())->addNewConcChild(this, elm);
+      RegExpWidget *w = dynamic_cast<RegExpWidget*>(parent());
+      if (w)
+        w->addNewConcChild(this, elm);
       _editorWindow->updateContent( this );
       _editorWindow->clearSelection( true );
     }
@@ -83,7 +85,9 @@ void DragAccepter::mouseReleaseEvent( QMouseEvent* event )
                                                          dynamic_cast<QWidget*>(parent()),
                                                          _editorWindow->insertType() );
       if ( child ) {
-        dynamic_cast<RegExpWidget*>(parent())->addNewChild(this, child);
+        RegExpWidget *w = dynamic_cast<RegExpWidget*>(parent());
+        if (w)
+          w->addNewChild(this, child);
         _editorWindow->updateContent( child );
         child->setFocus();
         _editorWindow->clearSelection( true );
@@ -112,8 +116,12 @@ void DragAccepter::dropEvent(QDropEvent *event)
 
   Q_ASSERT( elm );
 
-  dynamic_cast<RegExpWidget*>(parent())->addNewConcChild(this, elm);
-  dynamic_cast<QWidget*>(parent())->update();
+  RegExpWidget *rew = dynamic_cast<RegExpWidget*>(parent());
+  if (rew)
+    rew->addNewConcChild(this, elm);
+  QWidget *w = dynamic_cast<QWidget*>(parent());
+  if (w)
+    w->update();
   _editorWindow->updateContent( this );
 
   bool selfDrag = (  event->source() && event->source()->topLevelWidget() == topLevelWidget() );

@@ -160,7 +160,9 @@ bool MultiContainerWidget::updateSelection(bool parentSelected)
     }
 
     bool isChildSel = child->isSelected();
-    dynamic_cast<DragAccepter*>(child)->_isSelected = select;
+    DragAccepter *accepter = dynamic_cast<DragAccepter*>(child);
+    if (accepter)
+      accepter->_isSelected = select;
     if ( select != isChildSel )
       child->repaint();
   }

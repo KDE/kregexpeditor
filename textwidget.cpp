@@ -57,7 +57,9 @@ void TextWidget::slotUpdate()
   // widget may not be enough for the parent to change size, and in that
   // case the parent would not repaint, and the text widget would not be
   // resized.
-  dynamic_cast<QWidget*>(parent())->repaint();
+  QWidget *p = dynamic_cast<QWidget*>(parent());
+  if (p)
+    p->repaint();
   _editorWindow->updateContent( this );
 }
 
