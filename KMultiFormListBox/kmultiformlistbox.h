@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #ifndef __kmultiformlistbox
 #define __kmultiformlistbox
 
@@ -17,7 +34,7 @@ class KMultiFormListBoxMultiVisible;
 
 /**
  The main class used to get an KMultiFormListBox widget.
- 
+
  The KMultiFormListBox widget consist of a sub-widget which is repeated a
  number of times, it is up to the end user to determine the number of times
  the sub widget is repeated, and he may require an additional copy simply
@@ -27,20 +44,20 @@ class KMultiFormListBoxMultiVisible;
  can access each subwidget containing data by pressing the LMB on a name
  for the element. The other face (MultiVisible) shows all the subwidgets in
  one huge ``Listbox''.
- 
+
  To use the KMultiFormListBox widget you must create a class which is inherited
  from the @ref KMultiFormListBoxFactory class. This new class must override the
  function `create'. This function must return a freshly made instance of
  the class @ref KMultiFormListBoxEntry (or a subclass of this). The KMultiFormListBoxEntry
  instance is the one inserted into the KMultiFormListBox widget (one instance for
  each sub widget in the KMultiFormListBox widget).
- 
- @author Jesper Kjær Pedersen <blackie@kde.org> 
+
+ @author Jesper Kjær Pedersen <blackie@kde.org>
  **/
 class KMultiFormListBox : public QWidget {
 
 Q_OBJECT
-  
+
 public:
 
   enum KMultiFormListBoxType {MultiVisible, Windowed};
@@ -50,9 +67,9 @@ public:
      KMultiFormListBoxEntry class which is repeated in the KMultiFormListBox
 		 @param parent A pointer to the parent widget
    **/
-  KMultiFormListBox(KMultiFormListBoxFactory *factory, 
-                    KMultiFormListBoxType tp=Windowed, 
-										QWidget *parent = 0, bool showUpDownButtons = true, 
+  KMultiFormListBox(KMultiFormListBoxFactory *factory,
+                    KMultiFormListBoxType tp=Windowed,
+										QWidget *parent = 0, bool showUpDownButtons = true,
 										bool showHelpButton = true, QString addButtonText = i18n("Add"),
 										const char *name = 0);
 
@@ -74,7 +91,7 @@ public:
   void fromStream( QDataStream& stream );
 
 public slots:
-  
+
   /**
 		 Adds an empty element to the KMultiFormListBox.
 
@@ -90,9 +107,9 @@ public slots:
 		 @param face The new face of the KMultiFormListBox
 	**/
 	void slotChangeFace(KMultiFormListBoxType newFace);
-	
-private: 
-  KMultiFormListBoxShower *theWidget;  
+
+private:
+  KMultiFormListBoxShower *theWidget;
 	KMultiFormListBoxFactory *_factory;
 
 };

@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #include "regexpwidget.h"
 #include "drag.h"
 #include "regexp.h"
@@ -15,7 +32,7 @@ const int RegExpWidget::space = 5;
 
 RegExpWidget::RegExpWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                            const char *name)
-  : QWidget(parent, name ? name : "RegExpWidget", WNoMousePropagation ), 
+  : QWidget(parent, name ? name : "RegExpWidget", WNoMousePropagation ),
     _editorWindow( editorWindow ),  _isSelected( false ), _isToplevel( false )
 {
 }
@@ -49,9 +66,9 @@ bool RegExpWidget::updateSelection(bool parentSelected)
     return true;
   }
   return false;
-}       
+}
 
-void RegExpWidget::drawPossibleSelection( QPainter& painter, QSize mySize ) 
+void RegExpWidget::drawPossibleSelection( QPainter& painter, QSize mySize )
 {
   if ( _isSelected ) {
     painter.fillRect( 0, 0, mySize.width(), mySize.height(), QBrush( gray ) );
@@ -95,10 +112,10 @@ int RegExpWidget::edit()
 }
 
 void RegExpWidget::mousePressEvent ( QMouseEvent* event )
-{  
+{
   if ( _editorWindow->isPasteing() || _editorWindow->isInserting() )
     return;
-  
+
   if ( event->button() == LeftButton ) {
     if ( ! _editorWindow->pointSelected( QCursor::pos() ) ) {
       _editorWindow->clearSelection( true );
@@ -106,7 +123,7 @@ void RegExpWidget::mousePressEvent ( QMouseEvent* event )
         selectWidget( true );
       }
     }
-    
+
     QMouseEvent ev( event->type(), mapTo(_editorWindow, event->pos()),
                     event->button(), event->state());
     QApplication::sendEvent( _editorWindow, &ev );
@@ -114,11 +131,11 @@ void RegExpWidget::mousePressEvent ( QMouseEvent* event )
   else if ( event->button() == RightButton ) {
     _editorWindow->showRMBMenu( true );
   }
-  
+
   // currently (Qt3.0) it seems like qt do not accept that the accept flag is set,
   // and thus sends the event to the parent - given that the following line is in.
   // It doesn't make any change to leave it out.
-  // 25 Oct. 2001 19:03 -- Jesper K. Pedersen 
+  // 25 Oct. 2001 19:03 -- Jesper K. Pedersen
   //  QWidget::mousePressEvent( event );
 }
 
@@ -150,7 +167,7 @@ void RegExpWidget::enterEvent( QEvent * )
 void RegExpWidget::updateCursorShape()
 {
   QCursor cursor;
-  
+
   if ( _editorWindow->isPasteing() ) {
     if ( acceptWidgetPaste() )
       cursor =  CrossCursor;

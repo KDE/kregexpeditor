@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #ifndef __characterswidget
 #define __characterswidget
 
@@ -30,7 +47,7 @@ public:
   virtual RegExpType type() const { return CHARSET; }
   virtual RegExpWidget* findWidgetToEdit( QPoint globalPos );
   virtual int edit();
-  
+
 protected:
   virtual void paintEvent(QPaintEvent *event);
   QString text() const;
@@ -55,7 +72,7 @@ public:
   QString text() const;
   void setText( QString text );
   bool isEmpty() const;
-  
+
 private:
   CharSelector* _selector;
 };
@@ -73,23 +90,23 @@ public:
   void setTo( QString text );
   bool isEmpty() const;
 private:
-  CharSelector *_from, *_to;  
+  CharSelector *_from, *_to;
 };
 
 /**
    @internal
 */
-class SingleFactory :public KMultiFormListBoxFactory 
+class SingleFactory :public KMultiFormListBoxFactory
 {
 public:
-  KMultiFormListBoxEntry *create(QWidget *parent) { return new SingleEntry( parent ); }    
+  KMultiFormListBoxEntry *create(QWidget *parent) { return new SingleEntry( parent ); }
   QWidget *separator( QWidget* ) { return 0; }
 };
 
 /**
    @internal
 */
-class RangeFactory :public KMultiFormListBoxFactory 
+class RangeFactory :public KMultiFormListBoxFactory
 {
 public:
   KMultiFormListBoxEntry *create(QWidget *parent) { return new RangeEntry( parent ); }
@@ -104,20 +121,20 @@ class CharacterEdits : public KDialogBase
   Q_OBJECT
 public:
   CharacterEdits(TextRangeRegExp* _regexp, QWidget *parent = 0, const char *name = 0);
-  
+
 public slots:
   int exec();
 
 protected slots:
   void slotOK();
-  
+
 private:
-  QCheckBox *negate, *wordChar, *nonWordChar, *digit, *nonDigit, *space, *nonSpace;  
+  QCheckBox *negate, *wordChar, *nonWordChar, *digit, *nonDigit, *space, *nonSpace;
   KMultiFormListBox *_single, *_range;
 
   void addCharacter( QString txt );
   void addRange( QString from, QString to );
-  TextRangeRegExp* _regexp;  
+  TextRangeRegExp* _regexp;
 };
 
 #endif // __characterswidget

@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #include "scrollededitorwindow.h"
 #include "editorwindow.h"
 #include <qregexp.h>
@@ -16,8 +33,8 @@ RegExpScrolledEditorWindow::RegExpScrolledEditorWindow( QWidget* parent, const c
     connect( _editorWindow, SIGNAL( scrolling( QPoint ) ),
              this, SLOT( slotScroll( QPoint ) ) );
 
-    connect( _editorWindow, SIGNAL( doneEditing() ), this, SIGNAL( doneEditing() ) );  
-  
+    connect( _editorWindow, SIGNAL( doneEditing() ), this, SIGNAL( doneEditing() ) );
+
     connect( _editorWindow, SIGNAL( change() ), this, SIGNAL( change() ) );
     connect( _editorWindow, SIGNAL( savedRegexp() ), this, SIGNAL( savedRegexp() ) );
 
@@ -30,7 +47,7 @@ RegExpScrolledEditorWindow::RegExpScrolledEditorWindow( QWidget* parent, const c
 void RegExpScrolledEditorWindow::slotSetRegExp( RegExp* regexp )
 {
     _editorWindow->slotSetRegExp( regexp );
-    slotUpdateContentSize(QPoint());  
+    slotUpdateContentSize(QPoint());
 }
 
 void RegExpScrolledEditorWindow::slotInsertRegExp( int tp)
@@ -84,11 +101,11 @@ void RegExpScrolledEditorWindow::resizeEvent( QResizeEvent *event )
     slotUpdateContentSize(QPoint());
 }
 
-void RegExpScrolledEditorWindow::slotUpdateContentSize( QPoint focusPoint ) 
+void RegExpScrolledEditorWindow::slotUpdateContentSize( QPoint focusPoint )
 {
-    QSize childSize = _editorWindow->sizeHint();  
+    QSize childSize = _editorWindow->sizeHint();
     QSize vpSize = _scrollView->viewportSize(10,10);
-  
+
     bool change = false;
 
     if ( childSize.width() < vpSize.width() ) {
@@ -100,7 +117,7 @@ void RegExpScrolledEditorWindow::slotUpdateContentSize( QPoint focusPoint )
         childSize.setHeight( vpSize.height() );
         change = true;
     }
-  
+
     if ( change ||
          _scrollView->contentsWidth() != childSize.width() ||
          _scrollView->contentsHeight() != childSize.height() ) {
@@ -111,13 +128,13 @@ void RegExpScrolledEditorWindow::slotUpdateContentSize( QPoint focusPoint )
     if ( !focusPoint.isNull() ) {
         _scrollView->ensureVisible ( focusPoint.x(), focusPoint.y(), 250,250 );
     }
-  
+
 }
 
 
 // TODO: add timers, which will make the widget scroll when mouse is located
 // outside the QScrollView.
-void RegExpScrolledEditorWindow::slotScroll( QPoint focusPoint ) 
+void RegExpScrolledEditorWindow::slotScroll( QPoint focusPoint )
 {
     _scrollView->ensureVisible( focusPoint.x(), focusPoint.y() );
 }

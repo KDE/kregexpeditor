@@ -1,10 +1,27 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #include "widgetwindow.h"
 #include "windowlistboxitem.h"
 #include <kdebug.h>
 #include <kmessagebox.h>
 
 KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent,
-																	 bool showUpDownButtons, bool showHelpButton, 
+																	 bool showUpDownButtons, bool showHelpButton,
 																	 QString addButtonText,const char *name)
   : QWidget( parent, name )
 {
@@ -12,24 +29,24 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
 
 	QHBoxLayout *innerLayout = new QHBoxLayout();
 	_layout->addLayout(innerLayout);
-	
+
   _listbox = new KListBox(this,"listbox");
   _listbox->setSelectionMode(QListBox::Single);
   innerLayout->addWidget(_listbox);
-  
+
   QVBoxLayout *buttons = new QVBoxLayout();
   innerLayout->addLayout(buttons);
-  
+
   QPushButton *but = new QPushButton(addButtonText, this,"Add Button");
   buttons->addWidget(but,0);
   connect(but, SIGNAL(clicked()), this, SLOT(addNewElement()));
-  
+
   but = new QPushButton(i18n("Edit"), this,"Edit Button");
   buttons->addWidget(but,0);
   connect(but,SIGNAL(clicked()), this, SLOT(slotEditSelected()));
   connect(_listbox, SIGNAL(doubleClicked(QListBoxItem *)), this, SLOT(slotEditSelected(QListBoxItem *)));
 	_buttonList.append(but);
-  
+
   but = new QPushButton(i18n("Delete"), this, "Delete Button");
   buttons->addWidget(but,0);
   connect(but, SIGNAL(clicked()), this, SLOT(slotDeleteEntry()));
@@ -45,7 +62,7 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
 		buttons->addWidget(but, 0);
 		connect(but, SIGNAL(clicked()), this, SLOT(slotMoveItemUp()));
 		_buttonList.append(but);
-		
+
 		but = new QPushButton(i18n("Down"), this, "Down Button");
 		buttons->addWidget(but, 0);
 		connect(but, SIGNAL(clicked()), this, SLOT(slotMoveItemDown()));
@@ -60,13 +77,13 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
 
   buttons->addStretch(1);
   _factory = factory;
-	slotUpdateButtonState();	
+	slotUpdateButtonState();
 
 }
 
 KMultiFormListBoxEntryList KMultiFormListBoxWindowed::elements()
 {
-  KMultiFormListBoxEntryList list;  
+  KMultiFormListBoxEntryList list;
   for (unsigned int i=0; i < _listbox->count(); i++) {
     WindowListboxItem *item = (WindowListboxItem *) _listbox->item(i);
     list.append(item->entry());
@@ -80,7 +97,7 @@ void KMultiFormListBoxWindowed::delElement(QWidget */*elm*/)
 	// TODO
 }
 
-void KMultiFormListBoxWindowed::delAnElement() 
+void KMultiFormListBoxWindowed::delAnElement()
 {
   kdDebug() << "KMultiFormListBoxWindowed::delAnElement NOT YET IMPLEMENTED"<<endl;
   // TODO
@@ -96,7 +113,7 @@ void KMultiFormListBoxWindowed::append(KMultiFormListBoxEntry *elm)
 void KMultiFormListBoxWindowed::addNewElement()
 {
 	kdDebug() << "addNewElement " << _factory << "," << _listbox << endl;
-	
+
   QWidget *widget = new WidgetWindow(_factory, _listbox);
 	widget->show();
 	connect(widget, SIGNAL(finished()), this, SLOT(slotUpdateButtonState()));
@@ -108,12 +125,12 @@ void KMultiFormListBoxWindowed::addElement()
 	slotUpdateButtonState();
 }
 
-void KMultiFormListBoxWindowed::slotEditSelected(QListBoxItem *item) 
+void KMultiFormListBoxWindowed::slotEditSelected(QListBoxItem *item)
 {
   ((WindowListboxItem *) item)->displayWidget();
 }
 
-void KMultiFormListBoxWindowed::slotEditSelected() 
+void KMultiFormListBoxWindowed::slotEditSelected()
 {
   WindowListboxItem *item = selected();
   if (item) {
@@ -134,7 +151,7 @@ void KMultiFormListBoxWindowed::slotDeleteEntry()
   }
 }
 
-void KMultiFormListBoxWindowed::slotCopySelected() 
+void KMultiFormListBoxWindowed::slotCopySelected()
 {
   WindowListboxItem *item = selected();
   if (item) {
@@ -180,7 +197,7 @@ void KMultiFormListBoxWindowed::slotMoveItemDown()
 	}
 }
 
-void KMultiFormListBoxWindowed::slotUpdateButtonState() 
+void KMultiFormListBoxWindowed::slotUpdateButtonState()
 {
 	bool on = (_listbox->count() != 0);
 	for (unsigned int i=0; i<_buttonList.count(); i++) {

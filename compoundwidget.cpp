@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #include "compoundwidget.h"
 #include <kdialogbase.h>
 #include <qlayout.h>
@@ -14,12 +31,12 @@
 
 //================================================================================
 
-CompoundDetailWindow::CompoundDetailWindow( QWidget* parent, const char* name ) 
+CompoundDetailWindow::CompoundDetailWindow( QWidget* parent, const char* name )
   :QWidget( parent, name )
 {
   QVBoxLayout* layout = new QVBoxLayout( this );
   layout->setAutoAdd( true );
-  
+
   QLabel* label = new QLabel( i18n("&Title:"), this);
   _title = new QLineEdit( this );
   label->setBuddy( _title );
@@ -33,9 +50,9 @@ CompoundDetailWindow::CompoundDetailWindow( QWidget* parent, const char* name )
                                      "this box will automatically be added around it,<br>"
                                      "if this check box is selected.") );
   _allowReplace->setChecked( true );
-  
+
   _title->setFocus();
-  
+
 }
 
 QString CompoundDetailWindow::title() const
@@ -53,17 +70,17 @@ bool CompoundDetailWindow::allowReplace() const
   return _allowReplace->isChecked();
 }
 
-void CompoundDetailWindow::setTitle( QString txt ) 
+void CompoundDetailWindow::setTitle( QString txt )
 {
   _title->setText( txt );
 }
 
-void CompoundDetailWindow::setDescription( QString txt ) 
+void CompoundDetailWindow::setDescription( QString txt )
 {
   _description->setText( txt );
 }
 
-void CompoundDetailWindow::setAllowReplace( bool b ) 
+void CompoundDetailWindow::setAllowReplace( bool b )
 {
   _allowReplace->setChecked( b );
 }
@@ -71,14 +88,14 @@ void CompoundDetailWindow::setAllowReplace( bool b )
 //================================================================================
 
 CompoundWidget::CompoundWidget( RegExpEditorWindow* editorWindow, QWidget* parent,
-                                const char* name ) 
+                                const char* name )
   :SingleContainerWidget( editorWindow, parent, name == 0 ? "CompoundWidget" : name )
 {
   _child = new ConcWidget( editorWindow, this );
   init();
 }
 
-CompoundWidget::CompoundWidget( CompoundRegExp* regexp, RegExpEditorWindow* editorWindow, 
+CompoundWidget::CompoundWidget( CompoundRegExp* regexp, RegExpEditorWindow* editorWindow,
                                 QWidget* parent, const char* name )
   : SingleContainerWidget( editorWindow, parent, name  == 0 ? "CompoundWidget" : name )
 {
@@ -90,14 +107,14 @@ CompoundWidget::CompoundWidget( CompoundRegExp* regexp, RegExpEditorWindow* edit
   if ( !( _child = dynamic_cast<ConcWidget*>(child) ) ) {
     _child = new ConcWidget( _editorWindow, child, this );
   }
-  
+
   _hidden = regexp->hidden();
 }
 
-void CompoundWidget::init( ) 
+void CompoundWidget::init( )
 {
   _configWindow = new KDialogBase( this, "_configWindow", true,
-                                   i18n("Configure Compound"), 
+                                   i18n("Configure Compound"),
                                    KDialogBase::Ok | KDialogBase::Cancel );
   _content = new CompoundDetailWindow( _configWindow );
   _configWindow->setMainWidget( _content );
@@ -115,11 +132,11 @@ void CompoundWidget::init( )
 QSize CompoundWidget::sizeHint() const
 {
   QFontMetrics metrics = fontMetrics();
-  _childSize = _child->sizeHint();  
+  _childSize = _child->sizeHint();
   _textSize = metrics.size( 0, _content->title() );
-  
+
   int width, height;
-  
+
   if ( _hidden ) {
     _pixmapSize = _up.size();
     width = 2*pw + QMAX( 2*bdSize+_textSize.width(), 2*bdSize+_pixmapSize.width());
@@ -130,19 +147,19 @@ QSize CompoundWidget::sizeHint() const
     int headerLineWidth = 2*pw + 2*bdSize + _pixmapSize.width();
     if ( _textSize.width() != 0)
       headerLineWidth += 3*bdSize + _textSize.width();
-    
+
     width = QMAX( 2*pw + _childSize.width(), headerLineWidth );
     height = QMAX( _textSize.height(), _pixmapSize.height() ) +
       2*bdSize + _childSize.height() + pw;
   }
   return QSize( width, height );
-  
+
 }
 
 void CompoundWidget::paintEvent( QPaintEvent *e )
 {
   QSize mySize = sizeHint();
-  
+
   QPainter painter(this);
   drawPossibleSelection( painter, mySize);
 
@@ -163,23 +180,23 @@ void CompoundWidget::paintEvent( QPaintEvent *e )
     int offset = 0;
     horLineY = maxH/2;
     childY = maxH+bdSize;
-    
+
     painter.drawLine(pw, horLineY, bdSize, horLineY);
     if ( _textSize.width() != 0 ) {
       offset += pw + 2*bdSize;
-    
+
       painter.drawText(offset, horLineY-_textSize.height()/2,
                        bdSize+_textSize.width(), horLineY+_textSize.height()/2,
                        0, _content->title());
       offset += _textSize.width() + bdSize;
     }
-    
+
     _pixmapPos = QPoint( mySize.width()-pw-bdSize-_pixmapSize.width(),
                          horLineY - _pixmapSize.height()/2 );
-    
+
     painter.drawLine( offset, horLineY, _pixmapPos.x(), horLineY );
     painter.drawPixmap( _pixmapPos, _down );
-    
+
     painter.drawLine( mySize.width()-bdSize-pw, horLineY, mySize.width(), horLineY );
   }
 
@@ -191,7 +208,7 @@ void CompoundWidget::paintEvent( QPaintEvent *e )
   // place/size child
   if ( _hidden ) {
     _child->hide();
-    painter.drawText( pw+bdSize, childY, 
+    painter.drawText( pw+bdSize, childY,
                       pw+bdSize+_textSize.width(), childY+_textSize.height(), 0,
                       _content->title() );
   }
@@ -199,7 +216,7 @@ void CompoundWidget::paintEvent( QPaintEvent *e )
     QSize curSize = _child->size();
     QSize newSize = QSize( QMAX( _child->sizeHint().width(), mySize.width()-2*pw),
                            _child->sizeHint().height());
-    
+
     _child->move( pw, childY );
     if ( curSize != newSize ) {
       _child->resize(newSize);
@@ -229,13 +246,13 @@ void CompoundWidget::slotConfigCanceled()
 
 RegExp* CompoundWidget::regExp() const
 {
-  return new CompoundRegExp( isSelected(), _content->title(), _content->description(), 
+  return new CompoundRegExp( isSelected(), _content->title(), _content->description(),
                              _hidden, _content->allowReplace(), _child->regExp() );
 }
 
 void CompoundWidget::mousePressEvent( QMouseEvent* event )
 {
-  if ( event->button() == LeftButton && 
+  if ( event->button() == LeftButton &&
        QRect( _pixmapPos, _pixmapSize ).contains( event->pos() ) ) {
     // Skip otherwise we will never see the mouse release
     // since it is eaten by Editor window.
@@ -246,7 +263,7 @@ void CompoundWidget::mousePressEvent( QMouseEvent* event )
 
 void CompoundWidget::mouseReleaseEvent( QMouseEvent* event)
 {
-  if ( event->button() == LeftButton && 
+  if ( event->button() == LeftButton &&
        QRect( _pixmapPos, _pixmapSize ).contains( event->pos() ) ) {
     _hidden = !_hidden;
     _editorWindow->updateContent( 0 );
@@ -273,7 +290,7 @@ bool CompoundWidget::updateSelection( bool parentSelected )
 
 int CompoundWidget::edit()
 {
-  _configWindow->move(QCursor::pos() - QPoint(_configWindow->sizeHint().width()/2, 
+  _configWindow->move(QCursor::pos() - QPoint(_configWindow->sizeHint().width()/2,
                                               _configWindow->sizeHint().height()/2)  );
   QDataStream stream( _backup, IO_WriteOnly );
   KWidgetStreamer streamer;
@@ -281,7 +298,7 @@ int CompoundWidget::edit()
   return _configWindow->exec();
 }
 
-int nextId() 
+int nextId()
 {
   static int counter = 0;
   return ++counter;

@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #include "dragaccepter.h"
 #include "concwidget.h"
 
@@ -8,7 +25,7 @@ DragAccepter::DragAccepter(RegExpEditorWindow* editorWindow, RegExpWidget *paren
   : RegExpWidget(editorWindow, parent, name == 0 ? "dragaccepter" : name ),
     _drawLine( false )
 {
-  setAcceptDrops(TRUE);  
+  setAcceptDrops(TRUE);
 }
 
 QSize DragAccepter::sizeHint() const
@@ -27,7 +44,7 @@ void DragAccepter::paintEvent(QPaintEvent *e)
   RegExpWidget::paintEvent(e);
 }
 
-void DragAccepter::mousePressEvent ( QMouseEvent* event ) 
+void DragAccepter::mousePressEvent ( QMouseEvent* event )
 {
   if ( event->button() == RightButton ) {
     _editorWindow->showRMBMenu( _editorWindow->hasSelection() );
@@ -48,9 +65,9 @@ void DragAccepter::mouseReleaseEvent( QMouseEvent* event )
       if (! (elm = dynamic_cast<ConcWidget*>( newElm ) ) ) {
         elm = new ConcWidget( _editorWindow, newElm, 0 );
       }
-      
+
       Q_ASSERT( elm );
-      
+
       dynamic_cast<RegExpWidget*>(parent())->addNewConcChild(this, elm);
       _editorWindow->updateContent( this );
       _editorWindow->clearSelection( true );
@@ -62,7 +79,7 @@ void DragAccepter::mouseReleaseEvent( QMouseEvent* event )
       RegExpWidget::mouseReleaseEvent( event );
     }
     else {
-      RegExpWidget *child = WidgetFactory::createWidget( _editorWindow, 
+      RegExpWidget *child = WidgetFactory::createWidget( _editorWindow,
                                                          dynamic_cast<QWidget*>(parent()),
                                                          _editorWindow->insertType() );
       if ( child ) {
@@ -77,7 +94,7 @@ void DragAccepter::mouseReleaseEvent( QMouseEvent* event )
 }
 
 
-void DragAccepter::dragEnterEvent(QDragEnterEvent *event) 
+void DragAccepter::dragEnterEvent(QDragEnterEvent *event)
 {
   bool selfDrag = (  event->source() && event->source()->topLevelWidget() == topLevelWidget() && _isSelected );
   event->accept(RegExpWidgetDrag::canDecode( event ) && !selfDrag );
@@ -92,13 +109,13 @@ void DragAccepter::dropEvent(QDropEvent *event)
   if ( !(elm = dynamic_cast<ConcWidget*>( newElm ) ) ) {
     elm = new ConcWidget( _editorWindow, newElm, 0 );
   }
-       
+
   Q_ASSERT( elm );
-  
+
   dynamic_cast<RegExpWidget*>(parent())->addNewConcChild(this, elm);
   dynamic_cast<QWidget*>(parent())->update();
   _editorWindow->updateContent( this );
-  
+
   bool selfDrag = (  event->source() && event->source()->topLevelWidget() == topLevelWidget() );
   if ( ! selfDrag )
     _editorWindow->clearSelection( true );

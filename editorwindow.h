@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #ifndef __editorwindow_h
 #define __editorwindow_h
 #include "drag.h"
@@ -58,7 +75,7 @@ public:
        returns true if the editor has a selection.
     */
     bool hasSelection() const;
-  
+
     /**
        clears the selection, and if `update', invokes update on all the
        widgets
@@ -86,7 +103,7 @@ public:
        regexp.
     */
     void applyRegExpToSelection( RegExpType tp );
-  
+
     /**
        Pops up the RMB menu, which contains cut, copy, past, ...
     */
@@ -100,7 +117,7 @@ public slots:
        Set the editor window to the regular expression given as argument
     */
     void slotSetRegExp( RegExp* regexp );
-  
+
     /**
        Change editing mode to insertion. This means that the cursor will
        change to a cross (where ever inserting of the `type' is allowed),
@@ -118,11 +135,11 @@ public slots:
        Change editing state to selection.
     */
     void slotDoSelect();
-  
+
     /**
        Like @ref slotInsertRegExp above. This time, however,  data will be
        submitted in as a RegExp pointer.
-     
+
        Note this method do not do the actual insertion.
 
        This method is called when the user pastes data (using the RPM menu),
@@ -147,11 +164,11 @@ public slots:
        normal cursor.
     */
     void slotEndActions();
-  
+
     void emitChange() { emit change(); }
 
     void updateCursorUnderPoint();
-  
+
     void slotCut();
     void slotCopy();
     void slotSave();
@@ -160,11 +177,11 @@ signals:
     /**
        This signal is emitted whenever the content of the editor window is
        changed.
-     
+
        If focusPoint is non-null then this point should be made visible
     */
     void contentChanged( QPoint focusPoint );
-  
+
     /**
        This signal is emitted whenever mouse is being dragged in the editor
        window. `focusPoint' is the mouse' current position.
@@ -190,7 +207,7 @@ signals:
        see @ref RegExpScrolledEditorWindow::verifyRegExp
     */
     void verifyRegExp();
-  
+
     void anythingSelected( bool );
     void anythingOnClipboard( bool );
     void canSave( bool );
@@ -204,7 +221,7 @@ protected:
 
 protected slots:
     virtual void emitVerifyRegExp();
-    
+
 private:
     void cutCopyAux( QPoint pos );
     void copy( QPoint pos );
@@ -216,14 +233,14 @@ private:
 
     /** This points to the layout manager for the editor window */
     QHBoxLayout* _layout;
-  
+
     /** Start point and last point draw. Used when doing rubber band selection  */
     QPoint _start, _lastPoint;
 
     /** The area which the rubber band selection is over */
     QRect _selection;
 
-    /** 
+    /**
         True when a rubber band selection rectangle is drawn, and need to be
         un-drawn before next rubber band selection rectangle may be drawn.
     */
@@ -237,10 +254,10 @@ private:
 
     /** The type being inserted (see @ref insertType ) */
     RegExpType _insertTp;
-  
+
     /** The data being inserted (see @ref pasteData ) */
     RegExp* _pasteData;
-  
+
     /** Popup menu used for RMB */
     QPopupMenu* _menu;
 

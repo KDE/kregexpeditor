@@ -1,36 +1,53 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #include "kmultiformlistbox-multivisible.h"
 #include "kmultiformlistbox-windowed.h"
 #include <kdebug.h>
 
-KMultiFormListBox::KMultiFormListBox( KMultiFormListBoxFactory *factory, KMultiFormListBoxType tp, QWidget *parent, 
+KMultiFormListBox::KMultiFormListBox( KMultiFormListBoxFactory *factory, KMultiFormListBoxType tp, QWidget *parent,
 																		  bool showUpDownButtons, bool showHelpButton, QString addButtonText,
 																		  const char *name )  : QWidget( parent, name )
 {
 	switch ( tp ) {
-		
+
 	case MultiVisible:
     theWidget = new KMultiFormListBoxMultiVisible( factory, this, "KMultiFormListBox Widget" );
 		break;
-		
+
 	case Windowed:
-    theWidget = new KMultiFormListBoxWindowed( factory, this, showUpDownButtons, 
+    theWidget = new KMultiFormListBoxWindowed( factory, this, showUpDownButtons,
 																							 showHelpButton, addButtonText, "KMultiFormListBox Widget" );
 		break;
 	}
-	
+
   QWidget *widget = theWidget->qWidget();
-  
+
   QHBoxLayout *layout = new QHBoxLayout( this );
 	_factory = factory;
   layout->addWidget( widget );
 }
 
-void KMultiFormListBox::append( KMultiFormListBoxEntry *element ) 
+void KMultiFormListBox::append( KMultiFormListBoxEntry *element )
 {
   theWidget->append( element );
 }
 
-void KMultiFormListBox::addElement() 
+void KMultiFormListBox::addElement()
 {
   theWidget->addElement();
 }
@@ -45,7 +62,7 @@ const KMultiFormListBoxEntryList KMultiFormListBox::elements() const
   return const_cast<KMultiFormListBox*>(this)->elements();
 }
 
-void KMultiFormListBox::slotChangeFace( KMultiFormListBoxType /*newFace*/ ) 
+void KMultiFormListBox::slotChangeFace( KMultiFormListBoxType /*newFace*/ )
 {
 	// TODO
 	kdDebug() << "It's not possible yet to change the face on the fly." << endl
@@ -64,7 +81,7 @@ void KMultiFormListBox::fromStream( QDataStream& stream )
 {
   unsigned int fromCount, toCount;
   stream >> fromCount;
-  
+
   toCount = elements().count();
 
   // adds/remove elements in the to list, to make it have the correct length.

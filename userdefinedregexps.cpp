@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #include "userdefinedregexps.h"
 #include <qheader.h>
 #include <qpopupmenu.h>
@@ -23,7 +40,7 @@ UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const char *name )
   lay->setAutoAdd( true );
 
   QLabel* label = new QLabel( i18n("Compound regular expression:"), top );
-  
+
   // This is to avoid that the label set the minimum width for the window.
   label->setMinimumSize(1,0);
 
@@ -33,7 +50,7 @@ UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const char *name )
   //  _userDefined->setRootIsDecorated( true );
   setWidget( top );
   slotPopulateUserRegexps();
-  
+
   connect( _userDefined, SIGNAL(clicked(QListViewItem*)), this, SLOT(slotLoad(QListViewItem*)) );
   connect( _userDefined, SIGNAL(rightButtonPressed(QListViewItem*,const QPoint&, int )),
            this, SLOT( slotEdit( QListViewItem*, const QPoint& ) ) );
@@ -45,7 +62,7 @@ void UserDefinedRegExps::slotPopulateUserRegexps()
   _regExps.clear();
 
   createItems( i18n("User Defined"), WidgetWinItem::path(), true );
-  
+
   QStringList dirs = KGlobal::dirs()->findDirs( "data", QString::fromLocal8Bit("kregexpeditor/predefined/") );
   for ( QStringList::iterator it1 = dirs.begin(); it1 != dirs.end(); ++it1 ) {
     QDir dir( *it1, QString::null, QDir::Name, QDir::Dirs );
@@ -56,10 +73,10 @@ void UserDefinedRegExps::slotPopulateUserRegexps()
       createItems( *it2, *it1 + QString::fromLocal8Bit("/") + *it2, false );
     }
   }
-  
+
 }
 
-void UserDefinedRegExps::createItems( const QString& _title, const QString& dir, bool usersRegExp ) 
+void UserDefinedRegExps::createItems( const QString& _title, const QString& dir, bool usersRegExp )
 {
   QString title = _title;
   if (_title == QString::fromLatin1("general"))
@@ -67,7 +84,7 @@ void UserDefinedRegExps::createItems( const QString& _title, const QString& dir,
 
   QListViewItem* lvItem = new QListViewItem( _userDefined, title );
   lvItem->setOpen( true );
-  
+
   QDir directory( dir );
   QStringList files = directory.entryList( QString::fromLocal8Bit("*.regexp") );
   for ( QStringList::Iterator it = files.begin(); it != files.end(); ++it ) {
@@ -100,7 +117,7 @@ void UserDefinedRegExps::createItems( const QString& _title, const QString& dir,
   }
 }
 
-const QPtrList<CompoundRegExp> UserDefinedRegExps::regExps() const 
+const QPtrList<CompoundRegExp> UserDefinedRegExps::regExps() const
 {
   return _regExps;
 }
@@ -117,7 +134,7 @@ void UserDefinedRegExps::slotLoad(QListViewItem* item)
     // Mouse pressed outside a widget.
     return;
   }
-  
+
   RegExp* regexp = dynamic_cast<WidgetWinItem*>(item)->regExp();
   emit load( regexp );
 }
@@ -140,9 +157,9 @@ void UserDefinedRegExps::slotEdit( QListViewItem* item, const QPoint& pos )
       menu->setItemEnabled( 2, false );
     }
   }
-  
+
   int which = menu->exec( pos );
-  
+
   if ( which == 1 ) { // Delete
     WidgetWinItem* winItem = dynamic_cast<WidgetWinItem*>( item );
     Q_ASSERT( winItem );
@@ -188,7 +205,7 @@ void UserDefinedRegExps::slotSelectNewAction()
   slotUnSelect();
 }
 
-WidgetWinItem::WidgetWinItem( QString fileName, RegExp* regexp, bool usersRegExp, QListViewItem* parent ) 
+WidgetWinItem::WidgetWinItem( QString fileName, RegExp* regexp, bool usersRegExp, QListViewItem* parent )
   :QListViewItem( parent ), _regexp( regexp ), _usersRegExp ( usersRegExp )
 {
   int index = fileName.findRev(QString::fromLocal8Bit(".regexp"));
@@ -197,7 +214,7 @@ WidgetWinItem::WidgetWinItem( QString fileName, RegExp* regexp, bool usersRegExp
   setText( 0, _name );
 }
 
-QString WidgetWinItem::fileName() const 
+QString WidgetWinItem::fileName() const
 {
   return path() + QString::fromLocal8Bit("/") +_name + QString::fromLocal8Bit(".regexp");
 }
@@ -207,18 +224,18 @@ RegExp* WidgetWinItem::regExp() const
   return _regexp;
 }
 
-QString WidgetWinItem::name() const 
+QString WidgetWinItem::name() const
 {
   return _name;
 }
 
-void WidgetWinItem::setName( const QString& nm ) 
+void WidgetWinItem::setName( const QString& nm )
 {
   _name = nm;
   setText( 0, nm );
 }
 
-QString WidgetWinItem::path() 
+QString WidgetWinItem::path()
 {
   return locateLocal("data", QString::fromLocal8Bit("KRegExpEditor/"));
 }

@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #include "textwidget.h"
 #include "textregexp.h"
 #include "selectablelineedit.h"
@@ -18,7 +35,7 @@ TextWidget::TextWidget( TextRegExp* regexp,  RegExpEditorWindow* editorWindow,
   init(regexp->text());
 }
 
-void TextWidget::init( const QString& txt ) 
+void TextWidget::init( const QString& txt )
 {
   QHBoxLayout *lay = new QHBoxLayout(this);
   _edit = new SelectableLineEdit( this, this, "TextWidget::edit" );
@@ -34,7 +51,7 @@ void TextWidget::init( const QString& txt )
 }
 
 
-void TextWidget::slotUpdate() 
+void TextWidget::slotUpdate()
 {
   // I need to force the parent to repaint, as the size change of this
   // widget may not be enough for the parent to change size, and in that
@@ -82,7 +99,7 @@ void TextWidget::clearSelection()
 
 RegExp* TextWidget::regExp() const
 {
-	return new TextRegExp( isSelected(), _edit->text() ); 
+	return new TextRegExp( isSelected(), _edit->text() );
 }
 
 bool TextWidget::eventFilter( QObject*, QEvent* event)
@@ -109,7 +126,7 @@ bool TextWidget::eventFilter( QObject*, QEvent* event)
             return true;
         }
     }
-    
+
     else if ( event->type() == QEvent::Enter ) {
         if ( _editorWindow->isInserting() ) {
             if ( acceptWidgetInsert( _editorWindow->insertType() ) ) {
@@ -124,7 +141,7 @@ bool TextWidget::eventFilter( QObject*, QEvent* event)
         }
         else {
             _edit->setCursor( ibeamCursor );
-        }  
+        }
     }
     else if ( event->type() == QEvent::MouseButtonDblClick &&  _editorWindow->isInserting() ) {
         return true;

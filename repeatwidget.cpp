@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #include "repeatwidget.h"
 #include "concwidget.h"
 #include "repeatregexp.h"
@@ -27,7 +44,7 @@ RepeatWidget::RepeatWidget( RepeatRegExp* regexp, RegExpEditorWindow* editorWind
 {
   init();
   RegExpWidget* child = WidgetFactory::createWidget( regexp->child(), editorWindow, this );
-  if ( ! (_child = dynamic_cast<ConcWidget*>( child ) ) ) 
+  if ( ! (_child = dynamic_cast<ConcWidget*>( child ) ) )
     _child = new ConcWidget( editorWindow, child, this );
 
   if ( regexp->max() == -1 ) {
@@ -81,9 +98,9 @@ void RepeatWidget::paintEvent( QPaintEvent *e )
   // TODO: Merge with LookAheadWidget::paintEvent
   QSize mySize = sizeHint();
   QPainter painter(this);
-  
+
   drawPossibleSelection( painter, mySize );
-  
+
   // move the child to its position and resize it.
   _child->move(pw,_textSize.height()+bdSize);
   QSize curChildSize = _child->size();
@@ -93,7 +110,7 @@ void RepeatWidget::paintEvent( QPaintEvent *e )
     // I resized the child, so give it a chance to relect thus.
     _child->update();
   }
-  
+
   // Draw the border and the text.
   int startY = _textSize.height()/2;
 
@@ -114,7 +131,7 @@ void RepeatWidget::paintEvent( QPaintEvent *e )
   SingleContainerWidget::paintEvent(e);
 }
 
-RegExp* RepeatWidget::regExp() const 
+RegExp* RepeatWidget::regExp() const
 {
 	return new RepeatRegExp( isSelected(), _content->min(), _content->max(), _child->regExp() );
 }
@@ -133,14 +150,14 @@ void RepeatWidget::slotConfigCanceled()
   repaint();
 }
 
-int RepeatWidget::edit() 
+int RepeatWidget::edit()
 {
   _configWindow->move(QCursor::pos() - QPoint(_configWindow->sizeHint().width()/2,
                                               _configWindow->sizeHint().height()/2)  );
   QDataStream stream( _backup, IO_WriteOnly );
   KWidgetStreamer streamer;
   streamer.toStream( _content, stream );
-  
+
   return _configWindow->exec();
 }
 
@@ -149,24 +166,24 @@ RepeatRangeWindow::RepeatRangeWindow( QWidget* parent, const char* name )
   : QVBox( parent, name ? name : "RepeatRangeWindow" )
 {
   setSpacing( 6 );
-  
+
   _group = new QVButtonGroup( i18n("Times to Match"), this, "groupbox" );
-  
+
   // Any number of times
   QRadioButton* radioBut = new QRadioButton(i18n("Any number of times (including zero times)"),
                                             _group,
                                             "RepeatRangeWindow::choice any times");
-  
+
   _group->insert(radioBut, ANY);
 
   QWidget* container = new QWidget( _group );
   QHBoxLayout* lay = new QHBoxLayout( container );
   QGrid* grid = new QGrid( 3, container );
   grid->setSpacing( 5 );
-  
+
   lay->addWidget( grid );
   lay->addStretch( 1 );
-  
+
   createLine( grid, i18n( "At least" ), &_leastTimes, ATLEAST );
   createLine( grid, i18n( "At most" ), &_mostTimes, ATMOST );
   createLine( grid, i18n( "Exactly" ), &_exactlyTimes, EXACTLY );
@@ -174,7 +191,7 @@ RepeatRangeWindow::RepeatRangeWindow( QWidget* parent, const char* name )
   // from ___ to ___ times
   radioBut = new QRadioButton(i18n( "From" ), grid, "RepeatRangeWindow::from");
   _group->insert( radioBut, MINMAX );
-  
+
   _rangeFrom = new QSpinBox( 1, 999, 1, grid);
 
   QHBox* box = new QHBox( grid );
@@ -190,31 +207,31 @@ RepeatRangeWindow::RepeatRangeWindow( QWidget* parent, const char* name )
   // set a default button.
   _group->setButton(ANY);
   slotItemChange( ANY );
-  
+
 
   connect( _group, SIGNAL( clicked( int ) ), this, SLOT( slotItemChange( int ) ) );
 }
 
 
-void RepeatRangeWindow::createLine( QWidget* parent, QString text, QSpinBox** spin, REPEATTYPE tp ) 
+void RepeatRangeWindow::createLine( QWidget* parent, QString text, QSpinBox** spin, REPEATTYPE tp )
 {
 
   QRadioButton* radioBut = new QRadioButton(text, parent);
   *spin = new QSpinBox( 1, 999, 1, parent);
   (*spin)->setValue(1);
-  
+
   (void) new QLabel(i18n("time(s)"), parent);
   _group->insert(radioBut, tp);
 }
 
-void RepeatRangeWindow::slotItemChange( int which ) 
+void RepeatRangeWindow::slotItemChange( int which )
 {
   _leastTimes->setEnabled( false );
   _mostTimes->setEnabled( false );
   _exactlyTimes->setEnabled( false );
   _rangeFrom->setEnabled( false );
   _rangeTo->setEnabled( false );
-  
+
   switch ( which ) {
   case ANY: break;
   case ATLEAST: _leastTimes->setEnabled( true ); break;
@@ -227,14 +244,14 @@ void RepeatRangeWindow::slotItemChange( int which )
   }
 }
 
-void RepeatRangeWindow::slotUpdateMinVal( int maxVal ) 
+void RepeatRangeWindow::slotUpdateMinVal( int maxVal )
 {
   if ( _rangeFrom->value() > maxVal ) {
     _rangeFrom->setValue( maxVal );
   }
 }
 
-void RepeatRangeWindow::slotUpdateMaxVal( int minVal ) 
+void RepeatRangeWindow::slotUpdateMaxVal( int minVal )
 {
   if ( _rangeTo->value() < minVal ) {
     _rangeTo->setValue( minVal );
@@ -254,8 +271,8 @@ QString RepeatRangeWindow::text()
   qFatal("Fall through!");
   return QString::fromLocal8Bit("");
 }
-  
-int RepeatRangeWindow::min() 
+
+int RepeatRangeWindow::min()
 {
   switch ( _group->id(_group->selected()) ) {
   case ANY: return 0;
@@ -268,7 +285,7 @@ int RepeatRangeWindow::min()
   return -1;
 }
 
-int RepeatRangeWindow::max() 
+int RepeatRangeWindow::max()
 {
   switch ( _group->id(_group->selected()) ) {
   case ANY: return -1;
@@ -281,13 +298,13 @@ int RepeatRangeWindow::max()
   return -1;
 }
 
-void RepeatRangeWindow::set( REPEATTYPE tp, int min, int max ) 
+void RepeatRangeWindow::set( REPEATTYPE tp, int min, int max )
 {
   _group->setButton( tp );
   switch ( tp ) {
   case ANY:
     break;
-  case ATLEAST: 
+  case ATLEAST:
     _leastTimes->setValue( min );
     break;
   case ATMOST:
@@ -303,5 +320,5 @@ void RepeatRangeWindow::set( REPEATTYPE tp, int min, int max )
   }
 }
 
-    
+
 #include "repeatwidget.moc"

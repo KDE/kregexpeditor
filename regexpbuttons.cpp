@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #include "regexpbuttons.h"
 #include "dcbutton.h"
 #include <kiconloader.h>
@@ -14,12 +31,12 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   : QDockWindow( QDockWindow::InDock, parent, name), _keepMode(false)
 {
   QBoxLayout *layout = boxLayout();
-  
+
   _grp = new QButtonGroup(this);
   _grp->hide();
   _grp->setExclusive( true );
-  
-  _mapper = new QSignalMapper( this, "RegExpButtons::_mapper" );  
+
+  _mapper = new QSignalMapper( this, "RegExpButtons::_mapper" );
   connect( _mapper, SIGNAL( mapped(int) ), this, SIGNAL( clicked(int) ) );
 
   // The "select" button.
@@ -31,7 +48,7 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   _selectBut->setToggleButton( true );
   connect( _selectBut, SIGNAL(clicked()), SIGNAL(doSelect()));
   connect( _selectBut, SIGNAL(clicked()), this, SLOT(slotSetNonKeepMode()) );
-  
+
   QToolTip::add( _selectBut, i18n("Selection tool"));
   QWhatsThis::add( _selectBut, i18n("<qt>This will change the state of the editor to <i>selection state</i>.<p>"
                              "In this state you will not be inserting <i>regexp items</i>, but instead select them. "
@@ -41,26 +58,26 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
 
   // Insert buttons.
   DoubleClickButton* but;
-  
-  but = insert(TEXT, "text", i18n("Text"), 
+
+  but = insert(TEXT, "text", i18n("Text"),
                i18n( "<qt>This will insert a text field, where you may write text. The text you write will "
                      "be matched literally. (i.e. you do not need to escape any characters)</qt>" ) );
   layout->addWidget( but );
 
 
-  but = insert(CHARSET, "characters", i18n("A single character specified in a range"), 
+  but = insert(CHARSET, "characters", i18n("A single character specified in a range"),
                i18n("<qt>This will match a single character from a predefined range.<p>"
                     "When you insert this widget a dialog box will appear, which lets you specify "
                     "which characters this <i>regexp item</i> will match.</qt>") );
   layout->addWidget( but );
 
 
-  but = insert(DOT, "anychar", i18n("Any character"), 
+  but = insert(DOT, "anychar", i18n("Any character"),
                i18n("<qt>This will match any single character</qt>") );
   layout->addWidget( but );
 
-  
-  but = insert(REPEAT, "repeat", i18n("Repeated content"), 
+
+  but = insert(REPEAT, "repeat", i18n("Repeated content"),
                i18n("<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
                     "a specified number of times.<p>"
                     "The number of times to repeat may be specified using ranges. e.g. You may specify "
@@ -74,14 +91,14 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   layout->addWidget( but );
 
 
-  but = insert(ALTN, "altn", i18n("Alternatives"), 
+  but = insert(ALTN, "altn", i18n("Alternatives"),
                i18n("<qt>This <i>regexp item</i> will match any of its alternatives.</p>"
                     "You specify alternatives by placing <i>regexp items</i> on top of "
                     "each other inside this widget.</qt>") );
   layout->addWidget( but );
 
 
-  but = insert(COMPOUND,  "compound", i18n("Compound regexp"), 
+  but = insert(COMPOUND,  "compound", i18n("Compound regexp"),
                i18n("<qt>This <i>regexp item</i> serves two purposes:"
                     "<ul><li>It makes it possible for you to collapse a huge <i>regexp item</i> into "
                     "a small box. This makes it easier for you to get an overview of large "
@@ -89,55 +106,55 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
                     "you perhaps don't care about the inner workings of.") );
   layout->addWidget( but );
 
-  
-  but = insert(BEGLINE,  "begline", i18n("Beginning of line"), 
+
+  but = insert(BEGLINE,  "begline", i18n("Beginning of line"),
                i18n("<qt>This will match the beginning of a line.</qt>") );
   layout->addWidget( but );
 
 
-  but = insert(ENDLINE,  "endline", i18n("End of line"), 
+  but = insert(ENDLINE,  "endline", i18n("End of line"),
                i18n("<qt>This will match the end of a line.</qt>") );
   layout->addWidget( but );
 
 
-  but = insert(WORDBOUNDARY,  "wordboundary", i18n("Word boundary"), 
+  but = insert(WORDBOUNDARY,  "wordboundary", i18n("Word boundary"),
                i18n("<qt>This asserts a word boundary (This part does not actually match any characters)</qt>") );
   layout->addWidget( but );
-  
-  but = insert(NONWORDBOUNDARY,  "nonwordboundary", i18n("Non Word boundary"), 
+
+  but = insert(NONWORDBOUNDARY,  "nonwordboundary", i18n("Non Word boundary"),
                i18n("<qt>This asserts a non-word boundary (This part does not actually match any characters)</qt>") );
   layout->addWidget( but );
 
-  but = insert(POSLOOKAHEAD,  "poslookahead", i18n("Positive Look Ahead"), 
+  but = insert(POSLOOKAHEAD,  "poslookahead", i18n("Positive Look Ahead"),
                i18n("<qt>This asserts a regular expression (This part does not actually match any characters). You can only use this at the end of a regular expression.</qt>") );
   layout->addWidget( but );
 
-  but = insert(NEGLOOKAHEAD,  "neglookahead", i18n("Negative Look Ahead"), 
+  but = insert(NEGLOOKAHEAD,  "neglookahead", i18n("Negative Look Ahead"),
                i18n("<qt>This asserts a regular expression that must not match (This part does not actually match any characters). You can only use this at the end of a regular expression.</qt>") );
   layout->addWidget( but );
 }
 
 DoubleClickButton* RegExpButtons::insert(RegExpType tp, const char* name, QString tooltip, QString whatsthis)
-{  
+{
   QPixmap pix = KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/")+QString::fromLatin1(name) +
                                                        QString::fromLatin1(".png") ), KIcon::Toolbar );
   DoubleClickButton* but = new DoubleClickButton( pix, this, "RegExpButtons::but");
-  
+
   _mapper->setMapping( but, tp );
 
   connect( but, SIGNAL( clicked() ), _mapper, SLOT( map() ) );
   connect( but, SIGNAL( clicked() ), this, SLOT( slotSetNonKeepMode() ) );
   connect( but, SIGNAL( doubleClicked() ), this, SLOT( slotSetKeepMode() ) );
-  
+
   _grp->insert( but );
   but->setToggleButton( true );
   QToolTip::add( but, tooltip );
   QWhatsThis::add( but, whatsthis );
-  
+
   return but;
 }
 
-void RegExpButtons::slotUnSelect() 
+void RegExpButtons::slotUnSelect()
 {
   if ( _grp->selected() )
     dynamic_cast<QPushButton*>(_grp->selected())->setOn( false );

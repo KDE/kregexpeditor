@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #ifndef __regexpwidget
 #define __regexpwidget
 
@@ -45,7 +62,7 @@ public:
      the widget has just been constructed.
      This method only applies to container widgets (see @ref
      SingleContainerWidget, and @ref MultiContainerWidget).
-  */ 
+  */
   virtual void setConcChild(ConcWidget *child);
 
   /* ======================================================================
@@ -72,16 +89,16 @@ public:
   virtual bool hasSelection() const;
 
   virtual void updateAll();
-  
+
   /**
-     Update selection information for this widget. 
+     Update selection information for this widget.
      @param parentSelected indicates whether the parent is selected.
      @return true if the selection state has changed for the widget since
      the last time the widget was painted. `repaint' is invoked on the widget if
      selection state is changed, to ensure that selection is visible.
   */
   virtual bool updateSelection(bool parentSelected);
-  
+
   /**
      Clears the selection and repaints the widget if `update' is true.
   */
@@ -104,7 +121,7 @@ public:
      limitation is to make implementation of a number of functions simpler.
   */
   virtual bool validateSelection() const { return true; }
-  
+
   /**
      Returns the rectangle which makes up the selection.
   */
@@ -119,10 +136,10 @@ public:
 
   /** Returns the RegExp widget, which is rooted in this regexp widget. */
 	virtual RegExp* regExp() const = 0;
-  
+
   /** returns the current selection */
   virtual RegExp* selection() const;
-  
+
   /** returns the type of this regular expression widget. */
   virtual RegExpType type() const = 0;
 
@@ -135,7 +152,7 @@ public:
   void updateCursorShape();
 
   virtual void updateCursorRecursively();
-  
+
   /**
      Returns the regexp widget under point. If `justVisibleWidgets' is
      true, @ref ConcWidget is ignored. That is, a ConcWidget will not be returned.
@@ -147,7 +164,7 @@ public:
      "innermost" widget editable.
   */
   virtual RegExpWidget* findWidgetToEdit( QPoint /* globalPos */) { return 0; }
-  
+
   /**
      Edits the current widget. That is, bring up the dialog, which is
      available for @ref ConcWidget, @ref CompoundWidget, and @ref
@@ -158,10 +175,10 @@ public:
 protected:
   /** Draws a selection rectangle for the current widget.  */
   virtual void drawPossibleSelection( QPainter& painter, QSize mySize);
-  
+
   /** Returns true if the widget accepts paste actions. */
   virtual bool acceptWidgetPaste() const;
-  
+
   /**
      Returns true if the widget accept the given RegExpType to be inserted
    */
@@ -176,7 +193,7 @@ protected:
 
   /** True if the widget is selected. */
   bool _isSelected;
-  
+
   /** See @ref setToplevel */
   bool _isToplevel;
 

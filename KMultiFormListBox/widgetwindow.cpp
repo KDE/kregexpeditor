@@ -1,8 +1,25 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #include "widgetwindow.h"
 #include "windowlistboxitem.h"
 #include <iostream>
 
-WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KListBox *lb) 
+WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KListBox *lb)
   :KDialogBase(Plain, i18n("Widget Configuration"), Ok | Cancel, Ok, 0, "ConfigWindow", false)
 {
   init(factory, lb);
@@ -13,8 +30,8 @@ WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KMultiFormListBoxE
 {
   init(factory, lb, widget);
 }
-  
-void WidgetWindow::init(KMultiFormListBoxFactory *factory, KListBox *lb, KMultiFormListBoxEntry *widget) 
+
+void WidgetWindow::init(KMultiFormListBoxFactory *factory, KListBox *lb, KMultiFormListBoxEntry *widget)
 {
   listbox = lb;
   myFact = factory;
@@ -43,26 +60,26 @@ void WidgetWindow::init(KMultiFormListBoxFactory *factory, KListBox *lb, KMultiF
   }
 }
 
-  
 
-WidgetWindow::~WidgetWindow() 
+
+WidgetWindow::~WidgetWindow()
 {
   delete myWidget;
 }
 
-void WidgetWindow::slotOk() 
+void WidgetWindow::slotOk()
 {
   if (initialShow) {
     myListboxItem = new WindowListboxItem(listbox,myWidget->idxString(), this);
   }
   else {
     myListboxItem->setText(myWidget->idxString());
-  }  
+  }
   initialShow = false;
   KDialogBase::slotOk();
 }
 
-void WidgetWindow::slotCancel() 
+void WidgetWindow::slotCancel()
 {
   if (initialShow) {
     delayedDestruct();
@@ -74,7 +91,7 @@ void WidgetWindow::slotCancel()
   KDialogBase::slotCancel();
 }
 
-WidgetWindow *WidgetWindow::clone() 
+WidgetWindow *WidgetWindow::clone()
 {
   WidgetWindow *item = new WidgetWindow(myFact, listbox);
   QByteArray data;
@@ -94,7 +111,7 @@ void WidgetWindow::display()
   show();
 }
 
-KMultiFormListBoxEntry *WidgetWindow::entry() 
+KMultiFormListBoxEntry *WidgetWindow::entry()
 {
   return myWidget;
 }

@@ -434,13 +434,30 @@ static char *yy_last_accepting_cpos;
 char *yytext;
 #line 1 "qregexpparser.l"
 #define INITIAL 0
-#line 4 "qregexpparser.l"
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
+#line 21 "qregexpparser.l"
   #include <qstring.h>
   #include "textrangeregexp.h"
   #include "gen_qregexpparser.cc.h"
   void parseRange( char* txt, int* min, int* max );  
   RegExp* parseCharClass( char* match );
-#line 444 "gen_qregexplexer.cpp"
+#line 461 "gen_qregexplexer.cpp"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -591,9 +608,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 18 "qregexpparser.l"
+#line 35 "qregexpparser.l"
 
-#line 597 "gen_qregexplexer.cpp"
+#line 614 "gen_qregexplexer.cpp"
 
 	if ( yy_init )
 		{
@@ -678,17 +695,17 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 19 "qregexpparser.l"
+#line 36 "qregexpparser.l"
 return TOK_PosWordChar;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 20 "qregexpparser.l"
+#line 37 "qregexpparser.l"
 return TOK_PosNonWordChar;
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 21 "qregexpparser.l"
+#line 38 "qregexpparser.l"
 { 
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setDigit( true );
@@ -698,7 +715,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 27 "qregexpparser.l"
+#line 44 "qregexpparser.l"
 { 
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setNonDigit( true );
@@ -708,7 +725,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 33 "qregexpparser.l"
+#line 50 "qregexpparser.l"
 { 
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setSpace( true );
@@ -718,7 +735,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 39 "qregexpparser.l"
+#line 56 "qregexpparser.l"
 { 
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setNonSpace( true );
@@ -728,7 +745,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 45 "qregexpparser.l"
+#line 62 "qregexpparser.l"
 { 
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setWordChar( true );
@@ -738,7 +755,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 51 "qregexpparser.l"
+#line 68 "qregexpparser.l"
 { 
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setNonWordChar( true );
@@ -748,7 +765,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 57 "qregexpparser.l"
+#line 74 "qregexpparser.l"
 {
                TextRangeRegExp* regexp = new TextRangeRegExp( false );
                regexp->addCharacter( QString::fromLocal8Bit( yytext ) );
@@ -758,7 +775,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 64 "qregexpparser.l"
+#line 81 "qregexpparser.l"
 {
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->addCharacter( QString::fromLocal8Bit(yytext) );
@@ -768,7 +785,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 70 "qregexpparser.l"
+#line 87 "qregexpparser.l"
 {
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->addCharacter( QString::fromLocal8Bit(yytext) );
@@ -778,95 +795,95 @@ YY_RULE_SETUP
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 76 "qregexpparser.l"
+#line 93 "qregexpparser.l"
 return TOK_Dot;
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 77 "qregexpparser.l"
+#line 94 "qregexpparser.l"
 return TOK_Dollar;
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 78 "qregexpparser.l"
+#line 95 "qregexpparser.l"
 return TOK_Carat;
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 79 "qregexpparser.l"
+#line 96 "qregexpparser.l"
 return TOK_MagicLeftParent;
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 80 "qregexpparser.l"
+#line 97 "qregexpparser.l"
 return TOK_PosLookAhead;
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 81 "qregexpparser.l"
+#line 98 "qregexpparser.l"
 return TOK_NegLookAhead;
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 82 "qregexpparser.l"
+#line 99 "qregexpparser.l"
 return TOK_LeftParen;
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 83 "qregexpparser.l"
+#line 100 "qregexpparser.l"
 return TOK_RightParent;
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 84 "qregexpparser.l"
+#line 101 "qregexpparser.l"
 return TOK_Bar;
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 85 "qregexpparser.l"
+#line 102 "qregexpparser.l"
 { qregexplval.range.min = 0; qregexplval.range.max=-1; return TOK_Quantifier; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 86 "qregexpparser.l"
+#line 103 "qregexpparser.l"
 { qregexplval.range.min = 0; qregexplval.range.max=1;  return TOK_Quantifier; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 87 "qregexpparser.l"
+#line 104 "qregexpparser.l"
 { qregexplval.range.min = 1; qregexplval.range.max=-1; return TOK_Quantifier; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 88 "qregexpparser.l"
+#line 105 "qregexpparser.l"
 { parseRange( yytext, &qregexplval.range.min, &qregexplval.range.max ); return TOK_Quantifier; }  
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 89 "qregexpparser.l"
+#line 106 "qregexpparser.l"
 { qregexplval.regexp = parseCharClass(yytext); return TOK_CharClass; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 90 "qregexpparser.l"
+#line 107 "qregexpparser.l"
 { qregexplval.backRef = atoi( yytext+1 ); return TOK_BackRef; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 91 "qregexpparser.l"
+#line 108 "qregexpparser.l"
 { qregexplval.ch = yytext[1]; return TOK_EscapeChar; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 92 "qregexpparser.l"
+#line 109 "qregexpparser.l"
 { qregexplval.ch = yytext[0]; return TOK_Char; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 94 "qregexpparser.l"
+#line 111 "qregexpparser.l"
 ECHO;
 	YY_BREAK
-#line 870 "gen_qregexplexer.cpp"
+#line 887 "gen_qregexplexer.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1752,7 +1769,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 94 "qregexpparser.l"
+#line 111 "qregexpparser.l"
 
 
 void setParseData( QString qstr ) {  

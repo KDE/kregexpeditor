@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #include "widgetfactory.h"
 #include "regexpwidget.h"
 #include "dragaccepter.h"
@@ -30,21 +47,21 @@ bool WidgetFactory::isContainer( RegExpType tp )
   return ( tp == REPEAT || tp == ALTN || tp == COMPOUND );
 }
 
-RegExpWidget* WidgetFactory::createWidget( RegExpEditorWindow* win, QWidget* parent, 
+RegExpWidget* WidgetFactory::createWidget( RegExpEditorWindow* win, QWidget* parent,
                                            RegExpType type )
 {
   RegExpWidget* widget = 0;
-  
+
   switch (type) {
-  case TEXT: 
+  case TEXT:
     return new TextWidget( win, parent ); break;
-  case ALTN: 
+  case ALTN:
     return  new AltnWidget( win, parent ); break;
-  case DOT: 
+  case DOT:
     return  new AnyCharWidget( win, parent ); break;
-  case BEGLINE: 
+  case BEGLINE:
     return new BegLineWidget( win, parent ); break;
-  case ENDLINE: 
+  case ENDLINE:
     return new EndLineWidget( win, parent ); break;
   case WORDBOUNDARY:
     return new WordBoundaryWidget( win, parent ); break;
@@ -53,11 +70,11 @@ RegExpWidget* WidgetFactory::createWidget( RegExpEditorWindow* win, QWidget* par
   case POSLOOKAHEAD:
   case NEGLOOKAHEAD:
     return new LookAheadWidget( win, type, parent ); break;
-  case REPEAT: 
+  case REPEAT:
     widget = new RepeatWidget( win, parent ); break;
-  case CHARSET: 
+  case CHARSET:
     widget = new CharactersWidget( win, parent ); break;
-  case COMPOUND: 
+  case COMPOUND:
     widget = new CompoundWidget( win, parent ); break;
   default:
     qFatal("It should not be possible to get here!");
@@ -96,16 +113,16 @@ RegExpWidget* WidgetFactory::createWidget( RegExp* regexp, RegExpEditorWindow* e
   else if ( PositionRegExp* reg = dynamic_cast<PositionRegExp*>( regexp ) ) {
     switch ( reg->position() ) {
     case PositionRegExp::BEGLINE:
-      return new BegLineWidget( editorWindow, parent );      
+      return new BegLineWidget( editorWindow, parent );
     case PositionRegExp::ENDLINE:
       return new EndLineWidget( editorWindow, parent );
     case PositionRegExp::WORDBOUNDARY:
-      return new WordBoundaryWidget( editorWindow, parent );      
+      return new WordBoundaryWidget( editorWindow, parent );
     case PositionRegExp::NONWORDBOUNDARY:
       return new NonWordBoundaryWidget( editorWindow, parent );
     }
   }
-  else if ( dynamic_cast<DotRegExp*>( regexp ) ) 
+  else if ( dynamic_cast<DotRegExp*>( regexp ) )
     return new AnyCharWidget( editorWindow, parent );
   else if ( CompoundRegExp* reg = dynamic_cast<CompoundRegExp*>( regexp ) )
     return new CompoundWidget( reg, editorWindow, parent );
@@ -121,7 +138,7 @@ RegExp* WidgetFactory::createRegExp( QDomElement node, const QString& version )
   RegExp* regexp;
   if ( tag == QString::fromLocal8Bit( "TextRange" ) )
     regexp = new TextRangeRegExp( false );
-  else if ( tag == QString::fromLocal8Bit( "Text" ) ) 
+  else if ( tag == QString::fromLocal8Bit( "Text" ) )
     regexp = new TextRegExp( false );
   else if ( tag == QString::fromLocal8Bit( "Concatenation" ) )
     regexp = new ConcRegExp( false );
@@ -151,7 +168,7 @@ RegExp* WidgetFactory::createRegExp( QDomElement node, const QString& version )
 
     return 0;
   }
-  
+
   bool ok = regexp->load( node, version );
   if (ok)
     return regexp;
@@ -170,7 +187,7 @@ RegExp* WidgetFactory::createRegExp( QString str )
     KMessageBox::sorry( 0, i18n("Error while loading regular expression from XML. Most probably the regular expression had unmatched tags."),
                         i18n("Error While Loading Regular Expression From XML") ) ;
   }
-  
+
 
   // Read the RegularExpression element, and extract the version.
   QDomElement top = doc.documentElement();

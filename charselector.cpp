@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #include "charselector.h"
 #include <qwidgetstack.h>
 #include <limitedcharlineedit.h>
@@ -44,32 +61,32 @@ CharSelector::CharSelector( QWidget* parent, const char* name )
         << i18n("The Vertical Tab Character (\\v)");
   _type->insertStringList( items );
   layout->addWidget( _type );
-  
+
   _stack = new QWidgetStack( this, "_stack" );
   layout->addWidget( _stack );
 
   _normal = new LimitedCharLineEdit( LimitedCharLineEdit::NORMAL, 0, "_normal" );
   _stack->addWidget( new StackContainer( _normal, _stack ), 0 );
-  
+
   _hex = new LimitedCharLineEdit( LimitedCharLineEdit::HEX, _stack, "_hex" );
   _stack->addWidget( new StackContainer( _hex, _stack ), 1 );
-  
+
   _oct = new LimitedCharLineEdit( LimitedCharLineEdit::OCT, _stack, "_oct" );
   _stack->addWidget( new StackContainer( _oct, _stack ), 2 );
 
   _stack->raiseWidget( 0 );
-  
+
   connect( _type, SIGNAL( activated( int ) ), this, SLOT(slotNewItem( int ) ) );
 }
 
-void CharSelector::slotNewItem( int which ) 
+void CharSelector::slotNewItem( int which )
 {
   _type->setCurrentItem( which );
   if ( which <= 2 ) {
     _stack->raiseWidget( which );
     _normal->setEnabled( true );
     _hex->setEnabled( true );
-    _oct->setEnabled( true );    
+    _oct->setEnabled( true );
   }
   else if ( which == 3 ) {
     _type->setCurrentItem( _oldIndex );
@@ -79,7 +96,7 @@ void CharSelector::slotNewItem( int which )
   else {
     _normal->setEnabled( false );
     _hex->setEnabled( false );
-    _oct->setEnabled( false );    
+    _oct->setEnabled( false );
   }
 
   _oldIndex = which;
@@ -148,7 +165,7 @@ QString CharSelector::text() const
     return QString::fromLatin1("\\t");
   case 9:
     return QString::fromLatin1("\\v");
-  }    
+  }
   return QString::null;
 }
 

@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #include "altnwidget.h"
 #include "dragaccepter.h"
 #include "concwidget.h"
@@ -31,7 +48,7 @@ AltnWidget::AltnWidget( AltnRegExp* regexp, RegExpEditorWindow* editorWindow,
     ConcWidget* conc;
     if (  ! (conc = dynamic_cast<ConcWidget*>( child ) ) ) {
       conc = new ConcWidget( editorWindow, child, parent );
-    }      
+    }
     append( conc );
   }
   updateDrawLineInfo();
@@ -46,7 +63,7 @@ void AltnWidget::addNewChild(DragAccepter *accepter, RegExpWidget *child)
   repaint();
 }
 
-void AltnWidget::setConcChild(ConcWidget *child) 
+void AltnWidget::setConcChild(ConcWidget *child)
 {
   addNewConcChild( dynamic_cast<DragAccepter*>(_children.at(0)), child );
 }
@@ -66,24 +83,24 @@ QSize AltnWidget::sizeHint() const
   // last drag accepter. Does, however, not apply when there only is onw child.
   if ( _children.count() != 1 )
     ++it;
-  
+
   _childrenWidth = 0;
   _childrenHeight = 0;
-  
+
   for ( ; *it ; ++it) {
     QSize thisChildSize = (*it)->sizeHint();
     _childrenWidth = QMAX(_childrenWidth, thisChildSize.width());
     _childrenHeight += thisChildSize.height();
   }
 
-  // Now add the size of the header 
+  // Now add the size of the header
   QFontMetrics metrics = fontMetrics();
   _textSize = metrics.size(0,_text);
-  
+
   int headerWidth = _textSize.width() + 2 * bdSize + 2;
-  
+
   _childrenWidth = QMAX(_childrenWidth, headerWidth);
-   
+
   return QSize(_childrenWidth + 2*pw, _childrenHeight + _textSize.height() + 1*pw );
 }
 
@@ -91,8 +108,8 @@ void AltnWidget::paintEvent( QPaintEvent *e)
 {
   Q_ASSERT( dynamic_cast<DragAccepter*>(_children.at(0)) );
   // if this fails, then I should check the location of the show()
-  Q_ASSERT( _children.count() == 1 || 
-          ( _children.count() >=3 && 
+  Q_ASSERT( _children.count() == 1 ||
+          ( _children.count() >=3 &&
             dynamic_cast<DragAccepter*>(_children.at(_children.count()-1)) ) );
 
   int offset = 0;
@@ -106,7 +123,7 @@ void AltnWidget::paintEvent( QPaintEvent *e)
 
   painter.drawLine(0, startY, bdSize, startY);
   int xOffset = bdSize +1;
-  
+
   painter.drawText(xOffset,0,_textSize.width(), _textSize.height(),0,_text);
   xOffset += _textSize.width() +1;
   painter.drawLine(xOffset,startY,mySize.width(), startY);
@@ -119,9 +136,9 @@ void AltnWidget::paintEvent( QPaintEvent *e)
   xOffset = pw;
 
   for (unsigned int i = 0; i < _children.count(); i++ ) {
-      
+
     RegExpWidget* child = _children.at(i);
-      
+
     QSize childSize = child->sizeHint();
     QSize curChildSize = child->size();
 
@@ -133,7 +150,7 @@ void AltnWidget::paintEvent( QPaintEvent *e)
       // first and last DragAccepter should only be half size.
       h /= 2;
     }
-    
+
     int w = _childrenWidth;
     child->setGeometry( x, y, w, h );
     if ( w != curChildSize.width() || h != curChildSize.height()  ) {
@@ -149,13 +166,13 @@ void AltnWidget::paintEvent( QPaintEvent *e)
 RegExp* AltnWidget::regExp() const
 {
 	AltnRegExp *regexp = new AltnRegExp( isSelected() );
-	
+
   QPtrListIterator<RegExpWidget> it(_children);
   ++it; // start with the second element
 	for ( ; *it; it+=2 ) {
     regexp->addRegExp( (*it)->regExp() );
 	}
-	
+
 	return regexp;
 }
 
@@ -192,7 +209,7 @@ bool AltnWidget::validateSelection() const
   if ( _isSelected ) {
     return true;
   }
-  
+
   bool foundASelection = false;
   QPtrListIterator<RegExpWidget> it(_children);
   ++it; // Skip past DragAccepter
@@ -213,7 +230,7 @@ bool AltnWidget::validateSelection() const
   return true;
 }
 
-void AltnWidget::updateDrawLineInfo() 
+void AltnWidget::updateDrawLineInfo()
 {
   for ( unsigned int i=0; i < _children.count(); i+=2 ) {
     bool line = ( i != 0 && i!= _children.count()-1 );
@@ -221,7 +238,7 @@ void AltnWidget::updateDrawLineInfo()
   }
 }
 
-void AltnWidget::deleteSelection() 
+void AltnWidget::deleteSelection()
 {
   MultiContainerWidget::deleteSelection();
   updateDrawLineInfo();

@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #include "zerowidgets.h"
 #include "dotregexp.h"
 #include "positionregexp.h"
@@ -7,7 +24,7 @@
 //--------------------------------------------------------------------------------
 //                                ZeroWidget
 //--------------------------------------------------------------------------------
-ZeroWidget::ZeroWidget(QString txt, RegExpEditorWindow* editorWindow, 
+ZeroWidget::ZeroWidget(QString txt, RegExpEditorWindow* editorWindow,
                        QWidget *parent, const char *name)
   : RegExpWidget(editorWindow, parent, name ? name : "ZeroWidget" )
 {
@@ -35,11 +52,11 @@ void ZeroWidget::paintEvent( QPaintEvent *e)
 
   QPainter painter(this);
   drawPossibleSelection( painter, mySize);
-  
+
   // Write the text and the rectangle
   painter.drawText(space, space, _textSize.width(), _textSize.height(), 0, _text);
   painter.drawRoundRect(0, 0, _boxSize.width(), _boxSize.height());
-  
+
   RegExpWidget::paintEvent(e);
 }
 
@@ -49,12 +66,12 @@ void ZeroWidget::paintEvent( QPaintEvent *e)
 //--------------------------------------------------------------------------------
 AnyCharWidget::AnyCharWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                              const char *name)
-  : ZeroWidget(i18n("Any\nCharacter"), editorWindow, parent, 
+  : ZeroWidget(i18n("Any\nCharacter"), editorWindow, parent,
                name ? name : "AnyCharWidget")
 {
 }
 
-RegExp* AnyCharWidget::regExp() const 
+RegExp* AnyCharWidget::regExp() const
 {
 	return new DotRegExp( isSelected() );
 }
@@ -65,7 +82,7 @@ RegExp* AnyCharWidget::regExp() const
 //--------------------------------------------------------------------------------
 BegLineWidget::BegLineWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                              const char *name)
-  : ZeroWidget(i18n("Line\nStart"), editorWindow, parent, 
+  : ZeroWidget(i18n("Line\nStart"), editorWindow, parent,
                name ? name : "BegLineWidget")
 {
 }
@@ -73,7 +90,7 @@ BegLineWidget::BegLineWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
 RegExp* BegLineWidget::regExp() const
 {
 	return new PositionRegExp( isSelected(), PositionRegExp::BEGLINE );
-	
+
 }
 
 //--------------------------------------------------------------------------------
@@ -95,12 +112,12 @@ RegExp* EndLineWidget::regExp() const
 //--------------------------------------------------------------------------------
 WordBoundaryWidget::WordBoundaryWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                                        const char *name)
-  : ZeroWidget(i18n("Word\nBoundary"), editorWindow, parent, 
+  : ZeroWidget(i18n("Word\nBoundary"), editorWindow, parent,
                name ? name : "WordBoundaryWidget" )
 {
 }
 
-RegExp* WordBoundaryWidget::regExp() const 
+RegExp* WordBoundaryWidget::regExp() const
 {
 	return new PositionRegExp( isSelected(), PositionRegExp::WORDBOUNDARY );
 }
@@ -110,7 +127,7 @@ RegExp* WordBoundaryWidget::regExp() const
 //--------------------------------------------------------------------------------
 NonWordBoundaryWidget::NonWordBoundaryWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                                              const char *name)
-  : ZeroWidget(i18n("Non-word\nBoundary"), editorWindow, parent, 
+  : ZeroWidget(i18n("Non-word\nBoundary"), editorWindow, parent,
                name ? name : "NonWordBoundaryWidget" )
 {
 }

@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 
 #include "kmultiformlistbox-multivisible.h"
 #include "indexWindow.h"
@@ -17,7 +34,7 @@ const uchar indexButtonBits[] = {
 };
 
 
-KMultiFormListBoxMultiVisible::KMultiFormListBoxMultiVisible(KMultiFormListBoxFactory *fact, QWidget *parent, const char *name) 
+KMultiFormListBoxMultiVisible::KMultiFormListBoxMultiVisible(KMultiFormListBoxFactory *fact, QWidget *parent, const char *name)
   : QScrollView(parent, name)
 {
   factory = fact;
@@ -55,7 +72,7 @@ void KMultiFormListBoxMultiVisible::resizeEvent(QResizeEvent *e)
 {
   // The call of the super class ensures that the outer border is updated.
   QScrollView::resizeEvent(e);
-  
+
   updateClipperContent();
 }
 
@@ -64,12 +81,12 @@ void KMultiFormListBoxMultiVisible::updateClipperContent()
   // Extract the current size of the clipper
   int ClipperWidth = clipper()->size().width();
   int ClipperHeight = clipper()->size().height();
-    
+
   // Initialize the calculation of the size of the new clipper.
   int totalHeight = 0;
   int maxWidth = ClipperWidth;
   int count = 0;
-  
+
 
   // calculate the required size.
   for (QWidget *child = elms->first(); child; child=elms->next()) {
@@ -82,14 +99,14 @@ void KMultiFormListBoxMultiVisible::updateClipperContent()
       totalHeight += child->size().height();
     }
   }
-  
+
   // Calculate the extra height for the elements.
   int extra = 0;
   if (totalHeight < ClipperHeight && count != 0) {
     extra = (ClipperHeight - totalHeight) / count;
     totalHeight = ClipperHeight;
   }
-  
+
   // Now place the elements in the clipper.
   int yPos = 0;
   for (QWidget *child = elms->first(); child; child=elms->next()) {
@@ -101,20 +118,20 @@ void KMultiFormListBoxMultiVisible::updateClipperContent()
     else {
       h = child->size().height();
     }
-        
+
     moveChild(child, 0,yPos);
-    
+
     child->resize(maxWidth,h);
-    yPos += h;    
+    yPos += h;
   }
-  
+
   // Finally call the resize procedure for the clipper to ensure that the
   // new sizes is shown properly.
   resizeContents(maxWidth, totalHeight);
 }
 
 
-void KMultiFormListBoxMultiVisible::addElement() 
+void KMultiFormListBoxMultiVisible::addElement()
 {
   addElement(0);
 }
@@ -139,14 +156,14 @@ void KMultiFormListBoxMultiVisible::delElement(QWidget *elm)
     elms->removeRef(next);
     removeChild(next);
   }
-          
+
   elms->removeRef(elm);
   removeChild(elm);
 
   updateClipperContent();
 }
 
-void KMultiFormListBoxMultiVisible::delAnElement() 
+void KMultiFormListBoxMultiVisible::delAnElement()
 {
   delElement(elms->at(0));
 }
@@ -158,10 +175,10 @@ void KMultiFormListBoxMultiVisible::insertElmIntoWidget(KMultiFormListBoxEntry *
     elm->indexButton()->setPixmap(QBitmap(indexButtonWidth, indexButtonHeight,
 																					indexButtonBits, true));
     connect(elm->indexButton(), SIGNAL(clicked()), elm, SLOT(acceptIndexButton()));
-    connect(elm, SIGNAL(gotoIndex(KMultiFormListBoxEntry *)), 
+    connect(elm, SIGNAL(gotoIndex(KMultiFormListBoxEntry *)),
             this, SLOT(showIndexList(KMultiFormListBoxEntry *)));
   }
-  
+
   // Find the location to insert the new element.
   int index = elms->count();
   if (after) {
@@ -180,11 +197,11 @@ void KMultiFormListBoxMultiVisible::insertElmIntoWidget(KMultiFormListBoxEntry *
     addChild(sep,0,0); // updateClipperContent will place the child correctly.
     elms->insert(index+1, sep);
   }
-  
+
   updateClipperContent();
 
   showWidget(elm); // scroll to show the new widget.
-  
+
   // install cut'n'paste functionallity
   new CCP(this,elm);
 }
@@ -196,7 +213,7 @@ void KMultiFormListBoxMultiVisible::insertElmIntoWidget(KMultiFormListBoxEntry *
 void KMultiFormListBoxMultiVisible::showIndexList(KMultiFormListBoxEntry *elm)
 {
   indexWindow *menu = new indexWindow();
-  
+
   // Insert the elements into the menu item.
   for (QWidget *child = elms->first(); child; child=elms->next()) {
     if ( strcmp(child->name(), "seperator") != 0) {
@@ -204,19 +221,19 @@ void KMultiFormListBoxMultiVisible::showIndexList(KMultiFormListBoxEntry *elm)
       menu->insertItem(txt);
     }
   }
-  
+
   // Calculate the location of the window
   QPoint start;
   int width;
   elm->indexWindowPos(&start, &width);
-  
+
   // Show the window.
   int index = menu->exec(start,width);
 
   if (index != -1) {
     for (QWidget *child = elms->first(); child; child=elms->next()) {
       if ( strcmp(child->name(), "seperator") != 0) {
-        
+
         if (index == 0) {
           showWidget((KMultiFormListBoxEntry *) child);
           break;
@@ -272,7 +289,7 @@ void KMultiFormListBoxMultiVisible::paste(KMultiFormListBoxEntry *oldElm)
 int KMultiFormListBoxMultiVisible::countElements(WidgetList *elms)
 {
   int count = 0;
-  
+
   for (QWidget *child = elms->first(); child; child=elms->next()) {
     if (dynamic_cast<const KMultiFormListBoxEntry *>(child))
       count++;

@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #ifndef __USERDEFINEDREGEXPS_H
 #define __USERDEFINEDREGEXPS_H
 #include <qdockwindow.h>
@@ -17,7 +34,7 @@ public:
 
 public slots:
   void slotSelectNewAction();
-  
+
 protected slots:
   void slotLoad(QListViewItem* item);
   void slotEdit( QListViewItem* item, const QPoint& pos );
@@ -29,13 +46,13 @@ protected:
 
 signals:
   void load( RegExp* );
-  
+
 private:
   QListView* _userDefined;
   QPtrList<CompoundRegExp> _regExps;
 };
 
-class WidgetWinItem :public QListViewItem 
+class WidgetWinItem :public QListViewItem
 {
 public:
   WidgetWinItem( QString name, RegExp* regexp, bool users, QListViewItem* parent );
@@ -46,7 +63,7 @@ public:
   QString name() const;
   void setName( const QString& );
   bool isUsersRegExp() const { return _usersRegExp; };
-  
+
 private:
   QString _name;
   RegExp* _regexp;

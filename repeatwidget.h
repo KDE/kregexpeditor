@@ -1,3 +1,20 @@
+/*
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License version 2 as published by the Free Software Foundation.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ **/
 #ifndef __repeatwidget
 #define __repeatwidget
 
@@ -18,23 +35,23 @@ class RepeatRangeWindow :public QVBox
 Q_OBJECT
 
 public:
-  enum REPEATTYPE {ANY, ATLEAST, ATMOST, EXACTLY, MINMAX};                  
+  enum REPEATTYPE {ANY, ATLEAST, ATMOST, EXACTLY, MINMAX};
 
   RepeatRangeWindow( QWidget* parent, const char* name = 0 );
   QString text();
   int min();
   int max();
   void set( REPEATTYPE tp, int min, int max );
-  
+
 protected slots:
   void slotItemChange( int which );
   void slotUpdateMinVal( int minVal );
   void slotUpdateMaxVal( int minVal );
-  
+
 
 private:
   void createLine( QWidget* parent, QString text, QSpinBox** spin, REPEATTYPE tp );
-  
+
   QSpinBox* _leastTimes;
   QSpinBox* _mostTimes;
   QSpinBox* _exactlyTimes;
@@ -65,14 +82,14 @@ public:
 	virtual RegExp* regExp() const;
   virtual RegExpType type() const { return REPEAT; }
   virtual int edit();
-  
+
 protected:
   virtual void paintEvent( QPaintEvent *e );
 
 protected slots:
   void slotConfigCanceled();
   void slotConfigWindowClosed();
-  
+
 private:
   KDialogBase* _configWindow;
   RepeatRangeWindow* _content;
