@@ -15,8 +15,15 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
-#include <kapplication.h>
-#include <kcmdlineargs.h>
+
+#ifdef QT_ONLY
+  #include "compat.h"
+  #include <qapplication.h>
+#else
+  #include <kapplication.h>
+  #include <kcmdlineargs.h>
+#endif
+
 #include <kregexpeditorinterface.h>
 #include <qdialog.h>
 #include <qfile.h>
@@ -24,12 +31,16 @@
 #include "../kregexpeditorgui.h"
 int main( int argc, char* argv[] )
 {
-  KCmdLineArgs::init(argc, argv, "RegExp Example","","");
-  KApplication myapp( argc, argv );
+#ifdef QT_ONLY
+    QApplication myapp( argc, argv );
+#else
+    KCmdLineArgs::init(argc, argv, "RegExp Example","","");
+    KApplication myapp( argc, argv );
+#endif
 
-  KRegExpEditorGUIDialog* iface = new KRegExpEditorGUIDialog( 0, "_editor", QStringList() );
-  iface->doSomething( QString::fromLatin1("setShowSyntaxCombo"), (bool*) true );
+    KRegExpEditorGUIDialog* iface = new KRegExpEditorGUIDialog( 0, "_editor", QStringList() );
+    iface->doSomething( QString::fromLatin1("setShowSyntaxCombo"), (bool*) true );
 
-  iface->exec();
+    iface->exec();
 }
 

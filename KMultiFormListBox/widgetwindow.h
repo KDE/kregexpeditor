@@ -18,11 +18,17 @@
 #ifndef __configwindow
 #define __configwindow
 
+#ifdef QT_ONLY
+  #include "compat.h"
+  #include <qlistbox.h>
+#else
+  #include <kdialogbase.h>
+  #include <klistbox.h>
+#endif
+
 #include "kmultiformlistboxfactory.h"
 #include "kmultiformlistbox-windowed.h"
 #include "windowlistboxitem.h"
-#include <kdialogbase.h>
-#include <klistbox.h>
 
 /**
    @internal

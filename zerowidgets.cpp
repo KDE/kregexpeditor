@@ -15,10 +15,16 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include <klocale.h>
+#endif
+
 #include "zerowidgets.h"
 #include "dotregexp.h"
 #include "positionregexp.h"
-#include <klocale.h>
 #include <qpainter.h>
 #include "myfontmetrics.h"
 //--------------------------------------------------------------------------------

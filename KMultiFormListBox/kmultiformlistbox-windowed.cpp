@@ -15,10 +15,15 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include <kmessagebox.h>
+  #include "kmultiformlistbox-windowed.moc"
+#endif
+
 #include "widgetwindow.h"
 #include "windowlistboxitem.h"
-#include <kdebug.h>
-#include <kmessagebox.h>
 
 KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent,
 																	 bool showUpDownButtons, bool showHelpButton,
@@ -93,13 +98,13 @@ KMultiFormListBoxEntryList KMultiFormListBoxWindowed::elements()
 
 void KMultiFormListBoxWindowed::delElement(QWidget */*elm*/)
 {
-  kdDebug() << "KMultiFormListBoxWindowed::delElement NOT YET IMPLEMENTED"<<endl;
+    // kdDebug() << "KMultiFormListBoxWindowed::delElement NOT YET IMPLEMENTED"<<endl;
 	// TODO
 }
 
 void KMultiFormListBoxWindowed::delAnElement()
 {
-  kdDebug() << "KMultiFormListBoxWindowed::delAnElement NOT YET IMPLEMENTED"<<endl;
+    // kdDebug() << "KMultiFormListBoxWindowed::delAnElement NOT YET IMPLEMENTED"<<endl;
   // TODO
 }
 
@@ -112,7 +117,7 @@ void KMultiFormListBoxWindowed::append(KMultiFormListBoxEntry *elm)
 
 void KMultiFormListBoxWindowed::addNewElement()
 {
-	kdDebug() << "addNewElement " << _factory << "," << _listbox << endl;
+	// kdDebug() << "addNewElement " << _factory << "," << _listbox << endl;
 
   QWidget *widget = new WidgetWindow(_factory, _listbox);
 	widget->show();
@@ -204,4 +209,3 @@ void KMultiFormListBoxWindowed::slotUpdateButtonState()
 		_buttonList.at(i)->setEnabled(on);
 	}
 }
-#include "kmultiformlistbox-windowed.moc"

@@ -15,15 +15,22 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include <klocale.h>
+  #include <kgenericfactory.h>
+  #include <kapplication.h>
+  #include "kregexpeditorgui.moc"
+#endif
+
 #include "kregexpeditorgui.h"
 #include "regexp.h"
-#include <unistd.h>
+// #include <unistd.h> // DO I need this?
 #include <stdio.h>
 #include "infopage.h"
 #include "kregexpeditorprivate.h"
-#include <klocale.h>
-#include <kgenericfactory.h>
-#include <kapplication.h>
 #include <qlayout.h>
 
 const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
@@ -33,7 +40,7 @@ KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent, const char *name,
 	                           const QStringList & )
   : QWidget( parent, name)
 {
-  QHBoxLayout* layout = new QHBoxLayout( this );
+  QHBoxLayout* layout = new QHBoxLayout( this, 6 );
   _editor = new KRegExpEditorPrivate( this, "_editor" );
   layout->addWidget( _editor );
   connect( _editor, SIGNAL( canUndo(bool) ), this, SIGNAL( canUndo(bool) ) );
@@ -69,7 +76,7 @@ KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent,
                  parent, name ? name : "KRegExpDialog" )
 {
   QFrame* frame = plainPage();
-  QVBoxLayout* layout = new QVBoxLayout( frame );
+  QVBoxLayout* layout = new QVBoxLayout( frame, 6 );
   layout->setAutoAdd( true );
   _editor = new KRegExpEditorGUI( frame );
 
@@ -79,7 +86,11 @@ KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent,
   resize( 640, 400 );
 
   setHelp( QString::null, QString::fromLocal8Bit( "KRegExpEditor" ) );
+#ifdef QT_ONLY
+  connect( this, SIGNAL( helpClicked() ), _editor, SLOT( showHelp() ) );
+#endif
 }
+
 
 QString KRegExpEditorGUIDialog::regExp() const
 {
@@ -135,8 +146,14 @@ void KRegExpEditorGUI::setMatchText( const QString& txt )
     _editor->setMatchText( txt );
 }
 
+
+void KRegExpEditorGUI::showHelp()
+{
+    _editor->showHelp();
+}
+
+#ifndef QT_ONLY
 typedef K_TYPELIST_2( KRegExpEditorGUI, KRegExpEditorGUIDialog ) Products;
 K_EXPORT_COMPONENT_FACTORY( libkregexpeditorgui,
                             KGenericFactory<Products>( "kregexpeditor" ) );
-
-#include "kregexpeditorgui.moc"
+#endif

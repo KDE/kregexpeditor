@@ -15,25 +15,34 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+
+#ifdef QT_ONLY
+  #include "compat.h"
+  #include "images.h"
+#else
+  #include <klocale.h>
+  #include <kmessagebox.h>
+//   #include <kfiledialog.h>
+  #include <kstandarddirs.h>
+  #include <kiconloader.h>
+  #include "editorwindow.moc"
+  #include <klineeditdlg.h>
+#endif
+
 #include "editorwindow.h"
 #include "concwidget.h"
 #include "drag.h"
 #include <qlayout.h>
-#include <klocale.h>
 #include <qpainter.h>
-#include <kmessagebox.h>
 #include <qaccel.h>
 #include <qapplication.h>
 #include <qcursor.h>
 #include <qclipboard.h>
 #include <qpopupmenu.h>
-#include <kfiledialog.h>
-#include <kstandarddirs.h>
-#include <kiconloader.h>
 #include "regexp.h"
 #include "userdefinedregexps.h"
-#include <klineeditdlg.h>
 #include <qregexp.h>
+#include <qfileinfo.h>
 
 RegExpEditorWindow::RegExpEditorWindow( QWidget *parent, const char *name)
     : QWidget(parent, name, Qt::WPaintUnclipped)
@@ -212,7 +221,7 @@ void RegExpEditorWindow::slotDoSelect()
 void RegExpEditorWindow::slotDeleteSelection()
 {
     if ( ! hasSelection() ) {
-        KMessageBox::information(this, i18n( "There is no selection"));
+        KMessageBox::information(this, i18n( "There is no selection"), i18n("Missing Selection") );
     }
     else {
         _top->deleteSelection();
@@ -271,7 +280,7 @@ void RegExpEditorWindow::cutCopyAux( QPoint pos )
     if ( !hasSelection() ) {
         RegExpWidget* widget = _top->widgetUnderPoint( pos, true );
         if ( !widget ) {
-            KMessageBox::information(this, i18n("There is no widget under cursor"));
+            KMessageBox::information(this, i18n("There is no widget under cursor"), i18n("invalid operation") );
             return;
         }
         else {
@@ -313,16 +322,16 @@ void RegExpEditorWindow::showRMBMenu( bool enableCutCopy )
 
     if ( !_menu ) {
         _menu = new QPopupMenu( 0 );
-        _menu->insertItem(SmallIconSet(QString::fromLocal8Bit("editcut")),
+        _menu->insertItem(getIcon(QString::fromLocal8Bit("editcut")),
                           i18n("C&ut"), CUT);
-        _menu->insertItem(SmallIconSet(QString::fromLocal8Bit("editcopy")),
+        _menu->insertItem(getIcon(QString::fromLocal8Bit("editcopy")),
                           i18n("&Copy"), COPY);
-        _menu->insertItem(SmallIconSet(QString::fromLocal8Bit("editpaste")),
+        _menu->insertItem(getIcon(QString::fromLocal8Bit("editpaste")),
                           i18n("&Paste"), PASTE);
         _menu->insertSeparator();
-        _menu->insertItem(SmallIconSet(QString::fromLocal8Bit("edit")),
+        _menu->insertItem(getIcon(QString::fromLocal8Bit("edit")),
                           i18n("&Edit"), EDIT);
-        _menu->insertItem(SmallIconSet(QString::fromLocal8Bit("filesave")),
+        _menu->insertItem(getIcon(QString::fromLocal8Bit("filesave")),
                           i18n("&Save Regular Expression..."), SAVE);
     }
 
@@ -361,15 +370,23 @@ void RegExpEditorWindow::applyRegExpToSelection( RegExpType tp )
 void RegExpEditorWindow::slotSave()
 {
     QString dir = WidgetWinItem::path();
+    QString txt;
 
+#ifdef QT_ONLY
+    txt = QInputDialog::getText( tr("Name for regexp"), tr("Enter name:") );
+    if ( txt.isNull() )
+        return;
+#else
     KLineEditDlg dlg(i18n("Enter name:"), QString::null, this);
     dlg.setCaption(i18n("Name for regexp"));
     if (!dlg.exec()) return;
+    txt = dlg.text();
+#endif
 
-    QString fileName = dir + QString::fromLocal8Bit("/") + dlg.text() + QString::fromLocal8Bit(".regexp");
+    QString fileName = dir + QString::fromLocal8Bit("/") + txt + QString::fromLocal8Bit(".regexp");
     QFileInfo finfo( fileName );
     if ( finfo.exists() ) {
-        int answer = KMessageBox::warningYesNo( this, i18n("<p>Overwrite named regular expression <b>%1</b></p>").arg(dlg.text()) );
+        int answer = KMessageBox::warningYesNo( this, i18n("<p>Overwrite named regular expression <b>%1</b></p>").arg(txt));
         if ( answer != KMessageBox::Yes )
             return;
     }
@@ -426,4 +443,14 @@ void RegExpEditorWindow::emitVerifyRegExp()
 }
 
 
-#include "editorwindow.moc"
+QIconSet RegExpEditorWindow::getIcon( const QString& name )
+{
+#ifdef QT_ONLY
+    QPixmap pix;
+    pix.convertFromImage( qembed_findImage( name ) );
+    return pix;
+#else
+        return SmallIconSet( name );
+#endif
+}
+

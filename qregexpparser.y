@@ -16,10 +16,15 @@
  *  Boston, MA 02111-1307, USA.
  **/
 %{
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include <klocale.h>
+  #include <kmessagebox.h>
+#endif
+
   #include <qstring.h>
   #include <stdlib.h>
-  #include <kmessagebox.h>
-  #include <klocale.h>
 
   #include "regexp.h"
   #include "textregexp.h"

@@ -15,9 +15,12 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+#ifndef QT_ONLY
+  #include "kmultiformlistbox.moc"
+#endif
+
 #include "kmultiformlistbox-multivisible.h"
 #include "kmultiformlistbox-windowed.h"
-#include <kdebug.h>
 
 KMultiFormListBox::KMultiFormListBox( KMultiFormListBoxFactory *factory, KMultiFormListBoxType tp, QWidget *parent,
 																		  bool showUpDownButtons, bool showHelpButton, QString addButtonText,
@@ -65,8 +68,8 @@ const KMultiFormListBoxEntryList KMultiFormListBox::elements() const
 void KMultiFormListBox::slotChangeFace( KMultiFormListBoxType /*newFace*/ )
 {
 	// TODO
-	kdDebug() << "It's not possible yet to change the face on the fly." << endl
-						<< "Please let me (blackie@kde.org) know that you need it, and I'll work on it" << endl;
+	// kdDebug() << "It's not possible yet to change the face on the fly." << endl
+	//					<< "Please let me (blackie@kde.org) know that you need it, and I'll work on it" << endl;
 }
 
 void KMultiFormListBox::toStream( QDataStream& stream ) const
@@ -85,10 +88,10 @@ void KMultiFormListBox::fromStream( QDataStream& stream )
   toCount = elements().count();
 
   // adds/remove elements in the to list, to make it have the correct length.
-  for (unsigned int i=toCount; i< fromCount; ++i) {
+  for (unsigned int j=toCount; j< fromCount; ++j) {
     addElement();
   }
-  for (unsigned int i=fromCount; i < toCount; ++i) {
+  for (unsigned int k=fromCount; k < toCount; ++k) {
     theWidget->delAnElement();
   }
 
@@ -99,4 +102,3 @@ void KMultiFormListBox::fromStream( QDataStream& stream )
 
 
 
-#include "kmultiformlistbox.moc"

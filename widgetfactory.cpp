@@ -15,6 +15,12 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include <kmessagebox.h>
+#endif
+
 #include "widgetfactory.h"
 #include "regexpwidget.h"
 #include "dragaccepter.h"
@@ -40,7 +46,6 @@
 #include "dotregexp.h"
 #include "compoundregexp.h"
 #include "kregexpeditorgui.h"
-#include <kmessagebox.h>
 
 bool WidgetFactory::isContainer( RegExpType tp )
 {

@@ -78,6 +78,7 @@ protected:
   virtual void mousePressEvent( QMouseEvent* e );
   virtual void mouseReleaseEvent( QMouseEvent* e);
   void init();
+  QPixmap getIcon( const QString& name );
 
 protected slots:
   void slotConfigCanceled();

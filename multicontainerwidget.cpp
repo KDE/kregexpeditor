@@ -110,7 +110,7 @@ bool MultiContainerWidget::updateSelection(bool parentSelected)
   QMemArray<bool> oldState(_children.count());
   QMemArray<bool> newState(_children.count());
 
-  for (unsigned int i = 0; i<_children.count();i++) {
+  for (int i = 0; i< (int)_children.count();i++) {
     oldState[i] = _children.at(i)->isSelected();
   }
 
@@ -138,25 +138,25 @@ bool MultiContainerWidget::updateSelection(bool parentSelected)
   }
 
   // everything between first and last must be selected.
-  for (int i = first+2; i<last; i+=2) {
-    RegExpWidget* child = _children.at(i);
+  for (int j = first+2; j<last; j+=2) {
+    RegExpWidget* child = _children.at(j);
 
    changed = child->updateSelection( true ) || changed;
-    newState[i] = true;
+    newState[j] = true;
   }
 
   // update drag accepters.
-  for (unsigned int i = 0; i<_children.count(); i+=2) {
-    RegExpWidget* child = _children.at(i);
+  for (int k = 0; k< (int) _children.count(); k+=2) {
+    RegExpWidget* child = _children.at(k);
     bool select;
-    if ( i == 0 || i == _children.count()-1) {
+    if ( k == 0 || k == (int)_children.count()-1) {
       // The elements at the border is only selected if the parent is selected.
       select = _isSelected;
     }
     else {
       // Drag accepters in the middle is selected if the elements at both
       // sides are selected.
-      select = newState[i-1] && newState[i+1];
+      select = newState[k-1] && newState[k+1];
     }
 
     bool isChildSel = child->isSelected();

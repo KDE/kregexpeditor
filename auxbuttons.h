@@ -22,9 +22,9 @@
 #include "regexp.h"
 #include "regexpconverter.h"
 #include <qvaluelist.h>
-class QPushButton;
 class QComboBox;
 class QLabel;
+class QToolButton;
 
 
 class AuxButtons :public QDockWindow
@@ -51,13 +51,16 @@ public slots:
     void slotCanPaste( bool );
     void slotCanSave( bool );
 
+protected:
+    QPixmap getIcon( const QString& name );
+
 private:
-    QPushButton* _undo;
-    QPushButton* _redo;
-    QPushButton* _cut;
-    QPushButton* _copy;
-    QPushButton* _paste;
-    QPushButton* _save;
+    QToolButton* _undo;
+    QToolButton* _redo;
+    QToolButton* _cut;
+    QToolButton* _copy;
+    QToolButton* _paste;
+    QToolButton* _save;
 };
 
 

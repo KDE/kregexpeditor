@@ -15,9 +15,14 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include "kmessagebox.h"
+  #include <klocale.h>
+#endif
+
 #include "repeatregexp.h"
-#include "kmessagebox.h"
-#include "klocale.h"
 
 RepeatRegExp::RepeatRegExp( bool selected, int lower, int upper, RegExp* child) : RegExp( selected )
 {

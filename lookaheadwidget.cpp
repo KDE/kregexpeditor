@@ -15,10 +15,17 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include <klocale.h>
+  #include "lookaheadwidget.moc"
+#endif
+
 #include "lookaheadwidget.h"
 #include "lookaheadregexp.h"
 #include "concwidget.h"
-#include <klocale.h>
 #include <qpainter.h>
 
 LookAheadWidget::LookAheadWidget( RegExpEditorWindow* editorWindow, RegExpType tp, QWidget* parent, const char* name )
@@ -96,4 +103,3 @@ void LookAheadWidget::paintEvent( QPaintEvent *e )
 
   SingleContainerWidget::paintEvent(e);
 }
-#include "lookaheadwidget.moc"

@@ -24,7 +24,11 @@
 #include <qobjectlist.h>
 #include <qobjectdict.h>
 #include <qpopupmenu.h>
-#include <klocale.h>
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include <klocale.h>
+#endif
 
 CCP::CCP(KMultiFormListBoxMultiVisible *ee_, KMultiFormListBoxEntry *eee_) : QObject() {
   ee = ee_;
@@ -40,7 +44,7 @@ void CCP::install(QObject *elm)
     QObjectListIt it = QObjectListIt(*children);
 
     while (QObject *child=it.current()) {
-      if (dynamic_cast<KMultiFormListBoxMultiVisible *>(child)) {
+      if (child->inherits("KMultiFormListBoxMultiVisible")) {
         // Stop if the widget is an KMultiFormListBox, as this widget has its own cut/copy/paste
       }
       else {

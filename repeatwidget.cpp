@@ -15,18 +15,24 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include <klocale.h>
+  #include <kdialogbase.h>
+  #include "repeatwidget.moc"
+#endif
+
 #include "repeatwidget.h"
 #include "concwidget.h"
 #include "repeatregexp.h"
 #include "selectablelineedit.h"
 #include <qpainter.h>
 #include <qcursor.h>
-#include <klocale.h>
 #include <qspinbox.h>
 #include <qradiobutton.h>
 #include <qlayout.h>
 #include <qgrid.h>
-#include <kdialogbase.h>
 #include <qvbuttongroup.h>
 #include "kwidgetstreamer.h"
 
@@ -319,6 +325,3 @@ void RepeatRangeWindow::set( REPEATTYPE tp, int min, int max )
     break;
   }
 }
-
-
-#include "repeatwidget.moc"

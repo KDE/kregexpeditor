@@ -15,9 +15,15 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include <klocale.h>
+#endif
+
 #include "compoundregexp.h"
 #include "widgetfactory.h"
-#include <klocale.h>
 
 CompoundRegExp::CompoundRegExp( bool selected, const QString& title, const QString& description, bool hidden,
                                 bool allowReplace, RegExp* child)

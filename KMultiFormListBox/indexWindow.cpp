@@ -15,8 +15,15 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include "indexWindow.moc"
+#endif
+
 #include "indexWindow.h"
-#include <iostream.h>
+#include <iostream>
 #include <qlayout.h>
 #include <qapplication.h>
 
@@ -86,6 +93,6 @@ int indexWindow::exec(const QPoint & /*start*/, int /*width*/)
   qApp->enter_loop();
   return itemSelected;
 */
+    return 0;
 }
 
-#include "indexWindow.moc"

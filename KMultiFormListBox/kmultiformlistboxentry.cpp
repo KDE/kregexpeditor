@@ -15,6 +15,11 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+
+#ifndef QT_ONLY
+  #include "kmultiformlistboxentry.moc"
+#endif
+
 #include "kmultiformlistboxentry.h"
 //----------------------------------------------------------------------
 // This function is needed to signal which of the KMultiFormListBox entries
@@ -37,4 +42,3 @@ void KMultiFormListBoxEntry::indexWindowPos(QPoint *start, int *width)
   global_point = indexButton()->mapToGlobal(QPoint(0,0));
   *width = global_point.x() + indexButton()->width() - start->x();
 }
-#include "kmultiformlistboxentry.moc"

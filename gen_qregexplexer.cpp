@@ -454,8 +454,8 @@ char *yytext;
 #line 21 "qregexpparser.l"
   #include <qstring.h>
   #include "textrangeregexp.h"
-  #include "gen_qregexpparser.cc.h"
-  void parseRange( char* txt, int* min, int* max );
+  #include "gen_qregexpparser.hh"
+  void parseRange( char* txt, int* min, int* max );  
   RegExp* parseCharClass( char* match );
 #line 461 "gen_qregexplexer.cpp"
 
@@ -706,8 +706,8 @@ return TOK_PosNonWordChar;
 case 3:
 YY_RULE_SETUP
 #line 38 "qregexpparser.l"
-{
-             TextRangeRegExp* regexp = new TextRangeRegExp( false );
+{ 
+             TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setDigit( true );
              qregexplval.regexp = regexp;
              return TOK_CharClass;
@@ -716,8 +716,8 @@ YY_RULE_SETUP
 case 4:
 YY_RULE_SETUP
 #line 44 "qregexpparser.l"
-{
-             TextRangeRegExp* regexp = new TextRangeRegExp( false );
+{ 
+             TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setNonDigit( true );
              qregexplval.regexp = regexp;
              return TOK_CharClass;
@@ -726,8 +726,8 @@ YY_RULE_SETUP
 case 5:
 YY_RULE_SETUP
 #line 50 "qregexpparser.l"
-{
-             TextRangeRegExp* regexp = new TextRangeRegExp( false );
+{ 
+             TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setSpace( true );
              qregexplval.regexp = regexp;
              return TOK_CharClass;
@@ -736,8 +736,8 @@ YY_RULE_SETUP
 case 6:
 YY_RULE_SETUP
 #line 56 "qregexpparser.l"
-{
-             TextRangeRegExp* regexp = new TextRangeRegExp( false );
+{ 
+             TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setNonSpace( true );
              qregexplval.regexp = regexp;
              return TOK_CharClass;
@@ -746,8 +746,8 @@ YY_RULE_SETUP
 case 7:
 YY_RULE_SETUP
 #line 62 "qregexpparser.l"
-{
-             TextRangeRegExp* regexp = new TextRangeRegExp( false );
+{ 
+             TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setWordChar( true );
              qregexplval.regexp = regexp;
              return TOK_CharClass;
@@ -756,8 +756,8 @@ YY_RULE_SETUP
 case 8:
 YY_RULE_SETUP
 #line 68 "qregexpparser.l"
-{
-             TextRangeRegExp* regexp = new TextRangeRegExp( false );
+{ 
+             TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setNonWordChar( true );
              qregexplval.regexp = regexp;
              return TOK_CharClass;
@@ -777,7 +777,7 @@ case 10:
 YY_RULE_SETUP
 #line 81 "qregexpparser.l"
 {
-             TextRangeRegExp* regexp = new TextRangeRegExp( false );
+             TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->addCharacter( QString::fromLocal8Bit(yytext) );
              qregexplval.regexp = regexp;
              return TOK_CharClass;
@@ -787,7 +787,7 @@ case 11:
 YY_RULE_SETUP
 #line 87 "qregexpparser.l"
 {
-             TextRangeRegExp* regexp = new TextRangeRegExp( false );
+             TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->addCharacter( QString::fromLocal8Bit(yytext) );
              qregexplval.regexp = regexp;
              return TOK_CharClass;
@@ -856,7 +856,7 @@ YY_RULE_SETUP
 case 24:
 YY_RULE_SETUP
 #line 105 "qregexpparser.l"
-{ parseRange( yytext, &qregexplval.range.min, &qregexplval.range.max ); return TOK_Quantifier; }
+{ parseRange( yytext, &qregexplval.range.min, &qregexplval.range.max ); return TOK_Quantifier; }  
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
@@ -1449,7 +1449,7 @@ YY_BUFFER_STATE b;
 
 #ifndef YY_ALWAYS_INTERACTIVE
 #ifndef YY_NEVER_INTERACTIVE
-#include<unistd.h>
+extern int isatty YY_PROTO(( int ));
 #endif
 #endif
 
@@ -1772,9 +1772,9 @@ int main()
 #line 111 "qregexpparser.l"
 
 
-void setParseData( QString qstr ) {
+void setParseData( QString qstr ) {  
   const char* cstr;
-  if ( qstr.isNull() )
+  if ( qstr.isNull() ) 
     cstr = "";
   else
     cstr = qstr.latin1();
@@ -1785,10 +1785,10 @@ void setParseData( QString qstr ) {
    This function parses a range in a form similar to "{3,4}", "{,7}"
    etc. and returns the value in the integers pointed to by min and max.
 */
-void parseRange( char* txt, int* min, int* max )
+void parseRange( char* txt, int* min, int* max ) 
 {
 
-  /*
+  /*  
       case  txt   min  max
        1    {}     0   -1
        2    {,}    0   -1
@@ -1796,7 +1796,7 @@ void parseRange( char* txt, int* min, int* max )
        4    {5,}   5   -1
        5    {,7}   0    7
        6    {5,7}  5    7
-  */
+  */    
   char c;
   int i = 1;
   int minimum=0, maximum=0;
@@ -1816,9 +1816,9 @@ void parseRange( char* txt, int* min, int* max )
       maxFound = 1;
     }
   }
-
+  
   *min = minimum;
-  if ( maxFound )
+  if ( maxFound ) 
     *max = maximum;   /* case 5,6 */
   else if ( !minFound )
     *max = -1;        /* case 1,2 */
@@ -1829,7 +1829,7 @@ void parseRange( char* txt, int* min, int* max )
 }
 
 
-/**
+/** 
     This function parses a character range like "[^ab1-4]".
 */
 RegExp* parseCharClass( char* match )
@@ -1837,7 +1837,7 @@ RegExp* parseCharClass( char* match )
   TextRangeRegExp* res = new TextRangeRegExp( false );
   QString txt = QString::fromLocal8Bit( match );
   txt = txt.mid(1,txt.length()-2);
-
+  
   unsigned int i = 0;
   QChar ch = txt.at(i++);
   QString pendingChar;
@@ -1845,7 +1845,7 @@ RegExp* parseCharClass( char* match )
   bool charPending = false;
   bool rangePending = false;
   bool flushPending = false;
-
+  
   if ( ch == QChar('^') ) {
     res->setNegate( true );
     ch = txt.at(i++);
@@ -1871,12 +1871,12 @@ RegExp* parseCharClass( char* match )
     if ( ch == QChar('\\') ) {
       // Handle the cases where an escape character is specified.
       ch = txt.at(i++);
-
+      
       if ( ch == QChar('a') || ch == QChar('f') || ch == QChar('n') || ch == QChar('r') || ch == QChar('t') || ch == QChar('v') ) {
         // These are just seen as normal characters.
         thisChar = QString::fromLocal8Bit("\\") + ch;
       }
-      else if ( ch == QChar('d') ) {
+      else if ( ch == QChar('d') ) {  
         // The following characters represent character groups. If any of
         // these are seen in a range, then the range is ignored, thus [a-\s]
         // matches an 'a', a '-', and a space (\s means space).
@@ -1903,13 +1903,13 @@ RegExp* parseCharClass( char* match )
         res->setNonWordChar( true );
         flushPending = true;
       }
-      else if ( ch == QChar('x') || ch == QChar('X') ) {
+      else if ( ch == QChar('x') || ch == QChar('X') ) { 
         // This is a hexidecimal character: \xHHHH
         QString str;
         for ( int j=0; j<4; j++) {
           ch = txt.at(i++);
             if ( ch == 'a' || ch == 'A' || ch == 'b' || ch == 'B' || ch == 'c' || ch == 'C' || ch == 'd' || ch == 'D' ||
-                 ch == '0' || ch == '1' || ch == '2' || ch == '3' || ch == '4' || ch == '5' || ch == '6' || ch == '7' ||
+                 ch == '0' || ch == '1' || ch == '2' || ch == '3' || ch == '4' || ch == '5' || ch == '6' || ch == '7' || 
                  ch == '8' || ch == '9' )
               str += ch;
             else
@@ -1938,18 +1938,18 @@ RegExp* parseCharClass( char* match )
       // A non escaped character.
       thisChar = ch;
     }
-
+    
     // The characters \s,\S,\w,\W,\d or \D, can not be part of a range,
     // thus if they are meet in what looks like a range, then the
     // characters of the range is justed seen as normal non range
     // characters. thus [a-\s] matches an 'a', a '-', and a space (\s means
-    // space).
+    // space). 
     if ( flushPending ) {
-      if ( charPending )
+      if ( charPending ) 
         res->addCharacter( pendingChar );
-      if ( rangePending )
+      if ( rangePending ) 
         res->addCharacter( QString::fromLocal8Bit("-") );
-      flushPending = false;
+      flushPending = false; 
       charPending = false;
       rangePending = false;
     }
@@ -1968,10 +1968,10 @@ RegExp* parseCharClass( char* match )
   }
   while ( ch != QChar(']') && i <= txt.length() );
 
-  if ( charPending )
+  if ( charPending ) 
     res->addCharacter( pendingChar );
-  if ( rangePending )
+  if ( rangePending ) 
     res->addCharacter( QString::fromLocal8Bit("-") );
 
   return res;
-}
+}  

@@ -15,13 +15,20 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+#ifdef QT_ONLY
+  #include "compat.h"
+  #include "images.h"
+#else
+  #include <klocale.h>
+  #include <kdialogbase.h>
+  #include <kiconloader.h>
+  #include "compoundwidget.moc"
+#endif
+
 #include "compoundwidget.h"
-#include <kdialogbase.h>
 #include <qlayout.h>
 #include <qcursor.h>
 #include <qlineedit.h>
-#include <kiconloader.h>
-#include <klocale.h>
 #include <qpainter.h>
 #include <qtooltip.h>
 #include "concwidget.h"
@@ -122,8 +129,8 @@ void CompoundWidget::init( )
   connect( _configWindow, SIGNAL(cancelClicked()), this, SLOT(slotConfigCanceled())) ;
   connect(_configWindow, SIGNAL(finished()), this, SLOT(slotConfigWindowClosed()));
 
-  _down = SmallIcon( QString::fromLocal8Bit( "1downarrow" ));
-  _up = SmallIcon( QString::fromLocal8Bit( "1uparrow" ) );
+  _down = getIcon( QString::fromLocal8Bit( "1downarrow" ));
+  _up = getIcon( QString::fromLocal8Bit( "1uparrow" ) );
 
   _hidden = false;
   _backRefId = -1;
@@ -304,5 +311,15 @@ int nextId()
   return ++counter;
 }
 
+QPixmap CompoundWidget::getIcon( const QString& name )
+{
+#ifdef QT_ONLY
+    QPixmap pix;
+    pix.convertFromImage( qembed_findImage(name) );
+    return pix;
+#else
+    return SmallIcon( name );
+#endif
+}
 
-#include "compoundwidget.moc"
+

@@ -23,7 +23,7 @@
 #include <qcombobox.h>
 #include <qlabel.h>
 #include <qvaluelist.h>
-class QPushButton;
+class QToolButton;
 class QLabel;
 
 class VerifyButtons :public QDockWindow
@@ -59,17 +59,20 @@ protected slots:
     void loadText();
     void slotChangeSyntax( int );
 
+protected:
+    QPixmap getIcon( const QString& name );
+
 private:
-    QPushButton* _autoVerify;
-    QPushButton* _verify;
+    QToolButton* _autoVerify;
+    QToolButton* _verify;
     QLabel* _matches;
 
     // Qt anchors do not work for <pre>...</pre>, thefore scrolling to next/prev match
     // do not work. Enable this when they work.
-    // QPushButton* _first;
-    // QPushButton* _prev;
-    // QPushButton* _next;
-    // QPushButton* _last;
+    // QToolButton* _first;
+    // QToolButton* _prev;
+    // QToolButton* _next;
+    // QToolButton* _last;
 
     QComboBox* _syntax;
     QLabel* _syntaxLabel;

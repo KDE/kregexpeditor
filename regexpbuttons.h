@@ -22,7 +22,7 @@
 #include "widgetfactory.h"
 class DoubleClickButton;
 class QButtonGroup;
-class QPushButton;
+class QToolButton;
 class QSignalMapper;
 
 
@@ -51,11 +51,11 @@ signals:
 
 private:
     QButtonGroup* _grp;
-    QPushButton* _selectBut;
-    QPushButton* _wordBoundary;
-    QPushButton* _nonWordBoundary;
-    QPushButton* _posLookAhead;
-    QPushButton* _negLookAhead;
+    QToolButton* _selectBut;
+    QToolButton* _wordBoundary;
+    QToolButton* _nonWordBoundary;
+    QToolButton* _posLookAhead;
+    QToolButton* _negLookAhead;
     QSignalMapper* _mapper; // single click Mapper.
 
     /**

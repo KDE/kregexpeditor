@@ -20,7 +20,10 @@
 %{ 
   #include <qstring.h>
   #include "textrangeregexp.h"
-  #include "gen_qregexpparser.cc.h"
+  #include "gen_qregexpparser.hh"
+#ifdef QT_ONLY
+  #include "compat.h"
+#endif
   void parseRange( char* txt, int* min, int* max );  
   RegExp* parseCharClass( char* match );
 %}

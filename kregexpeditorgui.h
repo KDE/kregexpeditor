@@ -18,13 +18,19 @@
 #ifndef kregexpeditorgui_h
 #define kregexpeditorgui_h
 
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include <kdialogbase.h>
+#endif
+
 #include <qstring.h>
 #include <qwidget.h>
 #include <qlabel.h>
 #include <qvaluestack.h>
 #include <qcstring.h>
-#include <kdialogbase.h>
 #include <kregexpeditorinterface.h>
+#include <qstringlist.h>
 
 class KRegExpEditorPrivate;
 
@@ -57,6 +63,7 @@ public slots:
   virtual void setRegExp( const QString &regexp );
   virtual void doSomething( QString method, void* arguments );
   virtual void setMatchText( const QString& );
+  void showHelp();
 
 private:
 	KRegExpEditorPrivate* _editor;

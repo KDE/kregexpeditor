@@ -18,13 +18,18 @@
 #ifndef infopage_h
 #define infopage_h
 
-#include <ktextbrowser.h>
+#ifdef QT_ONLY
+  #include "compat.h"
+  #include <qtextbrowser.h>
+#else
+  # include <ktextbrowser.h>
+#endif
 
 class InfoPage :public KTextBrowser
 {
 public:
   InfoPage( QWidget* parent, const char* name );
-  virtual void setSource ( const QString & name );
+  virtual void setSource ( const QString& name );
 };
 
 

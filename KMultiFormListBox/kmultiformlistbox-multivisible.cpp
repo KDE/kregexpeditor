@@ -16,15 +16,19 @@
  *  Boston, MA 02111-1307, USA.
  **/
 
+#ifdef QT_ONLY
+  #include "compat.h"
+  #include <qmessagebox.h>
+#else
+  #include <kmessagebox.h>
+  #include "kmultiformlistbox-multivisible.moc"
+#endif
+
 #include "kmultiformlistbox-multivisible.h"
 #include "indexWindow.h"
 #include "ccp.h"
 
-#include <iostream.h>
-#include <kmessagebox.h>
 #include <qbitmap.h>
-#include <string>
-
 
 const int indexButtonWidth = 16;
 const int indexButtonHeight = 12;
@@ -109,19 +113,19 @@ void KMultiFormListBoxMultiVisible::updateClipperContent()
 
   // Now place the elements in the clipper.
   int yPos = 0;
-  for (QWidget *child = elms->first(); child; child=elms->next()) {
+  for (QWidget *child2 = elms->first(); child2; child2=elms->next()) {
     int h;
-    if ( strcmp(child->name(),"seperator") != 0) {
+    if ( strcmp(child2->name(),"seperator") != 0) {
       h += extra;
-      h = child->sizeHint().height();
+      h = child2->sizeHint().height();
     }
     else {
-      h = child->size().height();
+      h = child2->size().height();
     }
 
-    moveChild(child, 0,yPos);
+    moveChild(child2, 0,yPos);
 
-    child->resize(maxWidth,h);
+    child2->resize(maxWidth,h);
     yPos += h;
   }
 
@@ -257,7 +261,7 @@ void KMultiFormListBoxMultiVisible::showWidget(KMultiFormListBoxEntry *elm)
 void KMultiFormListBoxMultiVisible::cut(KMultiFormListBoxEntry *elm)
 {
 	if (countElements(elms) == 1) {
-		KMessageBox::information(this, i18n("Due to a bug, it is not possible to remove the last element."));
+		KMessageBox::information(this, i18n("Due to a bug, it is not possible to remove the last element."), i18n("Internal Error") );
 		return;
 	}
 
@@ -299,4 +303,3 @@ int KMultiFormListBoxMultiVisible::countElements(WidgetList *elms)
 }
 
 
-#include "kmultiformlistbox-multivisible.moc"

@@ -23,6 +23,7 @@
 #include <qlabel.h>
 #include <qpoint.h>
 #include <qsize.h>
+#include <qiconset.h>
 class RegExp;
 class RegExpWidget;
 class QHBoxLayout;
@@ -260,6 +261,8 @@ private:
 
     /** Popup menu used for RMB */
     QPopupMenu* _menu;
+
+    QIconSet getIcon( const QString& name );
 
     bool _isDndOperation;
 };

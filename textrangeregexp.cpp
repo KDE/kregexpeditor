@@ -15,9 +15,14 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include <klocale.h>
+  #include <kmessagebox.h>
+#endif
+
 #include "textrangeregexp.h"
-#include <kmessagebox.h>
-#include <klocale.h>
 #include "kregexpeditorprivate.h"
 #include "regexpconverter.h"
 
@@ -71,10 +76,10 @@ QDomNode TextRangeRegExp::toXml( QDomDocument* doc ) const
         top.appendChild( elm );
     }
 
-    for ( QPtrListIterator<StringPair> it(_ranges); *it; ++it ) {
+    for ( QPtrListIterator<StringPair> it2(_ranges); *it2; ++it2 ) {
         QDomElement elm = doc->createElement( QString::fromLocal8Bit( "Range" ) );
-        elm.setAttribute( QString::fromLocal8Bit( "from" ), (*it)->first() );
-        elm.setAttribute( QString::fromLocal8Bit( "to" ), (*it)->second() );
+        elm.setAttribute( QString::fromLocal8Bit( "from" ), (*it2)->first() );
+        elm.setAttribute( QString::fromLocal8Bit( "to" ), (*it2)->second() );
         top.appendChild( elm );
     }
     return top;

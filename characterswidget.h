@@ -18,13 +18,19 @@
 #ifndef __characterswidget
 #define __characterswidget
 
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include <kdialogbase.h>
+#endif
+
 #include <kmultiformlistbox.h>
 #include "regexpwidget.h"
 #include "limitedcharlineedit.h"
 #include <qhbox.h>
 #include <qcheckbox.h>
 #include <qvgroupbox.h>
-#include <kdialogbase.h>
+
 class KDialogBase;
 class CharacterEdits;
 class TextRangeRegExp;

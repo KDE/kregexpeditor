@@ -15,12 +15,17 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include <klocale.h>
+  #include <kmessagebox.h>
+#endif
+
 #include "altnwidget.h"
 #include "dragaccepter.h"
 #include "concwidget.h"
 #include "altnregexp.h"
-#include <klocale.h>
-#include <kmessagebox.h>
 #include <qpainter.h>
 
 AltnWidget::AltnWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
@@ -216,9 +221,10 @@ bool AltnWidget::validateSelection() const
   for ( ; *it; it+=2 ) {
     if ( (*it)->hasSelection() ) {
       if ( foundASelection ) {
-        KMessageBox::information( const_cast<AltnWidget*>(this),
-			          i18n( "Selecting several alternatives is "
-			                "currently not supported." ) );
+          KMessageBox::information( const_cast<AltnWidget*>(this),
+                                    i18n( "Selecting several alternatives is "
+                                          "currently not supported." ),
+                                    i18n( "Selection invalid" ) );
         _editorWindow->clearSelection( true );
         return false;
       }

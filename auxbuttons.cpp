@@ -15,61 +15,69 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+
+#ifdef QT_ONLY
+  #include "compat.h"
+  #include "images.h"
+#else
+  #include "auxbuttons.moc"
+  #include <kiconloader.h>
+  #include <klocale.h>
+#endif
+
 #include "auxbuttons.h"
-#include "auxbuttons.moc"
 #include <qpushbutton.h>
-#include <kiconloader.h>
 #include <qpixmap.h>
 #include <qlayout.h>
 #include <qwhatsthis.h>
 #include <qtooltip.h>
-#include <klocale.h>
+#include <qlabel.h>
+#include <qtoolbutton.h>
 
 AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)
   :QDockWindow( QDockWindow::InDock, parent, name)
 {
   QBoxLayout* layout = boxLayout();
-  KIconLoader loader;
 
-  _undo = new QPushButton( this );
-  _undo->setPixmap( loader.loadIcon(QString::fromLatin1("undo"), KIcon::Toolbar) );
+  _undo = new QToolButton( this );
+  _undo->setPixmap( getIcon(QString::fromLatin1("undo") ) );
   layout->addWidget( _undo );
   connect( _undo, SIGNAL(clicked()), this, SIGNAL(undo()) );
   QToolTip::add( _undo, i18n( "Undo" ) );
 
-  _redo = new QPushButton( this );
-  _redo->setPixmap( loader.loadIcon(QString::fromLatin1("redo"), KIcon::Toolbar) );
+  _redo = new QToolButton( this );
+  _redo->setPixmap( getIcon(QString::fromLatin1("redo") ) );
   layout->addWidget( _redo );
   connect( _redo, SIGNAL(clicked()), this, SIGNAL(redo()) );
   QToolTip::add( _redo, i18n( "Redo" ) );
 
-  _cut = new QPushButton( this );
-  _cut->setPixmap( loader.loadIcon(QString::fromLatin1("editcut"), KIcon::Toolbar) );
+  _cut = new QToolButton( this );
+  _cut->setPixmap( getIcon(QString::fromLatin1("editcut") ) );
   layout->addWidget( _cut );
   connect( _cut, SIGNAL(clicked()), this, SIGNAL(cut()) );
   QToolTip::add( _cut, i18n( "Cut" ) );
 
-  _copy = new QPushButton( this );
-  _copy->setPixmap( loader.loadIcon(QString::fromLatin1("editcopy"), KIcon::Toolbar) );
+  _copy = new QToolButton( this );
+  _copy->setPixmap( getIcon(QString::fromLatin1("editcopy") ) );
   layout->addWidget( _copy );
   connect( _copy, SIGNAL(clicked()), this, SIGNAL(copy()) );
   QToolTip::add( _copy, i18n( "Copy" ) );
 
-  _paste = new QPushButton( this );
-  _paste->setPixmap( loader.loadIcon(QString::fromLatin1("editpaste"), KIcon::Toolbar) );
+  _paste = new QToolButton( this );
+  _paste->setPixmap( getIcon(QString::fromLatin1("editpaste")) );
   layout->addWidget( _paste );
   connect( _paste, SIGNAL(clicked()), this, SIGNAL(paste()) );
   QToolTip::add( _paste, i18n( "Paste" ) );
 
-  _save = new QPushButton( this );
-  _save->setPixmap( loader.loadIcon(QString::fromLatin1("filesave"), KIcon::Toolbar) );
+  _save = new QToolButton( this );
+  _save->setPixmap( getIcon(QString::fromLatin1("filesave")) );
   layout->addWidget( _save );
   connect( _save, SIGNAL(clicked()), this, SIGNAL(save()) );
   QToolTip::add( _save, i18n( "Save" ) );
 
 
-  QPushButton* button = new QPushButton(this);
-  button->setPixmap( loader.loadIcon(QString::fromLatin1("contexthelp"), KIcon::Toolbar) );
+  QToolButton* button = new QToolButton(this);
+  button->setPixmap( getIcon( QString::fromLatin1("contexthelp") ) );
   layout->addWidget( button );
   connect(button, SIGNAL(clicked()), this, SLOT(slotEnterWhatsThis()));
 
@@ -111,5 +119,17 @@ void AuxButtons::slotCanPaste( bool b )
 void AuxButtons::slotCanSave( bool b )
 {
   _save->setEnabled( b );
+}
+
+QPixmap AuxButtons::getIcon( const QString& name )
+{
+#ifdef QT_ONLY
+    QPixmap pix;
+    pix.convertFromImage( qembed_findImage( name ) );
+    return pix;
+#else
+  KIconLoader loader;
+  return loader.loadIcon( name, KIcon::Toolbar);
+#endif
 }
 

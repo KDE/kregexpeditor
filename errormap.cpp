@@ -15,9 +15,15 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include <kmessagebox.h>
+  #include <klocale.h>
+#endif
+
 #include "errormap.h"
-#include <kmessagebox.h>
-#include <klocale.h>
 
 ErrorMap::ErrorMap() : _prevLineStartError( false ), _prevLineEndError( false ), _prevLookAHeadError( false )
 {

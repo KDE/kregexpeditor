@@ -15,6 +15,10 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+#ifndef QT_ONLY
+  #include "scrollededitorwindow.moc"
+#endif
+
 #include "scrollededitorwindow.h"
 #include "editorwindow.h"
 #include <qregexp.h>
@@ -139,4 +143,3 @@ void RegExpScrolledEditorWindow::slotScroll( QPoint focusPoint )
     _scrollView->ensureVisible( focusPoint.x(), focusPoint.y() );
 }
 
-#include "scrollededitorwindow.moc"

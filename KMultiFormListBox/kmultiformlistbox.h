@@ -24,7 +24,13 @@
 #include <qptrlist.h>
 #include <qlayout.h>
 #include <qscrollview.h>
-#include <klocale.h>
+
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include <klocale.h>
+#endif
+
 class QDataStream;
 
 

@@ -15,26 +15,33 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include <klocale.h>
+  #include <kiconloader.h>
+  #include <kstandarddirs.h>
+  #include <kmessagebox.h>
+  #include "kregexpeditorprivate.moc"
+#endif
+
 #include <qlineedit.h>
-#include <klocale.h>
 #include "kregexpeditorprivate.h"
 #include "scrollededitorwindow.h"
 #include "regexpbuttons.h"
 #include "regexp.h"
-#include <unistd.h>
+//#include <unistd.h> // What do I need this for?
 #include <stdio.h>
-#include <kiconloader.h>
 #include "infopage.h"
 #include <qsplitter.h>
 #include <qdockarea.h>
 #include "userdefinedregexps.h"
 #include "auxbuttons.h"
 #include <qaccel.h>
-#include <kstandarddirs.h>
 #include <compoundregexp.h>
 #include <qtimer.h>
 #include "verifier.h"
-#include <kmessagebox.h>
 #include <qfile.h>
 #include "verifybuttons.h"
 #include <qtooltip.h>
@@ -164,7 +171,11 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
                                       "You may both develop your regular expression using the graphical editor, and by "
                                       "typing regular expression in this line edit") );
 
+#ifdef QT_ONLY
+  QPixmap pix( "icons/error.png" );
+#else
   QPixmap pix = KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/error.png") ), KIcon::Toolbar );
+#endif
   _error = new QLabel( this );
   _error->setPixmap( pix );
   layout->addWidget( _error );
@@ -281,11 +292,8 @@ void KRegExpEditorPrivate::slotUndo()
 
 void KRegExpEditorPrivate::slotShowEditor()
 {
-  if ( _info ) {
-    delete _info;
-    _info = 0;
+    _info->hide();
     _editor->show();
-  }
 }
 
 void KRegExpEditorPrivate::emitUndoRedoSignals()
@@ -410,4 +418,9 @@ RegExpConverter* KRegExpEditorPrivate::converter()
     return _converter;
 }
 
-#include "kregexpeditorprivate.moc"
+
+void KRegExpEditorPrivate::showHelp()
+{
+    _info->show();
+    _editor->hide();
+}

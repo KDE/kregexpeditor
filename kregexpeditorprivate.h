@@ -74,6 +74,7 @@ public slots:
     void slotSetRegexp( QString regexp );
     void setMatchText( const QString& text );
     void setSyntax( const QString& );
+    void showHelp();
 
 signals:
     void canUndo( bool );

@@ -15,15 +15,22 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+#ifdef QT_ONLY
+  #include "compat.h"
+  #include "images.h"
+#else
+  #include <kiconloader.h>
+  #include <klocale.h>
+  #include <kstandarddirs.h>
+  #include "regexpbuttons.moc"
+#endif
+
 #include "regexpbuttons.h"
 #include "dcbutton.h"
-#include <kiconloader.h>
-#include <klocale.h>
 #include <qtooltip.h>
 #include <qwhatsthis.h>
 #include <qbuttongroup.h>
 #include <qpushbutton.h>
-#include <kstandarddirs.h>
 #include <qlayout.h>
 #include <qsignalmapper.h>
 #include "regexpconverter.h"
@@ -41,8 +48,15 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   connect( _mapper, SIGNAL( mapped(int) ), this, SIGNAL( clicked(int) ) );
 
   // The "select" button.
-  _selectBut = new QPushButton( this);
+  _selectBut = new QToolButton( this);
+
+#ifdef QT_ONLY
+  QPixmap pix;
+  pix.convertFromImage( qembed_findImage( "select" ) );
+#else
   QPixmap pix = KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/select.png") ), KIcon::Toolbar );
+#endif
+
   _selectBut->setPixmap( pix );
   layout->addWidget( _selectBut );
   _grp->insert(_selectBut);
@@ -141,8 +155,14 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
 
 DoubleClickButton* RegExpButtons::insert(RegExpType tp, const char* name, QString tooltip, QString whatsthis)
 {
-  QPixmap pix = KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/")+QString::fromLatin1(name) +
+#ifdef QT_ONLY
+    QPixmap pix;
+    pix.convertFromImage( qembed_findImage( QString::fromLatin1( name ) ) );
+#else
+    QPixmap pix = KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/")+QString::fromLatin1(name) +
                                                        QString::fromLatin1(".png") ), KIcon::Toolbar );
+#endif
+
   DoubleClickButton* but = new DoubleClickButton( pix, this, "RegExpButtons::but");
 
   _mapper->setMapping( but, tp );
@@ -162,7 +182,7 @@ DoubleClickButton* RegExpButtons::insert(RegExpType tp, const char* name, QStrin
 void RegExpButtons::slotUnSelect()
 {
   if ( _grp->selected() ) {
-    QPushButton *pb = dynamic_cast<QPushButton*>(_grp->selected());
+    QToolButton *pb = static_cast<QToolButton*>(_grp->selected());
     if (pb) {
       pb->setOn( false );
     }
@@ -196,4 +216,3 @@ void RegExpButtons::setFeatures( int features )
 
 }
 
-#include "regexpbuttons.moc"

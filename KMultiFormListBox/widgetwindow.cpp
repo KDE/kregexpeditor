@@ -82,7 +82,7 @@ void WidgetWindow::slotOk()
 void WidgetWindow::slotCancel()
 {
   if (initialShow) {
-    delayedDestruct();
+      deleteLater();
   }
   else {
     QDataStream stream( _backup, IO_ReadOnly );

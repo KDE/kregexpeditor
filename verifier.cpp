@@ -15,12 +15,18 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include <klocale.h>
+  #include "verifier.moc"
+#endif
+
 #include "verifier.h"
 #include <qregexp.h>
 #include <qtimer.h>
 #include <qtextstream.h>
 #include <qfile.h>
-#include <klocale.h>
 #include <qprogressdialog.h>
 
 Verifier::Verifier( QWidget* parent, const char* name ) : QTextEdit( parent, name )
@@ -113,5 +119,4 @@ void Verifier::setHighlighter( RegexpHighlighter* highlighter )
 
 }
 
-#include "verifier.moc"
 

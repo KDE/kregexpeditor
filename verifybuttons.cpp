@@ -15,31 +15,36 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+#ifdef QT_ONLY
+  #include "compat.h"
+  #include <qfiledialog.h>
+  #include "images.h"
+#else
+  #include <klocale.h>
+  #include "verifybuttons.moc"
+  #include <kstandarddirs.h>
+  #include <kfiledialog.h>
+  #include <kiconloader.h>
+  #include <kmessagebox.h>
+#endif
+
 #include "verifybuttons.h"
-#include "verifybuttons.moc"
-#include <klocale.h>
-#include <kstandarddirs.h>
-#include <kfiledialog.h>
 #include <qfile.h>
-#include <kmessagebox.h>
-#include <qpushbutton.h>
-#include <kiconloader.h>
 #include <qtooltip.h>
 #include <qlayout.h>
 #include <qlabel.h>
 #include <qwhatsthis.h>
 #include "qtregexpconverter.h"
 #include "emacsregexpconverter.h"
+#include <qtoolbutton.h>
 
 VerifyButtons::VerifyButtons( QWidget* parent, const char* name ) :QDockWindow( QDockWindow::InDock, parent, name )
 {
   QBoxLayout* layout = boxLayout();
-  KIconLoader loader;
 
-  _autoVerify = new QPushButton(this);
+  _autoVerify = new QToolButton(this);
   _autoVerify->setToggleButton( true );
-  QPixmap icon = KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/autoverify.png") ),
-                                                 KIcon::Toolbar );
+  QPixmap icon = getIcon( QString::fromLatin1("autoverify"));
   _autoVerify->setPixmap( icon );
   QToolTip::add( _autoVerify, i18n( "Toggle on-the-fly verification of regular expression" ) );
   QWhatsThis::add( _autoVerify, i18n( "Enabling this option will make the verifier update for each edit."
@@ -48,8 +53,8 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name ) :QDockWindow( 
   layout->addWidget( _autoVerify );
   connect( _autoVerify, SIGNAL( toggled( bool ) ), this, SIGNAL( autoVerify( bool ) ) );
 
-  _verify =  new QPushButton(this);
-  icon = KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/verify.png") ), KIcon::Toolbar );
+  _verify =  new QToolButton(this);
+  icon = getIcon( QString::fromLatin1("verify"));
   _verify->setPixmap( icon );
   QToolTip::add( _verify, i18n( "Verify regular expression" ) );
   QWhatsThis::add( _verify, i18n("Shows what part of the regular expression is being matches in the <i>verifier window</i>."
@@ -58,30 +63,30 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name ) :QDockWindow( 
   connect( _autoVerify, SIGNAL( toggled( bool ) ), this, SLOT( updateVerifyButton( bool ) ) );
   connect( _verify, SIGNAL( clicked() ), this, SIGNAL( verify() ) );
 
-  QPushButton* button = new QPushButton(this);
-  button->setPixmap( loader.loadIcon(QString::fromLatin1("fileopen"), KIcon::Toolbar) );
+  QToolButton* button = new QToolButton(this);
+  button->setPixmap( getIcon( QString::fromLatin1("fileopen")) );
   layout->addWidget( button );
   connect(button, SIGNAL(clicked()), this, SLOT(loadText()));
   QToolTip::add( button, i18n("Load text in the verifier window") );
 
   // It is currently not possible to ask for the paragraph being highlighted, thefore scrolling to next/prev match
   // do not work. Enable this when they work.
-  // _first = new QPushButton( QString::fromLatin1("<<"), this);
+  // _first = new QToolButton( QString::fromLatin1("<<"), this);
   // layout->addWidget( _first );
   // connect(_first, SIGNAL(clicked()), this, SIGNAL( gotoFirst()));
   // _first->setFixedWidth( 25 );
   //
-  // _prev = new QPushButton(QString::fromLatin1("<"), this);
+  // _prev = new QToolButton(QString::fromLatin1("<"), this);
   // layout->addWidget( _prev );
   // connect(_prev, SIGNAL(clicked()), this, SIGNAL( gotoPrev()));
   // _prev->setFixedWidth( 20 );
   //
-  // _next = new QPushButton(QString::fromLatin1(">"), this);
+  // _next = new QToolButton(QString::fromLatin1(">"), this);
   // layout->addWidget( _next );
   // connect(_next, SIGNAL(clicked()), this, SIGNAL( gotoNext()));
   // _next->setFixedWidth( 20 );
   //
-  // _last = new QPushButton(QString::fromLatin1(">>"), this);
+  // _last = new QToolButton(QString::fromLatin1(">>"), this);
   // layout->addWidget( _last );
   // connect(_last, SIGNAL(clicked()), this, SIGNAL( gotoLast()));
   // _last->setFixedWidth( 25 );
@@ -186,4 +191,18 @@ RegExpConverter* VerifyButtons::setSyntax( const QString& which)
     }
     qWarning( "No such converter: '%s'", which.latin1() );
     return 0;
+}
+
+QPixmap VerifyButtons::getIcon( const QString& name )
+{
+#ifdef QT_ONLY
+    QPixmap pix;
+    pix.convertFromImage( qembed_findImage(name) );
+    return pix;
+#else
+  KIconLoader loader;
+  return KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/") +name ),
+                                         KIcon::Toolbar );
+
+#endif
 }

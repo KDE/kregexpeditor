@@ -15,20 +15,26 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include <klineeditdlg.h>
+  #include <klocale.h>
+  #include <kmessagebox.h>
+  #include <kstandarddirs.h>
+  #include <kdebug.h>
+  #include "userdefinedregexps.moc"
+#endif
+
 #include "userdefinedregexps.h"
 #include <qheader.h>
 #include <qpopupmenu.h>
-#include <klineeditdlg.h>
 #include "regexp.h"
-#include <kmessagebox.h>
 #include <qdir.h>
-#include <klocale.h>
 #include "widgetfactory.h"
-#include <kstandarddirs.h>
 #include <qtooltip.h>
 #include <qwhatsthis.h>
 #include "compoundregexp.h"
-#include <kdebug.h>
 #include <qlayout.h>
 #include <qlabel.h>
 
@@ -63,7 +69,13 @@ void UserDefinedRegExps::slotPopulateUserRegexps()
 
   createItems( i18n("User Defined"), WidgetWinItem::path(), true );
 
+#ifdef QT_ONLY
+  QStringList dirs;
+  dirs << QString::fromLatin1( "predefined" );
+#else
   QStringList dirs = KGlobal::dirs()->findDirs( "data", QString::fromLocal8Bit("kregexpeditor/predefined/") );
+#endif
+
   for ( QStringList::iterator it1 = dirs.begin(); it1 != dirs.end(); ++it1 ) {
     QDir dir( *it1, QString::null, QDir::Name, QDir::Dirs );
     QStringList subdirs = dir.entryList();
@@ -177,14 +189,21 @@ void UserDefinedRegExps::slotEdit( QListViewItem* item, const QPoint& pos )
     QString oldFile = winItem->fileName();
     QString oldName = winItem->name();
 
+    QString txt;
+#ifdef QT_ONLY
+    txt = QInputDialog::getText( tr("Rename Regular Expression"), tr("New name:") );
+#else
     KLineEditDlg dlg(i18n("New name:"), oldName, this);
     dlg.setCaption(i18n("Rename Item"));
-
-    if ( dlg.exec() && oldName != dlg.text() ) {
-      QString fileName = WidgetWinItem::path() + QString::fromLocal8Bit("/") + dlg.text() + QString::fromLocal8Bit(".regexp");
+    bool ok = dlg.exec();
+    if ( ok )
+        txt = dlg.text();
+#endif
+    if ( !txt.isNull() && oldName != txt ) {
+      QString fileName = WidgetWinItem::path() + QString::fromLocal8Bit("/") + txt + QString::fromLocal8Bit(".regexp");
       QFileInfo finfo( fileName );
       if ( finfo.exists() ) {
-        int answer = KMessageBox::warningYesNo( this, i18n("<p>Overwrite named regular expression <b>%1</b>?</p>").arg(dlg.text()) );
+        int answer = KMessageBox::warningYesNo( this, i18n("<p>Overwrite named regular expression <b>%1</b>?</p>").arg(txt) );
         if ( answer != KMessageBox::Yes )
           return;
 
@@ -192,7 +211,7 @@ void UserDefinedRegExps::slotEdit( QListViewItem* item, const QPoint& pos )
         delete winItem;
       }
       else
-        winItem->setName( dlg.text() );
+        winItem->setName( txt );
       QDir dir;
       dir.rename( oldFile, fileName  );
     }
@@ -239,9 +258,12 @@ void WidgetWinItem::setName( const QString& nm )
 
 QString WidgetWinItem::path()
 {
+#ifdef QT_ONLY
+    return QString::fromLatin1( "predefined" );
+#else
   return locateLocal("data", QString::fromLocal8Bit("KRegExpEditor/"));
+#endif
 }
 
 
 
-#include "userdefinedregexps.moc"

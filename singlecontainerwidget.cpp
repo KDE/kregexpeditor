@@ -15,6 +15,10 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+#ifndef QT_ONLY
+  #include "singlecontainerwidget.moc"
+#endif
+
 #include "singlecontainerwidget.h"
 #include "concwidget.h"
 
@@ -126,4 +130,3 @@ void SingleContainerWidget::updateCursorRecursively()
 }
 
 
-#include "singlecontainerwidget.moc"

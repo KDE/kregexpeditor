@@ -15,6 +15,10 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
+#ifndef QT_ONLY
+  #include "textwidget.moc"
+#endif
+
 #include "textwidget.h"
 #include "textregexp.h"
 #include "selectablelineedit.h"
@@ -152,4 +156,3 @@ bool TextWidget::eventFilter( QObject*, QEvent* event)
 }
 
 
-#include "textwidget.moc"

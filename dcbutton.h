@@ -17,15 +17,15 @@
  **/
 #ifndef __dcbutton
 #define __dcbutton
-#include <qpushbutton.h>
+#include <qtoolbutton.h>
 #include <qpixmap.h>
 class QMouseEvent;
 
 /**
-   QPushButton extended to emit a signal on double click.
+   QToolButton extended to emit a signal on double click.
    @internal
 */
-class DoubleClickButton :public QPushButton
+class DoubleClickButton :public QToolButton
 {
 Q_OBJECT
 

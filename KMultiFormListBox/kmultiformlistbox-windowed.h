@@ -18,6 +18,13 @@
 #ifndef __kmultiformlistboxwindowed
 #define __kmultiformlistboxwindowed
 
+#ifdef QT_ONLY
+  #include "compat.h"
+  #include <qlistbox.h>
+#else
+  #include <klistbox.h>
+#endif
+
 #include "kmultiformlistboxfactory.h"
 #include "kmultiformlistbox-shower.h"
 #include "kmultiformlistboxentry.h"
@@ -25,7 +32,6 @@
 #include <qptrlist.h>
 #include <qlayout.h>
 #include <qscrollview.h>
-#include <klistbox.h>
 class WindowListboxItem;
 
 
