@@ -1,4 +1,5 @@
 #include "verifybuttons.h"
+#include "verifybuttons.moc"
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <qfiledialog.h>
@@ -18,7 +19,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name ) :QDockWindow( 
 
   _autoVerify = new QPushButton(this);
   _autoVerify->setToggleButton( true );
-  QPixmap icon = KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/autoverify.png") ), 
+  QPixmap icon = KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/autoverify.png") ),
                                                  KIcon::Toolbar );
   _autoVerify->setPixmap( icon );
   QToolTip::add( _autoVerify, i18n( "Toggle on-the-fly verification of regular expression" ) );
@@ -35,7 +36,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name ) :QDockWindow( 
   QWhatsThis::add( _verify, i18n("Shows what part of the regular expression is being matches in the <i>verifier window</i>."
                                   "(The window below the graphical editor window)."));
   layout->addWidget( _verify );
-  connect( _autoVerify, SIGNAL( toggled( bool ) ), this, SLOT( updateVerifyButton( bool ) ) );  
+  connect( _autoVerify, SIGNAL( toggled( bool ) ), this, SLOT( updateVerifyButton( bool ) ) );
   connect( _verify, SIGNAL( clicked() ), this, SIGNAL( verify() ) );
 
   QPushButton* button = new QPushButton(this);
@@ -50,17 +51,17 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name ) :QDockWindow( 
   // layout->addWidget( _first );
   // connect(_first, SIGNAL(clicked()), this, SIGNAL( gotoFirst()));
   // _first->setFixedWidth( 25 );
-  // 
+  //
   // _prev = new QPushButton(QString::fromLatin1("<"), this);
   // layout->addWidget( _prev );
   // connect(_prev, SIGNAL(clicked()), this, SIGNAL( gotoPrev()));
   // _prev->setFixedWidth( 20 );
-  // 
+  //
   // _next = new QPushButton(QString::fromLatin1(">"), this);
   // layout->addWidget( _next );
   // connect(_next, SIGNAL(clicked()), this, SIGNAL( gotoNext()));
   // _next->setFixedWidth( 20 );
-  // 
+  //
   // _last = new QPushButton(QString::fromLatin1(">>"), this);
   // layout->addWidget( _last );
   // connect(_last, SIGNAL(clicked()), this, SIGNAL( gotoLast()));
@@ -73,14 +74,14 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name ) :QDockWindow( 
   QString txt = i18n( "Shows number of times regular expression matches the text in the verifier window");
   QToolTip::add( label, txt );
   QToolTip::add( _matches, txt );
-  
+
   _autoVerify->setOn( false );
   _verify->setEnabled( true );
 }
 
 
 
-void VerifyButtons::updateVerifyButton( bool b ) 
+void VerifyButtons::updateVerifyButton( bool b )
 {
     _verify->setEnabled( !b );
 }
@@ -100,14 +101,14 @@ void VerifyButtons::loadText()
 //     _first->setEnabled( b );
 //     _prev->setEnabled( b );
 // }
-// 
+//
 // void VerifyButtons::enableForwardButtons( bool b )
 // {
 //     _next->setEnabled( b );
 //     _last->setEnabled( b );
 // }
 
-void VerifyButtons::setMatchCount( int count ) 
+void VerifyButtons::setMatchCount( int count )
 {
     if ( count == -1 )
         _matches->setText( QString::fromLatin1("-") );
