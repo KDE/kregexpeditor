@@ -8,6 +8,7 @@
 #include "kregexpeditorprivate.h"
 #include <klocale.h>
 #include <kgenericfactory.h>
+#include <kapp.h>
 
 const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
 
@@ -58,6 +59,11 @@ KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QObject *parent,
 QWidget *KRegExpEditorGUIDialog::regExpEditor() const
 {
     return _editor;
+}
+
+void KRegExpEditorGUIDialog::slotHelp()
+{
+    kapp->invokeHelp( QString::null, QString::fromLatin1( "KRegExpEditor" ) );
 }
 
 typedef K_TYPELIST_2( KRegExpEditorGUI, KRegExpEditorGUIDialog ) Products;

@@ -49,6 +49,8 @@ public:
 
     virtual QWidget *regExpEditor() const;
 
+    virtual void slotHelp();
+
 private:
     QWidget *_editor;
 };
