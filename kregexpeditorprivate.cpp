@@ -90,7 +90,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
 
   // Line Edit
   QHBoxLayout* layout = new QHBoxLayout( topLayout, 6 );
-  QLabel* label = new QLabel( i18n("ASCII Syntax:"), this );
+  QLabel* label = new QLabel( i18n("ASCII syntax:"), this );
   layout->addWidget( label );
   _regexpEdit = new QLineEdit( this );
   layout->addWidget( _regexpEdit );

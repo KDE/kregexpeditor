@@ -22,7 +22,7 @@ UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const char *name )
   QVBoxLayout* lay = new QVBoxLayout( top, 6 );
   lay->setAutoAdd( true );
 
-  QLabel* label = new QLabel( i18n("Compound Regular Expression:"), top );
+  QLabel* label = new QLabel( i18n("Compound regular expression:"), top );
   
   // This is to avoid that the label set the minimum width for the window.
   label->setMinimumSize(1,0);
