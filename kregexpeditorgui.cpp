@@ -106,7 +106,7 @@ void KRegExpEditorGUI::setMatchText( const QString& )
 }
 
 typedef K_TYPELIST_2( KRegExpEditorGUI, KRegExpEditorGUIDialog ) Products;
-K_EXPORT_COMPONENT_FACTORY( libkregexpeditorgui, 
+K_EXPORT_COMPONENT_FACTORY( kparts_kregexpeditorgui, 
                             KGenericFactory<Products>( "kregexpeditor" ) );
 
 #include "kregexpeditorgui.moc"
