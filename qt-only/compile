@@ -1,3 +1,4 @@
+# On Linux do this
 ln -s ../*.{cpp,h,y,l} .
 ln -s ../{KMultiFormListBox,KWidgetStreamer}/*.{cpp,h} .
 ln -s $KDESRC/kdelibs/interfaces/kregexpeditor/kregexpeditorinterface.h .
@@ -12,8 +13,6 @@ cp ../predefined/General/*.regexp predefined/General
 
 flex -Pqregexp -ogen_qregexplexer.cpp qregexpparser.l
 bison -d -p qregexp -o gen_qregexpparser.cc qregexpparser.y
-qmake
-make
 
 mkdir manual
 cd manual
@@ -21,3 +20,7 @@ meinproc $KDESRC/kdeutils/doc/KRegExpEditor/index.docbook
 for x in *.html; do sed 's/<img src="help:[^>]*>//' < $x > tmp.html; mv tmp.html $x; done
 cp $KDESRC/kdeutils/doc/KRegExpEditor/*.png .
 (cd icons; $QTDIR/tools/qembed/qembed --images *.png > ../images.h)
+
+# Now on windows do the following
+qmake
+make
