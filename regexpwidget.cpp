@@ -97,7 +97,7 @@ void RegExpWidget::applyRegExpToSelection( RegExpType )
 
 void RegExpWidget::deleteSelection()
 {
-  qFatal("This method should be overriden if needed!");
+  qFatal("This method should be overridden if needed!");
 }
 
 RegExp* RegExpWidget::selection() const
@@ -107,7 +107,7 @@ RegExp* RegExpWidget::selection() const
 
 int RegExpWidget::edit()
 {
-  qFatal("This method should be overriden if needed!");
+  qFatal("This method should be overridden if needed!");
   return 0; // Compiler shut up
 }
 

@@ -208,7 +208,7 @@ void KMultiFormListBoxMultiVisible::insertElmIntoWidget(KMultiFormListBoxEntry *
 
 
 //----------------------------------------------------------------------
-// This funciton shows the list of available Idx elements.
+// This function shows the list of available Idx elements.
 //----------------------------------------------------------------------
 void KMultiFormListBoxMultiVisible::showIndexList(KMultiFormListBoxEntry *elm)
 {

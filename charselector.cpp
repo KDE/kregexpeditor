@@ -25,7 +25,7 @@
 /**
    In the class CharSelector, three LimitedCharLineEdit are used.
    These widgets are all used in a QWidgetStack. The LimitedCharLineEdit
-   class is basicly a QLineEdit, which is limited to a certain
+   class is basically a QLineEdit, which is limited to a certain
    number of characters. This conflicts with the QWidgetStack, as this
    class expects the widgets on the stack to take up all space.
    StackContainer fills in this gab.

@@ -129,7 +129,7 @@ QString QtRegExpConverter::toString( TextRangeRegExp* regexp, bool /*markSelecti
 		res.append(QString::fromLatin1("]"));
 	}
 
-	// a '-' must be the first character ( only comming after a ']')
+	// a '-' must be the first character ( only coming after a ']')
 	if ( foundDash ) {
 		res.append(QString::fromLatin1("-"));
 	}
