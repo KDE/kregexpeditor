@@ -149,7 +149,11 @@ void KRegExpEditorGUI::setMatchText( const QString& txt )
 
 void KRegExpEditorGUI::showHelp()
 {
+#ifdef QT_ONLY
     _editor->showHelp();
+#else
+    kapp->invokeHelp( QString::null, QString::fromLocal8Bit( "KRegExpEditor" ) );
+#endif
 }
 
 #ifndef QT_ONLY

@@ -22,6 +22,8 @@
 #else
   #include <kapplication.h>
   #include <kcmdlineargs.h>
+  #include <klocale.h>
+  #include <kpushbutton.h>
 #endif
 
 #include <kregexpeditorinterface.h>
@@ -29,6 +31,8 @@
 #include <qfile.h>
 #include <qtextstream.h>
 #include "../kregexpeditorgui.h"
+#include <qlayout.h>
+
 int main( int argc, char* argv[] )
 {
 #ifdef QT_ONLY
@@ -38,9 +42,26 @@ int main( int argc, char* argv[] )
     KApplication myapp( argc, argv );
 #endif
 
-    KRegExpEditorGUIDialog* iface = new KRegExpEditorGUIDialog( 0, "_editor", QStringList() );
-    iface->doSomething( QString::fromLatin1("setShowSyntaxCombo"), (bool*) true );
+    QDialog* top = new QDialog( 0 );
+    QVBoxLayout* lay = new QVBoxLayout( top, 6 );
 
-    iface->exec();
+    KRegExpEditorGUI* iface = new KRegExpEditorGUI( top, "_editor", QStringList() );
+    iface->doSomething( QString::fromLatin1("setShowSyntaxCombo"), (bool*) true );
+    lay->addWidget( iface );
+
+    QHBoxLayout* lay2 = new QHBoxLayout( lay, 6 );
+    KPushButton* help = new KPushButton( i18n("Help"), top );
+    KPushButton* quit = new KPushButton( i18n("Quit"), top );
+
+    lay2->addWidget( help );
+    lay2->addStretch(1);
+    lay2->addWidget( quit );
+
+    QObject::connect( help, SIGNAL( clicked() ), iface, SLOT( showHelp() ) );
+    QObject::connect( quit, SIGNAL( clicked() ), qApp, SLOT( quit() ) );
+
+    top->show();
+    QObject::connect( qApp, SIGNAL( lastWindowClosed() ), qApp, SLOT( quit() ) );
+    myapp.exec();
 }
 

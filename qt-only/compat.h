@@ -14,6 +14,7 @@ QString i18n( const QString& a, const QString& b);
 #define KTextBrowser QTextBrowser
 #define KListBox QListBox
 #define KFileDialog QFileDialog
+#define KPushButton QPushButton
 
 class KDialogBase :public QDialog
 {

@@ -19,6 +19,7 @@ cd manual
 meinproc $KDESRC/kdeutils/doc/KRegExpEditor/index.docbook
 for x in *.html; do sed 's/<img src="help:[^>]*>//' < $x > tmp.html; mv tmp.html $x; done
 cp $KDESRC/kdeutils/doc/KRegExpEditor/*.png .
+cd ..
 (cd icons; $QTDIR/tools/qembed/qembed --images *.png > ../images.h)
 
 # Now on windows do the following
