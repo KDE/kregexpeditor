@@ -55,8 +55,8 @@ int main( int argc, char* argv[] )
     lay->addWidget( iface );
 
     QHBoxLayout* lay2 = new QHBoxLayout( lay, 6 );
-    KPushButton* help = new KPushButton( i18n("Help"), top );
-    KPushButton* quit = new KPushButton( i18n("Quit"), top );
+    KPushButton* help = new KPushButton( KStdGuiItem::help(), top );
+    KPushButton* quit = new KPushButton( KStdGuiItem::quit(), top );
 
     lay2->addWidget( help );
     lay2->addStretch(1);
