@@ -1,6 +1,8 @@
 %{
   #include <qstring.h>
   #include <stdlib.h>
+  #include <kmessagebox.h>
+  #include <klocale.h>
 
   #include "regexp.h"
   #include "textregexp.h"
@@ -114,13 +116,27 @@ atom : TOK_LeftParen expression TOK_RightParent {
      | TOK_Dollar { $<regexp>$ = new PositionRegExp( PositionRegExp::ENDLINE ); }
      | TOK_Carat  { $<regexp>$ = new PositionRegExp( PositionRegExp::BEGLINE ); }
      | TOK_Dot { $<regexp>$ = new DotRegExp(); }
-     | TOK_BackRef { qDebug("Backreferences in the regexp is not yet supported"); }
+     | TOK_BackRef { 
+        QString match = QString::fromLocal8Bit("\\%1").arg( $<backRef>1 );
+        $<regexp>$ = new TextRegExp( match );
+        KMessageBox::information(0,i18n("<qt>Back reference regular expressions not supported.<p>"
+                                        "<tt>\\1</tt>, <tt>\\2</tt>, ... are <i>back references</i>, meaning they refer to  "
+                                        "previous macthes. "
+                                        "This is unfortunately not supported in the current version of this editor.<p>"
+                                        "In the graphical area the text <b>%1</b> has been inserted. This is however "
+                                        "just a workarround to ensure that the application handle the regexp at all. "
+                                        "Thus as soon as you edit the regular expression in the graphical area, "
+                                        "the back reference will be replaced with matching the text <b>%2</b> litterally.")
+                                    .arg( match ).arg( match ),
+                                 i18n("Back reference regular expressions not supported"), 
+                                 QString::fromLocal8Bit("backReferenceNotSupported") );
+      }
      | TOK_PosWordChar { $<regexp>$ = new PositionRegExp( PositionRegExp::WORDBOUNDARY ); }
      | TOK_PosNonWordChar { $<regexp>$ = new PositionRegExp( PositionRegExp::NONWORDBOUNDARY ); }
      ;
 
-char : TOK_Char { $<regexp>$ = new TextRegExp( QString().sprintf("%c",$<ch>1)); }
-     | TOK_EscapeChar { $<regexp>$ = new TextRegExp( QString().sprintf("%c",$<ch>1)); }
+char : TOK_Char { $<regexp>$ = new TextRegExp( QString::fromLocal8Bit("%1").arg($<ch>1)); }
+     | TOK_EscapeChar { $<regexp>$ = new TextRegExp( QString::fromLocal8Bit("%1").arg($<ch>1)); }
      ; 
 
 %%

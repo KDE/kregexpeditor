@@ -32,6 +32,8 @@
 
   #include <qstring.h>
   #include <stdlib.h>
+  #include <kmessagebox.h>
+  #include <klocale.h>
 
   #include "regexp.h"
   #include "textregexp.h"
@@ -52,7 +54,7 @@
   static RegExp* parseResult;
   static int _index;
 
-#line 25 "qregexpparser.y"
+#line 27 "qregexpparser.y"
 typedef union {
   struct {
     int min;
@@ -129,9 +131,9 @@ static const short yyrhs[] = {    -1,
 
 #if YYDEBUG != 0
 static const short yyrline[] = { 0,
-    56,    58,    59,    62,    72,    75,    89,    96,    99,   102,
-   105,   106,   109,   112,   113,   114,   115,   116,   117,   118,
-   119,   122,   123
+    58,    60,    61,    64,    74,    77,    91,    98,   101,   104,
+   107,   108,   111,   114,   115,   116,   117,   118,   119,   134,
+   135,   138,   139
 };
 #endif
 
@@ -752,15 +754,15 @@ yyreduce:
   switch (yyn) {
 
 case 2:
-#line 58 "qregexpparser.y"
+#line 60 "qregexpparser.y"
 { setParseResult( yyvsp[0].regexp) ; ;
     break;}
 case 3:
-#line 59 "qregexpparser.y"
+#line 61 "qregexpparser.y"
 { setParseResult( new ConcRegExp() ); ;
     break;}
 case 4:
-#line 62 "qregexpparser.y"
+#line 64 "qregexpparser.y"
 {
                if ( dynamic_cast<AltnRegExp*>( yyvsp[-2].regexp ) ) {
                  yyval.regexp = yyvsp[-2].regexp;
@@ -773,11 +775,11 @@ case 4:
              ;
     break;}
 case 5:
-#line 72 "qregexpparser.y"
+#line 74 "qregexpparser.y"
 { yyval.regexp = yyvsp[0].regexp; ;
     break;}
 case 6:
-#line 75 "qregexpparser.y"
+#line 77 "qregexpparser.y"
 {
        RegExp* last = dynamic_cast<ConcRegExp*>( yyvsp[-1].regexp )->lastRegExp();
        TextRegExp *reg1, *reg2;
@@ -794,7 +796,7 @@ case 6:
      ;
     break;}
 case 7:
-#line 89 "qregexpparser.y"
+#line 91 "qregexpparser.y"
 { 
          ConcRegExp* reg = new ConcRegExp();
          reg->addRegExp( yyvsp[0].regexp );
@@ -802,76 +804,90 @@ case 7:
        ;
     break;}
 case 8:
-#line 96 "qregexpparser.y"
+#line 98 "qregexpparser.y"
 {
            yyval.regexp = new RepeatRegExp( yyvsp[0].range.min, yyvsp[0].range.max, yyvsp[-1].regexp );
          ;
     break;}
 case 9:
-#line 99 "qregexpparser.y"
+#line 101 "qregexpparser.y"
 { yyval.regexp = yyvsp[0].regexp; ;
     break;}
 case 10:
-#line 102 "qregexpparser.y"
+#line 104 "qregexpparser.y"
 { 
          yyval.regexp = yyvsp[-1].regexp; 
        ;
     break;}
 case 11:
-#line 105 "qregexpparser.y"
+#line 107 "qregexpparser.y"
 { yyval.regexp = yyvsp[-1].regexp; ;
     break;}
 case 12:
-#line 106 "qregexpparser.y"
+#line 108 "qregexpparser.y"
 { 
          yyval.regexp = new LookAheadRegExp( LookAheadRegExp::POSITIVE, yyvsp[-1].regexp );
        ;
     break;}
 case 13:
-#line 109 "qregexpparser.y"
+#line 111 "qregexpparser.y"
 {
          yyval.regexp = new LookAheadRegExp( LookAheadRegExp::NEGATIVE, yyvsp[-1].regexp );
        ;
     break;}
 case 14:
-#line 112 "qregexpparser.y"
+#line 114 "qregexpparser.y"
 { yyval.regexp = yyvsp[0].regexp; ;
     break;}
 case 15:
-#line 113 "qregexpparser.y"
+#line 115 "qregexpparser.y"
 { yyval.regexp = yyvsp[0].regexp; ;
     break;}
 case 16:
-#line 114 "qregexpparser.y"
+#line 116 "qregexpparser.y"
 { yyval.regexp = new PositionRegExp( PositionRegExp::ENDLINE ); ;
     break;}
 case 17:
-#line 115 "qregexpparser.y"
+#line 117 "qregexpparser.y"
 { yyval.regexp = new PositionRegExp( PositionRegExp::BEGLINE ); ;
     break;}
 case 18:
-#line 116 "qregexpparser.y"
+#line 118 "qregexpparser.y"
 { yyval.regexp = new DotRegExp(); ;
     break;}
 case 19:
-#line 117 "qregexpparser.y"
-{ qDebug("Backreferences in the regexp is not yet supported"); ;
+#line 119 "qregexpparser.y"
+{ 
+        QString match = QString::fromLocal8Bit("\\%1").arg( yyvsp[0].backRef );
+        yyval.regexp = new TextRegExp( match );
+        KMessageBox::information(0,i18n("<qt>Back reference regular expressions not supported.<p>"
+                                        "<tt>\\1</tt>, <tt>\\2</tt>, ... are <i>back references</i>, meaning they refer to  "
+                                        "previous macthes. "
+                                        "This is unfortunately not supported in the current version of this editor.<p>"
+                                        "In the graphical area the text <b>%1</b> has been inserted. This is however "
+                                        "just a workarround to ensure that the application handle the regexp at all. "
+                                        "Thus as soon as you edit the regular expression in the graphical area, "
+                                        "the back reference will be replaced with matching the text <b>%2</b> litterally.")
+                                    .arg( match ).arg( match ),
+                                 i18n("Back reference regular expressions not supported"), 
+                                 QString::fromLocal8Bit("backReferenceNotSupported") );
+      ;
     break;}
 case 20:
-#line 118 "qregexpparser.y"
+#line 134 "qregexpparser.y"
 { yyval.regexp = new PositionRegExp( PositionRegExp::WORDBOUNDARY ); ;
     break;}
 case 21:
-#line 119 "qregexpparser.y"
+#line 135 "qregexpparser.y"
 { yyval.regexp = new PositionRegExp( PositionRegExp::NONWORDBOUNDARY ); ;
     break;}
 case 22:
-#line 122 "qregexpparser.y"
-{ yyval.regexp = new TextRegExp( QString().sprintf("%c",yyvsp[0].ch)); ;
+#line 138 "qregexpparser.y"
+{ yyval.regexp = new TextRegExp( QString::fromLocal8Bit("%1").arg(yyvsp[0].ch)); ;
     break;}
 case 23:
-#line 123 "qregexpparser.y"
-{ yyval.regexp = new TextRegExp( QString().sprintf("%c",yyvsp[0].ch)); ;
+#line 139 "qregexpparser.y"
+{ yyval.regexp = new TextRegExp( QString::fromLocal8Bit("%1").arg(yyvsp[0].ch)); ;
     break;}
 }
    /* the action file gets copied in in place of this dollarsign */
@@ -1099,7 +1115,7 @@ yyerrhandle:
 #endif    
   return 1;
 }
-#line 126 "qregexpparser.y"
+#line 142 "qregexpparser.y"
 
 
 bool parse( QString qstr ) {
