@@ -5,43 +5,38 @@
 class QTimer;
 class QProgressDialog;
 class QLabel;
-class Verifier :public QTextEdit 
+class SyntaxHighlighter;
+class Verifier :public QTextEdit
 {
 Q_OBJECT
 public:
     Verifier( QWidget* parent, const char* name = 0 );
-    
+
 public slots:
-    void verify( const QString& regexp, const QString& txt = QString::null );
+    void verify( const QString& regexp );
     void clearRegexp();
     void setCaseSensitive( bool );
     void setMinimal( bool );
 
-    // Qt anchors do not work for <pre>...</pre>, thefore scrolling to next/prev match
+    // I have no way of telling the current paragrahp when highlighting - thefore scrolling to next/prev match
     // do not work. Enable this when they work.
     // void gotoFirst();
     // void gotoPrev();
     // void gotoNext();
     // void gotoLast();
-   
-signals:
-    void countChanged( int );
-
-    // Qt anchors do not work for <pre>...</pre>, thefore scrolling to next/prev match
-    // do not work. Enable this when they work.
+    //signals:
+    //    void countChanged( int );
     // void currentChanged( int );
     // void goBackwardPossible( bool );
     // void goForwardPossible( bool );
-    
-protected:
-    QString escape( QString );
-    void gotoNum( int );
+
+    // protected:
+    //   void gotoNum( int );
 
 private:
-    bool _caseSensitive;
-    bool _minimal;
     int _count;
     // int _current;
+    SyntaxHighlighter* _highlighter;
 
 };
 

@@ -45,7 +45,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name ) :QDockWindow( 
   connect(button, SIGNAL(clicked()), this, SLOT(loadText()));
   QToolTip::add( button, i18n("Load text in the verifier window") );
 
-  // Qt anchors do not work for <pre>...</pre>, thefore scrolling to next/prev match
+  // It is currently not possible to ask for the paragraph being highlighted, thefore scrolling to next/prev match
   // do not work. Enable this when they work.
   // _first = new QPushButton( QString::fromLatin1("<<"), this);
   // layout->addWidget( _first );
@@ -67,16 +67,17 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name ) :QDockWindow( 
   // connect(_last, SIGNAL(clicked()), this, SIGNAL( gotoLast()));
   // _last->setFixedWidth( 25 );
 
-  QLabel* label = new QLabel( i18n("Matches: "), this );
-  layout->addWidget( label );
-  _matches = new QLabel(i18n("-"), this );
-  layout->addWidget( _matches );
-  QString txt = i18n( "Shows number of times regular expression matches the text in the verifier window");
-  QToolTip::add( label, txt );
-  QToolTip::add( _matches, txt );
+  // Same as above
+//  QLabel* label = new QLabel( i18n("Matches: "), this );
+//  layout->addWidget( label );
+//  _matches = new QLabel(i18n("-"), this );
+//  layout->addWidget( _matches );
+//  QString txt = i18n( "Shows number of times regular expression matches the text in the verifier window");
+//  QToolTip::add( label, txt );
+//  QToolTip::add( _matches, txt );
 
-  _autoVerify->setOn( false );
-  _verify->setEnabled( true );
+  _autoVerify->setOn( true );
+//  _verify->setEnabled( false );
 }
 
 
@@ -110,9 +111,12 @@ void VerifyButtons::loadText()
 
 void VerifyButtons::setMatchCount( int count )
 {
+// currently this is not possible due to limitation in QSyntaxHighlighter
+/*
     if ( count == -1 )
         _matches->setText( QString::fromLatin1("-") );
     else
         _matches->setText( QString::number( count ) );
+*/
 }
 

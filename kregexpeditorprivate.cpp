@@ -27,8 +27,8 @@ extern bool parse( QString str );
 extern RegExp* parseData();
 
 
-KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name) 
-    : QWidget(parent, name), _updating( false ), _autoVerify( false )
+KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
+    : QWidget(parent, name), _updating( false ), _autoVerify( true )
 {
   setMinimumSize(730,300);
   QDockArea* area = new QDockArea( Horizontal, QDockArea::Normal, this );
@@ -50,7 +50,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   // Editor window
   _editor = new QSplitter( Vertical, this, "KRegExpEditorPrivate::_editor" );
 
-  _scrolledEditorWindow = 
+  _scrolledEditorWindow =
     new RegExpScrolledEditorWindow( _editor, "KRegExpEditorPrivate::_scrolledEditorWindow" );
   QWhatsThis::add( _scrolledEditorWindow, i18n( "In this window you will develop your regular expressions. "
                                                "select one of the actions from the action buttons above, and click the mouse in this "
@@ -64,7 +64,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
                                    "can distinguish them from each other.<p>"
                                    "If you select part of the regular expression in the editor window, then this part will be "
                                    "highlighted - This allows you to <i>debug</i> your regular expressions") );
-  
+
   _editor->hide();
   _editor->setSizes( QValueList<int>() << _editor->height()/2 << _editor->height()/2 );
 
@@ -72,7 +72,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   topLayout->addWidget( area );
   QHBoxLayout* rows = new QHBoxLayout; // I need to cal addLayout explicit to get stretching right.
   topLayout->addLayout( rows, 1 );
-  
+
   rows->addWidget( verArea1 );
   rows->addWidget( _editor, 1 );
   rows->addWidget( _info, 1 );
@@ -115,7 +115,8 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   connect( _scrolledEditorWindow, SIGNAL( verifyRegExp() ), this, SLOT( maybeVerify() ) );
 
   connect( _verifyButtons, SIGNAL( loadVerifyText( const QString& ) ), this, SLOT( setVerifyText( const QString& ) ) );
-  connect( _verifier, SIGNAL( countChanged( int ) ), _verifyButtons, SLOT( setMatchCount( int ) ) );
+
+  // connect( _verifier, SIGNAL( countChanged( int ) ), _verifyButtons, SLOT( setMatchCount( int ) ) );
 
   // Qt anchors do not work for <pre>...</pre>, thefore scrolling to next/prev match
   // do not work. Enable this when they work.
@@ -125,12 +126,12 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   // connect( _verifyButtons, SIGNAL( gotoLast() ), _verifier, SLOT( gotoLast() ) );
   // connect( _verifier, SIGNAL( goForwardPossible( bool ) ), _verifyButtons, SLOT( enableForwardButtons( bool ) ) );
   // connect( _verifier, SIGNAL( goBackwardPossible( bool ) ), _verifyButtons, SLOT( enableBackwardButtons( bool ) ) );
-  
+
   auxButtons->slotCanPaste( false );
   auxButtons->slotCanCut( false );
   auxButtons->slotCanCopy( false );
   auxButtons->slotCanSave( false );
-  
+
 
   // Line Edit
   QHBoxLayout* layout = new QHBoxLayout( topLayout, 6 );
@@ -149,9 +150,9 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   _error->setPixmap( pix );
   layout->addWidget( _error );
   _error->hide();
-  
+
   _timer = new QTimer(this);
-  
+
   connect( _scrolledEditorWindow, SIGNAL( change() ), this, SLOT( slotUpdateLineEdit() ) );
   connect( _regexpEdit, SIGNAL(textChanged( const QString& ) ), this, SLOT( slotTriggerUpdate() ) );
   connect( _timer, SIGNAL( timeout() ), this, SLOT( slotTimeout() ) );
@@ -174,7 +175,7 @@ QString KRegExpEditorPrivate::regexp()
   return res;
 }
 
-void KRegExpEditorPrivate::slotUpdateEditor( const QString & txt) 
+void KRegExpEditorPrivate::slotUpdateEditor( const QString & txt)
 {
   _updating = true;
   bool ok = parse( txt );
@@ -184,7 +185,7 @@ void KRegExpEditorPrivate::slotUpdateEditor( const QString & txt)
     for ( QPtrListIterator<CompoundRegExp> it( list ); *it; ++it ) {
       result->replacePart( *it );
     }
-    
+
     _scrolledEditorWindow->slotSetRegExp( result );
     _error->hide();
     maybeVerify( );
@@ -205,7 +206,7 @@ void KRegExpEditorPrivate::slotUpdateLineEdit()
   if ( _updating )
     return;
   _updating = true;
-  
+
   RegExp* regexp = _scrolledEditorWindow->regExp();
   regexp->check( _errorMap );
 
@@ -214,14 +215,14 @@ void KRegExpEditorPrivate::slotUpdateLineEdit()
   delete regexp;
 
   recordUndoInfo();
-  
+
   _updating = false;
 }
 
 void KRegExpEditorPrivate::recordUndoInfo()
 {
   Q_ASSERT( _updating );
-  
+
   // Update undo/redo stacks
   RegExp* regexp = _scrolledEditorWindow->regExp();
   if ( regexp->toXmlString() != _undoStack.top()->toXmlString() ) {
@@ -320,7 +321,7 @@ void KRegExpEditorPrivate::doVerify()
     _autoVerify = autoVerify;
 }
 
-void KRegExpEditorPrivate::setAutoVerify( bool on ) 
+void KRegExpEditorPrivate::setAutoVerify( bool on )
 {
     _autoVerify = on;
     doVerify();
@@ -339,7 +340,8 @@ void KRegExpEditorPrivate::setVerifyText( const QString& fileName )
         QString txt = s.read();
         file.close();
         RegExp* regexp = _scrolledEditorWindow->regExp();
-        _verifier->verify( regexp->toString( true ), txt );
+        _verifier->setText( txt );
+        _verifier->verify( regexp->toString( true ) );
         delete regexp;
     }
     _autoVerify = autoVerify;
@@ -350,7 +352,7 @@ void KRegExpEditorPrivate::setCaseSensitive( bool b )
     _verifier->setCaseSensitive( b );
 }
 
-void KRegExpEditorPrivate::setMinimal( bool b ) 
+void KRegExpEditorPrivate::setMinimal( bool b )
 {
     _verifier->setMinimal( b );
 }
