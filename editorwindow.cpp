@@ -18,6 +18,7 @@
 #include <qdom.h>
 #include <qtextstream.h>
 #include "kregexpeditor.h"
+#include <qapplication.h>
 
 RegExpEditorWindow::RegExpEditorWindow( QWidget *parent, const char *name)
   : QWidget(parent, name, Qt::WPaintUnclipped)
@@ -379,6 +380,10 @@ void RegExpEditorWindow::slotSave()
 
 void RegExpEditorWindow::slotSetRegExp( RegExp* regexp )
 {
+  // I have no clue why the following line is necesarry, but if it is not here
+  // then the editor area is messed up when calling slotSetRegExp before starting the eventloop.
+  qApp->processEvents();
+
   delete _top;
   RegExpWidget* widget = WidgetFactory::createWidget( regexp, this, this );
   if ( ! (_top = dynamic_cast<ConcWidget*>( widget ) ) ) {
