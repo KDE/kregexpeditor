@@ -264,7 +264,7 @@ examples.</para>
 
   <para>The regular expression, which only matches an ampersand if it is
   not followed by the letters <literal>amp;</literal> looks as follows:
-  <literal>&(?!amb;)</literal>. This is, of course, easier to read using
+  <literal>&amp;(?!amp;)</literal>. This is, of course, easier to read using
   the regular expression editor, where you would use the 
   <link linkend="lookaheadtools">lookahead tools</link>.</para>
 </example>
