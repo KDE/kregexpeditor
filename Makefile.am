@@ -42,3 +42,6 @@ gen_qregexplexer.cpp: qregexpparser.l
 # To avoid problems with --enable-final (YYSTYPE defined twice), this file is called .cc
 gen_qregexpparser.cc: qregexpparser.y
 	cd $(srcdir) && bison -d -p qregexp -o gen_qregexpparser.cc qregexpparser.y
+
+messages:
+	$(XGETTEXT) $(libkregexpeditorgui_la_SOURCES) $(noinst_HEADERS) -o $(podir)/kregexpeditor.pot
