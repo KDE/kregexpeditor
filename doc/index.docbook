@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY % English "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title> The Regular Expresion Editor Manual</title>
+
+<authorgroup>
+<author>
+<firstname>Jesper K.</firstname>
+<surname>Pedersen</surname>
+<affiliation><address><email>blackie@kde.org</email></address></affiliation>
+</author>
+</authorgroup>
+
+<date>2001-07-03</date>
+<releaseinfo>0.1</releaseinfo>
+
+<legalnotice>&underFDL;</legalnotice>
+
+<copyright>
+<year>2001</year>
+<holder>Jesper K. Pedersen</holder>
+</copyright>
+
+<abstract>
+<para>This Handbook describes the Regular Expression Editor widget</para>
+</abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>regular expression</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>
+bla bla
+</para>
+
+</chapter>
+
+<chapter id="whatIsARegExp">
+<title>What is a Regular Expression</title>
+
+<para>
+Here comes a description of regular expressions-
+</para>
+
+</chapter>
+
+<chapter id="theEditor">
+<title>Using the Regular Expresion Editor</title>
+
+<para>
+Here comes a description of the Regular Expression Editor.
+</para>
+</chapter>
+
+
+
+<chapter id="credits-and-license">
+<title>Credits and Licenses</title>
+
+<para>
+Documentation is copyright 2001, Jesper K. Pedersen
+<email>blackie@kde.org</email>
+</para>
+
+
+&underGPL;
+&underFDL;
+
+</chapter>
+
+
+</book>
+
