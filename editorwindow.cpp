@@ -221,7 +221,7 @@ void RegExpEditorWindow::slotDoSelect()
 void RegExpEditorWindow::slotDeleteSelection()
 {
     if ( ! hasSelection() ) {
-        KMessageBox::information(this, i18n( "There is no selection"), i18n("Missing Selection") );
+        KMessageBox::information(this, i18n( "There is no selection."), i18n("Missing Selection") );
     }
     else {
         _top->deleteSelection();
