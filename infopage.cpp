@@ -5,7 +5,7 @@
 #include <kdebug.h>
 
 InfoPage::InfoPage( QWidget* parent, const char* name )
-  :QTextBrowser( parent, name )
+  :KTextBrowser( parent, name )
 {
   setText( i18n( "Translators, feel free to add yourself in the text above, asking for a postcard ;-), "
 		 "also feel free to add a section saying <h2>Translators</h2>. "
@@ -36,13 +36,10 @@ InfoPage::InfoPage( QWidget* parent, const char* name )
 
 void InfoPage::setSource ( const QString & name )
 {
-  if ( name.left(6) == QString::fromLocal8Bit("doc://") ) {
+  if ( name.startsWith( QString::fromLocal8Bit("doc://") ) ) {
     kapp->invokeHelp( name.mid(6, name.length()-7), QString::fromLocal8Bit("KRegExpEditor") ); 
   }
-  else if ( name.left(7) == QString::fromLocal8Bit("mailto:") ) {
-    kapp->invokeMailer( KURL(name) );
-  }
   else {
-    kapp->invokeBrowser( name );
+    KTextBrowser::setSource( name ); // handle mailto and other links
   }
 }

@@ -1,9 +1,9 @@
 #ifndef infopage_h
 #define infopage_h
 
-#include "qtextbrowser.h"
+#include <ktextbrowser.h>
 
-class InfoPage :public QTextBrowser
+class InfoPage :public KTextBrowser
 {
 public:
   InfoPage( QWidget* parent, const char* name );
