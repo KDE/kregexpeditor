@@ -51,17 +51,18 @@ regular expressions have been typed in the ascii syntax, which for example
 looks like <literal>^.*kde\b</literal>. The major drawback of
 this style is:
 <itemizedlist>
-        <listitem><para>It is hard to understand for
-        non-programmers.</para></listitem>
+  <listitem><para>It is hard to understand for
+  non-programmers.</para></listitem>
 
-        <listitem><para>It requires that you <emphasis>escapes</emphasis>
-        certain symbols (to match a star, you need to type <literal>\*</literal>). </para></listitem>
+  <listitem><para>It requires that you <emphasis>escapes</emphasis>
+  certain symbols (to match a star for example, you need to type
+  <literal>\*</literal>). </para></listitem>
 
-        <listitem><para>It requires that you remember rules for
-        <emphasis>precedence</emphasis> (What does <literal>x|y*</literal>
-        match? a single <literal>x</literal> or a number of
-        <literal>y</literal>, <emphasis>OR</emphasis> a number of
-        <literal>x</literal> and <literal>y</literal>'s mixed?)</para></listitem>
+  <listitem><para>It requires that you remember rules for
+  <emphasis>precedence</emphasis> (What does <literal>x|y*</literal>
+  match? a single <literal>x</literal> or a number of
+  <literal>y</literal>, <emphasis>OR</emphasis> a number of
+  <literal>x</literal> and <literal>y</literal>'s mixed?)</para></listitem>
 </itemizedlist>
 </para>
 
@@ -82,12 +83,101 @@ power of regular expression from this editor, then please
 <!-- ====================================================================== -->
 <chapter id="whatIsARegExp">
 <title>What is a Regular Expression</title>
-<para>
-bla bla
+
+<para>The following will show you a number of examples of regular
+expressions, this will hopefully give you an idea of the power regular
+expressions offers.</para>
+
+<para>Regular expressions are most often used when searching, therefore the
+examples will all show examples where you search for some text. Still
+regular expression may be used in many other situations, matching is
+another example.</para>
+
+<example>
+  <title>Searching for normal text.</title>
+  <para>If you just want to search for a given text, then regular
+  expression is definitely not a good choice. The reason for this is that
+  regular expressions assign special meaning to some characters. This
+  includes the following characters: <literal>.*|$</literal>. Thus if you want to
+  search for the text <literal>kde.</literal> (i.e. the characters
+  <literal>kde</literal> followed by a period), then you would need to
+  specify this as <literal>kde\.</literal><footnote><para>The regular
+  expression editor solves this problem by taking care of escape rules for
+  you.</para></footnote> Writing <literal>\.</literal> rather than just
+  <literal>.</literal> is called <emphasis>escaping</emphasis>.
 </para>
+</example>
 
+<example>
+  <title>Matching URL's</title>
+  <para>When you select something looking like a URL in KDE, then the
+  program <command>klipper</command> will offer to start
+  <command>konqueror</command> with the selected URL.</para>
 
+  <para><command>Klipper</command> does this by matching the selection
+  against several different regular expressions, when one of the regular
+  expressions matches, the accommodating command will be offered.</para>
+  
+  <para>The regular expression for URLs says (among other things), that the
+  selection must start with the text <literal>http://</literal>. This is
+  described using regular expressions by prefixing the text
+  <literal>http://</literal> with a hat (the <literal>^</literal>
+  character).</para>
 
+  <para>The above is an example of matching positions using regular
+  expressions. Similar, the position <emphasis>end-of-line</emphasis> can
+  be matched using the character <literal>$</literal> (i.e. a dollar
+  sign).</para>
+</example>
+
+<example>
+  <title>Searching for the word <literal>the</literal>, but not
+  <emphasis>the</emphasis><literal>re</literal>,
+  <literal>brea</literal><emphasis>the</emphasis> or
+  <literal>ano</literal><emphasis>the</emphasis><literal>r</literal></title>
+  <para>Two extra position types can be matches in the above way,
+  namely <emphasis>the position at a word boundary</emphasis>, and
+  <emphasis>the position at a <emphasis>non</emphasis>-word
+  boundary</emphasis>. The positions are specified using the text
+  <literal>\b</literal> (for word-boundary) and <literal>\B</literal> (for
+  non-word boundary)<emphasis></emphasis></para>
+
+  <para>Thus, searching for the word <literal>the</literal> can be done
+  using the regular expression <literal>\bthe\b</literal>. This specifies
+  that we are searching for <literal>the</literal> with no letters on each
+  side of it (i.e. with a word boundary on each side)</para>
+
+  <para>The four position matching regular expressions are inserted in the
+  regular expression editor using <link linkend="positiontool">four
+  different positions tool</link></para>
+</example>
+
+<example>
+  <title>Searching for either <literal>this</literal> or <literal>that</literal></title>
+  <para>Imagine that you want to run through your document searching for
+  either the word <literal>this</literal> or the word
+  <literal>that</literal>. With a normal search method you could do this in
+  two sweeps, the first time around, you would search for
+  <literal>this</literal>, and the second time around you would search for
+  <literal>that</literal>.</para>
+
+  <para>Using regular expression searches you would search for both in the
+  same sweep. You do this by searching for
+  <literal>this|that</literal>. I.e. separating the two words with a
+  vertical bar.<footnote><para>Note on each side of the vertical bar is a
+  regular expression, so this feature is not only for searching for two
+  different pieces of text, but for searching for two different regular
+  expressions.</para></footnote></para>
+
+  <para>In the regular expression editor you do not write the vertical bar
+  yourself, but instead select the <link linkend="altntool">alternative
+  tool</link>, and inserts the sub regular expressions above each other.</para>
+</example>
+
+<example>
+  <title></title>
+  <para></para>
+</example>
 </chapter>
 
 <!-- ====================================================================== -->
@@ -99,7 +189,12 @@ bla bla
 <para>
 Here comes a description of the Regular Expression Editor.
 </para>
+
+<para id="positiontool"></para>
+
+<para id="altntool"></para>
 </chapter>
+
 
 
 <!-- ====================================================================== -->
