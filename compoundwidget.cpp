@@ -97,7 +97,7 @@ CompoundWidget::CompoundWidget( CompoundRegExp* regexp, RegExpEditorWindow* edit
 void CompoundWidget::init( ) 
 {
   _configWindow = new KDialogBase( this, "_configWindow", true,
-                                   i18n("Configure Widget"), 
+                                   i18n("Configure Compound"), 
                                    KDialogBase::Ok | KDialogBase::Cancel );
   _content = new CompoundDetailWindow( _configWindow );
   _configWindow->setMainWidget( _content );

@@ -27,8 +27,10 @@ InfoPage::InfoPage( QWidget* parent, const char* name )
                  "sent me a short mail</a>, telling me that you use my regular expression editor."
 
                  "<h2>Author</h2>"
-                 "<a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
-                 "</qt>") );
+                 "<a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"                 
+                 "</qt>","Translators, feel free to add yourself in the text above, asking for a postcard ;-), "
+                 "also feel free to add a section saying <h2>Translators</h2>..."
+                 "Kind regards, and thanks for your work - Jesper.") );
 }
 
 void InfoPage::setSource ( const QString & name )

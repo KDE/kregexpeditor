@@ -35,7 +35,7 @@ CharSelector::CharSelector( QWidget* parent, const char* name )
   items << i18n("Normal Character") 
         << i18n("Unicode char in hex.") 
         << i18n("Unicode char in oct.")
-        << i18n("----")
+        << QString::fromLatin1("----")
         << i18n("The bell character (\\a)")
         << i18n("The form feed character (\\f)")
         << i18n("The line feed character (\\n)")
@@ -137,17 +137,17 @@ QString CharSelector::text() const
   case 3: // The seperator
     break;
   case 4:
-    return i18n("\\a");
+    return QString::fromLatin1("\\a");
   case 5:
-    return i18n("\\f");
+    return QString::fromLatin1("\\f");
   case 6:
-    return  i18n("\\n");
+    return QString::fromLatin1("\\n");
   case 7:
-    return  i18n("\\r");
+    return QString::fromLatin1("\\r");
   case 8:
-    i18n("\\t");
+    return QString::fromLatin1("\\t");
   case 9:
-    return i18n("\\v");
+    return QString::fromLatin1("\\v");
   }    
   return QString::null;
 }

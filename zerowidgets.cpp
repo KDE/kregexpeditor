@@ -65,7 +65,7 @@ RegExp* AnyCharWidget::regExp() const
 //--------------------------------------------------------------------------------
 BegLineWidget::BegLineWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                              const char *name)
-  : ZeroWidget(i18n("Beg.\nof\nline"), editorWindow, parent, 
+  : ZeroWidget(i18n("Line\nStart"), editorWindow, parent, 
                name ? name : "BegLineWidget")
 {
 }
@@ -81,7 +81,7 @@ RegExp* BegLineWidget::regExp() const
 //--------------------------------------------------------------------------------
 EndLineWidget::EndLineWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                              const char *name)
-  : ZeroWidget(i18n("End\nof\nline"), editorWindow, parent, name)
+  : ZeroWidget(i18n("Line\nEnd"), editorWindow, parent, name)
 {
 }
 

@@ -119,7 +119,7 @@ atom : TOK_LeftParen expression TOK_RightParent {
      | TOK_BackRef { 
         QString match = QString::fromLocal8Bit("\\%1").arg( $<backRef>1 );
         $<regexp>$ = new TextRegExp( match );
-        KMessageBox::information(0,i18n("<qt>Back reference regular expressions not supported.<p>"
+        KMessageBox::information(0,i18n("<qt>Back reference regular expressions are not supported.<p>"
                                         "<tt>\\1</tt>, <tt>\\2</tt>, ... are <i>back references</i>, meaning they refer to  "
                                         "previous matches. "
                                         "Unfortunately this is not supported in the current version of this editor.<p>"
