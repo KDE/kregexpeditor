@@ -156,7 +156,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   QHBoxLayout* layout = new QHBoxLayout( topLayout, 6 );
   QLabel* label = new QLabel( i18n("ASCII syntax:"), this );
   layout->addWidget( label );
-  _regexpEdit = new RegExpLineEdit( this );
+  _regexpEdit = new QLineEdit( this );
   layout->addWidget( _regexpEdit );
   QWhatsThis::add( _regexpEdit, i18n( "This is the regular expression in ascii syntax. You are likely only interested "
                                       "in this if you are a programmer, and need to develop a regular expression "
@@ -388,8 +388,14 @@ void KRegExpEditorPrivate::setMinimal( bool b )
 void KRegExpEditorPrivate::setSyntax( const QString& syntax )
 {
     _converter = _auxButtons->setSyntax( syntax );
-    _regexpEdit->setEditable( _converter->canParse() );
-    _scrolledEditorWindow->setFocus();
+    if ( _converter->canParse() ) {
+        _regexpEdit->setReadOnly( false );
+        _regexpEdit->setBackgroundMode( Qt::PaletteBase );
+    }
+    else {
+        _regexpEdit->setReadOnly( true );
+        _regexpEdit->setBackgroundMode( Qt::PaletteBackground );
+    }
 }
 
 void KRegExpEditorPrivate::setShowSyntaxCombo( bool b )

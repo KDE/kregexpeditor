@@ -88,7 +88,7 @@ private:
     VerifyButtons* _verifyButtons;
     AuxButtons *_auxButtons;
     InfoPage* _info;
-    RegExpLineEdit* _regexpEdit;
+    QLineEdit* _regexpEdit;
     QSplitter* _editor;
     bool _updating;
     QLabel* _error;
