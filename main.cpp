@@ -20,6 +20,7 @@
   #include "compat.h"
   #include <qapplication.h>
 #else
+  #include <kaboutdata.h>
   #include <kapplication.h>
   #include <kcmdlineargs.h>
   #include <klocale.h>
@@ -38,8 +39,12 @@ int main( int argc, char* argv[] )
 #ifdef QT_ONLY
     QApplication myapp( argc, argv );
 #else
-    KCmdLineArgs::init(argc, argv, "RegExp Example","","");
-    KApplication myapp( argc, argv );
+    KAboutData aboutData( "kregexpeditor", I18N_NOOP("RegExp Editor"),
+                          "1.0", I18N_NOOP("Editor for Regular Expressions"), 
+			  KAboutData::License_GPL,
+                          "(c) 2002-2003 Jesper K. Pedersen");
+    KCmdLineArgs::init(argc, argv, &aboutData);
+    KApplication myapp;
 #endif
 
     QDialog* top = new QDialog( 0 );
