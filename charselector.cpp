@@ -193,3 +193,4 @@ QString CharSelector::regexpStr() const
   }    
 }
 
+#include "charselector.moc"

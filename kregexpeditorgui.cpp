@@ -59,3 +59,4 @@ extern "C" {
   }
 }
 
+#include "kregexpeditorgui.moc"

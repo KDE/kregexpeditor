@@ -79,3 +79,4 @@ void LookAheadWidget::paintEvent( QPaintEvent *e )
 
   SingleContainerWidget::paintEvent(e);
 }
+#include "lookaheadwidget.moc"

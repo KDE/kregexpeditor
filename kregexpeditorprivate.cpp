@@ -174,3 +174,4 @@ void KRegExpEditorPrivate::slotShowEditor()
     _scrolledEditorWindow->show();
   }
 }
+#include "kregexpeditorprivate.moc"
