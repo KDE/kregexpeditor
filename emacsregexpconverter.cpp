@@ -56,7 +56,6 @@ QString EmacsRegExpConverter::toString( LookAheadRegExp* /*regexp*/, bool /*mark
 
 QString EmacsRegExpConverter::toString( TextRangeRegExp* regexp, bool /*markSelection*/ )
 {
-    // PENDING(blackie) This code is from the Qt Converter, it needs an update I guess.
 	QString txt;
 
 	bool foundCarrot = false;

@@ -348,7 +348,6 @@ void KRegExpEditorPrivate::doVerify()
     _autoVerify = false;
     RegExp* regexp = _scrolledEditorWindow->regExp();
 
-    // PENDING(blackie) Hmmm we can really only do this for Qt RegExp as the verifer is using QRegExp!
     _verifier->verify( RegExpConverter::current()->toStr( regexp, true ) );
     delete regexp;
     _autoVerify = autoVerify;
@@ -374,7 +373,6 @@ void KRegExpEditorPrivate::setVerifyText( const QString& fileName )
         file.close();
         RegExp* regexp = _scrolledEditorWindow->regExp();
         _verifier->setText( txt );
-        // PENDING(blackie) We can only do this for Qt styled regexps, as the verifier uses QRegExp.
         _verifier->verify( RegExpConverter::current()->toStr( regexp, true ) );
         delete regexp;
     }
