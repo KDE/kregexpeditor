@@ -19,9 +19,11 @@
 #define __USERDEFINEDREGEXPS_H
 #include <qdockwindow.h>
 #include <qlistview.h>
+
+#include "compoundregexp.h"
+
 class QPoint;
 class RegExp;
-class CompoundRegExp;
 
 class UserDefinedRegExps :public QDockWindow
 {
