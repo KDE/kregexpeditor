@@ -136,7 +136,7 @@ void AltnWidget::paintEvent( QPaintEvent *e)
     
     int w = _childrenWidth;
     child->setGeometry( x, y, w, h );
-    if ( childSize != curChildSize ) {
+    if ( w != curChildSize.width() || h != curChildSize.height()  ) {
       // I resized the child, so give it a chance to relect thus.
       child->update();
     }

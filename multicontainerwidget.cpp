@@ -97,7 +97,7 @@ bool MultiContainerWidget::updateSelection(bool parentSelected)
     oldState[i] = _children.at(i)->isSelected();
   }
 
-  RegExpWidget::updateSelection( parentSelected );
+ RegExpWidget::updateSelection( parentSelected );
   
   int first;
   int last;
@@ -123,7 +123,8 @@ bool MultiContainerWidget::updateSelection(bool parentSelected)
   // everything between first and last must be selected.
   for (int i = first+2; i<last; i+=2) {
     RegExpWidget* child = _children.at(i);
-    changed = child->updateSelection( true ) || changed;
+
+   changed = child->updateSelection( true ) || changed;
     newState[i] = true;
   }
   
@@ -131,10 +132,15 @@ bool MultiContainerWidget::updateSelection(bool parentSelected)
   for (unsigned int i = 0; i<_children.count(); i+=2) {
     RegExpWidget* child = _children.at(i);
     bool select;
-    if ( i == 0 || i == _children.count()-1)
+    if ( i == 0 || i == _children.count()-1) {
+      // The elements at the border is only selected if the parent is selected.
       select = _isSelected;
-    else
+    }
+    else {
+      // Drag accepters in the middle is selected if the elements at both 
+      // sides are selected.
       select = newState[i-1] && newState[i+1];
+    }
     
     bool isChildSel = child->isSelected();
     dynamic_cast<DragAccepter*>(child)->_isSelected = select;
@@ -229,4 +235,12 @@ void MultiContainerWidget::updateAll()
     (*it)->updateAll();
   }
   RegExpWidget::updateAll();
+}
+
+void MultiContainerWidget::updateCursorRecursively()
+{
+  for ( QPtrListIterator<RegExpWidget> it(_children); *it ; ++it ) {
+    (*it)->updateCursorRecursively();
+  }
+  updateCursorShape();
 }

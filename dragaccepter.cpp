@@ -81,7 +81,8 @@ void DragAccepter::mouseReleaseEvent( QMouseEvent* event )
 
 void DragAccepter::dragEnterEvent(QDragEnterEvent *event) 
 {
-  event->accept(RegExpWidgetDrag::canDecode( event ) );
+  bool selfDrag = (  event->source() && event->source()->topLevelWidget() == topLevelWidget() && _isSelected );
+  event->accept(RegExpWidgetDrag::canDecode( event ) && !selfDrag );
 }
 
 void DragAccepter::dropEvent(QDropEvent *event)
@@ -100,7 +101,12 @@ void DragAccepter::dropEvent(QDropEvent *event)
   dynamic_cast<QWidget*>(parent())->update();
   _editorWindow->updateContent( this );
   
-  // selection should not be cleared here, since we might want to delete it.
+  bool selfDrag = (  event->source() && event->source()->topLevelWidget() == topLevelWidget() );
+  if ( ! selfDrag )
+    _editorWindow->clearSelection( true );
+  else {
+    // selection should not be cleared here, since we might want to delete it.
+  }
 }
 
 RegExp* DragAccepter::regExp() const

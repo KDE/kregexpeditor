@@ -102,5 +102,11 @@ void SingleContainerWidget::updateAll()
   RegExpWidget::updateAll();
 }
 
+void SingleContainerWidget::updateCursorRecursively()
+{
+  _child->updateCursorRecursively();
+  updateCursorShape();
+}
+
 
 #include "singlecontainerwidget.moc"

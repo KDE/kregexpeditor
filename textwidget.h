@@ -22,6 +22,7 @@ public:
   virtual QSize sizeHint() const;
 	virtual RegExp* regExp() const;
   virtual RegExpType type() const { return TEXT; }
+  virtual void updateAll();
 
 protected:
   void init( const QString& text );

@@ -150,6 +150,8 @@ public slots:
   void slotEndActions();
   
   void emitChange() { emit change(); }
+
+  void updateCursorUnderPoint();
   
 
 protected slots:

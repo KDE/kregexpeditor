@@ -61,6 +61,11 @@ bool TextWidget::updateSelection(bool parentSelected)
   _edit->setSelected( _isSelected );
   return changed;
 }
+void TextWidget::updateAll()
+{
+  _edit->update();
+  update();
+}
 
 void TextWidget::clearSelection( bool )
 {

@@ -57,7 +57,6 @@ void  RegExpEditorWindow::mousePressEvent ( QMouseEvent* event )
     _isDndOperation = false;
     _selection = QRect();
     _top->updateSelection( false );
-    update();
     
     QWidget::mousePressEvent( event );
   }
@@ -128,7 +127,9 @@ void RegExpEditorWindow::mouseReleaseEvent( QMouseEvent *event)
   if ( ! _lastPoint.isNull() ) {
     p.drawRect(QRect(_start, _lastPoint));    
   }
+  _top->updateSelection( false );
   _top->validateSelection();
+  _top->updateAll();
 }
 
 bool RegExpEditorWindow::selectionOverlap( QPoint pos, QSize size ) const
@@ -155,10 +156,7 @@ void RegExpEditorWindow::slotInsertRegExp( RegExpType type )
   _insertInAction = true;
   _insertTp = type;
 
-  RegExpWidget* widget = _top->widgetUnderPoint( QCursor::pos(), false );
-  if ( widget ) 
-    widget->updateCursorShape();
-
+  updateCursorUnderPoint();
 }
 
 void RegExpEditorWindow::slotInsertRegExp( RegExp* regexp )
@@ -167,23 +165,19 @@ void RegExpEditorWindow::slotInsertRegExp( RegExp* regexp )
     delete _pasteData;
   
   _pasteData = regexp->clone();
-  _pasteInAction = true; 
-  RegExpWidget* widget = _top->widgetUnderPoint( QCursor::pos(), false );
-
-  // cursor may have moved outside the editor windget, when the user moved it to the paste item.
-  if ( widget ) 
-    widget->updateCursorShape();
+  _pasteInAction = true;
+  updateCursorUnderPoint();
 }
 
 void RegExpEditorWindow::slotDoSelect()
 {
   _pasteInAction = false; 
   _insertInAction = false;
-
-  RegExpWidget* widget = _top->widgetUnderPoint( QCursor::pos(), false );
-
-  if ( widget ) 
-    widget->updateCursorShape();  
+  
+  // I need to update the cursor recursively, as a repaint may not have been issued yet 
+  // when this method is invoked. This means that when the repaint comes, the cursor may 
+  // move to an other widget.
+  _top->updateCursorRecursively();
 }
 
 void RegExpEditorWindow::slotDeleteSelection()
@@ -388,5 +382,13 @@ void RegExpEditorWindow::slotSetRegExp( RegExp* regexp )
   _layout->addWidget( _top );
   clearSelection( true ); // HACK?
 }
+
+void RegExpEditorWindow::updateCursorUnderPoint()
+{
+  RegExpWidget* widget = _top->widgetUnderPoint( QCursor::pos(), false );
+  if ( widget ) 
+    widget->updateCursorShape();
+}
+
 
 #include "editorwindow.moc"

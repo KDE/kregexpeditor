@@ -23,6 +23,7 @@ public:
   virtual RegExpWidget* findWidgetToEdit( QPoint globalPos );
   virtual void selectWidget( bool sel );
   virtual void updateAll();
+  virtual void updateCursorRecursively();
   
 protected:
   void append( RegExpWidget* child );    

@@ -26,6 +26,7 @@ public:
   virtual void setConcChild( ConcWidget* child );
   virtual void selectWidget( bool sel );
   virtual void updateAll();
+  virtual void updateCursorRecursively();
 
 protected:
   ConcWidget *_child; 

@@ -133,6 +133,8 @@ public:
      @li reject cursor for insert/paste
   */
   void updateCursorShape();
+
+  virtual void updateCursorRecursively();
   
   /**
      Returns the regexp widget under point. If `justVisibleWidgets' is

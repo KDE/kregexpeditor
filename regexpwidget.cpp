@@ -128,6 +128,7 @@ void RegExpWidget::mouseReleaseEvent( QMouseEvent* )
     _editorWindow->clearSelection( true );
     _editorWindow->updateContent( this );
     _editorWindow->slotEndActions();
+    _editorWindow->updateCursorUnderPoint();
   }
 }
 
@@ -160,8 +161,13 @@ void RegExpWidget::updateCursorShape()
   }
   else
     cursor = arrowCursor;
-  
+
   setCursor( cursor );
+}
+
+void RegExpWidget::updateCursorRecursively()
+{
+  updateCursorShape();
 }
 
 
