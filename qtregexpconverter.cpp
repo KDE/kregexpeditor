@@ -220,6 +220,11 @@ QString QtRegExpConverter::toString( RepeatRegExp* regexp, bool markSelection )
     else if ( regexp->min() == 1 && regexp->max() == -1 ) {
         return startPar + cText + endPar + QString::fromLocal8Bit("+");
     }
+    else if ( regexp->max() == -1 ) {
+        return startPar + cText + endPar + QString::fromLocal8Bit("{") +
+            QString::number( regexp->min() ) + QString::fromLocal8Bit(",") +
+            QString::fromLocal8Bit("}");
+    }
     else {
         return startPar + cText + endPar + QString::fromLocal8Bit("{") +
             QString::number( regexp->min() ) + QString::fromLocal8Bit(",") +
