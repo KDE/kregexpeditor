@@ -1,0 +1,24 @@
+TODO:
+-----
+- undo/redo in right mouse click menu.
+
+Later wishes:
+-------------
+- Make the KMultiFormListBox widget support that a line can show several entries.
+  Use this feature to show two CharSelectors on one line for selecting a single char
+  in the CharacterWidget.
+- Cleanup in the use of repaint(). Several of the repaint() can be update() instead.
+- add a checker widget, which can show what the regexp matches from a user defined text.
+- add the posibility to travers the widget using the keyboard.
+- Highlight the dragaccepter on dragEnter
+
+Back references
+---------------
+- when deleting a compound widget, which has a backreference, what should be done with the
+  back reference?
+- cut/past should preserve back reference id, while cut/copy should create
+  a new one.
+- create interface for extracting information about back references.
+
+- support back references in the regexp: "(abc|def)\1"
+

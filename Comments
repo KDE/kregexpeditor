@@ -1,0 +1,4 @@
+(1) If I do not resize the widget to be reparented then it will take up all
+    the size of its new parent, and the parent will never receive a
+    repaint event, and will thus never get a chance to resize its new child
+    to a proper size (This is namely done in repaintEvent() ).

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Service
+Name=RegExp Editor Widget
+X-KDE-Library=libkregexpeditorgui
+InitialPreference=2
+ServiceTypes=KRegExpEditor/KRegExpEditor

@@ -1,0 +1,28 @@
+#ifndef __POSITIONREGEXP_H
+#define __POSITIONREGEXP_H
+
+#include "regexp.h"
+
+/**
+   Abstract syntax node for `positions' regular expression
+   @internal
+*/
+class PositionRegExp :public RegExp
+{
+public:
+	enum PositionType { BEGLINE, ENDLINE, WORDBOUNDARY, NONWORDBOUNDARY };
+	
+	PositionRegExp( PositionType tp );
+  PositionType position() const { return _tp; }  
+	
+	virtual QString toString() const;
+  virtual int precedence() const { return 4;}
+  virtual QDomNode toXml( QDomDocument* doc ) const;
+  virtual bool load( QDomElement, const QString& version );
+
+private:
+	PositionType _tp;
+	
+};
+
+#endif // __POSITIONREGEXP_H
