@@ -53,8 +53,8 @@ RepeatWidget::RepeatWidget( RepeatRegExp* regexp, RegExpEditorWindow* editorWind
 
 void RepeatWidget::init()
 {
-  _configWindow = new KDialogBase( this, "_configWindow", true, 
-                                   i18n("Number of times to repeat content"),
+  _configWindow = new KDialogBase( this, "_configWindow", true,
+                                   i18n("Number of Times to Repeat Content"),
                                    KDialogBase::Ok | KDialogBase::Cancel);
   _content = new RepeatRangeWindow( _configWindow );
   _configWindow->setMainWidget( _content );
