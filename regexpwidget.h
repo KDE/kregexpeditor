@@ -180,9 +180,9 @@ protected:
   /** See @ref setToplevel */
   bool _isToplevel;
 
-  static const int pw = 1;      // width of pen
-  static const int bdSize = 5;  // width between borders and text etc.
-  static const int space = 5;   // TODO.
+  static const int pw;      // width of pen
+  static const int bdSize;  // width between borders and text etc.
+  static const int space;   // TODO.
 };
 
 #endif // __regexpwidget
