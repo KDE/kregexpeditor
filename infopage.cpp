@@ -16,18 +16,18 @@ InfoPage::InfoPage( QWidget* parent, const char* name )
 
                  "<h2>What is a regular expression?</h2>"
                  "If you do not know what a regular expression is, then it might be a good idea "
-                 "to read <a href=\"doc://whatIsARegExp\">the introduction</a>.<p>"
+                 "to read <a href=\"doc://whatIsARegExp\">the introduction to regular expressions</a>.<p>"
 
                  "<h2>How does this editor work?</h2>"
                  "In case this is the first time you see this editor, then you might want to " 
                  "read an <a href=\"doc://theEditor\">introduction to the editor</a>.<p><p>"
                  "The following list might help you find exactly what you are searching for in the documentation:"
                  "<ul>"
-                 "<li> <a href=\"doc://widgets\">Description of the editing tools</a>."
+                 "<li> <a href=\"doc://editingtools\">Description of the editing tools</a>."
                  "<li> <a href=\"doc://cutnpaste\">Cut and Past</a> and <a href=\"doc://draganddrop\">Drag and Drop</a>."
-                 "<li> <a href=\"doc://loadandsave\">Load and Save</a>"
-                 "<li> <a href=\"doc://graphicalvsascii\">The Graphical Editor v.s. the Ascii Editor.</a>"
+                 "<li> <a href=\"doc://userdefinedregexps\">Load and Save</a>"
                  "<li> <a href=\"doc://bugreport\">Reporting bugs or suggesting new features</a>"
+                 "<li> <a href=\"doc://faq\">The FAQ</a>"
                  "</ul>"
 
                  "<h2>Send the author an electronic postcard</h2>"

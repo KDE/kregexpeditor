@@ -21,3 +21,25 @@ Back references
 
 - support back references in the regexp: "(abc|def)\1"
 
+Modules to go through to search for places to use KRegExpEditor
+---------------------------------------------------------------
+KodeKnight
+kdeadmin
+kdebase
+kdeedu
+kdegames
+kdegraphics
+kdeinstaller
+kdelibs
+kdemultimedia
+kdenetwork
+kdenonbeta
+kdepim
+kdesdk
+kdetoys
+kfte
+kmusic
+koffice
+kpfa
+ksite
+quanta
