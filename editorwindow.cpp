@@ -267,7 +267,7 @@ void RegExpEditorWindow::cutCopyAux( QPoint pos )
 
 void RegExpEditorWindow::slotStartPasteAction()
 {
-  QByteArray data = qApp->clipboard()->data()->encodedData( "KRegExpDialog/widgetdrag" );
+  QByteArray data = qApp->clipboard()->data()->encodedData( "KRegExpEditor/widgetdrag" );
   QTextStream stream( data, IO_ReadOnly );
   QString str = stream.read();
 
@@ -303,7 +303,7 @@ void RegExpEditorWindow::showRMBMenu( bool enableCutCopy )
   _menu->setItemEnabled( CUT, enableCutCopy );
   _menu->setItemEnabled( COPY, enableCutCopy );
 
-  if ( ! qApp->clipboard()->data()->provides( "KRegExpDialog/widgetdrag" ) )
+  if ( ! qApp->clipboard()->data()->provides( "KRegExpEditor/widgetdrag" ) )
     _menu->setItemEnabled( PASTE, false );
   else 
     _menu->setItemEnabled( PASTE, true );
