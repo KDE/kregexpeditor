@@ -19,6 +19,10 @@
 #define __VERIFYBUTTONS_H
 
 #include <qdockwindow.h>
+#include "regexpconverter.h"
+#include <qcombobox.h>
+#include <qlabel.h>
+#include <qvaluelist.h>
 class QPushButton;
 class QLabel;
 
@@ -28,6 +32,8 @@ class VerifyButtons :public QDockWindow
 
 public:
     VerifyButtons( QWidget* parent, const char* name );
+    void setShowSyntaxCombo( bool );
+    RegExpConverter* setSyntax( const QString& );
 
 signals:
     void verify();
@@ -41,6 +47,8 @@ signals:
     // void gotoNext();
     // void gotoLast();
 
+    void changeSyntax( const QString& );
+
 public slots:
     //     void enableForwardButtons( bool );
     //     void enableBackwardButtons( bool );
@@ -49,6 +57,7 @@ public slots:
 protected slots:
     void updateVerifyButton( bool );
     void loadText();
+    void slotChangeSyntax( int );
 
 private:
     QPushButton* _autoVerify;
@@ -61,6 +70,10 @@ private:
     // QPushButton* _prev;
     // QPushButton* _next;
     // QPushButton* _last;
+
+    QComboBox* _syntax;
+    QLabel* _syntaxLabel;
+    QValueList<RegExpConverter*> _converters;
 };
 
 

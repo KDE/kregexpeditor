@@ -15,25 +15,20 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
-#ifndef SYNTAXHIGHLIGHTER_H
-#define SYNTAXHIGHLIGHTER_H
-#include "verifier.h"
-#include <qsyntaxhighlighter.h>
+#ifndef QTREGEXPHIGHLIGHTER_H
+#define QTREGEXPHIGHLIGHTER_H
+#include "regexphighlighter.h"
+#include <qtextedit.h>
 
-class SyntaxHighlighter :public QSyntaxHighlighter
+class QtRegexpHighlighter :public RegexpHighlighter
 {
 public:
-    SyntaxHighlighter( Verifier* verifier );
-    void setRegExp( const QString& regexp );
+    QtRegexpHighlighter( QTextEdit* verifier );
     virtual int highlightParagraph ( const QString & text, int endStateOfLastPara );
-    void setCaseSensitive( bool );
-    void setMinimal( bool );
 
 private:
-    Verifier* _verifier;
-    QString _regexp;
-    bool _caseSensitive, _minimal;
+    QTextEdit* _editor;
 };
 
-#endif /* SYNTAXHIGHLIGHTER_H */
+#endif /* QTREGEXPHIGHLIGHTER_H */
 

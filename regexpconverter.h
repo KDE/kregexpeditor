@@ -11,6 +11,9 @@
 #include "positionregexp.h"
 #include "repeatregexp.h"
 #include "textregexp.h"
+#include <qtextedit.h>
+#include <qsyntaxhighlighter.h>
+#include "regexphighlighter.h"
 
 class RegExpConverter
 {
@@ -29,6 +32,7 @@ public:
     virtual int features() = 0;
     virtual RegExp* parse( const QString&, bool* ok );
     QString toStr( RegExp*, bool markSelection );
+    virtual RegexpHighlighter* highlighter( QTextEdit* );
 
 protected:
     virtual QString toString( AltnRegExp*, bool markSelection ) = 0;

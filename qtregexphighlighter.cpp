@@ -15,19 +15,20 @@
  *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  *  Boston, MA 02111-1307, USA.
  **/
-#include "syntaxhighlighter.h"
-SyntaxHighlighter::SyntaxHighlighter( Verifier* verifier )
-    :QSyntaxHighlighter( verifier ), _verifier( verifier ), _caseSensitive( false ), _minimal( false )
+#include "qtregexphighlighter.h"
+#include <qregexp.h>
+QtRegexpHighlighter::QtRegexpHighlighter( QTextEdit* editor )
+    :RegexpHighlighter( editor ), _editor( editor )
 {
 }
 
-int SyntaxHighlighter::highlightParagraph( const QString & text, int endStateOfLastPara )
+int QtRegexpHighlighter::highlightParagraph( const QString & text, int endStateOfLastPara )
 {
     QRegExp regexp( _regexp );
     regexp.setCaseSensitive( _caseSensitive );
     regexp.setMinimal( _minimal );
 
-    setFormat( 0, text.length(), _verifier->font(), Qt::black );
+    setFormat( 0, text.length(), _editor->font(), Qt::black );
 
     if ( !regexp.isValid() || regexp.isEmpty() ) {
         return 0;
@@ -54,9 +55,9 @@ int SyntaxHighlighter::highlightParagraph( const QString & text, int endStateOfL
         if ( start != index )
             setFormat( index, start-index, colors[color] );
 
-        QFont font = _verifier->font();
+        QFont font = _editor->font();
         font.setUnderline( true );
-        font.setPointSize( font.pointSize() * 1.3 );
+        font.setPointSize( (int) (font.pointSize() * 1.3) );
         setFormat( start, length, font, colors[color] );
 
         if ( length + (start-index) != regexp.matchedLength() )
@@ -67,20 +68,4 @@ int SyntaxHighlighter::highlightParagraph( const QString & text, int endStateOfL
     }
     return color;
 }
-
-void SyntaxHighlighter::setRegExp( const QString& regexp )
-{
-    _regexp = regexp;
-}
-
-void SyntaxHighlighter::setCaseSensitive( bool b )
-{
-    _caseSensitive = b;
-}
-
-void SyntaxHighlighter::setMinimal( bool b )
-{
-    _minimal = b;
-}
-
 

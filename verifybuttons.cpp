@@ -28,6 +28,8 @@
 #include <qlayout.h>
 #include <qlabel.h>
 #include <qwhatsthis.h>
+#include "qtregexpconverter.h"
+#include "emacsregexpconverter.h"
 
 VerifyButtons::VerifyButtons( QWidget* parent, const char* name ) :QDockWindow( QDockWindow::InDock, parent, name )
 {
@@ -95,6 +97,32 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name ) :QDockWindow( 
 
   _autoVerify->setOn( true );
 //  _verify->setEnabled( false );
+
+
+  _syntaxLabel = new QLabel( i18n("Language:"), this );
+  layout->addWidget( _syntaxLabel );
+  _syntax = new QComboBox( this );
+  layout->addWidget( _syntax );
+  connect( _syntax, SIGNAL( activated( int ) ), this, SLOT( slotChangeSyntax( int ) ) );
+  _syntaxLabel->hide();
+  _syntax->hide();
+
+  // -------------------------------------------------- RegExp Converters
+  QStringList list;
+
+  // Qt
+  RegExpConverter* converter = new QtRegExpConverter();
+  _converters.append( converter );
+  list << converter->name();
+
+  // Emacs
+  converter = new EmacsRegExpConverter();
+  _converters.append( converter );
+  list << converter->name();
+
+  _syntax->insertStringList( list );
+
+
 }
 
 
@@ -137,3 +165,25 @@ void VerifyButtons::setMatchCount( int /*count*/ )
 */
 }
 
+void VerifyButtons::slotChangeSyntax( int i )
+{
+    emit changeSyntax( _converters[i]->name() );
+}
+
+void VerifyButtons::setShowSyntaxCombo( bool b )
+{
+    _syntaxLabel->setShown( b );
+    _syntax->setShown( b );
+}
+
+RegExpConverter* VerifyButtons::setSyntax( const QString& which)
+{
+    for( QValueList<RegExpConverter*>::Iterator it = _converters.begin(); it != _converters.end(); ++it ) {
+        if ( (*it)->name() == which ) {
+            _syntax->setCurrentText( which );
+            return *it;
+        }
+    }
+    qWarning( "No such converter: '%s'", which.latin1() );
+    return 0;
+}

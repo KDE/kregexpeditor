@@ -22,12 +22,11 @@
 #include <qfile.h>
 #include <klocale.h>
 #include <qprogressdialog.h>
-#include "syntaxhighlighter.h"
 
 Verifier::Verifier( QWidget* parent, const char* name ) : QTextEdit( parent, name )
     /* QT_ANCHOR_DO_NOT_WORK: ,_current( 0 ) */
 {
-    _highlighter = new SyntaxHighlighter( this );
+    _highlighter = 0;
     setMinimumSize(1,1);
 }
 
@@ -36,8 +35,10 @@ Verifier::Verifier( QWidget* parent, const char* name ) : QTextEdit( parent, nam
 */
 void Verifier::verify( const QString& reg )
 {
-    _highlighter->setRegExp( reg );
-    _highlighter->rehighlight();
+    if ( _highlighter ) {
+        _highlighter->setRegExp( reg );
+        _highlighter->rehighlight();
+    }
 }
 
 
@@ -46,8 +47,10 @@ void Verifier::verify( const QString& reg )
 */
 void Verifier::clearRegexp()
 {
-    _highlighter->setRegExp( QString::null );
-    _highlighter->rehighlight();
+    if ( _highlighter ) {
+        _highlighter->setRegExp( QString::null );
+        _highlighter->rehighlight();
+    }
 }
 
 /**
@@ -55,7 +58,8 @@ void Verifier::clearRegexp()
 */
 void Verifier::setCaseSensitive( bool b )
 {
-    _highlighter->setCaseSensitive( b );
+    if ( _highlighter )
+        _highlighter->setCaseSensitive( b );
 }
 
 
@@ -64,7 +68,8 @@ void Verifier::setCaseSensitive( bool b )
 */
 void Verifier::setMinimal( bool b )
 {
-    _highlighter->setMinimal( b );
+    if ( _highlighter )
+        _highlighter->setMinimal( b );
 }
 
 // Qt anchors do not work for <pre>...</pre>, thefore scrolling to next/prev match
@@ -99,6 +104,14 @@ void Verifier::setMinimal( bool b )
 //     emit goForwardPossible( which != _count -1 );
 // }
 
+
+void Verifier::setHighlighter( RegexpHighlighter* highlighter )
+{
+    delete _highlighter;
+    _highlighter = highlighter;
+    setEnabled( _highlighter != 0 );
+
+}
 
 #include "verifier.moc"
 

@@ -33,8 +33,6 @@ class AuxButtons :public QDockWindow
 
 public:
     AuxButtons( QWidget* parent, const char* name );
-    void setShowSyntaxCombo( bool );
-    RegExpConverter* setSyntax( const QString& );
 
 signals:
     void undo();
@@ -43,7 +41,6 @@ signals:
     void copy();
     void paste();
     void save();
-    void changeSyntax( const QString& );
 
 public slots:
     void slotEnterWhatsThis();
@@ -53,7 +50,6 @@ public slots:
     void slotCanCopy( bool );
     void slotCanPaste( bool );
     void slotCanSave( bool );
-    void slotChangeSyntax( int );
 
 private:
     QPushButton* _undo;
@@ -62,9 +58,6 @@ private:
     QPushButton* _copy;
     QPushButton* _paste;
     QPushButton* _save;
-    QComboBox* _syntax;
-    QLabel* _syntaxLabel;
-    QValueList<RegExpConverter*> _converters;
 };
 
 

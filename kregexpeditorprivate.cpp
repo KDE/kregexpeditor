@@ -120,9 +120,9 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   connect( _auxButtons, SIGNAL( copy() ), _scrolledEditorWindow, SLOT( slotCopy() ) );
   connect( _auxButtons, SIGNAL( paste() ), _scrolledEditorWindow, SLOT( slotPaste() ) );
   connect( _auxButtons, SIGNAL( save() ), _scrolledEditorWindow, SLOT( slotSave() ) );
-  connect( _auxButtons, SIGNAL( changeSyntax( const QString& ) ), this, SLOT( setSyntax( const QString& ) ) );
   connect( _verifyButtons, SIGNAL( autoVerify( bool ) ), this, SLOT( setAutoVerify( bool ) ) );
   connect( _verifyButtons, SIGNAL( verify() ), this, SLOT( doVerify() ) );
+  connect( _verifyButtons, SIGNAL( changeSyntax( const QString& ) ), this, SLOT( setSyntax( const QString& ) ) );
 
   connect( this, SIGNAL( canUndo( bool ) ), _auxButtons, SLOT( slotCanUndo( bool ) ) );
   connect( this, SIGNAL( canRedo( bool ) ), _auxButtons, SLOT( slotCanRedo( bool ) ) );
@@ -387,7 +387,7 @@ void KRegExpEditorPrivate::setMinimal( bool b )
 
 void KRegExpEditorPrivate::setSyntax( const QString& syntax )
 {
-    _converter = _auxButtons->setSyntax( syntax );
+    _converter = _verifyButtons->setSyntax( syntax );
     if ( _converter->canParse() ) {
         _regexpEdit->setReadOnly( false );
         _regexpEdit->setBackgroundMode( Qt::PaletteBase );
@@ -397,11 +397,12 @@ void KRegExpEditorPrivate::setSyntax( const QString& syntax )
         _regexpEdit->setBackgroundMode( Qt::PaletteBackground );
     }
     _regExpButtons->setFeatures( _converter->features() );
+    _verifier->setHighlighter( _converter->highlighter(_verifier) );
 }
 
 void KRegExpEditorPrivate::setShowSyntaxCombo( bool b )
 {
-    _auxButtons->setShowSyntaxCombo( b );
+    _verifyButtons->setShowSyntaxCombo( b );
 }
 
 RegExpConverter* KRegExpEditorPrivate::converter()

@@ -1,4 +1,5 @@
 #include "qtregexpconverter.h"
+#include "qtregexphighlighter.h"
 
 extern RegExp* parseQtRegExp( QString str, bool *ok );
 extern RegExp* parseDataQtRegExp();
@@ -262,4 +263,9 @@ QString QtRegExpConverter::name()
 int QtRegExpConverter::features()
 {
     return WordBoundary | NonWordBoundary | PosLookAhead | NegLookAhead;
+}
+
+RegexpHighlighter* QtRegExpConverter::highlighter( QTextEdit* edit )
+{
+    return new QtRegexpHighlighter( edit );
 }

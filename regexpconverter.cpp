@@ -41,3 +41,11 @@ QString RegExpConverter::escape( QString text, QValueList<QChar> chars, QChar es
 
 	return res;
 }
+
+/**
+   Returns a QSyntaxHighlighter to be used in the virifyer widget.
+*/
+RegexpHighlighter* RegExpConverter::highlighter( QTextEdit* )
+{
+    return 0;
+}

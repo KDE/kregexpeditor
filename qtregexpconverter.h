@@ -1,6 +1,7 @@
 #ifndef QTREGEXPCONVERTER_H
 #define QTREGEXPCONVERTER_H
 #include "regexpconverter.h"
+#include "regexphighlighter.h"
 
 class QtRegExpConverter :public RegExpConverter
 {
@@ -18,6 +19,7 @@ public:
     virtual QString toString( PositionRegExp*, bool markSelection );
     virtual QString toString( RepeatRegExp*, bool markSelection );
     virtual QString toString( TextRegExp*, bool markSelection );
+    RegexpHighlighter* highlighter( QTextEdit* edit );
 };
 
 #endif /* QTREGEXPCONVERTER_H */
