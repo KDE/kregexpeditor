@@ -33,7 +33,7 @@ void UserDefinedRegExps::slotPopulateUserRegexps()
   _userDefined->clear();
   _regExps.clear();
 
-  createItems( i18n("User Defined"), WidgetWinItem::path() );
+  createItems( i18n("User Defined"), WidgetWinItem::path(), true );
   
   QStringList dirs = KGlobal::dirs()->findDirs( "data", QString::fromLocal8Bit("kregexpeditor/predefined/") );
   for ( QStringList::iterator it1 = dirs.begin(); it1 != dirs.end(); ++it1 ) {
@@ -42,13 +42,13 @@ void UserDefinedRegExps::slotPopulateUserRegexps()
     for ( QStringList::iterator it2 = subdirs.begin(); it2 != subdirs.end(); ++it2 ) {
       if ( *it2 == QString::fromLocal8Bit(".") || *it2 == QString::fromLocal8Bit("..") )
         continue;
-      createItems( *it2, *it1 + QString::fromLocal8Bit("/") + *it2 );
+      createItems( *it2, *it1 + QString::fromLocal8Bit("/") + *it2, false );
     }
   }
   
 }
 
-void UserDefinedRegExps::createItems( const QString& title, const QString& dir ) 
+void UserDefinedRegExps::createItems( const QString& title, const QString& dir, bool usersRegExp ) 
 {
   QListViewItem* lvItem = new QListViewItem( _userDefined, title );
   lvItem->setOpen( true );
@@ -74,7 +74,7 @@ void UserDefinedRegExps::createItems( const QString& title, const QString& dir )
       continue;
     }
 
-    new WidgetWinItem( *it, regexp, lvItem );
+    new WidgetWinItem( *it, regexp, usersRegExp, lvItem );
 
     // Inserth the regexp into the list of compound regexps
     if ( regexp->type() == RegExp::COMPOUND ) {
@@ -117,7 +117,15 @@ void UserDefinedRegExps::slotEdit( QListViewItem* item, const QPoint& pos )
     menu->setItemEnabled( 1, false );
     menu->setItemEnabled( 2, false );
   }
-    
+  else {
+    // Only allow rename and delete of users own regexps.
+    WidgetWinItem* winItem = dynamic_cast<WidgetWinItem*>( item );
+    if ( ! winItem->isUsersRegExp() ) {
+      menu->setItemEnabled( 1, false );
+      menu->setItemEnabled( 2, false );
+    }
+  }
+  
   int which = menu->exec( pos );
   
   if ( which == 1 ) { // Delete
@@ -163,7 +171,8 @@ void UserDefinedRegExps::slotSelectNewAction()
   slotUnSelect();
 }
 
-WidgetWinItem::WidgetWinItem( QString fileName, RegExp* regexp, QListViewItem* parent ) :QListViewItem( parent ), _regexp( regexp )
+WidgetWinItem::WidgetWinItem( QString fileName, RegExp* regexp, bool usersRegExp, QListViewItem* parent ) 
+  :QListViewItem( parent ), _regexp( regexp ), _usersRegExp ( usersRegExp )
 {
   int index = fileName.findRev(QString::fromLocal8Bit(".regexp"));
   _name = fileName.left(index);
