@@ -39,37 +39,37 @@ AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)
   _undo->setPixmap( loader.loadIcon(QString::fromLatin1("undo"), KIcon::Toolbar) );
   layout->addWidget( _undo );
   connect( _undo, SIGNAL(clicked()), this, SIGNAL(undo()) );
-  QToolTip::add( _undo, i18n( "undo" ) );
+  QToolTip::add( _undo, i18n( "Undo" ) );
 
   _redo = new QPushButton( this );
   _redo->setPixmap( loader.loadIcon(QString::fromLatin1("redo"), KIcon::Toolbar) );
   layout->addWidget( _redo );
   connect( _redo, SIGNAL(clicked()), this, SIGNAL(redo()) );
-  QToolTip::add( _redo, i18n( "redo" ) );
+  QToolTip::add( _redo, i18n( "Redo" ) );
 
   _cut = new QPushButton( this );
   _cut->setPixmap( loader.loadIcon(QString::fromLatin1("editcut"), KIcon::Toolbar) );
   layout->addWidget( _cut );
   connect( _cut, SIGNAL(clicked()), this, SIGNAL(cut()) );
-  QToolTip::add( _cut, i18n( "cut" ) );
+  QToolTip::add( _cut, i18n( "Cut" ) );
 
   _copy = new QPushButton( this );
   _copy->setPixmap( loader.loadIcon(QString::fromLatin1("editcopy"), KIcon::Toolbar) );
   layout->addWidget( _copy );
   connect( _copy, SIGNAL(clicked()), this, SIGNAL(copy()) );
-  QToolTip::add( _copy, i18n( "copy" ) );
+  QToolTip::add( _copy, i18n( "Copy" ) );
 
   _paste = new QPushButton( this );
   _paste->setPixmap( loader.loadIcon(QString::fromLatin1("editpaste"), KIcon::Toolbar) );
   layout->addWidget( _paste );
   connect( _paste, SIGNAL(clicked()), this, SIGNAL(paste()) );
-  QToolTip::add( _paste, i18n( "paste" ) );
+  QToolTip::add( _paste, i18n( "Paste" ) );
 
   _save = new QPushButton( this );
   _save->setPixmap( loader.loadIcon(QString::fromLatin1("filesave"), KIcon::Toolbar) );
   layout->addWidget( _save );
   connect( _save, SIGNAL(clicked()), this, SIGNAL(save()) );
-  QToolTip::add( _save, i18n( "save" ) );
+  QToolTip::add( _save, i18n( "Save" ) );
 
 
   QPushButton* button = new QPushButton(this);
