@@ -175,14 +175,14 @@ RegExp* WidgetFactory::createRegExp( QString str )
   // Read the RegularExpression element, and extract the version.
   QDomElement top = doc.documentElement();
   if (! (top.tagName() == QString::fromLocal8Bit("RegularExpression")) ) {
-    KMessageBox::sorry( 0, i18n("XML file didn't contain a <b>RegularExpression</b> tag"),
+    KMessageBox::sorry( 0, i18n("XML file didn't contain a <b>%1</b> tag").arg(QString::fromLatin1("RegularExpression")),
                         i18n("Error while loading from XML file") ) ;
   }
   QString version = top.attribute( QString::fromLocal8Bit("version"), KRegExpEditorGUI::version );
   QDomNode child = top.firstChild();
   if ( ! child.isElement() ) {
     KMessageBox::sorry( 0, i18n("Error while reading XML file. The element just below the tag "
-                                "<b>RegularExpression</b> was not an element"),
+                                "<b>%1</b> was not an element").arg(QString::fromLatin1("RegularExpression")),
                         i18n("Error while loading from XML file") ) ;
   }
 
