@@ -282,7 +282,7 @@ CharacterEdits::CharacterEdits(TextRangeRegExp* regexp, QWidget *parent, const c
   connect(more,SIGNAL(clicked()), _single, SLOT(addElement()));  
   
   // Ranges
-  QVGroupBox* rangeBox = new QVGroupBox(i18n("Character ranges"), top );
+  QVGroupBox* rangeBox = new QVGroupBox(i18n("Character Ranges"), top );
   topLayout->addWidget( rangeBox );
 
   _range = new KMultiFormListBox(new RangeFactory(), KMultiFormListBox::MultiVisible, 
