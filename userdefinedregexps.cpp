@@ -12,15 +12,26 @@
 #include <qwhatsthis.h>
 #include "compoundregexp.h"
 #include <kdebug.h>
+#include <qlayout.h>
+#include <qlabel.h>
 
 UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const char *name )
   : QDockWindow( QDockWindow::InDock, parent, name)
 {
-  _userDefined = new QListView( this, "UserDefinedRegExps::_userDefined" );
+  QWidget* top = new QWidget( this );
+  QVBoxLayout* lay = new QVBoxLayout( top, 6 );
+  lay->setAutoAdd( true );
+
+  QLabel* label = new QLabel( tr("Compound Regular Expression:"), top );
+  
+  // This is to avoid that the label set the minimum width for the window.
+  label->setMinimumSize(1,0);
+
+  _userDefined = new QListView( top, "UserDefinedRegExps::_userDefined" );
   _userDefined->addColumn( QString::null );
   _userDefined->header()->hide();
   //  _userDefined->setRootIsDecorated( true );
-  setWidget( _userDefined );
+  setWidget( top );
   slotPopulateUserRegexps();
   
   connect( _userDefined, SIGNAL(clicked(QListViewItem*)), this, SLOT(slotLoad(QListViewItem*)) );
