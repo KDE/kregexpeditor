@@ -22,7 +22,7 @@ enum RegExpType {
 
    When reading widgets from a stream, it is necessary to know about all
    sub-widgets to the @ref RegExpWidget class. This class exists to make
-   sure that such general information is only kept ones.
+   sure that such general information is only kept once.
 
    @internal
 */
