@@ -50,7 +50,7 @@ InfoPage::InfoPage( QWidget* parent, const char* name )
 #ifdef HOUSEOFFUSION
     txt += tr("<h2>House Of Fusion note</h2>"
               "If you want to donate money to continue development on the KRegExpEditor port for "
-              "house of fussion then please contact Michael Dinowitz (mdinowit@houseoffusion.com).");
+              "house of fusion then please contact Michael Dinowitz (mdinowit@houseoffusion.com).");
 #endif
     txt += i18n( "<h2>Send the author an electronic postcard</h2>"
                  "I don't get any money for working on KRegExpEditor, "
