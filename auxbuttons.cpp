@@ -1,4 +1,5 @@
 #include "auxbuttons.h"
+#include "auxbuttons.moc"
 #include <qpushbutton.h>
 #include <kiconloader.h>
 #include <qpixmap.h>
