@@ -7,7 +7,10 @@
 InfoPage::InfoPage( QWidget* parent, const char* name )
   :QTextBrowser( parent, name )
 {
-  setText( i18n( "<qt>"
+  setText( i18n( "Translators, feel free to add yourself in the text above, asking for a postcard ;-), "
+		 "also feel free to add a section saying <h2>Translators</h2>. "
+		 "Kind regards, and thanks for your work - Jesper.",
+		 "<qt>"
                  "<h1>Regular Expression Editor</h1>"
                  "<p>What you are currently looking at is an editor for <i>Regular Expressions</i>.</p>"
                  "<p>The large window in the middle is the editing area. The row of buttons is the editing actions. "
@@ -28,9 +31,7 @@ InfoPage::InfoPage( QWidget* parent, const char* name )
 
                  "<h2>Author</h2>"
                  "<a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"                 
-                 "</qt>","Translators, feel free to add yourself in the text above, asking for a postcard ;-), "
-                 "also feel free to add a section saying <h2>Translators</h2>..."
-                 "Kind regards, and thanks for your work - Jesper.") );
+                 "</qt>") );
 }
 
 void InfoPage::setSource ( const QString & name )
