@@ -224,7 +224,7 @@ bool AltnWidget::validateSelection() const
           KMessageBox::information( const_cast<AltnWidget*>(this),
                                     i18n( "Selecting several alternatives is "
                                           "currently not supported." ),
-                                    i18n( "Selection invalid" ) );
+                                    i18n( "Selection Invalid" ) );
         _editorWindow->clearSelection( true );
         return false;
       }

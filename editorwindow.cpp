@@ -378,7 +378,7 @@ void RegExpEditorWindow::slotSave()
         return;
 #else
     KLineEditDlg dlg(i18n("Enter name:"), QString::null, this);
-    dlg.setCaption(i18n("Name for regexp"));
+    dlg.setCaption(i18n("Name for Regular Expression"));
     if (!dlg.exec()) return;
     txt = dlg.text();
 #endif
