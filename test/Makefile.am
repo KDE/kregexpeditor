@@ -1,5 +1,4 @@
 check_PROGRAMS = 	regexptest
-regexptest_METASOURCES = AUTO
 regexptest_SOURCES = main.cpp
 regexptest_LDFLAGS = $(all_libraries)
 regexptest_LDADD =  $(LIB_KSYCOCA) $(LIB_QT)
