@@ -54,7 +54,6 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     QWhatsThis::add( _verify, i18n("Shows what part of the regular expression is being matches in the <i>verifier window</i>."
                                    "(The window below the graphical editor window)."));
     layout->addWidget( _verify );
-    connect( _autoVerify, SIGNAL( toggled( bool ) ), this, SLOT( updateVerifyButton( bool ) ) );
     connect( _verify, SIGNAL( clicked() ), this, SIGNAL( verify() ) );
 
     QToolButton* button = new QToolButton(this);
@@ -107,6 +106,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     // Qt
     RegExpConverter* converter = new QtRegExpConverter();
     _converters.append( qMakePair( converter, static_cast<QAction*>( 0 ) ) );
+    QString qtConverterName = converter->name();
 
     // Emacs
     converter = new EmacsRegExpConverter();
@@ -121,6 +121,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     autoVerify->setToggleAction( true );
     autoVerify->setOn( true );
     connect( autoVerify, SIGNAL( toggled( bool ) ), this, SLOT( updateVerifyButton( bool ) ) );
+    connect( autoVerify, SIGNAL( toggled( bool ) ), this, SIGNAL( autoVerify( bool ) ) );
     autoVerify->addTo( _configMenu );
     autoVerify->setToolTip( i18n( "Toggle on-the-fly verification of regular expression" ) );
     autoVerify->setWhatsThis( i18n( "Enabling this option will make the verifier update for each edit."
@@ -142,6 +143,9 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     grp->addTo( languages );
     connect( grp, SIGNAL( selected( QAction* ) ), this, SLOT( slotChangeSyntax( QAction* ) ) );
     _configMenu->setItemEnabled( _languageId, false );
+
+    // Select the Qt converter by default
+    setSyntax( qtConverterName );
 }
 
 

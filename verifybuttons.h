@@ -62,7 +62,6 @@ protected slots:
     void configure();
 
 private:
-    QToolButton* _autoVerify;
     QToolButton* _verify;
     QLabel* _matches;
     QPopupMenu* _configMenu;

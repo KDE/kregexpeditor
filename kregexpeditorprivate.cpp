@@ -356,7 +356,10 @@ void KRegExpEditorPrivate::doVerify()
 void KRegExpEditorPrivate::setAutoVerify( bool on )
 {
     _autoVerify = on;
-    doVerify();
+    if ( !_autoVerify )
+        _verifier->clearRegexp();
+    else
+        doVerify();
 }
 
 void KRegExpEditorPrivate::setVerifyText( const QString& fileName )
