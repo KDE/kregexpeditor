@@ -869,7 +869,7 @@ case 19:
                                         "Therefore, as soon as you edit the regular expression in the graphical area, "
                                         "the back reference will be replaced by matching the text <b>%2</b> literally.")
                                     .arg( match ).arg( match ),
-                                 i18n("Back reference regular expressions not supported"), 
+                                 i18n("Back Reference Regular Expressions not Supported"), 
                                  QString::fromLocal8Bit("backReferenceNotSupported") );
       ;
     break;}

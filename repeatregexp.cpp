@@ -59,7 +59,7 @@ bool RepeatRegExp::load( QDomElement top, const QString& version )
     KMessageBox::sorry( 0, i18n("<p>Value for attribute <b>%1</b> was not an integer for element "
                                 "<b>%2</b></p><p>It contained the value <b>%3</b></p>")
                         .arg(QString::fromLatin1("lower")).arg(QString::fromLatin1("Repeat")).arg(lower),
-                        i18n("Error while loading from XML file") ) ;
+                        i18n("Error While Loading From XML File") ) ;
     _lower = 0;
   }
   _upper = upper.toInt( &ok );
@@ -67,7 +67,7 @@ bool RepeatRegExp::load( QDomElement top, const QString& version )
     KMessageBox::sorry( 0, i18n("<p>Value for attribute <b>%1</b> was not an integer for element "
                                 "<b>%2</b></p><p>It contained the value <b>%3</b></p>")
                         .arg(QString::fromLatin1("upper")).arg(QString::fromLatin1("Repeat")).arg(upper),
-                        i18n("Error while loading from XML file") ) ;
+                        i18n("Error While Loading From XML File") ) ;
     _upper = -1;
   }
   

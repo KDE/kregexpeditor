@@ -59,7 +59,7 @@ bool TextRegExp::load( QDomElement top, const QString& /*version*/)
   QDomNode child = top.firstChild();
   if ( ! child.isText() ) {
     KMessageBox::sorry( 0, i18n("<p>Element <b>Text</b> did not contain any textual data.</p>"),
-                        i18n("Error while loading from XML file") ) ;
+                        i18n("Error While Loading From XML File") ) ;
     return false;
   }
   QDomText txtNode = child.toText();

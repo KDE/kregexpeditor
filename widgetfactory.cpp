@@ -147,7 +147,7 @@ RegExp* WidgetFactory::createRegExp( QDomElement node, const QString& version )
     regexp = new RepeatRegExp();
   else {
     KMessageBox::sorry( 0, i18n("<p>Unknown tag while reading XML. Tag was <b>%1</b></p>").arg(tag),
-                        i18n("Error while loading from XML file") ) ;
+                        i18n("Error While Loading From XML File") ) ;
 
     return 0;
   }
@@ -168,7 +168,7 @@ RegExp* WidgetFactory::createRegExp( QString str )
   bool ok = doc.setContent( str );
   if ( !ok ) {
     KMessageBox::sorry( 0, i18n("Error while loading regular expression from XML. Most probably the regular expression had unmatched tags."),
-                        i18n("Error while loading regular expression from XML") ) ;
+                        i18n("Error While Loading Regular Expression From XML") ) ;
   }
   
 
@@ -176,14 +176,14 @@ RegExp* WidgetFactory::createRegExp( QString str )
   QDomElement top = doc.documentElement();
   if (! (top.tagName() == QString::fromLocal8Bit("RegularExpression")) ) {
     KMessageBox::sorry( 0, i18n("<p>XML file didn't contain a <b>%1</b> tag.</p>").arg(QString::fromLatin1("RegularExpression")),
-                        i18n("Error while loading from XML file") ) ;
+                        i18n("Error While Loading From XML File") ) ;
   }
   QString version = top.attribute( QString::fromLocal8Bit("version"), KRegExpEditorGUI::version );
   QDomNode child = top.firstChild();
   if ( ! child.isElement() ) {
     KMessageBox::sorry( 0, i18n("<p>Error while reading XML file. The element just below the tag "
                                 "<b>%1</b> was not an element.</p>").arg(QString::fromLatin1("RegularExpression")),
-                        i18n("Error while loading from XML file") ) ;
+                        i18n("Error While Loading From XML File") ) ;
   }
 
   RegExp* regexp = WidgetFactory::createRegExp( child.toElement(), version );
