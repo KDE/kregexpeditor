@@ -69,3 +69,14 @@ bool TextRegExp::load( QDomElement top, const QString& /*version*/)
   return true;
 }
 
+bool TextRegExp::operator==( const RegExp& other ) const { 
+  if ( other.type() != type() )
+    return false;
+  
+  const TextRegExp& theOther = dynamic_cast<const TextRegExp&>( other );
+  if ( text() == theOther.text() )
+    return true;
+  
+  return false;
+}
+

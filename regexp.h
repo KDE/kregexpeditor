@@ -5,7 +5,8 @@
 #include <qstringlist.h>
 #include <qptrlist.h>
 #include <qdom.h>
-#include "compoundinfo.h"
+class CompoundRegExp;
+
 
 /**
    Abstract syntax tree for regular expressions.
@@ -22,12 +23,16 @@ public:
   virtual QDomNode toXml( QDomDocument* doc ) const = 0;
   virtual bool load( QDomElement, const QString& version ) = 0;
   QString toXmlString() const;
-  virtual void updateCI( CompoundInfo* ci );
 
   void addChild( RegExp* child );
   void removeChild( RegExp* child );
   void setParent( RegExp* parent );
   RegExp* clone() const;
+  virtual bool operator==( const RegExp& other ) const { return ( type() == other.type() ); }  
+
+  enum RegExpType { CONC, TEXT, DOT, POSITION, REPEAT, ALTN, COMPOUND, LOOKAHEAD, TEXTRANGE };
+  virtual RegExpType type() const = 0;
+  virtual void replacePart( CompoundRegExp* replacement ) {};
   
 protected:
   RegExp* readRegExp( QDomElement top, const QString& version );

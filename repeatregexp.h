@@ -19,8 +19,10 @@ public:
   int min() const { return _lower; }
   int max() const { return _upper; }
   RegExp* child() const { return _child; }
-  virtual void updateCI( CompoundInfo* ci );
-
+  virtual RegExpType type() const { return REPEAT;}
+  virtual bool operator==( const RegExp& other ) const;
+  virtual void replacePart( CompoundRegExp* replacement ) { _child->replacePart( replacement ); }
+    
 private:
 	int _lower;
 	int _upper;

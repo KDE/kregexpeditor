@@ -13,7 +13,7 @@ noinst_HEADERS = kregexpeditorgui.h editorwindow.h regexpwidget.h drag.h\
 							   textregexp.h textrangeregexp.h repeatregexp.h lookaheadregexp.h \
                  concregexp.h altnregexp.h positionregexp.h dotregexp.h \
 								 infopage.h kregexpeditorprivate.h compoundregexp.h \
-								 compoundinfo.h pair.h triple.h myfontmetrics.h \
+								 pair.h triple.h myfontmetrics.h \
 		             regexpbuttons.h userdefinedregexps.h auxbuttons.h
 libkregexpeditorgui_la_SOURCES = kregexpeditorgui.cpp editorwindow.cpp\
 													 regexpwidget.cpp drag.cpp \
@@ -29,7 +29,7 @@ libkregexpeditorgui_la_SOURCES = kregexpeditorgui.cpp editorwindow.cpp\
 													 dcbutton.cpp gen_qregexplexer.cpp gen_qregexpparser.cc \
 													 charselector.cpp lookaheadregexp.cpp lookaheadwidget.cpp \
 													 regexp.cpp infopage.cpp kregexpeditorprivate.cpp \
-													 compoundregexp.cpp compoundinfo.cpp auxbuttons.cpp \
+													 compoundregexp.cpp auxbuttons.cpp \
 													 myfontmetrics.cpp regexpbuttons.cpp userdefinedregexps.cpp
 
 libkregexpeditorgui_la_LDFLAGS = $(all_libraries) -module -no-undefined $(KDE_PLUGIN)

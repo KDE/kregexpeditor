@@ -5,33 +5,33 @@
 #include <kiconloader.h>
 #include <klocale.h>
 #include <qpainter.h>
+#include <qtooltip.h>
 #include "concwidget.h"
 #include "kwidgetstreamer.h"
 #include "compoundregexp.h"
+#include "qcheckbox.h"
 
 //================================================================================
 
 CompoundDetailWindow::CompoundDetailWindow( QWidget* parent, const char* name ) 
   :QWidget( parent, name )
 {
-  QGridLayout* layout = new QGridLayout( this, 2, 2 );
+  QVBoxLayout* layout = new QVBoxLayout( this );
+  layout->setAutoAdd( true );
   
   QLabel* label = new QLabel( i18n("&Title"), this);
-  layout->addWidget( label, 0, 0 );
-  layout->setSpacing( 6 );
-  
   _title = new QLineEdit( this );
-  layout->addWidget( _title, 0, 1 );
   label->setBuddy( _title );
   
   label = new QLabel( i18n("&Description"), this );
-  layout->addWidget( label, 1, 0 );
-  label->setAlignment( AlignTop );
-  
   _description  = new QMultiLineEdit( this );
-  layout->addWidget( _description, 1, 1 );
   label->setBuddy( _description );
 
+  _allowReplace = new QCheckBox( i18n("&Automatically replace using this item"), this );
+  QToolTip::add( _allowReplace, i18n("When the content of this box is typed in to the ascii line,<br>"
+                                     "this box will automatically be added arround it,<br>"
+                                     "if this check box is selected.") );
+  
   _title->setFocus();
   
 }
@@ -46,6 +46,11 @@ QString CompoundDetailWindow::description() const
   return _description->text();
 }
 
+bool CompoundDetailWindow::allowReplace() const
+{
+  return _allowReplace->isChecked();
+}
+
 void CompoundDetailWindow::setTitle( QString txt ) 
 {
   _title->setText( txt );
@@ -54,6 +59,11 @@ void CompoundDetailWindow::setTitle( QString txt )
 void CompoundDetailWindow::setDescription( QString txt ) 
 {
   _description->setText( txt );
+}
+
+void CompoundDetailWindow::setAllowReplace( bool b ) 
+{
+  _allowReplace->setChecked( b );
 }
 
 //================================================================================
@@ -73,6 +83,7 @@ CompoundWidget::CompoundWidget( CompoundRegExp* regexp, RegExpEditorWindow* edit
   init();
   _content->setTitle( regexp->title() );
   _content->setDescription( regexp->description() );
+  _content->setAllowReplace( regexp->allowReplace() );
   RegExpWidget* child = WidgetFactory::createWidget( regexp->child(), _editorWindow, this );
   if ( !( _child = dynamic_cast<ConcWidget*>(child) ) ) {
     _child = new ConcWidget( _editorWindow, child, this );
@@ -217,7 +228,7 @@ void CompoundWidget::slotConfigCanceled()
 RegExp* CompoundWidget::regExp() const
 {
   return new CompoundRegExp( _content->title(), _content->description(), _hidden, 
-                             _child->regExp() );
+                             _content->allowReplace(), _child->regExp() );
 }
 
 void CompoundWidget::mousePressEvent( QMouseEvent* event )

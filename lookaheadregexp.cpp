@@ -39,8 +39,15 @@ bool LookAheadRegExp::load( QDomElement top, const QString& version )
 }
 
 
-void LookAheadRegExp::updateCI( CompoundInfo* ci )
+bool LookAheadRegExp::operator==( const RegExp& other ) const
 {
-  _child->updateCI( ci );
+  if ( type() != other.type() )
+    return false;
+  
+  const LookAheadRegExp& theOther = dynamic_cast<const LookAheadRegExp&>( other );
+  
+  if ( lookAheadType() != theOther.lookAheadType() )
+    return false;
+  
+  return ( *_child == *(theOther._child) );
 }
-

@@ -10,6 +10,7 @@
 #include <kstandarddirs.h>
 #include <qtooltip.h>
 #include <qwhatsthis.h>
+#include "compoundregexp.h"
 
 UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const char *name )
   : QDockWindow( QDockWindow::InDock, parent, name)
@@ -28,11 +29,42 @@ UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const char *name )
 void UserDefinedRegExps::slotPopulateUserRegexps()
 {
   _userDefined->clear();
+  _regExps.clear();
   QDir directory( WidgetWinItem::path());
   QStringList files = directory.entryList( QString::fromLocal8Bit("*.regexp") );
   for ( QStringList::Iterator it = files.begin(); it != files.end(); ++it ) {
-    new WidgetWinItem( *it, _userDefined );
+    QString fileName = WidgetWinItem::path() + QString::fromLocal8Bit("/") + *it;
+
+    QFile file( fileName );
+    if ( ! file.open(IO_ReadOnly) ) {
+      KMessageBox::sorry( this, i18n("Could not open file for reading: %1").arg(fileName) );
+      continue;
+    }
+
+    QTextStream stream( &file );
+    QString data = stream.read();
+    file.close();
+
+    RegExp* regexp = WidgetFactory::createRegExp( data );
+    if ( ! regexp ) {
+      KMessageBox::sorry( this, i18n("File %1 containing user defined regular expression contained an error").arg( fileName ) );
+      continue;
+    }
+
+    new WidgetWinItem( *it, regexp, _userDefined );
+
+    // Inserth the regexp into the list of compound regexps
+    if ( regexp->type() == RegExp::COMPOUND ) {
+      CompoundRegExp* cregexp = dynamic_cast<CompoundRegExp*>( regexp );
+      if ( cregexp->allowReplace() )
+        _regExps.append( cregexp );
+    }
   }
+}
+
+const QPtrList<CompoundRegExp> UserDefinedRegExps::regExps() const 
+{
+  return _regExps;
 }
 
 
@@ -48,24 +80,8 @@ void UserDefinedRegExps::slotLoad(QListViewItem* item)
     return;
   }
   
-  QString fileName = dynamic_cast<WidgetWinItem*>(item)->fileName();
-
-  QFile file( fileName );
-  if ( ! file.open(IO_ReadOnly) ) {
-    KMessageBox::sorry( this, i18n("Could not open file for reading: %1").arg(fileName) );
-    return;
-  }
-
-  // Deselect any of the buttons.
-  QTextStream stream( &file );
-  QString data = stream.read();
-  file.close();
-
-  RegExp* regexp = WidgetFactory::createRegExp( data );
-  if ( regexp ) {
-    emit load( regexp );
-    delete regexp;
-  }
+  RegExp* regexp = dynamic_cast<WidgetWinItem*>(item)->regExp();
+  emit load( regexp );
 }
 
 void UserDefinedRegExps::slotEdit( QListViewItem* item, const QPoint& pos )
@@ -124,7 +140,7 @@ void UserDefinedRegExps::slotSelectNewAction()
   slotUnSelect();
 }
 
-WidgetWinItem::WidgetWinItem( QString fileName, QListView* parent ) :QListViewItem( parent )
+WidgetWinItem::WidgetWinItem( QString fileName, RegExp* regexp, QListView* parent ) :QListViewItem( parent ), _regexp( regexp )
 {
   int index = fileName.findRev(QString::fromLocal8Bit(".regexp"));
   _name = fileName.left(index);
@@ -135,6 +151,11 @@ WidgetWinItem::WidgetWinItem( QString fileName, QListView* parent ) :QListViewIt
 QString WidgetWinItem::fileName() const 
 {
   return path() + QString::fromLocal8Bit("/") +_name + QString::fromLocal8Bit(".regexp");
+}
+
+RegExp* WidgetWinItem::regExp() const
+{
+  return _regexp;
 }
 
 QString WidgetWinItem::name() const 

@@ -84,7 +84,7 @@ RegExpWidget* WidgetFactory::createWidget( RegExp* regexp, RegExpEditorWindow* e
   else if ( RepeatRegExp* reg = dynamic_cast<RepeatRegExp*>( regexp ) )
     return new RepeatWidget( reg, editorWindow, parent );
   else if ( LookAheadRegExp* reg = dynamic_cast<LookAheadRegExp*>( regexp ) ) {
-    if ( reg->type() == LookAheadRegExp::POSITIVE )
+    if ( reg->lookAheadType() == LookAheadRegExp::POSITIVE )
       return new LookAheadWidget( reg, editorWindow, POSLOOKAHEAD, parent );
     else
       return new LookAheadWidget( reg, editorWindow, NEGLOOKAHEAD, parent );

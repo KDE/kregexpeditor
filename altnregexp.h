@@ -19,8 +19,10 @@ public:
   virtual int precedence() const { return 1;}
   virtual QDomNode toXml( QDomDocument* doc ) const;
   virtual bool load( QDomElement, const QString& version );
-  virtual void updateCI( CompoundInfo* ci );
-
+  virtual RegExpType type() const { return ALTN;}
+  virtual bool operator==( const RegExp& other ) const;
+  virtual void replacePart( CompoundRegExp* replacement );
+  
 private:
 	RegExpList list;
 };

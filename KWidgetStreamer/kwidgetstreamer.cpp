@@ -49,7 +49,9 @@ void KWidgetStreamer::propertyToStream( const QObject* from, QDataStream& stream
     if ( from->inherits( tp.latin1() ) ) {
       for ( PropertyListIt it = list.begin(); it != list.end(); ++it ) {
         QVariant prop = from->property( (*it).latin1() );
-        Q_ASSERT( prop.isValid() );
+        if ( ! prop.isValid() )
+          qWarning("Invalid property: %s:%s", tp.latin1(), (*it).latin1() );
+        
         stream <<  prop ;
       }
     }
@@ -133,10 +135,9 @@ KWidgetStreamer::KWidgetStreamer ()
   // QMultiLineEdit
   l.clear();
   l << QString::fromLatin1("enabled") 
-    << QString::fromLatin1("text") << QString::fromLatin1("maxLength") << QString::fromLatin1("maxLines") 
-    << QString::fromLatin1("overWriteMode") 
-    << QString::fromLatin1("echoMode") << QString::fromLatin1("alignment");
-  _map.insert(QString::fromLatin1("QMultiLineEdit"), l);
+    << QString::fromLatin1("text")
+    << QString::fromLatin1("alignment");
+  _map.insert(QString::fromLatin1("QTextEdit"), l);
 
   // QRadioButton
   l.clear();

@@ -57,10 +57,34 @@ bool AltnRegExp::load( QDomElement top, const QString& version )
 
 }
 
-void AltnRegExp::updateCI( CompoundInfo* ci )
+bool AltnRegExp::operator==( const RegExp& other ) const
 {
-  for ( RegExpListIt it(list); *it; ++it ) {
-    (*it)->updateCI( ci );
+  // TODO: merge with ConcRegExp::operator==
+
+  if ( other.type() != type() ) 
+    return false;
+  
+  const AltnRegExp& theOther = dynamic_cast<const AltnRegExp&>( other );
+  
+  if ( list.count() != theOther.list.count() )
+    return false;
+  
+  RegExpListIt it1( list );
+  RegExpListIt it2( theOther.list );
+  
+  for ( ; *it1 && *it2 ; ) {
+    if ( ! (**it1 == **it2) )
+      return false;
+    ++it1;
+    ++it2;
+  }
+  return true;
+}
+
+void AltnRegExp::replacePart( CompoundRegExp* replacement )
+{
+  for ( RegExpListIt it( list ); *it; ++it ) {
+    (*it)->replacePart( replacement );
   }
 }
 

@@ -45,6 +45,8 @@ public:
   virtual int precedence() const { return 4;}
   virtual QDomNode toXml( QDomDocument* doc ) const;
   virtual bool load( QDomElement, const QString& version );
+  virtual RegExpType type() const { return TEXTRANGE;}
+  virtual bool operator==( const RegExp& other ) const;
 
 private:
 	bool _negate, _digit, _nonDigit, _space, _nonSpace, _wordChar, _nonWordChar;

@@ -74,12 +74,9 @@ void RegExpEditorWindow::mouseMoveEvent ( QMouseEvent* event )
   if ( _isDndOperation ) {
     if ( ( _start - event->pos() ).manhattanLength() > QApplication::startDragDistance() ) {
       RegExp* regexp = _top->selection();
-      QString str = regexp->toXmlString();
-      QByteArray data;
-      QTextStream stream( data, IO_WriteOnly );
-      stream << str;
+      QDragObject *d = new RegExpWidgetDrag( regexp, this );
+      delete regexp;
       
-      QDragObject *d = new RegExpWidgetDrag( data, this );
       bool del = d->drag();
       if ( del )
         slotDeleteSelection();
@@ -249,14 +246,9 @@ void RegExpEditorWindow::cutCopyAux( QPoint pos )
   }
   
   RegExp* regexp = _top->selection();
-  QString xml = regexp->toXmlString();
+  RegExpWidgetDrag *clipboardData = new RegExpWidgetDrag( regexp, this );
   delete regexp;
-
-  QByteArray data;
-  QTextStream stream( data, IO_WriteOnly );
-  stream << xml;
-
-  RegExpWidgetDrag *clipboardData = new RegExpWidgetDrag( data, 0);
+  
   QClipboard* clipboard = qApp->clipboard();
   clipboard->setData( clipboardData );
 }

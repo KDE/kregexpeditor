@@ -17,6 +17,7 @@ public:
   virtual int precedence() const { return 4;}
   virtual QDomNode toXml( QDomDocument* doc ) const;
   virtual bool load( QDomElement, const QString& version );
+  virtual RegExpType type() const { return DOT;}
 };
 
 

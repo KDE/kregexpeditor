@@ -3,6 +3,8 @@
 class QLineEdit;
 class QMultiLineEdit;
 class KDialogBase;
+class QCheckBox;
+
 #include "singlecontainerwidget.h"
 #include "compoundregexp.h"
 
@@ -16,12 +18,15 @@ public:
   CompoundDetailWindow(QWidget* parent, const char* name = 0);
   QString title() const;
   QString description() const;
+  bool allowReplace() const;
   void setTitle( QString );
   void setDescription( QString );
+  void setAllowReplace( bool );
 
 private:
   QLineEdit* _title;
   QMultiLineEdit* _description;
+  QCheckBox* _allowReplace;
 };
 
 

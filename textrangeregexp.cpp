@@ -192,3 +192,8 @@ bool TextRangeRegExp::load( QDomElement top, const QString& /*version*/ )
   return true;
 }
 
+bool TextRangeRegExp::operator==( const RegExp& other ) const
+{
+  return ( toString() == other.toString() );    
+}
+

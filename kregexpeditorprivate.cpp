@@ -14,8 +14,9 @@
 #include "auxbuttons.h"
 #include <qaccel.h>
 #include <kstandarddirs.h>
+#include <compoundregexp.h>
 
-extern bool parse( QString str, const CompoundInfo& ci );
+extern bool parse( QString str );
 extern RegExp* parseData();
 
 
@@ -29,8 +30,8 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   // The DockWindows.
   RegExpButtons *regExpButtons = new RegExpButtons( area, "KRegExpEditorPrivate::regExpButton" );
   AuxButtons *auxButtons = new AuxButtons( area, "KRegExpEditorPrivate::AuxButtons" );
-  UserDefinedRegExps *userRegExps = new UserDefinedRegExps( verArea, "KRegExpEditorPrivate::userRegExps" );
-  userRegExps->setResizeEnabled( true );
+  _userRegExps = new UserDefinedRegExps( verArea, "KRegExpEditorPrivate::userRegExps" );
+  _userRegExps->setResizeEnabled( true );
 
 
   _scrolledEditorWindow = 
@@ -51,20 +52,20 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   // Connect the buttons
   connect( regExpButtons, SIGNAL( clicked( int ) ),   _scrolledEditorWindow, SLOT( slotInsertRegExp( int ) ) );
   connect( regExpButtons, SIGNAL( doSelect() ), _scrolledEditorWindow, SLOT( slotDoSelect() ) );
-  connect( userRegExps, SIGNAL( load( RegExp* ) ),    _scrolledEditorWindow, SLOT( slotInsertRegExp( RegExp*  ) ) );
+  connect( _userRegExps, SIGNAL( load( RegExp* ) ),    _scrolledEditorWindow, SLOT( slotInsertRegExp( RegExp*  ) ) );
 
-  connect( regExpButtons, SIGNAL( clicked( int ) ), userRegExps,   SLOT( slotUnSelect() ) );
-  connect( regExpButtons, SIGNAL( doSelect() ),     userRegExps,   SLOT( slotUnSelect() ) );
-  connect( userRegExps, SIGNAL( load( RegExp* ) ),  regExpButtons, SLOT( slotUnSelect() ) );
+  connect( regExpButtons, SIGNAL( clicked( int ) ), _userRegExps,   SLOT( slotUnSelect() ) );
+  connect( regExpButtons, SIGNAL( doSelect() ),     _userRegExps,   SLOT( slotUnSelect() ) );
+  connect( _userRegExps, SIGNAL( load( RegExp* ) ),  regExpButtons, SLOT( slotUnSelect() ) );
 
   connect( _scrolledEditorWindow, SIGNAL( doneEditing() ), regExpButtons, SLOT( slotSelectNewAction() ) );
-  connect( _scrolledEditorWindow, SIGNAL( doneEditing() ), userRegExps, SLOT( slotSelectNewAction() ) );
+  connect( _scrolledEditorWindow, SIGNAL( doneEditing() ), _userRegExps, SLOT( slotSelectNewAction() ) );
 
   connect( regExpButtons, SIGNAL( clicked( int ) ), this, SLOT( slotShowEditor() ) );
-  connect( userRegExps, SIGNAL( load( RegExp* ) ), this, SLOT( slotShowEditor() ) );
+  connect( _userRegExps, SIGNAL( load( RegExp* ) ), this, SLOT( slotShowEditor() ) );
   connect( regExpButtons, SIGNAL( doSelect() ), this, SLOT( slotShowEditor() ) );
 
-  connect( _scrolledEditorWindow, SIGNAL( savedRegexp() ), userRegExps, SLOT( slotPopulateUserRegexps() ) );
+  connect( _scrolledEditorWindow, SIGNAL( savedRegexp() ), _userRegExps, SLOT( slotPopulateUserRegexps() ) );
 
   connect( auxButtons, SIGNAL( undo() ), this, SLOT( slotUndo() ) );
   connect( auxButtons, SIGNAL( redo() ), this, SLOT( slotRedo() ) );
@@ -113,9 +114,14 @@ void KRegExpEditorPrivate::slotUpdateEditor( const QString & txt)
     return;
 
   _updating = true;
-  bool ok = parse( txt, _ci );
+  bool ok = parse( txt );
   RegExp* result = parseData();
   if ( ok ) {
+    QPtrList<CompoundRegExp> list = _userRegExps->regExps();
+    for ( QPtrListIterator<CompoundRegExp> it( list ); *it; ++it ) {
+      result->replacePart( *it );
+    }
+    
     _scrolledEditorWindow->slotSetRegExp( result );
     _error->hide();
     recordUndoInfo();
@@ -135,9 +141,6 @@ void KRegExpEditorPrivate::slotUpdateLineEdit()
   
   RegExp* regexp = _scrolledEditorWindow->regExp();
 
-  _ci.clear();
-  regexp->updateCI( &_ci );
-  
   QString str = regexp->toString();
   _regexpEdit->setText( str );
   delete regexp;

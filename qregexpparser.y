@@ -19,7 +19,6 @@
   void setParseResult( RegExp* );
   RegExp* parseData();
   static RegExp* parseResult;
-  static CompoundInfo _ci;
   static int _index;
 %}
 
@@ -101,16 +100,7 @@ factor : atom TOK_Quantifier {
        ;
 
 atom : TOK_LeftParen expression TOK_RightParent { 
-         RegExp* regexp = $<regexp>2;
-         QString title;
-         QString desc;
-         bool hidden;
-         bool found = _ci.lookUp( regexp->toString(), ++_index, &title, &desc, &hidden );
-         if ( found ) {
-           $<regexp>$ = new CompoundRegExp( title, desc, hidden, regexp );
-         }
-         else       
-           $<regexp>$ = regexp; 
+         $<regexp>$ = $<regexp>2; 
        }
      | TOK_MagicLeftParent expression TOK_RightParent { $<regexp>$ = $<regexp>2; }
      | TOK_PosLookAhead expression TOK_RightParent { 
@@ -135,8 +125,7 @@ char : TOK_Char { $<regexp>$ = new TextRegExp( QString().sprintf("%c",$<ch>1)); 
 
 %%
 
-bool parse( QString qstr, const CompoundInfo& ci ) {
-  _ci = ci;
+bool parse( QString qstr ) {
   _index = 0;
   parseResult = 0;
   setParseData( qstr );

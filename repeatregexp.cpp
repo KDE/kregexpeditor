@@ -78,8 +78,15 @@ bool RepeatRegExp::load( QDomElement top, const QString& version )
     return false;
 }
 
-void RepeatRegExp::updateCI( CompoundInfo* ci )
+bool RepeatRegExp::operator==( const RegExp& other ) const
 {
-  _child->updateCI( ci );
+  if ( type() != other.type() )
+    return false;
+
+  const RepeatRegExp& theOther = dynamic_cast<const RepeatRegExp&>( other );
+  if ( _lower != theOther._lower || _upper != theOther._upper )
+    return false;
+  
+  return (*_child == *(theOther._child) );
 }
 

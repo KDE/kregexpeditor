@@ -2,8 +2,8 @@
 #include "widgetfactory.h"
 
 CompoundRegExp::CompoundRegExp( const QString& title, const QString& description, bool hidden, 
-                                RegExp* child)
-  : _title( title ), _description( description ), _hidden( hidden ), _child( child )
+                                bool allowReplace, RegExp* child)
+  : _title( title ), _description( description ), _hidden( hidden ), _allowReplace( allowReplace ), _child( child )
 {
   if ( child )
     addChild( child );
@@ -11,7 +11,7 @@ CompoundRegExp::CompoundRegExp( const QString& title, const QString& description
 
 QString CompoundRegExp::toString() const 
 {
-  return QString::fromLocal8Bit("(") + _child->toString() + QString::fromLocal8Bit(")");
+  return  _child->toString();
 }
 
 QDomNode CompoundRegExp::toXml( QDomDocument* doc ) const 
@@ -19,6 +19,8 @@ QDomNode CompoundRegExp::toXml( QDomDocument* doc ) const
   QDomElement top = doc->createElement( QString::fromLocal8Bit( "Compound" ) );
   if (_hidden)
     top.setAttribute( QString::fromLocal8Bit("hidden"), true );
+  if ( _allowReplace )
+    top.setAttribute( QString::fromLocal8Bit("allowReplace"), true );
 
   QDomElement title = doc->createElement( QString::fromLocal8Bit( "Title" ) );
   QDomText titleTxt = doc->createTextNode( _title );
@@ -40,7 +42,10 @@ bool CompoundRegExp::load( QDomElement top, const QString& version )
 {
   Q_ASSERT( top.tagName() == QString::fromLocal8Bit("Compound") );
   QString str = top.attribute( QString::fromLocal8Bit( "hidden" ), QString::fromLocal8Bit("0") );
-  _hidden = (str == QString::fromLocal8Bit("1") );
+  _hidden = true; // alway hidden. (str == QString::fromLocal8Bit("1") );
+  
+  str = top.attribute( QString::fromLocal8Bit( "allowReplace" ), QString::fromLocal8Bit("0") );
+  _allowReplace = (str == QString::fromLocal8Bit("1") );
   
   for ( QDomNode node = top.firstChild(); !node.isNull(); node = node.nextSibling() ) {
     if ( !node.isElement() ) 
@@ -70,8 +75,11 @@ bool CompoundRegExp::load( QDomElement top, const QString& version )
   return false;
 }
 
-void CompoundRegExp::updateCI( CompoundInfo* ci )
+bool CompoundRegExp::operator==( const RegExp& other ) const
 {
-  ci->add( _child->toString(), _title, _description, _hidden );
-  _child->updateCI( ci );
+  // Note the order is important in the comparison below.
+  // Using other as the first argument, means that
+  // the following will be evaluated: other.operator== rather than (*child).operator==
+  // This means that if other is a CompoundRegExp too, then this level will be striped.
+  return ( other == *_child );
 }

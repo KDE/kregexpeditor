@@ -19,9 +19,11 @@ public:
   virtual QDomNode toXml( QDomDocument* doc ) const;
   virtual bool load( QDomElement, const QString& version );
   RegExp* child() const { return _child; }
-  TYPE type() const { return _tp; }
-  virtual void updateCI( CompoundInfo* ci );
-
+  TYPE lookAheadType() const { return _tp; }
+  virtual RegExpType type() const { return LOOKAHEAD;}
+  virtual bool operator==( const RegExp& other ) const;
+  virtual void replacePart( CompoundRegExp* replacement ) { _child->replacePart( replacement ); }
+  
 private:
 	RegExp* _child;
   TYPE _tp;

@@ -23,6 +23,9 @@ public:
   virtual QDomNode toXml( QDomDocument* doc ) const;
   virtual bool load( QDomElement, const QString& version );
   void append( QString str);
+  virtual RegExpType type() const { return TEXT;}
+  virtual bool operator==( const RegExp& other ) const;
+  
 
 protected:
 	QString escape( QString text, QPtrList<QChar> chars, QChar escapeChar) const; 

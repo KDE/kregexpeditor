@@ -50,10 +50,9 @@
   void setParseResult( RegExp* );
   RegExp* parseData();
   static RegExp* parseResult;
-  static CompoundInfo _ci;
   static int _index;
 
-#line 26 "qregexpparser.y"
+#line 25 "qregexpparser.y"
 typedef union {
   struct {
     int min;
@@ -130,9 +129,9 @@ static const short yyrhs[] = {    -1,
 
 #if YYDEBUG != 0
 static const short yyrline[] = { 0,
-    57,    59,    60,    63,    73,    76,    90,    97,   100,   103,
-   115,   116,   119,   122,   123,   124,   125,   126,   127,   128,
-   129,   132,   133
+    56,    58,    59,    62,    72,    75,    89,    96,    99,   102,
+   105,   106,   109,   112,   113,   114,   115,   116,   117,   118,
+   119,   122,   123
 };
 #endif
 
@@ -753,15 +752,15 @@ yyreduce:
   switch (yyn) {
 
 case 2:
-#line 59 "qregexpparser.y"
+#line 58 "qregexpparser.y"
 { setParseResult( yyvsp[0].regexp) ; ;
     break;}
 case 3:
-#line 60 "qregexpparser.y"
+#line 59 "qregexpparser.y"
 { setParseResult( new ConcRegExp() ); ;
     break;}
 case 4:
-#line 63 "qregexpparser.y"
+#line 62 "qregexpparser.y"
 {
                if ( dynamic_cast<AltnRegExp*>( yyvsp[-2].regexp ) ) {
                  yyval.regexp = yyvsp[-2].regexp;
@@ -774,11 +773,11 @@ case 4:
              ;
     break;}
 case 5:
-#line 73 "qregexpparser.y"
+#line 72 "qregexpparser.y"
 { yyval.regexp = yyvsp[0].regexp; ;
     break;}
 case 6:
-#line 76 "qregexpparser.y"
+#line 75 "qregexpparser.y"
 {
        RegExp* last = dynamic_cast<ConcRegExp*>( yyvsp[-1].regexp )->lastRegExp();
        TextRegExp *reg1, *reg2;
@@ -795,7 +794,7 @@ case 6:
      ;
     break;}
 case 7:
-#line 90 "qregexpparser.y"
+#line 89 "qregexpparser.y"
 { 
          ConcRegExp* reg = new ConcRegExp();
          reg->addRegExp( yyvsp[0].regexp );
@@ -803,84 +802,75 @@ case 7:
        ;
     break;}
 case 8:
-#line 97 "qregexpparser.y"
+#line 96 "qregexpparser.y"
 {
            yyval.regexp = new RepeatRegExp( yyvsp[0].range.min, yyvsp[0].range.max, yyvsp[-1].regexp );
          ;
     break;}
 case 9:
-#line 100 "qregexpparser.y"
+#line 99 "qregexpparser.y"
 { yyval.regexp = yyvsp[0].regexp; ;
     break;}
 case 10:
-#line 103 "qregexpparser.y"
+#line 102 "qregexpparser.y"
 { 
-         RegExp* regexp = yyvsp[-1].regexp;
-         QString title;
-         QString desc;
-         bool hidden;
-         bool found = _ci.lookUp( regexp->toString(), ++_index, &title, &desc, &hidden );
-         if ( found ) {
-           yyval.regexp = new CompoundRegExp( title, desc, hidden, regexp );
-         }
-         else       
-           yyval.regexp = regexp; 
+         yyval.regexp = yyvsp[-1].regexp; 
        ;
     break;}
 case 11:
-#line 115 "qregexpparser.y"
+#line 105 "qregexpparser.y"
 { yyval.regexp = yyvsp[-1].regexp; ;
     break;}
 case 12:
-#line 116 "qregexpparser.y"
+#line 106 "qregexpparser.y"
 { 
          yyval.regexp = new LookAheadRegExp( LookAheadRegExp::POSITIVE, yyvsp[-1].regexp );
        ;
     break;}
 case 13:
-#line 119 "qregexpparser.y"
+#line 109 "qregexpparser.y"
 {
          yyval.regexp = new LookAheadRegExp( LookAheadRegExp::NEGATIVE, yyvsp[-1].regexp );
        ;
     break;}
 case 14:
-#line 122 "qregexpparser.y"
+#line 112 "qregexpparser.y"
 { yyval.regexp = yyvsp[0].regexp; ;
     break;}
 case 15:
-#line 123 "qregexpparser.y"
+#line 113 "qregexpparser.y"
 { yyval.regexp = yyvsp[0].regexp; ;
     break;}
 case 16:
-#line 124 "qregexpparser.y"
+#line 114 "qregexpparser.y"
 { yyval.regexp = new PositionRegExp( PositionRegExp::ENDLINE ); ;
     break;}
 case 17:
-#line 125 "qregexpparser.y"
+#line 115 "qregexpparser.y"
 { yyval.regexp = new PositionRegExp( PositionRegExp::BEGLINE ); ;
     break;}
 case 18:
-#line 126 "qregexpparser.y"
+#line 116 "qregexpparser.y"
 { yyval.regexp = new DotRegExp(); ;
     break;}
 case 19:
-#line 127 "qregexpparser.y"
+#line 117 "qregexpparser.y"
 { qDebug("Backreferences in the regexp is not yet supported"); ;
     break;}
 case 20:
-#line 128 "qregexpparser.y"
+#line 118 "qregexpparser.y"
 { yyval.regexp = new PositionRegExp( PositionRegExp::WORDBOUNDARY ); ;
     break;}
 case 21:
-#line 129 "qregexpparser.y"
+#line 119 "qregexpparser.y"
 { yyval.regexp = new PositionRegExp( PositionRegExp::NONWORDBOUNDARY ); ;
     break;}
 case 22:
-#line 132 "qregexpparser.y"
+#line 122 "qregexpparser.y"
 { yyval.regexp = new TextRegExp( QString().sprintf("%c",yyvsp[0].ch)); ;
     break;}
 case 23:
-#line 133 "qregexpparser.y"
+#line 123 "qregexpparser.y"
 { yyval.regexp = new TextRegExp( QString().sprintf("%c",yyvsp[0].ch)); ;
     break;}
 }
@@ -1109,11 +1099,10 @@ yyerrhandle:
 #endif    
   return 1;
 }
-#line 136 "qregexpparser.y"
+#line 126 "qregexpparser.y"
 
 
-bool parse( QString qstr, const CompoundInfo& ci ) {
-  _ci = ci;
+bool parse( QString qstr ) {
   _index = 0;
   parseResult = 0;
   setParseData( qstr );

@@ -11,6 +11,7 @@
 class RegExpScrolledEditorWindow;
 class QLineEdit;
 class InfoPage;
+class UserDefinedRegExps;
 
 /**
    Widget used to build a regular expression
@@ -53,7 +54,7 @@ private:
   QLabel* _error;
   QPtrStack<RegExp> _undoStack;
   QPtrStack<RegExp> _redoStack;
-  CompoundInfo _ci;
+  UserDefinedRegExps*  _userRegExps;
 };
 #endif
 
