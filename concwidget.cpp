@@ -43,7 +43,7 @@ ConcWidget::ConcWidget( RegExpEditorWindow* editorWindow, ConcWidget* origConc,
 }
 
 ConcWidget::ConcWidget( ConcRegExp* regexp, RegExpEditorWindow* editorWindow,
-            QWidget* parent, const char* name = 0) 
+            QWidget* parent, const char* name ) 
   :MultiContainerWidget( editorWindow, parent, name == 0 ? "concwidget" : name )
 {
   init();

@@ -12,8 +12,8 @@ class KMultiFormListBoxEntry;
 */
 class WindowListboxItem :public QListBoxText 
 {
-  friend WidgetWindow;
-  friend KMultiFormListBoxWindowed;
+  friend class WidgetWindow;
+  friend class KMultiFormListBoxWindowed;
 public:
   WindowListboxItem(QListBox *, QString, WidgetWindow *);
   ~WindowListboxItem();

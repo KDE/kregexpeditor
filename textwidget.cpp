@@ -2,6 +2,7 @@
 #include "textregexp.h"
 #include "selectablelineedit.h"
 #include <qlayout.h>
+#include <qcursor.h>
 TextWidget::TextWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                        const char *name)
   :RegExpWidget(editorWindow, parent, name)
@@ -10,7 +11,7 @@ TextWidget::TextWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
 }
 
 TextWidget::TextWidget( TextRegExp* regexp,  RegExpEditorWindow* editorWindow,
-            QWidget* parent, const char* name = 0)
+            QWidget* parent, const char* name )
   : RegExpWidget( editorWindow, parent, name )
 {
   init(regexp->text());

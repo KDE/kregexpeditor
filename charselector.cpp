@@ -5,6 +5,7 @@
 #include <klocale.h>
 #include <qcombobox.h>
 #include <qhbox.h>
+#include <qstringlist.h>
 
 /**
    In the class CharSelector, three LimitedCharLineEdit are used.
@@ -122,6 +123,7 @@ QString CharSelector::text() const
     qWarning("Internal error: %s:%d", __FILE__, __LINE__);
     return QString::null;
   }
+  return QString::null;
 }
 
 void CharSelector::setText( QString text )
@@ -191,6 +193,7 @@ QString CharSelector::regexpStr() const
     qWarning("Internal error: %s:%d", __FILE__, __LINE__);
     return QString::null;
   }    
+  return QString::null;
 }
 
 #include "charselector.moc"

@@ -33,10 +33,9 @@ libkregexpeditorgui_la_SOURCES = kregexpeditorgui.cpp editorwindow.cpp\
 libkregexpeditorgui_la_LDFLAGS = $(all_libraries) -module -no-undefined
 libkregexpeditorgui_la_LIBADD = KMultiFormListBox/libkmultiformlistbox.la \
                                 KWidgetStreamer/libkwidgetstreamer.la \
-                                $(LIB_KDEUI) $(LIB_QT) $(LIB_KFILE) -lkregexpeditor
+                                $(LIB_KFILE) -lkregexpeditor
 
 METASOURCES = AUTO
-KDE_CXXFLAGS = -g
 
 service_DATA = kregexpeditorgui.desktop
 servicedir = $(kde_servicesdir)

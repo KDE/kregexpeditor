@@ -110,6 +110,7 @@ RegExpWidget* WidgetFactory::createWidget( RegExp* regexp, RegExpEditorWindow* e
   else {
     qFatal("%s:%d Internal Error: Unknown RegExp type", __FILE__, __LINE__);
   }
+  return 0;
 }
 
 RegExp* WidgetFactory::createRegExp( QDomElement node, const QString& version )
@@ -156,6 +157,7 @@ RegExp* WidgetFactory::createRegExp( QDomElement node, const QString& version )
     delete regexp;
     return 0;
   }
+  return 0;
 }
 
 RegExp* WidgetFactory::createRegExp( QString str )

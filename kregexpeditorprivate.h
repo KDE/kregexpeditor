@@ -12,11 +12,6 @@ class RegExpScrolledEditorWindow;
 class QLineEdit;
 class InfoPage;
 
-// ------------------ FIX
-class BackRefId;
-typedef QValueList<BackRefId> RegExpIdList;
-//-------------------
-
 /**
    Widget used to build a regular expression
 
@@ -30,23 +25,25 @@ Q_OBJECT
 public:
   KRegExpEditorPrivate( QWidget *parent, const char *name = 0 );
   QString regexp();
-  bool canUndo() const;
-  bool canRedo() const;
-
-public: // for use for KRegexpReplace
-  RegExpIdList backRefIds();
-
-public slots:
-  void slotRedo();
-  void slotUndo();
 
 protected slots:
   void slotUpdateEditor( const QString & );
   void slotUpdateLineEdit();
   void slotShowEditor();
 
+public slots:
+  void slotUndo();
+  void slotRedo();
+  void slotSetRegexp( QString regexp );
+
+signals:
+  void canUndo( bool );
+  void canRedo( bool );
+  void changes( bool );
+
 protected:  
   void recordUndoInfo();
+  void emitUndoRedoSignals();
 
 private:
 	RegExpScrolledEditorWindow* _scrolledEditorWindow;

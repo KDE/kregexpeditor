@@ -24,21 +24,14 @@ KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent, const char *name)
   QHBoxLayout* layout = new QHBoxLayout( this );
   _editor = new KRegExpEditorPrivate( this, "_editor" );
   layout->addWidget( _editor );
+  connect( _editor, SIGNAL( canUndo(bool) ), this, SIGNAL( canUndo(bool) ) );
+  connect( _editor, SIGNAL( canRedo(bool) ), this, SIGNAL( canRedo(bool) ) );
+  connect( _editor, SIGNAL( changes(bool) ), this, SIGNAL( changes(bool) ) );  
 }
 
 QString KRegExpEditorGUI::regexp()
 {
   return _editor->regexp();
-}
-
-bool KRegExpEditorGUI::canUndo() const
-{
-  return _editor->canUndo();
-}
-
-bool KRegExpEditorGUI::canRedo() const
-{
-  return _editor->canRedo();
 }
 
 void KRegExpEditorGUI::slotRedo()
@@ -51,6 +44,10 @@ void KRegExpEditorGUI::slotUndo()
   _editor->slotUndo();
 }
 
+void KRegExpEditorGUI::slotSetRegexp( QString regexp )
+{
+  _editor->slotSetRegexp( regexp );
+}
 
 extern "C" {
   void* init_libkregexpeditorgui() 

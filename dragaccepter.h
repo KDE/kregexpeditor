@@ -10,7 +10,7 @@ class MultiContainerWidget;
 */
 class DragAccepter :public RegExpWidget
 {
-  friend MultiContainerWidget;
+  friend class MultiContainerWidget;
   
 public:
   DragAccepter(RegExpEditorWindow* editorWindow, RegExpWidget *parent,

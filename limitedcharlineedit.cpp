@@ -17,9 +17,9 @@ public:
   {
     if ( _mode == LimitedCharLineEdit::NORMAL ||
          (_mode == LimitedCharLineEdit::HEX && 
-          QRegExp(QString::fromLocal8Bit("^[0-9A-Ea-e]*$")).find( txt,0 ) != -1) ||
+          QRegExp(QString::fromLocal8Bit("^[0-9A-Ea-e]*$")).match( txt,0 ) != -1) ||
          (_mode == LimitedCharLineEdit::OCT && 
-          QRegExp(QString::fromLocal8Bit("^[0-7]*$")).find( txt,0 ) != -1 ) ) {
+          QRegExp(QString::fromLocal8Bit("^[0-7]*$")).match( txt,0 ) != -1 ) ) {
       return QValidator::Acceptable;
     }
     else {

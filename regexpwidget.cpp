@@ -9,6 +9,7 @@
 #include <qpainter.h>
 #include <qfontmetrics.h>
 #include <qapplication.h>
+#include <qcursor.h>
 #include <kdebug.h>
 #include <klocale.h>
 #include "concwidget.h"

@@ -12,6 +12,7 @@
 #include "infopage.h"
 #include <kapp.h>
 #include <qsplitter.h>
+#include <qapplication.h>
 
 extern bool parse( QString str, const CompoundInfo& ci );
 extern RegExp* parseData();
@@ -72,10 +73,12 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   
   connect( _regexpEdit, SIGNAL(textChanged( const QString& ) ), this, SLOT( slotUpdateEditor( const QString & ) ) );
   connect( _scrolledEditorWindow, SIGNAL( change() ), this, SLOT( slotUpdateLineEdit() ) );
+  connect( _regexpEdit, SIGNAL(textChanged( const QString& ) ), this, SLOT( slotShowEditor() ) );
 
   // Push an initial empty element on the stack.
   _undoStack.push( _scrolledEditorWindow->regExp() );
   _redoStack.setAutoDelete( true );
+
 }
 
 QString KRegExpEditorPrivate::regexp()
@@ -90,7 +93,7 @@ void KRegExpEditorPrivate::slotUpdateEditor( const QString & txt)
 {
   if ( _updating )
     return;
-  
+
   _updating = true;
   bool ok = parse( txt, _ci );
   RegExp* result = parseData();
@@ -135,17 +138,8 @@ void KRegExpEditorPrivate::recordUndoInfo()
   if ( regexp->toXmlString() != _undoStack.top()->toXmlString() ) {
     _undoStack.push( regexp );
     _redoStack = QStack<RegExp>();
+    emitUndoRedoSignals();
   }
-}
-
-bool KRegExpEditorPrivate::canUndo() const
-{
-  return (_undoStack.count() > 1 );
-}
-
-bool KRegExpEditorPrivate::canRedo() const
-{
-  return (_redoStack.count() != 0);
 }
 
 void KRegExpEditorPrivate::slotRedo()
@@ -154,6 +148,7 @@ void KRegExpEditorPrivate::slotRedo()
     _undoStack.push(_redoStack.pop());
     _scrolledEditorWindow->slotSetRegExp( _undoStack.top() );
     slotUpdateLineEdit();
+    emitUndoRedoSignals();
   }
 }
 
@@ -163,6 +158,7 @@ void KRegExpEditorPrivate::slotUndo()
     _redoStack.push(_undoStack.pop());
     _scrolledEditorWindow->slotSetRegExp( _undoStack.top() );
     slotUpdateLineEdit();
+    emitUndoRedoSignals();
   }
 }
 
@@ -174,4 +170,18 @@ void KRegExpEditorPrivate::slotShowEditor()
     _scrolledEditorWindow->show();
   }
 }
+
+void KRegExpEditorPrivate::emitUndoRedoSignals()
+{
+  emit canUndo( _undoStack.count() > 1 );
+  emit changes( _undoStack.count() > 1 );
+  emit canRedo( _redoStack.count() > 0 );
+}
+
+void KRegExpEditorPrivate::slotSetRegexp( QString regexp )
+{
+  _regexpEdit->setText( regexp );
+}
+
+
 #include "kregexpeditorprivate.moc"

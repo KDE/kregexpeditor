@@ -371,7 +371,7 @@ QDataStream& operator>>(QDataStream& stream, CharacterEdits& edit )
   return stream;
 }
 
-SingleEntry::SingleEntry(QWidget* parent, const char* name = 0 )
+SingleEntry::SingleEntry(QWidget* parent, const char* name )
   :KMultiFormListBoxEntry( parent, name )
 {
   QHBoxLayout* layout = new QHBoxLayout( this, 3, 6 );
@@ -414,7 +414,7 @@ QString RangeEntry::regexpToStr() const
 
 
 
-RangeEntry::RangeEntry(QWidget* parent, const char* name = 0 )
+RangeEntry::RangeEntry(QWidget* parent, const char* name )
   :KMultiFormListBoxEntry( parent, name )
 {
   QHBoxLayout* layout = new QHBoxLayout( this, 3, 6 );

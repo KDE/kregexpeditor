@@ -6,8 +6,8 @@
 #include <qlabel.h>
 #include <qvaluestack.h>
 #include <qcstring.h>
+#include <klibloader.h>
 #include <kregexpeditor.h>
-#include <kregexpeditorfactory.h>
 
 class KRegExpEditorPrivate;
 
@@ -24,31 +24,32 @@ Q_OBJECT
 public:
   KRegExpEditorGUI( QWidget *parent, const char *name = 0 );
   virtual QString regexp();
-  virtual bool canUndo() const;
-  virtual bool canRedo() const;
-
   static const QString version;
 
+signals:
+  void canUndo( bool );
+  void canRedo( bool );
+  void changes();
 
 public slots:
   void slotRedo();
   void slotUndo();
+  void slotSetRegexp( QString regexp );
 
 private:
 	KRegExpEditorPrivate* _editor;
 };
 
 
-class KRegExpEditorFactoryImpl :public KRegExpEditorFactory 
+class KRegExpEditorFactoryImpl :public KLibFactory 
 {
-public:
-  KRegExpEditorFactoryImpl( QWidget* parent = 0, const char* name = 0 ) : KRegExpEditorFactory( parent, name ) 
+protected:
+  virtual QObject* createObject( QObject* parent, const char* name, const char *className,
+                                 const QStringList & /*args*/ ) 
   {
-  }
-  
-  KRegExpEditorGUI* create( QWidget* parent, const char* name ) 
-  {
-    return new KRegExpEditorGUI( parent, name );
+    if ( strcmp( className, "KRegExpEditor" ) != 0 )
+      return 0;
+    return new KRegExpEditorGUI( dynamic_cast<QWidget *>( parent ), name );
   }
 };
 

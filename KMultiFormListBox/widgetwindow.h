@@ -12,8 +12,8 @@
 */
 class WidgetWindow :public KDialogBase
 {
-  friend KMultiFormListBoxWindowed;
-  friend WindowListboxItem;
+  friend class KMultiFormListBoxWindowed;
+  friend class WindowListboxItem;
   
   WidgetWindow(KMultiFormListBoxFactory *, KListBox *);
   WidgetWindow(KMultiFormListBoxFactory *, KMultiFormListBoxEntry *widget, KListBox *);

@@ -25,7 +25,7 @@ class KMultiFormListBoxMultiVisible :public QScrollView, KMultiFormListBoxShower
 
 Q_OBJECT
 
-friend KMultiFormListBox;
+friend class KMultiFormListBox;
   
 private:
   /**

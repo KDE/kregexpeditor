@@ -52,7 +52,7 @@ KMultiFormListBoxEntryList KMultiFormListBoxMultiVisible::elements()
 {
   KMultiFormListBoxEntryList res;
   for (QWidget *child = elms->first(); child; child=elms->next()) {
-    if (child->name() != string("seperator")) {
+    if (strcmp(child->name(),"seperator") != 0) {
       res.append((KMultiFormListBoxEntry *) child);
     }
   }
@@ -87,7 +87,7 @@ void KMultiFormListBoxMultiVisible::updateClipperContent()
   // calculate the required size.
   for (QWidget *child = elms->first(); child; child=elms->next()) {
     maxWidth = QMAX(maxWidth, child->sizeHint().width());
-    if (child->name() != string("seperator")) {
+    if (strcmp(child->name(), "seperator") != 0) {
       totalHeight += child->sizeHint().height();
       count++;
     }
@@ -107,7 +107,7 @@ void KMultiFormListBoxMultiVisible::updateClipperContent()
   int yPos = 0;
   for (QWidget *child = elms->first(); child; child=elms->next()) {
     int h;
-    if (child->name() != string("seperator")) {
+    if ( strcmp(child->name(),"seperator") != 0) {
       h += extra;
       h = child->sizeHint().height();
     }
@@ -148,7 +148,7 @@ void KMultiFormListBoxMultiVisible::delElement(QWidget *elm)
 {
   int index = elms->find(elm);
   QWidget *next = elms->at(index+1);
-  if (next->name() == string("seperator")) {
+  if (strcmp(next->name(),"seperator") != 0) {
     elms->removeRef(next);
     removeChild(next);
   }
@@ -212,7 +212,7 @@ void KMultiFormListBoxMultiVisible::showIndexList(KMultiFormListBoxEntry *elm)
   
   // Insert the elements into the menu item.
   for (QWidget *child = elms->first(); child; child=elms->next()) {
-    if (child->name() != string("seperator")) {
+    if ( strcmp(child->name(), "seperator") != 0) {
       QString txt = ((KMultiFormListBoxEntry *) child)->idxString();
       menu->insertItem(txt);
     }
@@ -228,7 +228,7 @@ void KMultiFormListBoxMultiVisible::showIndexList(KMultiFormListBoxEntry *elm)
 
   if (index != -1) {
     for (QWidget *child = elms->first(); child; child=elms->next()) {
-      if (child->name() != string("seperator")) {
+      if ( strcmp(child->name(), "seperator") != 0) {
         
         if (index == 0) {
           showWidget((KMultiFormListBoxEntry *) child);

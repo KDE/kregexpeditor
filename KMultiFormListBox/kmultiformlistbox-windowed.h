@@ -21,7 +21,7 @@ class KMultiFormListBoxWindowed  :public QWidget, KMultiFormListBoxShower {
 
 Q_OBJECT
 
-friend KMultiFormListBox;
+friend class KMultiFormListBox;
   
 private:
   KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent, 

@@ -30,10 +30,12 @@ QDomNode PositionRegExp::toXml( QDomDocument* doc ) const
   case WORDBOUNDARY: return doc->createElement(QString::fromLocal8Bit( "WordBoundary" ) );
   case NONWORDBOUNDARY: return doc->createElement(QString::fromLocal8Bit( "NonWordBoundary" ) );
   }
+  return QDomNode();
 }
 
 bool PositionRegExp::load( QDomElement top, const QString& /*version*/ ) 
 {
   // Nothing to do.
+  return true;
 }
 
