@@ -6,338 +6,427 @@
 
 <book lang="&language;">
 
-<bookinfo>
-<title> The Regular Expresion Editor Manual</title>
+  <bookinfo>
+    <title> The Regular Expresion Editor Manual</title>
 
-<authorgroup>
-<author>
-<firstname>Jesper K.</firstname>
-<surname>Pedersen</surname>
-<affiliation><address><email>blackie@kde.org</email></address></affiliation>
-</author>
-</authorgroup>
+    <authorgroup>
+      <author>
+        <firstname>Jesper K.</firstname>
+        <surname>Pedersen</surname>
+        <affiliation><address><email>blackie@kde.org</email></address></affiliation>
+      </author>
+    </authorgroup>
 
-<date>2001-07-03</date>
-<releaseinfo>0.1</releaseinfo>
+    <date>2001-07-03</date>
+    <releaseinfo>0.1</releaseinfo>
 
-<legalnotice>&underFDL;</legalnotice>
+    <legalnotice>&underFDL;</legalnotice>
 
-<copyright>
-<year>2001</year>
-<holder>Jesper K. Pedersen</holder>
-</copyright>
+    <copyright>
+      <year>2001</year>
+      <holder>Jesper K. Pedersen</holder>
+    </copyright>
 
-<abstract>
-<para>This Handbook describes the Regular Expression Editor widget</para>
-</abstract>
+    <abstract>
+      <para>This Handbook describes the Regular Expression Editor widget</para>
+    </abstract>
 
-<keywordset>
-<keyword>KDE</keyword>
-<keyword>regular expression</keyword>
-</keywordset>
-</bookinfo>
+    <keywordset>
+      <keyword>KDE</keyword>
+      <keyword>regular expression</keyword>
+    </keywordset>
+  </bookinfo>
 
-<!-- ====================================================================== -->
-<!--                               Introduction                             -->
-<!-- ====================================================================== -->
-<chapter id="introduction">
-<title>Introduction</title>
-
-
-<para>
-The regular expression editor is an editor for editing regular expression
-in a graphical style (in contrast to the ascii syntax). Traditionally
-regular expressions have been typed in the ascii syntax, which for example
-looks like <literal>^.*kde\b</literal>. The major drawback of
-this style is:
-<itemizedlist>
-  <listitem><para>It is hard to understand for
-  non-programmers.</para></listitem>
-
-  <listitem><para>It requires that you <emphasis>escapes</emphasis>
-  certain symbols (to match a star for example, you need to type
-  <literal>\*</literal>). </para></listitem>
-
-  <listitem><para>It requires that you remember rules for
-  <emphasis>precedence</emphasis> (What does <literal>x|y*</literal>
-  match? a single <literal>x</literal> or a number of
-  <literal>y</literal>, <emphasis>OR</emphasis> a number of
-  <literal>x</literal> and <literal>y</literal>'s mixed?)</para></listitem>
-</itemizedlist>
-</para>
-
-<para>
-The regular expression editor, on the other hand, lets you
-<emphasis>draw</emphasis> your regular expression in an unambiguous
-way. The editor solves at least item two and three above. It might not make
-regular expressions available for the non-programmers, though only tests by
-users can tell that. So, are you a non programmer, which have gained the
-power of regular expression from this editor, then please 
-<ulink url="mailto:blackie@kde.org">let me know</ulink>.
-</para>
-
-</chapter>
-
-<!-- ====================================================================== -->
-<!--                       What is a Regular Expression                     -->
-<!-- ====================================================================== -->
-<chapter id="whatIsARegExp">
-<title>What is a Regular Expression</title>
-
-<para>Regular expression is a way to specify
-<emphasis>conditions</emphasis> to be fulfilled for a situation in
-mind. Normally when you search in a text editor you specify the text to
-search for <emphasis>literally</emphasis>, using regular expression, on the
-other hand, you tell what a given match would look like. Examples of this
-includes <emphasis>I'm searching for the word KDE, but only at the
-beginning of the line</emphasis>, or <emphasis>I'm searching for the word
-<literal>the</literal>, but it must stand on its own</emphasis>, or
-<emphasis>I'm searching for files starting with the word
-<literal>test</literal>, followed by a number of digits, for example
-<literal>test12</literal>, <literal>test107</literal> and
-<literal>test007</literal></emphasis></para> 
-
-<para>You build regular expressions from sub regular expression, just like
-you build large Lego toys from smaller subparts. As in the Lego world,
-there are a number of basic building blocks. In the following I will
-describe each of these basic building blocks using a number of
-examples.</para>
-
-<example>
-  <title>Searching for normal text.</title>
-  <para>If you just want to search for a given text, then regular
-  expression is definitely not a good choice. The reason for this is that
-  regular expressions assign special meaning to some characters. This
-  includes the following characters: <literal>.*|$</literal>. Thus if you want to
-  search for the text <literal>kde.</literal> (i.e. the characters
-  <literal>kde</literal> followed by a period), then you would need to
-  specify this as <literal>kde\.</literal><footnote><para>The regular
-  expression editor solves this problem by taking care of escape rules for
-  you.</para></footnote> Writing <literal>\.</literal> rather than just
-  <literal>.</literal> is called <emphasis>escaping</emphasis>.
-</para>
-</example>
-
-<example>
-  <title>Matching URL's</title>
-  <para>When you select something looking like a URL in KDE, then the
-  program <command>klipper</command> will offer to start
-  <command>konqueror</command> with the selected URL.</para>
-
-  <para><command>Klipper</command> does this by matching the selection
-  against several different regular expressions, when one of the regular
-  expressions matches, the accommodating command will be offered.</para>
-  
-  <para>The regular expression for URLs says (among other things), that the
-  selection must start with the text <literal>http://</literal>. This is
-  described using regular expressions by prefixing the text
-  <literal>http://</literal> with a hat (the <literal>^</literal>
-  character).</para>
-
-  <para>The above is an example of matching positions using regular
-  expressions. Similar, the position <emphasis>end-of-line</emphasis> can
-  be matched using the character <literal>$</literal> (i.e. a dollar
-  sign).</para>
-</example>
-
-<example>
-  <title>Searching for the word <literal>the</literal>, but not
-  <emphasis>the</emphasis><literal>re</literal>,
-  <literal>brea</literal><emphasis>the</emphasis> or
-  <literal>ano</literal><emphasis>the</emphasis><literal>r</literal></title>
-  <para>Two extra position types can be matches in the above way,
-  namely <emphasis>the position at a word boundary</emphasis>, and
-  <emphasis>the position at a <emphasis>non</emphasis>-word
-  boundary</emphasis>. The positions are specified using the text
-  <literal>\b</literal> (for word-boundary) and <literal>\B</literal> (for
-  non-word boundary)<emphasis></emphasis></para>
-
-  <para>Thus, searching for the word <literal>the</literal> can be done
-  using the regular expression <literal>\bthe\b</literal>. This specifies
-  that we are searching for <literal>the</literal> with no letters on each
-  side of it (i.e. with a word boundary on each side)</para>
-
-  <para>The four position matching regular expressions are inserted in the
-  regular expression editor using <link linkend="positiontool">four
-  different positions tool</link></para>
-</example>
-
-<example>
-  <title>Searching for either <literal>this</literal> or <literal>that</literal></title>
-  <para>Imagine that you want to run through your document searching for
-  either the word <literal>this</literal> or the word
-  <literal>that</literal>. With a normal search method you could do this in
-  two sweeps, the first time around, you would search for
-  <literal>this</literal>, and the second time around you would search for
-  <literal>that</literal>.</para>
-
-  <para>Using regular expression searches you would search for both in the
-  same sweep. You do this by searching for
-  <literal>this|that</literal>. I.e. separating the two words with a
-  vertical bar.<footnote><para>Note on each side of the vertical bar is a
-  regular expression, so this feature is not only for searching for two
-  different pieces of text, but for searching for two different regular
-  expressions.</para></footnote></para>
-
-  <para>In the regular expression editor you do not write the vertical bar
-  yourself, but instead select the <link linkend="altntool">alternative
-  tool</link>, and inserts the sub regular expressions above each other.</para>
-</example>
-
-<example>
-  <title>Matching anything</title>
-  <para>Regular expressions are often compared to wildcard matching in the
-  shell - that is the capability to specify a number of files using the
-  asterisk. You will most likely recognize wildcard matching from the
-  following examples: 
-  <itemizedlist>
-  <listitem><para><literal>rm *~</literal> - here <literal>*~</literal> is
-  the shell wildcard matching every file ending in <literal>~</literal></para></listitem>
-  <listitem><para>cat test??.res - matching every file starting with
-  <literal>test</literal> followed by two arbitrary characters, and finally
-  followed by the test <literal>.res</literal></para></listitem>
-  </itemizedlist>
- </para>
-
-  <para>In the shell the asterisk matches any character any number of
-  times. In other word, the asterisk matches <emphasis>anything</emphasis>.
-  This is written like <literal>.*</literal> with regular expression
-  syntax. The dot matches any single character, i.e. just
-  <emphasis>one</emphasis> character, and the asterisk, says that the
-  regular expression prior to it should be matched any number of
-  times. Together this says any single character any number of
-  times.</para>
-
-  <para>This may seem overly complicated, but when you get the larger
-  picture you will see the power. Let me show you another basic regular
-  expression: <literal>a</literal>. The letter <literal>a</literal> on its
-  own is a regular expression that matches a single letter, namely the
-  letter <literal>a</literal>. If we combine this with the asterisk,
-  i.e. <literal>a*</literal>, then we have a regular expression matching
-  any number of a's.</para>
-
-  <para>We can combine several regular expression after each
-  other, for example <literal>ba(na)*</literal>. 
-  <footnote><para><literal>(na)*</literal> just says that what is inside
-  the parenthesis is repeated any number of times.</para></footnote>
-  Imagine you had typed this regular expression into the search field in a
-  text editor, then you would have found the following words (among
-  others): <literal>ba</literal>, <literal>bana</literal>,
-  <literal>banana</literal>, <literal>bananananananana</literal>
-  </para>
-
-  <para>Given the information above, it hopefully isn't hard for you to write the
-  shell wildcard <literal>test??.res</literal> as a regular expression
-  Answer: <literal>test..\.res</literal>. The dot on its own is any
-  character. To match a single dot you must write
-  <literal>\.</literal><footnote><para>This is called escaping</para></footnote>. In
-  other word, the regular expression <literal>\.</literal> matches a dot,
-  while a dot on its own matches any character. </para>
-
-  <para>In the regular expression editor, repeated regular expression is
-  created using the <link linkend="repeattool">repeat tool</link> </para>
-</example>
-
-<example>
-  <title>Replacomg <literal>&amp;</literal> with <literal>&amp;amb;</literal> in
-  HTML document</title>
-  <para>In HTML the special character <literal>&amp;</literal> must be
-  written as <literal>&amp;amp;</literal> - this is similar to escaping in
-  regular expression.</para>
-
-  <para>Imagine that you have written an HTML document in a normal editor
-  (e.g. XEmacs or Kate), and you totally forgot about this rule. What you
-  would do when realized your mistake was to replace every occurrences of
-  <literal>&amp;</literal> with <literal>&amp;amp;</literal>.</para>
-
-  <para>This can easily be done using normal search and replace, there is,
-  however, one glitch. Imagine that you did remember this rule -
-  <emphasis>just a bit</emphasis> - and did it right some of the
-  places. Replacing unconditional would result in
-  <literal>&amp;amp;</literal> would be replaced with
-  <literal>&amp;amp;amp;</literal></para>
-
-  <para>What you really want to say is that <literal>&amp;</literal> should
-  only be placed if it is <emphasis>not</emphasis> followed by the letters
-  <literal>amp;</literal>. You can do this using regular expressions using
-  <emphasis>positive lookahead</emphasis>. </para>
-
-  <para>The regular expression, which only matches an ampersand if it is
-  not followed by the letters <literal>amp;</literal> looks as follows:
-  <literal>&amp;(?!amp;)</literal>. This is, of course, easier to read using
-  the regular expression editor, where you would use the 
-  <link linkend="lookaheadtools">lookahead tools</link>.</para>
-</example>
-
-</chapter>
-
-<!-- ====================================================================== -->
-<!--                    Using the Regular Expresion Editor                  -->
-<!-- ====================================================================== -->
-<chapter id="theEditor">
-<title>Using the Regular Expresion Editor</title>
-
-<para>
-Here comes a description of the Regular Expression Editor.
-</para>
-
-<para id="positiontool"></para>
-
-<para id="altntool"></para>
-
-<para id="repeattool"></para>
-
-<para id="lookaheadtools"></para>
-</chapter>
+  <!-- ====================================================================== -->
+  <!--                               Introduction                             -->
+  <!-- ====================================================================== -->
+  <chapter id="introduction">
+    <title>Introduction</title>
 
 
+    <para>
+      The regular expression editor is an editor for editing regular expression
+      in a graphical style (in contrast to the ascii syntax). Traditionally
+      regular expressions have been typed in the ascii syntax, which for example
+      looks like <literal>^.*kde\b</literal>. The major drawback of
+      this style is:
+      <itemizedlist>
+        <listitem><para>It is hard to understand for
+            non-programmers.</para></listitem>
 
-<!-- ====================================================================== -->
-<!--                  Reporting a bug and Suggesting Features               -->
-<!-- ====================================================================== -->
-<chapter id="bugreport">
-  <title>Reporting bugs and Suggesting Features</title>
-  <para>Bugs reported and features are reported through the 
-  <ulink url="http://bugs.kde.org/">KDE Bug Tracking System</ulink>. <emphasis
-  role="strong">Before</emphasis> you report a bug or suggest a feature,
-  please check that it hasn't already been 
-  <ulink url="http://bugs.kde.org/db/pa/lkregexpeditor.html">reported/suggested</ulink></para>
-</chapter>
+        <listitem><para>It requires that you <emphasis>escapes</emphasis>
+            certain symbols (to match a star for example, you need to type
+            <literal>\*</literal>). </para></listitem>
 
-<!-- ====================================================================== -->
-<!--                                 FAQ                                    -->
-<!-- ====================================================================== -->
-<chapter id="faq">
-<title>Frequently Asked Questions</title>
+        <listitem><para>It requires that you remember rules for
+            <emphasis>precedence</emphasis> (What does <literal>x|y*</literal>
+            match? a single <literal>x</literal> or a number of
+            <literal>y</literal>, <emphasis>OR</emphasis> a number of
+            <literal>x</literal> and <literal>y</literal>'s mixed?)</para></listitem>
+      </itemizedlist>
+    </para>
 
-<sect1>
-<title>Does the regular expression editor support back references</title>
-<para></para>
-</sect1>
+    <para>
+      The regular expression editor, on the other hand, lets you
+      <emphasis>draw</emphasis> your regular expression in an unambiguous
+      way. The editor solves at least item two and three above. It might not make
+      regular expressions available for the non-programmers, though only tests by
+      users can tell that. So, are you a non programmer, which have gained the
+      power of regular expression from this editor, then please 
+      <ulink url="mailto:blackie@kde.org">let me know</ulink>.
+    </para>
 
-<sect1>
-<title>Does the regular expression editor support showing matches</title>
-<para></para>
-</sect1>
-</chapter>
+  </chapter>
 
-<!-- ====================================================================== -->
-<!--                           Credits and Licenses                         -->
-<!-- ====================================================================== -->
-<chapter id="credits-and-license">
-<title>Credits and Licenses</title>
+  <!-- ====================================================================== -->
+  <!--                       What is a Regular Expression                     -->
+  <!-- ====================================================================== -->
+  <chapter id="whatIsARegExp">
+    <title>What is a Regular Expression</title>
 
-<para>
-Documentation is copyright 2001, Jesper K. Pedersen
-<email>blackie@kde.org</email>
-</para>
+    <para>Regular expression is a way to specify
+      <emphasis>conditions</emphasis> to be fulfilled for a situation in
+      mind. Normally when you search in a text editor you specify the text to
+      search for <emphasis>literally</emphasis>, using regular expression, on the
+      other hand, you tell what a given match would look like. Examples of this
+      includes <emphasis>I'm searching for the word KDE, but only at the
+        beginning of the line</emphasis>, or <emphasis>I'm searching for the word
+        <literal>the</literal>, but it must stand on its own</emphasis>, or
+      <emphasis>I'm searching for files starting with the word
+        <literal>test</literal>, followed by a number of digits, for example
+        <literal>test12</literal>, <literal>test107</literal> and
+        <literal>test007</literal></emphasis></para> 
+
+    <para>You build regular expressions from sub regular expression, just like
+      you build large Lego toys from smaller subparts. As in the Lego world,
+      there are a number of basic building blocks. In the following I will
+      describe each of these basic building blocks using a number of
+      examples.</para>
+
+    <example>
+      <title>Searching for normal text.</title>
+      <para>If you just want to search for a given text, then regular
+        expression is definitely not a good choice. The reason for this is that
+        regular expressions assign special meaning to some characters. This
+        includes the following characters: <literal>.*|$</literal>. Thus if you want to
+        search for the text <literal>kde.</literal> (i.e. the characters
+        <literal>kde</literal> followed by a period), then you would need to
+        specify this as <literal>kde\.</literal><footnote><para>The regular
+            expression editor solves this problem by taking care of escape rules for
+            you.</para></footnote> Writing <literal>\.</literal> rather than just
+        <literal>.</literal> is called <emphasis>escaping</emphasis>.
+      </para>
+    </example>
+
+    <example>
+      <title>Matching URL's</title>
+      <para>When you select something looking like a URL in KDE, then the
+        program <command>klipper</command> will offer to start
+        <command>konqueror</command> with the selected URL.</para>
+
+      <para><command>Klipper</command> does this by matching the selection
+        against several different regular expressions, when one of the regular
+        expressions matches, the accommodating command will be offered.</para>
+      
+      <para>The regular expression for URLs says (among other things), that the
+        selection must start with the text <literal>http://</literal>. This is
+        described using regular expressions by prefixing the text
+        <literal>http://</literal> with a hat (the <literal>^</literal>
+        character).</para>
+
+      <para>The above is an example of matching positions using regular
+        expressions. Similar, the position <emphasis>end-of-line</emphasis> can
+        be matched using the character <literal>$</literal> (i.e. a dollar
+        sign).</para>
+    </example>
+
+    <example>
+      <title>Searching for the word <literal>the</literal>, but not
+        <emphasis>the</emphasis><literal>re</literal>,
+        <literal>brea</literal><emphasis>the</emphasis> or
+        <literal>ano</literal><emphasis>the</emphasis><literal>r</literal></title>
+      <para>Two extra position types can be matches in the above way,
+        namely <emphasis>the position at a word boundary</emphasis>, and
+        <emphasis>the position at a <emphasis>non</emphasis>-word
+          boundary</emphasis>. The positions are specified using the text
+        <literal>\b</literal> (for word-boundary) and <literal>\B</literal> (for
+        non-word boundary)<emphasis></emphasis></para>
+
+      <para>Thus, searching for the word <literal>the</literal> can be done
+        using the regular expression <literal>\bthe\b</literal>. This specifies
+        that we are searching for <literal>the</literal> with no letters on each
+        side of it (i.e. with a word boundary on each side)</para>
+
+      <para>The four position matching regular expressions are inserted in the
+        regular expression editor using <link linkend="positiontool">four
+          different positions tool</link></para>
+    </example>
+
+    <example>
+      <title>Searching for either <literal>this</literal> or <literal>that</literal></title>
+      <para>Imagine that you want to run through your document searching for
+        either the word <literal>this</literal> or the word
+        <literal>that</literal>. With a normal search method you could do this in
+        two sweeps, the first time around, you would search for
+        <literal>this</literal>, and the second time around you would search for
+        <literal>that</literal>.</para>
+
+      <para>Using regular expression searches you would search for both in the
+        same sweep. You do this by searching for
+        <literal>this|that</literal>. I.e. separating the two words with a
+        vertical bar.<footnote><para>Note on each side of the vertical bar is a
+            regular expression, so this feature is not only for searching for two
+            different pieces of text, but for searching for two different regular
+            expressions.</para></footnote></para>
+
+      <para>In the regular expression editor you do not write the vertical bar
+        yourself, but instead select the <link linkend="altntool">alternative
+          tool</link>, and inserts the sub regular expressions above each other.</para>
+    </example>
+
+    <example>
+      <title>Matching anything</title>
+      <para>Regular expressions are often compared to wildcard matching in the
+        shell - that is the capability to specify a number of files using the
+        asterisk. You will most likely recognize wildcard matching from the
+        following examples: 
+        <itemizedlist>
+          <listitem><para><literal>rm *~</literal> - here <literal>*~</literal> is
+              the shell wildcard matching every file ending in <literal>~</literal></para></listitem>
+          <listitem><para>cat test??.res - matching every file starting with
+              <literal>test</literal> followed by two arbitrary characters, and finally
+              followed by the test <literal>.res</literal></para></listitem>
+        </itemizedlist>
+      </para>
+
+      <para>In the shell the asterisk matches any character any number of
+        times. In other word, the asterisk matches <emphasis>anything</emphasis>.
+        This is written like <literal>.*</literal> with regular expression
+        syntax. The dot matches any single character, i.e. just
+        <emphasis>one</emphasis> character, and the asterisk, says that the
+        regular expression prior to it should be matched any number of
+        times. Together this says any single character any number of
+        times.</para>
+
+      <para>This may seem overly complicated, but when you get the larger
+        picture you will see the power. Let me show you another basic regular
+        expression: <literal>a</literal>. The letter <literal>a</literal> on its
+        own is a regular expression that matches a single letter, namely the
+        letter <literal>a</literal>. If we combine this with the asterisk,
+        i.e. <literal>a*</literal>, then we have a regular expression matching
+        any number of a's.</para>
+
+      <para>We can combine several regular expression after each
+        other, for example <literal>ba(na)*</literal>. 
+        <footnote><para><literal>(na)*</literal> just says that what is inside
+            the parenthesis is repeated any number of times.</para></footnote>
+        Imagine you had typed this regular expression into the search field in a
+        text editor, then you would have found the following words (among
+        others): <literal>ba</literal>, <literal>bana</literal>,
+        <literal>banana</literal>, <literal>bananananananana</literal>
+      </para>
+
+      <para>Given the information above, it hopefully isn't hard for you to write the
+        shell wildcard <literal>test??.res</literal> as a regular expression
+        Answer: <literal>test..\.res</literal>. The dot on its own is any
+        character. To match a single dot you must write
+        <literal>\.</literal><footnote><para>This is called escaping</para></footnote>. In
+        other word, the regular expression <literal>\.</literal> matches a dot,
+        while a dot on its own matches any character. </para>
+
+      <para>In the regular expression editor, repeated regular expression is
+        created using the <link linkend="repeattool">repeat tool</link> </para>
+    </example>
+
+    <example>
+      <title>Replacomg <literal>&amp;</literal> with <literal>&amp;amb;</literal> in
+        HTML document</title>
+      <para>In HTML the special character <literal>&amp;</literal> must be
+        written as <literal>&amp;amp;</literal> - this is similar to escaping in
+        regular expression.</para>
+
+      <para>Imagine that you have written an HTML document in a normal editor
+        (e.g. XEmacs or Kate), and you totally forgot about this rule. What you
+        would do when realized your mistake was to replace every occurrences of
+        <literal>&amp;</literal> with <literal>&amp;amp;</literal>.</para>
+
+      <para>This can easily be done using normal search and replace, there is,
+        however, one glitch. Imagine that you did remember this rule -
+        <emphasis>just a bit</emphasis> - and did it right some of the
+        places. Replacing unconditional would result in
+        <literal>&amp;amp;</literal> would be replaced with
+        <literal>&amp;amp;amp;</literal></para>
+
+      <para>What you really want to say is that <literal>&amp;</literal> should
+        only be placed if it is <emphasis>not</emphasis> followed by the letters
+        <literal>amp;</literal>. You can do this using regular expressions using
+        <emphasis>positive lookahead</emphasis>. </para>
+
+      <para>The regular expression, which only matches an ampersand if it is
+        not followed by the letters <literal>amp;</literal> looks as follows:
+        <literal>&amp;(?!amp;)</literal>. This is, of course, easier to read using
+        the regular expression editor, where you would use the 
+        <link linkend="lookaheadtools">lookahead tools</link>.</para>
+    </example>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                    Using the Regular Expresion Editor                  -->
+  <!-- ====================================================================== -->
+  <chapter id="theEditor">
+    <title>Using the Regular Expresion Editor</title>
+
+    <para>
+      This chapter will tell you about how the regular expression editor works.
+    </para>
+
+    <sect1>
+      <title>The organization of the screen</title>
+
+      <mediaobject>
+        <imageobject><imagedata format="PNG" fileref="theEditor.png"/></imageobject>
+        <textobject>
+          <phrase>Here's a screenshot of the regular expression editor;</phrase>
+        </textobject>
+      </mediaobject>
+      
+      <para>The most important part of the editor is of course the editing
+        area, this is the area where you draw your regular expression. This
+        area is the larger gray one in the middle.</para>
+
+      <para>Above the editing area you have two tool-bars, the first one
+        contains the <link linkend="editingtools">editing actions</link> -
+        much like drawing tools in a drawing program. The second tool bar
+        contains the <emphasis>whats this</emphasis> button, and buttons
+        for undo and redo.</para>
+
+      <para></para>
+
+      <para>Below the editing area you find the regular expression
+        currently build, in the so called ascii syntax. The ascii syntax
+        is updated while you edit the regular expression in the graphical
+        editor. If you rather want to update the ascii syntax then please
+        do, the graphical editor is updated on the fly to reflect your
+        changes.</para>
+
+      <para>Finally to the left of the editor area you will find a number
+        of pre-build regular expressions. They serve two purposes: (1) When
+        you load the editor with a regular expression then this regular
+        expression is made <emphasis>nicer</emphasis> or more comprehensive
+        my replacing common regular expressions. In the screen dump above,
+        you can see how the ascii syntex ".*" have been replaced with a box
+        saying "anything". (2) When you insert regular expression you may
+        find building blocks for your own regular expression from the set of
+        pre build regular expressions. See the section on
+        <link linkend="userdefinedregexps">user defined regular
+          expressions</link> to learn how to save your own regular expressions.</para>      
+    </sect1>
+
+    <sect1 id="editingtools">
+      <title>Editing Tools</title>
+      <para id="positiontool"></para>
+      
+      <para id="altntool"></para>
+      
+      <para id="repeattool"></para>
+      
+      <para id="lookaheadtools"></para>
+    </sect1> 
+
+    <sect1 id="userdefinedregexps">
+      <title>User Defined Regular Expressions</title>
+      <para></para>
+    </sect1>
+
+    <sect1>
+      <title>Cut/Copy/Paste and drag and drop </title>
+      <para></para>
+    </sect1>
+
+  </chapter>
 
 
-&underGPL;
-&underFDL;
 
-</chapter>
+  <!-- ====================================================================== -->
+  <!--                  Reporting a bug and Suggesting Features               -->
+  <!-- ====================================================================== -->
+  <chapter id="bugreport">
+    <title>Reporting bugs and Suggesting Features</title>
+    <para>Bugs reported and features are reported through the 
+      <ulink url="http://bugs.kde.org/">KDE Bug Tracking System</ulink>. <emphasis
+                                                                                   role="strong">Before</emphasis> you report a bug or suggest a feature,
+      please check that it hasn't already been 
+      <ulink url="http://bugs.kde.org/db/pa/lkregexpeditor.html">reported/suggested</ulink></para>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                                 FAQ                                    -->
+  <!-- ====================================================================== -->
+  <chapter id="faq">
+    <title>Frequently Asked Questions</title>
+    <sect1>
+      <title>Does the regular expression editor support back references</title>
+      <para>No currently this is not supported. It is planned for the next
+        version.</para>
+    </sect1>
+
+    <sect1>
+      <title>Does the regular expression editor support showing matches</title>
+      <para>No, hopefully this will be available in the next version</para>
+    </sect1>
+
+    <sect1>
+      <title>I'm the author of a KDE program, how can I use this widget in
+        my application.</title>
+      <para>see <ulink
+                       url="http://developer.kde.org/documentation/library/cvs-api/classref/interfaces/KRegExpEditorInterface.html">The documentation for the class KRegExpEditorInterface</ulink></para>
+    </sect1>
+
+    <sect1>
+      <title>I can't find the <emphasis>Edit Regular expression</emphasis> button in for example
+        konqueror on some another KDE3 installation, why?</title>
+      <para>The regular expression widget is located in the package
+        KDE-utils. If you do not have this package installed, then the
+        <emphasis>edit regular expressions</emphasis> buttons will not
+        appear in the programs.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                           Credits and Licenses                         -->
+  <!-- ====================================================================== -->
+  <chapter id="credits-and-license">
+    <title>Credits and Licenses</title>
+
+    <para>
+      Documentation is copyright 2001, Jesper K. Pedersen
+      <email>blackie@kde.org</email>
+    </para>
+
+
+    &underGPL;
+    &underFDL;
+
+  </chapter>
 
 
 </book>
 
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
