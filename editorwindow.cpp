@@ -127,7 +127,6 @@ void RegExpEditorWindow::mouseReleaseEvent( QMouseEvent *event)
   if ( ! _lastPoint.isNull() ) {
     p.drawRect(QRect(_start, _lastPoint));    
   }
-  _top->updateSelection( false );
   _top->validateSelection();
   _top->updateAll();
 }
