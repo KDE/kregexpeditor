@@ -254,7 +254,7 @@ bool CompoundWidget::updateSelection( bool parentSelected )
     return changed;
   }
   else {
-    SingleContainerWidget::updateSelection( parentSelected );
+    return SingleContainerWidget::updateSelection( parentSelected );
   }
 }
 
