@@ -31,10 +31,10 @@ libkregexpeditorgui_la_SOURCES = kregexpeditorgui.cpp editorwindow.cpp\
 													 compoundregexp.cpp flow.cpp compoundinfo.cpp \
 													 myfontmetrics.cpp
 
-libkregexpeditorgui_la_LDFLAGS = $(all_libraries) -module -no-undefined
+libkregexpeditorgui_la_LDFLAGS = $(all_libraries) -module -no-undefined $(KDE_PLUGIN)
 libkregexpeditorgui_la_LIBADD = KMultiFormListBox/libkmultiformlistbox.la \
                                 KWidgetStreamer/libkwidgetstreamer.la \
-                                $(LIB_KFILE) -lkregexpeditor
+                                $(LIB_KFILE) 
 
 METASOURCES = AUTO
 

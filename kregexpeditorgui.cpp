@@ -6,12 +6,14 @@
 #include <stdio.h>
 #include "infopage.h"
 #include "kregexpeditorprivate.h"
+#include <klocale.h>
+#include <kgenericfactory.h>
 
 const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
 
 
-KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent, const char *name) 
-  : KRegExpEditor(parent, name)
+KRegExpEditorGUI::KRegExpEditorGUI(QObject *parent, const char *name) 
+  : QWidget( dynamic_cast<QWidget *>( parent ), name)
 {
   QHBoxLayout* layout = new QHBoxLayout( this );
   _editor = new KRegExpEditorPrivate( this, "_editor" );
@@ -21,7 +23,7 @@ KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent, const char *name)
   connect( _editor, SIGNAL( changes(bool) ), this, SIGNAL( changes(bool) ) );  
 }
 
-QString KRegExpEditorGUI::regexp()
+QString KRegExpEditorGUI::regexp() const
 {
   return _editor->regexp();
 }
@@ -36,16 +38,29 @@ void KRegExpEditorGUI::slotUndo()
   _editor->slotUndo();
 }
 
-void KRegExpEditorGUI::slotSetRegExp( QString regexp )
+void KRegExpEditorGUI::slotSetRegExp( const QString &regexp )
 {
   _editor->slotSetRegexp( regexp );
 }
 
-extern "C" {
-  void* init_libkregexpeditorgui() 
-  {
-    return new KRegExpEditorFactoryImpl;
-  }
+KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QObject *parent, 
+	                                        const char *name )
+  : KDialogBase( KDialogBase::Plain, i18n("Regular Expression Editor"),
+	         KDialogBase::Ok | KDialogBase::Cancel | KDialogBase::Help, KDialogBase::Ok,
+		 dynamic_cast<QWidget *>( parent ) , name ? name : "KRegExpDialog" )
+{
+    QFrame* frame = plainPage();
+    QVBoxLayout* layout = new QVBoxLayout( frame );
+    layout->setAutoAdd( true );
+    _editor = new KRegExpEditorGUI( frame );
 }
+
+QWidget *KRegExpEditorGUIDialog::regExpEditor() const
+{
+    return _editor;
+}
+
+typedef K_TYPELIST_2( KRegExpEditorGUI, KRegExpEditorGUIDialog ) Products;
+K_EXPORT_COMPONENT_FACTORY( libkregexpeditorgui, KGenericFactory<Products> );
 
 #include "kregexpeditorgui.moc"
