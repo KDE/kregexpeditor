@@ -20,11 +20,11 @@ CompoundDetailWindow::CompoundDetailWindow( QWidget* parent, const char* name )
   QVBoxLayout* layout = new QVBoxLayout( this );
   layout->setAutoAdd( true );
   
-  QLabel* label = new QLabel( i18n("&Title"), this);
+  QLabel* label = new QLabel( i18n("&Title:"), this);
   _title = new QLineEdit( this );
   label->setBuddy( _title );
-  
-  label = new QLabel( i18n("&Description"), this );
+
+  label = new QLabel( i18n("&Description:"), this );
   _description  = new QMultiLineEdit( this );
   label->setBuddy( _description );
 
