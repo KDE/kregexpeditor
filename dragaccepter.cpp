@@ -130,6 +130,7 @@ void DragAccepter::dropEvent(QDropEvent *event)
   else {
     // selection should not be cleared here, since we might want to delete it.
   }
+  event->accept();
 }
 
 RegExp* DragAccepter::regExp() const
