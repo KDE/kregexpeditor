@@ -334,7 +334,7 @@ void RegExpEditorWindow::slotSave()
   QString fileName = dir + QString::fromLocal8Bit("/") + name + QString::fromLocal8Bit(".regexp");
   QFileInfo finfo( fileName );
   if ( finfo.exists() ) {
-    int answer = KMessageBox::warningYesNo( this, i18n("Overwrite named regular expression <b>%1</b>").arg(name) );
+    int answer = KMessageBox::warningYesNo( this, i18n("<p>Overwrite named regular expression <b>%1</b></p>").arg(name) );
     if ( answer != KMessageBox::Yes )
       return;
   }
