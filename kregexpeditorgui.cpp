@@ -60,6 +60,8 @@ KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent,
   connect( _editor, SIGNAL( canUndo(bool) ), this, SIGNAL( canUndo(bool) ) );
   connect( _editor, SIGNAL( canRedo(bool) ), this, SIGNAL( canRedo(bool) ) );
   connect( _editor, SIGNAL( changes(bool) ), this, SIGNAL( changes(bool) ) );  
+
+  setHelp( QString::null, QString::fromLocal8Bit( "KRegExpEditor" ) );
 }
 
 QString KRegExpEditorGUIDialog::regExp() const
@@ -70,11 +72,6 @@ QString KRegExpEditorGUIDialog::regExp() const
 void KRegExpEditorGUIDialog::setRegExp( const QString &regexp )
 {
     _editor->setRegExp( regexp );
-}
-
-void KRegExpEditorGUIDialog::help()
-{
-    kapp->invokeHelp( QString::null, QString::fromLatin1( "KRegExpEditor" ) );
 }
 
 void KRegExpEditorGUIDialog::redo()
