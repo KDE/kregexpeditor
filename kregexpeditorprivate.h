@@ -59,6 +59,13 @@ private:
   QPtrStack<RegExp> _redoStack;
   UserDefinedRegExps*  _userRegExps;
   QTimer* _timer;
+  
+  /**
+     When the slotSetRegExp is invoked, the editor should not automaticly be shown
+     (meaning hiding the spash page.)
+     This flag is set to prevent this.
+  */
+  bool _preventShow;
 };
 
 #endif

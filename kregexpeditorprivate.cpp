@@ -22,7 +22,7 @@ extern RegExp* parseData();
 
 
 KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name) 
-  : QWidget(parent, name), _updating( false )
+  : QWidget(parent, name), _updating( false ), _preventShow( false )
 {
   setMinimumSize(600,300);
   QDockArea* area = new QDockArea( Horizontal, QDockArea::Normal, this );
@@ -203,7 +203,9 @@ void KRegExpEditorPrivate::emitUndoRedoSignals()
 
 void KRegExpEditorPrivate::slotSetRegexp( QString regexp )
 {
+  _preventShow = true;
   _regexpEdit->setText( regexp );
+  _preventShow = false;
 }
 
 void KRegExpEditorPrivate::slotTriggerUpdate()
@@ -216,12 +218,13 @@ void KRegExpEditorPrivate::slotTriggerUpdate()
    * - Frerich
    */
   _timer->start( 300, true );
+  if ( !_preventShow ) 
+    slotShowEditor();
 }
 
 void KRegExpEditorPrivate::slotTimeout()
 {
   slotUpdateEditor( _regexpEdit->text() );
-  slotShowEditor();
 }
 
 #include "kregexpeditorprivate.moc"
