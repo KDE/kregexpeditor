@@ -76,7 +76,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   _scrolledEditorWindow =
     new RegExpScrolledEditorWindow( _editor, "KRegExpEditorPrivate::_scrolledEditorWindow" );
   QWhatsThis::add( _scrolledEditorWindow, i18n( "In this window you will develop your regular expressions. "
-                                               "select one of the actions from the action buttons above, and click the mouse in this "
+                                               "Select one of the actions from the action buttons above, and click the mouse in this "
                                                "window to insert the given action."));
 
   _info = new InfoPage( this, "_info" );

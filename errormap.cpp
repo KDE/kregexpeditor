@@ -65,7 +65,7 @@ void ErrorMap::lineEndError()
 void ErrorMap::lookAheadError()
 {
     if ( !_prevLookAHeadError ) {
-        KMessageBox::information( 0, i18n("Your regular expression is invalid. 'Look Ahead' regular expression must be the last last sub expression."),
+        KMessageBox::information( 0, i18n("Your regular expression is invalid. 'Look Ahead' regular expression must be the last sub expression."),
                                   i18n("Regular Expression Error"), QString::fromLatin1("KRegExpEditorLookAHeadError") );
     }
     _lookAHeadError = true;

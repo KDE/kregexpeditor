@@ -51,7 +51,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     QPixmap icon = Util::getSystemIcon( QString::fromLatin1("spellcheck"));
     _verify->setPixmap( icon );
     QToolTip::add( _verify, i18n( "Verify regular expression" ) );
-    QWhatsThis::add( _verify, i18n("Shows what part of the regular expression is being matches in the <i>verifier window</i>."
+    QWhatsThis::add( _verify, i18n("Shows what part of the regular expression is being matched in the <i>verifier window</i>."
                                    "(The window below the graphical editor window)."));
     layout->addWidget( _verify );
     connect( _verify, SIGNAL( clicked() ), this, SIGNAL( verify() ) );
@@ -124,8 +124,8 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     connect( autoVerify, SIGNAL( toggled( bool ) ), this, SIGNAL( autoVerify( bool ) ) );
     autoVerify->addTo( _configMenu );
     autoVerify->setToolTip( i18n( "Toggle on-the-fly verification of regular expression" ) );
-    autoVerify->setWhatsThis( i18n( "Enabling this option will make the verifier update for each edit."
-                                    "If the verify window contains much text, or if the regular expression is either"
+    autoVerify->setWhatsThis( i18n( "Enabling this option will make the verifier update for each edit. "
+                                    "If the verify window contains much text, or if the regular expression is either "
                                     "complex or matches a lot of time, this may be very slow."));
 
     // RegExp Languages
