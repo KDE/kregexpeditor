@@ -30,9 +30,8 @@ public:
 	AltnRegExp( bool selected );
 
 	void addRegExp( RegExp * );
-    RegExpList children();
+    RegExpList children() const;
 
-	virtual QString toString( bool markSelection ) const;
     virtual bool check( ErrorMap&, bool first, bool last );
     virtual int precedence() const { return 1;}
     virtual QDomNode toXml( QDomDocument* doc ) const;

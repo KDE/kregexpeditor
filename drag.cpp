@@ -17,6 +17,8 @@
  **/
 #include "drag.h"
 #include "regexp.h"
+#include "kregexpeditorprivate.h"
+#include "regexpconverter.h"
 
 RegExpWidgetDrag::RegExpWidgetDrag( RegExp* regexp, QWidget* dragSource )
   : QDragObject( dragSource ), _regexp( regexp->clone() )
@@ -60,12 +62,12 @@ QByteArray RegExpWidgetDrag::encodedData ( const char* format ) const
 {
   QByteArray data;
   QTextStream stream( data, IO_WriteOnly );
-  if ( QString::fromLocal8Bit( format ) == QString::fromLocal8Bit( "KRegExpEditor/widgetdrag" ) ) {
+  if ( QString::fromLocal8Bit( format ).startsWith(QString::fromLocal8Bit( "KRegExpEditor/widgetdrag" ) ) ) {
     QString xml = _regexp->toXmlString();
     stream << xml;
   }
-  else if ( QString::fromLocal8Bit( format ) == QString::fromLocal8Bit( "text/plain" ) ) {
-    stream << _regexp->toString( false );
+  else if ( QString::fromLocal8Bit( format ).startsWith(QString::fromLocal8Bit( "text/plain" ) ) ) {
+      stream << KRegExpEditorPrivate::converter()->toStr( _regexp, false );
   }
   else {
     qWarning("Unexpected drag and drop format: %s", format );

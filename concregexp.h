@@ -34,7 +34,6 @@ public:
     RegExpList children();
     RegExp* lastRegExp();
 
-	virtual QString toString( bool markSelection ) const;
     virtual bool check( ErrorMap&, bool first, bool last );
     virtual int precedence() const { return 2;}
     virtual QDomNode toXml( QDomDocument* doc ) const;

@@ -58,22 +58,17 @@ public:
     bool wordChar() const { return _wordChar; }
     bool nonWordChar() const { return _nonWordChar; }
 
-	virtual QString toString( bool markSelection ) const;
     virtual bool check( ErrorMap&, bool first, bool last );
     virtual int precedence() const { return 4;}
     virtual QDomNode toXml( QDomDocument* doc ) const;
     virtual bool load( QDomElement, const QString& version );
     virtual RegExpType type() const { return TEXTRANGE;}
-    virtual bool operator==( const RegExp& other ) const;
+    virtual bool operator==( RegExp& other );
 
 private:
 	bool _negate, _digit, _nonDigit, _space, _nonSpace, _wordChar, _nonWordChar;
 	QStringList _chars;
 	QPtrList<StringPair> _ranges;
-
-	QChar *carrot;
-	QChar *dash;
-	QChar *parenthesis;
 };
 
 #endif // __TEXTRANGEREGEXP_H

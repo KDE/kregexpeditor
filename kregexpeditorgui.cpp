@@ -115,7 +115,7 @@ void KRegExpEditorGUI::doSomething( QString method, void* arguments )
         _editor->setMinimal( (bool) arguments );
     }
     else if ( method == QString::fromLatin1("setSyntax") ) {
-        _editor->setSyntax( (RegExp::Syntax) (int) arguments );
+        _editor->setSyntax( *((QString*) arguments) );
     }
     else if ( method == QString::fromLatin1("setShowSyntaxCombo") ) {
         _editor->setShowSyntaxCombo( (bool) arguments );

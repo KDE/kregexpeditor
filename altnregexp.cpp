@@ -29,7 +29,7 @@ void AltnRegExp::addRegExp( RegExp *elm )
     addChild( elm );
 }
 
-RegExpList AltnRegExp::children()
+RegExpList AltnRegExp::children() const
 {
     return list;
 }
@@ -41,34 +41,6 @@ bool AltnRegExp::check( ErrorMap& map, bool first, bool last )
         possibleEmpty = (*it)->check( map, first, last ) || possibleEmpty;
     }
     return possibleEmpty;
-}
-
-QString AltnRegExp::toString( bool markSelection ) const
-{
-	QString res;
-
-    QString bar;
-    if ( _syntax == Qt )
-        bar = QString::fromLatin1("|");
-    else if ( _syntax == Emacs )
-        bar = QString::fromLatin1("\\|");
-    else
-        qFatal("WHAT!");
-
-	bool first = true;
-    for ( RegExpListIt it(list); *it; ++it ) {
-		if ( !first ) {
-			res += bar;
-		}
-		first = false;
-        if ( markSelection && !isSelected() && (*it)->isSelected() ) {
-            res += QString::fromLatin1("(") + (*it)->toString( markSelection ) + QString::fromLatin1(")");
-        }
-        else {
-            res += (*it)->toString( markSelection );
-        }
-	}
-	return res;
 }
 
 QDomNode AltnRegExp::toXml( QDomDocument* doc ) const

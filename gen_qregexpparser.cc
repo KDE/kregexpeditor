@@ -49,7 +49,7 @@
   extern void setParseData( QString str );
   int yyerror (const char *);
   void setParseResult( RegExp* );
-  RegExp* parseData();
+  RegExp* parseQtRegExp( QString qstr, bool* ok );
   static RegExp* parseResult;
   static int _index;
 
@@ -1330,20 +1330,17 @@ yyreturn:
 #line 164 "qregexpparser.y"
 
 
-bool parse( QString qstr ) {
+RegExp* parseQtRegExp( QString qstr, bool* ok ) {
   _index = 0;
   parseResult = 0;
   setParseData( qstr );
   yyparse();
-  return ( yynerrs == 0 );
+  *ok = ( yynerrs == 0 );
+  return parseResult;
 }
 
 void setParseResult( RegExp* regexp ) {
   parseResult = regexp;
-}
-
-RegExp* parseData() {
-  return parseResult;
 }
 
 int yyerror(const char *) {

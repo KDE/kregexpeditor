@@ -34,64 +34,6 @@ bool RepeatRegExp::check( ErrorMap& map, bool first, bool last )
     return ( _lower == 0 );
 }
 
-QString RepeatRegExp::toString( bool markSelection) const
-{
-    QString cText = _child->toString( markSelection );
-    QString startPar;
-    QString endPar;
-
-    if ( markSelection && _syntax == Qt ) {
-        if ( !isSelected() && _child->isSelected()) {
-            startPar = QString::fromLatin1( "(" );
-            endPar = QString::fromLatin1( ")" );
-        }
-        else if ( _child->precedence() < precedence() ) {
-            startPar = QString::fromLatin1( "(?:" );
-            endPar = QString::fromLatin1( ")" );
-        }
-    }
-    else if ( _child->precedence() < precedence() ) {
-        startPar = openPar();
-        endPar = closePar();
-    }
-
-    if (_lower == 0 && _upper == -1) {
-        return startPar + cText +endPar + QString::fromLocal8Bit("*");
-    }
-    else if ( _lower == 0 && _upper == 1 ) {
-        return startPar + cText + endPar + QString::fromLocal8Bit("?");
-    }
-    else if ( _lower == 1 && _upper == -1 ) {
-        return startPar + cText + endPar + QString::fromLocal8Bit("+");
-    }
-    else {
-        if ( _syntax == Qt ) {
-            return startPar + cText + endPar + QString::fromLocal8Bit("{") +
-                QString::number( _lower ) + QString::fromLocal8Bit(",") +
-                QString::number( _upper ) + QString::fromLocal8Bit("}");
-        }
-        else if ( _syntax == Emacs ) {
-            QString res = QString::fromLatin1("");
-            for ( int i = 0; i < _lower; ++i ) {
-                res += QString::fromLatin1( "(" ) + cText + QString::fromLatin1( ")" );
-            }
-            if ( _upper != -1 ) {
-                for ( int i = _lower; i < _upper; ++i ) {
-                    res += QString::fromLatin1("(") + cText + QString::fromLatin1(")?");
-                }
-            }
-            else
-                res += QString::fromLatin1("+");
-
-            return startPar + res + endPar;
-        }
-        else {
-            qFatal("What?!");
-            return QString::null;
-        }
-    }
-}
-
 QDomNode RepeatRegExp::toXml( QDomDocument* doc ) const
 {
     QDomElement top = doc->createElement( QString::fromLocal8Bit("Repeat") );

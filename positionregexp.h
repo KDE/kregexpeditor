@@ -32,7 +32,6 @@ public:
 	PositionRegExp( bool selected, PositionType tp );
     PositionType position() const { return _tp; }
 
-	virtual QString toString( bool markSelection ) const;
     virtual bool check( ErrorMap&, bool first, bool last );
     virtual int precedence() const { return 4;}
     virtual QDomNode toXml( QDomDocument* doc ) const;

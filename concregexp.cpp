@@ -47,41 +47,6 @@ bool ConcRegExp::check( ErrorMap& map, bool first, bool last)
     return possibleEmpty;
 }
 
-QString ConcRegExp::toString( bool markSelection ) const
-{
-	QString res;
-    bool childSelected = false;
-
-	for ( RegExpListIt it(list); *it; ++it ) {
-        QString startPar = QString::fromLocal8Bit("");
-        QString endPar = QString::fromLocal8Bit("");
-        if ( (*it)->precedence() < precedence() ) {
-            if ( markSelection && _syntax == Qt )
-                startPar = QString::fromLocal8Bit("(?:");
-            else
-                startPar = openPar();
-            endPar = closePar();
-        }
-
-        // Note these two have different tests! They are activated in each their iteration of the loop.
-        if ( markSelection && !childSelected && !isSelected() && (*it)->isSelected() ) {
-            res += QString::fromLatin1("(");
-            childSelected = true;
-        }
-
-        if ( markSelection && childSelected && !isSelected() && !(*it)->isSelected() ) {
-            res += QString::fromLatin1(")");
-            childSelected= false;
-        }
-
-		res += startPar + (*it)->toString( markSelection ) + endPar;
-	}
-    if ( markSelection && childSelected && !isSelected() ) {
-        res += QString::fromLatin1(")");
-    }
-	return res;
-}
-
 RegExp* ConcRegExp::lastRegExp()
 {
     if ( list.count() == 0)

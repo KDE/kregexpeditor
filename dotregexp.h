@@ -30,7 +30,6 @@ public:
 
 	DotRegExp( bool selected );
 
-	virtual QString toString( bool markSelection ) const;
     virtual bool check( ErrorMap&, bool first, bool last );
     virtual int precedence() const { return 4;}
     virtual QDomNode toXml( QDomDocument* doc ) const;

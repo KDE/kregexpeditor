@@ -26,6 +26,8 @@
 #include <klocale.h>
 #include <qcombobox.h>
 #include <qlabel.h>
+#include "qtregexpconverter.h"
+#include "emacsregexpconverter.h"
 
 AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)
   :QDockWindow( QDockWindow::InDock, parent, name)
@@ -78,7 +80,6 @@ AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)
   _syntaxLabel = new QLabel( i18n("Language:"), this );
   layout->addWidget( _syntaxLabel );
   _syntax = new QComboBox( this );
-  _syntax->insertStringList( QStringList() << i18n("Qt") << i18n("Emacs") );
   layout->addWidget( _syntax );
   connect( _syntax, SIGNAL( activated( int ) ), this, SLOT( slotChangeSyntax( int ) ) );
   _syntaxLabel->hide();
@@ -86,6 +87,22 @@ AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)
 
   _undo->setEnabled( false );
   _redo->setEnabled( false );
+
+  // -------------------------------------------------- RegExp Converters
+  QStringList list;
+
+  // Qt
+  RegExpConverter* converter = new QtRegExpConverter();
+  _converters.append( converter );
+  list << converter->name();
+
+  // Emacs
+  converter = new EmacsRegExpConverter();
+  _converters.append( converter );
+  list << converter->name();
+
+  _syntax->insertStringList( list );
+
 }
 
 void AuxButtons::slotEnterWhatsThis()
@@ -123,9 +140,9 @@ void AuxButtons::slotCanSave( bool b )
   _save->setEnabled( b );
 }
 
-void AuxButtons::slotChangeSyntax( int syntax )
+void AuxButtons::slotChangeSyntax( int i )
 {
-    emit changeSyntax( (RegExp::Syntax) syntax );
+    emit changeSyntax( _converters[i]->name() );
 }
 
 void AuxButtons::setShowSyntaxCombo( bool b )
@@ -134,7 +151,14 @@ void AuxButtons::setShowSyntaxCombo( bool b )
     _syntax->setShown( b );
 }
 
-void AuxButtons::setSyntax( RegExp::Syntax syntax )
+RegExpConverter* AuxButtons::setSyntax( const QString& which)
 {
-    _syntax->setCurrentItem( (int) syntax );
+    for( QValueList<RegExpConverter*>::Iterator it = _converters.begin(); it != _converters.end(); ++it ) {
+        if ( (*it)->name() == which ) {
+            _syntax->setCurrentText( which );
+            return *it;
+        }
+    }
+    qWarning( "No such converter: '%s'", which.latin1() );
+    return 0;
 }

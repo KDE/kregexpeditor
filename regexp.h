@@ -25,7 +25,6 @@
 class CompoundRegExp;
 class ErrorMap;
 
-
 /**
    Abstract syntax tree for regular expressions.
    @internal
@@ -33,13 +32,9 @@ class ErrorMap;
 class RegExp
 {
 public:
-    enum Syntax { Qt = 0, Emacs = 1 };
-    static void setSyntax( Syntax );
-
     RegExp( bool selected );
 	virtual ~RegExp();
 
-	virtual QString toString( bool markSelection ) const = 0;
     virtual int precedence() const = 0;
     virtual QDomNode toXml( QDomDocument* doc ) const = 0;
     virtual bool load( QDomElement, const QString& version ) = 0;
@@ -62,10 +57,6 @@ public:
 
 protected:
     RegExp* readRegExp( QDomElement top, const QString& version );
-    static Syntax _syntax;
-
-    QString openPar() const;
-    QString closePar() const;
 
 private:
     RegExp() {}; // disable

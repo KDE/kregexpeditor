@@ -55,7 +55,7 @@ int main( int argc, char* argv[] )
   KRegExpEditorGUIDialog* iface = new KRegExpEditorGUIDialog( 0, "_editor", QStringList() );
   iface->setRegExp( QString::fromLatin1( "#include" ) );
   iface->doSomething( "setMinimal", (void*) false );
-  iface->doSomething( "setSyntax", (void*) 1 );
+  iface->doSomething( "setSyntax", (void*) new QString( QString::fromLatin1( "Emacs" ) ) );
   iface->doSomething( "setShowSyntaxCombo", (bool*) true );
 
   QFile file("/packages/kde-src/kdeutils/kregexpeditor/test/main.cpp");

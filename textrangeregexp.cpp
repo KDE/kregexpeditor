@@ -18,20 +18,16 @@
 #include "textrangeregexp.h"
 #include <kmessagebox.h>
 #include <klocale.h>
+#include "kregexpeditorprivate.h"
+#include "regexpconverter.h"
 
 TextRangeRegExp::TextRangeRegExp( bool selected ) : RegExp( selected ),
     _negate(false), _digit(false), _nonDigit(false), _space(false), _nonSpace(false), _wordChar(false), _nonWordChar(false)
 {
-	carrot = new QChar( '^' );
-	dash = new QChar( '-' );
-	parenthesis = new QChar( ']' );
 }
 
 TextRangeRegExp::~TextRangeRegExp()
 {
-	delete carrot;
-	delete dash;
-	delete parenthesis;
 }
 
 
@@ -48,85 +44,6 @@ void TextRangeRegExp::addRange(QString from, QString to)
 bool TextRangeRegExp::check( ErrorMap&, bool, bool )
 {
     return false;
-}
-
-QString TextRangeRegExp::toString( bool ) const
-{
-	QString txt;
-
-	bool foundCarrot = false;
-	bool foundDash = false;
-	bool foundParenthesis = false;
-
-	// Now print the rest of the single characters, but keep "^" as the very
-	// last element of the characters.
-	for (unsigned int i = 0; i< _chars.count(); i++) {
-		if ( *_chars.at(i) == *parenthesis ) {
-			foundParenthesis = true;
-		}
-		else if ( *_chars.at(i) == *dash ) {
-			foundDash = true;
-		}
-		else if ( *_chars.at(i) == *carrot ) {
-			foundCarrot = true;
-		}
-		else {
-			txt.append( *_chars.at(i) );
-		}
-	}
-
-	// Now insert the ranges.
-    for ( QPtrListIterator<StringPair> it(_ranges); *it; ++it ) {
-		txt.append((*it)->first()+ QString::fromLatin1("-")+ (*it)->second());
-	}
-
-	// Ok, its time to build each part of the regexp, here comes the rule:
-	// if a ']' is one of the characters, then it must be the first one in the
-	// list (after then opening '[' and eventually negation '^')
-	// Next if a '-' is one of the characters, then it must come
-	// finally if '^' is one of the characters, then it must not be the first
-	// one!
-
-	QString res = QString::fromLatin1("[");
-
-	if ( _negate )
-		res.append(QString::fromLatin1("^"));
-
-
-	// a ']' must be the first character in teh range.
-	if ( foundParenthesis ) {
-		res.append(QString::fromLatin1("]"));
-	}
-
-	// a '-' must be the first character ( only comming after a ']')
-	if ( foundDash ) {
-		res.append(QString::fromLatin1("-"));
-	}
-
-	res += txt;
-
-	// Insert \s,\S,\d,\D,\w, and \W
-    if ( _digit )
-        res += QString::fromLocal8Bit("\\d");
-    if ( _nonDigit )
-        res += QString::fromLocal8Bit("\\D");
-    if ( _space )
-        res += QString::fromLocal8Bit("\\s");
-    if ( _nonSpace )
-        res += QString::fromLocal8Bit("\\S");
-    if ( _wordChar )
-        res += QString::fromLocal8Bit("\\w");
-    if ( _nonWordChar )
-        res += QString::fromLocal8Bit("\\W");
-
-
-	if ( foundCarrot ) {
-		res.append( QChar( '^' ) );
-	}
-
-	res.append(QString::fromLatin1("]"));
-
-	return res;
 }
 
 QDomNode TextRangeRegExp::toXml( QDomDocument* doc ) const
@@ -214,8 +131,8 @@ bool TextRangeRegExp::load( QDomElement top, const QString& /*version*/ )
     return true;
 }
 
-bool TextRangeRegExp::operator==( const RegExp& other ) const
+bool TextRangeRegExp::operator==( RegExp& other )
 {
-    return ( toString( false ) == other.toString( false ) );
+    return ( KRegExpEditorPrivate::converter()->toStr( this, false ) == KRegExpEditorPrivate::converter()->toStr( &other, false ) );
 }
 

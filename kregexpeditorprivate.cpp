@@ -43,9 +43,7 @@
 #include <qregexp.h>
 #include "regexplineedit.h"
 
-extern bool parse( QString str );
-extern RegExp* parseData();
-
+RegExpConverter* KRegExpEditorPrivate::_converter = 0;
 
 KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
     : QWidget(parent, name), _updating( false ), _autoVerify( true )
@@ -122,7 +120,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   connect( _auxButtons, SIGNAL( copy() ), _scrolledEditorWindow, SLOT( slotCopy() ) );
   connect( _auxButtons, SIGNAL( paste() ), _scrolledEditorWindow, SLOT( slotPaste() ) );
   connect( _auxButtons, SIGNAL( save() ), _scrolledEditorWindow, SLOT( slotSave() ) );
-  connect( _auxButtons, SIGNAL( changeSyntax( RegExp::Syntax ) ), this, SLOT( setSyntax( RegExp::Syntax ) ) );
+  connect( _auxButtons, SIGNAL( changeSyntax( const QString& ) ), this, SLOT( setSyntax( const QString& ) ) );
   connect( _verifyButtons, SIGNAL( autoVerify( bool ) ), this, SLOT( setAutoVerify( bool ) ) );
   connect( _verifyButtons, SIGNAL( verify() ), this, SLOT( doVerify() ) );
 
@@ -186,12 +184,13 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   accel->connectItem( accel->insertItem( CTRL+Key_Z ), this, SLOT( slotUndo() ) );
   accel->connectItem( accel->insertItem( CTRL+Key_R ), this, SLOT( slotRedo() ) );
 
+  setSyntax( QString::fromLatin1( "Qt" ) );
 }
 
 QString KRegExpEditorPrivate::regexp()
 {
   RegExp* regexp = _scrolledEditorWindow->regExp();
-  QString res = regexp->toString( false );
+  QString res = _converter->toStr( regexp, false );
   delete regexp;
   return res;
 }
@@ -199,26 +198,31 @@ QString KRegExpEditorPrivate::regexp()
 void KRegExpEditorPrivate::slotUpdateEditor( const QString & txt)
 {
   _updating = true;
-  bool ok = parse( txt );
-  RegExp* result = parseData();
-  if ( ok ) {
-    QPtrList<CompoundRegExp> list = _userRegExps->regExps();
-    for ( QPtrListIterator<CompoundRegExp> it( list ); *it; ++it ) {
-      result->replacePart( *it );
-    }
-
-    _scrolledEditorWindow->slotSetRegExp( result );
-    _error->hide();
-    maybeVerify( );
-    recordUndoInfo();
-    result->check( _errorMap );
+  bool ok;
+  if ( !_converter->canParse() ) {
+      // This can happend if the application set a text through the API.
   }
   else {
-    _error->show();
-    if ( _autoVerify )
-        _verifier->clearRegexp();
+      RegExp* result = _converter->parse( txt, &ok );
+      if ( ok ) {
+          QPtrList<CompoundRegExp> list = _userRegExps->regExps();
+          for ( QPtrListIterator<CompoundRegExp> it( list ); *it; ++it ) {
+              result->replacePart( *it );
+          }
+
+          _scrolledEditorWindow->slotSetRegExp( result );
+          _error->hide();
+          maybeVerify( );
+          recordUndoInfo();
+          result->check( _errorMap );
+      }
+      else {
+          _error->show();
+          if ( _autoVerify )
+              _verifier->clearRegexp();
+      }
+      delete result;
   }
-  delete result;
   _updating = false;
 }
 
@@ -231,7 +235,7 @@ void KRegExpEditorPrivate::slotUpdateLineEdit()
   RegExp* regexp = _scrolledEditorWindow->regExp();
   regexp->check( _errorMap );
 
-  QString str = regexp->toString( false );
+  QString str = _converter->toStr( regexp, false );
   _regexpEdit->setText( str );
   delete regexp;
 
@@ -337,7 +341,9 @@ void KRegExpEditorPrivate::doVerify()
     bool autoVerify = _autoVerify; // prevent loop due to verify emit changed, which calls maybeVerify
     _autoVerify = false;
     RegExp* regexp = _scrolledEditorWindow->regExp();
-    _verifier->verify( regexp->toString( true ) );
+
+    // PENDING(blackie) Hmmm we can really only do this for Qt RegExp as the verifer is using QRegExp!
+    _verifier->verify( _converter->toStr( regexp, true ) );
     delete regexp;
     _autoVerify = autoVerify;
 }
@@ -362,7 +368,8 @@ void KRegExpEditorPrivate::setVerifyText( const QString& fileName )
         file.close();
         RegExp* regexp = _scrolledEditorWindow->regExp();
         _verifier->setText( txt );
-        _verifier->verify( regexp->toString( true ) );
+        // PENDING(blackie) We can only do this for Qt styled regexps, as the verifier uses QRegExp.
+        _verifier->verify( _converter->toStr( regexp, true ) );
         delete regexp;
     }
     _autoVerify = autoVerify;
@@ -378,18 +385,21 @@ void KRegExpEditorPrivate::setMinimal( bool b )
     _verifier->setMinimal( b );
 }
 
-void KRegExpEditorPrivate::setSyntax( RegExp::Syntax syntax )
+void KRegExpEditorPrivate::setSyntax( const QString& syntax )
 {
-    RegExp::setSyntax( syntax );
-    _regexpEdit->setEditable( syntax == RegExp::Qt );
-    if ( syntax != RegExp::Qt )
-        _scrolledEditorWindow->setFocus();
-    _auxButtons->setSyntax( syntax );
+    _converter = _auxButtons->setSyntax( syntax );
+    _regexpEdit->setEditable( _converter->canParse() );
+    _scrolledEditorWindow->setFocus();
 }
 
 void KRegExpEditorPrivate::setShowSyntaxCombo( bool b )
 {
     _auxButtons->setShowSyntaxCombo( b );
+}
+
+RegExpConverter* KRegExpEditorPrivate::converter()
+{
+    return _converter;
 }
 
 #include "kregexpeditorprivate.moc"

@@ -20,6 +20,8 @@
 
 #include <qdockwindow.h>
 #include "regexp.h"
+#include "regexpconverter.h"
+#include <qvaluelist.h>
 class QPushButton;
 class QComboBox;
 class QLabel;
@@ -32,7 +34,7 @@ class AuxButtons :public QDockWindow
 public:
     AuxButtons( QWidget* parent, const char* name );
     void setShowSyntaxCombo( bool );
-    void setSyntax( RegExp::Syntax );
+    RegExpConverter* setSyntax( const QString& );
 
 signals:
     void undo();
@@ -41,7 +43,7 @@ signals:
     void copy();
     void paste();
     void save();
-    void changeSyntax( RegExp::Syntax );
+    void changeSyntax( const QString& );
 
 public slots:
     void slotEnterWhatsThis();
@@ -62,6 +64,7 @@ private:
     QPushButton* _save;
     QComboBox* _syntax;
     QLabel* _syntaxLabel;
+    QValueList<RegExpConverter*> _converters;
 };
 
 

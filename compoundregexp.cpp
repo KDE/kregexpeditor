@@ -32,14 +32,6 @@ bool CompoundRegExp::check( ErrorMap& map, bool first, bool last )
     return _child->check( map, first, last );
 }
 
-QString CompoundRegExp::toString( bool markSelection ) const
-{
-    if ( markSelection && !isSelected() && _child->isSelected() )
-        return openPar() + _child->toString( markSelection ) + closePar();
-    else
-        return  _child->toString( markSelection );
-}
-
 QDomNode CompoundRegExp::toXml( QDomDocument* doc ) const
 {
     QDomElement top = doc->createElement( QString::fromLocal8Bit( "Compound" ) );

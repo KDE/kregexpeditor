@@ -20,8 +20,6 @@
 #include "kregexpeditorgui.h"
 #include "errormap.h"
 
-RegExp::Syntax RegExp::_syntax = RegExp::Qt;
-
 RegExp::RegExp( bool selected ) : _parent(0), _destructing( false ), _selected( selected )
 {
   // Nothing to do
@@ -94,31 +92,4 @@ void RegExp::check( ErrorMap& map )
     map.end();
 }
 
-void RegExp::setSyntax( Syntax syntax )
-{
-    _syntax = syntax;
-}
 
-QString RegExp::openPar() const
-{
-    if ( _syntax == Qt )
-        return QString::fromLatin1( "(" );
-    else if ( _syntax == Emacs )
-        return QString::fromLatin1( "\\(" );
-    else {
-        qFatal("What");
-        return QString::null;
-    }
-}
-
-QString RegExp::closePar() const
-{
-    if ( _syntax == Qt )
-        return QString::fromLatin1( ")" );
-    else if ( _syntax == Emacs )
-        return QString::fromLatin1( "\\)" );
-    else {
-        qFatal("What");
-        return QString::null;
-    }
-}

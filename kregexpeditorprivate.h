@@ -36,6 +36,7 @@ class Verifier;
 class VerifyButtons;
 class AuxButtons;
 class RegExpLineEdit;
+class RegExpConverter;
 
 /**
    Widget used to build a regular expression
@@ -53,6 +54,7 @@ public:
     void setMinimal( bool );
     void setCaseSensitive( bool );
     void setShowSyntaxCombo( bool );
+    static RegExpConverter* converter();
 
 protected slots:
     void slotUpdateEditor( const QString & );
@@ -70,7 +72,7 @@ public slots:
     void slotRedo();
     void slotSetRegexp( QString regexp );
     void setMatchText( const QString& text );
-    void setSyntax( RegExp::Syntax );
+    void setSyntax( const QString& );
 
 signals:
     void canUndo( bool );
@@ -97,6 +99,7 @@ private:
     Verifier* _verifier;
     bool _autoVerify;
     ErrorMap _errorMap;
+    static RegExpConverter* _converter;
 };
 
 #endif
