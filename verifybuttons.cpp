@@ -2,7 +2,7 @@
 #include "verifybuttons.moc"
 #include <klocale.h>
 #include <kstandarddirs.h>
-#include <qfiledialog.h>
+#include <kfiledialog.h>
 #include <qfile.h>
 #include <kmessagebox.h>
 #include <qpushbutton.h>
@@ -89,7 +89,7 @@ void VerifyButtons::updateVerifyButton( bool b )
 
 void VerifyButtons::loadText()
 {
-    QString fileName = QFileDialog::getOpenFileName(QString::null, QString::null, this, "VerifyButton::fileDialog");
+    QString fileName = KFileDialog::getOpenFileName(QString::null, QString::null, this);
     if ( !fileName.isNull() ) {
         emit loadVerifyText( fileName );
     }
@@ -109,7 +109,7 @@ void VerifyButtons::loadText()
 //     _last->setEnabled( b );
 // }
 
-void VerifyButtons::setMatchCount( int count )
+void VerifyButtons::setMatchCount( int /*count*/ )
 {
 // currently this is not possible due to limitation in QSyntaxHighlighter
 /*
