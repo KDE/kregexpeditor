@@ -13,7 +13,7 @@ noinst_HEADERS = kregexpeditorgui.h editorwindow.h widgetwindow.h regexpwidget.h
 							   textregexp.h textrangeregexp.h repeatregexp.h lookaheadregexp.h \
                  concregexp.h altnregexp.h positionregexp.h dotregexp.h \
 								 infopage.h kregexpeditorprivate.h compoundregexp.h \
-								 flow.h compoundinfo.h pair.h triple.h
+								 flow.h compoundinfo.h pair.h triple.h myfontmetrics.h
 libkregexpeditorgui_la_SOURCES = kregexpeditorgui.cpp editorwindow.cpp\
 													 widgetwindow.cpp regexpwidget.cpp drag.cpp \
 													 concwidget.cpp \
@@ -28,7 +28,8 @@ libkregexpeditorgui_la_SOURCES = kregexpeditorgui.cpp editorwindow.cpp\
 													 dcbutton.cpp gen_qregexplexer.cpp gen_qregexpparser.cc \
 													 charselector.cpp lookaheadregexp.cpp lookaheadwidget.cpp \
 													 regexp.cpp infopage.cpp kregexpeditorprivate.cpp \
-													 compoundregexp.cpp flow.cpp compoundinfo.cpp
+													 compoundregexp.cpp flow.cpp compoundinfo.cpp \
+													 myfontmetrics.cpp
 
 libkregexpeditorgui_la_LDFLAGS = $(all_libraries) -module -no-undefined
 libkregexpeditorgui_la_LIBADD = KMultiFormListBox/libkmultiformlistbox.la \

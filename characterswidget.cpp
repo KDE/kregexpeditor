@@ -13,7 +13,7 @@
 #include <kdialogbase.h>
 #include <qvbox.h>
 #include "charselector.h"
-
+#include "myfontmetrics.h"
 CharactersWidget::CharactersWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                                    const char *name)
   : RegExpWidget(editorWindow, parent, name)
@@ -67,12 +67,14 @@ void CharactersWidget::init()
 QSize CharactersWidget::sizeHint() const
 {
   QFontMetrics metrics = fontMetrics();
-  _textSize = metrics.size(0, _content->title());
+  _textSize = HackCalculateFontSize(metrics, _content->title());
+  //  _textSize = metrics.size(0, _content->title());
   
   QSize headerSize = QSize(_textSize.width() + 4 * bdSize,
                            _textSize.height());
   
-  _contentSize = metrics.size(0,_content->text());
+  _contentSize = HackCalculateFontSize(metrics,_content->text());
+  //  _contentSize = metrics.size(0,_content->text());
   
   return QSize(QMAX(headerSize.width(), bdSize + _contentSize.width() + bdSize+ 2*pw),
                headerSize.height() + bdSize + _contentSize.height() + bdSize + 2*pw);

@@ -4,7 +4,7 @@
 #include <klocale.h>
 #include <qpainter.h>
 #include <qbrush.h>
-
+#include "myfontmetrics.h"
 //--------------------------------------------------------------------------------
 //                                ZeroWidget
 //--------------------------------------------------------------------------------
@@ -23,7 +23,8 @@ void ZeroWidget::addNewChild(DragAccepter *, RegExpWidget *)
 QSize ZeroWidget::sizeHint() const
 {
   QFontMetrics metrics = fontMetrics();
-  _textSize = metrics.size(0,_text);
+  _textSize = HackCalculateFontSize( metrics, _text );
+  //  _textSize = metrics.size(0,_text);
   _boxSize = QSize(_textSize.width() + 2*space, _textSize.height() + 2 *space);
   return _boxSize;
 }
