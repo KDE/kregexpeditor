@@ -1,5 +1,7 @@
 SUBDIRS = KWidgetStreamer KMultiFormListBox picts predefined
 
+KDE_ICON=AUTO
+
 AM_CPPFLAGS = -DQT_NO_CAST_ASCII -I$(srcdir)/KWidgetStreamer -I$(srcdir)/KMultiFormListBox $(all_includes)
 
 # (useless)
