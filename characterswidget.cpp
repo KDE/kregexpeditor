@@ -271,10 +271,14 @@ CharacterEdits::CharacterEdits(TextRangeRegExp* regexp, QWidget *parent, const c
   topLayout->addWidget( singleBox );
   _single = new KMultiFormListBox(new SingleFactory(), KMultiFormListBox::MultiVisible, 
                                   singleBox);
-  _single->addElement(); _single->addElement(); _single->addElement();
-  _single->addElement(); _single->addElement();
+  _single->addElement(); _single->addElement(); _single->addElement(); 
 
-  QPushButton* more = new QPushButton( i18n("More Entries"), singleBox );
+  QWidget* moreW = new QWidget( singleBox );
+  QHBoxLayout* moreLay = new QHBoxLayout( moreW );
+  QPushButton* more = new QPushButton( i18n("More Entries"), moreW );
+  moreLay->addWidget( more );
+  moreLay->addStretch( 1 );
+  
   connect(more,SIGNAL(clicked()), _single, SLOT(addElement()));  
   
   // Ranges
@@ -283,10 +287,13 @@ CharacterEdits::CharacterEdits(TextRangeRegExp* regexp, QWidget *parent, const c
 
   _range = new KMultiFormListBox(new RangeFactory(), KMultiFormListBox::MultiVisible, 
                                  rangeBox);
-  _range->addElement(); _range->addElement(); _range->addElement();
-  _range->addElement(); _range->addElement();
+  _range->addElement(); _range->addElement(); _range->addElement(); 
 
-  more = new QPushButton( i18n("More Entries"), rangeBox );
+  moreW = new QWidget( rangeBox );
+  moreLay = new QHBoxLayout( moreW );
+  more = new QPushButton( i18n("More Entries"), moreW );
+  moreLay->addWidget( more );
+  moreLay->addStretch( 1 );
   connect(more,SIGNAL(clicked()), _range, SLOT(addElement()));  
 
   // Buttons

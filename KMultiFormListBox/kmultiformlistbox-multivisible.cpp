@@ -27,7 +27,7 @@ KMultiFormListBoxMultiVisible::KMultiFormListBoxMultiVisible(KMultiFormListBoxFa
 
   // Initialize the clipper.
   enableClipper(true);
-  resizeContents(100,100); // This is required for proper functionality
+  resizeContents(50,50); // This is required for proper functionality
 }
 
 
