@@ -126,7 +126,7 @@ void KMultiFormListBoxWindowed::slotDeleteEntry()
   WindowListboxItem *item = selected();
   if (item) {
 		int answer =
-			KMessageBox::warningYesNo(0, i18n("Delete item \"%1\" ?").arg(item->text()),i18n("Delete item"));
+			KMessageBox::warningYesNo(0, i18n("Delete item \"%1\"?").arg(item->text()),i18n("Delete item"));
 		if (answer == KMessageBox::Yes) {
 			delete item;
 			slotUpdateButtonState();

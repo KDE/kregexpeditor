@@ -38,5 +38,5 @@ parser:
 	cd $(srcdir) && flex -Pqregexp -ogen_qregexplexer.cpp qregexpparser.l
 	cd $(srcdir) && bison -d -p qregexp -o gen_qregexpparser.cc qregexpparser.y
 
-messages:
-	$(XGETTEXT) $(libkregexpeditorgui_la_SOURCES) $(noinst_HEADERS) -o $(podir)/kregexpeditor.pot
+messages: rc.cpp
+	$(XGETTEXT) `find . -name \*.cpp` -o $(podir)/kregexpeditor.pot
