@@ -51,7 +51,7 @@ int main( int argc, char* argv[] )
 
   Q_ASSERT( m_editorDialog );
   
-  KRegExpEditorInterface *iface = dynamic_cast<KRegExpEditorInterface *>( m_editorDialog );
+  KRegExpEditorInterface *iface = static_cast<KRegExpEditorInterface *>( m_editorDialog->qt_cast( "KRegExpEditorInterface" ) );
 
   Q_ASSERT( iface );
 
