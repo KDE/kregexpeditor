@@ -30,7 +30,7 @@
 #include <qdialog.h>
 #include <qfile.h>
 #include <qtextstream.h>
-#include "../kregexpeditorgui.h"
+#include "kregexpeditorgui.h"
 #include <qlayout.h>
 
 int main( int argc, char* argv[] )
