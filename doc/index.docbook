@@ -545,8 +545,8 @@
         expressions are pre installed with your KDE installation, while
         other you can save yourself.</para> 
 
-      <para>These regular expression serves two purposes (
-        <link linkend="screenorganization">see detailed
+      <para>These regular expression serves two purposes
+        (<link linkend="screenorganization">see detailed
           description</link>), namely (1) to offer you a set of building
         block and (2) to make common regular expressions prettier.</para>
 
@@ -582,25 +582,25 @@
   <!-- ====================================================================== -->
   <chapter id="faq">
     <title>Frequently Asked Questions</title>
-    <sect1>
-      <title>Does the regular expression editor support back references</title>
+    <sect1 id="question1">
+      <title>Does the regular expression editor support back references?</title>
       <para>No currently this is not supported. It is planned for the next
         version.</para>
     </sect1>
 
-    <sect1>
-      <title>Does the regular expression editor support showing matches</title>
-      <para>No, hopefully this will be available in the next version</para>
+    <sect1 id="question2">
+      <title>Does the regular expression editor support showing matches?</title>
+      <para>No, hopefully this will be available in the next version.</para>
     </sect1>
 
-    <sect1>
+    <sect1 id="question3">
       <title>I'm the author of a KDE program, how can I use this widget in
-        my application.</title>
-      <para>see <ulink
-                       url="http://developer.kde.org/documentation/library/cvs-api/classref/interfaces/KRegExpEditorInterface.html">The documentation for the class KRegExpEditorInterface</ulink></para>
+        my application?</title>
+      <para>See <ulink
+                       url="http://developer.kde.org/documentation/library/cvs-api/classref/interfaces/KRegExpEditorInterface.html">The documentation for the class KRegExpEditorInterface</ulink>.</para>
     </sect1>
 
-    <sect1>
+    <sect1 id="question4">
       <title>I can't find the <emphasis>Edit Regular expression</emphasis> button in for example
         konqueror on another KDE3 installation, why?</title>
       <para>The regular expression widget is located in the package
