@@ -24,6 +24,9 @@ protected slots:
   void slotPopulateUserRegexps();
   void slotUnSelect();
 
+protected:
+  void createItems( const QString& title, const QString& dir );
+
 signals:
   void load( RegExp* );
   
@@ -35,7 +38,7 @@ private:
 class WidgetWinItem :public QListViewItem 
 {
 public:
-  WidgetWinItem( QString name, RegExp* regexp, QListView* parent );
+  WidgetWinItem( QString name, RegExp* regexp, QListViewItem* parent );
   QString fileName() const;
   RegExp* regExp() const;
   QString name() const;

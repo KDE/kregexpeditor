@@ -1,0 +1,9 @@
+<RegularExpression version="1.0" >
+ <Compound allowReplace="1" >
+  <Title>anything</Title>
+  <Description></Description>
+  <Repeat lower="0" upper="-1" >
+   <AnyChar/>
+  </Repeat>
+ </Compound>
+</RegularExpression>
