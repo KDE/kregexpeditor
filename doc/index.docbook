@@ -84,14 +84,24 @@ power of regular expression from this editor, then please
 <chapter id="whatIsARegExp">
 <title>What is a Regular Expression</title>
 
-<para>The following will show you a number of examples of regular
-expressions, this will hopefully give you an idea of the power regular
-expressions offers.</para>
+<para>Regular expression is a way to specify
+<emphasis>conditions</emphasis> to be fulfilled for a situation in
+mind. Normally when you search in a text editor you specify the text to
+search for <emphasis>literally</emphasis>, using regular expression, on the
+other hand, you tell what a given match would look like. Examples of this
+includes <emphasis>I'm searching for the word KDE, but only at the
+beginning of the line</emphasis>, or <emphasis>I'm searching for the word
+<literal>the</literal>, but it must stand on its own</emphasis>, or
+<emphasis>I'm searching for files starting with the word
+<literal>test</literal>, followed by a number of digits, for example
+<literal>test12</literal>, <literal>test107</literal> and
+<literal>test007</literal></emphasis></para> 
 
-<para>Regular expressions are most often used when searching, therefore the
-examples will all show examples where you search for some text. Still
-regular expression may be used in many other situations, matching is
-another example.</para>
+<para>You build regular expressions from sub regular expression, just like
+you build large Lego toys from smaller subparts. As in the Lego world,
+there are a number of basic building blocks. In the following I will
+describe each of these basic building blocks using a number of
+examples.</para>
 
 <example>
   <title>Searching for normal text.</title>
@@ -175,9 +185,90 @@ another example.</para>
 </example>
 
 <example>
-  <title></title>
-  <para></para>
+  <title>Matching anything</title>
+  <para>Regular expressions are often compared to wildcard matching in the
+  shell - that is the capability to specify a number of files using the
+  asterisk. You will most likely recognize wildcard matching from the
+  following examples: 
+  <itemizedlist>
+  <listitem><para><literal>rm *~</literal> - here <literal>*~</literal> is
+  the shell wildcard matching every file ending in <literal>~</literal></para></listitem>
+  <listitem><para>cat test??.res - matching every file starting with
+  <literal>test</literal> followed by two arbitrary characters, and finally
+  followed by the test <literal>.res</literal></para></listitem>
+  </itemizedlist>
+ </para>
+
+  <para>In the shell the asterisk matches any character any number of
+  times. In other word, the asterisk matches <emphasis>anything</emphasis>.
+  This is written like <literal>.*</literal> with regular expression
+  syntax. The dot matches any single character, i.e. just
+  <emphasis>one</emphasis> character, and the asterisk, says that the
+  regular expression prior to it should be matched any number of
+  times. Together this says any single character any number of
+  times.</para>
+
+  <para>This may seem overly complicated, but when you get the larger
+  picture you will see the power. Let me show you another basic regular
+  expression: <literal>a</literal>. The letter <literal>a</literal> on its
+  own is a regular expression that matches a single letter, namely the
+  letter <literal>a</literal>. If we combine this with the asterisk,
+  i.e. <literal>a*</literal>, then we have a regular expression matching
+  any number of a's.</para>
+
+  <para>We can combine several regular expression after each
+  other, for example <literal>ba(na)*</literal>. 
+  <footnote><para><literal>(na)*</literal> just says that what is inside
+  the parenthesis is repeated any number of times.</para></footnote>
+  Imagine you had typed this regular expression into the search field in a
+  text editor, then you would have found the following words (among
+  others): <literal>ba</literal>, <literal>bana</literal>,
+  <literal>banana</literal>, <literal>bananananananana</literal>
+  </para>
+
+  <para>Given the information above, it hopefully isn't hard for you to write the
+  shell wildcard <literal>test??.res</literal> as a regular expression
+  Answer: <literal>test..\.res</literal>. The dot on its own is any
+  character. To match a single dot you must write
+  <literal>\.</literal><footnote><para>This is called escaping</para></footnote>. In
+  other word, the regular expression <literal>\.</literal> matches a dot,
+  while a dot on its own matches any character. </para>
+
+  <para>In the regular expression editor, repeated regular expression is
+  created using the <link linkend="repeattool">repeat tool</link> </para>
 </example>
+
+<example>
+  <title>Replacomg <literal>&amp;</literal> with <literal>&amp;amb;</literal> in
+  HTML document</title>
+  <para>In HTML the special character <literal>&amp;</literal> must be
+  written as <literal>&amp;amp;</literal> - this is similar to escaping in
+  regular expression.</para>
+
+  <para>Imagine that you have written an HTML document in a normal editor
+  (e.g. XEmacs or Kate), and you totally forgot about this rule. What you
+  would do when realized your mistake was to replace every occurrences of
+  <literal>&amp;</literal> with <literal>&amp;amp;</literal>.</para>
+
+  <para>This can easily be done using normal search and replace, there is,
+  however, one glitch. Imagine that you did remember this rule -
+  <emphasis>just a bit</emphasis> - and did it right some of the
+  places. Replacing unconditional would result in
+  <literal>&amp;amp;</literal> would be replaced with
+  <literal>&amp;amp;amp;</literal></para>
+
+  <para>What you really want to say is that <literal>&amp;</literal> should
+  only be placed if it is <emphasis>not</emphasis> followed by the letters
+  <literal>amp;</literal>. You can do this using regular expressions using
+  <emphasis>positive lookahead</emphasis>. </para>
+
+  <para>The regular expression, which only matches an ampersand if it is
+  not followed by the letters <literal>amp;</literal> looks as follows:
+  <literal>&(?!amb;)</literal>. This is, of course, easier to read using
+  the regular expression editor, where you would use the 
+  <link linkend="lookaheadtools">lookahead tools</link>.</para>
+</example>
+
 </chapter>
 
 <!-- ====================================================================== -->
@@ -193,6 +284,10 @@ Here comes a description of the Regular Expression Editor.
 <para id="positiontool"></para>
 
 <para id="altntool"></para>
+
+<para id="repeattool"></para>
+
+<para id="lookaheadtools"></para>
 </chapter>
 
 
@@ -207,6 +302,23 @@ Here comes a description of the Regular Expression Editor.
   role="strong">Before</emphasis> you report a bug or suggest a feature,
   please check that it hasn't already been 
   <ulink url="http://bugs.kde.org/db/pa/lkregexpeditor.html">reported/suggested</ulink></para>
+</chapter>
+
+<!-- ====================================================================== -->
+<!--                                 FAQ                                    -->
+<!-- ====================================================================== -->
+<chapter id="faq">
+<title>Frequently Asked Questions</title>
+
+<sect1>
+<title>Does the regular expression editor support back references</title>
+<para></para>
+</sect1>
+
+<sect1>
+<title>Does the regular expression editor support showing matches</title>
+<para></para>
+</sect1>
 </chapter>
 
 <!-- ====================================================================== -->
