@@ -1,8 +1,11 @@
+#ifndef compoundinfo_h
+#define compoundinfo_h
+
 #include "triple.h"
 #include <qmap.h>
 
 typedef Triple<QString,QString,bool> StringTriple;
-class CompoundInfo 
+class CompoundInfo
 {
 public:
   void clear();
@@ -14,3 +17,5 @@ private:
   int _count;
 };
 
+
+#endif
