@@ -103,3 +103,8 @@ void LookAheadWidget::paintEvent( QPaintEvent *e )
 
   SingleContainerWidget::paintEvent(e);
 }
+
+RegExpWidget* LookAheadWidget::findWidgetToEdit( QPoint globalPos )
+{
+    return _child->findWidgetToEdit( globalPos );
+}
