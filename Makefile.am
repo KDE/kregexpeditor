@@ -40,8 +40,7 @@ kregexpeditor_LDFLAGS = $(all_libraries)
 kregexpeditor_LDADD =  libkregexpeditorgui.la $(LIB_KIO) 
 kregexpeditor_INCLUDES =  $(all_includes)
 
-apps_DATA = kregexpeditor.desktop
-appsdir = $(kde_appsdir)/Utilities
+xdg_apps_DATA = kregexpeditor.desktop
 
 
 ##### Build rules for the parser
