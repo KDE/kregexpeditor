@@ -15,6 +15,7 @@
 #include <qaccel.h>
 #include <kstandarddirs.h>
 #include <compoundregexp.h>
+#include <qtimer.h>
 
 extern bool parse( QString str );
 extern RegExp* parseData();
@@ -79,16 +80,17 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   _regexpEdit = new QLineEdit( this );
   layout->addWidget( _regexpEdit );
 
-  
   QPixmap pix = KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/error.png") ), KIcon::Toolbar );
   _error = new QLabel( this );
   _error->setPixmap( pix );
   layout->addWidget( _error );
   _error->hide();
   
-  connect( _regexpEdit, SIGNAL(textChanged( const QString& ) ), this, SLOT( slotUpdateEditor( const QString & ) ) );
+  _timer = new QTimer(this);
+  
   connect( _scrolledEditorWindow, SIGNAL( change() ), this, SLOT( slotUpdateLineEdit() ) );
-  connect( _regexpEdit, SIGNAL(textChanged( const QString& ) ), this, SLOT( slotShowEditor() ) );
+  connect( _regexpEdit, SIGNAL(textChanged( const QString& ) ), this, SLOT( slotTriggerUpdate() ) );
+  connect( _timer, SIGNAL( timeout() ), this, SLOT( slotTimeout() ) );
 
   // Push an initial empty element on the stack.
   _undoStack.push( _scrolledEditorWindow->regExp() );
@@ -204,5 +206,22 @@ void KRegExpEditorPrivate::slotSetRegexp( QString regexp )
   _regexpEdit->setText( regexp );
 }
 
+void KRegExpEditorPrivate::slotTriggerUpdate()
+{
+  /* ### Guess this timeout value should be configurable somewhere, or (even
+   * better: do some kind of benchmark each time the editor view gets updated
+   * to measure how long it takes on the client system to render the editor
+   * with the current complexity. That way we'd get good response times for
+   * simple regexps, and flicker-free display for complex regexps.
+   * - Frerich
+   */
+  _timer->start( 300, true );
+}
+
+void KRegExpEditorPrivate::slotTimeout()
+{
+  slotUpdateEditor( _regexpEdit->text() );
+  slotShowEditor();
+}
 
 #include "kregexpeditorprivate.moc"

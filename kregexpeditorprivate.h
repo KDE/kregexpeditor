@@ -7,6 +7,7 @@
 #include <qptrstack.h>
 #include <qcstring.h>
 #include "regexp.h"
+class QTimer;
 
 class RegExpScrolledEditorWindow;
 class QLineEdit;
@@ -31,6 +32,8 @@ protected slots:
   void slotUpdateEditor( const QString & );
   void slotUpdateLineEdit();
   void slotShowEditor();
+  void slotTriggerUpdate();
+  void slotTimeout();
 
 public slots:
   void slotUndo();
@@ -55,6 +58,8 @@ private:
   QPtrStack<RegExp> _undoStack;
   QPtrStack<RegExp> _redoStack;
   UserDefinedRegExps*  _userRegExps;
+  QTimer* _timer;
 };
+
 #endif
 
