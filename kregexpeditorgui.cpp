@@ -13,7 +13,6 @@
 #include <kapp.h>
 #include "kregexpeditorprivate.h"
 #include <kregexpeditor.h>
-#include <qlayout.h>
 
 const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
 

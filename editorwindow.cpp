@@ -18,7 +18,6 @@
 #include <qdom.h>
 #include <qtextstream.h>
 #include "kregexpeditor.h"
-#include <qapplication.h>
 
 RegExpEditorWindow::RegExpEditorWindow( QWidget *parent, const char *name)
   : QWidget(parent, name, Qt::WPaintUnclipped)
