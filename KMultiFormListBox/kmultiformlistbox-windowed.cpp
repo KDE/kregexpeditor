@@ -19,6 +19,8 @@
   #include "compat.h"
 #else
   #include <kmessagebox.h>
+  #include <kpushbutton.h>
+  #include <kstdguiitem.h>
   #include "kmultiformlistbox-windowed.moc"
 #endif
 
@@ -75,7 +77,7 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
 	}
 
 	if (showHelpButton) {
-		but = new QPushButton(i18n("Help"), this, "Help Button");
+		but = new KPushButton(KStdGuiItem::help(), this, "Help Button");
 		buttons->addWidget(but, 0);
 		connect(but, SIGNAL(clicked()), this, SIGNAL(showHelp()));
 	}
