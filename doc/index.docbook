@@ -7,7 +7,7 @@
 <book lang="&language;">
 
   <bookinfo>
-    <title>The Regular Expresion Editor Manual</title>
+    <title>The Regular Expression Editor Manual</title>
 
     <authorgroup>
       <author>
@@ -272,10 +272,10 @@
   </chapter>
 
   <!-- ====================================================================== -->
-  <!--                    Using the Regular Expresion Editor                  -->
+  <!--                    Using the Regular Expression Editor                 -->
   <!-- ====================================================================== -->
   <chapter id="theEditor">
-    <title>Using the Regular Expresion Editor</title>
+    <title>Using the Regular Expression Editor</title>
 
     <para>
       This chapter will tell you about how the regular expression editor works.
@@ -315,7 +315,7 @@
         you load the editor with a regular expression then this regular
         expression is made <emphasis>nicer</emphasis> or more comprehensive
         by replacing common regular expressions. In the screen dump above,
-        you can see how the ascii syntex ".*" have been replaced with a box
+        you can see how the ascii syntax ".*" have been replaced with a box
         saying "anything". (2) When you insert regular expression you may
         find building blocks for your own regular expression from the set of
         pre build regular expressions. See the section on
