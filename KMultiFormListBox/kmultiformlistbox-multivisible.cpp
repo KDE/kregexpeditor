@@ -116,8 +116,8 @@ void KMultiFormListBoxMultiVisible::updateClipperContent()
   for (QWidget *child2 = elms->first(); child2; child2=elms->next()) {
     int h;
     if ( strcmp(child2->name(),"seperator") != 0) {
-      h += extra;
       h = child2->sizeHint().height();
+      h += extra;
     }
     else {
       h = child2->size().height();
