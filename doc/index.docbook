@@ -7,7 +7,7 @@
 <book lang="&language;">
 
   <bookinfo>
-    <title> The Regular Expresion Editor Manual</title>
+    <title>The Regular Expresion Editor Manual</title>
 
     <authorgroup>
       <author>
@@ -118,7 +118,7 @@
       </para>
     </example>
 
-    <example>
+    <example id="positionregexp">
       <title>Matching URL's</title>
       <para>When you select something looking like a URL in KDE, then the
         program <command>klipper</command> will offer to start
@@ -140,7 +140,7 @@
         sign).</para>
     </example>
 
-    <example>
+    <example id="boundaryregexp">
       <title>Searching for the word <literal>the</literal>, but not
         <emphasis>the</emphasis><literal>re</literal>,
         <literal>brea</literal><emphasis>the</emphasis> or
@@ -162,7 +162,7 @@
           different positions tool</link></para>
     </example>
 
-    <example>
+    <example id="altnregexp">
       <title>Searching for either <literal>this</literal> or <literal>that</literal></title>
       <para>Imagine that you want to run through your document searching for
         either the word <literal>this</literal> or the word
@@ -184,7 +184,7 @@
           tool</link>, and inserts the sub regular expressions above each other.</para>
     </example>
 
-    <example>
+    <example id="repeatregexp">
       <title>Matching anything</title>
       <para>Regular expressions are often compared to wildcard matching in the
         shell - that is the capability to specify a number of files using the
@@ -238,8 +238,8 @@
         created using the <link linkend="repeattool">repeat tool</link> </para>
     </example>
 
-    <example>
-      <title>Replacomg <literal>&amp;</literal> with <literal>&amp;amb;</literal> in
+    <example id="lookaheadregexp">
+      <title>Replacing <literal>&amp;</literal> with <literal>&amp;amb;</literal> in
         HTML document</title>
       <para>In HTML the special character <literal>&amp;</literal> must be
         written as <literal>&amp;amp;</literal> - this is similar to escaping in
@@ -281,14 +281,14 @@
       This chapter will tell you about how the regular expression editor works.
     </para>
 
+    <!-- ====================================================================== -->
+    <!--                   The organization of the screen                       -->
+    <!-- ====================================================================== -->
     <sect1>
       <title>The organization of the screen</title>
 
       <mediaobject>
         <imageobject><imagedata format="PNG" fileref="theEditor.png"/></imageobject>
-        <textobject>
-          <phrase>Here's a screenshot of the regular expression editor;</phrase>
-        </textobject>
       </mediaobject>
       
       <para>The most important part of the editor is of course the editing
@@ -314,7 +314,7 @@
         of pre-build regular expressions. They serve two purposes: (1) When
         you load the editor with a regular expression then this regular
         expression is made <emphasis>nicer</emphasis> or more comprehensive
-        my replacing common regular expressions. In the screen dump above,
+        by replacing common regular expressions. In the screen dump above,
         you can see how the ascii syntex ".*" have been replaced with a box
         saying "anything". (2) When you insert regular expression you may
         find building blocks for your own regular expression from the set of
@@ -323,22 +323,229 @@
           expressions</link> to learn how to save your own regular expressions.</para>      
     </sect1>
 
+    <!-- ====================================================================== -->
+    <!--                         Editing Tools                                  -->
+    <!-- ====================================================================== -->
     <sect1 id="editingtools">
       <title>Editing Tools</title>
-      <para id="positiontool"></para>
+      <para>The text in this section expects that you have read the chapter
+        on <link linkend="whatIsARegExp">what a regular expression
+          is</link>, or have previous knowledge on this subject.</para>
       
-      <para id="altntool"></para>
+      <para>All the editing tools are located in the tool bar above
+        editing area. Each of them will be described in the following.</para>
       
-      <para id="repeattool"></para>
       
-      <para id="lookaheadtools"></para>
-    </sect1> 
 
+      <simplesect id="selecttool">
+        <title>Selection Tool <inlinemediaobject>
+            <imageobject><imagedata format="PNG" fileref="select.png"/>
+        </imageobject></inlinemediaobject></title>
+
+        <para> The selection tool is used to
+          mark elements for cut-and-paste and drag-and-drop. This is very
+          similar to a selection tool in any drawing program.</para>
+      </simplesect>
+        
+      
+
+      <simplesect id="texttool"><title>Text Tool <inlinemediaobject><imageobject>
+            <imagedata format="PNG" fileref="text.png"/>
+            </imageobject></inlinemediaobject></title>
+
+        <para><inlinemediaobject><imageobject>
+              <imagedata format="PNG" fileref="texttool.png"/>
+        </imageobject></inlinemediaobject></para>
+
+        <para>Using this tool you will insert normal text to match. The
+        text is matched literally, i.e. you do not have to worry about
+        escaping of special characters.  In the example above the following
+          regular expression will be build: <literal>abc\*\\\)</literal></para>
+      </simplesect>
+
+      
+
+      <simplesect id="characterstool"><title>Character Tool <inlinemediaobject><imageobject>
+            <imagedata format="PNG" fileref="characters.png"/>
+            </imageobject></inlinemediaobject></title>
+      
+        <para><inlinemediaobject><imageobject>
+            <imagedata format="PNG" fileref="charactertool.png"/>
+            </imageobject></inlinemediaobject></para>
+        
+        <para> Using this tool you insert
+          character ranges. Examples includes what in ASCII text says
+          <literal>[0-9]</literal>, <literal>[^a-zA-Z,_]</literal>. When
+          inserting an item with this tool a  dialog will apear, in which
+          you specify the character ranges.</para>
+        
+        <para>See description of <link linkend="repeatregexp">repeated
+            regular expressions</link>.</para>
+      </simplesect>
+
+      
+      
+      <simplesect id="anychartool"><title>Any Character Tool <inlinemediaobject><imageobject>
+              <imagedata format="PNG" fileref="anychar.png"/>
+        </imageobject></inlinemediaobject></title>
+        
+        <para><inlinemediaobject><imageobject><imagedata format="PNG" fileref="anychartool.png"/>
+        </imageobject></inlinemediaobject></para>
+
+        <para>This is the regular expression "dot" (.). It matches any
+          single character.</para> 
+        
+       
+        
+        </simplesect>
+
+
+
+      <simplesect id="repeattool"><title>Repeat Tool <inlinemediaobject><imageobject>
+            <imagedata format="PNG" fileref="repeat.png"/>
+            </imageobject></inlinemediaobject></title>
+
+        <para><inlinemediaobject><imageobject>
+            <imagedata format="PNG" fileref="repeattool.png"/>
+            </imageobject></inlinemediaobject></para>
+
+        <para>This is the repeated
+            elements. This includes what in ASCII syntax is represented
+            using an asterix (*), a plus (+), a question mark (?), and
+            ranges ({3,5}). When you insert an item using this tool, a
+            dialog will appear asking for the number of times to
+            repeat.</para>
+          
+          <para>You specify what to repeat by drawing the repeated content
+            inside the box which this tool inserts.</para>
+
+          <para>Repeated elements can both be build outside in and inside
+            out. That is you can first draw what to be repeated, select it
+            and use the repeat tool to repeat it. Alternatively you can
+            first insert the repeat element, and draw what to be repeated
+            inside it.</para>
+
+        <para>See description on the <link linkend="repeatregexp">repeated
+            regular expressions</link>.</para>
+        </simplesect>
+
+
+
+
+      <simplesect id="altntool"><title>Alternative Tool <inlinemediaobject><imageobject>
+            <imagedata format="PNG" fileref="altn.png"/>
+            </imageobject></inlinemediaobject></title>
+
+        <para><inlinemediaobject><imageobject><imagedata format="PNG" fileref="altntool.png"/>
+        </imageobject></inlinemediaobject></para>
+        
+        <para>This is the alternative regular expression (|). You specify
+          the alternatives by drawing each alternative on top of each other
+          inside the box that this tool inserts.</para>
+
+        <para>See description on <link linkend="altnregexp">alternative
+            regular expressions</link></para>
+      </simplesect>
+      
+
+
+
+      <simplesect id="compoundtool"><title>Compound Tool <inlinemediaobject><imageobject>
+              <imagedata format="PNG" fileref="compound.png"/>
+        </imageobject></inlinemediaobject></title>
+        
+        <para><inlinemediaobject><imageobject><imagedata format="PNG" fileref="compoundtool.png"/>
+        </imageobject></inlinemediaobject></para>
+        
+        <para>The compound tool does not represent any regular
+          expressions. It is used to group other sub parts together in a
+          box, which easily can be collapsed to only its title. This can be
+          seen in the right part of the screen dump above.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="positiontool"><title>Line Start/End Tools <inlinemediaobject><imageobject>
+            <imagedata format="PNG" fileref="begline.png"/>
+        </imageobject></inlinemediaobject>&nbsp;&nbsp;
+          <inlinemediaobject><imageobject>
+              <imagedata format="PNG" fileref="endline.png"/>
+        </imageobject></inlinemediaobject></title>
+        
+        <para><inlinemediaobject><imageobject><imagedata format="PNG" fileref="linestartendtool.png"/>
+        </imageobject></inlinemediaobject></para>
+
+        <para>The line start and line end tools matches the start of the
+          line, and the end of the line respectively. The regular
+          expression in the screen dump above thus matches lines only
+          matches spaces.</para>
+        
+        <para>See description of <link linkend="positionregexp">position
+            regular expressions</link>.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect><title>Word (Non)Boundary Tools <inlinemediaobject><imageobject>
+            <imagedata format="PNG" fileref="wordboundary.png"/>
+            </imageobject></inlinemediaobject>&nbsp;&nbsp;
+          <inlinemediaobject><imageobject><imagedata format="PNG" fileref="nonwordboundary.png"/>
+        </imageobject></inlinemediaobject></title>
+
+        <para><inlinemediaobject><imageobject><imagedata format="PNG" fileref="boundarytools.png"/>
+        </imageobject></inlinemediaobject></para>
+
+        <para>The boundary tools matches a word boundary respectively a
+          non-word boundary. The regular expression in the screen dump thus
+          matches any words starting with <literal>the</literal>. The word
+          <literal>the</literal> itself is, however, not matched.</para>
+
+        <para>See description of <link linkend="boundaryregexp">boundary
+            regular expressions</link>.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="lookaheadtools"><title>Positive/Negative Lookahead
+          Tools
+          <inlinemediaobject><imageobject> <imagedata format="PNG" fileref="poslookahead.png"/>
+        </imageobject></inlinemediaobject>&nbsp;&nbsp;
+          <inlinemediaobject><imageobject> <imagedata format="PNG" fileref="neglookahead.png"/>
+        </imageobject></inlinemediaobject></title>
+
+        <para><inlinemediaobject><imageobject> <imagedata format="PNG" fileref="lookaheadtools.png"/>
+        </imageobject></inlinemediaobject></para>
+
+        <para>The look ahead tools either specify a positive or negative
+          regular expression to match. The match is, however, not part of
+          the total match.</para>
+
+        <para>Note: You are only allowed to place look ahead's at the end
+          of the regular expressions. The Regular Expression Editor widget
+          does not enforce this.</para>
+
+        <para>See description of <link linkend="lookaheadregexp">look ahead
+          regular expressions</link>.</para>
+      </simplesect>
+    </sect1>
+
+  <!-- ====================================================================== -->
+  <!--                  User Defined Regular Expressions                      -->
+  <!-- ====================================================================== -->
     <sect1 id="userdefinedregexps">
       <title>User Defined Regular Expressions</title>
       <para></para>
     </sect1>
 
+  <!-- ====================================================================== -->
+  <!--                   Cut/Copy/Paste and drag and                          -->
+  <!-- ====================================================================== -->
     <sect1>
       <title>Cut/Copy/Paste and drag and drop </title>
       <para></para>
@@ -385,7 +592,7 @@
 
     <sect1>
       <title>I can't find the <emphasis>Edit Regular expression</emphasis> button in for example
-        konqueror on some another KDE3 installation, why?</title>
+        konqueror on another KDE3 installation, why?</title>
       <para>The regular expression widget is located in the package
         KDE-utils. If you do not have this package installed, then the
         <emphasis>edit regular expressions</emphasis> buttons will not
