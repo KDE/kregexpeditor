@@ -25,6 +25,7 @@
 #include <qlayout.h>
 #include <qcursor.h>
 #include <qapplication.h>
+
 TextWidget::TextWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                        const char *name)
   :RegExpWidget(editorWindow, parent, name)
@@ -61,7 +62,7 @@ void TextWidget::slotUpdate()
   // widget may not be enough for the parent to change size, and in that
   // case the parent would not repaint, and the text widget would not be
   // resized.
-  QWidget *p = dynamic_cast<QWidget*>(parent());
+  QWidget *p = static_cast<QWidget*>(parent());
   if (p)
     p->repaint();
   _editorWindow->updateContent( this );
@@ -115,7 +116,7 @@ bool TextWidget::eventFilter( QObject*, QEvent* event)
     if ( event->type() == QEvent::MouseButtonRelease ) {
         if ( _editorWindow->isInserting() ) {
             if ( acceptWidgetInsert( _editorWindow->insertType() ) ) {
-                mouseReleaseEvent( dynamic_cast<QMouseEvent*>(event) );
+                mouseReleaseEvent( static_cast<QMouseEvent*>(event) );
             }
             return true;
         }
