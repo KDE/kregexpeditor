@@ -7,6 +7,7 @@
 #include <kmessagebox.h>
 #include <qaccel.h>
 #include <qapplication.h>
+#include <qcursor.h>
 #include <qclipboard.h>
 #include <qpopupmenu.h>
 #include <kfiledialog.h>

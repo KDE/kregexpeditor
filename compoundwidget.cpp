@@ -1,6 +1,7 @@
 #include "compoundwidget.h"
 #include <kdialogbase.h>
 #include <qlayout.h>
+#include <qcursor.h>
 #include <qlineedit.h>
 #include <kiconloader.h>
 #include <klocale.h>

@@ -3,6 +3,7 @@
 #include "repeatregexp.h"
 #include "selectablelineedit.h"
 #include <qpainter.h>
+#include <qcursor.h>
 #include <klocale.h>
 #include <qspinbox.h>
 #include <qradiobutton.h>
