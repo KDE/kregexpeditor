@@ -89,9 +89,9 @@ QSize AltnWidget::sizeHint() const
 
 void AltnWidget::paintEvent( QPaintEvent *e)
 {
-  ASSERT( dynamic_cast<DragAccepter*>(_children.at(0)) );
+  Q_ASSERT( dynamic_cast<DragAccepter*>(_children.at(0)) );
   // if this fails, then I should check the location of the show()
-  ASSERT( _children.count() == 1 || 
+  Q_ASSERT( _children.count() == 1 || 
           ( _children.count() >=3 && 
             dynamic_cast<DragAccepter*>(_children.at(_children.count()-1)) ) );
 

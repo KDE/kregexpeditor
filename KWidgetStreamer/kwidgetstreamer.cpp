@@ -3,6 +3,7 @@
 #include <qobjcoll.h>
 #include <qvariant.h>
 
+
 void KWidgetStreamer::toStream(const QObject* from, QDataStream& stream )
 {
   if ( from->inherits("KMultiFormListBox") ) {
@@ -47,7 +48,7 @@ void KWidgetStreamer::propertyToStream( const QObject* from, QDataStream& stream
     if ( from->inherits( tp.latin1() ) ) {
       for ( PropertyListIt it = list.begin(); it != list.end(); ++it ) {
         QVariant prop = from->property( (*it).latin1() );
-        ASSERT( prop.isValid() );
+        Q_ASSERT( prop.isValid() );
         stream <<  prop ;
       }
     }
@@ -67,12 +68,12 @@ void KWidgetStreamer::propertyFromStream( QDataStream& stream, QObject* to )
   
   stream >> count;
   if ( children ) {
-    ASSERT( count == children->count() );
+    Q_ASSERT( count == children->count() );
     for ( QObjectListIt it = QObjectListIt(*children); *it; ++it )
       fromStream( stream, *it );
   }
   else {
-    ASSERT( count == 0 );
+    Q_ASSERT( count == 0 );
   }
 
   // Now stream in properties

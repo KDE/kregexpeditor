@@ -18,7 +18,7 @@ QString PositionRegExp::toString() const
 	case NONWORDBOUNDARY:
 		return QString::fromLatin1("\\B");
 	}
-	ASSERT( false );
+	Q_ASSERT( false );
 	return QString::fromLatin1("");
 }
 

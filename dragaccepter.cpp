@@ -55,7 +55,7 @@ void DragAccepter::mouseReleaseEvent( QMouseEvent* event )
         elm = new ConcWidget( _editorWindow, newElm, 0 );
       }
       
-      ASSERT( elm );
+      Q_ASSERT( elm );
       
       dynamic_cast<RegExpWidget*>(parent())->addNewConcChild(this, elm);
       _editorWindow->updateContent( this );
@@ -98,7 +98,7 @@ void DragAccepter::dropEvent(QDropEvent *event)
     elm = new ConcWidget( _editorWindow, newElm, 0 );
   }
        
-  ASSERT( elm );
+  Q_ASSERT( elm );
   
   dynamic_cast<RegExpWidget*>(parent())->addNewConcChild(this, elm);
   dynamic_cast<QWidget*>(parent())->update();

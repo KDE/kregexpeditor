@@ -50,7 +50,7 @@ QDomNode RepeatRegExp::toXml( QDomDocument* doc ) const
 
 bool RepeatRegExp::load( QDomElement top, const QString& version ) 
 {
-  ASSERT( top.tagName() == QString::fromLocal8Bit( "Repeat" ) );
+  Q_ASSERT( top.tagName() == QString::fromLocal8Bit( "Repeat" ) );
   QString lower = top.attribute( QString::fromLocal8Bit("lower"), QString::fromLocal8Bit("0") );
   QString upper = top.attribute( QString::fromLocal8Bit("upper"), QString::fromLocal8Bit("0") );
   bool ok;

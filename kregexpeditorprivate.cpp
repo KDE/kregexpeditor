@@ -131,7 +131,7 @@ void KRegExpEditorPrivate::slotUpdateLineEdit()
 
 void KRegExpEditorPrivate::recordUndoInfo()
 {
-  ASSERT( _updating );
+  Q_ASSERT( _updating );
   
   // Update undo/redo stacks
   RegExp* regexp = _scrolledEditorWindow->regExp();

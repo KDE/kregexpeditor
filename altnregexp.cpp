@@ -42,7 +42,7 @@ QDomNode AltnRegExp::toXml( QDomDocument* doc ) const
 
 bool AltnRegExp::load( QDomElement top, const QString& version ) 
 {
-  ASSERT( top.tagName() == QString::fromLocal8Bit( "Alternatives" ) );
+  Q_ASSERT( top.tagName() == QString::fromLocal8Bit( "Alternatives" ) );
   
   for ( QDomNode child = top.firstChild(); !child.isNull(); child = child.nextSibling() ) {
     if ( ! child.isElement() )

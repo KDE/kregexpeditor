@@ -54,7 +54,7 @@ QDomNode ConcRegExp::toXml( QDomDocument* doc ) const
 
 bool ConcRegExp::load( QDomElement top, const QString& version ) 
 {
-  ASSERT( top.tagName() == QString::fromLocal8Bit( "Concatenation" ) );
+  Q_ASSERT( top.tagName() == QString::fromLocal8Bit( "Concatenation" ) );
   
   for ( QDomNode child = top.firstChild(); !child.isNull(); child = child.nextSibling() ) {
     if ( ! child.isElement() ) 
