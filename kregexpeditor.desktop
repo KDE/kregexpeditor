@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=KRegExpEditor
+Exec=kregexpeditor
+DocPath=KRegExpEditor/index.html
+GenericName=Regular Expression Editor
+Terminal=0
+Type=Application
+X-KDE-StartupNotify=true
+Categories=Qt;KDE;Utility

@@ -32,12 +32,17 @@ libkregexpeditorgui_la_METASOURCES = AUTO
 service_DATA = kregexpeditorgui.desktop
 servicedir = $(kde_servicesdir)
 
-#bin_PROGRAMS = kregexpeditor
-#kregexpeditor_SOURCES = main.cpp
-#kregexpeditor_LDFLAGS = $(all_libraries)
-#kregexpeditor_LDADD =  $(LIB_KSYCOCA) $(LIB_QT)
-#kregexpeditor_INCLUDES =  $(all_includes)
-#kregexpeditor_METASOURCES = AUTO
+#### Binary
+
+bin_PROGRAMS = kregexpeditor
+kregexpeditor_SOURCES = main.cpp
+kregexpeditor_LDFLAGS = $(all_libraries)
+kregexpeditor_LDADD =  libkregexpeditorgui.la $(LIB_KSYCOCA) $(LIB_QT)
+kregexpeditor_INCLUDES =  $(all_includes)
+kregexpeditor_METASOURCES = AUTO
+
+apps_DATA = kregexpeditor.desktop
+appsdir = $(kde_appsdir)/Utilities
 
 
 ##### Build rules for the parser
