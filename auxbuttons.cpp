@@ -58,7 +58,7 @@ AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)
   layout->addWidget( button );
   connect(button, SIGNAL(clicked()), this, SLOT(slotEnterWhatsThis()));
 
-  _syntaxLabel = new QLabel( i18n("Lanuage:"), this );
+  _syntaxLabel = new QLabel( i18n("Language:"), this );
   layout->addWidget( _syntaxLabel );
   _syntax = new QComboBox( this );
   _syntax->insertStringList( QStringList() << i18n("Qt") << i18n("Emacs") );
