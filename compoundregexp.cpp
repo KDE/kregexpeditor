@@ -1,5 +1,6 @@
 #include "compoundregexp.h"
 #include "widgetfactory.h"
+#include <klocale.h>
 
 CompoundRegExp::CompoundRegExp( const QString& title, const QString& description, bool hidden, 
                                 bool allowReplace, RegExp* child)
@@ -56,7 +57,13 @@ bool CompoundRegExp::load( QDomElement top, const QString& version )
     if ( txtNode.isText() )
       txt = txtNode.toText().data();
     if ( child.tagName() == QString::fromLocal8Bit( "Title" ) ) {
-      _title = txt;
+      // evil hack to get the predefines translated correctly
+      if (txt == QString::fromLatin1("spaces"))
+	_title = i18n("spaces");
+      else if (txt == QString::fromLatin1("anything"))
+	_title = i18n("anything");
+      else
+        _title = txt;
     }
     else if ( child.tagName() == QString::fromLocal8Bit( "Description" ) ) {
       _description = txt;

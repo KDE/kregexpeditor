@@ -59,8 +59,12 @@ void UserDefinedRegExps::slotPopulateUserRegexps()
   
 }
 
-void UserDefinedRegExps::createItems( const QString& title, const QString& dir, bool usersRegExp ) 
+void UserDefinedRegExps::createItems( const QString& _title, const QString& dir, bool usersRegExp ) 
 {
+  QString title = _title;
+  if (_title == QString::fromLatin1("general"))
+	  title = i18n("general");
+
   QListViewItem* lvItem = new QListViewItem( _userDefined, title );
   lvItem->setOpen( true );
   
