@@ -22,9 +22,9 @@ extern RegExp* parseData();
 
 
 KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name) 
-  : QWidget(parent, name), _updating( false ), _preventShow( false )
+  : QWidget(parent, name), _updating( false )
 {
-  setMinimumSize(600,300);
+  setMinimumSize(730,300);
   QDockArea* area = new QDockArea( Horizontal, QDockArea::Normal, this );
   QDockArea* verArea = new QDockArea( Vertical, QDockArea::Normal, this );
 
@@ -70,8 +70,23 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
 
   connect( auxButtons, SIGNAL( undo() ), this, SLOT( slotUndo() ) );
   connect( auxButtons, SIGNAL( redo() ), this, SLOT( slotRedo() ) );
+  connect( auxButtons, SIGNAL( cut() ), _scrolledEditorWindow, SLOT( slotCut() ) );
+  connect( auxButtons, SIGNAL( copy() ), _scrolledEditorWindow, SLOT( slotCopy() ) );
+  connect( auxButtons, SIGNAL( paste() ), _scrolledEditorWindow, SLOT( slotPaste() ) );
+  connect( auxButtons, SIGNAL( save() ), _scrolledEditorWindow, SLOT( slotSave() ) );
+
   connect( this, SIGNAL( canUndo( bool ) ), auxButtons, SLOT( slotCanUndo( bool ) ) );
   connect( this, SIGNAL( canRedo( bool ) ), auxButtons, SLOT( slotCanRedo( bool ) ) );
+  connect( _scrolledEditorWindow, SIGNAL( anythingSelected( bool ) ), auxButtons, SLOT( slotCanCut( bool ) ) );
+  connect( _scrolledEditorWindow, SIGNAL( anythingSelected( bool ) ), auxButtons, SLOT( slotCanCopy( bool ) ) );
+  connect( _scrolledEditorWindow, SIGNAL( anythingOnClipboard( bool ) ), auxButtons, SLOT( slotCanPaste( bool ) ) );
+  connect( _scrolledEditorWindow, SIGNAL( canSave( bool ) ), auxButtons, SLOT( slotCanSave( bool ) ) );
+
+  auxButtons->slotCanPaste( false );
+  auxButtons->slotCanCut( false );
+  auxButtons->slotCanCopy( false );
+  auxButtons->slotCanSave( false );
+  
 
   // Line Edit
   QHBoxLayout* layout = new QHBoxLayout( topLayout, 6 );
@@ -200,9 +215,7 @@ void KRegExpEditorPrivate::emitUndoRedoSignals()
 
 void KRegExpEditorPrivate::slotSetRegexp( QString regexp )
 {
-  _preventShow = true;
   _regexpEdit->setText( regexp );
-  _preventShow = false;
 }
 
 void KRegExpEditorPrivate::slotTriggerUpdate()
@@ -216,8 +229,7 @@ void KRegExpEditorPrivate::slotTriggerUpdate()
    */
   if ( !_updating ) {
     _timer->start( 300, true );
-    if ( !_preventShow ) 
-      slotShowEditor();
+    slotShowEditor();
   }
 }
 

@@ -153,8 +153,6 @@ public slots:
 
   void updateCursorUnderPoint();
   
-
-protected slots:
   void slotCut();
   void slotCopy();
   void slotSave();
@@ -189,7 +187,11 @@ signals:
   */
   void savedRegexp();
   
-  
+  void anythingSelected( bool );
+  void anythingOnClipboard( bool );
+  void canSave( bool );
+
+
 protected:
   virtual void mousePressEvent ( QMouseEvent* event );
   virtual void mouseMoveEvent ( QMouseEvent* event );

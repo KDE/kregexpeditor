@@ -19,6 +19,10 @@ RegExpScrolledEditorWindow::RegExpScrolledEditorWindow( QWidget* parent, const c
   
   connect( _editorWindow, SIGNAL( change() ), this, SIGNAL( change() ) );
   connect( _editorWindow, SIGNAL( savedRegexp() ), this, SIGNAL( savedRegexp() ) );
+
+  connect( _editorWindow, SIGNAL( anythingSelected(bool) ), this, SIGNAL( anythingSelected(bool) ) );
+  connect( _editorWindow, SIGNAL( anythingOnClipboard(bool) ), this, SIGNAL( anythingOnClipboard(bool) ) );
+  connect( _editorWindow, SIGNAL( canSave(bool) ), this, SIGNAL( canSave(bool) ) );
 }
 
 void RegExpScrolledEditorWindow::slotSetRegExp( RegExp* regexp )
@@ -47,6 +51,25 @@ void RegExpScrolledEditorWindow::slotDoSelect()
   _editorWindow->slotDoSelect();
 }
 
+void RegExpScrolledEditorWindow::slotCut()
+{
+  _editorWindow->slotCut();
+}
+
+void RegExpScrolledEditorWindow::slotCopy()
+{
+  _editorWindow->slotCopy();
+}
+
+void RegExpScrolledEditorWindow::slotPaste()
+{
+  _editorWindow->slotStartPasteAction();
+}
+
+void RegExpScrolledEditorWindow::slotSave()
+{
+  _editorWindow->slotSave();
+}
 
 RegExp* RegExpScrolledEditorWindow::regExp()
 {

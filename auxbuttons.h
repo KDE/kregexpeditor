@@ -15,15 +15,27 @@ public:
 signals:
   void undo();
   void redo();
+  void cut();
+  void copy();
+  void paste();
+  void save();
   
-protected slots:
+public slots:
   void slotEnterWhatsThis();
   void slotCanUndo( bool );
   void slotCanRedo( bool );
+  void slotCanCut( bool );
+  void slotCanCopy( bool );
+  void slotCanPaste( bool );
+  void slotCanSave( bool );
   
 private:
   QPushButton* _undo;
   QPushButton* _redo;
+  QPushButton* _cut;
+  QPushButton* _copy;
+  QPushButton* _paste;
+  QPushButton* _save;
 };
 
 

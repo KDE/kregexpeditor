@@ -33,6 +33,8 @@ RegExpEditorWindow::RegExpEditorWindow( QWidget *parent, const char *name)
   QAccel* accel = new QAccel( this );
   accel->connectItem( accel->insertItem( CTRL+Key_C ), this, SLOT( slotCopy() ) );
   accel->connectItem( accel->insertItem( CTRL+Key_X ), this, SLOT( slotCut() ) );
+  accel->connectItem( accel->insertItem( Key_Delete ), this, SLOT( slotCut() ) );
+  accel->connectItem( accel->insertItem( Key_BackSpace ), this, SLOT( slotCut() ) );
   accel->connectItem( accel->insertItem( CTRL+Key_V ), this, SLOT( slotStartPasteAction() ) );
   accel->connectItem( accel->insertItem( Key_Escape ), this, SLOT( slotEndActions() ) );
   accel->connectItem( accel->insertItem( CTRL+Key_S ), this, SLOT( slotSave() ) );
@@ -86,6 +88,7 @@ void RegExpEditorWindow::mouseMoveEvent ( QMouseEvent* event )
       }
       releaseMouse();
       emit change();
+      emit canSave( _top->hasAnyChildren() );
     }
   }
   else {
@@ -127,6 +130,7 @@ void RegExpEditorWindow::mouseReleaseEvent( QMouseEvent *event)
   }
   _top->validateSelection();
   _top->updateAll();
+  emit anythingSelected( hasSelection() );
 }
 
 bool RegExpEditorWindow::selectionOverlap( QPoint pos, QSize size ) const
@@ -146,6 +150,7 @@ void RegExpEditorWindow::clearSelection( bool update )
   _top->clearSelection();
   if ( update )
     _top->updateAll();
+  emit anythingSelected(false);
 }
 
 void RegExpEditorWindow::slotInsertRegExp( RegExpType type )
@@ -213,6 +218,7 @@ void RegExpEditorWindow::slotCut()
 {
   cut( QCursor::pos() );
   emit change();
+  emit canSave( _top->hasAnyChildren() );
 }
 
 void RegExpEditorWindow::cut( QPoint pos )
@@ -252,6 +258,8 @@ void RegExpEditorWindow::cutCopyAux( QPoint pos )
   
   QClipboard* clipboard = qApp->clipboard();
   clipboard->setData( clipboardData );
+  emit anythingOnClipboard( true );
+  emit canSave( _top->hasAnyChildren() );
 }
 
 
@@ -269,6 +277,7 @@ void RegExpEditorWindow::slotStartPasteAction()
 void RegExpEditorWindow::slotEndActions() {
   emit doneEditing();
   emit change();
+  emit canSave( _top->hasAnyChildren() );
 }
 
 void RegExpEditorWindow::showRMBMenu( bool enableCutCopy )
@@ -310,10 +319,11 @@ void RegExpEditorWindow::showRMBMenu( bool enableCutCopy )
   case COPY: copy( pos ); break;
   case CUT: cut( pos ); break;
   case PASTE: slotStartPasteAction(); break;
-  case SAVE: slotSave(); emit savedRegexp(); break;
+  case SAVE: slotSave(); break;
   case EDIT: editWidget->edit(); break;
   }
   emit change();
+  emit canSave( _top->hasAnyChildren() );
 }
 
 void RegExpEditorWindow::applyRegExpToSelection( RegExpType tp )
@@ -354,6 +364,7 @@ void RegExpEditorWindow::slotSave()
   stream << xml;
 
   file.close();
+  emit savedRegexp();
 }
 
 
@@ -374,6 +385,7 @@ void RegExpEditorWindow::slotSetRegExp( RegExp* regexp )
   _top->show();
   _layout->addWidget( _top );
   clearSelection( true ); // HACK?
+  emit canSave( _top->hasAnyChildren() );
 }
 
 void RegExpEditorWindow::updateCursorUnderPoint()

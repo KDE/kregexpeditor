@@ -31,6 +31,10 @@ public slots:
   void slotInsertRegExp( RegExp* );
   void slotDeleteSelection();
   void slotDoSelect();
+  void slotCut();
+  void slotCopy();
+  void slotSave();
+  void slotPaste();
 
 protected slots:
   void slotUpdateContentSize( QPoint focusPoint );
@@ -53,7 +57,11 @@ signals:
      This signal is emitted when the user saves a regular expression.
   */
   void savedRegexp();
-  
+
+  void anythingSelected( bool );
+  void anythingOnClipboard( bool );
+  void canSave( bool );
+
 private:
   RegExpEditorWindow* _editorWindow;
   QScrollView* _scrollView;

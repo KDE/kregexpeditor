@@ -85,12 +85,12 @@ void KRegExpEditorGUIDialog::undo()
   _editor->undo();
 }
 
-void KRegExpEditorGUIDialog::doSomething( QString method, void* arguments ) 
+void KRegExpEditorGUIDialog::doSomething( QString /*method*/, void* /*arguments*/ ) 
 {
   qFatal("This method should not be invoked!");
 }
 
-void KRegExpEditorGUI::doSomething( QString method, void* arguments ) 
+void KRegExpEditorGUI::doSomething( QString /*method*/, void* /*arguments*/ ) 
 {
   qFatal("This method should not be invoked!");
 }
