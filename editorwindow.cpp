@@ -55,7 +55,7 @@ void  RegExpEditorWindow::mousePressEvent ( QMouseEvent* event )
 
     _start = event->pos();
     _lastPoint = QPoint(0,0);
-    
+
     if ( pointSelected( event->globalPos() ) ) {
         _isDndOperation = true;
     }
@@ -63,7 +63,7 @@ void  RegExpEditorWindow::mousePressEvent ( QMouseEvent* event )
         _isDndOperation = false;
         _selection = QRect();
         _top->updateSelection( false );
-    
+
         QWidget::mousePressEvent( event );
     }
     grabMouse();
@@ -75,14 +75,16 @@ bool RegExpEditorWindow::pointSelected( QPoint p ) const
     return rect.contains(p);
 }
 
-void RegExpEditorWindow::mouseMoveEvent ( QMouseEvent* event ) 
+void RegExpEditorWindow::mouseMoveEvent ( QMouseEvent* event )
 {
     if ( _isDndOperation ) {
         if ( ( _start - event->pos() ).manhattanLength() > QApplication::startDragDistance() ) {
             RegExp* regexp = _top->selection();
+            if ( !regexp )
+                return;
             QDragObject *d = new RegExpWidgetDrag( regexp, this );
             delete regexp;
-      
+
             bool del = d->drag();
             if ( del )
                 slotDeleteSelection();
@@ -98,12 +100,12 @@ void RegExpEditorWindow::mouseMoveEvent ( QMouseEvent* event )
         QPainter p( this );
         p.setRasterOp( Qt::NotROP );
         p.setPen( Qt::DotLine );
-    
+
         // remove last selection rectangle
         if ( ! _lastPoint.isNull() && _undrawSelection ) {
-            p.drawRect(QRect(_start, _lastPoint));    
+            p.drawRect(QRect(_start, _lastPoint));
         }
-    
+
         // Note this line must come after the old rect has been removed
         // and before the new one is draw otherwise the update event which this
         // line invokes, will remove a line, which later will be drawn instead of
@@ -114,12 +116,12 @@ void RegExpEditorWindow::mouseMoveEvent ( QMouseEvent* event )
         p.drawRect(QRect(_start, event->pos()));
         _undrawSelection = true;
         _lastPoint = event->pos();
-    
+
         _selection = QRect(mapToGlobal(_start), mapToGlobal(_lastPoint)).normalize();
     }
 }
 
-void RegExpEditorWindow::mouseReleaseEvent( QMouseEvent *event) 
+void RegExpEditorWindow::mouseReleaseEvent( QMouseEvent *event)
 {
     releaseMouse();
     QWidget::mouseReleaseEvent( event);
@@ -129,7 +131,7 @@ void RegExpEditorWindow::mouseReleaseEvent( QMouseEvent *event)
     p.setRasterOp( Qt::NotROP );
     p.setPen( Qt::DotLine );
     if ( ! _lastPoint.isNull() ) {
-        p.drawRect(QRect(_start, _lastPoint));    
+        p.drawRect(QRect(_start, _lastPoint));
     }
     _top->validateSelection();
     _top->updateAll();
@@ -172,7 +174,7 @@ void RegExpEditorWindow::slotInsertRegExp( RegExp* regexp )
 {
     if ( _pasteData )
         delete _pasteData;
-  
+
     _pasteData = regexp->clone();
     _pasteInAction = true;
     updateCursorUnderPoint();
@@ -181,11 +183,11 @@ void RegExpEditorWindow::slotInsertRegExp( RegExp* regexp )
 
 void RegExpEditorWindow::slotDoSelect()
 {
-    _pasteInAction = false; 
+    _pasteInAction = false;
     _insertInAction = false;
-  
-    // I need to update the cursor recursively, as a repaint may not have been issued yet 
-    // when this method is invoked. This means that when the repaint comes, the cursor may 
+
+    // I need to update the cursor recursively, as a repaint may not have been issued yet
+    // when this method is invoked. This means that when the repaint comes, the cursor may
     // move to an other widget.
     _top->updateCursorRecursively();
 }
@@ -206,12 +208,12 @@ void RegExpEditorWindow::updateContent( QWidget* focusChild)
     QPoint p(0,0);
     if ( focusChild )
         p = focusChild->mapTo( this, QPoint(0,0) );
-  
+
     _top->update();
     emit contentChanged( p );
 }
 
-QSize RegExpEditorWindow::sizeHint() const 
+QSize RegExpEditorWindow::sizeHint() const
 {
     return _top->sizeHint();
 }
@@ -247,7 +249,7 @@ void RegExpEditorWindow::copy( QPoint pos )
 }
 
 
-void RegExpEditorWindow::cutCopyAux( QPoint pos ) 
+void RegExpEditorWindow::cutCopyAux( QPoint pos )
 {
     if ( !hasSelection() ) {
         RegExpWidget* widget = _top->widgetUnderPoint( pos, true );
@@ -259,11 +261,11 @@ void RegExpEditorWindow::cutCopyAux( QPoint pos )
             widget->updateSelection( true ); // HACK!
         }
     }
-  
+
     RegExp* regexp = _top->selection();
     RegExpWidgetDrag *clipboardData = new RegExpWidgetDrag( regexp, this );
     delete regexp;
-  
+
     QClipboard* clipboard = qApp->clipboard();
     clipboard->setData( clipboardData );
     emit anythingOnClipboard( true );
@@ -291,7 +293,7 @@ void RegExpEditorWindow::slotEndActions() {
 void RegExpEditorWindow::showRMBMenu( bool enableCutCopy )
 {
     enum CHOICES { CUT, COPY, PASTE, SAVE, EDIT };
-  
+
     if ( !_menu ) {
         _menu = new QPopupMenu( 0 );
         _menu->insertItem(SmallIconSet(QString::fromLocal8Bit("editcut")),
@@ -312,13 +314,13 @@ void RegExpEditorWindow::showRMBMenu( bool enableCutCopy )
 
     if ( ! qApp->clipboard()->data()->provides( "KRegExpEditor/widgetdrag" ) )
         _menu->setItemEnabled( PASTE, false );
-    else 
+    else
         _menu->setItemEnabled( PASTE, true );
 
     _menu->setItemEnabled( SAVE, _top->hasAnyChildren() );
 
     RegExpWidget* editWidget = _top->findWidgetToEdit( QCursor::pos() );
-  
+
     _menu->setItemEnabled( EDIT, editWidget  );
 
     QPoint pos = QCursor::pos();
@@ -336,7 +338,7 @@ void RegExpEditorWindow::showRMBMenu( bool enableCutCopy )
 
 void RegExpEditorWindow::applyRegExpToSelection( RegExpType tp )
 {
-    _top->applyRegExpToSelection( tp ); 
+    _top->applyRegExpToSelection( tp );
 }
 
 void RegExpEditorWindow::slotSave()
@@ -365,7 +367,7 @@ void RegExpEditorWindow::slotSave()
     RegExp* regexp = _top->regExp();
     QString xml = regexp->toXmlString();
     delete regexp;
-  
+
     QTextStream stream(&file);
     stream << xml;
 
@@ -387,7 +389,7 @@ void RegExpEditorWindow::slotSetRegExp( RegExp* regexp )
         _top = new ConcWidget( this, widget, this );
     }
     _top->setToplevel();
-  
+
     _top->show();
     _layout->addWidget( _top );
     clearSelection( true ); // HACK?
@@ -397,11 +399,11 @@ void RegExpEditorWindow::slotSetRegExp( RegExp* regexp )
 void RegExpEditorWindow::updateCursorUnderPoint()
 {
     RegExpWidget* widget = _top->widgetUnderPoint( QCursor::pos(), false );
-    if ( widget ) 
+    if ( widget )
         widget->updateCursorShape();
 }
 
-void RegExpEditorWindow::emitVerifyRegExp() 
+void RegExpEditorWindow::emitVerifyRegExp()
 {
     emit verifyRegExp();
 }
