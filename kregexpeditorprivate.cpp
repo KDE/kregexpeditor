@@ -163,11 +163,11 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   layout->addWidget( label );
   _regexpEdit = new QLineEdit( this );
   layout->addWidget( _regexpEdit );
-  QWhatsThis::add( _regexpEdit, i18n( "This is the regular expression in ascii syntax. You are likely only interested "
-                                      "in this if you are a programmer, and need to develop a regular expression "
-                                      "using QRegExp.<p>"
-                                      "You may both develop your regular expression using the graphical editor, and by "
-                                      "typing regular expression in this line edit") );
+  QWhatsThis::add( _regexpEdit, i18n( "This is the regular expression in ASCII syntax. You are likely only "
+				      "to be interested in this if you are a programmer, and need to "
+				      "develop a regular expression using QRegExp.<p>"
+                                      "You may evelop your regular expression both by using the graphical "
+				      "editor, and by typing the regular expression in this line edit.") );
 
 #ifdef QT_ONLY
   QPixmap pix( "icons/error.png" );
