@@ -1,6 +1,7 @@
 #include "infopage.h"
 #include <klocale.h>
-#include <kapp.h>
+#include <kapplication.h>
+#include <kurl.h>
 
 InfoPage::InfoPage( QWidget* parent, const char* name )
   :QTextBrowser( parent, name )
@@ -38,7 +39,7 @@ void InfoPage::setSource ( const QString & name )
     kapp->invokeHelp( name.mid(4), QString::fromLocal8Bit("KRegExpEditor") ); 
   }
   else if ( name.left(7) == QString::fromLocal8Bit("mailto:") ) {
-    kapp->invokeMailer( name );
+    kapp->invokeMailer( KURL(name) );
   }
   else {
     kapp->invokeBrowser( name );

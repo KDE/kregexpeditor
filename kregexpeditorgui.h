@@ -34,7 +34,7 @@ signals:
 public slots:
   void slotRedo();
   void slotUndo();
-  void slotSetRegExp( QString regexp );
+  void slotSetRegexp( QString regexp );
 
 private:
 	KRegExpEditorPrivate* _editor;

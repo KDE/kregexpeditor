@@ -14,6 +14,7 @@
 #include <qvbox.h>
 #include "charselector.h"
 #include "myfontmetrics.h"
+#include <qgrid.h>
 CharactersWidget::CharactersWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                                    const char *name)
   : RegExpWidget(editorWindow, parent, name)

@@ -43,7 +43,7 @@ void KRegExpEditorGUI::slotUndo()
   _editor->slotUndo();
 }
 
-void KRegExpEditorGUI::slotSetRegExp( QString regexp )
+void KRegExpEditorGUI::slotSetRegexp( QString regexp )
 {
   _editor->slotSetRegexp( regexp );
 }

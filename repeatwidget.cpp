@@ -12,6 +12,7 @@
 #include <qvbuttongroup.h>
 #include "kwidgetstreamer.h"
 #include <qcheckbox.h>
+#include <qgrid.h>
 
 RepeatWidget::RepeatWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                            const char *name)
