@@ -1134,7 +1134,7 @@ RegExp* parseData() {
   return parseResult;
 }
 
-int yyerror(const char *s) {
+int yyerror(const char *) {
     yynerrs++;
   return 0;
 }
