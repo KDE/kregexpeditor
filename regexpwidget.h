@@ -168,6 +168,13 @@ protected:
   virtual bool acceptWidgetInsert( RegExpType ) const;
 
   virtual void mousePressEvent ( QMouseEvent* event );
+  /**
+     Qt3.0 contains what I beleive is a bug, namely that a mouse move event
+     is sent to the parent if the child do not handle it.
+     Therefore I need to block it here.
+  */
+  virtual void mouseMoveEvent( QMouseEvent* ) {}
+
   virtual void mouseReleaseEvent( QMouseEvent* );
   virtual void enterEvent( QEvent * );
 
