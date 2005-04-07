@@ -35,11 +35,12 @@ class AuxButtons;
 class RegExpLineEdit;
 class RegExpConverter;
 class RegExpButtons;
+class QToolButton;
 
 /**
    Widget used to build a regular expression
 
-   @author Jesper Kjær Pedersen <blackie@kde.org>
+   @author Jesper K. Pedersen <blackie@kde.org>
    @version 0.1
 **/
 class KRegExpEditorPrivate  :public QWidget
@@ -98,6 +99,7 @@ private:
     Verifier* _verifier;
     bool _autoVerify;
     ErrorMap _errorMap;
+    QToolButton *clearButton;
 };
 
 #endif
