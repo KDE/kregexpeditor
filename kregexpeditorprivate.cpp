@@ -158,7 +158,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   QLabel* label = new QLabel( i18n("ASCII syntax:"), this );
   layout->addWidget( label );
   clearButton = new QToolButton( this );
-  QCString icon = QApplication::reverseLayout() ? "clear_left" : "locationbar_erase";
+  const QString icon( QString::fromLatin1( QApplication::reverseLayout() ? "clear_left" : "locationbar_erase" ) );
   QIconSet clearIcon = SmallIconSet( icon );
   clearButton->setIconSet( clearIcon );
   layout->addWidget( clearButton );
