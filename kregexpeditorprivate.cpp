@@ -79,7 +79,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   _verifier = new Verifier( _editor, "KRegExpEditorPrivate::_verifier" );
   connect( _verifier, SIGNAL( textChanged() ), this, SLOT( maybeVerify() ) );
   QWhatsThis::add( _verifier, i18n("Type in some text in this window, and see what the regular expression you have developed matches.<p>"
-                                   "Each second match will be colored in red and each second match will be colored blue, simply so you "
+                                   "Each second match will be colored in red and each other match will be colored blue, simply so you "
                                    "can distinguish them from each other.<p>"
                                    "If you select part of the regular expression in the editor window, then this part will be "
                                    "highlighted - This allows you to <i>debug</i> your regular expressions") );
