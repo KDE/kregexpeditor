@@ -193,14 +193,14 @@
         <itemizedlist>
           <listitem><para><literal>rm *~</literal> - here <literal>*~</literal> is
               the shell wildcard matching every file ending in <literal>~</literal></para></listitem>
-          <listitem><para>cat test??.res - matching every file starting with
+          <listitem><para><literal>cat test??.res</literal> - matching every file starting with
               <literal>test</literal> followed by two arbitrary characters, and finally
               followed by the test <literal>.res</literal></para></listitem>
         </itemizedlist>
       </para>
 
       <para>In the shell the asterisk matches any character any number of
-        times. In other word, the asterisk matches <emphasis>anything</emphasis>.
+        times. In other words, the asterisk matches <emphasis>anything</emphasis>.
         This is written like <literal>.*</literal> with regular expression
         syntax. The dot matches any single character, i.e. just
         <emphasis>one</emphasis> character, and the asterisk, says that the
@@ -243,7 +243,7 @@
         HTML document</title>
       <para>In HTML the special character <literal>&amp;</literal> must be
         written as <literal>&amp;amp;</literal> - this is similar to escaping in
-        regular expression.</para>
+        regular expressions.</para>
 
       <para>Imagine that you have written an HTML document in a normal editor
         (e.g. XEmacs or Kate), and you totally forgot about this rule. What you
@@ -253,12 +253,12 @@
       <para>This can easily be done using normal search and replace, there is,
         however, one glitch. Imagine that you did remember this rule -
         <emphasis>just a bit</emphasis> - and did it right some of the
-        places. Replacing unconditional would result in
-        <literal>&amp;amp;</literal> would be replaced with
+        places. Replacing unconditionally would result in
+        <literal>&amp;amp;</literal> being replaced with
         <literal>&amp;amp;amp;</literal></para>
 
       <para>What you really want to say is that <literal>&amp;</literal> should
-        only be placed if it is <emphasis>not</emphasis> followed by the letters
+        only be replaced if it is <emphasis>not</emphasis> followed by the letters
         <literal>amp;</literal>. You can do this using regular expressions using
         <emphasis>positive lookahead</emphasis>. </para>
 
@@ -295,9 +295,9 @@
         area, this is the area where you draw your regular expression. This
         area is the larger gray one in the middle.</para>
 
-      <para>Above the editing area you have two tool-bars, the first one
+      <para>Above the editing area you have two Toolbars, the first one
         contains the <link linkend="editingtools">editing actions</link> -
-        much like drawing tools in a drawing program. The second tool bar
+        much like drawing tools in a drawing program. The second Toolbar
         contains the <emphasis>whats this</emphasis> button, and buttons
         for undo and redo.</para>
 
@@ -311,7 +311,7 @@
         changes.</para>
 
       <para>Finally to the left of the editor area you will find a number
-        of pre-build regular expressions. They serve two purposes: (1) When
+        of pre-built regular expressions. They serve two purposes: (1) When
         you load the editor with a regular expression then this regular
         expression is made <emphasis>nicer</emphasis> or more comprehensive
         by replacing common regular expressions. In the screen dump above,
@@ -376,7 +376,7 @@
         <para> Using this tool you insert
           character ranges. Examples includes what in ASCII text says
           <literal>[0-9]</literal>, <literal>[^a-zA-Z,_]</literal>. When
-          inserting an item with this tool a  dialog will apear, in which
+          inserting an item with this tool a  dialog will appear, in which
           you specify the character ranges.</para>
         
         <para>See description of <link linkend="repeatregexp">repeated
@@ -419,10 +419,11 @@
           <para>You specify what to repeat by drawing the repeated content
             inside the box which this tool inserts.</para>
 
-          <para>Repeated elements can both be build outside in and inside
+          <para>Repeated elements can both be built from the outside in and 
+	the inside
             out. That is you can first draw what to be repeated, select it
             and use the repeat tool to repeat it. Alternatively you can
-            first insert the repeat element, and draw what to be repeated
+            first insert the repeat element, and draw what is to be repeated
             inside it.</para>
 
         <para>See description on the <link linkend="repeatregexp">repeated
@@ -570,7 +571,7 @@
   <!-- ====================================================================== -->
   <chapter id="bugreport">
     <title>Reporting bugs and Suggesting Features</title>
-    <para>Bugs reported and features are reported through the 
+    <para>Bug reports and feature requests should be submitted through the
       <ulink url="http://bugs.kde.org/">KDE Bug Tracking System</ulink>. <emphasis
                                                                                    role="strong">Before</emphasis> you report a bug or suggest a feature,
       please check that it hasn't already been 
