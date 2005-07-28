@@ -19,8 +19,10 @@
 #define __repeatwidget
 
 #include "singlecontainerwidget.h"
-#include <qvbox.h>
-class QButtonGroup;
+#include <q3vbox.h>
+//Added by qt3to4:
+#include <QPaintEvent>
+class Q3ButtonGroup;
 class KDialogBase;
 class QCheckBox;
 class QSpinBox;
@@ -30,7 +32,7 @@ class RepeatRegExp;
    Widget containging the configuration for a @ref RepeatWidget
    @internal
 */
-class RepeatRangeWindow :public QVBox
+class RepeatRangeWindow :public Q3VBox
 {
 Q_OBJECT
 
@@ -57,7 +59,7 @@ private:
   QSpinBox* _exactlyTimes;
   QSpinBox* _rangeFrom;
   QSpinBox* _rangeTo;
-  QButtonGroup* _group;
+  Q3ButtonGroup* _group;
 };
 
 

@@ -26,6 +26,8 @@
 #include "dotregexp.h"
 #include "positionregexp.h"
 #include <qpainter.h>
+//Added by qt3to4:
+#include <QPaintEvent>
 #include "myfontmetrics.h"
 //--------------------------------------------------------------------------------
 //                                ZeroWidget

@@ -17,7 +17,11 @@
  **/
 #ifdef QT_ONLY
 #include "compat.h"
-#include <qfiledialog.h>
+#include <q3filedialog.h>
+//Added by qt3to4:
+#include <Q3ValueList>
+#include <Q3ActionGroup>
+#include <QBoxLayout>
 #include "images.h"
 #else
 #include <klocale.h>
@@ -31,24 +35,24 @@
 #include "verifybuttons.h"
 #include <qtooltip.h>
 #include <qlayout.h>
-#include <qwhatsthis.h>
+
 #include "qtregexpconverter.h"
 #include "emacsregexpconverter.h"
 #include <qtoolbutton.h>
 #include "util.h"
-#include <qpopupmenu.h>
+#include <q3popupmenu.h>
 #include <qaction.h>
 
 VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
-    :QDockWindow( QDockWindow::InDock, parent, name ), _configMenu( 0 )
+    :Q3DockWindow( Q3DockWindow::InDock, parent, name ), _configMenu( 0 )
 {
     QBoxLayout* layout = boxLayout();
 
     _verify =  new QToolButton(this);
-    QIconSet icon = Util::getSystemIconSet( QString::fromLatin1("spellcheck"));
+    QIcon icon = Util::getSystemIconSet( QString::fromLatin1("spellcheck"));
     _verify->setIconSet( icon );
     QToolTip::add( _verify, i18n( "Verify regular expression" ) );
-    QWhatsThis::add( _verify, i18n("Shows what part of the regular expression is being matched in the <i>verifier window</i>."
+    _verify->setWhatsThis( i18n("Shows what part of the regular expression is being matched in the <i>verifier window</i>."
                                    "(The window below the graphical editor window)."));
     layout->addWidget( _verify );
     connect( _verify, SIGNAL( clicked() ), this, SIGNAL( verify() ) );
@@ -111,7 +115,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
 
 
     // -------------------------------------------------- Initialize the config menu
-    _configMenu = new QPopupMenu( this, "config menu" );
+    _configMenu = new Q3PopupMenu( this, "config menu" );
 
     // Auto Verify
     QAction* autoVerify = new QAction( i18n("Verify on the Fly"), 0, this );
@@ -126,11 +130,11 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
                                     "complex or matches a lot of time, this may be very slow."));
 
     // RegExp Languages
-    QPopupMenu* languages = new QPopupMenu( _configMenu );
+    Q3PopupMenu* languages = new Q3PopupMenu( _configMenu );
     _languageId = _configMenu->insertItem( i18n("RegExp Language"), languages );
 
-    QActionGroup* grp = new QActionGroup( this );
-    for( QValueList< QPair<RegExpConverter*,QAction*> >::Iterator it = _converters.begin(); it != _converters.end(); ++it ) {
+    Q3ActionGroup* grp = new Q3ActionGroup( this );
+    for( Q3ValueList< QPair<RegExpConverter*,QAction*> >::Iterator it = _converters.begin(); it != _converters.end(); ++it ) {
         QString name = (*it).first->name();
         QAction* action = new QAction( name, 0, this );
         action->setToggleAction( true );
@@ -192,7 +196,7 @@ void VerifyButtons::slotChangeSyntax( QAction* action )
 
 RegExpConverter* VerifyButtons::setSyntax( const QString& which)
 {
-    for( QValueList< QPair<RegExpConverter*, QAction*> >::Iterator it = _converters.begin(); it != _converters.end(); ++it ) {
+    for( Q3ValueList< QPair<RegExpConverter*, QAction*> >::Iterator it = _converters.begin(); it != _converters.end(); ++it ) {
         QString name = (*it).first->name();
         if ( name == which ) {
             (*it).second->setOn( true );

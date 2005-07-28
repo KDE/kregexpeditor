@@ -18,7 +18,9 @@
 #ifndef __indexWindow
 #define __indexWindow
 
-#include <qlistbox.h>
+#include <q3listbox.h>
+//Added by qt3to4:
+#include <QHideEvent>
 
 /**
    Post a toplevel listbox synchronously.
@@ -73,7 +75,7 @@ protected slots:
   void lbSelected(int);
 
 private:
-  QListBox *lb;
+  Q3ListBox *lb;
   bool lbFinish;
   int itemSelected;
 

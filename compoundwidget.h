@@ -1,3 +1,7 @@
+//Added by qt3to4:
+#include <QMouseEvent>
+#include <QPixmap>
+#include <QPaintEvent>
 /*
  *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
  *
@@ -18,7 +22,7 @@
 #ifndef compoundwidget
 #define compoundwidget
 class QLineEdit;
-class QMultiLineEdit;
+class Q3MultiLineEdit;
 class KDialogBase;
 class QCheckBox;
 
@@ -42,7 +46,7 @@ public:
 
 private:
   QLineEdit* _title;
-  QMultiLineEdit* _description;
+  Q3MultiLineEdit* _description;
   QCheckBox* _allowReplace;
 };
 

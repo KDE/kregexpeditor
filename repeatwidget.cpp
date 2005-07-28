@@ -31,8 +31,12 @@
 #include <qspinbox.h>
 #include <qradiobutton.h>
 #include <qlayout.h>
-#include <qgrid.h>
-#include <qvbuttongroup.h>
+#include <q3grid.h>
+
+//Added by qt3to4:
+#include <QPaintEvent>
+#include <QHBoxLayout>
+#include <QLabel>
 #include "kwidgetstreamer.h"
 
 RepeatWidget::RepeatWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
@@ -149,7 +153,9 @@ void RepeatWidget::slotConfigWindowClosed()
 
 void RepeatWidget::slotConfigCanceled()
 {
-  QDataStream stream( _backup, IO_ReadOnly );
+  QDataStream stream( &_backup, QIODevice::ReadOnly );
+
+  stream.setVersion(QDataStream::Qt_3_1);
   KWidgetStreamer streamer;
   streamer.fromStream( stream, _content );
   repaint();
@@ -159,7 +165,9 @@ int RepeatWidget::edit()
 {
   _configWindow->move(QCursor::pos() - QPoint(_configWindow->sizeHint().width()/2,
                                               _configWindow->sizeHint().height()/2)  );
-  QDataStream stream( _backup, IO_WriteOnly );
+  QDataStream stream( &_backup, QIODevice::WriteOnly );
+
+  stream.setVersion(QDataStream::Qt_3_1);
   KWidgetStreamer streamer;
   streamer.toStream( _content, stream );
 
@@ -168,11 +176,11 @@ int RepeatWidget::edit()
 
 //--------------------------------------------------------------------------------
 RepeatRangeWindow::RepeatRangeWindow( QWidget* parent, const char* name )
-  : QVBox( parent, name ? name : "RepeatRangeWindow" )
+  : Q3VBox( parent, name ? name : "RepeatRangeWindow" )
 {
   setSpacing( 6 );
 
-  _group = new QVButtonGroup( i18n("Times to Match"), this, "groupbox" );
+  _group = new Q3VButtonGroup( i18n("Times to Match"), this, "groupbox" );
 
   // Any number of times
   QRadioButton* radioBut = new QRadioButton(i18n("Any number of times (including zero times)"),
@@ -183,7 +191,7 @@ RepeatRangeWindow::RepeatRangeWindow( QWidget* parent, const char* name )
 
   QWidget* container = new QWidget( _group );
   QHBoxLayout* lay = new QHBoxLayout( container );
-  QGrid* grid = new QGrid( 3, container );
+  Q3Grid* grid = new Q3Grid( 3, container );
   grid->setSpacing( 5 );
 
   lay->addWidget( grid );
@@ -199,7 +207,7 @@ RepeatRangeWindow::RepeatRangeWindow( QWidget* parent, const char* name )
 
   _rangeFrom = new QSpinBox( 1, 999, 1, grid);
 
-  QHBox* box = new QHBox( grid );
+  Q3HBox* box = new Q3HBox( grid );
   box->setSpacing( 5 );
 
   (void) new QLabel(i18n( "to" ), box);

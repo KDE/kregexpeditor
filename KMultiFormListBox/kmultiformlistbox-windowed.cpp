@@ -26,6 +26,9 @@
 
 #include "widgetwindow.h"
 #include "windowlistboxitem.h"
+//Added by qt3to4:
+#include <QVBoxLayout>
+#include <QHBoxLayout>
 
 KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent,
 																	 bool showUpDownButtons, bool showHelpButton,
@@ -38,7 +41,7 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
 	_layout->addLayout(innerLayout);
 
   _listbox = new KListBox(this,"listbox");
-  _listbox->setSelectionMode(QListBox::Single);
+  _listbox->setSelectionMode(Q3ListBox::Single);
   innerLayout->addWidget(_listbox);
 
   QVBoxLayout *buttons = new QVBoxLayout();
@@ -51,7 +54,7 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
   but = new QPushButton(i18n("Edit"), this,"Edit Button");
   buttons->addWidget(but,0);
   connect(but,SIGNAL(clicked()), this, SLOT(slotEditSelected()));
-  connect(_listbox, SIGNAL(doubleClicked(QListBoxItem *)), this, SLOT(slotEditSelected(QListBoxItem *)));
+  connect(_listbox, SIGNAL(doubleClicked(Q3ListBoxItem *)), this, SLOT(slotEditSelected(Q3ListBoxItem *)));
 	_buttonList.append(but);
 
   but = new QPushButton(i18n("Delete"), this, "Delete Button");
@@ -132,7 +135,7 @@ void KMultiFormListBoxWindowed::addElement()
 	slotUpdateButtonState();
 }
 
-void KMultiFormListBoxWindowed::slotEditSelected(QListBoxItem *item)
+void KMultiFormListBoxWindowed::slotEditSelected(Q3ListBoxItem *item)
 {
   ((WindowListboxItem *) item)->displayWidget();
 }

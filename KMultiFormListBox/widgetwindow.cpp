@@ -18,6 +18,9 @@
 #include "widgetwindow.h"
 #include "windowlistboxitem.h"
 #include <iostream>
+//Added by qt3to4:
+#include <Q3Frame>
+#include <QHBoxLayout>
 
 WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KListBox *lb)
   :KDialogBase(Plain, i18n("Widget Configuration"), Ok | Cancel, Ok, 0, "ConfigWindow", false)
@@ -46,7 +49,9 @@ void WidgetWindow::init(KMultiFormListBoxFactory *factory, KListBox *lb, KMultiF
   else {
     myWidget = factory->create(frame);
   }
-  QDataStream stream( _backup, IO_WriteOnly );
+  QDataStream stream( &_backup, QIODevice::WriteOnly );
+
+  stream.setVersion(QDataStream::Qt_3_1);
   myFact->toStream( myWidget, stream );
 
   lay->addWidget(myWidget);
@@ -85,7 +90,9 @@ void WidgetWindow::slotCancel()
       deleteLater();
   }
   else {
-    QDataStream stream( _backup, IO_ReadOnly );
+    QDataStream stream( &_backup, QIODevice::ReadOnly );
+
+    stream.setVersion(QDataStream::Qt_3_1);
     myFact->fromStream( stream, myWidget );
   }
   KDialogBase::slotCancel();
@@ -95,9 +102,13 @@ WidgetWindow *WidgetWindow::clone()
 {
   WidgetWindow *item = new WidgetWindow(myFact, listbox);
   QByteArray data;
-  QDataStream ws( data, IO_WriteOnly );
+  QDataStream ws( &data, QIODevice::WriteOnly );
+
+  ws.setVersion(QDataStream::Qt_3_1);
   myFact->toStream( myWidget, ws );
-  QDataStream rs( data, IO_ReadOnly );
+  QDataStream rs( &data, QIODevice::ReadOnly );
+
+  rs.setVersion(QDataStream::Qt_3_1);
   myFact->fromStream( rs, item->myWidget );
 
   item->slotOk();
@@ -106,7 +117,9 @@ WidgetWindow *WidgetWindow::clone()
 
 void WidgetWindow::display()
 {
-  QDataStream stream( _backup, IO_WriteOnly);
+  QDataStream stream( &_backup, QIODevice::WriteOnly);
+
+  stream.setVersion(QDataStream::Qt_3_1);
   myFact->toStream( myWidget, stream );
   show();
 }

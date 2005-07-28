@@ -27,6 +27,8 @@
 #include "lookaheadregexp.h"
 #include "concwidget.h"
 #include <qpainter.h>
+//Added by qt3to4:
+#include <QPaintEvent>
 
 LookAheadWidget::LookAheadWidget( RegExpEditorWindow* editorWindow, RegExpType tp, QWidget* parent, const char* name )
   :SingleContainerWidget(editorWindow, parent, name ? name : "LookAheadWidget" ), _tp(tp)

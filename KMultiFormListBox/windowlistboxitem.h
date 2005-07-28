@@ -17,7 +17,7 @@
  **/
 #ifndef __windowlistboxitem
 #define __windowlistboxitem
-#include <qlistbox.h>
+#include <q3listbox.h>
 class WidgetWindow;
 class KMultiFormListBoxWindowed;
 class KMultiFormListBoxEntry;
@@ -26,12 +26,12 @@ class KMultiFormListBoxEntry;
 /**
    @internal
 */
-class WindowListboxItem :public QListBoxText
+class WindowListboxItem :public Q3ListBoxText
 {
   friend class WidgetWindow;
   friend class KMultiFormListBoxWindowed;
 public:
-  WindowListboxItem(QListBox *, QString, WidgetWindow *);
+  WindowListboxItem(Q3ListBox *, QString, WidgetWindow *);
   ~WindowListboxItem();
   void clone();
   void displayWidget();

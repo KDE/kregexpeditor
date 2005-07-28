@@ -85,7 +85,7 @@ void InfoPage::setSource ( const QString& name )
         nm = nm.mid(6) + ".html";
     }
 
-    QTextBrowser::setSource( nm );
+    Q3TextBrowser::setSource( nm );
 #else
   if ( name.startsWith( QString::fromLocal8Bit("doc://") ) ) {
     kapp->invokeHelp( name.mid(6, name.length()-7), QString::fromLocal8Bit("KRegExpEditor") );

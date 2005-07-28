@@ -19,6 +19,8 @@
 #ifdef QT_ONLY
   #include "compat.h"
   #include <qmessagebox.h>
+//Added by qt3to4:
+#include <QResizeEvent>
 #else
   #include <kmessagebox.h>
   #include "kmultiformlistbox-multivisible.moc"
@@ -39,7 +41,7 @@ const uchar indexButtonBits[] = {
 
 
 KMultiFormListBoxMultiVisible::KMultiFormListBoxMultiVisible(KMultiFormListBoxFactory *fact, QWidget *parent, const char *name)
-  : QScrollView(parent, name)
+  : Q3ScrollView(parent, name)
 {
   factory = fact;
 
@@ -75,7 +77,7 @@ KMultiFormListBoxEntryList KMultiFormListBoxMultiVisible::elements()
 void KMultiFormListBoxMultiVisible::resizeEvent(QResizeEvent *e)
 {
   // The call of the super class ensures that the outer border is updated.
-  QScrollView::resizeEvent(e);
+  Q3ScrollView::resizeEvent(e);
 
   updateClipperContent();
 }
@@ -265,14 +267,19 @@ void KMultiFormListBoxMultiVisible::cut(KMultiFormListBoxEntry *elm)
 		return;
 	}
 
-  QDataStream stream(clipboard, IO_WriteOnly);
+  QDataStream stream(&clipboard, QIODevice::WriteOnly);
+
+
+  stream.setVersion(QDataStream::Qt_3_1);
   factory->toStream( elm, stream );
   delElement(elm);
 }
 
 void KMultiFormListBoxMultiVisible::copy(KMultiFormListBoxEntry *elm)
 {
-  QDataStream stream(clipboard, IO_WriteOnly);
+  QDataStream stream(&clipboard, QIODevice::WriteOnly);
+
+  stream.setVersion(QDataStream::Qt_3_1);
   factory->toStream(elm, stream);
 }
 
@@ -284,7 +291,9 @@ void KMultiFormListBoxMultiVisible::paste(KMultiFormListBoxEntry *oldElm)
   }
 
   KMultiFormListBoxEntry *newElm = factory->create(viewport());
-  QDataStream stream( clipboard, IO_ReadOnly );
+  QDataStream stream( &clipboard, QIODevice::ReadOnly );
+
+  stream.setVersion(QDataStream::Qt_3_1);
   factory->fromStream(stream, newElm);
   insertElmIntoWidget(newElm,oldElm);
 }

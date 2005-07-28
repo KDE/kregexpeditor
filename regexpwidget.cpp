@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <Qt::blackie@kde.org>
  *
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Library General Public
@@ -26,6 +26,10 @@
 #include <iostream>
 #include <qpainter.h>
 #include <qcursor.h>
+//Added by qt3to4:
+#include <QMouseEvent>
+#include <QApplication>
+#include <QEvent>
 #include "concwidget.h"
 #include "dragaccepter.h"
 
@@ -35,7 +39,7 @@ const int RegExpWidget::space = 5;
 
 RegExpWidget::RegExpWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                            const char *name)
-  : QWidget(parent, name ? name : "RegExpWidget", WNoMousePropagation ),
+  : QWidget(parent, name ? name : "RegExpWidget", Qt::WNoMousePropagation ),
     _editorWindow( editorWindow ),  _isSelected( false ), _isToplevel( false )
 {
 }
@@ -74,7 +78,7 @@ bool RegExpWidget::updateSelection(bool parentSelected)
 void RegExpWidget::drawPossibleSelection( QPainter& painter, QSize mySize )
 {
   if ( _isSelected ) {
-    painter.fillRect( 0, 0, mySize.width(), mySize.height(), QBrush( gray ) );
+    painter.fillRect( 0, 0, mySize.width(), mySize.height(), QBrush( Qt::gray ) );
   }
 }
 
@@ -119,7 +123,7 @@ void RegExpWidget::mousePressEvent ( QMouseEvent* event )
   if ( _editorWindow->isPasteing() || _editorWindow->isInserting() )
     return;
 
-  if ( event->button() == LeftButton ) {
+  if ( event->button() == Qt::LeftButton ) {
     if ( ! _editorWindow->pointSelected( QCursor::pos() ) ) {
       _editorWindow->clearSelection( true );
       if ( dynamic_cast<DragAccepter*>(this) == 0 && dynamic_cast<ConcWidget*>(this) == 0 ) {
@@ -131,7 +135,7 @@ void RegExpWidget::mousePressEvent ( QMouseEvent* event )
                     event->button(), event->state());
     QApplication::sendEvent( _editorWindow, &ev );
   }
-  else if ( event->button() == RightButton ) {
+  else if ( event->button() == Qt::RightButton ) {
     _editorWindow->showRMBMenu( true );
   }
 
@@ -173,18 +177,18 @@ void RegExpWidget::updateCursorShape()
 
   if ( _editorWindow->isPasteing() ) {
     if ( acceptWidgetPaste() )
-      cursor =  CrossCursor;
+      cursor =  Qt::CrossCursor;
     else
-      cursor =  ForbiddenCursor;
+      cursor =  Qt::ForbiddenCursor;
   }
   else if ( _editorWindow->isInserting() ) {
     if ( acceptWidgetInsert( _editorWindow->insertType() ) )
-      cursor = CrossCursor;
+      cursor = Qt::CrossCursor;
     else
-      cursor = ForbiddenCursor;
+      cursor = Qt::ForbiddenCursor;
   }
   else
-    cursor = arrowCursor;
+    cursor = Qt::arrowCursor;
 
   setCursor( cursor );
 }

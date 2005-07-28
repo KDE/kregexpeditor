@@ -27,8 +27,10 @@
 #include "limitedcharlineedit.h"
 #include "regexpconverter.h"
 #include <qlayout.h>
-#include <qwidgetstack.h>
+#include <q3widgetstack.h>
 #include <qcombobox.h>
+//Added by qt3to4:
+#include <QHBoxLayout>
 
 /**
    In the class CharSelector, three LimitedCharLineEdit are used.
@@ -70,7 +72,7 @@ CharSelector::CharSelector( QWidget* parent, const char* name )
   _type->insertStringList( items );
   layout->addWidget( _type );
 
-  _stack = new QWidgetStack( this, "_stack" );
+  _stack = new Q3WidgetStack( this, "_stack" );
   layout->addWidget( _stack );
 
   _normal = new LimitedCharLineEdit( LimitedCharLineEdit::NORMAL, 0, "_normal" );

@@ -18,8 +18,10 @@
 #ifndef __scrolledEditorWindow
 #define __scrolledEditorWindow
 
-#include <qhbox.h>
-class QScrollView;
+#include <q3hbox.h>
+//Added by qt3to4:
+#include <QResizeEvent>
+class Q3ScrollView;
 class RegExpEditorWindow;
 class RegExp;
 
@@ -86,7 +88,7 @@ protected slots:
 
 private:
     RegExpEditorWindow* _editorWindow;
-    QScrollView* _scrollView;
+    Q3ScrollView* _scrollView;
 };
 
 #endif // __scrolledEditorWindow

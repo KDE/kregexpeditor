@@ -26,7 +26,9 @@
 
 #include <kmultiformlistbox.h>
 #include "regexpwidget.h"
-#include <qvgroupbox.h>
+
+//Added by qt3to4:
+#include <QPaintEvent>
 
 class KDialogBase;
 class CharacterEdits;

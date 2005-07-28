@@ -18,7 +18,7 @@
 #ifndef __kwidgetstreamer
 #define __kwidgetstreamer
 #include <qmap.h>
-#include <qptrlist.h>
+#include <q3ptrlist.h>
 #include <qstringlist.h>
 #include <qobject.h>
 

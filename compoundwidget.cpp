@@ -31,6 +31,12 @@
 #include <qlineedit.h>
 #include <qpainter.h>
 #include <qtooltip.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <QPaintEvent>
+#include <QLabel>
+#include <QVBoxLayout>
+#include <QMouseEvent>
 #include "concwidget.h"
 #include "kwidgetstreamer.h"
 #include "qcheckbox.h"
@@ -48,7 +54,7 @@ CompoundDetailWindow::CompoundDetailWindow( QWidget* parent, const char* name )
   label->setBuddy( _title );
 
   label = new QLabel( i18n("&Description:"), this );
-  _description  = new QMultiLineEdit( this );
+  _description  = new Q3MultiLineEdit( this );
   label->setBuddy( _description );
 
   _allowReplace = new QCheckBox( i18n("&Automatically replace using this item"), this );
@@ -244,7 +250,9 @@ void CompoundWidget::slotConfigWindowClosed()
 
 void CompoundWidget::slotConfigCanceled()
 {
-  QDataStream stream( _backup, IO_ReadOnly );
+  QDataStream stream( &_backup, QIODevice::ReadOnly );
+
+  stream.setVersion(QDataStream::Qt_3_1);
   KWidgetStreamer streamer;
   streamer.fromStream( stream, _content );
   repaint();
@@ -258,7 +266,7 @@ RegExp* CompoundWidget::regExp() const
 
 void CompoundWidget::mousePressEvent( QMouseEvent* event )
 {
-  if ( event->button() == LeftButton &&
+  if ( event->button() == Qt::LeftButton &&
        QRect( _pixmapPos, _pixmapSize ).contains( event->pos() ) ) {
     // Skip otherwise we will never see the mouse release
     // since it is eaten by Editor window.
@@ -269,7 +277,7 @@ void CompoundWidget::mousePressEvent( QMouseEvent* event )
 
 void CompoundWidget::mouseReleaseEvent( QMouseEvent* event)
 {
-  if ( event->button() == LeftButton &&
+  if ( event->button() == Qt::LeftButton &&
        QRect( _pixmapPos, _pixmapSize ).contains( event->pos() ) ) {
     _hidden = !_hidden;
     _editorWindow->updateContent( 0 );
@@ -298,7 +306,9 @@ int CompoundWidget::edit()
 {
   _configWindow->move(QCursor::pos() - QPoint(_configWindow->sizeHint().width()/2,
                                               _configWindow->sizeHint().height()/2)  );
-  QDataStream stream( _backup, IO_WriteOnly );
+  QDataStream stream( &_backup, QIODevice::WriteOnly );
+
+  stream.setVersion(QDataStream::Qt_3_1);
   KWidgetStreamer streamer;
   streamer.toStream( _content, stream );
   return _configWindow->exec();

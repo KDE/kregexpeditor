@@ -21,14 +21,16 @@
 
 #include "scrollededitorwindow.h"
 #include "editorwindow.h"
+//Added by qt3to4:
+#include <QResizeEvent>
 
 RegExpScrolledEditorWindow::RegExpScrolledEditorWindow( QWidget* parent, const char* name)
     : QWidget(parent, name)
 {
-    _scrollView = new QScrollView( this );
+    _scrollView = new Q3ScrollView( this );
     _editorWindow = new RegExpEditorWindow( _scrollView->viewport());
     _scrollView->addChild( _editorWindow );
-    _scrollView->setResizePolicy( QScrollView::Manual );
+    _scrollView->setResizePolicy( Q3ScrollView::Manual );
 
     connect( _editorWindow, SIGNAL( contentChanged( QPoint ) ),
              this, SLOT( slotUpdateContentSize( QPoint ) ) );

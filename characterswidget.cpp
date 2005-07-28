@@ -29,9 +29,15 @@
 #include "charselector.h"
 #include "myfontmetrics.h"
 #include "regexpconverter.h"
-
+#include <QApplication>
 #include <qpainter.h>
-#include <qgrid.h>
+#include <q3grid.h>
+//Added by qt3to4:
+#include <QPaintEvent>
+#include <Q3PtrList>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QVBoxLayout>
 #include <iostream>
 #include <qhgroupbox.h>
 #include <qcursor.h>
@@ -146,8 +152,8 @@ QString CharactersWidget::text() const
     }
 
     // Ranges characters
-    QPtrList<StringPair> range = _regexp->range();
-    for ( QPtrListIterator<StringPair> it( range ); *it; ++it ) {
+    Q3PtrList<StringPair> range = _regexp->range();
+    for ( Q3PtrListIterator<StringPair> it( range ); *it; ++it ) {
         StringPair* elm = static_cast<StringPair*>(*it);
         if (elm) {
             QString fromText = elm->first();
@@ -180,7 +186,7 @@ RegExpWidget* CharactersWidget::findWidgetToEdit( QPoint globalPos )
 int CharactersWidget::edit()
 {
     if ( _configWindow == 0 ) {
-        QApplication::setOverrideCursor( WaitCursor );
+        QApplication::setOverrideCursor( Qt::WaitCursor );
         // No parent here, as this window should continue to exists.
         _configWindow = new CharacterEdits( 0, "CharactersWidget::_configWindow" );
         QApplication::restoreOverrideCursor();
@@ -199,7 +205,7 @@ int CharactersWidget::edit()
 void CharacterEdits::addCharacter( QString txt )
 {
     KMultiFormListBoxEntryList list = _single->elements();
-    for ( QPtrListIterator<KMultiFormListBoxEntry> it(list); *it; ++it ) {
+    for ( Q3PtrListIterator<KMultiFormListBoxEntry> it(list); *it; ++it ) {
         SingleEntry* entry = dynamic_cast<SingleEntry*>( *it );
         if ( entry && entry->isEmpty() ) {
             entry->setText( txt );
@@ -215,7 +221,7 @@ void CharacterEdits::addCharacter( QString txt )
 void CharacterEdits::addRange( QString from, QString to )
 {
     KMultiFormListBoxEntryList list = _range->elements();
-    for ( QPtrListIterator<KMultiFormListBoxEntry> it(list); *it; ++it ) {
+    for ( Q3PtrListIterator<KMultiFormListBoxEntry> it(list); *it; ++it ) {
         RangeEntry* entry = dynamic_cast<RangeEntry*>( *it );
         if ( entry && entry->isEmpty() ) {
             entry->setFrom( from );
@@ -249,7 +255,7 @@ int CharacterEdits::exec( TextRangeRegExp* regexp )
     // Characters
 
     KMultiFormListBoxEntryList list1 = _single->elements();
-    for ( QPtrListIterator<KMultiFormListBoxEntry> it(list1); *it; ++it ) {
+    for ( Q3PtrListIterator<KMultiFormListBoxEntry> it(list1); *it; ++it ) {
         SingleEntry* entry = dynamic_cast<SingleEntry*>( *it );
         if (entry)
             entry->setText( QString::fromLocal8Bit("") );
@@ -261,7 +267,7 @@ int CharacterEdits::exec( TextRangeRegExp* regexp )
 
     // Ranges
     KMultiFormListBoxEntryList list3 = _range->elements();
-    for ( QPtrListIterator<KMultiFormListBoxEntry> it3(list3); *it3; ++it3 ) {
+    for ( Q3PtrListIterator<KMultiFormListBoxEntry> it3(list3); *it3; ++it3 ) {
         RangeEntry* entry = dynamic_cast<RangeEntry*>( *it3 );
         if (entry) {
             entry->setFrom( QString::fromLocal8Bit("") );
@@ -269,8 +275,8 @@ int CharacterEdits::exec( TextRangeRegExp* regexp )
         }
     }
 
-    QPtrList<StringPair> ranges = regexp->range();
-    for ( QPtrListIterator<StringPair> it4(ranges); *it4; ++it4 ) {
+    Q3PtrList<StringPair> ranges = regexp->range();
+    for ( Q3PtrListIterator<StringPair> it4(ranges); *it4; ++it4 ) {
         QString from = (*it4)->first();
         QString to = (*it4)->second();
         addRange(from,to);
@@ -297,9 +303,9 @@ CharacterEdits::CharacterEdits( QWidget *parent, const char *name)
 
 
     // The predefined box
-    QHGroupBox* predefined = new QHGroupBox(i18n("Predefined Character Ranges"),top);
+    QHGroupBox* predefined = new Q3GroupBox(1, Qt::Vertical,i18n("Predefined Character Ranges"),top);
     topLayout->addWidget(predefined);
-    QGrid* grid = new QGrid(3, predefined );
+    Q3Grid* grid = new Q3Grid(3, predefined );
 
     wordChar = new QCheckBox(i18n("A word character"),grid);
     digit = new QCheckBox(i18n("A digit character"),grid);
@@ -310,7 +316,7 @@ CharacterEdits::CharacterEdits( QWidget *parent, const char *name)
     _nonSpace = new QCheckBox(i18n("A non-space character"), grid);
 
     // Single characters
-    QVGroupBox* singleBox = new QVGroupBox(i18n("Single Characters"), top );
+    Q3GroupBox * singleBox = new Q3GroupBox(1, Qt::Horizontal,i18n("Single Characters"), top );
     topLayout->addWidget( singleBox );
     _single = new KMultiFormListBox(new SingleFactory(), KMultiFormListBox::MultiVisible,
                                     singleBox);
@@ -325,7 +331,7 @@ CharacterEdits::CharacterEdits( QWidget *parent, const char *name)
     connect(more,SIGNAL(clicked()), _single, SLOT(addElement()));
 
     // Ranges
-    QVGroupBox* rangeBox = new QVGroupBox(i18n("Character Ranges"), top );
+    Q3GroupBox * rangeBox = new Q3GroupBox(1, Qt::Horizontal,i18n("Character Ranges"), top );
     topLayout->addWidget( rangeBox );
 
     _range = new KMultiFormListBox(new RangeFactory(), KMultiFormListBox::MultiVisible,
@@ -358,7 +364,7 @@ void CharacterEdits::slotOK()
 	// single characters
     _regexp->clearChars();
     KMultiFormListBoxEntryList list = _single->elements();
-    for ( QPtrListIterator<KMultiFormListBoxEntry> it( list ); *it; ++it ) {
+    for ( Q3PtrListIterator<KMultiFormListBoxEntry> it( list ); *it; ++it ) {
         SingleEntry* entry = dynamic_cast<SingleEntry*>(*it);
         if ( entry && !entry->isEmpty() ) {
             _regexp->addCharacter( entry->text() );
@@ -368,7 +374,7 @@ void CharacterEdits::slotOK()
     // Ranges
     _regexp->clearRange();
     list = _range->elements();
-    for ( QPtrListIterator<KMultiFormListBoxEntry> it2( list ); *it2; ++it2 ) {
+    for ( Q3PtrListIterator<KMultiFormListBoxEntry> it2( list ); *it2; ++it2 ) {
         RangeEntry* entry = dynamic_cast<RangeEntry*>(*it2);
         if ( entry && !entry->isEmpty() ) {
             _regexp->addRange( entry->fromText(), entry->toText() );

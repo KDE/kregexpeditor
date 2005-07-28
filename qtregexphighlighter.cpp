@@ -17,7 +17,7 @@
  **/
 #include "qtregexphighlighter.h"
 #include <qregexp.h>
-QtRegexpHighlighter::QtRegexpHighlighter( QTextEdit* editor )
+QtRegexpHighlighter::QtRegexpHighlighter( Q3TextEdit* editor )
     :RegexpHighlighter( editor ), _editor( editor )
 {
 }

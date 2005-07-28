@@ -27,13 +27,15 @@
 
 #include "auxbuttons.h"
 #include <qlayout.h>
-#include <qwhatsthis.h>
+
 #include <qtooltip.h>
 #include <qtoolbutton.h>
+//Added by qt3to4:
+#include <QBoxLayout>
 #include "util.h"
 
 AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)
-  :QDockWindow( QDockWindow::InDock, parent, name)
+  :Q3DockWindow( Q3DockWindow::InDock, parent, name)
 {
   QBoxLayout* layout = boxLayout();
 
@@ -86,7 +88,7 @@ AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)
 
 void AuxButtons::slotEnterWhatsThis()
 {
-  QWhatsThis::enterWhatsThisMode ();
+  Q3WhatsThis::enterWhatsThisMode ();
 }
 
 void AuxButtons::slotCanUndo( bool b )

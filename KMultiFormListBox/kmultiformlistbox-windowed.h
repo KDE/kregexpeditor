@@ -20,13 +20,16 @@
 
 #ifdef QT_ONLY
   #include "compat.h"
-  #include <qlistbox.h>
+  #include <q3listbox.h>
 #else
   #include <klistbox.h>
 #endif
 
 #include "kmultiformlistboxfactory.h"
 #include "kmultiformlistbox.h"
+//Added by qt3to4:
+#include <QVBoxLayout>
+#include <Q3PtrList>
 class WindowListboxItem;
 
 
@@ -54,7 +57,7 @@ private:
 
 	QVBoxLayout* _layout;
   KMultiFormListBoxFactory* _factory;
-	QPtrList<QPushButton> _buttonList;
+	Q3PtrList<QPushButton> _buttonList;
   KListBox* _listbox;
 	virtual void delElement(QWidget *); // Deletes the given element
 	virtual void delAnElement();
@@ -69,7 +72,7 @@ signals:
 
 private slots:
   void slotEditSelected();
-  void slotEditSelected(QListBoxItem *item);
+  void slotEditSelected(Q3ListBoxItem *item);
   void slotCopySelected();
 	void slotMoveItemUp();
 	void slotMoveItemDown();

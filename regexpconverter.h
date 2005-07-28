@@ -20,9 +20,9 @@
 #define REGEXPCONVERTER_H
 
 #include <qstring.h>
-#include <qvaluelist.h>
+#include <q3valuelist.h>
 
-class QTextEdit;
+class Q3TextEdit;
 class AltnRegExp;
 class ConcRegExp;
 class LookAheadRegExp;
@@ -54,7 +54,7 @@ public:
     virtual int features() = 0;
     virtual RegExp* parse( const QString&, bool* ok );
     QString toStr( RegExp*, bool markSelection );
-    virtual RegexpHighlighter* highlighter( QTextEdit* );
+    virtual RegexpHighlighter* highlighter( Q3TextEdit* );
 
     static void setCurrent( RegExpConverter* );
     static RegExpConverter* current();
@@ -69,7 +69,7 @@ protected:
     virtual QString toString( PositionRegExp*, bool markSelection ) = 0;
     virtual QString toString( RepeatRegExp*, bool markSelection ) = 0;
     virtual QString toString( TextRegExp*, bool markSelection ) = 0;
-    QString escape( QString text, QValueList<QChar> chars, QChar escapeChar) const;
+    QString escape( QString text, Q3ValueList<QChar> chars, QChar escapeChar) const;
 
 private:
     static RegExpConverter* _current;

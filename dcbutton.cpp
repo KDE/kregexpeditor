@@ -22,6 +22,9 @@
 #endif
 
 #include "dcbutton.h"
+//Added by qt3to4:
+#include <QPixmap>
+#include <QMouseEvent>
 
 DoubleClickButton::DoubleClickButton( QPixmap pixmap, QWidget* parent, const char* name )
   : QToolButton( parent, name ? name : "DoubleClickButton" )

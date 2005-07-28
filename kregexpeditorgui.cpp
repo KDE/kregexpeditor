@@ -30,6 +30,10 @@
 #include <stdio.h>
 #include "kregexpeditorprivate.h"
 #include <qlayout.h>
+//Added by qt3to4:
+#include <QVBoxLayout>
+#include <Q3Frame>
+#include <QHBoxLayout>
 
 const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
 

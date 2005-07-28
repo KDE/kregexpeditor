@@ -21,6 +21,8 @@
 
 #include "kmultiformlistbox-multivisible.h"
 #include "kmultiformlistbox-windowed.h"
+//Added by qt3to4:
+#include <QHBoxLayout>
 
 KMultiFormListBox::KMultiFormListBox( KMultiFormListBoxFactory *factory, KMultiFormListBoxType tp, QWidget *parent,
 																		  bool showUpDownButtons, bool showHelpButton, QString addButtonText,
@@ -76,7 +78,7 @@ void KMultiFormListBox::toStream( QDataStream& stream ) const
 {
   const KMultiFormListBoxEntryList elms = elements();
   stream << elms.count();
-  for ( QPtrListIterator<KMultiFormListBoxEntry> it(elms); *it; ++it)
+  for ( Q3PtrListIterator<KMultiFormListBoxEntry> it(elms); *it; ++it)
     _factory->toStream( *it, stream );
 }
 
@@ -96,7 +98,7 @@ void KMultiFormListBox::fromStream( QDataStream& stream )
   }
 
   KMultiFormListBoxEntryList elms = elements();
-  for (QPtrListIterator<KMultiFormListBoxEntry> it(elms); *it; ++it)
+  for (Q3PtrListIterator<KMultiFormListBoxEntry> it(elms); *it; ++it)
     _factory->fromStream( stream, *it );
 }
 

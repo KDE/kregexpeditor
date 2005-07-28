@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <Qt::blackie@kde.org>
  *
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Library General Public
@@ -19,6 +19,11 @@
 #include "concwidget.h"
 
 #include <qpainter.h>
+//Added by qt3to4:
+#include <QMouseEvent>
+#include <QDragEnterEvent>
+#include <QPaintEvent>
+#include <QDropEvent>
 
 DragAccepter::DragAccepter(RegExpEditorWindow* editorWindow, RegExpWidget *parent,
                            const char *name)
@@ -46,7 +51,7 @@ void DragAccepter::paintEvent(QPaintEvent *e)
 
 void DragAccepter::mousePressEvent ( QMouseEvent* event )
 {
-  if ( event->button() == RightButton ) {
+  if ( event->button() == Qt::RightButton ) {
     _editorWindow->showRMBMenu( _editorWindow->hasSelection() );
   }
   else {
@@ -56,7 +61,7 @@ void DragAccepter::mousePressEvent ( QMouseEvent* event )
 
 void DragAccepter::mouseReleaseEvent( QMouseEvent* event )
 {
-  if ( _editorWindow->isPasteing() && event->button() == LeftButton ) {
+  if ( _editorWindow->isPasteing() && event->button() == Qt::LeftButton ) {
     RegExp* regexp = _editorWindow->pasteData();
 
     RegExpWidget *newElm = WidgetFactory::createWidget( regexp, _editorWindow, 0 );
@@ -75,7 +80,7 @@ void DragAccepter::mouseReleaseEvent( QMouseEvent* event )
       _editorWindow->clearSelection( true );
     }
   }
-  else if ( _editorWindow->isInserting() && event->button() == LeftButton  ) {
+  else if ( _editorWindow->isInserting() && event->button() == Qt::LeftButton  ) {
     if ( WidgetFactory::isContainer( _editorWindow->insertType() ) &&
          _editorWindow->pointSelected( mapToGlobal( event->pos() ) ) ) {
       RegExpWidget::mouseReleaseEvent( event );

@@ -18,7 +18,10 @@
 #ifndef drag_h
 #define drag_h
 
-#include <qdragobject.h>
+#include <q3dragobject.h>
+//Added by qt3to4:
+#include <QDragMoveEvent>
+#include <QDropEvent>
 
 class RegExp;
 class RegExpWidget;
@@ -28,7 +31,7 @@ class RegExpEditorWindow;
    Class used for drag and drop in the RegExp widget.
    @internal
 */
-class RegExpWidgetDrag :public QDragObject
+class RegExpWidgetDrag :public Q3DragObject
 {
 public:
   RegExpWidgetDrag( RegExp* regexp , QWidget* dragSource);

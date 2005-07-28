@@ -27,12 +27,14 @@
 
 // -------------------------------- includes ------------------------------
 #include "kmultiformlistbox.h"
+//Added by qt3to4:
+#include <QResizeEvent>
 //-------------------------------------------------------------------------
 
 /**
    @internal
 */
-class KMultiFormListBoxMultiVisible :public QScrollView, KMultiFormListBoxShower {
+class KMultiFormListBoxMultiVisible :public Q3ScrollView, KMultiFormListBoxShower {
 
 Q_OBJECT
 

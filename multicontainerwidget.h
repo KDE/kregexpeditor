@@ -19,6 +19,8 @@
 #define __multicontainerwidget
 
 #include "regexpwidget.h"
+//Added by qt3to4:
+#include <Q3PtrList>
 
 /**
    Abstract RegExp widget class representing widgets having multible children.
@@ -43,7 +45,7 @@ public:
 
 protected:
   void append( RegExpWidget* child );
-  QPtrList<RegExpWidget> _children;
+  Q3PtrList<RegExpWidget> _children;
 };
 
 

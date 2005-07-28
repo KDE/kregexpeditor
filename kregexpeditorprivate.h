@@ -19,7 +19,7 @@
 #define kregexpeditorprivate_h
 
 #include <qlabel.h>
-#include <qptrstack.h>
+#include <q3ptrstack.h>
 #include "regexp.h"
 #include "errormap.h"
 class QTimer;
@@ -92,8 +92,8 @@ private:
     QSplitter* _editor;
     bool _updating;
     QLabel* _error;
-    QPtrStack<RegExp> _undoStack;
-    QPtrStack<RegExp> _redoStack;
+    Q3PtrStack<RegExp> _undoStack;
+    Q3PtrStack<RegExp> _redoStack;
     UserDefinedRegExps*  _userRegExps;
     QTimer* _timer;
     Verifier* _verifier;

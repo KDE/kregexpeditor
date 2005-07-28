@@ -29,6 +29,14 @@
 #include <qlineedit.h>
 #include <qtooltip.h>
 #include <qtoolbutton.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <QTextStream>
+#include <Q3PtrList>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <Q3ValueList>
+#include <QVBoxLayout>
 #include "kregexpeditorprivate.h"
 #include "scrollededitorwindow.h"
 #include "regexpbuttons.h"
@@ -36,25 +44,25 @@
 #include <stdio.h>
 #include "infopage.h"
 #include <qsplitter.h>
-#include <qdockarea.h>
+#include <q3dockarea.h>
 #include "userdefinedregexps.h"
 #include "auxbuttons.h"
-#include <qaccel.h>
+#include <q3accel.h>
 #include <qtimer.h>
 #include "verifier.h"
 #include <qfile.h>
 #include "verifybuttons.h"
-#include <qwhatsthis.h>
+
 
 KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
     : QWidget(parent, name), _updating( false ), _autoVerify( true )
 {
   setMinimumSize(730,300);
-  QDockArea* area = new QDockArea( Horizontal, QDockArea::Normal, this );
+  Q3DockArea* area = new Q3DockArea( Qt::Horizontal, Q3DockArea::Normal, this );
   area->setMinimumSize(2,2);
-  QDockArea* verArea1 = new QDockArea( Vertical, QDockArea::Normal, this );
+  Q3DockArea* verArea1 = new Q3DockArea( Qt::Vertical, Q3DockArea::Normal, this );
   verArea1->setMinimumSize(2,2);
-  QDockArea* verArea2 = new QDockArea( Vertical, QDockArea::Reverse, this );
+  Q3DockArea* verArea2 = new Q3DockArea( Qt::Vertical, Q3DockArea::Reverse, this );
   verArea2->setMinimumSize(2,2);
 
   // The DockWindows.
@@ -63,7 +71,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   _auxButtons = new AuxButtons( area, "KRegExpEditorPrivate::AuxButtons" );
   _userRegExps = new UserDefinedRegExps( verArea1, "KRegExpEditorPrivate::userRegExps" );
   _userRegExps->setResizeEnabled( true );
-  QWhatsThis::add( _userRegExps, i18n( "In this window you will find predefined regular expressions. Both regular expressions "
+  _userRegExps->setWhatsThis( i18n( "In this window you will find predefined regular expressions. Both regular expressions "
                                        "you have developed and saved, and regular expressions shipped with the system." ));
 
   // Editor window
@@ -71,21 +79,21 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
 
   _scrolledEditorWindow =
     new RegExpScrolledEditorWindow( _editor, "KRegExpEditorPrivate::_scrolledEditorWindow" );
-  QWhatsThis::add( _scrolledEditorWindow, i18n( "In this window you will develop your regular expressions. "
+  _scrolledEditorWindow->setWhatsThis( i18n( "In this window you will develop your regular expressions. "
                                                "Select one of the actions from the action buttons above, and click the mouse in this "
                                                "window to insert the given action."));
 
   _info = new InfoPage( this, "_info" );
   _verifier = new Verifier( _editor, "KRegExpEditorPrivate::_verifier" );
   connect( _verifier, SIGNAL( textChanged() ), this, SLOT( maybeVerify() ) );
-  QWhatsThis::add( _verifier, i18n("Type in some text in this window, and see what the regular expression you have developed matches.<p>"
+  _verifier->setWhatsThis( i18n("Type in some text in this window, and see what the regular expression you have developed matches.<p>"
                                    "Each second match will be colored in red and each other match will be colored blue, simply so you "
                                    "can distinguish them from each other.<p>"
                                    "If you select part of the regular expression in the editor window, then this part will be "
                                    "highlighted - This allows you to <i>debug</i> your regular expressions") );
 
   _editor->hide();
-  _editor->setSizes( QValueList<int>() << _editor->height()/2 << _editor->height()/2 );
+  _editor->setSizes( Q3ValueList<int>() << _editor->height()/2 << _editor->height()/2 );
 
   QVBoxLayout *topLayout = new QVBoxLayout( this, 0, 6, "KRegExpEditorPrivate::topLayout" );
   topLayout->addWidget( area );
@@ -159,13 +167,13 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   layout->addWidget( label );
   clearButton = new QToolButton( this );
   const QString icon( QString::fromLatin1( QApplication::reverseLayout() ? "clear_left" : "locationbar_erase" ) );
-  QIconSet clearIcon = SmallIconSet( icon );
+  QIcon clearIcon = SmallIconSet( icon );
   clearButton->setIconSet( clearIcon );
   layout->addWidget( clearButton );
   QToolTip::add( clearButton, i18n("Clear expression") );
   _regexpEdit = new QLineEdit( this );
   layout->addWidget( _regexpEdit );
-  QWhatsThis::add( _regexpEdit, i18n( "This is the regular expression in ASCII syntax. You are likely only "
+  _regexpEdit->setWhatsThis( i18n( "This is the regular expression in ASCII syntax. You are likely only "
 				      "to be interested in this if you are a programmer, and need to "
 				      "develop a regular expression using QRegExp.<p>"
                                       "You may develop your regular expression both by using the graphical "
@@ -192,7 +200,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   _undoStack.push( _scrolledEditorWindow->regExp() );
   _redoStack.setAutoDelete( true );
 
-  QAccel* accel = new QAccel( this );
+  Q3Accel* accel = new Q3Accel( this );
   accel->connectItem( accel->insertItem( CTRL+Key_Z ), this, SLOT( slotUndo() ) );
   accel->connectItem( accel->insertItem( CTRL+Key_R ), this, SLOT( slotRedo() ) );
 
@@ -217,8 +225,8 @@ void KRegExpEditorPrivate::slotUpdateEditor( const QString & txt)
   else {
       RegExp* result = RegExpConverter::current()->parse( txt, &ok );
       if ( ok ) {
-          QPtrList<CompoundRegExp> list = _userRegExps->regExps();
-          for ( QPtrListIterator<CompoundRegExp> it( list ); *it; ++it ) {
+          Q3PtrList<CompoundRegExp> list = _userRegExps->regExps();
+          for ( Q3PtrListIterator<CompoundRegExp> it( list ); *it; ++it ) {
               result->replacePart( *it );
           }
 
@@ -264,7 +272,7 @@ void KRegExpEditorPrivate::recordUndoInfo()
   RegExp* regexp = _scrolledEditorWindow->regExp();
   if ( regexp->toXmlString() != _undoStack.top()->toXmlString() ) {
     _undoStack.push( regexp );
-    _redoStack = QPtrStack<RegExp>();
+    _redoStack = Q3PtrStack<RegExp>();
     emitUndoRedoSignals();
   }
 }
@@ -370,7 +378,7 @@ void KRegExpEditorPrivate::setVerifyText( const QString& fileName )
     bool autoVerify = _autoVerify;
     _autoVerify = false;
     QFile file( fileName );
-    if ( !file.open( IO_ReadOnly ) ) {
+    if ( !file.open( QIODevice::ReadOnly ) ) {
         KMessageBox::sorry(0, i18n("Could not open file '%1' for reading").arg( fileName ) );
     }
     else {

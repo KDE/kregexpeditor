@@ -19,6 +19,8 @@
 #include "util.h"
 #include <kiconloader.h>
 #include <kstandarddirs.h>
+//Added by qt3to4:
+#include <QPixmap>
 QPixmap Util::getKRegExpEditorIcon( const QString& name )
 {
 #ifdef QT_ONLY
@@ -44,12 +46,12 @@ QPixmap Util::getSystemIcon( const QString& name )
 
 }
 
-QIconSet Util::getSystemIconSet( const QString& name )
+QIcon Util::getSystemIconSet( const QString& name )
 {
 #ifdef QT_ONLY
     QPixmap pix;
     pix.convertFromImage( qembed_findImage( name ) );
-    return QIconSet( pix );
+    return QIcon( pix );
 #else
   KIconLoader loader;
   return loader.loadIconSet( name, KIcon::Toolbar);

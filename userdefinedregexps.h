@@ -17,28 +17,30 @@
  **/
 #ifndef __USERDEFINEDREGEXPS_H
 #define __USERDEFINEDREGEXPS_H
-#include <qdockwindow.h>
-#include <qlistview.h>
+#include <q3dockwindow.h>
+#include <q3listview.h>
+//Added by qt3to4:
+#include <Q3PtrList>
 
 #include "compoundregexp.h"
 
 class QPoint;
 class RegExp;
 
-class UserDefinedRegExps :public QDockWindow
+class UserDefinedRegExps :public Q3DockWindow
 {
 Q_OBJECT
 
 public:
   UserDefinedRegExps( QWidget *parent, const char *name = 0 );
-  const QPtrList<CompoundRegExp> regExps() const;
+  const Q3PtrList<CompoundRegExp> regExps() const;
 
 public slots:
   void slotSelectNewAction();
 
 protected slots:
-  void slotLoad(QListViewItem* item);
-  void slotEdit( QListViewItem* item, const QPoint& pos );
+  void slotLoad(Q3ListViewItem* item);
+  void slotEdit( Q3ListViewItem* item, const QPoint& pos );
   void slotPopulateUserRegexps();
   void slotUnSelect();
 
@@ -49,14 +51,14 @@ signals:
   void load( RegExp* );
 
 private:
-  QListView* _userDefined;
-  QPtrList<CompoundRegExp> _regExps;
+  Q3ListView* _userDefined;
+  Q3PtrList<CompoundRegExp> _regExps;
 };
 
-class WidgetWinItem :public QListViewItem
+class WidgetWinItem :public Q3ListViewItem
 {
 public:
-  WidgetWinItem( QString name, RegExp* regexp, bool users, QListViewItem* parent );
+  WidgetWinItem( QString name, RegExp* regexp, bool users, Q3ListViewItem* parent );
   static QString path();
 
   QString fileName() const;

@@ -18,6 +18,9 @@
 
 #include "qtregexpconverter.h"
 #include "qtregexphighlighter.h"
+//Added by qt3to4:
+#include <Q3ValueList>
+#include <Q3PtrList>
 #include "regexp.h"
 #include "textregexp.h"
 #include "altnregexp.h"
@@ -119,7 +122,7 @@ QString QtRegExpConverter::toString( TextRangeRegExp* regexp, bool /*markSelecti
 	// Now print the rest of the single characters, but keep "^" as the very
 	// last element of the characters.
     QStringList chars = regexp->chars();
-	for (unsigned int i = 0; i< chars.count(); i++) {
+	for (int i = 0; i< chars.count(); i++) {
 		if ( *chars.at(i) == QChar( ']' ) ) {
 			foundParenthesis = true;
 		}
@@ -135,8 +138,8 @@ QString QtRegExpConverter::toString( TextRangeRegExp* regexp, bool /*markSelecti
 	}
 
 	// Now insert the ranges.
-    QPtrList<StringPair> ranges = regexp->range();
-    for ( QPtrListIterator<StringPair> it(ranges); *it; ++it ) {
+    Q3PtrList<StringPair> ranges = regexp->range();
+    for ( Q3PtrListIterator<StringPair> it(ranges); *it; ++it ) {
 		txt.append((*it)->first()+ QString::fromLatin1("-")+ (*it)->second());
 	}
 
@@ -263,7 +266,7 @@ QString QtRegExpConverter::toString( RepeatRegExp* regexp, bool markSelection )
 
 QString QtRegExpConverter::toString( TextRegExp* regexp, bool /*markSelection*/ )
 {
-    QValueList<QChar> list;
+    Q3ValueList<QChar> list;
 	list << QChar('$')
          << QChar('^')
          << QChar('.')
@@ -293,7 +296,7 @@ int QtRegExpConverter::features()
     return WordBoundary | NonWordBoundary | PosLookAhead | NegLookAhead | CharacterRangeNonItems | ExtRange;
 }
 
-RegexpHighlighter* QtRegExpConverter::highlighter( QTextEdit* edit )
+RegexpHighlighter* QtRegExpConverter::highlighter( Q3TextEdit* edit )
 {
     return new QtRegexpHighlighter( edit );
 }

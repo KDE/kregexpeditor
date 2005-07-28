@@ -20,7 +20,7 @@
 
 #ifdef QT_ONLY
   #include "compat.h"
-  #include <qlistbox.h>
+  #include <q3listbox.h>
 #else
   #include <kdialogbase.h>
   #include <klistbox.h>

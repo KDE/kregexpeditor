@@ -25,10 +25,13 @@
 #include "indexWindow.h"
 #include <iostream>
 #include <qlayout.h>
-
-indexWindow::indexWindow() : QWidget(0,"", WStyle_Customize | WType_Popup)
+//Added by qt3to4:
+#include <QHideEvent>
+#include <QHBoxLayout>
+#include <QApplication>
+indexWindow::indexWindow() : QWidget(0,"", Qt::WStyle_Customize | Qt::WType_Popup)
 {
-  lb = new QListBox(this);
+  lb = new Q3ListBox(this);
   connect(lb,SIGNAL(selected(int)), this, SLOT(lbSelected(int)));
   QHBoxLayout *lay = new QHBoxLayout(this);
   lay->addWidget(lb);

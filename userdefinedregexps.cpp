@@ -27,16 +27,20 @@
 #endif
 
 #include "userdefinedregexps.h"
-#include <qheader.h>
-#include <qpopupmenu.h>
+#include <q3header.h>
+#include <q3popupmenu.h>
 #include <qdir.h>
+//Added by qt3to4:
+#include <QTextStream>
+#include <Q3PtrList>
+#include <QVBoxLayout>
 #include "widgetfactory.h"
 #include "compoundregexp.h"
 #include <qlayout.h>
 #include <qlabel.h>
 
 UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const char *name )
-  : QDockWindow( QDockWindow::InDock, parent, name)
+  : Q3DockWindow( Q3DockWindow::InDock, parent, name)
 {
   QWidget* top = new QWidget( this );
   QVBoxLayout* lay = new QVBoxLayout( top, 6 );
@@ -47,16 +51,16 @@ UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const char *name )
   // This is to avoid that the label set the minimum width for the window.
   label->setMinimumSize(1,0);
 
-  _userDefined = new QListView( top, "UserDefinedRegExps::_userDefined" );
+  _userDefined = new Q3ListView( top, "UserDefinedRegExps::_userDefined" );
   _userDefined->addColumn( QString::null );
   _userDefined->header()->hide();
   //  _userDefined->setRootIsDecorated( true );
   setWidget( top );
   slotPopulateUserRegexps();
 
-  connect( _userDefined, SIGNAL(clicked(QListViewItem*)), this, SLOT(slotLoad(QListViewItem*)) );
-  connect( _userDefined, SIGNAL(rightButtonPressed(QListViewItem*,const QPoint&, int )),
-           this, SLOT( slotEdit( QListViewItem*, const QPoint& ) ) );
+  connect( _userDefined, SIGNAL(clicked(Q3ListViewItem*)), this, SLOT(slotLoad(Q3ListViewItem*)) );
+  connect( _userDefined, SIGNAL(rightButtonPressed(Q3ListViewItem*,const QPoint&, int )),
+           this, SLOT( slotEdit( Q3ListViewItem*, const QPoint& ) ) );
 }
 
 void UserDefinedRegExps::slotPopulateUserRegexps()
@@ -91,7 +95,7 @@ void UserDefinedRegExps::createItems( const QString& _title, const QString& dir,
   if (_title == QString::fromLatin1("general"))
 	  title = i18n("general");
 
-  QListViewItem* lvItem = new QListViewItem( _userDefined, title );
+  Q3ListViewItem* lvItem = new Q3ListViewItem( _userDefined, title );
   lvItem->setOpen( true );
 
   QDir directory( dir );
@@ -100,7 +104,7 @@ void UserDefinedRegExps::createItems( const QString& _title, const QString& dir,
     QString fileName = dir + QString::fromLocal8Bit("/") + *it;
 
     QFile file( fileName );
-    if ( ! file.open(IO_ReadOnly) ) {
+    if ( ! file.open(QIODevice::ReadOnly) ) {
       KMessageBox::sorry( this, i18n("Could not open file for reading: %1").arg(fileName) );
       continue;
     }
@@ -126,7 +130,7 @@ void UserDefinedRegExps::createItems( const QString& _title, const QString& dir,
   }
 }
 
-const QPtrList<CompoundRegExp> UserDefinedRegExps::regExps() const
+const Q3PtrList<CompoundRegExp> UserDefinedRegExps::regExps() const
 {
   return _regExps;
 }
@@ -137,7 +141,7 @@ void UserDefinedRegExps::slotUnSelect()
   _userDefined->clearSelection();
 }
 
-void UserDefinedRegExps::slotLoad(QListViewItem* item)
+void UserDefinedRegExps::slotLoad(Q3ListViewItem* item)
 {
   if ( !item || ! dynamic_cast<WidgetWinItem*>(item) ) {
     // Mouse pressed outside a widget.
@@ -150,9 +154,9 @@ void UserDefinedRegExps::slotLoad(QListViewItem* item)
   }
 }
 
-void UserDefinedRegExps::slotEdit( QListViewItem* item, const QPoint& pos )
+void UserDefinedRegExps::slotEdit( Q3ListViewItem* item, const QPoint& pos )
 {
-  QPopupMenu* menu = new QPopupMenu( this );
+  Q3PopupMenu* menu = new Q3PopupMenu( this );
   menu->insertItem(i18n("Delete"), 1 );
   menu->insertItem(i18n("Rename..."), 2 );
   if ( !item || ! dynamic_cast<WidgetWinItem*>( item ) ) {
@@ -223,8 +227,8 @@ void UserDefinedRegExps::slotSelectNewAction()
   slotUnSelect();
 }
 
-WidgetWinItem::WidgetWinItem( QString fileName, RegExp* regexp, bool usersRegExp, QListViewItem* parent )
-  :QListViewItem( parent ), _regexp( regexp ), _usersRegExp ( usersRegExp )
+WidgetWinItem::WidgetWinItem( QString fileName, RegExp* regexp, bool usersRegExp, Q3ListViewItem* parent )
+  :Q3ListViewItem( parent ), _regexp( regexp ), _usersRegExp ( usersRegExp )
 {
   int index = fileName.findRev(QString::fromLocal8Bit(".regexp"));
   _name = fileName.left(index);

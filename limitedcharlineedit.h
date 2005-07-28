@@ -19,6 +19,8 @@
 #define __limitedcharlineedit
 
 #include <qlineedit.h>
+//Added by qt3to4:
+#include <QKeyEvent>
 
 /**
    QLineEdit which only accepts a prespecified number of character.

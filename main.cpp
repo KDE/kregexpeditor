@@ -19,6 +19,9 @@
 #ifdef QT_ONLY
   #include "compat.h"
   #include <qapplication.h>
+//Added by qt3to4:
+#include <QVBoxLayout>
+#include <QHBoxLayout>
 #else
   #include <kaboutdata.h>
   #include <kapplication.h>

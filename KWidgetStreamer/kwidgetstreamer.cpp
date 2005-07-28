@@ -17,7 +17,7 @@
  **/
 #include "kwidgetstreamer.h"
 #include "kmultiformlistbox.h"
-#include <qobjectlist.h>
+#include <qobject.h>
 #include <qvariant.h>
 
 
@@ -48,18 +48,22 @@ void KWidgetStreamer::propertyToStream( const QObject* from, QDataStream& stream
   if ( ! from->inherits("QWidget") )
     return;
 
-  // Serializing all the children (if any).
-  const QObjectList* children = from->children();
-  if ( children ) {
-    stream <<  children->count();
-    for ( QObjectListIt it = QObjectListIt(*children); *it; ++it ) {
-      toStream( *it, stream );
-    }
-  }
-  else {
-    stream << (unsigned int) 0;
-  }
 
+  // Stream in all the children (if any)
+  const QList<QObject*> children= from->children();
+  unsigned int count;
+
+  stream >> count;
+  if ( children.count() >0 )
+  {
+    stream <<  children.count();
+  	for (int i = 0; i < children.size(); ++i) {
+    	toStream( children.at(i), stream );
+    	}
+  }
+  else
+	stream << (unsigned int) 0;
+  
   // Now stream out properties
   for ( PropertyMapIt mapIt = _map.begin(); mapIt != _map.end(); mapIt++ ) {
     QString tp = mapIt.key();
@@ -84,19 +88,16 @@ void KWidgetStreamer::propertyFromStream( QDataStream& stream, QObject* to )
     return;
 
   // Stream in all the children (if any)
-  const QObjectList* children = to->children();
+  const QList<QObject*> children= to->children();
+  //const QObjectList* children = to->children();
   unsigned int count;
 
   stream >> count;
-  if ( children ) {
-    Q_ASSERT( count == children->count() );
-    for ( QObjectListIt it = QObjectListIt(*children); *it; ++it )
-      fromStream( stream, *it );
-  }
-  else {
-    Q_ASSERT( count == 0 );
-  }
-
+  Q_ASSERT( count == 0 );
+  for (int i = 0; i < children.size(); ++i) {
+	fromStream( stream, children.at(i) );
+	} 
+  
   // Now stream in properties
   for ( PropertyMapIt mapIt = _map.begin(); mapIt != _map.end(); mapIt++ ) {
     QString tp = mapIt.key();

@@ -19,6 +19,9 @@
 #define dcbutton
 
 #include <qtoolbutton.h>
+//Added by qt3to4:
+#include <QMouseEvent>
+#include <QPixmap>
 class QMouseEvent;
 
 /**

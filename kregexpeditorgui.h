@@ -47,9 +47,9 @@ public:
 
 signals:
   /** This signal tells whether undo is available. */
-  virtual void canRedo( bool );
-  virtual void canUndo( bool );
-  virtual void changes( bool );
+  void canRedo( bool );
+  void canUndo( bool );
+  void changes( bool );
 
 public slots:
   virtual void redo();
@@ -74,9 +74,9 @@ public:
 
 signals:
   /** This signal tells whether undo is available. */
-  virtual void canRedo( bool );
-  virtual void canUndo( bool );
-  virtual void changes( bool );
+  void canRedo( bool );
+  void canUndo( bool );
+  void changes( bool );
 
 public slots:
   virtual void redo();

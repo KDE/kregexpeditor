@@ -19,6 +19,9 @@
 #define __regexpwidget
 
 #include "editorwindow.h"
+//Added by qt3to4:
+#include <QMouseEvent>
+#include <QEvent>
 
 class DragAccepter;
 class RegExp;

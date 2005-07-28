@@ -19,6 +19,8 @@
 #define altnwidget
 
 #include "multicontainerwidget.h"
+//Added by qt3to4:
+#include <QPaintEvent>
 class AltnRegExp;
 
 /**

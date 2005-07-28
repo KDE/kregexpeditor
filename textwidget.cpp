@@ -23,7 +23,12 @@
 #include "textregexp.h"
 #include "selectablelineedit.h"
 #include <qlayout.h>
-
+//Added by qt3to4:
+#include <QMouseEvent>
+#include <QHBoxLayout>
+#include <QEvent>
+#include <QPaintEvent>
+#include <QApplication>
 TextWidget::TextWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
                        const char *name)
   :RegExpWidget(editorWindow, parent, name)
@@ -135,17 +140,17 @@ bool TextWidget::eventFilter( QObject*, QEvent* event)
     else if ( event->type() == QEvent::Enter ) {
         if ( _editorWindow->isInserting() ) {
             if ( acceptWidgetInsert( _editorWindow->insertType() ) ) {
-                _edit->setCursor(crossCursor);
+                _edit->setCursor(Qt::CrossCursor);
             }
             else {
-                _edit->setCursor(forbiddenCursor);
+                _edit->setCursor(Qt::ForbiddenCursor);
             }
         }
         else if (  isSelected() ) {
-            _edit->setCursor( arrowCursor );
+            _edit->setCursor( Qt::ArrowCursor );
         }
         else {
-            _edit->setCursor( ibeamCursor );
+            _edit->setCursor( Qt::IBeamCursor );
         }
     }
     else if ( event->type() == QEvent::MouseButtonDblClick &&  _editorWindow->isInserting() ) {

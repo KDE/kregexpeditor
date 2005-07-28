@@ -28,7 +28,7 @@ RegExp::RegExp( bool selected ) : _parent(0), _destructing( false ), _selected( 
 RegExp::~RegExp()
 {
   _destructing = true;
-  for ( QPtrListIterator<RegExp> it(_children); *it; ++it ) {
+  for ( Q3PtrListIterator<RegExp> it(_children); *it; ++it ) {
     delete *it;
   }
   if ( _parent )

@@ -18,6 +18,8 @@
 #include "concregexp.h"
 #include "widgetfactory.h"
 #include "compoundregexp.h"
+//Added by qt3to4:
+#include <Q3PtrList>
 
 ConcRegExp::ConcRegExp( bool selected ) :RegExp( selected )
 {
@@ -84,7 +86,7 @@ bool ConcRegExp::operator==( const RegExp& other ) const
 {
     // TODO: Merge with AltnRegExp::operator==
     if ( list.count() == 1 )
-        return ( other == *(const_cast< QPtrList<RegExp>& >(list).at(0)) );
+        return ( other == *(const_cast< Q3PtrList<RegExp>& >(list).at(0)) );
 
     if ( other.type() != type() )
         return false;

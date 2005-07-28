@@ -19,6 +19,8 @@
 #define zerowidget
 
 #include "regexpwidget.h"
+//Added by qt3to4:
+#include <QPaintEvent>
 
 /**
    Represents any widget in the regular expression dialog, which do not have sub widget.

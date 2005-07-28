@@ -18,16 +18,16 @@
 #ifndef QTREGEXPHIGHLIGHTER_H
 #define QTREGEXPHIGHLIGHTER_H
 #include "regexphighlighter.h"
-#include <qtextedit.h>
+#include <q3textedit.h>
 
 class QtRegexpHighlighter :public RegexpHighlighter
 {
 public:
-    QtRegexpHighlighter( QTextEdit* verifier );
+    QtRegexpHighlighter( Q3TextEdit* verifier );
     virtual int highlightParagraph ( const QString & text, int endStateOfLastPara );
 
 private:
-    QTextEdit* _editor;
+    Q3TextEdit* _editor;
 };
 
 #endif /* QTREGEXPHIGHLIGHTER_H */

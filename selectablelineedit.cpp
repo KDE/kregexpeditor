@@ -34,7 +34,7 @@ void SelectableLineEdit::setSelected( bool selected )
 {
   if ( selected ) {
     QPalette pal = palette().copy();
-    pal.setBrush( QColorGroup::Base, gray );
+    pal.setBrush( QColorGroup::Base, Qt::gray );
     setPalette( pal );
   }
   else {

@@ -19,9 +19,13 @@
 #include "regexp.h"
 #include "regexpconverter.h"
 #include "widgetfactory.h"
+//Added by qt3to4:
+#include <QDragMoveEvent>
+#include <QTextStream>
+#include <QDropEvent>
 
 RegExpWidgetDrag::RegExpWidgetDrag( RegExp* regexp, QWidget* dragSource )
-  : QDragObject( dragSource ), _regexp( regexp->clone() )
+  : Q3DragObject( dragSource ), _regexp( regexp->clone() )
 {
 }
 
@@ -40,7 +44,7 @@ RegExpWidget* RegExpWidgetDrag::decode(QDropEvent* event, RegExpEditorWindow* wi
                                        QWidget* parent)
 {
   QByteArray payload = event->encodedData("KRegExpEditor/widgetdrag" );
-  QTextStream stream( payload, IO_ReadOnly );
+  QTextStream stream( payload, QIODevice::ReadOnly );
   QString str = stream.read();
   RegExp* regexp = WidgetFactory::createRegExp( str );
   RegExpWidget* widget = WidgetFactory::createWidget( regexp, window, parent );
@@ -61,7 +65,7 @@ const char * RegExpWidgetDrag::format ( int i ) const
 QByteArray RegExpWidgetDrag::encodedData ( const char* format ) const
 {
   QByteArray data;
-  QTextStream stream( data, IO_WriteOnly );
+  QTextStream stream( data, QIODevice::WriteOnly );
   if ( QString::fromLocal8Bit( format ).startsWith(QString::fromLocal8Bit( "KRegExpEditor/widgetdrag" ) ) ) {
     QString xml = _regexp->toXmlString();
     stream << xml;

@@ -19,6 +19,10 @@
 #define __concwidget
 
 #include "multicontainerwidget.h"
+//Added by qt3to4:
+#include <QMouseEvent>
+#include <QDragEnterEvent>
+#include <QPaintEvent>
 class ConcRegExp;
 
 /**

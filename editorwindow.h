@@ -20,9 +20,14 @@
 
 #include "drag.h"
 #include "widgetfactory.h"
-#include <qmultilineedit.h>
+#include <q3multilineedit.h>
 #include <qlabel.h>
-#include <qiconset.h>
+#include <qicon.h>
+//Added by qt3to4:
+#include <QMouseEvent>
+#include <QHBoxLayout>
+#include <Q3PopupMenu>
+#include <QPaintEvent>
 class RegExp;
 class RegExpWidget;
 class QHBoxLayout;
@@ -259,9 +264,9 @@ private:
     RegExp* _pasteData;
 
     /** Popup menu used for RMB */
-    QPopupMenu* _menu;
+    Q3PopupMenu* _menu;
 
-    QIconSet getIcon( const QString& name );
+    QIcon getIcon( const QString& name );
 
     bool _isDndOperation;
 };

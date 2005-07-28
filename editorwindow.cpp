@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *  Copyright (c) 2002-2003 Jesper K. Pedersen <Qt::blackie@kde.org>
  *
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Library General Public
@@ -33,16 +33,23 @@
 #include "concwidget.h"
 #include <qlayout.h>
 #include <qpainter.h>
-#include <qaccel.h>
+#include <q3accel.h>
 #include <qcursor.h>
 #include <qclipboard.h>
-#include <qpopupmenu.h>
+#include <q3popupmenu.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <QTextStream>
+#include <QPaintEvent>
+#include <QHBoxLayout>
+#include <QMouseEvent>
+#include <QApplication>
 #include "regexp.h"
 #include "userdefinedregexps.h"
 #include <qfileinfo.h>
 
 RegExpEditorWindow::RegExpEditorWindow( QWidget *parent, const char *name)
-    : QWidget(parent, name, Qt::WPaintUnclipped)
+    : QWidget(parent, name/*, Qt::WPaintUnclipped*/)
 {
     _top = new ConcWidget(this, this);
     _layout = new QHBoxLayout( this);
@@ -54,14 +61,14 @@ RegExpEditorWindow::RegExpEditorWindow( QWidget *parent, const char *name)
     _pasteInAction = false;
     _pasteData = 0;
 
-    QAccel* accel = new QAccel( this );
-    accel->connectItem( accel->insertItem( CTRL+Key_C ), this, SLOT( slotCopy() ) );
-    accel->connectItem( accel->insertItem( CTRL+Key_X ), this, SLOT( slotCut() ) );
-    accel->connectItem( accel->insertItem( Key_Delete ), this, SLOT( slotCut() ) );
-    accel->connectItem( accel->insertItem( Key_BackSpace ), this, SLOT( slotCut() ) );
-    accel->connectItem( accel->insertItem( CTRL+Key_V ), this, SLOT( slotStartPasteAction() ) );
-    accel->connectItem( accel->insertItem( Key_Escape ), this, SLOT( slotEndActions() ) );
-    accel->connectItem( accel->insertItem( CTRL+Key_S ), this, SLOT( slotSave() ) );
+    Q3Accel* accel = new Q3Accel( this );
+    accel->connectItem( accel->insertItem( Qt::CTRL+Qt::Key_C ), this, SLOT( slotCopy() ) );
+    accel->connectItem( accel->insertItem( Qt::CTRL+Qt::Key_X ), this, SLOT( slotCut() ) );
+    accel->connectItem( accel->insertItem( Qt::Key_Delete ), this, SLOT( slotCut() ) );
+    accel->connectItem( accel->insertItem( Qt::Key_BackSpace ), this, SLOT( slotCut() ) );
+    accel->connectItem( accel->insertItem( Qt::CTRL+Qt::Key_V ), this, SLOT( slotStartPasteAction() ) );
+    accel->connectItem( accel->insertItem( Qt::Key_Escape ), this, SLOT( slotEndActions() ) );
+    accel->connectItem( accel->insertItem( Qt::CTRL+Qt::Key_S ), this, SLOT( slotSave() ) );
 
     connect( this, SIGNAL( change() ), this, SLOT( emitVerifyRegExp() ) );
 }
@@ -105,7 +112,7 @@ void RegExpEditorWindow::mouseMoveEvent ( QMouseEvent* event )
             RegExp* regexp = _top->selection();
             if ( !regexp )
                 return;
-            QDragObject *d = new RegExpWidgetDrag( regexp, this );
+            Q3DragObject *d = new RegExpWidgetDrag( regexp, this );
             delete regexp;
 
             bool del = d->drag();
@@ -121,7 +128,8 @@ void RegExpEditorWindow::mouseMoveEvent ( QMouseEvent* event )
     }
     else {
         QPainter p( this );
-        p.setRasterOp( Qt::NotROP );
+#warning "QT4 ???? p.setRasterOp( Qt::NotROP ); "		
+        //p.setRasterOp( Qt::NotROP );
         p.setPen( Qt::DotLine );
 
         // remove last selection rectangle
@@ -151,7 +159,8 @@ void RegExpEditorWindow::mouseReleaseEvent( QMouseEvent *event)
 
     // remove last selection rectangle
     QPainter p( this );
-    p.setRasterOp( Qt::NotROP );
+#warning "QT4 ????? p.setRasterOp( Qt::NotROP );"	
+    //p.setRasterOp( Qt::NotROP );
     p.setPen( Qt::DotLine );
     if ( ! _lastPoint.isNull() ) {
         p.drawRect(QRect(_start, _lastPoint));
@@ -299,7 +308,7 @@ void RegExpEditorWindow::cutCopyAux( QPoint pos )
 void RegExpEditorWindow::slotStartPasteAction()
 {
     QByteArray data = qApp->clipboard()->data()->encodedData( "KRegExpEditor/widgetdrag" );
-    QTextStream stream( data, IO_ReadOnly );
+    QTextStream stream( data, QIODevice::ReadOnly );
     QString str = stream.read();
 
     RegExp* regexp = WidgetFactory::createRegExp( str );
@@ -318,7 +327,7 @@ void RegExpEditorWindow::showRMBMenu( bool enableCutCopy )
     enum CHOICES { CUT, COPY, PASTE, SAVE, EDIT };
 
     if ( !_menu ) {
-        _menu = new QPopupMenu( 0 );
+        _menu = new Q3PopupMenu( 0 );
         _menu->insertItem(getIcon(QString::fromLocal8Bit("editcut")),
                           i18n("C&ut"), CUT);
         _menu->insertItem(getIcon(QString::fromLocal8Bit("editcopy")),
@@ -389,7 +398,7 @@ void RegExpEditorWindow::slotSave()
     }
 
     QFile file( fileName );
-    if ( ! file.open(IO_WriteOnly) ) {
+    if ( ! file.open(QIODevice::WriteOnly) ) {
         KMessageBox::sorry( this, i18n("Could not open file for writing: %1").arg(fileName) );
         return;
     }
@@ -440,7 +449,7 @@ void RegExpEditorWindow::emitVerifyRegExp()
 }
 
 
-QIconSet RegExpEditorWindow::getIcon( const QString& name )
+QIcon RegExpEditorWindow::getIcon( const QString& name )
 {
 #ifdef QT_ONLY
     QPixmap pix;

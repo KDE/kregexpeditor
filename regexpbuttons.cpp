@@ -28,18 +28,21 @@
 #include "regexpbuttons.h"
 #include "dcbutton.h"
 #include <qtooltip.h>
-#include <qwhatsthis.h>
-#include <qbuttongroup.h>
+
+#include <q3buttongroup.h>
 #include <qlayout.h>
 #include <qsignalmapper.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <QBoxLayout>
 #include "regexpconverter.h"
 
 RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
-  : QDockWindow( QDockWindow::InDock, parent, name), _keepMode(false)
+  : Q3DockWindow( Q3DockWindow::InDock, parent, name), _keepMode(false)
 {
   QBoxLayout *layout = boxLayout();
 
-  _grp = new QButtonGroup(this);
+  _grp = new Q3ButtonGroup(this);
   _grp->hide();
   _grp->setExclusive( true );
 
@@ -64,7 +67,7 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   connect( _selectBut, SIGNAL(clicked()), this, SLOT(slotSetNonKeepMode()) );
 
   QToolTip::add( _selectBut, i18n("Selection tool"));
-  QWhatsThis::add( _selectBut, i18n("<qt>This will change the state of the editor to <i>selection state</i>.<p>"
+  _selectBut->setWhatsThis( i18n("<qt>This will change the state of the editor to <i>selection state</i>.<p>"
                              "In this state you will not be inserting <i>regexp items</i>, but instead select them. "
                              "To select a number of items, press down the left mouse button and drag it over the items.<p>"
                              "When you have selected a number of items, you may use cut/copy/paste. These functions are "
@@ -173,7 +176,7 @@ DoubleClickButton* RegExpButtons::insert(RegExpType tp, const char* name, QStrin
   _grp->insert( but );
   but->setToggleButton( true );
   QToolTip::add( but, tooltip );
-  QWhatsThis::add( but, whatsthis );
+  but->setWhatsThis( whatsthis );
 
   return but;
 }

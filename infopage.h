@@ -20,7 +20,7 @@
 
 #ifdef QT_ONLY
   #include "compat.h"
-  #include <qtextbrowser.h>
+  #include <q3textbrowser.h>
 #else
   # include <ktextbrowser.h>
 #endif

@@ -30,6 +30,9 @@
 
 #include <kmessagebox.h>
 #include <klocale.h>
+//Added by qt3to4:
+#include <Q3ValueList>
+#include <Q3PtrList>
 bool EmacsRegExpConverter::canParse()
 {
     return false;
@@ -94,7 +97,7 @@ QString EmacsRegExpConverter::toString( TextRangeRegExp* regexp, bool /*markSele
 	// print the single characters, but keep "^" as the very
 	// last element of the characters.
     QStringList chars = regexp->chars();
-	for (unsigned int i = 0; i< chars.count(); i++) {
+	for (int i = 0; i< chars.count(); i++) {
 		if ( *chars.at(i) == QChar(']') ) {
 			foundParenthesis = true;
 		}
@@ -110,8 +113,8 @@ QString EmacsRegExpConverter::toString( TextRangeRegExp* regexp, bool /*markSele
 	}
 
 	// Now insert the ranges.
-    QPtrList<StringPair> ranges = regexp->range();
-    for ( QPtrListIterator<StringPair> it(ranges); *it; ++it ) {
+    Q3PtrList<StringPair> ranges = regexp->range();
+    for ( Q3PtrListIterator<StringPair> it(ranges); *it; ++it ) {
 		txt.append((*it)->first()+ QString::fromLatin1("-")+ (*it)->second());
 	}
 
@@ -227,7 +230,7 @@ QString EmacsRegExpConverter::toString( RepeatRegExp* regexp, bool markSelection
 
 QString EmacsRegExpConverter::toString( TextRegExp* regexp, bool /*markSelection*/ )
 {
-    QValueList<QChar> list;
+    Q3ValueList<QChar> list;
     list << QChar('$')
          << QChar('^')
          << QChar('.')
