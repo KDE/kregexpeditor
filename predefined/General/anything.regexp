@@ -3,7 +3,7 @@
 <RegularExpression version="1.0" >
  <Compound allowReplace="1" >
   <Title>anything</Title>
-  <Description>This regular expression matches anything</Description>
+  <Description>This regular expression matches anything.</Description>
   <Repeat lower="0" upper="-1" >
    <AnyChar/>
   </Repeat>

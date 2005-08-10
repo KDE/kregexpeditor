@@ -1,7 +1,9 @@
+<?xml version="1.0" ?>
+<!DOCTYPE RegularExpression PUBLIC "-//KDE//KRegexpEditor DTD 1.0//EN" "http://www.blackie.dk/kreg.dtd">
 <RegularExpression version="1.0" >
  <Compound allowReplace="1" >
   <Title>spaces</Title>
-  <Description></Description>
+  <Description>Matches an arbitrary amount of whitespace.</Description>
   <Repeat lower="0" upper="-1" >
    <TextRange space="1" />
   </Repeat>
