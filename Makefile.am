@@ -61,5 +61,5 @@ parser:
 	cd $(srcdir) && bison -d -p qregexp -o gen_qregexpparser.cc qregexpparser.y
 
 messages:
-	perl extractrc-from-regexp predefined/General/*.regexp > predefined-regexps.cpp
+	perl extractrc-from-regexp `find . -name "*.regexp"` > predefined-regexps.cpp
 	$(XGETTEXT) *.cpp *.h */*.cpp */*.h -o $(podir)/kregexpeditor.pot
