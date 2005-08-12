@@ -268,8 +268,8 @@ QString RepeatRangeWindow::text()
   switch ( _group->id(_group->selected()) ) {
   case ANY: return i18n("Repeated Any Number of Times");
   case ATLEAST: return i18n("Repeated at Least 1 Time", "Repeated at Least %n Times", _leastTimes->value() );
-  case ATMOST: return i18n("Repeated at Most %1 Times").arg( _mostTimes->value() );
-  case EXACTLY: return i18n("Repeated Exactly %1 Times").arg( _exactlyTimes->value() );
+  case ATMOST: return i18n("Repeated at Most 1 Time", "Repeated at Most %n Times", _mostTimes->value() );
+  case EXACTLY: return i18n("Repeated Exactly 1 Time", "Repeated Exactly %n Times", _exactlyTimes->value() );
   case MINMAX: return i18n("Repeated From %1 to %2 Times")
                  .arg( _rangeFrom->value() ).arg( _rangeTo->value() );
   }
