@@ -129,6 +129,14 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
                                     "If the verify window contains much text, or if the regular expression is either "
                                     "complex or matches a lot of time, this may be very slow."));
 
+    QAction* matchGreedy = new QAction( i18n("Match Greedy"), 0, this );
+    matchGreedy->setToggleAction( true );
+    matchGreedy->setOn( false );
+    connect( matchGreedy, SIGNAL( toggled( bool ) ), this, SIGNAL( matchGreedy( bool ) ) );
+    matchGreedy->addTo( _configMenu );
+    matchGreedy->setToolTip( i18n("Toggle greedy matching when verifying the regular expression.") );
+    matchGreedy->setWhatsThis( i18n( "When this option is enabled, the regular expression will be evaluated on a so-called greedy way." ) );
+
     // RegExp Languages
     Q3PopupMenu* languages = new Q3PopupMenu( _configMenu );
     _languageId = _configMenu->insertItem( i18n("RegExp Language"), languages );

@@ -64,6 +64,7 @@ protected slots:
     void doVerify();
     void setAutoVerify( bool );
     void setVerifyText( const QString& fileName );
+    void setMatchGreedy( bool );
 
 public slots:
     void slotUndo();
@@ -100,6 +101,7 @@ private:
     bool _autoVerify;
     ErrorMap _errorMap;
     QToolButton *clearButton;
+    bool _matchGreedy;
 };
 
 #endif

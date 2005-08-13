@@ -42,6 +42,7 @@ signals:
     void verify();
     void autoVerify( bool );
     void loadVerifyText( const QString& );
+    void matchGreedy( bool );
 
     // Qt anchors do not work for <pre>...</pre>, thefore scrolling to next/prev match
     // do not work. Enable this when they work.

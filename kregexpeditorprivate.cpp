@@ -55,7 +55,7 @@
 
 
 KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
-    : QWidget(parent, name), _updating( false ), _autoVerify( true )
+    : QWidget(parent, name), _updating( false ), _autoVerify( true ), _matchGreedy( false )
 {
   setMinimumSize(730,300);
   Q3DockArea* area = new Q3DockArea( Qt::Horizontal, Q3DockArea::Normal, this );
@@ -132,6 +132,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   connect( _verifyButtons, SIGNAL( autoVerify( bool ) ), this, SLOT( setAutoVerify( bool ) ) );
   connect( _verifyButtons, SIGNAL( verify() ), this, SLOT( doVerify() ) );
   connect( _verifyButtons, SIGNAL( changeSyntax( const QString& ) ), this, SLOT( setSyntax( const QString& ) ) );
+  connect( _verifyButtons, SIGNAL( matchGreedy( bool ) ), this, SLOT( setMatchGreedy( bool ) ) );
 
   connect( this, SIGNAL( canUndo( bool ) ), _auxButtons, SLOT( slotCanUndo( bool ) ) );
   connect( this, SIGNAL( canRedo( bool ) ), _auxButtons, SLOT( slotCanRedo( bool ) ) );
@@ -163,7 +164,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
 
   // Line Edit
   QHBoxLayout* layout = new QHBoxLayout( topLayout, 6 );
-  QLabel* label = new QLabel( i18n("ASCII syntax:"), this );
+  QLabel* label = new QLabel( i18n("ASCII synta&x:"), this );
   layout->addWidget( label );
   clearButton = new QToolButton( this );
   const QString icon( QString::fromLatin1( QApplication::reverseLayout() ? "clear_left" : "locationbar_erase" ) );
@@ -172,6 +173,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   layout->addWidget( clearButton );
   QToolTip::add( clearButton, i18n("Clear expression") );
   _regexpEdit = new QLineEdit( this );
+  label->setBuddy( _regexpEdit );
   layout->addWidget( _regexpEdit );
   _regexpEdit->setWhatsThis( i18n( "This is the regular expression in ASCII syntax. You are likely only "
 				      "to be interested in this if you are a programmer, and need to "
@@ -429,4 +431,11 @@ void KRegExpEditorPrivate::showHelp()
 void KRegExpEditorPrivate::setAllowNonQtSyntax( bool b )
 {
     _verifyButtons->setAllowNonQtSyntax( b );
+}
+
+void KRegExpEditorPrivate::setMatchGreedy( bool b )
+{
+  _matchGreedy = b;
+  _verifier->setMinimal( !b );
+  doVerify();
 }
