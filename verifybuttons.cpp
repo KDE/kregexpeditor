@@ -67,7 +67,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     button->setPixmap( Util::getSystemIcon( QString::fromLatin1("package_settings")) );
     layout->addWidget( button );
     connect(button, SIGNAL(clicked()), this, SLOT(configure()));
-    QToolTip::add( button, i18n("Settings") );
+    QToolTip::add( button, i18n("Verification Settings") );
 
     // It is currently not possible to ask for the paragraph being highlighted, thefore scrolling to next/prev match
     // do not work. Enable this when they work.
