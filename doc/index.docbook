@@ -193,8 +193,9 @@
         asterisk. You will most likely recognize wildcard matching from the
         following examples: 
         <itemizedlist>
-          <listitem><para><literal>rm *~</literal> - here <literal>*~</literal> is
-              the shell wildcard matching every file ending in <literal>~</literal></para></listitem>
+          <listitem><para><literal>ls *.txt</literal> - here <literal>*.txt</literal> is
+              the shell wildcard matching every file ending with the
+              <literal>.txt</literal> extension.</para></listitem>
           <listitem><para><literal>cat test??.res</literal> - matching every file starting with
               <literal>test</literal> followed by two arbitrary characters, and finally
               followed by the test <literal>.res</literal></para></listitem>
@@ -578,7 +579,7 @@
       <ulink url="http://bugs.kde.org/">KDE Bug Tracking System</ulink>. <emphasis
                                                                                    role="strong">Before</emphasis> you report a bug or suggest a feature,
       please check that it hasn't already been 
-      <ulink url="http://bugs.kde.org/db/pa/lkregexpeditor.html">reported/suggested</ulink></para>
+      <ulink url="http://bugs.kde.org/simple_search.cgi?id=kregexpeditor">reported/suggested.</ulink></para>
   </chapter>
 
   <!-- ====================================================================== -->
