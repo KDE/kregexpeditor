@@ -71,7 +71,7 @@
       <emphasis>draw</emphasis> your regular expression in an unambiguous
       way. The editor solves at least item two and three above. It might not make
       regular expressions available for the non-programmers, though only tests by
-      users can tell that. So, are you a non programmer, which have gained the
+      users can tell that. So, if you are  a non programmer, who has gained the
       power of regular expression from this editor, then please 
       <ulink url="mailto:blackie@kde.org">let me know</ulink>.
     </para>
@@ -84,42 +84,44 @@
   <chapter id="whatIsARegExp">
     <title>What is a Regular Expression</title>
 
-    <para>Regular expression is a way to specify
-      <emphasis>conditions</emphasis> to be fulfilled for a situation in
-      mind. Normally when you search in a text editor you specify the text to
-      search for <emphasis>literally</emphasis>, using regular expression, on the
-      other hand, you tell what a given match would look like. Examples of this
-      includes <emphasis>I'm searching for the word KDE, but only at the
-        beginning of the line</emphasis>, or <emphasis>I'm searching for the word
-        <literal>the</literal>, but it must stand on its own</emphasis>, or
-      <emphasis>I'm searching for files starting with the word
-        <literal>test</literal>, followed by a number of digits, for example
-        <literal>test12</literal>, <literal>test107</literal> and
-        <literal>test007</literal></emphasis></para> 
+    <para>A regular expression is a way to specify
+      <emphasis>conditions</emphasis> to be fulfilled for a situation
+      in mind. Normally when you search in a text editor you specify
+      the text to search for <emphasis>literally</emphasis>, using a
+      regular expression, on the other hand, you tell what a given
+      match would look like. Examples of this include <emphasis>I'm
+      searching for the word KDE, but only at the beginning of the
+      line</emphasis>, or <emphasis>I'm searching for the word
+      <literal>the</literal>, but it must stand on its own</emphasis>,
+      or <emphasis>I'm searching for files starting with the word
+      <literal>test</literal>, followed by a number of digits, for
+      example <literal>test12</literal>, <literal>test107</literal>
+      and <literal>test007</literal></emphasis></para>
 
-    <para>You build regular expressions from sub regular expression, just like
-      you build large Lego toys from smaller subparts. As in the Lego world,
-      there are a number of basic building blocks. In the following I will
-      describe each of these basic building blocks using a number of
-      examples.</para>
+    <para>You build regular expressions from smaller regular
+      expressions, just like you build large Lego toys from smaller
+      subparts. As in the Lego world, there are a number of basic
+      building blocks. In the following I will describe each of these
+      basic building blocks using a number of examples.</para>
 
     <example>
-      <title>Searching for normal text.</title>
-      <para>If you just want to search for a given text, then regular
-        expression is definitely not a good choice. The reason for this is that
-        regular expressions assign special meaning to some characters. This
-        includes the following characters: <literal>.*|$</literal>. Thus if you want to
-        search for the text <literal>kde.</literal> (i.e. the characters
-        <literal>kde</literal> followed by a period), then you would need to
-        specify this as <literal>kde\.</literal><footnote><para>The regular
-            expression editor solves this problem by taking care of escape rules for
-            you.</para></footnote> Writing <literal>\.</literal> rather than just
-        <literal>.</literal> is called <emphasis>escaping</emphasis>.
-      </para>
-    </example>
+      <title>Searching for normal text.</title> <para>If you just want
+      to search for a given text, then a regular expression is
+      definitely not a good choice. The reason for this is that
+      regular expressions assign special meaning to some
+      characters. This includes the following characters:
+      <literal>.*|$</literal>. Thus if you want to search for the text
+      <literal>kde.</literal> (i.e. the characters
+      <literal>kde</literal> followed by a period), then you would
+      need to specify this as
+      <literal>kde\.</literal><footnote><para>The regular expression
+      editor solves this problem by taking care of escape rules for
+      you.</para></footnote> Writing <literal>\.</literal> rather than
+      just <literal>.</literal> is called
+      <emphasis>escaping</emphasis>.  </para> </example>
 
     <example id="positionregexp">
-      <title>Matching URL's</title>
+      <title>Matching URLs</title>
       <para>When you select something looking like a URL in KDE, then the
         program <command>klipper</command> will offer to start
         <command>konqueror</command> with the selected URL.</para>
@@ -181,7 +183,7 @@
 
       <para>In the regular expression editor you do not write the vertical bar
         yourself, but instead select the <link linkend="altntool">alternative
-          tool</link>, and inserts the sub regular expressions above each other.</para>
+          tool</link>, and insert the smaller regular expressions above each other.</para>
     </example>
 
     <example id="repeatregexp">
@@ -234,13 +236,13 @@
         other word, the regular expression <literal>\.</literal> matches a dot,
         while a dot on its own matches any character. </para>
 
-      <para>In the regular expression editor, repeated regular expression is
+      <para>In the regular expression editor, a repeated regular expression is
         created using the <link linkend="repeattool">repeat tool</link> </para>
     </example>
 
     <example id="lookaheadregexp">
       <title>Replacing <literal>&amp;</literal> with <literal>&amp;amp;</literal> in
-        HTML document</title>
+        a HTML document</title>
       <para>In HTML the special character <literal>&amp;</literal> must be
         written as <literal>&amp;amp;</literal> - this is similar to escaping in
         regular expressions.</para>
@@ -250,10 +252,10 @@
         would do when realized your mistake was to replace every occurrences of
         <literal>&amp;</literal> with <literal>&amp;amp;</literal>.</para>
 
-      <para>This can easily be done using normal search and replace, there is,
-        however, one glitch. Imagine that you did remember this rule -
-        <emphasis>just a bit</emphasis> - and did it right some of the
-        places. Replacing unconditionally would result in
+      <para>This can easily be done using normal search and replace,
+        there is, however, one glitch. Imagine that you did remember
+        this rule - <emphasis>just a bit</emphasis> - and did it right
+        in some places. Replacing unconditionally would result in
         <literal>&amp;amp;</literal> being replaced with
         <literal>&amp;amp;amp;</literal></para>
 
@@ -481,7 +483,7 @@
         <para>The line start and line end tools matches the start of the
           line, and the end of the line respectively. The regular
           expression in the screen dump above thus matches lines only
-          matches spaces.</para>
+          composed of spaces.</para>
         
         <para>See description of <link linkend="positionregexp">position
             regular expressions</link>.</para>
@@ -500,10 +502,11 @@
         <para><inlinemediaobject><imageobject><imagedata format="PNG" fileref="boundarytools.png"/>
         </imageobject></inlinemediaobject></para>
 
-        <para>The boundary tools matches a word boundary respectively a
-          non-word boundary. The regular expression in the screen dump thus
-          matches any words starting with <literal>the</literal>. The word
-          <literal>the</literal> itself is, however, not matched.</para>
+        <para>The boundary tools matches a word boundary -
+          respectively, a non-word boundary. The regular expression in
+          the screen dump thus matches any words starting with
+          <literal>the</literal>. The word <literal>the</literal>
+          itself is, however, not matched.</para>
 
         <para>See description of <link linkend="boundaryregexp">boundary
             regular expressions</link>.</para>
@@ -527,7 +530,7 @@
           regular expression to match. The match is, however, not part of
           the total match.</para>
 
-        <para>Note: You are only allowed to place look ahead's at the end
+        <para>Note: You are only allowed to place lookaheads at the end
           of the regular expressions. The Regular Expression Editor widget
           does not enforce this.</para>
 
@@ -541,12 +544,12 @@
   <!-- ====================================================================== -->
     <sect1 id="userdefinedregexps">
       <title>User Defined Regular Expressions</title>
-      <para>To the left of the editing area is a list box located
+      <para>Located at the left of the editing area is a list box
         containing user defined regular expressions. Some regular
-        expressions are pre installed with your KDE installation, while
-        other you can save yourself.</para> 
+        expressions are pre-installed with your KDE installation, while
+        others you can save yourself.</para> 
 
-      <para>These regular expression serves two purposes
+      <para>These regular expressions serves two purposes
         (<link linkend="screenorganization">see detailed
           description</link>), namely (1) to offer you a set of building
         block and (2) to make common regular expressions prettier.</para>
@@ -558,9 +561,9 @@
       <para>If the regular expression you save is within a  
         <link linkend="compoundtool">compound container</link> then the
         regular expression will take part in making subsequent regular
-        expressions pretier.</para>
+        expressions prettier.</para>
 
-      <para>User defined regular expression can be deleted or renamed by
+      <para>User defined regular expressions can be deleted or renamed by
         pressing the right mouse button on top of the regular expression in
         question in the list box.</para>
     </sect1>
