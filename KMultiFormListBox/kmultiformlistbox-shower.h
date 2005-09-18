@@ -32,6 +32,7 @@ typedef Q3PtrList<KMultiFormListBoxEntry> KMultiFormListBoxEntryList ;
 class KMultiFormListBoxShower {
 
 public:
+  virtual ~KMultiFormListBoxShower(){}
   virtual KMultiFormListBoxEntryList elements() = 0;
 
   /** Appends the given argument to the list */

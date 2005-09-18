@@ -48,7 +48,7 @@ public:
         CharacterRangeNonItems = 0x40,
         ExtRange = 0x80
     };
-
+    virtual ~RegExpConverter(){}
     virtual bool canParse() = 0;
     virtual QString name() = 0;
     virtual int features() = 0;
