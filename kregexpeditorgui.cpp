@@ -34,6 +34,7 @@
 #include <QVBoxLayout>
 #include <Q3Frame>
 #include <QHBoxLayout>
+#include <ktoolinvocation.h>
 
 const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
 
@@ -154,7 +155,7 @@ void KRegExpEditorGUI::showHelp()
 #ifdef QT_ONLY
     _editor->showHelp();
 #else
-    kapp->invokeHelp( QString::null, QString::fromLocal8Bit( "KRegExpEditor" ) );
+    KToolInvocation::invokeHelp( QString::null, QString::fromLocal8Bit( "KRegExpEditor" ) );
 #endif
 }
 
