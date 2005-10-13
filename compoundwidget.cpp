@@ -151,7 +151,7 @@ QSize CompoundWidget::sizeHint() const
 
   if ( _hidden ) {
     _pixmapSize = _up.size();
-    width = 2*pw + QMAX( 2*bdSize+_textSize.width(), 2*bdSize+_pixmapSize.width());
+    width = 2*pw + qMax( 2*bdSize+_textSize.width(), 2*bdSize+_pixmapSize.width());
     height = _pixmapSize.height() + 2*bdSize + _textSize.height()+pw;
   }
   else {
@@ -160,8 +160,8 @@ QSize CompoundWidget::sizeHint() const
     if ( _textSize.width() != 0)
       headerLineWidth += 3*bdSize + _textSize.width();
 
-    width = QMAX( 2*pw + _childSize.width(), headerLineWidth );
-    height = QMAX( _textSize.height(), _pixmapSize.height() ) +
+    width = qMax( 2*pw + _childSize.width(), headerLineWidth );
+    height = qMax( _textSize.height(), _pixmapSize.height() ) +
       2*bdSize + _childSize.height() + pw;
   }
   return QSize( width, height );
@@ -188,7 +188,7 @@ void CompoundWidget::paintEvent( QPaintEvent *e )
     painter.drawPixmap( _pixmapPos, _up );
   }
   else {
-    int maxH = QMAX( _textSize.height(), _pixmapSize.height() );
+    int maxH = qMax( _textSize.height(), _pixmapSize.height() );
     int offset = 0;
     horLineY = maxH/2;
     childY = maxH+bdSize;
@@ -226,7 +226,7 @@ void CompoundWidget::paintEvent( QPaintEvent *e )
   }
   else {
     QSize curSize = _child->size();
-    QSize newSize = QSize( QMAX( _child->sizeHint().width(), mySize.width()-2*pw),
+    QSize newSize = QSize( qMax( _child->sizeHint().width(), mySize.width()-2*pw),
                            _child->sizeHint().height());
 
     _child->move( pw, childY );

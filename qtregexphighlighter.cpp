@@ -63,7 +63,7 @@ int QtRegexpHighlighter::highlightParagraph( const QString & text, int endStateO
         if ( length + (start-index) != regexp.matchedLength() )
             setFormat( start+length, regexp.matchedLength()-length-(start-index), colors[color] );
 
-        index +=  QMAX( 1, regexp.matchedLength() ); // ensure progress when matching for example ^ or \b
+        index +=  qMax( 1, regexp.matchedLength() ); // ensure progress when matching for example ^ or \b
         color = (color+1)%2;
     }
     return color;

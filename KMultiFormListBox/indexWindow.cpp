@@ -82,15 +82,15 @@ int indexWindow::exec(const QPoint & /*start*/, int /*width*/)
   QWidget *desktop = QApplication::desktop();
   int desktop_h = desktop->height();
   int rest_h = desktop_h - start.y();
-  int below_h = QMAX(rest_h, 200);
+  int below_h = qMax(rest_h, 200);
 
   int start_y = start.y();
 
   if (rest_h < 200 && elm_h > 200) {
-    start_y = desktop_h-QMIN(elm_h,200);
+    start_y = desktop_h-qMin(elm_h,200);
   }
 
-  setGeometry(start.x(), start_y, width, QMIN(elm_h, below_h));
+  setGeometry(start.x(), start_y, width, qMin(elm_h, below_h));
   show();
   qApp->enter_loop();
   return itemSelected;

@@ -96,7 +96,7 @@ QSize AltnWidget::sizeHint() const
 
   for ( ; *it ; ++it) {
     QSize thisChildSize = (*it)->sizeHint();
-    _childrenWidth = QMAX(_childrenWidth, thisChildSize.width());
+    _childrenWidth = qMax(_childrenWidth, thisChildSize.width());
     _childrenHeight += thisChildSize.height();
   }
 
@@ -106,7 +106,7 @@ QSize AltnWidget::sizeHint() const
 
   int headerWidth = _textSize.width() + 2 * bdSize + 2;
 
-  _childrenWidth = QMAX(_childrenWidth, headerWidth);
+  _childrenWidth = qMax(_childrenWidth, headerWidth);
 
   return QSize(_childrenWidth + 2*pw, _childrenHeight + _textSize.height() + 1*pw );
 }

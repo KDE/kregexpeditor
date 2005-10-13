@@ -78,7 +78,7 @@ QSize CharactersWidget::sizeHint() const
     _contentSize = HackCalculateFontSize(metrics,text());
     //  _contentSize = metrics.size(0, text());
 
-    return QSize(QMAX(headerSize.width(), bdSize + _contentSize.width() + bdSize+ 2*pw),
+    return QSize(qMax(headerSize.width(), bdSize + _contentSize.width() + bdSize+ 2*pw),
                  headerSize.height() + bdSize + _contentSize.height() + bdSize + 2*pw);
 }
 

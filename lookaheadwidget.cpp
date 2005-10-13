@@ -71,7 +71,7 @@ QSize LookAheadWidget::sizeHint() const
   _childSize = _child->sizeHint();
 
   int height = _textSize.height() + bdSize + _childSize.height() + bdSize + 2*pw;
-  int width  = 2 * pw + QMAX(_childSize.width(), 4*bdSize + _textSize.width());
+  int width  = 2 * pw + qMax(_childSize.width(), 4*bdSize + _textSize.width());
   return QSize(width,height);
 }
 

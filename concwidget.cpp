@@ -90,7 +90,7 @@ QSize ConcWidget::sizeHint() const
   for ( ; *it; ++it) {
     QSize thisChildSize = (*it)->sizeHint();
     childrenWidth += thisChildSize.width();
-    childrenHeight = QMAX(childrenHeight, thisChildSize.height());
+    childrenHeight = qMax(childrenHeight, thisChildSize.height());
   }
 
   return QSize(childrenWidth, childrenHeight);
@@ -110,8 +110,8 @@ void ConcWidget::paintEvent( QPaintEvent *e)
   }
   else {
     QSize myReqSize = sizeHint();
-    QSize mySize(QMAX(myReqSize.width(), size().width()),
-                 QMAX(myReqSize.height(), size().height()));
+    QSize mySize(qMax(myReqSize.width(), size().width()),
+                 qMax(myReqSize.height(), size().height()));
 
     // If the widget needs less space than it can get then this space should
     // be given to the leftmost and rightmost accepter. So lets calculate
@@ -141,7 +141,7 @@ void ConcWidget::paintEvent( QPaintEvent *e)
       int x = offset;
       int w = accepter->sizeHint().width();
       if ( i == 1 ) w+= extra;
-      int h = QMAX( lastHeight, childSize.height() );
+      int h = qMax( lastHeight, childSize.height() );
       int y = (mySize.height() - h)/2;
       accepter->setGeometry( x, y, w, h );
 
@@ -243,7 +243,7 @@ bool ConcWidget::updateSelection(bool parentSelected)
   ++it; // Skip past the first DragAccepter
 	for ( ; *it; it +=2  ) {
     if ( (*it)->isSelected() ) {
-      _maxSelectedHeight = QMAX( _maxSelectedHeight, (*it)->sizeHint().height() );
+      _maxSelectedHeight = qMax( _maxSelectedHeight, (*it)->sizeHint().height() );
     }
   }
 

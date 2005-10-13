@@ -55,7 +55,7 @@ QSize SelectableLineEdit::sizeHint() const
   if ( hasFocus() )
     width = actualSize+6*charWidth + frameWidth;
   else
-    width = QMAX(actualSize, charWidth) + frameWidth;
+    width = qMax(actualSize, charWidth) + frameWidth;
   return QSize( width , height );
 }
 

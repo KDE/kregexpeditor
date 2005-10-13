@@ -96,7 +96,7 @@ void KMultiFormListBoxMultiVisible::updateClipperContent()
 
   // calculate the required size.
   for (QWidget *child = elms->first(); child; child=elms->next()) {
-    maxWidth = QMAX(maxWidth, child->sizeHint().width());
+    maxWidth = qMax(maxWidth, child->sizeHint().width());
     if (strcmp(child->name(), "seperator") != 0) {
       totalHeight += child->sizeHint().height();
       count++;

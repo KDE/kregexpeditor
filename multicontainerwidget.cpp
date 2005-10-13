@@ -194,10 +194,10 @@ QRect MultiContainerWidget::selectionRect() const
           res = childSel;
         else {
           QRect newRes;
-          newRes.setLeft( QMIN( res.left(), childSel.left() ) );
-          newRes.setTop( QMIN( res.top(), childSel.top() ) );
-          newRes.setRight( QMAX( res.right(), childSel.right() ) );
-          newRes.setBottom( QMAX( res.bottom(), childSel.bottom() ) );
+          newRes.setLeft( qMin( res.left(), childSel.left() ) );
+          newRes.setTop( qMin( res.top(), childSel.top() ) );
+          newRes.setRight( qMax( res.right(), childSel.right() ) );
+          newRes.setBottom( qMax( res.bottom(), childSel.bottom() ) );
           res = newRes;
         }
       }
