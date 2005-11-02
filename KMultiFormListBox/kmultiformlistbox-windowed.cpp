@@ -47,40 +47,47 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
   QVBoxLayout *buttons = new QVBoxLayout();
   innerLayout->addLayout(buttons);
 
-  QPushButton *but = new QPushButton(addButtonText, this,"Add Button");
+  QPushButton *but = new QPushButton(addButtonText, this);
+  but->setObjectName("Add Button");
   buttons->addWidget(but,0);
   connect(but, SIGNAL(clicked()), this, SLOT(addNewElement()));
 
-  but = new QPushButton(i18n("Edit"), this,"Edit Button");
+  but = new QPushButton(i18n("Edit"), this);
+  but->setObjectName("Edit Button");
   buttons->addWidget(but,0);
   connect(but,SIGNAL(clicked()), this, SLOT(slotEditSelected()));
   connect(_listbox, SIGNAL(doubleClicked(Q3ListBoxItem *)), this, SLOT(slotEditSelected(Q3ListBoxItem *)));
 	_buttonList.append(but);
 
-  but = new QPushButton(i18n("Delete"), this, "Delete Button");
+  but = new QPushButton(i18n("Delete"), this);
+  but->setObjectName("Delete Button");
   buttons->addWidget(but,0);
   connect(but, SIGNAL(clicked()), this, SLOT(slotDeleteEntry()));
 	_buttonList.append(but);
 
-  but = new QPushButton(i18n("Copy"), this, "Copy Button");
+  but = new QPushButton(i18n("Copy"), this);
+  but->setObjectName("Copy Button");
   buttons->addWidget(but,0);
   connect(but, SIGNAL(clicked()), this, SLOT(slotCopySelected()));
 	_buttonList.append(but);
 
 	if (showUpDownButtons) {
-		but = new QPushButton(i18n("Up"), this, "Up Button");
+		but = new QPushButton(i18n("Up"), this);
+		but->setObjectName("Up Button");
 		buttons->addWidget(but, 0);
 		connect(but, SIGNAL(clicked()), this, SLOT(slotMoveItemUp()));
 		_buttonList.append(but);
 
-		but = new QPushButton(i18n("Down"), this, "Down Button");
+		but = new QPushButton(i18n("Down"), this);
+		but->setObjectName( "Down Button");
 		buttons->addWidget(but, 0);
 		connect(but, SIGNAL(clicked()), this, SLOT(slotMoveItemDown()));
 		_buttonList.append(but);
 	}
 
 	if (showHelpButton) {
-		but = new KPushButton(KStdGuiItem::help(), this, "Help Button");
+		but = new KPushButton(KStdGuiItem::help(), this);
+		but->setObjectName( "Help Button");
 		buttons->addWidget(but, 0);
 		connect(but, SIGNAL(clicked()), this, SIGNAL(showHelp()));
 	}
