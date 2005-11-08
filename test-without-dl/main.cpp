@@ -25,7 +25,7 @@ public:
   virtual bool eventFilter( QObject* recv, QEvent* event )
   {
     if ( event->type() == QEvent::MouseButtonPress &&
-         dynamic_cast<QMouseEvent*>(event)->state() == Qt::ControlButton ) {
+         dynamic_cast<QMouseEvent*>(event)->state() == Qt::ControlModifier ) {
       // Ctrl + left mouse click.
 
       qDebug("----------------------------------------------------");
@@ -56,7 +56,7 @@ int main( int argc, char* argv[] )
   iface->doSomething( "setShowSyntaxCombo", (bool*) true );
 
   QFile file("/packages/kde-src/kdeutils/kregexpeditor/test/main.cpp");
-  file.open(IO_ReadOnly);
+  file.open(QIODevice::ReadOnly);
   QTextStream stream( &file);
   QString txt = stream.read();
   iface->setMatchText( txt );

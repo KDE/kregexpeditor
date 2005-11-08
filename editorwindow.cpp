@@ -65,7 +65,7 @@ RegExpEditorWindow::RegExpEditorWindow( QWidget *parent, const char *name)
     accel->connectItem( accel->insertItem( Qt::CTRL+Qt::Key_C ), this, SLOT( slotCopy() ) );
     accel->connectItem( accel->insertItem( Qt::CTRL+Qt::Key_X ), this, SLOT( slotCut() ) );
     accel->connectItem( accel->insertItem( Qt::Key_Delete ), this, SLOT( slotCut() ) );
-    accel->connectItem( accel->insertItem( Qt::Key_BackSpace ), this, SLOT( slotCut() ) );
+    accel->connectItem( accel->insertItem( Qt::Key_Backspace ), this, SLOT( slotCut() ) );
     accel->connectItem( accel->insertItem( Qt::CTRL+Qt::Key_V ), this, SLOT( slotStartPasteAction() ) );
     accel->connectItem( accel->insertItem( Qt::Key_Escape ), this, SLOT( slotEndActions() ) );
     accel->connectItem( accel->insertItem( Qt::CTRL+Qt::Key_S ), this, SLOT( slotSave() ) );

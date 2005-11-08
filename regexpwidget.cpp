@@ -188,7 +188,7 @@ void RegExpWidget::updateCursorShape()
       cursor = Qt::ForbiddenCursor;
   }
   else
-    cursor = Qt::arrowCursor;
+    cursor = Qt::ArrowCursor;
 
   setCursor( cursor );
 }
