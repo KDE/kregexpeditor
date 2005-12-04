@@ -26,7 +26,7 @@
   #include <kstandarddirs.h>
   #include <kiconloader.h>
   #include "editorwindow.moc"
-  #include <klineeditdlg.h>
+  #include <kinputdialog.h>
 #endif
 
 #include "editorwindow.h"
@@ -383,10 +383,9 @@ void RegExpEditorWindow::slotSave()
     if ( txt.isNull() )
         return;
 #else
-    KLineEditDlg dlg(i18n("Enter name:"), QString::null, this);
-    dlg.setCaption(i18n("Name for Regular Expression"));
-    if (!dlg.exec()) return;
-    txt = dlg.text();
+    QString tmp = KInputDialog::getText( i18n("Name for Regular Expression"), i18n("Enter name:"));
+    if( tmp.isEmpty()) return;
+    txt = tmp;
 #endif
 
     QString fileName = dir + QString::fromLocal8Bit("/") + txt + QString::fromLocal8Bit(".regexp");
