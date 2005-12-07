@@ -58,7 +58,7 @@ class KMultiFormListBoxMultiVisible;
  instance is the one inserted into the KMultiFormListBox widget (one instance for
  each sub widget in the KMultiFormListBox widget).
 
- @author Jesper Kjær Pedersen <blackie@kde.org>
+ @author Jesper KjÃ¦r Pedersen <blackie@kde.org>
  **/
 class KMultiFormListBox : public QWidget {
 

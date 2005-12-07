@@ -31,7 +31,7 @@ class KRegExpEditorPrivate;
 /**
    Regular Expression Editor.
 
-   @author Jesper Kjær Pedersen <blackie@kde.org>
+   @author Jesper KjÃ¦r Pedersen <blackie@kde.org>
    @version 0.1
  **/
 class KDE_EXPORT KRegExpEditorGUI  :public QWidget, public KRegExpEditorInterface
