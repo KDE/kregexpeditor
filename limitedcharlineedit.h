@@ -38,7 +38,7 @@ protected:
 
 private:
   Mode _mode;
-  unsigned int _count;
+  int _count;
 };
 
 #endif
