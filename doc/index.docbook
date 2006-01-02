@@ -46,15 +46,15 @@
 
     <para>
       The regular expression editor is an editor for editing regular expression
-      in a graphical style (in contrast to the ascii syntax). Traditionally
-      regular expressions have been typed in the ascii syntax, which for example
-      looks like <literal>^.*kde\b</literal>. The major drawback of
-      this style is:
+      in a graphical style (in contrast to the <acronym>ASCII</acronym> syntax). Traditionally
+      regular expressions have been typed in the <acronym>ASCII</acronym> syntax, which for example
+      looks like <literal>^.*kde\b</literal>. The major drawbacks of
+      this style are:
       <itemizedlist>
         <listitem><para>It is hard to understand for
             non-programmers.</para></listitem>
 
-        <listitem><para>It requires that you <emphasis>escapes</emphasis>
+        <listitem><para>It requires that you <emphasis>escape</emphasis>
             certain symbols (to match a star for example, you need to type
             <literal>\*</literal>). </para></listitem>
 
@@ -71,7 +71,7 @@
       <emphasis>draw</emphasis> your regular expression in an unambiguous
       way. The editor solves at least item two and three above. It might not make
       regular expressions available for the non-programmers, though only tests by
-      users can tell that. So, if you are  a non programmer, who has gained the
+      users can tell that. So, if are you a non programmer, who has gained the
       power of regular expression from this editor, then please 
       <ulink url="mailto:blackie@kde.org">let me know</ulink>.
     </para>
@@ -105,20 +105,19 @@
       basic building blocks using a number of examples.</para>
 
     <example>
-      <title>Searching for normal text.</title> <para>If you just want
-      to search for a given text, then a regular expression is
-      definitely not a good choice. The reason for this is that
-      regular expressions assign special meaning to some
-      characters. This includes the following characters:
-      <literal>.*|$</literal>. Thus if you want to search for the text
-      <literal>kde.</literal> (i.e. the characters
-      <literal>kde</literal> followed by a period), then you would
-      need to specify this as
-      <literal>kde\.</literal><footnote><para>The regular expression
-      editor solves this problem by taking care of escape rules for
-      you.</para></footnote> Writing <literal>\.</literal> rather than
-      just <literal>.</literal> is called
-      <emphasis>escaping</emphasis>.  </para> </example>
+      <title>Searching for normal text.</title>
+      <para>If you just want to search for a given text, a then regular
+        expression is definitely not a good choice. The reason for this is that
+        regular expressions assign special meaning to some characters. This
+        includes the following characters: <literal>.*|$</literal>. Thus if you want to
+        search for the text <literal>kde.</literal> (i.e. the characters
+        <literal>kde</literal> followed by a period), then you would need to
+        specify this as <literal>kde\.</literal><footnote><para>The regular
+            expression editor solves this problem by taking care of escape rules for
+            you.</para></footnote> Writing <literal>\.</literal> rather than just
+        <literal>.</literal> is called <emphasis>escaping</emphasis>.
+      </para>
+    </example>
 
     <example id="positionregexp">
       <title>Matching URLs</title>
@@ -242,11 +241,11 @@
     </example>
 
     <example id="lookaheadregexp">
-      <title>Replacing <literal>&amp;</literal> with <literal>&amp;amp;</literal> in
-        a HTML document</title>
-      <para>In HTML the special character <literal>&amp;</literal> must be
-        written as <literal>&amp;amp;</literal> - this is similar to escaping in
-        regular expressions.</para>
+      <title>Replacing <literal>&amp;</literal> with
+        <literal>&amp;amp;</literal> in a HTML document</title> <para>In
+        HTML the special character <literal>&amp;</literal> must be
+        written as <literal>&amp;amp;</literal> - this is similar to
+        escaping in regular expressions.</para>
 
       <para>Imagine that you have written an HTML document in a normal editor
         (e.g. XEmacs or Kate), and you totally forgot about this rule. What you
@@ -341,10 +340,10 @@
       
 
       <simplesect id="selecttool">
-        <title>Selection Tool <inlinemediaobject>
+        <title>Selection Tool</title>
+	<mediaobject>
             <imageobject><imagedata format="PNG" fileref="select.png"/>
-        </imageobject></inlinemediaobject></title>
-
+        </imageobject></mediaobject>
         <para> The selection tool is used to
           mark elements for cut-and-paste and drag-and-drop. This is very
           similar to a selection tool in any drawing program.</para>
@@ -352,10 +351,12 @@
         
       
 
-      <simplesect id="texttool"><title>Text Tool <inlinemediaobject><imageobject>
-            <imagedata format="PNG" fileref="text.png"/>
-            </imageobject></inlinemediaobject></title>
-
+      <simplesect id="texttool"><title>Text Tool</title>
+      <mediaobject>
+      <imageobject>
+	    <imagedata format="PNG" fileref="text.png"/>
+	</imageobject></mediaobject>
+		        
         <para><inlinemediaobject><imageobject>
               <imagedata format="PNG" fileref="texttool.png"/>
         </imageobject></inlinemediaobject></para>
@@ -368,10 +369,10 @@
 
       
 
-      <simplesect id="characterstool"><title>Character Tool <inlinemediaobject><imageobject>
+      <simplesect id="characterstool"><title>Character Tool</title>
+      <mediaobject><imageobject>
             <imagedata format="PNG" fileref="characters.png"/>
-            </imageobject></inlinemediaobject></title>
-      
+            </imageobject></mediaobject>
         <para><inlinemediaobject><imageobject>
             <imagedata format="PNG" fileref="charactertool.png"/>
             </imageobject></inlinemediaobject></para>
@@ -388,10 +389,10 @@
 
       
       
-      <simplesect id="anychartool"><title>Any Character Tool <inlinemediaobject><imageobject>
+      <simplesect id="anychartool"><title>Any Character Tool</title>
+        <mediaobject><imageobject>
               <imagedata format="PNG" fileref="anychar.png"/>
-        </imageobject></inlinemediaobject></title>
-        
+        </imageobject></mediaobject>
         <para><inlinemediaobject><imageobject><imagedata format="PNG" fileref="anychartool.png"/>
         </imageobject></inlinemediaobject></para>
 
@@ -404,10 +405,10 @@
 
 
 
-      <simplesect id="repeattool"><title>Repeat Tool <inlinemediaobject><imageobject>
+      <simplesect id="repeattool"><title>Repeat Tool</title>
+      <mediaobject><imageobject>
             <imagedata format="PNG" fileref="repeat.png"/>
-            </imageobject></inlinemediaobject></title>
-
+            </imageobject></mediaobject>
         <para><inlinemediaobject><imageobject>
             <imagedata format="PNG" fileref="repeattool.png"/>
             </imageobject></inlinemediaobject></para>
@@ -436,10 +437,10 @@
 
 
 
-      <simplesect id="altntool"><title>Alternative Tool <inlinemediaobject><imageobject>
+      <simplesect id="altntool"><title>Alternative Tool</title>
+      <mediaobject><imageobject>
             <imagedata format="PNG" fileref="altn.png"/>
-            </imageobject></inlinemediaobject></title>
-
+            </imageobject></mediaobject>
         <para><inlinemediaobject><imageobject><imagedata format="PNG" fileref="altntool.png"/>
         </imageobject></inlinemediaobject></para>
         
@@ -454,10 +455,10 @@
 
 
 
-      <simplesect id="compoundtool"><title>Compound Tool <inlinemediaobject><imageobject>
+      <simplesect id="compoundtool"><title>Compound Tool</title>
+        <mediaobject><imageobject>
               <imagedata format="PNG" fileref="compound.png"/>
-        </imageobject></inlinemediaobject></title>
-        
+        </imageobject></mediaobject>
         <para><inlinemediaobject><imageobject><imagedata format="PNG" fileref="compoundtool.png"/>
         </imageobject></inlinemediaobject></para>
         
@@ -471,20 +472,20 @@
 
 
 
-      <simplesect id="positiontool"><title>Line Start/End Tools <inlinemediaobject><imageobject>
+      <simplesect id="positiontool"><title>Line Start/End Tools</title>
+        <mediaobject><imageobject>
             <imagedata format="PNG" fileref="begline.png"/>
-        </imageobject></inlinemediaobject>&nbsp;&nbsp;
-          <inlinemediaobject><imageobject>
+        </imageobject></mediaobject>
+          <mediaobject><imageobject>
               <imagedata format="PNG" fileref="endline.png"/>
-        </imageobject></inlinemediaobject></title>
-        
+        </imageobject></mediaobject>
         <para><inlinemediaobject><imageobject><imagedata format="PNG" fileref="linestartendtool.png"/>
         </imageobject></inlinemediaobject></para>
 
         <para>The line start and line end tools matches the start of the
           line, and the end of the line respectively. The regular
           expression in the screen dump above thus matches lines only
-          composed of spaces.</para>
+          matches spaces.</para>
         
         <para>See description of <link linkend="positionregexp">position
             regular expressions</link>.</para>
@@ -494,20 +495,19 @@
 
 
 
-      <simplesect><title>Word (Non)Boundary Tools <inlinemediaobject><imageobject>
+      <simplesect><title>Word (Non)Boundary Tools</title>
+      <mediaobject><imageobject>
             <imagedata format="PNG" fileref="wordboundary.png"/>
-            </imageobject></inlinemediaobject>&nbsp;&nbsp;
-          <inlinemediaobject><imageobject><imagedata format="PNG" fileref="nonwordboundary.png"/>
-        </imageobject></inlinemediaobject></title>
-
+            </imageobject></mediaobject>
+          <mediaobject><imageobject><imagedata format="PNG" fileref="nonwordboundary.png"/>
+        </imageobject></mediaobject>
         <para><inlinemediaobject><imageobject><imagedata format="PNG" fileref="boundarytools.png"/>
         </imageobject></inlinemediaobject></para>
 
-        <para>The boundary tools matches a word boundary -
-          respectively, a non-word boundary. The regular expression in
-          the screen dump thus matches any words starting with
-          <literal>the</literal>. The word <literal>the</literal>
-          itself is, however, not matched.</para>
+        <para>The boundary tools matches a word boundary respectively a
+          non-word boundary. The regular expression in the screen dump thus
+          matches any words starting with <literal>the</literal>. The word
+          <literal>the</literal> itself is, however, not matched.</para>
 
         <para>See description of <link linkend="boundaryregexp">boundary
             regular expressions</link>.</para>
@@ -518,11 +518,11 @@
 
 
       <simplesect id="lookaheadtools"><title>Positive/Negative Lookahead
-          Tools
-          <inlinemediaobject><imageobject> <imagedata format="PNG" fileref="poslookahead.png"/>
-        </imageobject></inlinemediaobject>&nbsp;&nbsp;
-          <inlinemediaobject><imageobject> <imagedata format="PNG" fileref="neglookahead.png"/>
-        </imageobject></inlinemediaobject></title>
+          Tools</title>
+	  <mediaobject><imageobject> <imagedata format="PNG" fileref="poslookahead.png"/>
+        </imageobject></mediaobject>
+          <mediaobject><imageobject> <imagedata format="PNG" fileref="neglookahead.png"/>
+        </imageobject></mediaobject>
 
         <para><inlinemediaobject><imageobject> <imagedata format="PNG" fileref="lookaheadtools.png"/>
         </imageobject></inlinemediaobject></para>
@@ -550,7 +550,7 @@
         expressions are pre-installed with your KDE installation, while
         others you can save yourself.</para> 
 
-      <para>These regular expressions serves two purposes
+      <para>These regular expression serves two purposes
         (<link linkend="screenorganization">see detailed
           description</link>), namely (1) to offer you a set of building
         block and (2) to make common regular expressions prettier.</para>
