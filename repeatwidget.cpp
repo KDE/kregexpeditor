@@ -32,6 +32,7 @@
 #include <qradiobutton.h>
 #include <qlayout.h>
 #include <q3grid.h>
+#include <Q3VButtonGroup>
 
 //Added by qt3to4:
 #include <QPaintEvent>

@@ -98,17 +98,17 @@ QString EmacsRegExpConverter::toString( TextRangeRegExp* regexp, bool /*markSele
 	// last element of the characters.
     QStringList chars = regexp->chars();
 	for (int i = 0; i< chars.count(); i++) {
-		if ( *chars.at(i) == QChar(']') ) {
+		if ( chars.at(i).at(0) == QChar(']') ) {
 			foundParenthesis = true;
 		}
-		else if ( *chars.at(i) == QChar('-') ) {
+		else if ( chars.at(i).at(0) == QChar('-') ) {
 			foundDash = true;
 		}
-		else if ( *chars.at(i) == QChar('^') ) {
+		else if ( chars.at(i).at(0) == QChar('^') ) {
 			foundCarrot = true;
 		}
 		else {
-			txt.append( *chars.at(i) );
+			txt.append( chars.at(i).at(0) );
 		}
 	}
 

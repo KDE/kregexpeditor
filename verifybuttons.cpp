@@ -20,7 +20,6 @@
 #include <q3filedialog.h>
 //Added by qt3to4:
 #include <Q3ValueList>
-#include <Q3ActionGroup>
 #include <QBoxLayout>
 #include "images.h"
 #else
@@ -41,6 +40,7 @@
 #include <qtoolbutton.h>
 #include "util.h"
 #include <q3popupmenu.h>
+#include <QActionGroup>
 #include <qaction.h>
 
 VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
@@ -118,7 +118,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     _configMenu = new Q3PopupMenu( this, "config menu" );
 
     // Auto Verify
-    QAction* autoVerify = new QAction( i18n("Verify on the Fly"), 0, this );
+    QAction* autoVerify = new QAction( i18n("Verify on the Fly"), this );
     autoVerify->setToggleAction( true );
     autoVerify->setOn( true );
     connect( autoVerify, SIGNAL( toggled( bool ) ), this, SLOT( updateVerifyButton( bool ) ) );
@@ -129,7 +129,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
                                     "If the verify window contains much text, or if the regular expression is either "
                                     "complex or matches a lot of time, this may be very slow."));
 
-    QAction* matchGreedy = new QAction( i18n("Match Greedy"), 0, this );
+    QAction* matchGreedy = new QAction( i18n("Match Greedy"), this );
     matchGreedy->setToggleAction( true );
     matchGreedy->setOn( false );
     connect( matchGreedy, SIGNAL( toggled( bool ) ), this, SIGNAL( matchGreedy( bool ) ) );
@@ -141,10 +141,10 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     Q3PopupMenu* languages = new Q3PopupMenu( _configMenu );
     _languageId = _configMenu->insertItem( i18n("RegExp Language"), languages );
 
-    Q3ActionGroup* grp = new Q3ActionGroup( this );
+    QActionGroup* grp = new QActionGroup( this );
     for( Q3ValueList< QPair<RegExpConverter*,QAction*> >::Iterator it = _converters.begin(); it != _converters.end(); ++it ) {
         QString name = (*it).first->name();
-        QAction* action = new QAction( name, 0, this );
+        QAction* action = new QAction( name, this );
         action->setToggleAction( true );
         grp->add( action );
         (*it).second = action;

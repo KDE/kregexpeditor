@@ -39,9 +39,9 @@
 #include <QLabel>
 #include <QVBoxLayout>
 #include <iostream>
-#include <qhgroupbox.h>
 #include <qcursor.h>
 #include <qcheckbox.h>
+#include <Q3GroupBox>
 
 CharacterEdits* CharactersWidget::_configWindow = 0;
 
@@ -303,7 +303,7 @@ CharacterEdits::CharacterEdits( QWidget *parent, const char *name)
 
 
     // The predefined box
-    QHGroupBox* predefined = new Q3GroupBox(1, Qt::Vertical,i18n("Predefined Character Ranges"),top);
+    Q3GroupBox* predefined = new Q3GroupBox(1, Qt::Vertical,i18n("Predefined Character Ranges"),top);
     topLayout->addWidget(predefined);
     Q3Grid* grid = new Q3Grid(3, predefined );
 

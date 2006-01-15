@@ -18,7 +18,7 @@
 #ifdef QT_ONLY
   #include "compat.h"
 #else
-  #include <klineeditdlg.h>
+  #include <kinputdialog.h>
   #include <klocale.h>
   #include <kmessagebox.h>
   #include <kstandarddirs.h>
@@ -194,11 +194,7 @@ void UserDefinedRegExps::slotEdit( Q3ListViewItem* item, const QPoint& pos )
 #ifdef QT_ONLY
     txt = QInputDialog::getText( tr("Rename Regular Expression"), tr("New name:") );
 #else
-    KLineEditDlg dlg(i18n("New name:"), oldName, this);
-    dlg.setCaption(i18n("Rename Item"));
-    bool ok = dlg.exec();
-    if ( ok )
-        txt = dlg.text();
+    txt = KInputDialog::getText( i18n("Rename Item"), i18n("New name:"), oldName );
 #endif
     if ( !txt.isNull() && oldName != txt ) {
       QString fileName = WidgetWinItem::path() + QString::fromLocal8Bit("/") + txt + QString::fromLocal8Bit(".regexp");

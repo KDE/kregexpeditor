@@ -32,6 +32,7 @@
 #include <qtoolbutton.h>
 //Added by qt3to4:
 #include <QBoxLayout>
+#include <Q3WhatsThis>
 #include "util.h"
 
 AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)

@@ -26,6 +26,7 @@
   #include "kregexpeditorprivate.moc"
 #endif
 
+#include <qapplication.h>
 #include <qlineedit.h>
 #include <qtooltip.h>
 #include <qtoolbutton.h>
@@ -75,7 +76,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
                                        "you have developed and saved, and regular expressions shipped with the system." ));
 
   // Editor window
-  _editor = new QSplitter( Vertical, this, "KRegExpEditorPrivate::_editor" );
+  _editor = new QSplitter( Qt::Vertical, this, "KRegExpEditorPrivate::_editor" );
 
   _scrolledEditorWindow =
     new RegExpScrolledEditorWindow( _editor, "KRegExpEditorPrivate::_scrolledEditorWindow" );
@@ -203,8 +204,8 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   _redoStack.setAutoDelete( true );
 
   Q3Accel* accel = new Q3Accel( this );
-  accel->connectItem( accel->insertItem( CTRL+Key_Z ), this, SLOT( slotUndo() ) );
-  accel->connectItem( accel->insertItem( CTRL+Key_R ), this, SLOT( slotRedo() ) );
+  accel->connectItem( accel->insertItem( Qt::CTRL+Qt::Key_Z ), this, SLOT( slotUndo() ) );
+  accel->connectItem( accel->insertItem( Qt::CTRL+Qt::Key_R ), this, SLOT( slotRedo() ) );
 
   setSyntax( QString::fromLatin1( "Qt" ) );
 }
