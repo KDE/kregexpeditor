@@ -62,8 +62,8 @@ QString RegExpConverter::toStr( RegExp* regexp, bool markSelection )
 QString RegExpConverter::escape( QString text, Q3ValueList<QChar> chars, QChar escapeChar) const
 {
 	QString res;
-	for (unsigned int i=0; i<text.length(); i++) {
-		for (unsigned int j=0; j<chars.count(); j++) {
+	for (int i=0; i<text.length(); i++) {
+		for (int j=0; j<chars.count(); j++) {
 			if ( text.at(i) == (chars[j]) ) {
 				res.append( escapeChar );
 				break;
