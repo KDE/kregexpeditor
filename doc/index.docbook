@@ -303,8 +303,6 @@
         contains the <emphasis>whats this</emphasis> button, and buttons
         for undo and redo.</para>
 
-      <para></para>
-
       <para>Below the editing area you find the regular expression
         currently build, in the so called ascii syntax. The ascii syntax
         is updated while you edit the regular expression in the graphical
