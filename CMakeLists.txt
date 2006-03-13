@@ -5,12 +5,27 @@ add_subdirectory( KMultiFormListBox )
 add_subdirectory( picts ) 
 add_subdirectory( predefined ) 
 
-include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
+include_directories(
+	${CMAKE_SOURCE_DIR}/kregexpeditor/KWidgetStreamer/ 
+	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/
+	${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
 
 
 ########### next target ###############
+set(libkmultiformlistbox_SRCS 
+	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/ccp.cpp 
+	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/kmultiformlistboxentry.cpp 
+	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/kmultiformlistbox.cpp 
+	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/kmultiformlistbox-multivisible.cpp 
+	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/kmultiformlistboxfactory.cpp 
+	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/indexWindow.cpp 
+	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/kmultiformlistbox-windowed.cpp 
+	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/widgetwindow.cpp 
+	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/windowlistboxitem.cpp
+)
 
-set(kregexpeditorcommon_LIB_SRCS 
+
+set(kregexpeditorcommon_LIB_SRCS ${libkmultiformlistbox_SRCS}
    kregexpeditorgui.cpp 
    editorwindow.cpp 
    regexpwidget.cpp 
@@ -64,7 +79,7 @@ kde4_automoc(${kregexpeditorcommon_LIB_SRCS})
 
 kde4_add_library(kregexpeditorcommon SHARED ${kregexpeditorcommon_LIB_SRCS})
 
-target_link_libraries(kregexpeditorcommon  ${QT_AND_KDECORE_LIBS} kmultiformlistbox kwidgetstreamer kio )
+target_link_libraries(kregexpeditorcommon  ${LIB_KIO} kwidgetstreamer  )
 
 set_target_properties(kregexpeditorcommon PROPERTIES VERSION 1.0.0 SOVERSION 1 )
 install_targets(${LIB_INSTALL_DIR} kregexpeditorcommon )
