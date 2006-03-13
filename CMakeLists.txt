@@ -24,8 +24,11 @@ set(libkmultiformlistbox_SRCS
 	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/windowlistboxitem.cpp
 )
 
+set(libkwidgetstreamer_SRCS 
+	${CMAKE_SOURCE_DIR}/kregexpeditor/KWidgetStreamer/kwidgetstreamer.cpp
+	)
 
-set(kregexpeditorcommon_LIB_SRCS ${libkmultiformlistbox_SRCS}
+set(kregexpeditorcommon_LIB_SRCS ${libkmultiformlistbox_SRCS} ${libkwidgetstreamer_SRCS}
    kregexpeditorgui.cpp 
    editorwindow.cpp 
    regexpwidget.cpp 
@@ -79,7 +82,7 @@ kde4_automoc(${kregexpeditorcommon_LIB_SRCS})
 
 kde4_add_library(kregexpeditorcommon SHARED ${kregexpeditorcommon_LIB_SRCS})
 
-target_link_libraries(kregexpeditorcommon  ${LIB_KIO} kwidgetstreamer  )
+target_link_libraries(kregexpeditorcommon  ${LIB_KIO}   )
 
 set_target_properties(kregexpeditorcommon PROPERTIES VERSION 1.0.0 SOVERSION 1 )
 install_targets(${LIB_INSTALL_DIR} kregexpeditorcommon )
@@ -87,7 +90,7 @@ install_targets(${LIB_INSTALL_DIR} kregexpeditorcommon )
 
 ########### next target ###############
 
-set(kregexpeditorgui_PART_SRCS kregexpeditorfactory.cpp )
+set(kregexpeditorgui_PART_SRCS kregexpeditorfactory.cpp ${kregexpeditorcommon_LIB_SRCS})
 
 kde4_automoc(${kregexpeditorgui_PART_SRCS})
 
@@ -95,20 +98,20 @@ kde4_add_plugin(kregexpeditorgui WITH_PREFIX ${kregexpeditorgui_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kregexpeditorgui )
 
-target_link_libraries(kregexpeditorgui  ${QT_AND_KDECORE_LIBS} kregexpeditorcommon )
+target_link_libraries(kregexpeditorgui  ${LIB_KDEUI} )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kregexpeditorgui )
 
 
 ########### next target ###############
 
-set(kregexpeditor_SRCS main.cpp )
+set(kregexpeditor_SRCS main.cpp ${kregexpeditorcommon_LIB_SRCS})
 
 kde4_automoc(${kregexpeditor_SRCS})
 
 kde4_add_executable(kregexpeditor ${kregexpeditor_SRCS})
 
-target_link_libraries(kregexpeditor  ${QT_AND_KDECORE_LIBS} kregexpeditorcommon kio )
+target_link_libraries(kregexpeditor  ${LIB_KIO} )
 
 install_targets(/bin kregexpeditor )
 
