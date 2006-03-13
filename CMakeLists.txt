@@ -98,7 +98,7 @@ kde4_add_plugin(kregexpeditorgui WITH_PREFIX ${kregexpeditorgui_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kregexpeditorgui )
 
-target_link_libraries(kregexpeditorgui  ${LIB_KDEUI} )
+target_link_libraries(kregexpeditorgui  ${LIB_KIO} )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kregexpeditorgui )
 
