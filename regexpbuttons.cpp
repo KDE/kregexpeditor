@@ -56,7 +56,7 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   QPixmap pix;
   pix.convertFromImage( qembed_findImage( "select" ) );
 #else
-  QPixmap pix = KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/select.png") ), KIcon::Toolbar );
+  QPixmap pix = KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/select.png") ), K3Icon::Toolbar );
 #endif
 
   _selectBut->setPixmap( pix );
@@ -162,7 +162,7 @@ DoubleClickButton* RegExpButtons::insert(RegExpType tp, const char* name, QStrin
     pix.convertFromImage( qembed_findImage( QString::fromLatin1( name ) ) );
 #else
     QPixmap pix = KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/")+QString::fromLatin1(name) +
-                                                       QString::fromLatin1(".png") ), KIcon::Toolbar );
+                                                       QString::fromLatin1(".png") ), K3Icon::Toolbar );
 #endif
 
   DoubleClickButton* but = new DoubleClickButton( pix, this, "RegExpButtons::but");

@@ -29,7 +29,7 @@ QPixmap Util::getKRegExpEditorIcon( const QString& name )
     return pix;
 #else
   return KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/") +name ),
-                                         KIcon::Toolbar );
+                                         K3Icon::Toolbar );
 #endif
 }
 
@@ -41,7 +41,7 @@ QPixmap Util::getSystemIcon( const QString& name )
     return pix;
 #else
   KIconLoader loader;
-  return loader.loadIcon( name, KIcon::Toolbar);
+  return loader.loadIcon( name, K3Icon::Toolbar);
 #endif
 
 }
@@ -54,7 +54,7 @@ QIcon Util::getSystemIconSet( const QString& name )
     return QIcon( pix );
 #else
   KIconLoader loader;
-  return loader.loadIconSet( name, KIcon::Toolbar);
+  return loader.loadIconSet( name, K3Icon::Toolbar);
 #endif
 
 }

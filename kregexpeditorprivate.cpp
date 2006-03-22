@@ -185,7 +185,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
 #ifdef QT_ONLY
   QPixmap pix( "icons/error.png" );
 #else
-  QPixmap pix = KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/error.png") ), KIcon::Toolbar );
+  QPixmap pix = KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/error.png") ), K3Icon::Toolbar );
 #endif
   _error = new QLabel( this );
   _error->setPixmap( pix );
