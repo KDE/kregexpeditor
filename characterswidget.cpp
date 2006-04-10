@@ -420,7 +420,7 @@ RangeEntry::RangeEntry(QWidget* parent, const char* name )
 
     layout->addStretch(1);
 
-    label = new QLabel(i18n("end of range","To:"), this );
+    label = new QLabel(i18nc("end of range","To:"), this );
     _to = new CharSelector( this );
     layout->addWidget( label );
     layout->addWidget( _to );

@@ -26,7 +26,7 @@
 #include <qframe.h>
 
 QString i18n( const QString& a);
-QString i18n( const QString& a, const QString& b);
+QString i18nc( const QString& a, const QString& b);
 #define isatty(x) 0
 
 #define KTextBrowser QTextBrowser

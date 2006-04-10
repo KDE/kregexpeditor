@@ -391,14 +391,14 @@ void RegExpEditorWindow::slotSave()
     QString fileName = dir + QString::fromLocal8Bit("/") + txt + QString::fromLocal8Bit(".regexp");
     QFileInfo finfo( fileName );
     if ( finfo.exists() ) {
-        int answer = KMessageBox::warningContinueCancel( this, i18n("<p>Overwrite named regular expression <b>%1</b></p>").arg(txt), QString::null, i18n("Overwrite"));
+        int answer = KMessageBox::warningContinueCancel( this, i18n("<p>Overwrite named regular expression <b>%1</b></p>", txt), QString::null, i18n("Overwrite"));
         if ( answer != KMessageBox::Continue )
             return;
     }
 
     QFile file( fileName );
     if ( ! file.open(QIODevice::WriteOnly) ) {
-        KMessageBox::sorry( this, i18n("Could not open file for writing: %1").arg(fileName) );
+        KMessageBox::sorry( this, i18n("Could not open file for writing: %1", fileName) );
         return;
     }
 

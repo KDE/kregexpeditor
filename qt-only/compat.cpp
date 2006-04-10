@@ -22,7 +22,7 @@ QString i18n( const QString& a) {
     return QObject::tr(a);
 }
 
-QString i18n( const QString& a, const QString& b) {
+QString i18nc( const QString& a, const QString& b) {
     return QObject::tr(b,a);
 }
 

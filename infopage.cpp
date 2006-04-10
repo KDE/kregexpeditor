@@ -30,7 +30,7 @@ InfoPage::InfoPage( QWidget* parent, const char* name )
 {
     QString txt =
         QString::fromLatin1( "<qt>" ) +
-        i18n( "Translators, feel free to add yourself in the text below, asking for a postcard ;-), "
+        i18nc( "Translators, feel free to add yourself in the text below, asking for a postcard ;-), "
               "also feel free to add a section saying <h2>Translators</h2>. "
               "Kind regards, and thanks for your work - Jesper.",
               "<h1>Regular Expression Editor</h1>"

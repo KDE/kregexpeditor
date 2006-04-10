@@ -1169,8 +1169,8 @@ yyreduce:
                                         "In the graphical area the text <b>%1</b> has been inserted. This is however "
                                         "just a workaround to ensure that the application handles the regexp at all. "
                                         "Therefore, as soon as you edit the regular expression in the graphical area, "
-                                        "the back reference will be replaced by matching the text <b>%2</b> literally.")
-                                    .arg( match ).arg( match ),
+                                        "the back reference will be replaced by matching the text <b>%2</b> literally.",
+                                      match, match ),
                                  i18n("Back reference regular expressions not supported"), 
                                  QString::fromLocal8Bit("backReferenceNotSupported") );
       }
