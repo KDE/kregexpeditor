@@ -1,5 +1,7 @@
 kde4_header()
 
+ADD_DEFINITIONS( -DQT_NO_CAST_ASCII )
+
 add_subdirectory( KWidgetStreamer ) 
 add_subdirectory( KMultiFormListBox ) 
 add_subdirectory( picts ) 
@@ -90,7 +92,7 @@ install_targets(${LIB_INSTALL_DIR} kregexpeditorcommon )
 
 ########### next target ###############
 
-set(kregexpeditorgui_PART_SRCS kregexpeditorfactory.cpp ${kregexpeditorcommon_LIB_SRCS})
+set(kregexpeditorgui_PART_SRCS  ${kregexpeditorcommon_LIB_SRCS})
 
 kde4_automoc(${kregexpeditorgui_PART_SRCS})
 
