@@ -13,8 +13,9 @@
       <author>
         <firstname>Jesper K.</firstname>
         <surname>Pedersen</surname>
-        <affiliation><address><email>blackie@kde.org</email></address></affiliation>
+        <affiliation><address>&Jesper.Pedersen.mail;</address></affiliation>
       </author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
     </authorgroup>
 
     <date>2001-07-03</date>
@@ -90,7 +91,7 @@
       the text to search for <emphasis>literally</emphasis>, using a
       regular expression, on the other hand, you tell what a given
       match would look like. Examples of this include <emphasis>I'm
-      searching for the word KDE, but only at the beginning of the
+      searching for the word &kde;, but only at the beginning of the
       line</emphasis>, or <emphasis>I'm searching for the word
       <literal>the</literal>, but it must stand on its own</emphasis>,
       or <emphasis>I'm searching for files starting with the word
@@ -120,16 +121,16 @@
     </example>
 
     <example id="positionregexp">
-      <title>Matching URLs</title>
-      <para>When you select something looking like a URL in KDE, then the
+      <title>Matching &URL;s</title>
+      <para>When you select something looking like a &URL; in &kde;, then the
         program <command>klipper</command> will offer to start
-        <command>konqueror</command> with the selected URL.</para>
+        <command>konqueror</command> with the selected &URL;.</para>
 
       <para><command>Klipper</command> does this by matching the selection
         against several different regular expressions, when one of the regular
         expressions matches, the accommodating command will be offered.</para>
       
-      <para>The regular expression for URLs says (among other things), that the
+      <para>The regular expression for &URL;s says (among other things), that the
         selection must start with the text <literal>http://</literal>. This is
         described using regular expressions by prefixing the text
         <literal>http://</literal> with a hat (the <literal>^</literal>
@@ -151,7 +152,7 @@
         <emphasis>the position at a <emphasis>non</emphasis>-word
           boundary</emphasis>. The positions are specified using the text
         <literal>\b</literal> (for word-boundary) and <literal>\B</literal> (for
-        non-word boundary)<emphasis></emphasis></para>
+        non-word boundary)</para>
 
       <para>Thus, searching for the word <literal>the</literal> can be done
         using the regular expression <literal>\bthe\b</literal>. This specifies
@@ -204,7 +205,7 @@
       <para>In the shell the asterisk matches any character any number of
         times. In other words, the asterisk matches <emphasis>anything</emphasis>.
         This is written like <literal>.*</literal> with regular expression
-        syntax. The dot matches any single character, i.e. just
+        syntax. The dot matches any single character, &ie; just
         <emphasis>one</emphasis> character, and the asterisk, says that the
         regular expression prior to it should be matched any number of
         times. Together this says any single character any number of
@@ -215,7 +216,7 @@
         expression: <literal>a</literal>. The letter <literal>a</literal> on its
         own is a regular expression that matches a single letter, namely the
         letter <literal>a</literal>. If we combine this with the asterisk,
-        i.e. <literal>a*</literal>, then we have a regular expression matching
+        &ie; <literal>a*</literal>, then we have a regular expression matching
         any number of a's.</para>
 
       <para>We can combine several regular expression after each
@@ -242,13 +243,13 @@
 
     <example id="lookaheadregexp">
       <title>Replacing <literal>&amp;</literal> with
-        <literal>&amp;amp;</literal> in a HTML document</title> <para>In
-        HTML the special character <literal>&amp;</literal> must be
+        <literal>&amp;amp;</literal> in a &HTML; document</title> <para>In
+        &HTML; the special character <literal>&amp;</literal> must be
         written as <literal>&amp;amp;</literal> - this is similar to
         escaping in regular expressions.</para>
 
-      <para>Imagine that you have written an HTML document in a normal editor
-        (e.g. XEmacs or Kate), and you totally forgot about this rule. What you
+      <para>Imagine that you have written an &HTML; document in a normal editor
+	(e.g. &XEmacs; or &kate;), and you totally forgot about this rule. What you
         would do when realized your mistake was to replace every occurrences of
         <literal>&amp;</literal> with <literal>&amp;amp;</literal>.</para>
 
@@ -332,7 +333,7 @@
         on <link linkend="whatIsARegExp">what a regular expression
           is</link>, or have previous knowledge on this subject.</para>
       
-      <para>All the editing tools are located in the tool bar above
+      <para>All the editing tools are located in the toolbar above
         editing area. Each of them will be described in the following.</para>
       
       
@@ -360,7 +361,7 @@
         </imageobject></inlinemediaobject></para>
 
         <para>Using this tool you will insert normal text to match. The
-        text is matched literally, i.e. you do not have to worry about
+        text is matched literally, &ie; you do not have to worry about
         escaping of special characters.  In the example above the following
           regular expression will be build: <literal>abc\*\\\)</literal></para>
       </simplesect>
@@ -545,7 +546,7 @@
       <title>User Defined Regular Expressions</title>
       <para>Located at the left of the editing area is a list box
         containing user defined regular expressions. Some regular
-        expressions are pre-installed with your KDE installation, while
+        expressions are pre-installed with your &kde; installation, while
         others you can save yourself.</para> 
 
       <para>These regular expression serves two purposes
@@ -574,8 +575,8 @@
   <chapter id="bugreport">
     <title>Reporting bugs and Suggesting Features</title>
     <para>Bug reports and feature requests should be submitted through the
-      <ulink url="http://bugs.kde.org/">KDE Bug Tracking System</ulink>. <emphasis
-                                                                                   role="strong">Before</emphasis> you report a bug or suggest a feature,
+      <ulink url="http://bugs.kde.org/">&kde; Bug Tracking System</ulink>.
+      <emphasis role="strong">Before</emphasis> you report a bug or suggest a feature,
       please check that it hasn't already been 
       <ulink url="http://bugs.kde.org/simple_search.cgi?id=kregexpeditor">reported/suggested.</ulink></para>
   </chapter>
@@ -597,17 +598,17 @@
     </sect1>
 
     <sect1 id="question3">
-      <title>I'm the author of a KDE program, how can I use this widget in
+      <title>I'm the author of a &kde; program, how can I use this widget in
         my application?</title>
       <para>See <ulink
                        url="http://developer.kde.org/documentation/library/cvs-api/classref/interfaces/KRegExpEditorInterface.html">The documentation for the class KRegExpEditorInterface</ulink>.</para>
     </sect1>
 
     <sect1 id="question4">
-      <title>I can't find the <emphasis>Edit Regular expression</emphasis> button in for example
+      <title>I cannot find the <emphasis>Edit Regular expression</emphasis> button in for example
         konqueror on another KDE3 installation, why?</title>
       <para>The regular expression widget is located in the package
-        KDE-utils. If you do not have this package installed, then the
+        &kde;-utils. If you do not have this package installed, then the
         <emphasis>edit regular expressions</emphasis> buttons will not
         appear in the programs.</para>
     </sect1>
@@ -620,11 +621,11 @@
     <title>Credits and Licenses</title>
 
     <para>
-      Documentation is copyright 2001, Jesper K. Pedersen
-      <email>blackie@kde.org</email>
+      Documentation is copyright 2001, Jesper K. Pedersen &Jesper.Pedersen.mail;
     </para>
 
 
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
     &underGPL;
     &underFDL;
 
