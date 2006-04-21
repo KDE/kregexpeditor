@@ -175,7 +175,7 @@
 
       <para>Using regular expression searches you would search for both in the
         same sweep. You do this by searching for
-        <literal>this|that</literal>. I.e. separating the two words with a
+        <literal>this|that</literal>, &ie; separating the two words with a
         vertical bar.<footnote><para>Note on each side of the vertical bar is a
             regular expression, so this feature is not only for searching for two
             different pieces of text, but for searching for two different regular
@@ -626,8 +626,8 @@
 
 
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
-    &underGPL;
     &underFDL;
+    &underGPL;
 
   </chapter>
 
