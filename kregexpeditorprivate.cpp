@@ -172,7 +172,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   QIcon clearIcon = SmallIconSet( icon );
   clearButton->setIconSet( clearIcon );
   layout->addWidget( clearButton );
-  QToolTip::add( clearButton, i18n("Clear expression") );
+  clearButton->setToolTip( i18n("Clear expression") );
   _regexpEdit = new QLineEdit( this );
   label->setBuddy( _regexpEdit );
   layout->addWidget( _regexpEdit );

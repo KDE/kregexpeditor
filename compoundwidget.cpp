@@ -58,7 +58,7 @@ CompoundDetailWindow::CompoundDetailWindow( QWidget* parent, const char* name )
   label->setBuddy( _description );
 
   _allowReplace = new QCheckBox( i18n("&Automatically replace using this item"), this );
-  QToolTip::add( _allowReplace, i18n("When the content of this box is typed in to the ASCII line,<br>"
+  _allowReplace->setToolTip( i18n("When the content of this box is typed in to the ASCII line,<br>"
                                      "this box will automatically be added around it,<br>"
                                      "if this check box is selected.") );
   _allowReplace->setChecked( true );

@@ -51,7 +51,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     _verify =  new QToolButton(this);
     QIcon icon = Util::getSystemIconSet( QString::fromLatin1("spellcheck"));
     _verify->setIconSet( icon );
-    QToolTip::add( _verify, i18n( "Verify regular expression" ) );
+    _verify->setToolTip( i18n( "Verify regular expression" ) );
     _verify->setWhatsThis( i18n("Shows what part of the regular expression is being matched in the <i>verifier window</i>."
                                    "(The window below the graphical editor window)."));
     layout->addWidget( _verify );
@@ -61,13 +61,13 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     button->setPixmap( Util::getSystemIcon( QString::fromLatin1("fileopen")) );
     layout->addWidget( button );
     connect(button, SIGNAL(clicked()), this, SLOT(loadText()));
-    QToolTip::add( button, i18n("Load text in the verifier window") );
+    button->setToolTip( i18n("Load text in the verifier window") );
 
     button = new QToolButton(this);
     button->setPixmap( Util::getSystemIcon( QString::fromLatin1("package_settings")) );
     layout->addWidget( button );
     connect(button, SIGNAL(clicked()), this, SLOT(configure()));
-    QToolTip::add( button, i18n("Verification Settings") );
+    button->setToolTip( i18n("Verification Settings") );
 
     // It is currently not possible to ask for the paragraph being highlighted, thefore scrolling to next/prev match
     // do not work. Enable this when they work.
@@ -97,8 +97,8 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
 //  _matches = new QLabel(i18n("-"), this );
 //  layout->addWidget( _matches );
 //  QString txt = i18n( "Shows number of times regular expression matches the text in the verifier window");
-//  QToolTip::add( label, txt );
-//  QToolTip::add( _matches, txt );
+//  label->setToolTip( txt );
+//  _matches->setToolTip( txt );
 
     _verify->setEnabled( false );
 

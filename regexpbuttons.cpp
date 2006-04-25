@@ -66,7 +66,7 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   connect( _selectBut, SIGNAL(clicked()), SIGNAL(doSelect()));
   connect( _selectBut, SIGNAL(clicked()), this, SLOT(slotSetNonKeepMode()) );
 
-  QToolTip::add( _selectBut, i18n("Selection tool"));
+  _selectBut->setToolTip( i18n("Selection tool"));
   _selectBut->setWhatsThis( i18n("<qt>This will change the state of the editor to <i>selection state</i>.<p>"
                              "In this state you will not be inserting <i>regexp items</i>, but instead select them. "
                              "To select a number of items, press down the left mouse button and drag it over the items.<p>"
@@ -175,7 +175,7 @@ DoubleClickButton* RegExpButtons::insert(RegExpType tp, const char* name, QStrin
 
   _grp->insert( but );
   but->setToggleButton( true );
-  QToolTip::add( but, tooltip );
+  but->setToolTip( tooltip );
   but->setWhatsThis( whatsthis );
 
   return but;
