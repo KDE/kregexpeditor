@@ -29,7 +29,7 @@ class CharSelector :public QWidget
     Q_OBJECT
 
 public:
-    CharSelector( QWidget* parent, const char* name = 0 );
+    CharSelector( QWidget* parent );
     QString text() const;
     void setText( QString text );
     bool isEmpty() const;

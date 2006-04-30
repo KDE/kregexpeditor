@@ -25,8 +25,8 @@
 #include <QHBoxLayout>
 
 KMultiFormListBox::KMultiFormListBox( KMultiFormListBoxFactory *factory, KMultiFormListBoxType tp, QWidget *parent,
-																		  bool showUpDownButtons, bool showHelpButton, QString addButtonText,
-																		  const char *name )  : QWidget( parent, name )
+                                      bool showUpDownButtons, bool showHelpButton, QString addButtonText )
+    : QWidget( parent )
 {
 	switch ( tp ) {
 

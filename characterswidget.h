@@ -74,7 +74,7 @@ private:
 class SingleEntry :public KMultiFormListBoxEntry
 {
 public:
-    SingleEntry(QWidget* parent, const char* name = 0 );
+    SingleEntry(QWidget* parent );
     QString text() const;
     void setText( QString text );
     bool isEmpty() const;
@@ -89,7 +89,7 @@ private:
 class RangeEntry :public KMultiFormListBoxEntry
 {
 public:
-    RangeEntry(QWidget* parent, const char* name = 0 );
+    RangeEntry(QWidget* parent );
     QString fromText() const;
     QString toText() const;
     void setFrom( QString text );
@@ -126,7 +126,7 @@ class CharacterEdits : public KDialogBase
 {
     Q_OBJECT
 public:
-    CharacterEdits(QWidget *parent = 0, const char *name = 0);
+    CharacterEdits(QWidget *parent = 0);
 
 public slots:
     int exec( TextRangeRegExp* regexp );

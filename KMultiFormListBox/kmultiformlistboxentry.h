@@ -50,7 +50,7 @@ class KMultiFormListBoxEntry : public QWidget
   Q_OBJECT
 
 public:
-  KMultiFormListBoxEntry(QWidget *parent, const char *name) : QWidget(parent,name) {}
+  KMultiFormListBoxEntry(QWidget *parent) : QWidget(parent) {}
 
   virtual QPushButton *indexButton() { return 0; }
   virtual QWidget *valueWidget() { return 0; }

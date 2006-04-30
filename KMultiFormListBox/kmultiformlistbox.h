@@ -75,9 +75,8 @@ public:
    **/
   KMultiFormListBox(KMultiFormListBoxFactory *factory,
                     KMultiFormListBoxType tp=Windowed,
-										QWidget *parent = 0, bool showUpDownButtons = true,
-										bool showHelpButton = true, QString addButtonText = i18n("Add"),
-										const char *name = 0);
+                    QWidget *parent = 0, bool showUpDownButtons = true,
+                    bool showHelpButton = true, QString addButtonText = i18n("Add") );
 
   /**
 		 @return The elements in the KMultiFormListBox.

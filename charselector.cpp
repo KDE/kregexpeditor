@@ -46,14 +46,14 @@ public:
     StackContainer( QWidget* child, QWidget* parent ) : QWidget( parent )
         {
             QHBoxLayout* layout = new QHBoxLayout( this );
-            child->reparent( this, QPoint(0,0), false );
+            child->setParent( this );
             layout->addWidget( child );
             layout->addStretch( 1 );
         }
 };
 
-CharSelector::CharSelector( QWidget* parent, const char* name )
-    :QWidget( parent, name ), _oldIndex(0)
+CharSelector::CharSelector( QWidget* parent )
+    :QWidget( parent ), _oldIndex(0)
 {
   QStringList items;
   QHBoxLayout* layout = new QHBoxLayout( this, 0, 6 );

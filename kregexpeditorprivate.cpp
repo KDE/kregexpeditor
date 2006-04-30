@@ -412,11 +412,11 @@ void KRegExpEditorPrivate::setSyntax( const QString& syntax )
     RegExpConverter::setCurrent( converter );
     if ( converter->canParse() ) {
         _regexpEdit->setReadOnly( false );
-        _regexpEdit->setBackgroundMode( Qt::PaletteBase );
+        _regexpEdit->setBackgroundRole( QPalette::Base );
     }
     else {
         _regexpEdit->setReadOnly( true );
-        _regexpEdit->setBackgroundMode( Qt::PaletteBackground );
+        _regexpEdit->setBackgroundRole( QPalette::Background );
     }
     _regExpButtons->setFeatures( converter->features() );
     _verifier->setHighlighter( converter->highlighter(_verifier) );
