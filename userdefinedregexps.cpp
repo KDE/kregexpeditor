@@ -110,7 +110,7 @@ void UserDefinedRegExps::createItems( const QString& _title, const QString& dir,
     }
 
     QTextStream stream( &file );
-    QString data = stream.read();
+    QString data = stream.readAll();
     file.close();
 
     RegExp* regexp = WidgetFactory::createRegExp( data );

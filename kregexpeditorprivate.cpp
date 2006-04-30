@@ -386,7 +386,7 @@ void KRegExpEditorPrivate::setVerifyText( const QString& fileName )
     }
     else {
         QTextStream s( &file );
-        QString txt = s.read();
+        QString txt = s.readAll();
         file.close();
         RegExp* regexp = _scrolledEditorWindow->regExp();
         _verifier->setText( txt );

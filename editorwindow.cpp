@@ -128,7 +128,7 @@ void RegExpEditorWindow::mouseMoveEvent ( QMouseEvent* event )
     }
     else {
         QPainter p( this );
-#warning "QT4 ???? p.setRasterOp( Qt::NotROP ); "		
+#warning "QT4 ???? p.setRasterOp( Qt::NotROP ); "
         //p.setRasterOp( Qt::NotROP );
         p.setPen( Qt::DotLine );
 
@@ -159,7 +159,7 @@ void RegExpEditorWindow::mouseReleaseEvent( QMouseEvent *event)
 
     // remove last selection rectangle
     QPainter p( this );
-#warning "QT4 ????? p.setRasterOp( Qt::NotROP );"	
+#warning "QT4 ????? p.setRasterOp( Qt::NotROP );"
     //p.setRasterOp( Qt::NotROP );
     p.setPen( Qt::DotLine );
     if ( ! _lastPoint.isNull() ) {
@@ -309,7 +309,7 @@ void RegExpEditorWindow::slotStartPasteAction()
 {
     QByteArray data = qApp->clipboard()->data()->encodedData( "KRegExpEditor/widgetdrag" );
     QTextStream stream( data, QIODevice::ReadOnly );
-    QString str = stream.read();
+    QString str = stream.readAll();
 
     RegExp* regexp = WidgetFactory::createRegExp( str );
     if ( regexp )

@@ -45,7 +45,7 @@ RegExpWidget* RegExpWidgetDrag::decode(QDropEvent* event, RegExpEditorWindow* wi
 {
   QByteArray payload = event->encodedData("KRegExpEditor/widgetdrag" );
   QTextStream stream( payload, QIODevice::ReadOnly );
-  QString str = stream.read();
+  QString str = stream.readAll();
   RegExp* regexp = WidgetFactory::createRegExp( str );
   RegExpWidget* widget = WidgetFactory::createWidget( regexp, window, parent );
   delete regexp;

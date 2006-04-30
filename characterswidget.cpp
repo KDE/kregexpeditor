@@ -188,7 +188,8 @@ int CharactersWidget::edit()
     if ( _configWindow == 0 ) {
         QApplication::setOverrideCursor( Qt::WaitCursor );
         // No parent here, as this window should continue to exists.
-        _configWindow = new CharacterEdits( 0, "CharactersWidget::_configWindow" );
+        _configWindow = new CharacterEdits( 0 );
+        _configWindow->setObjectName( "CharactersWidget::_configWindow" );
         QApplication::restoreOverrideCursor();
     }
 
@@ -288,11 +289,12 @@ int CharacterEdits::exec( TextRangeRegExp* regexp )
 }
 
 
-CharacterEdits::CharacterEdits( QWidget *parent, const char *name)
-  : KDialogBase( parent, name == 0 ? "CharacterEdits" : name, true,
+CharacterEdits::CharacterEdits( QWidget *parent)
+  : KDialogBase( parent, 0, true,
                  i18n("Specify Characters"),
                  KDialogBase::Ok | KDialogBase::Cancel)
 {
+    setObjectName( "CharacterEdits" );
     QWidget* top = new QWidget( this );
     QVBoxLayout *topLayout = new QVBoxLayout(top, 6);
     setMainWidget( top );
@@ -383,8 +385,8 @@ void CharacterEdits::slotOK()
 }
 
 
-SingleEntry::SingleEntry(QWidget* parent, const char* name )
-    :KMultiFormListBoxEntry( parent, name )
+SingleEntry::SingleEntry(QWidget* parent)
+    :KMultiFormListBoxEntry( parent )
 {
     QHBoxLayout* layout = new QHBoxLayout( this, 3, 6 );
     _selector = new CharSelector( this );
@@ -408,8 +410,8 @@ bool SingleEntry::isEmpty() const
 }
 
 
-RangeEntry::RangeEntry(QWidget* parent, const char* name )
-    :KMultiFormListBoxEntry( parent, name )
+RangeEntry::RangeEntry(QWidget* parent)
+    :KMultiFormListBoxEntry( parent )
 {
     QHBoxLayout* layout = new QHBoxLayout( this, 3, 6 );
 
