@@ -60,6 +60,3 @@ parser:
 	cd $(srcdir) && flex -Pqregexp -ogen_qregexplexer.cpp qregexpparser.l
 	cd $(srcdir) && bison -d -p qregexp -o gen_qregexpparser.cc qregexpparser.y
 
-messages:
-	perl extractrc-from-regexp `find . -name "*.regexp"` > predefined-regexps.cpp
-	$(XGETTEXT) *.cpp *.h */*.cpp */*.h -o $(podir)/kregexpeditor.pot
