@@ -226,7 +226,7 @@ void UserDefinedRegExps::slotSelectNewAction()
 WidgetWinItem::WidgetWinItem( QString fileName, RegExp* regexp, bool usersRegExp, Q3ListViewItem* parent )
   :Q3ListViewItem( parent ), _regexp( regexp ), _usersRegExp ( usersRegExp )
 {
-  int index = fileName.findRev(QString::fromLocal8Bit(".regexp"));
+  int index = fileName.lastIndexOf(QLatin1String(".regexp"));
   _name = fileName.left(index);
 
   setText( 0, _name );
@@ -234,7 +234,7 @@ WidgetWinItem::WidgetWinItem( QString fileName, RegExp* regexp, bool usersRegExp
 
 QString WidgetWinItem::fileName() const
 {
-  return path() + QString::fromLocal8Bit("/") +_name + QString::fromLocal8Bit(".regexp");
+  return path() + QLatin1Char('/') +_name + QLatin1String(".regexp");
 }
 
 RegExp* WidgetWinItem::regExp() const
