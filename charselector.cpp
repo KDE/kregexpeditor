@@ -56,7 +56,9 @@ CharSelector::CharSelector( QWidget* parent )
     :QWidget( parent ), _oldIndex(0)
 {
   QStringList items;
-  QHBoxLayout* layout = new QHBoxLayout( this, 0, 6 );
+  QHBoxLayout* layout = new QHBoxLayout( this );
+  layout->setSpacing( 6 );
+  layout->setMargin( 0 );
 
   _type = new QComboBox( this, "_type" );
   items << i18n("Normal Character")

@@ -96,7 +96,10 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   _editor->hide();
   _editor->setSizes( Q3ValueList<int>() << _editor->height()/2 << _editor->height()/2 );
 
-  QVBoxLayout *topLayout = new QVBoxLayout( this, 0, 6, "KRegExpEditorPrivate::topLayout" );
+  QVBoxLayout *topLayout = new QVBoxLayout( this );
+  topLayout->setObjectName( "KRegExpEditorPrivate::topLayout" );
+  topLayout->setSpacing( 6 );
+  topLayout->setMargin( 0 );
   topLayout->addWidget( area );
   QHBoxLayout* rows = new QHBoxLayout; // I need to cal addLayout explicit to get stretching right.
   topLayout->addLayout( rows, 1 );
@@ -164,7 +167,8 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
 
 
   // Line Edit
-  QHBoxLayout* layout = new QHBoxLayout( topLayout, 6 );
+  QHBoxLayout* layout = new QHBoxLayout( topLayout );
+  layout->setSpacing( 6 );
   QLabel* label = new QLabel( i18n("ASCII synta&x:"), this );
   layout->addWidget( label );
   clearButton = new QToolButton( this );

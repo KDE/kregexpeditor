@@ -45,7 +45,8 @@ void KDialogBase::init( int buttonMask, ButtonCode /*defaultButton*/, const QStr
 {
     setCaption( caption );
     _layout = new QVBoxLayout( this, 6 );
-    QHBoxLayout* buts = new QHBoxLayout( _layout, 6 );
+    QHBoxLayout* buts = new QHBoxLayout( _layout );
+    buts->setSpacing( 6 );
     QPushButton* but;
     if ( buttonMask & Help ) {
         but = new QPushButton( tr("Help"), this );

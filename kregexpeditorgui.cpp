@@ -43,7 +43,8 @@ KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent, const char *name,
 	                           const QStringList & )
   : QWidget( parent, name)
 {
-  QHBoxLayout* layout = new QHBoxLayout( this, 6 );
+  QHBoxLayout* layout = new QHBoxLayout( this );
+  layout->setSpacing( 6 );
   _editor = new KRegExpEditorPrivate( this, "_editor" );
   layout->addWidget( _editor );
   connect( _editor, SIGNAL( canUndo(bool) ), this, SIGNAL( canUndo(bool) ) );
@@ -79,7 +80,8 @@ KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent,
                  parent, name ? name : "KRegExpDialog" )
 {
   QFrame* frame = plainPage();
-  QVBoxLayout* layout = new QVBoxLayout( frame, 6 );
+  QVBoxLayout* layout = new QVBoxLayout( frame );
+  layout->setSpacing( 6 );
   layout->setAutoAdd( true );
   _editor = new KRegExpEditorGUI( frame );
 

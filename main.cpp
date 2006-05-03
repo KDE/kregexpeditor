@@ -47,13 +47,15 @@ int main( int argc, char* argv[] )
 #endif
 
     QDialog* top = new QDialog( 0 );
-    QVBoxLayout* lay = new QVBoxLayout( top, 6 );
+    QVBoxLayout* lay = new QVBoxLayout( top );
+    lay->setSpacing( 6 );
 
     KRegExpEditorGUI* iface = new KRegExpEditorGUI( top, "_editor", QStringList() );
     iface->doSomething( QString::fromLatin1("setAllowNonQtSyntax"), (bool*) true );
     lay->addWidget( iface );
 
-    QHBoxLayout* lay2 = new QHBoxLayout( lay, 6 );
+    QHBoxLayout* lay2 = new QHBoxLayout( lay );
+    lay2->setSpacing( 6 );
     KPushButton* help = new KPushButton( KStdGuiItem::help(), top );
     KPushButton* quit = new KPushButton( KStdGuiItem::quit(), top );
 

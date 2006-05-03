@@ -43,7 +43,8 @@ UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const char *name )
   : Q3DockWindow( Q3DockWindow::InDock, parent, name)
 {
   QWidget* top = new QWidget( this );
-  QVBoxLayout* lay = new QVBoxLayout( top, 6 );
+  QVBoxLayout* lay = new QVBoxLayout( top );
+  lay->setSpacing( 6 );
   lay->setAutoAdd( true );
 
   QLabel* label = new QLabel( i18n("Compound regular expression:"), top );

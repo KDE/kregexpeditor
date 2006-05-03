@@ -40,7 +40,10 @@ void WidgetWindow::init(KMultiFormListBoxFactory *factory, KListBox *lb, KMultiF
   myFact = factory;
 
   QFrame *frame = plainPage();
-  QHBoxLayout *lay = new QHBoxLayout(frame,0,-1,"WidgetWindow::init::lay");
+  QHBoxLayout *lay = new QHBoxLayout(frame);
+  lay->setObjectName("WidgetWindow::init::lay");
+  lay->setSpacing(-1);
+  lay->setMargin(0);
 
   if (widget != 0) {
     myWidget = widget;
