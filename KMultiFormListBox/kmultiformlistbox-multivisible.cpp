@@ -150,7 +150,7 @@ void KMultiFormListBoxMultiVisible::addElement(KMultiFormListBoxEntry *after)
 
 void KMultiFormListBoxMultiVisible::append(KMultiFormListBoxEntry *elm)
 {
-  elm->reparent(viewport(), 0, QPoint(0,0), false);
+  elm->setParent(viewport() );
   insertElmIntoWidget(elm, 0);
 }
 

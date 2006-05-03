@@ -77,7 +77,7 @@ void AltnWidget::setConcChild(ConcWidget *child)
 
 void AltnWidget::addNewConcChild(DragAccepter *accepter, ConcWidget *child)
 {
-  child->reparent(this, QPoint(0,0), false);
+  child->setParent( this );
   MultiContainerWidget::addNewChild( accepter, child );
   updateDrawLineInfo();
 }

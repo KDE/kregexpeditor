@@ -42,7 +42,7 @@ ConcWidget::ConcWidget(RegExpEditorWindow* editorWindow, RegExpWidget *child,
   init();
   DragAccepter *accepter = new DragAccepter(editorWindow, this);
   _children.append(accepter);
-  child->reparent(this, QPoint(0,0), false);
+  child->setParent( this );
   addNewChild(accepter, child);
 }
 
@@ -55,7 +55,7 @@ ConcWidget::ConcWidget( RegExpEditorWindow* editorWindow, ConcWidget* origConc,
   for (unsigned int i = end; i >= start; i--) {
     RegExpWidget* child = origConc->_children.take( i );
     _children.prepend( child );
-    child->reparent( this, QPoint(0,0), false);
+    child->setParent( this );
   }
   _children.prepend( new DragAccepter(editorWindow, this) );
 }
@@ -309,7 +309,7 @@ void ConcWidget::applyRegExpToSelection( RegExpType type )
 
 
       subSequence->resize(0,0); // see note (1)
-      subSequence->reparent( newElm, QPoint(0,0), false);
+      subSequence->setParent( newElm );
       _children.insert( start, newElm );
       newElm->show();
     }
@@ -376,10 +376,10 @@ void ConcWidget::addNewConcChild(DragAccepter *accepter, ConcWidget *other)
       // namely that every second element is a dragAccepter
       for ( unsigned int j = other->_children.count()-1; j > 0 ; j-=2 ) {
         RegExpWidget* newChildA = other->_children.take(j);
-        newChildA->reparent( this, QPoint(0,0), false);
+        newChildA->setParent( this );
         _children.insert( i+1, newChildA );
         RegExpWidget* newChildB = other->_children.take(j-1);
-        newChildB->reparent( this, QPoint(0,0), false);
+        newChildB->setParent( this );
         _children.insert( i+1, newChildB );
         newChildA->show();
         newChildB->show();

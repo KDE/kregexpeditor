@@ -28,7 +28,7 @@ MultiContainerWidget::MultiContainerWidget( RegExpEditorWindow* editorWindow,
 
 void MultiContainerWidget::append( RegExpWidget* child )
 {
-  child->reparent( this, QPoint(0,0), false );
+  child->setParent( this );
   _children.append( child );
   _children.append( new DragAccepter( _editorWindow, this ) );
 }

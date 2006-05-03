@@ -44,7 +44,7 @@ void WidgetWindow::init(KMultiFormListBoxFactory *factory, KListBox *lb, KMultiF
 
   if (widget != 0) {
     myWidget = widget;
-    widget->reparent(frame, 0, QPoint(0,0));
+    widget->setParent( frame );
   }
   else {
     myWidget = factory->create(frame);
