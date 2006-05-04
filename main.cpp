@@ -54,7 +54,8 @@ int main( int argc, char* argv[] )
     iface->doSomething( QString::fromLatin1("setAllowNonQtSyntax"), (bool*) true );
     lay->addWidget( iface );
 
-    QHBoxLayout* lay2 = new QHBoxLayout( lay );
+    QHBoxLayout* lay2 = new QHBoxLayout();
+    lay->addItem( lay2 );
     lay2->setSpacing( 6 );
     KPushButton* help = new KPushButton( KStdGuiItem::help(), top );
     KPushButton* quit = new KPushButton( KStdGuiItem::quit(), top );

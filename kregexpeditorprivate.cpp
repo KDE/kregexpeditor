@@ -167,7 +167,8 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
 
 
   // Line Edit
-  QHBoxLayout* layout = new QHBoxLayout( topLayout );
+  QHBoxLayout* layout = new QHBoxLayout();
+  topLayout->addItem( layout );
   layout->setSpacing( 6 );
   QLabel* label = new QLabel( i18n("ASCII synta&x:"), this );
   layout->addWidget( label );
