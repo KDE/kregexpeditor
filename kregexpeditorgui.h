@@ -39,7 +39,7 @@ class KDE_EXPORT KRegExpEditorGUI  :public QWidget, public KRegExpEditorInterfac
   Q_OBJECT
   Q_PROPERTY( QString regexp READ regExp WRITE setRegExp )
 public:
-  KRegExpEditorGUI( QWidget *parent, const char *name = 0,
+  KRegExpEditorGUI( QWidget *parent, 
 	            const QStringList & = QStringList() );
   virtual QString regExp() const;
 

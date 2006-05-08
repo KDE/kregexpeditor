@@ -39,7 +39,7 @@
 const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
 
 
-KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent, const char *name,
+KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent, 
 	                           const QStringList & )
   : QWidget( parent, name)
 {
