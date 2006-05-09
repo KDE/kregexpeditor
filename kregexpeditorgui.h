@@ -68,7 +68,7 @@ class KDE_EXPORT KRegExpEditorGUIDialog : public KDialogBase, public KRegExpEdit
     Q_OBJECT
     Q_PROPERTY( QString regexp READ regExp WRITE setRegExp )
 public:
-    KRegExpEditorGUIDialog( QWidget *parent, const char *name, const QStringList &args );
+    KRegExpEditorGUIDialog( QWidget *parent, const QStringList &args );
 
     virtual QString regExp() const;
 

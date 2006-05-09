@@ -50,7 +50,7 @@ int main( int argc, char* argv[] )
     QVBoxLayout* lay = new QVBoxLayout( top );
     lay->setSpacing( 6 );
 
-    KRegExpEditorGUI* iface = new KRegExpEditorGUI( top, "_editor", QStringList() );
+    KRegExpEditorGUI* iface = new KRegExpEditorGUI( top, QStringList() );
     iface->doSomething( QString::fromLatin1("setAllowNonQtSyntax"), (bool*) true );
     lay->addWidget( iface );
 
