@@ -18,7 +18,7 @@
 #ifndef __limitedcharlineedit
 #define __limitedcharlineedit
 
-#include <qlineedit.h>
+#include <QLineEdit>
 //Added by qt3to4:
 #include <QKeyEvent>
 

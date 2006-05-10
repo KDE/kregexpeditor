@@ -31,7 +31,7 @@
 
 #include "editorwindow.h"
 #include "concwidget.h"
-#include <qlayout.h>
+#include <QLayout>
 #include <qpainter.h>
 #include <q3accel.h>
 #include <qcursor.h>

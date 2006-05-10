@@ -18,7 +18,7 @@
 %option noyywrap
 
 %{ 
-  #include <qstring.h>
+  #include <QString>
   #include "textrangeregexp.h"
   #include "gen_qregexpparser.hh"
 #ifdef QT_ONLY

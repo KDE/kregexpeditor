@@ -18,7 +18,7 @@
 #ifndef kregexpeditorprivate_h
 #define kregexpeditorprivate_h
 
-#include <qlabel.h>
+#include <QLabel>
 #include <q3ptrstack.h>
 #include "regexp.h"
 #include "errormap.h"

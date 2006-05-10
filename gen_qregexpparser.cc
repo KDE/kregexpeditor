@@ -107,7 +107,7 @@
   #include <kmessagebox.h>
 #endif
 
-  #include <qstring.h>
+  #include <QString>
   #include <stdlib.h>
 
   #include "regexp.h"

@@ -26,11 +26,11 @@
 #endif
 
 #include "compoundwidget.h"
-#include <qlayout.h>
+#include <QLayout>
 #include <qcursor.h>
-#include <qlineedit.h>
+#include <QLineEdit>
 #include <qpainter.h>
-#include <qtooltip.h>
+#include <QToolTip>
 //Added by qt3to4:
 #include <QPixmap>
 #include <QPaintEvent>

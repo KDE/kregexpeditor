@@ -32,8 +32,8 @@
 #endif
 
 #include "verifybuttons.h"
-#include <qtooltip.h>
-#include <qlayout.h>
+#include <QToolTip>
+#include <QLayout>
 
 #include "qtregexpconverter.h"
 #include "emacsregexpconverter.h"

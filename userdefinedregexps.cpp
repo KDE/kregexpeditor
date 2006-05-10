@@ -29,15 +29,15 @@
 #include "userdefinedregexps.h"
 #include <q3header.h>
 #include <q3popupmenu.h>
-#include <qdir.h>
+#include <QDir>
 //Added by qt3to4:
 #include <QTextStream>
 #include <Q3PtrList>
 #include <QVBoxLayout>
 #include "widgetfactory.h"
 #include "compoundregexp.h"
-#include <qlayout.h>
-#include <qlabel.h>
+#include <QLayout>
+#include <QLabel>
 
 UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const char *name )
   : Q3DockWindow( Q3DockWindow::InDock, parent, name)

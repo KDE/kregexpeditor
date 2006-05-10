@@ -27,10 +27,10 @@
 
 #include "regexpbuttons.h"
 #include "dcbutton.h"
-#include <qtooltip.h>
+#include <QToolTip>
 
 #include <q3buttongroup.h>
-#include <qlayout.h>
+#include <QLayout>
 #include <qsignalmapper.h>
 //Added by qt3to4:
 #include <QPixmap>

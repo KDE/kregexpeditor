@@ -40,7 +40,7 @@
 #include <QVBoxLayout>
 #include <iostream>
 #include <qcursor.h>
-#include <qcheckbox.h>
+#include <QCheckBox>
 #include <Q3GroupBox>
 
 CharacterEdits* CharactersWidget::_configWindow = 0;

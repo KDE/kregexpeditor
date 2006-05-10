@@ -17,10 +17,10 @@
  **/
 #ifndef __kwidgetstreamer
 #define __kwidgetstreamer
-#include <qmap.h>
+#include <QMap>
 #include <q3ptrlist.h>
 #include <qstringlist.h>
-#include <qobject.h>
+#include <QObject>
 
 /**
    This class defines methods for streaming widget data.

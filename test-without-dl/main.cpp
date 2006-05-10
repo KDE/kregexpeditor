@@ -17,7 +17,7 @@
  **/
 #include <kapplication.h>
 #include <kcmdlineargs.h>
-#include <qfile.h>
+#include <QFile>
 #include "../kregexpeditorgui.h"
 class ShootABug :public QObject
 {

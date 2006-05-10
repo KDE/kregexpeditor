@@ -24,7 +24,7 @@
 
 #include "indexWindow.h"
 #include <iostream>
-#include <qlayout.h>
+#include <QLayout>
 //Added by qt3to4:
 #include <QHideEvent>
 #include <QHBoxLayout>

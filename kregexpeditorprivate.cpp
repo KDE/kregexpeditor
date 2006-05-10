@@ -27,8 +27,8 @@
 #endif
 
 #include <qapplication.h>
-#include <qlineedit.h>
-#include <qtooltip.h>
+#include <QLineEdit>
+#include <QToolTip>
 #include <qtoolbutton.h>
 //Added by qt3to4:
 #include <QPixmap>
@@ -49,9 +49,9 @@
 #include "userdefinedregexps.h"
 #include "auxbuttons.h"
 #include <q3accel.h>
-#include <qtimer.h>
+#include <QTimer>
 #include "verifier.h"
-#include <qfile.h>
+#include <QFile>
 #include "verifybuttons.h"
 
 

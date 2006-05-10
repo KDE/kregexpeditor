@@ -18,7 +18,7 @@
 #ifndef CHARSELECTOR_H
 #define CHARSELECTOR_H
 
-#include <qwidget.h>
+#include <QWidget>
 
 class QComboBox;
 class Q3WidgetStack;

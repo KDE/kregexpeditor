@@ -31,7 +31,7 @@
 #endif
 
 #include "kregexpeditorgui.h"
-#include <qlayout.h>
+#include <QLayout>
 
 int main( int argc, char* argv[] )
 {

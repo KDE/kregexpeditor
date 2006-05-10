@@ -21,7 +21,7 @@
 
 #include "kmultiformlistbox-multivisible.h"
 #include "ccp.h"
-#include <qobject.h>
+#include <QObject>
 #include <q3popupmenu.h>
 //Added by qt3to4:
 #include <QMouseEvent>

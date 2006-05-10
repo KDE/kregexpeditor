@@ -28,9 +28,9 @@
 #include "repeatregexp.h"
 #include <qpainter.h>
 #include <qcursor.h>
-#include <qspinbox.h>
+#include <QSpinBox>
 #include <qradiobutton.h>
-#include <qlayout.h>
+#include <QLayout>
 #include <q3grid.h>
 #include <Q3VButtonGroup>
 

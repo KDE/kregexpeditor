@@ -18,7 +18,7 @@
 // -------------------------------- includes ------------------------------
 #ifndef __kmultiformlistboxfactory
 #define __kmultiformlistboxfactory
-#include <qobject.h>
+#include <QObject>
 #include "kwidgetstreamer.h"
 class KMultiFormListBoxEntry;
 //-------------------------------------------------------------------------

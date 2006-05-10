@@ -18,9 +18,9 @@
 #ifndef __kmultiformlistboxentry
 #define __kmultiformlistboxentry
 
-#include <qpoint.h>
-#include <qwidget.h>
-#include <qpushbutton.h>
+#include <QPoint>
+#include <QWidget>
+#include <QPushButton>
 
 /**
    This widget must be the base class for an entry widget used in the @ref

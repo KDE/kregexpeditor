@@ -17,8 +17,8 @@
  **/
 #include "kwidgetstreamer.h"
 #include "kmultiformlistbox.h"
-#include <qobject.h>
-#include <qvariant.h>
+#include <QObject>
+#include <QVariant>
 
 
 void KWidgetStreamer::toStream(const QObject* from, QDataStream& stream )

@@ -21,7 +21,7 @@
 #include "drag.h"
 #include "widgetfactory.h"
 #include <q3multilineedit.h>
-#include <qlabel.h>
+#include <QLabel>
 #include <qicon.h>
 //Added by qt3to4:
 #include <QMouseEvent>

@@ -17,7 +17,7 @@
  **/
 #ifndef __selectablelineedit
 #define __selectablelineedit
-#include <qlineedit.h>
+#include <QLineEdit>
 class RegExpWidget;
 
 /**

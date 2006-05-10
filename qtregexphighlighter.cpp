@@ -16,7 +16,7 @@
  *  Boston, MA 02110-1301, USA.
  **/
 #include "qtregexphighlighter.h"
-#include <qregexp.h>
+#include <QRegExp>
 QtRegexpHighlighter::QtRegexpHighlighter( Q3TextEdit* editor )
     :RegexpHighlighter( editor ), _editor( editor )
 {
