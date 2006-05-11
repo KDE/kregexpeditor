@@ -9,8 +9,7 @@ add_subdirectory( predefined )
 
 include_directories(
 	${CMAKE_SOURCE_DIR}/kregexpeditor/KWidgetStreamer/ 
-	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/
-	${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
+	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/ )
 
 
 ########### next target ###############
