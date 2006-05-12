@@ -1,4 +1,3 @@
-kde4_header()
 
 
 
@@ -7,7 +6,6 @@ kde4_header()
 
 install_files( ${HTML_INSTALL_DIR}/$(KDE_LANG)/KRegExpEditor FILES  )
 
-kde4_footer()
 
 
 
