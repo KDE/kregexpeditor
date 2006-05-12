@@ -1,4 +1,3 @@
-kde4_header()
 
 
 
@@ -10,7 +9,6 @@ kde4_header()
 
 install_files( /include FILES kmultiformlistboxentry.h kmultiformlistbox.h  	kmultiformlistboxfactory.h  )
 
-kde4_footer()
 
 
 
