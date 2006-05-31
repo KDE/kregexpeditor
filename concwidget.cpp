@@ -179,7 +179,7 @@ void ConcWidget::paintEvent( QPaintEvent *e)
 
     //---------------------- Finally place the last accepter.
     DragAccepter* accepter =
-      dynamic_cast<DragAccepter*>(_children.at(_children.count()-1));
+      static_cast<DragAccepter*>(_children.at(_children.count()-1));
     // dynamic_cast is ASSERTed at top
     int x = offset;
     int h = lastHeight;
