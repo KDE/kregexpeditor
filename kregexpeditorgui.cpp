@@ -39,7 +39,7 @@
 const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
 
 
-KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent, 
+KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent,
 	                           const QStringList & )
   : QWidget( parent)
 {
@@ -74,11 +74,14 @@ void KRegExpEditorGUI::setRegExp( const QString &regexp )
 
 KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent,
                                                 const QStringList & )
-  : KDialogBase( KDialogBase::Plain, i18n("Regular Expression Editor"),
-                 KDialogBase::Ok | KDialogBase::Cancel | KDialogBase::Help, KDialogBase::Ok,
-                 parent, "KRegExpDialog" )
+  : KDialog( parent )
 {
-  QFrame* frame = plainPage();
+    setCaption( i18n("Regular Expression Editor") );
+    setButtons( KDialog::Ok | KDialog::Cancel | KDialog::Help );
+    setDefaultButton( KDialog::Ok );
+
+  QFrame* frame = new QFrame(this);
+  setMainWidget( frame );
   QVBoxLayout* layout = new QVBoxLayout( frame );
   layout->setSpacing( 6 );
   layout->setAutoAdd( true );

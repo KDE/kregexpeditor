@@ -23,7 +23,7 @@
 #define compoundwidget
 class QLineEdit;
 class Q3MultiLineEdit;
-class KDialogBase;
+class KDialog;
 class QCheckBox;
 
 #include "singlecontainerwidget.h"
@@ -94,7 +94,7 @@ private:
   mutable QSize _pixmapSize;
   mutable QPoint _pixmapPos;
 
-  KDialogBase* _configWindow;
+  KDialog* _configWindow;
   CompoundDetailWindow* _content;
 
   mutable QSize _textSize;

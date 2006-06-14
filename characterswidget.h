@@ -21,7 +21,7 @@
 #ifdef QT_ONLY
 #include "compat.h"
 #else
-#include <kdialogbase.h>
+#include <kdialog.h>
 #endif
 
 #include <kmultiformlistbox.h>
@@ -30,7 +30,7 @@
 //Added by qt3to4:
 #include <QPaintEvent>
 
-class KDialogBase;
+class KDialog;
 class CharacterEdits;
 class TextRangeRegExp;
 class CharSelector;
@@ -122,7 +122,7 @@ public:
 /**
    @internal
 */
-class CharacterEdits : public KDialogBase
+class CharacterEdits : public KDialog
 {
     Q_OBJECT
 public:

@@ -19,7 +19,7 @@
   #include "compat.h"
 #else
   #include <klocale.h>
-  #include <kdialogbase.h>
+  #include <kdialog.h>
   #include "repeatwidget.moc"
 #endif
 
@@ -80,9 +80,9 @@ RepeatWidget::RepeatWidget( RepeatRegExp* regexp, RegExpEditorWindow* editorWind
 
 void RepeatWidget::init()
 {
-  _configWindow = new KDialogBase( this, "_configWindow", true,
-                                   i18n("Number of Times to Repeat Content"),
-                                   KDialogBase::Ok | KDialogBase::Cancel);
+  _configWindow = new KDialog( this);
+  _configWindow->setCaption( i18n("Number of Times to Repeat Content") );
+  _configWindow->setButtons( KDialog::Ok | KDialog::Cancel);
   _content = new RepeatRangeWindow( _configWindow );
   _configWindow->setMainWidget( _content );
   connect( _configWindow, SIGNAL( cancelClicked() ), this, SLOT( slotConfigCanceled() ) );

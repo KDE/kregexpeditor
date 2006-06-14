@@ -21,7 +21,7 @@
 #ifdef QT_ONLY
   #include "compat.h"
 #else
-  #include <kdialogbase.h>
+  #include <kdialog.h>
 #endif
 
 #include <kregexpeditorinterface.h>
@@ -63,7 +63,7 @@ private:
 	KRegExpEditorPrivate* _editor;
 };
 
-class KDE_EXPORT KRegExpEditorGUIDialog : public KDialogBase, public KRegExpEditorInterface
+class KDE_EXPORT KRegExpEditorGUIDialog : public KDialog, public KRegExpEditorInterface
 {
     Q_OBJECT
     Q_PROPERTY( QString regexp READ regExp WRITE setRegExp )

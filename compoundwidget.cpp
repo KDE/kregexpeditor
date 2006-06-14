@@ -20,7 +20,7 @@
   #include "images.h"
 #else
   #include <klocale.h>
-  #include <kdialogbase.h>
+  #include <kdialog.h>
   #include <kiconloader.h>
   #include "compoundwidget.moc"
 #endif
@@ -125,9 +125,9 @@ CompoundWidget::CompoundWidget( CompoundRegExp* regexp, RegExpEditorWindow* edit
 
 void CompoundWidget::init( )
 {
-  _configWindow = new KDialogBase( this, "_configWindow", true,
-                                   i18n("Configure Compound"),
-                                   KDialogBase::Ok | KDialogBase::Cancel );
+  _configWindow = new KDialog( this);
+  _configWindow->setCaption( i18n("Configure Compound") );
+  _configWindow->setButtons( KDialog::Ok | KDialog::Cancel );
   _content = new CompoundDetailWindow( _configWindow );
   _configWindow->setMainWidget( _content );
 

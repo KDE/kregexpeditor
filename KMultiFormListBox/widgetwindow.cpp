@@ -23,14 +23,20 @@
 #include <QHBoxLayout>
 
 WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KListBox *lb)
-  :KDialogBase(Plain, i18n("Widget Configuration"), Ok | Cancel, Ok, 0, "ConfigWindow", false)
+  :KDialog(0)
 {
+    setCaption( i18n("Widget Configuration") );
+    setButtons( Ok | Cancel );
+    setDefaultButton( Ok );
   init(factory, lb);
 }
 
 WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KMultiFormListBoxEntry *widget, KListBox *lb)
-  :KDialogBase(Plain, i18n("Widget Configuration"), Ok | Cancel, Ok, 0, "ConfigWindow", false)
+  :KDialog(0)
 {
+    setCaption( i18n("Widget Configuration") );
+    setButtons( Ok | Cancel );
+    setDefaultButton( Ok );
   init(factory, lb, widget);
 }
 
@@ -39,7 +45,8 @@ void WidgetWindow::init(KMultiFormListBoxFactory *factory, KListBox *lb, KMultiF
   listbox = lb;
   myFact = factory;
 
-  QFrame *frame = plainPage();
+  QFrame *frame = new QFrame(this);
+  setMainWidget( frame );
   QHBoxLayout *lay = new QHBoxLayout(frame);
   lay->setObjectName("WidgetWindow::init::lay");
   lay->setSpacing(-1);
@@ -84,7 +91,7 @@ void WidgetWindow::slotOk()
     myListboxItem->setText(myWidget->idxString());
   }
   initialShow = false;
-  KDialogBase::slotOk();
+  KDialog::accept();
 }
 
 void WidgetWindow::slotCancel()
@@ -98,7 +105,7 @@ void WidgetWindow::slotCancel()
     stream.setVersion(QDataStream::Qt_3_1);
     myFact->fromStream( stream, myWidget );
   }
-  KDialogBase::slotCancel();
+  KDialog::reject();
 }
 
 WidgetWindow *WidgetWindow::clone()

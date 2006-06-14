@@ -22,7 +22,7 @@
   #include "compat.h"
   #include <q3listbox.h>
 #else
-  #include <kdialogbase.h>
+  #include <kdialog.h>
   #include <klistbox.h>
 #endif
 
@@ -31,7 +31,7 @@
 /**
    @internal
 */
-class WidgetWindow :public KDialogBase
+class WidgetWindow :public KDialog
 {
   friend class KMultiFormListBoxWindowed;
   friend class WindowListboxItem;

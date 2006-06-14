@@ -23,7 +23,7 @@
 //Added by qt3to4:
 #include <QPaintEvent>
 class Q3ButtonGroup;
-class KDialogBase;
+class KDialog;
 class QCheckBox;
 class QSpinBox;
 class RepeatRegExp;
@@ -93,7 +93,7 @@ protected slots:
   void slotConfigWindowClosed();
 
 private:
-  KDialogBase* _configWindow;
+  KDialog* _configWindow;
   RepeatRangeWindow* _content;
 
   mutable QSize _textSize;

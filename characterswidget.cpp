@@ -19,7 +19,7 @@
 #ifdef QT_ONLY
   #include "compat.h"
 #else
-  #include <kdialogbase.h>
+  #include <kdialog.h>
   #include "characterswidget.moc"
 #endif
 
@@ -283,17 +283,17 @@ int CharacterEdits::exec( TextRangeRegExp* regexp )
         addRange(from,to);
     }
 
-    int res = KDialogBase::exec();
+    int res = KDialog::exec();
     _regexp = 0;
     return res;
 }
 
 
 CharacterEdits::CharacterEdits( QWidget *parent)
-  : KDialogBase( parent, 0, true,
-                 i18n("Specify Characters"),
-                 KDialogBase::Ok | KDialogBase::Cancel)
+  : KDialog( parent)
 {
+    setCaption( i18n("Specify Characters") );
+    setButtons( KDialog::Ok | KDialog::Cancel );
     setObjectName( "CharacterEdits" );
     QWidget* top = new QWidget( this );
     QVBoxLayout *topLayout = new QVBoxLayout(top);
