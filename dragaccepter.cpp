@@ -30,7 +30,7 @@ DragAccepter::DragAccepter(RegExpEditorWindow* editorWindow, RegExpWidget *paren
   : RegExpWidget(editorWindow, parent, name == 0 ? "dragaccepter" : name ),
     _drawLine( false )
 {
-  setAcceptDrops(TRUE);
+  setAcceptDrops(true);
 }
 
 QSize DragAccepter::sizeHint() const
