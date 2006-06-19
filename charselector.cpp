@@ -170,7 +170,7 @@ QString CharSelector::text() const
     return QString::fromLocal8Bit("\\x") + _hex->text();
   case 2: // Oct
       return QString::fromLocal8Bit("\\0") + _oct->text();
-  case 3: // The seperator
+  case 3: // The separator
     break;
   case 4:
     return QString::fromLatin1("\\a");

@@ -23,7 +23,7 @@
 #include <Q3PtrList>
 
 /**
-   Abstract RegExp widget class representing widgets having multible children.
+   Abstract RegExp widget class representing widgets having multiple children.
    @internal
 */
 class MultiContainerWidget :public RegExpWidget
