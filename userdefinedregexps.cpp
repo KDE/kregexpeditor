@@ -259,7 +259,7 @@ QString WidgetWinItem::path()
 #ifdef QT_ONLY
     return QString::fromLatin1( "predefined" );
 #else
-  return locateLocal("data", QString::fromLocal8Bit("KRegExpEditor/"));
+    return KStandardDirs::locateLocal("data", QString::fromLocal8Bit("KRegExpEditor/"));
 #endif
 }
 
