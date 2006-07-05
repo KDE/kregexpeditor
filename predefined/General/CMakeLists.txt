@@ -4,7 +4,7 @@
 
 ########### install files ###############
 
-install_files( ${DATA_INSTALL_DIR}/kregexpeditor/predefined/general FILES spaces.regexp anything.regexp )
+install( FILES spaces.regexp anything.regexp  DESTINATION ${DATA_INSTALL_DIR}/kregexpeditor/predefined/general)
 
 
 

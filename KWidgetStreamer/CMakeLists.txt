@@ -7,7 +7,7 @@
 
 ########### install files ###############
 
-install_files( /include FILES kwidgetstreamer.h )
+install( FILES kwidgetstreamer.h  DESTINATION ${INCLUDE_INSTALL_DIR} )
 
 
 

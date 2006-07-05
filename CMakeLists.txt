@@ -85,7 +85,7 @@ kde4_add_library(kregexpeditorcommon SHARED ${kregexpeditorcommon_LIB_SRCS})
 target_link_libraries(kregexpeditorcommon  ${KDE4_KIO_LIBS}   )
 
 set_target_properties(kregexpeditorcommon PROPERTIES VERSION 1.0.0 SOVERSION 1 )
-install_targets(${LIB_INSTALL_DIR} kregexpeditorcommon )
+install(TARGETS kregexpeditorcommon  DESTINATION ${LIB_INSTALL_DIR})
 
 
 ########### next target ###############
@@ -100,7 +100,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kregexpeditorgui )
 
 target_link_libraries(kregexpeditorgui  ${KDE4_KIO_LIBS} )
 
-install_targets(${PLUGIN_INSTALL_DIR} kregexpeditorgui )
+install(TARGETS kregexpeditorgui  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 ########### next target ###############
@@ -113,13 +113,13 @@ kde4_add_executable(kregexpeditor ${kregexpeditor_SRCS})
 
 target_link_libraries(kregexpeditor  ${KDE4_KIO_LIBS} )
 
-install_targets(/bin kregexpeditor )
+install(TARGETS kregexpeditor  DESTINATION ${BIN_INSTALL_DIR} )
 
 
 ########### install files ###############
 
-install_files( ${XDG_APPS_DIR} FILES kregexpeditor.desktop )
-install_files( ${SERVICES_INSTALL_DIR} FILES kregexpeditorgui.desktop )
+install( FILES kregexpeditor.desktop  DESTINATION ${XDG_APPS_DIR})
+install( FILES kregexpeditorgui.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
 
 kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
 
