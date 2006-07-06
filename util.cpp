@@ -28,7 +28,7 @@ QPixmap Util::getKRegExpEditorIcon( const QString& name )
     pix.convertFromImage( qembed_findImage(name) );
     return pix;
 #else
-  return KGlobal::iconLoader()->loadIcon(locate("data", QString::fromLatin1("kregexpeditor/pics/") +name ),
+  return KGlobal::iconLoader()->loadIcon(KStandardDirs::locate("data", QString::fromLatin1("kregexpeditor/pics/") +name ),
                                          K3Icon::Toolbar );
 #endif
 }
