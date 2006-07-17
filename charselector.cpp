@@ -71,7 +71,7 @@ CharSelector::CharSelector( QWidget* parent )
         << i18n("The Carriage Return Character (\\r)")
         << i18n("The Horizontal Tab Character (\\t)")
         << i18n("The Vertical Tab Character (\\v)");
-  _type->insertStringList( items );
+  _type->addItems( items );
   layout->addWidget( _type );
 
   _stack = new Q3WidgetStack( this, "_stack" );
