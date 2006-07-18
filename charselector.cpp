@@ -60,7 +60,8 @@ CharSelector::CharSelector( QWidget* parent )
   layout->setSpacing( 6 );
   layout->setMargin( 0 );
 
-  _type = new QComboBox( this, "_type" );
+  _type = new QComboBox( this );
+  _type->setObjectName("_type");
   items << i18n("Normal Character")
         << i18n("Unicode Char in Hex.")
         << i18n("Unicode Char in Oct.")
