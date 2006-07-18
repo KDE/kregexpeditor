@@ -93,7 +93,7 @@ CharSelector::CharSelector( QWidget* parent )
 
 void CharSelector::slotNewItem( int which )
 {
-  _type->setCurrentItem( which );
+  _type->setCurrentIndex( which );
   if ( which <= 2 ) {
     _stack->raiseWidget( which );
     _normal->setEnabled( true );
@@ -101,7 +101,7 @@ void CharSelector::slotNewItem( int which )
     _oct->setEnabled( true );
   }
   else if ( which == 3 ) {
-    _type->setCurrentItem( _oldIndex );
+    _type->setCurrentIndex( _oldIndex );
     slotNewItem(_oldIndex);
     return;
   }
@@ -156,14 +156,14 @@ void CharSelector::setText( QString text )
 
 bool CharSelector::isEmpty() const
 {
-  return ( _type->currentItem() == 0 && _normal->text().isEmpty() ) ||
-    ( _type->currentItem() == 1 && _hex->text().isEmpty() ) ||
-    ( _type->currentItem() == 2 && _oct->text().isEmpty() );
+  return ( _type->currentIndex() == 0 && _normal->text().isEmpty() ) ||
+    ( _type->currentIndex() == 1 && _hex->text().isEmpty() ) ||
+    ( _type->currentIndex() == 2 && _oct->text().isEmpty() );
 }
 
 QString CharSelector::text() const
 {
-  switch ( _type->currentItem() ) {
+  switch ( _type->currentIndex() ) {
   case 0: // Normal Character
     return _normal->text();
   case 1: // Hex
