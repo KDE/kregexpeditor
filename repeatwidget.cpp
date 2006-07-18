@@ -203,7 +203,8 @@ RepeatRangeWindow::RepeatRangeWindow( QWidget* parent, const char* name )
   createLine( grid, i18n( "Exactly" ), &_exactlyTimes, EXACTLY );
 
   // from ___ to ___ times
-  radioBut = new QRadioButton(i18n( "From" ), grid, "RepeatRangeWindow::from");
+  radioBut = new QRadioButton( i18n( "From" ), grid );
+  radioBut->setObjectName( "RepeatRangeWindow::from" );
   _group->insert( radioBut, MINMAX );
 
   _rangeFrom = new QSpinBox( 1, 999, 1, grid);
