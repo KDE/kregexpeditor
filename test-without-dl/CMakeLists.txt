@@ -12,7 +12,7 @@ if(KDE4_BUILD_TESTS)
 
 kde4_add_executable(regexptest ${regexptest_SRCS})
 
-target_link_libraries(regexptest  ${KDE4_KDECORE_LIBS} kregexpeditorgui kio )
+target_link_libraries(regexptest  ${KDE4_KDECORE_LIBS} kregexpeditorgui ${KDE4_KIO_LIBS} )
 
 endif(KDE4_BUILD_TESTS)
 
