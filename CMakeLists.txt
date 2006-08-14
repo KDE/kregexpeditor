@@ -121,7 +121,7 @@ install(TARGETS kregexpeditor  DESTINATION ${BIN_INSTALL_DIR} )
 install( FILES kregexpeditor.desktop  DESTINATION ${XDG_APPS_DIR})
 install( FILES kregexpeditorgui.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
 
-kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
+kde4_install_icons( ${ICON_INSTALL_DIR}   )
 
 
 
