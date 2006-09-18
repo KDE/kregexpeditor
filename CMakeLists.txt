@@ -1,3 +1,4 @@
+project(kregexpeditor)
 
 ADD_DEFINITIONS( -DQT_NO_CAST_ASCII )
 
