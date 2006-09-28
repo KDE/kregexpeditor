@@ -33,8 +33,8 @@
 //                                ZeroWidget
 //--------------------------------------------------------------------------------
 ZeroWidget::ZeroWidget(QString txt, RegExpEditorWindow* editorWindow,
-                       QWidget *parent, const char *name)
-  : RegExpWidget(editorWindow, parent, name ? name : "ZeroWidget" )
+                       QWidget *parent)
+  : RegExpWidget(editorWindow, parent )
 {
   _text = txt;
 }

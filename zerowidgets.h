@@ -29,8 +29,7 @@
 class ZeroWidget :public RegExpWidget
 {
 public:
-  ZeroWidget(QString text, RegExpEditorWindow* editorWindow, QWidget *parent,
-             const char *name = 0);
+  ZeroWidget(QString text, RegExpEditorWindow* editorWindow, QWidget *parent);
   virtual void addNewChild(DragAccepter *accepter, RegExpWidget *child);
   virtual QSize sizeHint() const;
 

@@ -35,8 +35,7 @@ class DragAccepter :public RegExpWidget
   friend class MultiContainerWidget;
 
 public:
-  DragAccepter(RegExpEditorWindow* editorWindow, RegExpWidget *parent,
-               const char *name = 0);
+  DragAccepter(RegExpEditorWindow* editorWindow, RegExpWidget *parent);
   QSize sizeHint() const;
 	virtual RegExp* regExp() const;
   virtual RegExpType type() const { return DRAGACCEPTER; }

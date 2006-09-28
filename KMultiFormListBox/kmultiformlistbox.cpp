@@ -36,7 +36,7 @@ KMultiFormListBox::KMultiFormListBox( KMultiFormListBoxFactory *factory, KMultiF
 
 	case Windowed:
     theWidget = new KMultiFormListBoxWindowed( factory, this, showUpDownButtons,
-																							 showHelpButton, addButtonText, "KMultiFormListBox Widget" );
+																							 showHelpButton, addButtonText);
 		break;
 	}
 

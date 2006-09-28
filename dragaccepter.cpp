@@ -25,9 +25,8 @@
 #include <QPaintEvent>
 #include <QDropEvent>
 
-DragAccepter::DragAccepter(RegExpEditorWindow* editorWindow, RegExpWidget *parent,
-                           const char *name)
-  : RegExpWidget(editorWindow, parent, name == 0 ? "dragaccepter" : name ),
+DragAccepter::DragAccepter(RegExpEditorWindow* editorWindow, RegExpWidget *parent)
+  : RegExpWidget(editorWindow, parent ),
     _drawLine( false )
 {
   setAcceptDrops(true);

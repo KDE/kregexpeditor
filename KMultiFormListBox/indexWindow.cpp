@@ -29,7 +29,7 @@
 #include <QHideEvent>
 #include <QHBoxLayout>
 #include <QApplication>
-indexWindow::indexWindow() : QWidget(0,"", Qt::WStyle_Customize | Qt::WType_Popup)
+indexWindow::indexWindow() : QWidget(0,Qt::WStyle_Customize | Qt::WType_Popup)
 {
   lb = new Q3ListBox(this);
   connect(lb,SIGNAL(selected(int)), this, SLOT(lbSelected(int)));

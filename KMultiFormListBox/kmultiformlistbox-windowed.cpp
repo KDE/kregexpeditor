@@ -32,8 +32,8 @@
 
 KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent,
 																	 bool showUpDownButtons, bool showHelpButton,
-																	 QString addButtonText,const char *name)
-  : QWidget( parent, name )
+																	 QString addButtonText)
+  : QWidget( parent )
 {
   _layout = new QVBoxLayout(this);
 

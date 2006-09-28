@@ -53,7 +53,7 @@ class RegExpEditorWindow :public QWidget
     Q_OBJECT
 
 public:
-    RegExpEditorWindow(QWidget *parent, const char *name = 0);
+    RegExpEditorWindow(QWidget *parent);
 
     /**
        Returns an object which represent the regular expression "drawn" in

@@ -46,8 +46,12 @@ friend class KMultiFormListBox;
 
 private:
   KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent,
-														bool showUpDownButtons, bool showHelpButton, QString addButtonText,
-														const char *name);
+														bool
+                                                                                                                showUpDownButtons,
+                                                                                                                bool
+                                                                                                                showHelpButton,
+                                                                                                                QString
+                                                                                                                addButtonText);
 
   KMultiFormListBoxEntryList elements();
   const KMultiFormListBoxEntryList elements() const;

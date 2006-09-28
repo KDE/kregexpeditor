@@ -139,7 +139,7 @@ void KRegExpEditorGUI::doSomething( QString method, void* arguments )
         _editor->setAllowNonQtSyntax( (bool) arguments );
     }
     else {
-        qFatal( "%s", tr("Method '%1' is not valid!").arg(method).latin1() );
+        qFatal( "%s", qPrintable(tr("Method '%1' is not valid!").arg(method)) );
     }
 }
 

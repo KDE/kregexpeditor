@@ -68,11 +68,11 @@ void KWidgetStreamer::propertyToStream( const QObject* from, QDataStream& stream
   for ( PropertyMapIt mapIt = _map.begin(); mapIt != _map.end(); mapIt++ ) {
     QString tp = mapIt.key();
     PropertyList list = mapIt.data();
-    if ( from->inherits( tp.latin1() ) ) {
+    if ( from->inherits( tp.toAscii() ) ) {
       for ( PropertyListIt it = list.begin(); it != list.end(); ++it ) {
-        QVariant prop = from->property( (*it).latin1() );
+        QVariant prop = from->property( (*it).toAscii() );
         if ( ! prop.isValid() )
-          qWarning("Invalid property: %s:%s", tp.latin1(), (*it).latin1() );
+          qWarning("Invalid property: %s:%s", qPrintable(tp), qPrintable(*it) );
 
         stream <<  prop ;
       }
@@ -102,11 +102,11 @@ void KWidgetStreamer::propertyFromStream( QDataStream& stream, QObject* to )
   for ( PropertyMapIt mapIt = _map.begin(); mapIt != _map.end(); mapIt++ ) {
     QString tp = mapIt.key();
     PropertyList list = mapIt.data();
-    if ( to->inherits( tp.latin1() ) ) {
+    if ( to->inherits( tp.toAscii() ) ) {
       for ( PropertyListIt it = list.begin(); it != list.end(); ++it ) {
          QVariant value;
         stream >> value;
-        to->setProperty((*it).latin1(), value);
+        to->setProperty((*it).toAscii(), value);
       }
     }
   }

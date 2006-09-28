@@ -37,8 +37,7 @@ class RegExpWidget :public QWidget
 Q_OBJECT
 
 public:
-  RegExpWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
-               const char *label = 0);
+  RegExpWidget(RegExpEditorWindow* editorWindow, QWidget *parent);
 
   /*======================================================================
      Construction, child management

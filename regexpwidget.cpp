@@ -37,9 +37,8 @@ const int RegExpWidget::pw = 1;
 const int RegExpWidget::bdSize = 5;
 const int RegExpWidget::space = 5;
 
-RegExpWidget::RegExpWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
-                           const char *name)
-  : QWidget(parent, name ? name : "RegExpWidget", Qt::WNoMousePropagation ),
+RegExpWidget::RegExpWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
+  : QWidget(parent, Qt::WNoMousePropagation ),
     _editorWindow( editorWindow ),  _isSelected( false ), _isToplevel( false )
 {
 }

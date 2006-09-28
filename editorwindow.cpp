@@ -48,8 +48,8 @@
 #include "userdefinedregexps.h"
 #include <qfileinfo.h>
 
-RegExpEditorWindow::RegExpEditorWindow( QWidget *parent, const char *name)
-    : QWidget(parent, name/*, Qt::WPaintUnclipped*/)
+RegExpEditorWindow::RegExpEditorWindow( QWidget *parent)
+    : QWidget(parent /*, Qt::WPaintUnclipped*/)
 {
     _top = new ConcWidget(this, this);
     _layout = new QHBoxLayout( this);
