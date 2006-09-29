@@ -31,10 +31,9 @@ class AltnRegExp;
 class AltnWidget :public MultiContainerWidget
 {
 public:
-  AltnWidget( RegExpEditorWindow* editorWindow, QWidget *parent,
-              const char *label = 0);
+  AltnWidget( RegExpEditorWindow* editorWindow, QWidget *parent);
   AltnWidget( AltnRegExp* regexp, RegExpEditorWindow* editorWindow,
-              QWidget* parent, const char* name = 0);
+              QWidget* parent);
   virtual void addNewChild(DragAccepter *accepter, RegExpWidget *child);
   virtual QSize sizeHint() const;
 	virtual RegExp* regExp() const;

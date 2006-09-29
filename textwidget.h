@@ -35,10 +35,9 @@ class TextWidget : public RegExpWidget
     Q_OBJECT
 
 public:
-    TextWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
-               const char *name = 0);
+    TextWidget(RegExpEditorWindow* editorWindow, QWidget *parent);
     TextWidget( TextRegExp* regexp,  RegExpEditorWindow* editorWindow,
-                QWidget* parent, const char* name = 0);
+                QWidget* parent);
     virtual QSize sizeHint() const;
 	virtual RegExp* regExp() const;
     virtual RegExpType type() const { return TEXT; }

@@ -48,7 +48,7 @@ class KRegExpEditorPrivate  :public QWidget
     Q_OBJECT
 
 public:
-    KRegExpEditorPrivate( QWidget *parent, const char *name = 0 );
+    KRegExpEditorPrivate( QWidget *parent );
     QString regexp();
     void setMinimal( bool );
     void setCaseSensitive( bool );

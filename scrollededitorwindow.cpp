@@ -24,8 +24,8 @@
 //Added by qt3to4:
 #include <QResizeEvent>
 
-RegExpScrolledEditorWindow::RegExpScrolledEditorWindow( QWidget* parent, const char* name)
-    : QWidget(parent, name)
+RegExpScrolledEditorWindow::RegExpScrolledEditorWindow( QWidget* parent)
+    : QWidget(parent)
 {
     _scrollView = new Q3ScrollView( this );
     _editorWindow = new RegExpEditorWindow( _scrollView->viewport());

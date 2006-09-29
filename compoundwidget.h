@@ -36,7 +36,7 @@ class QCheckBox;
 class CompoundDetailWindow :public QWidget
 {
 public:
-  CompoundDetailWindow(QWidget* parent, const char* name = 0);
+  CompoundDetailWindow(QWidget* parent);
   QString title() const;
   QString description() const;
   bool allowReplace() const;
@@ -66,10 +66,9 @@ class CompoundWidget :public SingleContainerWidget
 Q_OBJECT
 
 public:
-  CompoundWidget( RegExpEditorWindow* editorWindow, QWidget* parent,
-                  const char* name = 0);
+  CompoundWidget( RegExpEditorWindow* editorWindow, QWidget* parent);
   CompoundWidget( CompoundRegExp* regexp, RegExpEditorWindow* editorWindow,
-                  QWidget* parent, const char* name = 0);
+                  QWidget* parent);
 
   virtual bool updateSelection( bool parentSelected );
   virtual QSize sizeHint() const;

@@ -55,8 +55,8 @@
 #include "verifybuttons.h"
 
 
-KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
-    : QWidget(parent, name), _updating( false ), _autoVerify( true ), _matchGreedy( false )
+KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
+    : QWidget(parent), _updating( false ), _autoVerify( true ), _matchGreedy( false )
 {
   setMinimumSize(730,300);
   Q3DockArea* area = new Q3DockArea( Qt::Horizontal, Q3DockArea::Normal, this );
@@ -78,8 +78,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent, const char *name)
   // Editor window
   _editor = new QSplitter( Qt::Vertical, this, "KRegExpEditorPrivate::_editor" );
 
-  _scrolledEditorWindow =
-    new RegExpScrolledEditorWindow( _editor, "KRegExpEditorPrivate::_scrolledEditorWindow" );
+  _scrolledEditorWindow = new RegExpScrolledEditorWindow( _editor );
   _scrolledEditorWindow->setWhatsThis( i18n( "In this window you will develop your regular expressions. "
                                                "Select one of the actions from the action buttons above, and click the mouse in this "
                                                "window to insert the given action."));

@@ -30,9 +30,8 @@
 //Added by qt3to4:
 #include <QPaintEvent>
 
-AltnWidget::AltnWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
-                       const char *name)
-  :MultiContainerWidget(editorWindow, parent, name == 0 ? "AltnWidget" : name)
+AltnWidget::AltnWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
+  :MultiContainerWidget(editorWindow, parent)
 {
   DragAccepter *accepter = new DragAccepter(editorWindow, this);
   accepter->resize(0,0); // See note (1) in Comments
@@ -41,8 +40,8 @@ AltnWidget::AltnWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
 }
 
 AltnWidget::AltnWidget( AltnRegExp* regexp, RegExpEditorWindow* editorWindow,
-            QWidget* parent, const char* name)
-  :MultiContainerWidget( editorWindow, parent, name )
+            QWidget* parent)
+  :MultiContainerWidget( editorWindow, parent )
 {
   DragAccepter *accepter = new DragAccepter(editorWindow, this);
   accepter->resize(0,0); // See note (1) in Comments

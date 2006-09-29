@@ -27,8 +27,7 @@ class SingleContainerWidget :public RegExpWidget
 Q_OBJECT
 
 public:
-  SingleContainerWidget( RegExpEditorWindow* editorWindow, QWidget* parent,
-                         const char* name = 0);
+  SingleContainerWidget( RegExpEditorWindow* editorWindow, QWidget* parent);
 
   virtual bool updateSelection( bool parentSelected );
   virtual bool hasSelection() const;

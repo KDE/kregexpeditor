@@ -45,7 +45,7 @@ KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent,
 {
   QHBoxLayout* layout = new QHBoxLayout( this );
   layout->setSpacing( 6 );
-  _editor = new KRegExpEditorPrivate( this, "_editor" );
+  _editor = new KRegExpEditorPrivate( this );
   layout->addWidget( _editor );
   connect( _editor, SIGNAL( canUndo(bool) ), this, SIGNAL( canUndo(bool) ) );
   connect( _editor, SIGNAL( canRedo(bool) ), this, SIGNAL( canRedo(bool) ) );
@@ -84,8 +84,8 @@ KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent,
   setMainWidget( frame );
   QVBoxLayout* layout = new QVBoxLayout( frame );
   layout->setSpacing( 6 );
-  layout->setAutoAdd( true );
   _editor = new KRegExpEditorGUI( frame );
+  layout->addWidget(_editor);
 
   connect( _editor, SIGNAL( canUndo(bool) ), this, SIGNAL( canUndo(bool) ) );
   connect( _editor, SIGNAL( canRedo(bool) ), this, SIGNAL( canRedo(bool) ) );

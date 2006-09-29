@@ -21,8 +21,8 @@
 #include <Q3MemArray>
 
 MultiContainerWidget::MultiContainerWidget( RegExpEditorWindow* editorWindow,
-                                            QWidget* parent, const char* name)
-  :RegExpWidget( editorWindow, parent, name )
+                                            QWidget* parent)
+  :RegExpWidget( editorWindow, parent )
 {
 }
 

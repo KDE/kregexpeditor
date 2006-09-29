@@ -40,17 +40,16 @@
 #include <QLabel>
 #include "kwidgetstreamer.h"
 
-RepeatWidget::RepeatWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
-                           const char *name)
-  : SingleContainerWidget(editorWindow, parent, name ? name : "RepeatWidget")
+RepeatWidget::RepeatWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
+  : SingleContainerWidget(editorWindow, parent)
 {
   _child = new ConcWidget(editorWindow, this);
   init();
 }
 
 RepeatWidget::RepeatWidget( RepeatRegExp* regexp, RegExpEditorWindow* editorWindow,
-                            QWidget* parent, const char* name )
-  :SingleContainerWidget( editorWindow, parent, name )
+                            QWidget* parent )
+  :SingleContainerWidget( editorWindow, parent )
 {
   init();
   RegExpWidget* child = WidgetFactory::createWidget( regexp->child(), editorWindow, this );
@@ -176,8 +175,8 @@ int RepeatWidget::edit()
 }
 
 //--------------------------------------------------------------------------------
-RepeatRangeWindow::RepeatRangeWindow( QWidget* parent, const char* name )
-  : Q3VBox( parent, name ? name : "RepeatRangeWindow" )
+RepeatRangeWindow::RepeatRangeWindow( QWidget* parent)
+  : Q3VBox( parent )
 {
   setSpacing( 6 );
 

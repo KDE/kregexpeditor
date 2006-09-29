@@ -39,7 +39,7 @@ Q_OBJECT
 public:
   enum REPEATTYPE {ANY, ATLEAST, ATMOST, EXACTLY, MINMAX};
 
-  RepeatRangeWindow( QWidget* parent, const char* name = 0 );
+  RepeatRangeWindow( QWidget* parent );
   QString text();
   int min();
   int max();
@@ -75,10 +75,9 @@ class RepeatWidget :public SingleContainerWidget
 Q_OBJECT
 
 public:
-  RepeatWidget( RegExpEditorWindow* editorWindow, QWidget *parent,
-               const char *name = 0);
+  RepeatWidget( RegExpEditorWindow* editorWindow, QWidget *parent);
   RepeatWidget( RepeatRegExp* regexp, RegExpEditorWindow* editorWindow,
-              QWidget* parent, const char* name = 0);
+              QWidget* parent);
   void init();
   virtual QSize sizeHint() const;
 	virtual RegExp* regExp() const;

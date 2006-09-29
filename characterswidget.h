@@ -43,10 +43,9 @@ class QCheckBox;
 class CharactersWidget :public RegExpWidget
 {
 public:
-    CharactersWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
-                     const char *label = 0);
+    CharactersWidget(RegExpEditorWindow* editorWindow, QWidget *parent);
     CharactersWidget( TextRangeRegExp* regexp, RegExpEditorWindow* editorWindow,
-                      QWidget* parent, const char* name = 0 );
+                      QWidget* parent );
     ~CharactersWidget();
     virtual QSize sizeHint() const;
 	virtual RegExp* regExp() const;

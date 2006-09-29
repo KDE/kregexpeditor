@@ -23,8 +23,8 @@
 #include "concwidget.h"
 
 SingleContainerWidget::SingleContainerWidget(RegExpEditorWindow* editorWindow,
-                                             QWidget* parent, const char* name)
-  : RegExpWidget( editorWindow, parent, name )
+                                             QWidget* parent)
+  : RegExpWidget( editorWindow, parent )
 {
 }
 

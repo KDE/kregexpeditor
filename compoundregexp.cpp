@@ -83,13 +83,13 @@ bool CompoundRegExp::load( QDomElement top, const QString& version )
             if ( txt.isEmpty() )
                 _title = txt;
             else
-                _title = i18n(txt.utf8());
+                _title = i18n(txt.toUtf8());
         }
         else if ( child.tagName() == QString::fromLocal8Bit( "Description" ) ) {
             if ( txt.isEmpty() )
                 _description = txt;
             else
-                _description = i18n(txt.utf8());
+                _description = i18n(txt.toUtf8());
         }
         else {
             _child = WidgetFactory::createRegExp( child, version );

@@ -52,8 +52,7 @@ private:
 class AnyCharWidget :public ZeroWidget
 {
 public:
-  AnyCharWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
-                const char *label = 0);
+  AnyCharWidget(RegExpEditorWindow* editorWindow, QWidget *parent);
 
 	virtual RegExp* regExp() const;
   virtual RegExpType type() const { return DOT; }
@@ -69,8 +68,7 @@ public:
 class BegLineWidget : public ZeroWidget
 {
 public:
-  BegLineWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
-                const char *name = 0);
+  BegLineWidget(RegExpEditorWindow* editorWindow, QWidget *parent);
 	virtual RegExp* regExp() const;
   virtual RegExpType type() const { return BEGLINE; }
 };
@@ -85,8 +83,7 @@ public:
 class EndLineWidget : public ZeroWidget
 {
 public:
-  EndLineWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
-                const char *name = 0);
+  EndLineWidget(RegExpEditorWindow* editorWindow, QWidget *parent);
 	virtual RegExp* regExp() const;
   virtual RegExpType type() const { return ENDLINE; }
 };
@@ -100,8 +97,7 @@ public:
 class WordBoundaryWidget : public ZeroWidget
 {
 public:
-  WordBoundaryWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
-                     const char *name = 0);
+  WordBoundaryWidget(RegExpEditorWindow* editorWindow, QWidget *parent);
 	virtual RegExp* regExp() const;
   virtual RegExpType type() const { return WORDBOUNDARY; }
 };
@@ -116,8 +112,7 @@ public:
 class NonWordBoundaryWidget : public ZeroWidget
 {
 public:
-  NonWordBoundaryWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
-                        const char *name = 0);
+  NonWordBoundaryWidget(RegExpEditorWindow* editorWindow, QWidget *parent);
 	virtual RegExp* regExp() const;
   virtual RegExpType type() const { return NONWORDBOUNDARY; }
 };

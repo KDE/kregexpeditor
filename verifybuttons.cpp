@@ -211,7 +211,7 @@ RegExpConverter* VerifyButtons::setSyntax( const QString& which)
             return (*it).first;
         }
     }
-    qWarning( "No such converter: '%s'", which.latin1() );
+    qWarning( "No such converter: '%s'", qPrintable(which) );
     return 0;
 }
 

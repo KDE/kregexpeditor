@@ -30,16 +30,16 @@
 //Added by qt3to4:
 #include <QPaintEvent>
 
-LookAheadWidget::LookAheadWidget( RegExpEditorWindow* editorWindow, RegExpType tp, QWidget* parent, const char* name )
-  :SingleContainerWidget(editorWindow, parent, name ? name : "LookAheadWidget" ), _tp(tp)
+LookAheadWidget::LookAheadWidget( RegExpEditorWindow* editorWindow, RegExpType tp, QWidget* parent )
+  :SingleContainerWidget(editorWindow, parent ), _tp(tp)
 {
   _child = new ConcWidget( editorWindow, this );
   init();
 }
 
 LookAheadWidget::LookAheadWidget( LookAheadRegExp* regexp, RegExpEditorWindow* editorWindow, RegExpType tp,
-                                  QWidget* parent, const char* name )
-  :SingleContainerWidget( editorWindow, parent, name ? name : "LookAheadWidget" ), _tp(tp)
+                                  QWidget* parent )
+  :SingleContainerWidget( editorWindow, parent ), _tp(tp)
 {
   RegExpWidget* child = WidgetFactory::createWidget( regexp->child(), editorWindow, this );
   if ( ! (_child = dynamic_cast<ConcWidget*>( child ) ) )

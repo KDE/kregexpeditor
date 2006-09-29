@@ -146,7 +146,7 @@ void CharSelector::setText( QString text )
     else if ( text.at(1) == QChar('v') )
       slotNewItem(9);
     else {
-      qWarning("Warning %s:%d Unknown escape %s", __FILE__, __LINE__, text.latin1() );
+      qWarning("Warning %s:%d Unknown escape %s", __FILE__, __LINE__, qPrintable(text) );
     }
   }
   else {

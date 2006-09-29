@@ -45,16 +45,15 @@
 
 CharacterEdits* CharactersWidget::_configWindow = 0;
 
-CharactersWidget::CharactersWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
-                                   const char *name)
-    : RegExpWidget(editorWindow, parent, name)
+CharactersWidget::CharactersWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
+    : RegExpWidget(editorWindow, parent)
 {
     _regexp = new TextRangeRegExp( false /* not used */);
 }
 
 CharactersWidget::CharactersWidget( TextRangeRegExp* regexp, RegExpEditorWindow* editorWindow,
-                                    QWidget* parent, const char* name )
-    : RegExpWidget( editorWindow, parent, name )
+                                    QWidget* parent )
+    : RegExpWidget( editorWindow, parent )
 {
     _regexp = dynamic_cast<TextRangeRegExp*>( regexp->clone() );
     Q_ASSERT( _regexp );

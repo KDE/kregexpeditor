@@ -29,16 +29,14 @@
 #include <QEvent>
 #include <QPaintEvent>
 #include <QApplication>
-TextWidget::TextWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
-                       const char *name)
-  :RegExpWidget(editorWindow, parent, name)
+TextWidget::TextWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
+  :RegExpWidget(editorWindow, parent)
 {
   init( QString::fromLocal8Bit("") );
 }
 
-TextWidget::TextWidget( TextRegExp* regexp,  RegExpEditorWindow* editorWindow,
-            QWidget* parent, const char* name )
-  : RegExpWidget( editorWindow, parent, name )
+TextWidget::TextWidget( TextRegExp* regexp,  RegExpEditorWindow* editorWindow, QWidget* parent)
+  : RegExpWidget( editorWindow, parent)
 {
   init(regexp->text());
 }

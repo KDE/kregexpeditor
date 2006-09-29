@@ -24,9 +24,8 @@
 #include <QMouseEvent>
 #include <QPaintEvent>
 
-ConcWidget::ConcWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
-                       const char *name)
-  :MultiContainerWidget(editorWindow, parent, name == 0 ? "concwidget" : name)
+ConcWidget::ConcWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
+  :MultiContainerWidget(editorWindow, parent)
 {
   init();
   DragAccepter *accepter = new DragAccepter(editorWindow, this);
@@ -36,8 +35,8 @@ ConcWidget::ConcWidget(RegExpEditorWindow* editorWindow, QWidget *parent,
 
 
 ConcWidget::ConcWidget(RegExpEditorWindow* editorWindow, RegExpWidget *child,
-                       QWidget *parent, const char *name)
-  :MultiContainerWidget(editorWindow, parent, name == 0 ? "concwidget" : name)
+                       QWidget *parent)
+  :MultiContainerWidget(editorWindow, parent)
 {
   init();
   DragAccepter *accepter = new DragAccepter(editorWindow, this);
@@ -48,7 +47,7 @@ ConcWidget::ConcWidget(RegExpEditorWindow* editorWindow, RegExpWidget *child,
 
 ConcWidget::ConcWidget( RegExpEditorWindow* editorWindow, ConcWidget* origConc,
                     unsigned int start, unsigned int end)
-  :MultiContainerWidget(editorWindow, 0, "Splitted ConcWidget")
+  :MultiContainerWidget(editorWindow, 0)
 {
   init();
   _children.prepend( new DragAccepter(editorWindow, this) );
@@ -61,8 +60,8 @@ ConcWidget::ConcWidget( RegExpEditorWindow* editorWindow, ConcWidget* origConc,
 }
 
 ConcWidget::ConcWidget( ConcRegExp* regexp, RegExpEditorWindow* editorWindow,
-            QWidget* parent, const char* name )
-  :MultiContainerWidget( editorWindow, parent, name == 0 ? "concwidget" : name )
+            QWidget* parent)
+  :MultiContainerWidget( editorWindow, parent)
 {
   init();
   DragAccepter *accepter = new DragAccepter(editorWindow, this);

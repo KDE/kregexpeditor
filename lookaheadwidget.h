@@ -27,9 +27,9 @@ class LookAheadWidget :public SingleContainerWidget
 {
     Q_OBJECT
 public:
-    LookAheadWidget( RegExpEditorWindow* editorWindow, RegExpType tp, QWidget* parent, const char* name = 0 );
+    LookAheadWidget( RegExpEditorWindow* editorWindow, RegExpType tp, QWidget* parent );
     LookAheadWidget( LookAheadRegExp* regexp, RegExpEditorWindow* editorWindow, RegExpType tp,
-                     QWidget* parent, const char* name = 0);
+                     QWidget* parent);
 
  	virtual RegExp* regExp() const;
  	virtual RegExpType type() const { return _tp; }

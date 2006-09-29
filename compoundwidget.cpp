@@ -43,21 +43,25 @@
 
 //================================================================================
 
-CompoundDetailWindow::CompoundDetailWindow( QWidget* parent, const char* name )
-  :QWidget( parent, name )
+CompoundDetailWindow::CompoundDetailWindow( QWidget* parent )
+  :QWidget( parent )
 {
   QVBoxLayout* layout = new QVBoxLayout( this );
-  layout->setAutoAdd( true );
 
   QLabel* label = new QLabel( i18n("&Title:"), this);
+  layout->addWidget(label);
   _title = new QLineEdit( this );
+  layout->addWidget(_title);
   label->setBuddy( _title );
 
   label = new QLabel( i18n("&Description:"), this );
+  layout->addWidget(label);
   _description  = new Q3MultiLineEdit( this );
+  layout->addWidget(_description);
   label->setBuddy( _description );
 
   _allowReplace = new QCheckBox( i18n("&Automatically replace using this item"), this );
+  layout->addWidget(_allowReplace);
   _allowReplace->setToolTip( i18n("When the content of this box is typed in to the ASCII line,<br>"
                                      "this box will automatically be added around it,<br>"
                                      "if this check box is selected.") );
@@ -99,17 +103,16 @@ void CompoundDetailWindow::setAllowReplace( bool b )
 
 //================================================================================
 
-CompoundWidget::CompoundWidget( RegExpEditorWindow* editorWindow, QWidget* parent,
-                                const char* name )
-  :SingleContainerWidget( editorWindow, parent, name == 0 ? "CompoundWidget" : name )
+CompoundWidget::CompoundWidget( RegExpEditorWindow* editorWindow, QWidget* parent)
+  :SingleContainerWidget( editorWindow, parent )
 {
   _child = new ConcWidget( editorWindow, this );
   init();
 }
 
 CompoundWidget::CompoundWidget( CompoundRegExp* regexp, RegExpEditorWindow* editorWindow,
-                                QWidget* parent, const char* name )
-  : SingleContainerWidget( editorWindow, parent, name  == 0 ? "CompoundWidget" : name )
+                                QWidget* parent )
+  : SingleContainerWidget( editorWindow, parent )
 {
   init();
   _content->setTitle( regexp->title() );
