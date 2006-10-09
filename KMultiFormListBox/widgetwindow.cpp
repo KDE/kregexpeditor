@@ -19,7 +19,7 @@
 #include "windowlistboxitem.h"
 #include <iostream>
 //Added by qt3to4:
-#include <Q3Frame>
+#include <QFrame>
 #include <QHBoxLayout>
 
 WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KListBox *lb)

@@ -16,11 +16,11 @@
  *  Boston, MA 02110-1301, USA.
  **/
 #include "kmultiformlistboxfactory.h"
-#include <q3frame.h>
+#include <qframe.h>
 
 QWidget *KMultiFormListBoxFactory::separator(QWidget *parent) {
-  Q3Frame* sep = new Q3Frame( parent );
-  sep->setFrameStyle( Q3Frame::HLine | Q3Frame::Sunken);
+  QFrame* sep = new QFrame( parent );
+  sep->setFrameStyle( QFrame::HLine | QFrame::Sunken);
   sep->setLineWidth(1);
   return sep;
 }
