@@ -6,7 +6,7 @@
 if(KDE4_BUILD_TESTS)
 set(regexptest_SRCS main.cpp )
 
-kde4_automoc(${regexptest_SRCS})
+kde4_automoc(regexptest ${regexptest_SRCS})
 
 kde4_add_executable(regexptest ${regexptest_SRCS})
 
