@@ -17,10 +17,10 @@
  **/
 
 #include "util.h"
+#include <kicon.h>
 #include <kiconloader.h>
 #include <kstandarddirs.h>
-//Added by qt3to4:
-#include <QPixmap>
+
 QPixmap Util::getKRegExpEditorIcon( const QString& name )
 {
 #ifdef QT_ONLY
@@ -28,8 +28,7 @@ QPixmap Util::getKRegExpEditorIcon( const QString& name )
     pix.convertFromImage( qembed_findImage(name) );
     return pix;
 #else
-  return KGlobal::iconLoader()->loadIcon(KStandardDirs::locate("data", QString::fromLatin1("kregexpeditor/pics/") +name ),
-                                         K3Icon::Toolbar );
+  return BarIcon(KStandardDirs::locate("data", QString::fromLatin1("kregexpeditor/pics/") +name ) );
 #endif
 }
 
@@ -40,8 +39,7 @@ QPixmap Util::getSystemIcon( const QString& name )
     pix.convertFromImage( qembed_findImage( name ) );
     return pix;
 #else
-  KIconLoader loader;
-  return loader.loadIcon( name, K3Icon::Toolbar);
+  return BarIcon( name );
 #endif
 
 }
@@ -53,8 +51,7 @@ QIcon Util::getSystemIconSet( const QString& name )
     pix.convertFromImage( qembed_findImage( name ) );
     return QIcon( pix );
 #else
-  KIconLoader loader;
-  return loader.loadIconSet( name, K3Icon::Toolbar);
+  return KIcon( name );
 #endif
 
 }
