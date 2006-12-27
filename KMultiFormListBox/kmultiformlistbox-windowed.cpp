@@ -20,7 +20,7 @@
 #else
   #include <kmessagebox.h>
   #include <kpushbutton.h>
-  #include <kstdguiitem.h>
+  #include <KStandardGuiItem>
   #include "kmultiformlistbox-windowed.moc"
 #endif
 
@@ -86,7 +86,7 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
 	}
 
 	if (showHelpButton) {
-		but = new KPushButton(KStdGuiItem::help(), this);
+		but = new KPushButton(KStandardGuiItem::help(), this);
 		but->setObjectName( "Help Button");
 		buttons->addWidget(but, 0);
 		connect(but, SIGNAL(clicked()), this, SIGNAL(showHelp()));
@@ -160,7 +160,7 @@ void KMultiFormListBoxWindowed::slotDeleteEntry()
   WindowListboxItem *item = selected();
   if (item) {
 		int answer =
-			KMessageBox::warningContinueCancel(0, i18n("Delete item \"%1\"?", item->text()),i18n("Delete Item"),KStdGuiItem::del());
+			KMessageBox::warningContinueCancel(0, i18n("Delete item \"%1\"?", item->text()),i18n("Delete Item"),KStandardGuiItem::del());
 		if (answer == KMessageBox::Continue) {
 			delete item;
 			slotUpdateButtonState();

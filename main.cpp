@@ -57,8 +57,8 @@ int main( int argc, char* argv[] )
     QHBoxLayout* lay2 = new QHBoxLayout();
     lay->addItem( lay2 );
     lay2->setSpacing( 6 );
-    KPushButton* help = new KPushButton( KStdGuiItem::help(), top );
-    KPushButton* quit = new KPushButton( KStdGuiItem::quit(), top );
+    KPushButton* help = new KPushButton( KStandardGuiItem::help(), top );
+    KPushButton* quit = new KPushButton( KStandardGuiItem::quit(), top );
 
     lay2->addWidget( help );
     lay2->addStretch(1);

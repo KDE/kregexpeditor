@@ -200,7 +200,7 @@ void UserDefinedRegExps::slotEdit( Q3ListViewItem* item, const QPoint& pos )
       QString fileName = WidgetWinItem::path() + QString::fromLocal8Bit("/") + txt + QString::fromLocal8Bit(".regexp");
       QFileInfo finfo( fileName );
       if ( finfo.exists() ) {
-        int answer = KMessageBox::warningYesNo( this, i18n("<p>Overwrite named regular expression <b>%1</b>?</p>", txt), QString::null, KStdGuiItem::overwrite(), KGuiItem(i18n("Do Not Overwrite")) );
+        int answer = KMessageBox::warningYesNo( this, i18n("<p>Overwrite named regular expression <b>%1</b>?</p>", txt), QString::null, KStandardGuiItem::overwrite(), KGuiItem(i18n("Do Not Overwrite")) );
         if ( answer != KMessageBox::Yes )
           return;
 
