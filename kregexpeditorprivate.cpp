@@ -19,6 +19,7 @@
 #ifdef QT_ONLY
   #include "compat.h"
 #else
+  #include <kapplication.h>
   #include <klocale.h>
   #include <kiconloader.h>
   #include <kstandarddirs.h>
@@ -189,7 +190,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
 #ifdef QT_ONLY
   QPixmap pix( "icons/error.png" );
 #else
-  QPixmap pix = KGlobal::iconLoader()->loadIcon(KStandardDirs::locate("data", QString::fromLatin1("kregexpeditor/pics/error.png") ), K3Icon::Toolbar );
+  QPixmap pix = kapp->iconLoader()->loadIcon(KStandardDirs::locate("data", QString::fromLatin1("kregexpeditor/pics/error.png") ), K3Icon::Toolbar );
 #endif
   _error = new QLabel( this );
   _error->setPixmap( pix );
