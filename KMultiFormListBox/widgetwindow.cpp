@@ -73,6 +73,8 @@ void WidgetWindow::init(KMultiFormListBoxFactory *factory, KListBox *lb, KMultiF
   else {
     initialShow = true;
   }
+  connect(this,SIGNAL(okClicked()),this,SLOT(slotOk()));
+  connect(this,SIGNAL(cancelClicked()),this,SLOT(slotCancel()));
 }
 
 
