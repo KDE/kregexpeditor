@@ -50,7 +50,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
 
     _verify =  new QToolButton(this);
     QIcon icon = Util::getSystemIconSet( QString::fromLatin1("spellcheck"));
-    _verify->setIconSet( icon );
+    _verify->setIcon( icon );
     _verify->setToolTip( i18n( "Verify regular expression" ) );
     _verify->setWhatsThis( i18n("Shows what part of the regular expression is being matched in the <i>verifier window</i>."
                                    "(The window below the graphical editor window)."));
@@ -58,13 +58,13 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     connect( _verify, SIGNAL( clicked() ), this, SIGNAL( verify() ) );
 
     QToolButton* button = new QToolButton(this);
-    button->setPixmap( Util::getSystemIcon( QString::fromLatin1("fileopen")) );
+    button->setIcon(static_cast<QIcon>( Util::getSystemIcon( QString::fromLatin1("fileopen")) ));
     layout->addWidget( button );
     connect(button, SIGNAL(clicked()), this, SLOT(loadText()));
     button->setToolTip( i18n("Load text in the verifier window") );
 
     button = new QToolButton(this);
-    button->setPixmap( Util::getSystemIcon( QString::fromLatin1("package_settings")) );
+    button->setIcon(static_cast<QIcon>( Util::getSystemIcon( QString::fromLatin1("package_settings")) ));
     layout->addWidget( button );
     connect(button, SIGNAL(clicked()), this, SLOT(configure()));
     button->setToolTip( i18n("Verification Settings") );
@@ -119,8 +119,8 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
 
     // Auto Verify
     QAction* autoVerify = new QAction( i18n("Verify on the Fly"), this );
-    autoVerify->setToggleAction( true );
-    autoVerify->setOn( true );
+    autoVerify->setCheckable( true );
+    autoVerify->setChecked( true );
     connect( autoVerify, SIGNAL( toggled( bool ) ), this, SLOT( updateVerifyButton( bool ) ) );
     connect( autoVerify, SIGNAL( toggled( bool ) ), this, SIGNAL( autoVerify( bool ) ) );
     autoVerify->addTo( _configMenu );
@@ -130,8 +130,8 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
                                     "complex or matches a lot of time, this may be very slow."));
 
     QAction* matchGreedy = new QAction( i18n("Match Greedy"), this );
-    matchGreedy->setToggleAction( true );
-    matchGreedy->setOn( false );
+    matchGreedy->setCheckable( true );
+    matchGreedy->setChecked( false );
     connect( matchGreedy, SIGNAL( toggled( bool ) ), this, SIGNAL( matchGreedy( bool ) ) );
     matchGreedy->addTo( _configMenu );
     matchGreedy->setToolTip( i18n("Toggle greedy matching when verifying the regular expression.") );
@@ -145,8 +145,8 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     for( Q3ValueList< QPair<RegExpConverter*,QAction*> >::Iterator it = _converters.begin(); it != _converters.end(); ++it ) {
         QString name = (*it).first->name();
         QAction* action = new QAction( name, this );
-        action->setToggleAction( true );
-        grp->add( action );
+        action->setCheckable( true );
+        grp->addAction( action );
         (*it).second = action;
     }
     grp->addTo( languages );
@@ -199,7 +199,7 @@ void VerifyButtons::setMatchCount( int /*count*/ )
 
 void VerifyButtons::slotChangeSyntax( QAction* action )
 {
-    emit changeSyntax( action->menuText()  );
+    emit changeSyntax( action->text()  );
 }
 
 RegExpConverter* VerifyButtons::setSyntax( const QString& which)
@@ -207,7 +207,7 @@ RegExpConverter* VerifyButtons::setSyntax( const QString& which)
     for( Q3ValueList< QPair<RegExpConverter*, QAction*> >::Iterator it = _converters.begin(); it != _converters.end(); ++it ) {
         QString name = (*it).first->name();
         if ( name == which ) {
-            (*it).second->setOn( true );
+            (*it).second->setChecked( true );
             return (*it).first;
         }
     }

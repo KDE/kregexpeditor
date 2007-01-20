@@ -29,7 +29,7 @@
 DoubleClickButton::DoubleClickButton( QPixmap pixmap, QWidget* parent, const char* name )
   : QToolButton( parent, name ? name : "DoubleClickButton" )
 {
-  setPixmap( pixmap );
+  setIcon(static_cast<QIcon>( pixmap ));
 }
 
 void DoubleClickButton::mouseDoubleClickEvent( QMouseEvent* )

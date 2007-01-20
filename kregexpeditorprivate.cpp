@@ -174,7 +174,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
   clearButton = new QToolButton( this );
   const QString icon( QString::fromLatin1( QApplication::reverseLayout() ? "clear_left" : "locationbar_erase" ) );
   QIcon clearIcon = SmallIconSet( icon );
-  clearButton->setIconSet( clearIcon );
+  clearButton->setIcon( clearIcon );
   layout->addWidget( clearButton );
   clearButton->setToolTip( i18n("Clear expression") );
   _regexpEdit = new QLineEdit( this );

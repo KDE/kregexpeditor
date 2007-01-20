@@ -59,10 +59,10 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   QPixmap pix = KIconLoader::global()->loadIcon(KStandardDirs::locate("data", QString::fromLatin1("kregexpeditor/pics/select.png") ), K3Icon::Toolbar );
 #endif
 
-  _selectBut->setPixmap( pix );
+  _selectBut->setIcon(static_cast<QIcon>( pix ));
   layout->addWidget( _selectBut );
   _grp->insert(_selectBut);
-  _selectBut->setToggleButton( true );
+  _selectBut->setCheckable( true );
   connect( _selectBut, SIGNAL(clicked()), SIGNAL(doSelect()));
   connect( _selectBut, SIGNAL(clicked()), this, SLOT(slotSetNonKeepMode()) );
 
@@ -173,7 +173,7 @@ DoubleClickButton* RegExpButtons::insert(RegExpType tp, const char* name, QStrin
   connect( but, SIGNAL( doubleClicked() ), this, SLOT( slotSetKeepMode() ) );
 
   _grp->insert( but );
-  but->setToggleButton( true );
+  but->setCheckable( true );
   but->setToolTip( tooltip );
   but->setWhatsThis( whatsthis );
 
@@ -185,7 +185,7 @@ void RegExpButtons::slotUnSelect()
   if ( _grp->selected() ) {
     QToolButton *pb = static_cast<QToolButton*>(_grp->selected());
     if (pb) {
-      pb->setOn( false );
+      pb->setChecked( false );
     }
   }
 }
@@ -210,10 +210,10 @@ void RegExpButtons::slotSelectNewAction()
 
 void RegExpButtons::setFeatures( int features )
 {
-    _wordBoundary->setShown( features & RegExpConverter::WordBoundary );
-    _nonWordBoundary->setShown( features & RegExpConverter::NonWordBoundary );
-    _posLookAhead->setShown( features & RegExpConverter::PosLookAhead );
-    _negLookAhead->setShown( features & RegExpConverter::NegLookAhead );
+    _wordBoundary->setVisible( features & RegExpConverter::WordBoundary );
+    _nonWordBoundary->setVisible( features & RegExpConverter::NonWordBoundary );
+    _posLookAhead->setVisible( features & RegExpConverter::PosLookAhead );
+    _negLookAhead->setVisible( features & RegExpConverter::NegLookAhead );
 
 }
 
