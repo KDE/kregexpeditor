@@ -301,7 +301,7 @@
       <para>Above the editing area you have two Toolbars, the first one
         contains the <link linkend="editingtools">editing actions</link> -
         much like drawing tools in a drawing program. The second Toolbar
-        contains the <emphasis>whats this</emphasis> button, and buttons
+        contains the <emphasis>What's This?</emphasis> button, and buttons
         for undo and redo.</para>
 
       <para>Below the editing area you find the regular expression
