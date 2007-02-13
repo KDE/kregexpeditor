@@ -83,7 +83,7 @@ kde4_automoc(${kregexpeditorcommon_LIB_SRCS})
 
 kde4_add_library(kregexpeditorcommon SHARED ${kregexpeditorcommon_LIB_SRCS})
 
-target_link_libraries(kregexpeditorcommon  ${KDE4_KIO_LIBS}   )
+target_link_libraries(kregexpeditorcommon  ${KDE4_KIO_LIBS}  ${KDE4_KDE3SUPPORT_LIBS} )
 
 set_target_properties(kregexpeditorcommon PROPERTIES VERSION 1.0.0 SOVERSION 1 )
 install(TARGETS kregexpeditorcommon  DESTINATION ${LIB_INSTALL_DIR})
@@ -98,7 +98,7 @@ kde4_automoc(${kregexpeditorgui_PART_SRCS})
 kde4_add_plugin(kregexpeditorgui WITH_PREFIX ${kregexpeditorgui_PART_SRCS})
 
 
-target_link_libraries(kregexpeditorgui  ${KDE4_KIO_LIBS} )
+target_link_libraries(kregexpeditorgui  ${KDE4_KIO_LIBS} ${KDE4_KDE3SUPPORT_LIBS} )
 
 install(TARGETS kregexpeditorgui  DESTINATION ${PLUGIN_INSTALL_DIR})
 
@@ -111,7 +111,7 @@ kde4_automoc(${kregexpeditor_SRCS})
 
 kde4_add_executable(kregexpeditor ${kregexpeditor_SRCS})
 
-target_link_libraries(kregexpeditor  ${KDE4_KIO_LIBS} )
+target_link_libraries(kregexpeditor  ${KDE4_KIO_LIBS} ${KDE4_KDE3SUPPORT_LIBS} )
 
 install(TARGETS kregexpeditor  DESTINATION ${BIN_INSTALL_DIR} )
 
