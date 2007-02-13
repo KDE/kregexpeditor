@@ -22,7 +22,7 @@
   #include "compat.h"
   #include <q3listbox.h>
 #else
-  #include <klistbox.h>
+  #include <k3listbox.h>
 #endif
 
 #include "kmultiformlistboxfactory.h"
@@ -62,7 +62,7 @@ private:
 	QVBoxLayout* _layout;
   KMultiFormListBoxFactory* _factory;
 	Q3PtrList<QPushButton> _buttonList;
-  KListBox* _listbox;
+  K3ListBox* _listbox;
 	virtual void delElement(QWidget *); // Deletes the given element
 	virtual void delAnElement();
   void addElement();

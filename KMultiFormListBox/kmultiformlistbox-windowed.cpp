@@ -40,7 +40,7 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
 	QHBoxLayout *innerLayout = new QHBoxLayout();
 	_layout->addLayout(innerLayout);
 
-  _listbox = new KListBox(this,"listbox");
+  _listbox = new K3ListBox(this,"listbox");
   _listbox->setSelectionMode(Q3ListBox::Single);
   innerLayout->addWidget(_listbox);
 
