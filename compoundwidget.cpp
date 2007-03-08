@@ -137,8 +137,8 @@ void CompoundWidget::init( )
   connect( _configWindow, SIGNAL(cancelClicked()), this, SLOT(slotConfigCanceled())) ;
   connect(_configWindow, SIGNAL(finished()), this, SLOT(slotConfigWindowClosed()));
 
-  _down = getIcon( QString::fromLocal8Bit( "1downarrow" ));
-  _up = getIcon( QString::fromLocal8Bit( "1uparrow" ) );
+  _down = getIcon( QString::fromLocal8Bit( "arrow-down" ));
+  _up = getIcon( QString::fromLocal8Bit( "arrow-up" ) );
 
   _hidden = false;
   _backRefId = -1;

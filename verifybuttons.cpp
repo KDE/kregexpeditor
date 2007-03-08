@@ -49,7 +49,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     QBoxLayout* layout = boxLayout();
 
     _verify =  new QToolButton(this);
-    QIcon icon = Util::getSystemIconSet( QString::fromLatin1("spellcheck"));
+    QIcon icon = Util::getSystemIconSet( QString::fromLatin1("tools-check-spelling"));
     _verify->setIcon( icon );
     _verify->setToolTip( i18n( "Verify regular expression" ) );
     _verify->setWhatsThis( i18n("Shows what part of the regular expression is being matched in the <i>verifier window</i>."
@@ -58,7 +58,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     connect( _verify, SIGNAL( clicked() ), this, SIGNAL( verify() ) );
 
     QToolButton* button = new QToolButton(this);
-    button->setIcon(static_cast<QIcon>( Util::getSystemIcon( QString::fromLatin1("fileopen")) ));
+    button->setIcon(static_cast<QIcon>( Util::getSystemIcon( QString::fromLatin1("document-open")) ));
     layout->addWidget( button );
     connect(button, SIGNAL(clicked()), this, SLOT(loadText()));
     button->setToolTip( i18n("Load text in the verifier window") );

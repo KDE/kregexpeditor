@@ -332,16 +332,16 @@ void RegExpEditorWindow::showRMBMenu( bool enableCutCopy )
 
     if ( !_menu ) {
         _menu = new Q3PopupMenu( 0 );
-        _menu->insertItem(getIcon(QString::fromLocal8Bit("editcut")),
+        _menu->insertItem(getIcon(QString::fromLocal8Bit("edit-cut")),
                           i18n("C&ut"), CUT);
-        _menu->insertItem(getIcon(QString::fromLocal8Bit("editcopy")),
+        _menu->insertItem(getIcon(QString::fromLocal8Bit("edit-copy")),
                           i18n("&Copy"), COPY);
-        _menu->insertItem(getIcon(QString::fromLocal8Bit("editpaste")),
+        _menu->insertItem(getIcon(QString::fromLocal8Bit("edit-paste")),
                           i18n("&Paste"), PASTE);
         _menu->insertSeparator();
         _menu->insertItem(getIcon(QString::fromLocal8Bit("edit")),
                           i18n("&Edit"), EDIT);
-        _menu->insertItem(getIcon(QString::fromLocal8Bit("filesave")),
+        _menu->insertItem(getIcon(QString::fromLocal8Bit("document-save")),
                           i18n("&Save Regular Expression..."), SAVE);
     }
 
