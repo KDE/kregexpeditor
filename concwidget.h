@@ -62,7 +62,7 @@ protected:
   virtual void mousePressEvent ( QMouseEvent* event );
   void sizeAccepter( DragAccepter* accepter, int height, int totHeight );
   void getSelectionIndexes( int* start, int* end );
-  virtual void dragEnterEvent(QDragEnterEvent* event) { event->accept( false ); }
+  virtual void dragEnterEvent(QDragEnterEvent* event) { event->setAccepted( false ); }
 
 private:
   int _maxSelectedHeight;

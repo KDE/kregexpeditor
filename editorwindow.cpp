@@ -150,7 +150,7 @@ void RegExpEditorWindow::mouseMoveEvent ( QMouseEvent* event )
         _undrawSelection = true;
         _lastPoint = event->pos();
 
-        _selection = QRect(mapToGlobal(_start), mapToGlobal(_lastPoint)).normalize();
+        _selection = QRect(mapToGlobal(_start), mapToGlobal(_lastPoint)).normalized();
     }
 }
 

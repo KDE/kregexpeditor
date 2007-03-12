@@ -25,7 +25,7 @@ QtRegexpHighlighter::QtRegexpHighlighter( Q3TextEdit* editor )
 int QtRegexpHighlighter::highlightParagraph( const QString & text, int endStateOfLastPara )
 {
     QRegExp regexp( _regexp );
-    regexp.setCaseSensitive( _caseSensitive ? Qt::CaseSensitive : Qt::CaseInsensitive );
+    regexp.setCaseSensitivity( _caseSensitive ? Qt::CaseSensitive : Qt::CaseInsensitive );
     regexp.setMinimal( _minimal );
 
     setFormat( 0, text.length(), _editor->font(), Qt::black );

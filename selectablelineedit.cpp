@@ -38,14 +38,14 @@ void SelectableLineEdit::setSelected( bool selected )
     setPalette( pal );
   }
   else {
-    unsetPalette();
+    setPalette(QPalette());
   }
   repaint();
 }
 
 QSize SelectableLineEdit::sizeHint() const
 {
-  int frameWidth = frame() ? 8 : 4; // from QLineEdit source
+  int frameWidth = hasFrame() ? 8 : 4; // from QLineEdit source
   QFontMetrics metrics = fontMetrics();
   int actualSize = metrics.width( text() );
   int charWidth = metrics.maxWidth();
@@ -61,7 +61,7 @@ QSize SelectableLineEdit::sizeHint() const
 
 void SelectableLineEdit::slotKeyPressed()
 {
-  int frameWidth = frame() ? 8 : 4; // from QLineEdit source
+  int frameWidth = hasFrame() ? 8 : 4; // from QLineEdit source
 
   QFontMetrics metrics = fontMetrics();
   int actualSize = metrics.width( text() );
