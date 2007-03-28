@@ -23,8 +23,9 @@
 #include "selectablelineedit.h"
 
 SelectableLineEdit::SelectableLineEdit( RegExpWidget* owner, QWidget* parent, const char* name)
-  : QLineEdit( parent, name ), _owner(owner)
+  : QLineEdit( parent ), _owner(owner)
 {
+  setObjectName( name );
   connect( this, SIGNAL( textChanged( const QString & ) ), this,
            SLOT( slotKeyPressed() ) );
   setAcceptDrops( false );

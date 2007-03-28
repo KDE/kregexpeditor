@@ -28,8 +28,9 @@ class Validator :public QValidator
 {
 public:
   Validator( LimitedCharLineEdit::Mode mode, QWidget* parent )
-    :QValidator( parent, "Validator" ), _mode(mode)
+    :QValidator( parent ), _mode(mode)
   {
+	setObjectName( "Validator" );
   }
 
   virtual QValidator::State validate( QString& txt, int & /*pos*/ ) const
@@ -59,8 +60,10 @@ void LimitedCharLineEdit::keyPressEvent ( QKeyEvent *event )
 }
 
 LimitedCharLineEdit::LimitedCharLineEdit( Mode mode, QWidget* parent, const char* name )
-	:QLineEdit( parent, name ), _mode(mode)
+	:QLineEdit( parent ), _mode(mode)
 {
+  setObjectName( name );
+
   if ( mode == NORMAL )
     _count = 1;
   else if ( mode == HEX )

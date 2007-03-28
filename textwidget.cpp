@@ -129,7 +129,9 @@ bool TextWidget::eventFilter( QObject*, QEvent* event)
         else  if ( isSelected() ) {
             QMouseEvent* e = static_cast<QMouseEvent*>( event );
             QMouseEvent ev( event->type(), mapTo(_editorWindow, e->pos()),
-                            e->button(), e->state());
+                            e->button(),
+			    Qt::MouseButtons(e->state() & Qt::MouseButtonMask),
+			    e->modifiers() );
             QApplication::sendEvent( _editorWindow, &ev );
             return true;
         }

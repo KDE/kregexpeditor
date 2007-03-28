@@ -184,8 +184,8 @@ RepeatRangeWindow::RepeatRangeWindow( QWidget* parent)
 
   // Any number of times
   QRadioButton* radioBut = new QRadioButton(i18n("Any number of times (including zero times)"),
-                                            _group,
-                                            "RepeatRangeWindow::choice any times");
+                                            _group);
+  radioBut->setObjectName("RepeatRangeWindow::choice any times");
 
   _group->insert(radioBut, ANY);
 

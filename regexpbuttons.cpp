@@ -46,7 +46,8 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   _grp->hide();
   _grp->setExclusive( true );
 
-  _mapper = new QSignalMapper( this, "RegExpButtons::_mapper" );
+  _mapper = new QSignalMapper( this );
+  _mapper->setObjectName( "RegExpButtons::_mapper" );
   connect( _mapper, SIGNAL( mapped(int) ), this, SIGNAL( clicked(int) ) );
 
   // The "select" button.

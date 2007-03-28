@@ -76,7 +76,8 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
                                        "you have developed and saved, and regular expressions shipped with the system." ));
 
   // Editor window
-  _editor = new QSplitter( Qt::Vertical, this, "KRegExpEditorPrivate::_editor" );
+  _editor = new QSplitter( Qt::Vertical, this );
+  _editor ->setObjectName( "KRegExpEditorPrivate::_editor" );
 
   _scrolledEditorWindow = new RegExpScrolledEditorWindow( _editor );
   _scrolledEditorWindow->setWhatsThis( i18n( "In this window you will develop your regular expressions. "
