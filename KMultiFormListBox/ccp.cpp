@@ -22,7 +22,7 @@
 #include "kmultiformlistbox-multivisible.h"
 #include "ccp.h"
 #include <QObject>
-#include <q3popupmenu.h>
+#include <QMenu>
 //Added by qt3to4:
 #include <QMouseEvent>
 #include <QEvent>
@@ -64,19 +64,25 @@ bool CCP::eventFilter(QObject *, QEvent *event)
 
   QPoint pos = ((QMouseEvent *) event)->globalPos();
 
-  Q3PopupMenu *menu = new Q3PopupMenu();
-  menu->insertItem(i18n("Cut"),1);
-  menu->insertItem(i18n("Copy"),2);
-  menu->insertItem(i18n("Paste"),3);
-  menu->insertItem(i18n("Insert Blank"),4);
+  QMenu *menu = new QMenu();
+  QAction *cutAction = menu->addAction(i18n("Cut"));  
+  QAction *copyAction = menu->addAction(i18n("Copy"));
+  QAction *pasteAction = menu->addAction(i18n("Paste"));
+  QAction *blankAction = menu->addAction(i18n("Insert Blank"));
 
-  int res=menu->exec(pos);
-  switch (res) {
-  case 1: ee->cut(eee); break;
-  case 2: ee->copy(eee); break;
-  case 3: ee->paste(eee); break;
-  case 4: ee->addElement(eee); break;
+  QAction *res=menu->exec(pos);
+  if(res)
+  {
+    if(res == cutAction)
+	ee->cut(eee);
+    else if(res == copyAction)
+	ee->copy(eee);
+    else if(res == pasteAction)
+	ee->paste(eee);
+    else if(res == blankAction)
+	ee->addElement(eee);
   }
+  delete menu;
   return true;
 }
 
