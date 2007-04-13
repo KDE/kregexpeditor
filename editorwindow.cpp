@@ -459,7 +459,7 @@ QIcon RegExpEditorWindow::getIcon( const QString& name )
     pix.convertFromImage( qembed_findImage( name ) );
     return pix;
 #else
-        return SmallIconSet( name );
+        return KIcon( name );
 #endif
 }
 
