@@ -28,7 +28,7 @@
 #include "auxbuttons.h"
 #include <QLayout>
 
-#include <QToolTip>
+
 #include <qtoolbutton.h>
 //Added by qt3to4:
 #include <QBoxLayout>

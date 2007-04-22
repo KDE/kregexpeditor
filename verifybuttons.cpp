@@ -32,7 +32,7 @@
 #endif
 
 #include "verifybuttons.h"
-#include <QToolTip>
+
 #include <QLayout>
 
 #include "qtregexpconverter.h"

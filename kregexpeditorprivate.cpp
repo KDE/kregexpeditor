@@ -28,7 +28,7 @@
 
 #include <qapplication.h>
 #include <QLineEdit>
-#include <QToolTip>
+
 #include <qtoolbutton.h>
 //Added by qt3to4:
 #include <QPixmap>

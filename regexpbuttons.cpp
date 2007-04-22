@@ -27,7 +27,7 @@
 
 #include "regexpbuttons.h"
 #include "dcbutton.h"
-#include <QToolTip>
+
 
 #include <q3buttongroup.h>
 #include <QLayout>
