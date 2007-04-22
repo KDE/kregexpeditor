@@ -19,7 +19,7 @@
 #ifndef REGEXPCONVERTER_H
 #define REGEXPCONVERTER_H
 
-#include <QString>
+
 #include <q3valuelist.h>
 
 class Q3TextEdit;

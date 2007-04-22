@@ -451,7 +451,7 @@ char *yytext;
  *  Boston, MA 02110-1301, USA.
  **/
 #line 21 "qregexpparser.l"
-  #include <QString>
+  
   #include "textrangeregexp.h"
   #include "gen_qregexpparser.hh"
 #ifdef QT_ONLY
