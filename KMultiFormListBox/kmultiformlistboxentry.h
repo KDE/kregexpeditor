@@ -59,7 +59,7 @@ public:
 
   // This function must return a string representing the KMultiFormListBox. This is
   // used when showing the fast-search menu available from the `Idx' button.
-  virtual QString idxString() { return QString::fromLatin1(""); };
+  virtual QString idxString() { return QString::fromLatin1(""); }
 
 public slots:
   void acceptIndexButton();

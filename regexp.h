@@ -50,7 +50,7 @@ public:
 
     enum RegExpType { CONC, TEXT, DOT, POSITION, REPEAT, ALTN, COMPOUND, LOOKAHEAD, TEXTRANGE };
     virtual RegExpType type() const = 0;
-    virtual void replacePart( CompoundRegExp* /* replacement */ ) {};
+    virtual void replacePart( CompoundRegExp* /* replacement */ ) {}
     bool isSelected() const { return _selected; }
     void setSelected( bool b ) { _selected = b; }
 
@@ -58,7 +58,7 @@ protected:
     RegExp* readRegExp( QDomElement top, const QString& version );
 
 private:
-    RegExp() {}; // disable
+    RegExp() {} // disable
     Q3PtrList<RegExp> _children;
     RegExp* _parent;
     bool _destructing;

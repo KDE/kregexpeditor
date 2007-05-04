@@ -37,7 +37,7 @@ public:
     RegExp* regExp();
 
 private:
-    RegExpScrolledEditorWindow() {}; // Dont use!
+    RegExpScrolledEditorWindow() {} // Dont use!
 
 
 protected:
