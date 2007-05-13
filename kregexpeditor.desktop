@@ -16,7 +16,6 @@ Exec=kregexpeditor
 DocPath=KRegExpEditor/index.html
 GenericName=Regular Expression Editor
 GenericName[ar]=محرّر التعابير النظامية
-GenericName[bg]=Редактор на регулярни изрази
 GenericName[br]=Aozer an troiennoù reolataet
 GenericName[ca]=Editor d'expressions regulars
 GenericName[cs]=Editor regulárních výrazů
