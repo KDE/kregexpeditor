@@ -37,6 +37,7 @@ class KRegExpEditorPrivate;
 class KDE_EXPORT KRegExpEditorGUI  :public QWidget, public KRegExpEditorInterface
 {
   Q_OBJECT
+  Q_INTERFACES(KRegExpEditorInterface)
   Q_PROPERTY( QString regexp READ regExp WRITE setRegExp )
 public:
   KRegExpEditorGUI( QWidget *parent, 
@@ -66,6 +67,7 @@ private:
 class KDE_EXPORT KRegExpEditorGUIDialog : public KDialog, public KRegExpEditorInterface
 {
     Q_OBJECT
+    Q_INTERFACES(KRegExpEditorInterface)
     Q_PROPERTY( QString regexp READ regExp WRITE setRegExp )
 public:
     KRegExpEditorGUIDialog( QWidget *parent, const QStringList &args );
