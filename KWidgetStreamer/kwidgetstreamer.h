@@ -51,7 +51,7 @@ public:
   typedef QStringList::Iterator PropertyListIt;
 
   KWidgetStreamer();
-  virtual ~KWidgetStreamer() {};
+  virtual ~KWidgetStreamer() {}
 
   virtual void toStream(const QObject* from, QDataStream& stream );
   virtual void fromStream(QDataStream& stream, QObject* to);

@@ -63,7 +63,7 @@ public:
   RegExp* regExp() const;
   QString name() const;
   void setName( const QString& );
-  bool isUsersRegExp() const { return _usersRegExp; };
+  bool isUsersRegExp() const { return _usersRegExp; }
 
 private:
   QString _name;
