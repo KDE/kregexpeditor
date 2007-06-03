@@ -32,8 +32,6 @@ class QSplitter;
 class Verifier;
 class VerifyButtons;
 class AuxButtons;
-class RegExpLineEdit;
-class RegExpConverter;
 class RegExpButtons;
 class QToolButton;
 

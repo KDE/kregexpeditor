@@ -36,7 +36,6 @@ class QDataStream;
 
 typedef Q3PtrList<KMultiFormListBoxEntry> KMultiFormListBoxEntryList ;
 typedef Q3PtrList<QWidget> WidgetList;
-class KMultiFormListBoxMultiVisible;
 
 /**
  The main class used to get an KMultiFormListBox widget.

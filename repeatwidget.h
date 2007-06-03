@@ -24,7 +24,6 @@
 #include <QPaintEvent>
 class Q3ButtonGroup;
 class KDialog;
-class QCheckBox;
 class QSpinBox;
 class RepeatRegExp;
 

@@ -21,10 +21,7 @@
 //Added by qt3to4:
 #include <QLabel>
 #include "regexphighlighter.h"
-class QTimer;
-class Q3ProgressDialog;
 class QLabel;
-class SyntaxHighlighter;
 class Verifier :public Q3TextEdit
 {
 Q_OBJECT
