@@ -25,8 +25,8 @@
 
 #include "infopage.h"
 
-InfoPage::InfoPage( QWidget* parent, const char* name )
-  :KTextBrowser( parent, name )
+InfoPage::InfoPage( QWidget* parent )
+  :KTextBrowser( parent )
 {
     QString txt =
         QString::fromLatin1( "<qt>" ) +

@@ -84,7 +84,8 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
                                                "Select one of the actions from the action buttons above, and click the mouse in this "
                                                "window to insert the given action."));
 
-  _info = new InfoPage( this, "_info" );
+  _info = new InfoPage( this );
+  _info->setObjectName( "_info" );
   _verifier = new Verifier( _editor, "KRegExpEditorPrivate::_verifier" );
   connect( _verifier, SIGNAL( textChanged() ), this, SLOT( maybeVerify() ) );
   _verifier->setWhatsThis( i18n("Type in some text in this window, and see what the regular expression you have developed matches.<p>"
