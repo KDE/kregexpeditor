@@ -38,10 +38,10 @@ int main( int argc, char* argv[] )
 #ifdef QT_ONLY
     QApplication myapp( argc, argv );
 #else
-    KAboutData aboutData( "kregexpeditor", I18N_NOOP("RegExp Editor"),
-                          "1.0", I18N_NOOP("Editor for Regular Expressions"),
+    KAboutData aboutData( "kregexpeditor", 0, ki18n("RegExp Editor"),
+                          "1.0", ki18n("Editor for Regular Expressions"),
 			  KAboutData::License_GPL,
-                          "(c) 2002-2003 Jesper K. Pedersen");
+                          ki18n("(c) 2002-2003 Jesper K. Pedersen"));
     KCmdLineArgs::init(argc, argv, &aboutData);
     KApplication myapp;
 #endif
