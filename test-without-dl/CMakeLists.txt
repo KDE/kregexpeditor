@@ -5,7 +5,6 @@
 ########### next target ###############
 set(regexptest_SRCS main.cpp )
 
-kde4_automoc(${regexptest_SRCS})
 
 kde4_add_test_executable(regexptest ${regexptest_SRCS})
 

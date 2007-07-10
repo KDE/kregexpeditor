@@ -79,7 +79,6 @@ set(kregexpeditorcommon_LIB_SRCS ${libkmultiformlistbox_SRCS} ${libkwidgetstream
    regexphighlighter.cpp 
    util.cpp )
 
-kde4_automoc(${kregexpeditorcommon_LIB_SRCS})
 
 kde4_add_library(kregexpeditorcommon SHARED ${kregexpeditorcommon_LIB_SRCS})
 
@@ -93,7 +92,6 @@ install(TARGETS kregexpeditorcommon  DESTINATION ${LIB_INSTALL_DIR})
 
 set(kregexpeditorgui_PART_SRCS  ${kregexpeditorcommon_LIB_SRCS})
 
-kde4_automoc(${kregexpeditorgui_PART_SRCS})
 
 kde4_add_plugin(kregexpeditorgui WITH_PREFIX ${kregexpeditorgui_PART_SRCS})
 
@@ -107,7 +105,6 @@ install(TARGETS kregexpeditorgui  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 set(kregexpeditor_SRCS main.cpp ${kregexpeditorcommon_LIB_SRCS})
 
-kde4_automoc(${kregexpeditor_SRCS})
 
 kde4_add_executable(kregexpeditor ${kregexpeditor_SRCS})
 
