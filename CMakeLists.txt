@@ -84,7 +84,7 @@ kde4_add_library(kregexpeditorcommon SHARED ${kregexpeditorcommon_LIB_SRCS})
 
 target_link_libraries(kregexpeditorcommon    ${KDE4_KDE3SUPPORT_LIBS} )
 
-set_target_properties(kregexpeditorcommon PROPERTIES VERSION 1.0.0 SOVERSION 1 )
+set_target_properties(kregexpeditorcommon PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 install(TARGETS kregexpeditorcommon  DESTINATION ${LIB_INSTALL_DIR})
 
 
