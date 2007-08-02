@@ -70,7 +70,7 @@ const KMultiFormListBoxEntryList KMultiFormListBox::elements() const
 void KMultiFormListBox::slotChangeFace( KMultiFormListBoxType /*newFace*/ )
 {
 	// TODO
-	// kDebug() << "It's not possible yet to change the face on the fly." << endl
+	// kDebug() << "It's not possible yet to change the face on the fly." 
 	//					<< "Please let me (blackie@kde.org) know that you need it, and I'll work on it" << endl;
 }
 

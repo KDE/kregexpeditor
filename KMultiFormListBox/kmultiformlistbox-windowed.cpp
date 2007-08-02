@@ -110,13 +110,13 @@ KMultiFormListBoxEntryList KMultiFormListBoxWindowed::elements()
 
 void KMultiFormListBoxWindowed::delElement(QWidget */*elm*/)
 {
-    // kDebug() << "KMultiFormListBoxWindowed::delElement NOT YET IMPLEMENTED"<<endl;
+    // kDebug() << "KMultiFormListBoxWindowed::delElement NOT YET IMPLEMENTED";
 	// TODO
 }
 
 void KMultiFormListBoxWindowed::delAnElement()
 {
-    // kDebug() << "KMultiFormListBoxWindowed::delAnElement NOT YET IMPLEMENTED"<<endl;
+    // kDebug() << "KMultiFormListBoxWindowed::delAnElement NOT YET IMPLEMENTED";
   // TODO
 }
 
@@ -129,7 +129,7 @@ void KMultiFormListBoxWindowed::append(KMultiFormListBoxEntry *elm)
 
 void KMultiFormListBoxWindowed::addNewElement()
 {
-	// kDebug() << "addNewElement " << _factory << "," << _listbox << endl;
+	// kDebug() << "addNewElement " << _factory << "," << _listbox ;
 
   QWidget *widget = new WidgetWindow(_factory, _listbox);
 	widget->show();
