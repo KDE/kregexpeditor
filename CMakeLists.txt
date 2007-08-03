@@ -11,6 +11,7 @@ include_directories(
 	${CMAKE_SOURCE_DIR}/kregexpeditor/KWidgetStreamer/ 
 	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/ )
 
+add_definitions (-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS)
 
 ########### next target ###############
 set(libkmultiformlistbox_SRCS 
