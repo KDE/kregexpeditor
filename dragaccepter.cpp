@@ -105,7 +105,7 @@ void DragAccepter::mouseReleaseEvent( QMouseEvent* event )
 void DragAccepter::dragEnterEvent(QDragEnterEvent *event)
 {
   bool selfDrag = (  event->source() && event->source()->topLevelWidget() == topLevelWidget() && _isSelected );
-  event->accept(RegExpWidgetDrag::canDecode( event ) && !selfDrag );
+  event->setAccepted(RegExpWidgetDrag::canDecode( event ) && !selfDrag );
 }
 
 void DragAccepter::dropEvent(QDropEvent *event)

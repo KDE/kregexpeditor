@@ -338,7 +338,7 @@ void RegExpEditorWindow::showRMBMenu( bool enableCutCopy )
                           i18n("&Copy"), COPY);
         _menu->insertItem(getIcon(QString::fromLocal8Bit("edit-paste")),
                           i18n("&Paste"), PASTE);
-        _menu->insertSeparator();
+        _menu->addSeparator();
         _menu->insertItem(getIcon(QString::fromLocal8Bit("edit")),
                           i18n("&Edit"), EDIT);
         _menu->insertItem(getIcon(QString::fromLocal8Bit("document-save")),

@@ -175,7 +175,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
   layout->addWidget( label );
   clearButton = new QToolButton( this );
   const QString icon( QString::fromLatin1( QApplication::isRightToLeft() ? "clear-left" : "locationbar-erase" ) );
-  QIcon clearIcon = SmallIconSet( icon );
+  KIcon clearIcon( icon );
   clearButton->setIcon( clearIcon );
   layout->addWidget( clearButton );
   clearButton->setToolTip( i18n("Clear expression") );
@@ -199,6 +199,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
   _error->hide();
 
   _timer = new QTimer(this);
+  _timer->setSingleShot( true );
 
   connect( _scrolledEditorWindow, SIGNAL( change() ), this, SLOT( slotUpdateLineEdit() ) );
   connect( _regexpEdit, SIGNAL(textChanged( const QString& ) ), this, SLOT( slotTriggerUpdate() ) );
@@ -336,7 +337,7 @@ void KRegExpEditorPrivate::slotTriggerUpdate()
    * - Frerich
    */
   if ( !_updating ) {
-    _timer->start( 300, true );
+    _timer->start( 300 );
     slotShowEditor();
   }
 }

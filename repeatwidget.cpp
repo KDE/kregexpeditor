@@ -206,13 +206,17 @@ RepeatRangeWindow::RepeatRangeWindow( QWidget* parent)
   radioBut->setObjectName( "RepeatRangeWindow::from" );
   _group->insert( radioBut, MINMAX );
 
-  _rangeFrom = new QSpinBox( 1, 999, 1, grid);
+  _rangeFrom = new QSpinBox( grid );
+  _rangeFrom->setRange( 1, 999 );
+  _rangeFrom->setSingleStep( 1 );
 
   Q3HBox* box = new Q3HBox( grid );
   box->setSpacing( 5 );
 
   (void) new QLabel(i18n( "to" ), box);
-  _rangeTo = new QSpinBox( 1, 999, 1, box );
+  _rangeTo = new QSpinBox( grid );
+  _rangeTo->setRange( 1, 999 );
+  _rangeTo->setSingleStep( 1 );
   (void) new QLabel( i18n( "time(s)" ), box );
 
   connect( _rangeFrom, SIGNAL( valueChanged( int ) ), this, SLOT( slotUpdateMaxVal( int ) ) );
@@ -231,7 +235,9 @@ void RepeatRangeWindow::createLine( QWidget* parent, QString text, QSpinBox** sp
 {
 
   QRadioButton* radioBut = new QRadioButton(text, parent);
-  *spin = new QSpinBox( 1, 999, 1, parent);
+  *spin = new QSpinBox(parent);
+  (*spin)->setRange(1, 999);
+  (*spin)->setSingleStep(1);
   (*spin)->setValue(1);
 
   (void) new QLabel(i18n("time(s)"), parent);

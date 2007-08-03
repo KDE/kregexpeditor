@@ -34,7 +34,7 @@ SelectableLineEdit::SelectableLineEdit( RegExpWidget* owner, QWidget* parent, co
 void SelectableLineEdit::setSelected( bool selected )
 {
   if ( selected ) {
-    QPalette pal = palette().copy();
+    QPalette pal = palette();
     pal.setBrush( QPalette::Base, Qt::gray );
     setPalette( pal );
   }
