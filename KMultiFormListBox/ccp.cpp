@@ -19,8 +19,8 @@
 // ccp = Cut-Copy-Paste
 //---------------------
 
-#include "kmultiformlistbox-multivisible.h"
 #include "ccp.h"
+#include "kmultiformlistbox-multivisible.h"
 #include <QObject>
 #include <QMenu>
 //Added by qt3to4:

@@ -1,3 +1,5 @@
+#ifndef WIDGETWINDOW_H
+#define WIDGETWINDOW_H
 /*
  *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
  *
@@ -15,9 +17,6 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
-#ifndef __configwindow
-#define __configwindow
-
 #ifdef QT_ONLY
   #include "compat.h"
   #include <q3listbox.h>
@@ -57,4 +56,4 @@ private:
   bool initialShow;
 };
 
-#endif // configwindow
+#endif // WIDGETWINDOW_H

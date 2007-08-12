@@ -15,11 +15,12 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+#include "scrollededitorwindow.h"
+
 #ifndef QT_ONLY
   #include "scrollededitorwindow.moc"
 #endif
 
-#include "scrollededitorwindow.h"
 #include "editorwindow.h"
 //Added by qt3to4:
 #include <QResizeEvent>

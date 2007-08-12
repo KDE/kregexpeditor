@@ -15,6 +15,7 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+#include "charselector.h"
 
 #ifdef QT_ONLY
 #include "compat.h"
@@ -23,7 +24,6 @@
 #include "charselector.moc"
 #endif
 
-#include "charselector.h"
 #include "limitedcharlineedit.h"
 #include "regexpconverter.h"
 #include <QLayout>

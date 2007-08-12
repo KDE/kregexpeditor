@@ -16,6 +16,8 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
+#include "lookaheadwidget.h"
+
 #ifdef QT_ONLY
   #include "compat.h"
 #else
@@ -23,11 +25,9 @@
   #include "lookaheadwidget.moc"
 #endif
 
-#include "lookaheadwidget.h"
 #include "lookaheadregexp.h"
 #include "concwidget.h"
 #include <qpainter.h>
-//Added by qt3to4:
 #include <QPaintEvent>
 
 LookAheadWidget::LookAheadWidget( RegExpEditorWindow* editorWindow, RegExpType tp, QWidget* parent )

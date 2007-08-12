@@ -15,8 +15,8 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
-#include "concregexp.h"
 #include "concwidget.h"
+#include "concregexp.h"
 #include "dragaccepter.h"
 
 #include <qpainter.h>

@@ -16,6 +16,8 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
+#include "characterswidget.h"
+
 #ifdef QT_ONLY
   #include "compat.h"
 #else
@@ -23,7 +25,6 @@
   #include "characterswidget.moc"
 #endif
 
-#include "characterswidget.h"
 #include "textrangeregexp.h"
 #include "regexp.h"
 #include "charselector.h"

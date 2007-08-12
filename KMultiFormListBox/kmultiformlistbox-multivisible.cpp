@@ -16,6 +16,7 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
+#include "kmultiformlistbox-multivisible.h"
 #ifdef QT_ONLY
   #include "compat.h"
   #include <qmessagebox.h>
@@ -26,7 +27,6 @@
   #include "kmultiformlistbox-multivisible.moc"
 #endif
 
-#include "kmultiformlistbox-multivisible.h"
 #include "indexWindow.h"
 #include "ccp.h"
 

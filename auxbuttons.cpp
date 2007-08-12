@@ -15,6 +15,7 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+#include "auxbuttons.h"
 
 #ifdef QT_ONLY
   #include "compat.h"
@@ -25,7 +26,6 @@
   #include <klocale.h>
 #endif
 
-#include "auxbuttons.h"
 #include <QLayout>
 
 

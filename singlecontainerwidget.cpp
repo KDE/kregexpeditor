@@ -15,11 +15,12 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+#include "singlecontainerwidget.h"
+
 #ifndef QT_ONLY
   #include "singlecontainerwidget.moc"
 #endif
 
-#include "singlecontainerwidget.h"
 #include "concwidget.h"
 
 SingleContainerWidget::SingleContainerWidget(RegExpEditorWindow* editorWindow,

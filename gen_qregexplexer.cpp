@@ -61,7 +61,6 @@
  #pragma warn -rch
  #pragma warn -use
 #include <io.h>
-#include <stdlib.h>
 #define YY_USE_CONST
 #define YY_USE_PROTOS
 #endif
@@ -517,9 +516,6 @@ static int yy_top_state YY_PROTO(( void ));
 YY_MALLOC_DECL
 #else
 #if __STDC__
-#ifndef __cplusplus
-#include <stdlib.h>
-#endif
 #else
 /* Just try to get by without declaring the routines.  This will fail
  * miserably on non-ANSI systems for which sizeof(size_t) != sizeof(int)

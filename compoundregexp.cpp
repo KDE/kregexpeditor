@@ -16,13 +16,14 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
+#include "compoundregexp.h"
+
 #ifdef QT_ONLY
   #include "compat.h"
 #else
   #include <klocale.h>
 #endif
 
-#include "compoundregexp.h"
 #include "widgetfactory.h"
 
 CompoundRegExp::CompoundRegExp( bool selected, const QString& title, const QString& description, bool hidden,

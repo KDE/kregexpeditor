@@ -15,14 +15,15 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
+#include "verifier.h"
+
 #ifdef QT_ONLY
   #include "compat.h"
 #else
   #include <klocale.h>
   #include "verifier.moc"
 #endif
-
-#include "verifier.h"
 
 Verifier::Verifier( QWidget* parent, const char* name ) : Q3TextEdit( parent, name )
     /* QT_ANCHOR_DO_NOT_WORK: ,_current( 0 ) */

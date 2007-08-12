@@ -16,6 +16,8 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
+#include "kregexpeditorprivate.h"
+
 #ifdef QT_ONLY
   #include "compat.h"
 #else
@@ -38,10 +40,8 @@
 #include <QLabel>
 #include <Q3ValueList>
 #include <QVBoxLayout>
-#include "kregexpeditorprivate.h"
 #include "scrollededitorwindow.h"
 #include "regexpbuttons.h"
-//#include <unistd.h> // What do I need this for?
 #include <stdio.h>
 #include "infopage.h"
 #include <qsplitter.h>

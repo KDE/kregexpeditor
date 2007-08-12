@@ -15,6 +15,7 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+#include "altnwidget.h"
 #ifdef QT_ONLY
   #include "compat.h"
 #else
@@ -22,7 +23,6 @@
   #include <kmessagebox.h>
 #endif
 
-#include "altnwidget.h"
 #include "dragaccepter.h"
 #include "concwidget.h"
 #include "altnregexp.h"

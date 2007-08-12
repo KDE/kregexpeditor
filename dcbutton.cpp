@@ -15,14 +15,14 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+#include "dcbutton.h"
+
 #ifdef QT_ONLY
   #include "compat.h"
 #else
   #include "dcbutton.moc"
 #endif
 
-#include "dcbutton.h"
-//Added by qt3to4:
 #include <QPixmap>
 #include <QMouseEvent>
 

@@ -15,6 +15,8 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+#include "userdefinedregexps.h"
+
 #ifdef QT_ONLY
   #include "compat.h"
 #else
@@ -26,7 +28,6 @@
   #include "userdefinedregexps.moc"
 #endif
 
-#include "userdefinedregexps.h"
 #include <q3header.h>
 #include <q3popupmenu.h>
 #include <QDir>

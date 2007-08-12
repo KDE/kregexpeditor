@@ -15,20 +15,22 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+#include "textwidget.h"
+
 #ifndef QT_ONLY
   #include "textwidget.moc"
 #endif
 
-#include "textwidget.h"
 #include "textregexp.h"
 #include "selectablelineedit.h"
+
 #include <QLayout>
-//Added by qt3to4:
 #include <QMouseEvent>
 #include <QHBoxLayout>
 #include <QEvent>
 #include <QPaintEvent>
 #include <QApplication>
+
 TextWidget::TextWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
   :RegExpWidget(editorWindow, parent)
 {

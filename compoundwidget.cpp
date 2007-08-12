@@ -15,6 +15,8 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+#include "compoundwidget.h"
+
 #ifdef QT_ONLY
   #include "compat.h"
   #include "images.h"
@@ -25,7 +27,6 @@
   #include "compoundwidget.moc"
 #endif
 
-#include "compoundwidget.h"
 #include <QLayout>
 #include <qcursor.h>
 #include <QLineEdit>

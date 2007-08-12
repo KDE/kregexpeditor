@@ -15,14 +15,15 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
+#include "textregexp.h"
+
 #ifdef QT_ONLY
   #include "compat.h"
 #else
   #include <kmessagebox.h>
   #include <klocale.h>
 #endif
-
-#include "textregexp.h"
 
 TextRegExp::TextRegExp( bool selected, QString text) :RegExp( selected )
 {

@@ -16,6 +16,8 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
+#include "editorwindow.h"
+
 #ifdef QT_ONLY
   #include "compat.h"
   #include "images.h"
@@ -29,7 +31,6 @@
   #include <kinputdialog.h>
 #endif
 
-#include "editorwindow.h"
 #include "concwidget.h"
 #include <QLayout>
 #include <qpainter.h>

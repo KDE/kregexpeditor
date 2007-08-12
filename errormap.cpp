@@ -16,14 +16,14 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
+#include "errormap.h"
+
 #ifdef QT_ONLY
   #include "compat.h"
 #else
   #include <kmessagebox.h>
   #include <klocale.h>
 #endif
-
-#include "errormap.h"
 
 ErrorMap::ErrorMap() : _prevLineStartError( false ), _prevLineEndError( false ), _prevLookAHeadError( false )
 {

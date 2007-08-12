@@ -15,6 +15,9 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
+#include "infopage.h"
+
 #ifdef QT_ONLY
   #include "compat.h"
 #else
@@ -22,8 +25,6 @@
   #include <kapplication.h>
 #include <ktoolinvocation.h>
 #endif
-
-#include "infopage.h"
 
 InfoPage::InfoPage( QWidget* parent )
   :KTextBrowser( parent )

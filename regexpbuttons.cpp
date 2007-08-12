@@ -15,6 +15,8 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+#include "regexpbuttons.h"
+
 #ifdef QT_ONLY
   #include "compat.h"
   #include "images.h"
@@ -25,17 +27,14 @@
   #include "regexpbuttons.moc"
 #endif
 
-#include "regexpbuttons.h"
 #include "dcbutton.h"
-
+#include "regexpconverter.h"
 
 #include <q3buttongroup.h>
 #include <QLayout>
 #include <qsignalmapper.h>
-//Added by qt3to4:
 #include <QPixmap>
 #include <QBoxLayout>
-#include "regexpconverter.h"
 
 RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   : Q3DockWindow( Q3DockWindow::InDock, parent, name), _keepMode(false)

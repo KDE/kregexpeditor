@@ -16,11 +16,11 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
+#include "kmultiformlistboxentry.h"
 #ifndef QT_ONLY
   #include "kmultiformlistboxentry.moc"
 #endif
 
-#include "kmultiformlistboxentry.h"
 //----------------------------------------------------------------------
 // This function is needed to signal which of the KMultiFormListBox entries
 // the Idx button was invoked from.

@@ -15,6 +15,8 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+#include "verifybuttons.h"
+
 #ifdef QT_ONLY
 #include "compat.h"
 #include <q3filedialog.h>
@@ -31,7 +33,6 @@
 #include <kmessagebox.h>
 #endif
 
-#include "verifybuttons.h"
 
 #include <QLayout>
 

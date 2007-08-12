@@ -16,11 +16,11 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
+#include "selectablelineedit.h"
+
 #ifndef QT_ONLY
   #include "selectablelineedit.moc"
 #endif
-
-#include "selectablelineedit.h"
 
 SelectableLineEdit::SelectableLineEdit( RegExpWidget* owner, QWidget* parent, const char* name)
   : QLineEdit( parent ), _owner(owner)

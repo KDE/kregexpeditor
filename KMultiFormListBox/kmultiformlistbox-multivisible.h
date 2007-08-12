@@ -1,3 +1,5 @@
+#ifndef KMULTIFORMLISTBOX_MULTIVISIBLE_H
+#define KMULTIFORMLISTBOX_MULTIVISIBLE_H
 /*
  *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
  *
@@ -16,14 +18,12 @@
  *  Boston, MA 02110-1301, USA.
  **/
 // ------------------------------- Description ----------------------------
-// This is the KMultiFormListBox Widget. You do not need to inheret from this class,
+// This is the KMultiFormListBox Widget. You do not need to inherit from this class,
 // your interface to it will be through the methods `append` and `elements'.
 //
 // To make an instance of the widget, you need to inherit the classes
 // `KMultiFormListBoxFactory' and `KMultiFormListBoxEntry'.
 // ------------------------------------------------------------------------
-#ifndef __kmultiformlistboxmultivisble
-#define __kmultiformlistboxmultivisble
 
 // -------------------------------- includes ------------------------------
 #include "kmultiformlistbox.h"
@@ -133,5 +133,5 @@ private:
 };
 
 
-#endif /* kmultiformlistboxmultivisble */
 
+#endif // KMULTIFORMLISTBOX_MULTIVISIBLE_H

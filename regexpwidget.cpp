@@ -16,13 +16,14 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
+#include "regexpwidget.h"
+
 #ifdef QT_ONLY
   #include "compat.h"
 #else
   #include "regexpwidget.moc"
 #endif
 
-#include "regexpwidget.h"
 #include <iostream>
 #include <qpainter.h>
 #include <qcursor.h>

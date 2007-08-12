@@ -16,13 +16,14 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
+#include "zerowidgets.h"
+
 #ifdef QT_ONLY
   #include "compat.h"
 #else
   #include <klocale.h>
 #endif
 
-#include "zerowidgets.h"
 #include "dotregexp.h"
 #include "positionregexp.h"
 #include <qpainter.h>

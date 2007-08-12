@@ -15,13 +15,14 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+#include "widgetfactory.h"
+
 #ifdef QT_ONLY
   #include "compat.h"
 #else
   #include <kmessagebox.h>
 #endif
 
-#include "widgetfactory.h"
 #include "repeatwidget.h"
 #include "textwidget.h"
 #include "characterswidget.h"

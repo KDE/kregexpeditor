@@ -15,6 +15,7 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+#include "kregexpeditorgui.h"
 
 #ifdef QT_ONLY
   #include "compat.h"
@@ -25,12 +26,9 @@
   #include "kregexpeditorgui.moc"
 #endif
 
-#include "kregexpeditorgui.h"
-// #include <unistd.h> // DO I need this?
 #include <stdio.h>
 #include "kregexpeditorprivate.h"
 #include <QLayout>
-//Added by qt3to4:
 #include <QVBoxLayout>
 #include <QFrame>
 #include <QHBoxLayout>
