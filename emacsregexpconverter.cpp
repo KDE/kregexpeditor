@@ -83,7 +83,7 @@ QString EmacsRegExpConverter::toString( LookAheadRegExp* /*regexp*/, bool /*mark
         haveWarned = true;
     }
 
-    return QString::null;
+    return QString();
 }
 
 QString EmacsRegExpConverter::toString( TextRangeRegExp* regexp, bool /*markSelection*/ )

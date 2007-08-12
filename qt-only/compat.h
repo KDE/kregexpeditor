@@ -47,7 +47,7 @@ public:
                   QWidget *parent=0, const char *name=0, bool modal=true );
 
     KDialogBase( QWidget* parent, const char* name = 0, bool modal = true,
-                 const QString& caption = QString::null,
+                 const QString& caption = QString(),
                  int buttonMask = 0 );
 
     void init( int buttonMask, ButtonCode /*defaultButton*/, const QString& caption );
@@ -75,10 +75,10 @@ class KMessageBox :public QMessageBox
 public:
     enum ButtonCode { Ok = 1, Cancel = 2, Yes = 3, No = 4, Continue = 5 };
     static int  warningYesNo (QWidget *parent, const QString &text,
-                              const QString &caption = QString::null );
-    static int information( QWidget* parent, const QString& text, const QString& caption = QString::null,
-                            const QString& /*dontShowAgainName*/ = QString::null );
-    static int sorry( QWidget* parent, const QString& text, const QString& caption = QString::null );
+                              const QString &caption = QString() );
+    static int information( QWidget* parent, const QString& text, const QString& caption = QString(),
+                            const QString& /*dontShowAgainName*/ = QString() );
+    static int sorry( QWidget* parent, const QString& text, const QString& caption = QString() );
 };
 
 #endif /* COMPAT_H */

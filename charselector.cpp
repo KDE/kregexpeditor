@@ -186,5 +186,5 @@ QString CharSelector::text() const
   case 9:
     return QString::fromLatin1("\\v");
   }
-  return QString::null;
+  return QString();
 }

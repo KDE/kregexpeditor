@@ -49,7 +49,7 @@ void Verifier::verify( const QString& reg )
 void Verifier::clearRegexp()
 {
     if ( _highlighter ) {
-        _highlighter->setRegExp( QString::null );
+        _highlighter->setRegExp( QString() );
         _highlighter->rehighlight();
     }
 }

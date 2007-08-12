@@ -26,8 +26,8 @@
 class CompoundRegExp :public RegExp
 {
 public:
-	CompoundRegExp( bool selected, const QString& title = QString::null,
-                    const QString& description = QString::null,
+	CompoundRegExp( bool selected, const QString& title = QString(),
+                    const QString& description = QString(),
                     bool hidden = false, bool allowReplace = false, RegExp* child = 0);
 
     virtual bool check( ErrorMap&, bool first, bool last );

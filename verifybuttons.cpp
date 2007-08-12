@@ -166,7 +166,7 @@ void VerifyButtons::updateVerifyButton( bool b )
 
 void VerifyButtons::loadText()
 {
-    QString fileName = KFileDialog::getOpenFileName(KUrl(), QString::null, this);
+    QString fileName = KFileDialog::getOpenFileName(KUrl(), QString(), this);
     if ( !fileName.isNull() ) {
         emit loadVerifyText( fileName );
     }

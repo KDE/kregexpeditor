@@ -92,7 +92,7 @@ KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent,
   connect( _editor, SIGNAL( changes(bool) ), this, SIGNAL( changes(bool) ) );
   resize( 640, 400 );
 
-  setHelp( QString::null, QString::fromLocal8Bit( "KRegExpEditor" ) );
+  setHelp( QString(), QString::fromLocal8Bit( "KRegExpEditor" ) );
 #ifdef QT_ONLY
   connect( this, SIGNAL( helpClicked() ), _editor, SLOT( showHelp() ) );
 #endif
@@ -159,7 +159,7 @@ void KRegExpEditorGUI::showHelp()
 #ifdef QT_ONLY
     _editor->showHelp();
 #else
-    KToolInvocation::invokeHelp( QString::null, QString::fromLocal8Bit( "KRegExpEditor" ) );
+    KToolInvocation::invokeHelp( QString(), QString::fromLocal8Bit( "KRegExpEditor" ) );
 #endif
 }
 

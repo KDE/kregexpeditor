@@ -52,7 +52,7 @@ UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const char *name )
   label->setMinimumSize(1,0);
 
   _userDefined = new Q3ListView( top, "UserDefinedRegExps::_userDefined" );
-  _userDefined->addColumn( QString::null );
+  _userDefined->addColumn( QString() );
   _userDefined->header()->hide();
   //  _userDefined->setRootIsDecorated( true );
   setWidget( top );
@@ -78,7 +78,7 @@ void UserDefinedRegExps::slotPopulateUserRegexps()
 #endif
 
   for ( QStringList::iterator it1 = dirs.begin(); it1 != dirs.end(); ++it1 ) {
-    QDir dir( *it1, QString::null, QDir::Name, QDir::Dirs );
+    QDir dir( *it1, QString(), QDir::Name, QDir::Dirs );
     QStringList subdirs = dir.entryList();
     for ( QStringList::iterator it2 = subdirs.begin(); it2 != subdirs.end(); ++it2 ) {
       if ( *it2 == QString::fromLocal8Bit(".") || *it2 == QString::fromLocal8Bit("..") )
@@ -200,7 +200,7 @@ void UserDefinedRegExps::slotEdit( Q3ListViewItem* item, const QPoint& pos )
       QString fileName = WidgetWinItem::path() + QString::fromLocal8Bit("/") + txt + QString::fromLocal8Bit(".regexp");
       QFileInfo finfo( fileName );
       if ( finfo.exists() ) {
-        int answer = KMessageBox::warningYesNo( this, i18n("<p>Overwrite named regular expression <b>%1</b>?</p>", txt), QString::null, KStandardGuiItem::overwrite(), KGuiItem(i18n("Do Not Overwrite")) );
+        int answer = KMessageBox::warningYesNo( this, i18n("<p>Overwrite named regular expression <b>%1</b>?</p>", txt), QString(), KStandardGuiItem::overwrite(), KGuiItem(i18n("Do Not Overwrite")) );
         if ( answer != KMessageBox::Yes )
           return;
 
