@@ -88,11 +88,11 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
   _info->setObjectName( "_info" );
   _verifier = new Verifier( _editor, "KRegExpEditorPrivate::_verifier" );
   connect( _verifier, SIGNAL( textChanged() ), this, SLOT( maybeVerify() ) );
-  _verifier->setWhatsThis( i18n("Type in some text in this window, and see what the regular expression you have developed matches.<p>"
-                                   "Each second match will be colored in red and each other match will be colored blue, simply so you "
-                                   "can distinguish them from each other.<p>"
-                                   "If you select part of the regular expression in the editor window, then this part will be "
-                                   "highlighted - This allows you to <i>debug</i> your regular expressions") );
+  _verifier->setWhatsThis( i18n("<p>Type in some text in this window, and see what the regular expression you have developed matches.</p>"
+                                   "<p>Each second match will be colored in red and each other match will be colored blue, simply so you "
+                                   "can distinguish them from each other.</p>"
+                                   "<p>If you select part of the regular expression in the editor window, then this part will be "
+                                   "highlighted - This allows you to <i>debug</i> your regular expressions</p>") );
 
   _editor->hide();
   _editor->setSizes( Q3ValueList<int>() << _editor->height()/2 << _editor->height()/2 );
@@ -182,11 +182,11 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
   _regexpEdit = new QLineEdit( this );
   label->setBuddy( _regexpEdit );
   layout->addWidget( _regexpEdit );
-  _regexpEdit->setWhatsThis( i18n( "This is the regular expression in ASCII syntax. You are likely only "
+  _regexpEdit->setWhatsThis( i18n( "<p>This is the regular expression in ASCII syntax. You are likely only "
 				      "to be interested in this if you are a programmer, and need to "
-				      "develop a regular expression using QRegExp.<p>"
-                                      "You may develop your regular expression both by using the graphical "
-				      "editor, and by typing the regular expression in this line edit.") );
+				      "develop a regular expression using QRegExp.</p>"
+                                      "<p>You may develop your regular expression both by using the graphical "
+				      "editor, and by typing the regular expression in this line edit.</p>") );
 
 #ifdef QT_ONLY
   QPixmap pix( "icons/error.png" );

@@ -21,9 +21,9 @@
 #include "kmultiformlistboxfactory.h"
 #include "kmultiformlistbox-shower.h"
 #include "kmultiformlistboxentry.h"
-#include <q3ptrlist.h>
+#include <Qt3Support/Q3PtrList>
 #include <QLayout>
-#include <q3scrollview.h>
+#include <Qt3Support/Q3ScrollView>
 
 #ifdef QT_ONLY
   #include "compat.h"

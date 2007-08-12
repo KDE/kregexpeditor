@@ -16,12 +16,6 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include "indexWindow.moc"
-#endif
-
 #include "indexWindow.h"
 #include <iostream>
 #include <QLayout>
@@ -29,6 +23,13 @@
 #include <QHideEvent>
 #include <QHBoxLayout>
 #include <QApplication>
+
+#ifdef QT_ONLY
+  #include "compat.h"
+#else
+  #include "indexWindow.moc"
+#endif
+
 indexWindow::indexWindow() : QWidget(0,Qt::WStyle_Customize | Qt::WType_Popup)
 {
   lb = new Q3ListBox(this);

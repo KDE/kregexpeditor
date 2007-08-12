@@ -68,11 +68,11 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   connect( _selectBut, SIGNAL(clicked()), this, SLOT(slotSetNonKeepMode()) );
 
   _selectBut->setToolTip( i18n("Selection tool"));
-  _selectBut->setWhatsThis( i18n("<qt>This will change the state of the editor to <i>selection state</i>.<p>"
-                             "In this state you will not be inserting <i>regexp items</i>, but instead select them. "
-                             "To select a number of items, press down the left mouse button and drag it over the items.<p>"
-                             "When you have selected a number of items, you may use cut/copy/paste. These functions are "
-                             "found in the right mouse button menu.</qt>"));
+  _selectBut->setWhatsThis( i18n("<p>This will change the state of the editor to <i>selection state</i>.</p>"
+                             "<p>In this state you will not be inserting <i>regexp items</i>, but instead select them. "
+                             "To select a number of items, press down the left mouse button and drag it over the items.</p>"
+                             "<p>When you have selected a number of items, you may use cut/copy/paste. These functions are "
+                             "found in the right mouse button menu.</p>"));
 
   // Insert buttons.
   DoubleClickButton* but;
@@ -84,9 +84,9 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
 
 
   but = insert(CHARSET, "characters", i18n("A single character specified in a range"),
-               i18n("<qt>This will match a single character from a predefined range.<p>"
-                    "When you insert this widget a dialog box will appear, which lets you specify "
-                    "which characters this <i>regexp item</i> will match.</qt>") );
+               i18n("<p>This will match a single character from a predefined range.</p>"
+                    "<p>When you insert this widget a dialog box will appear, which lets you specify "
+                    "which characters this <i>regexp item</i> will match.</p>") );
   layout->addWidget( but );
 
 
@@ -101,7 +101,7 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
                     "The number of times to repeat may be specified using ranges. e.g. You may specify "
                     "that it should match from 2 to 4 times, that it should match exactly 5 times, or "
                     "that it should match at least one time.<p>"
-                    "Examples:<br>"
+                    "Examples:<br/>"
                     "If you specify that it should match <i>any</i> time, and the content it surrounds "
                     "is <tt>abc</tt>, then this <i>regexp item</i> will match the empty string, "
                     "the string <tt>abc</tt>, the string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, "
@@ -110,9 +110,9 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
 
 
   but = insert(ALTN, "altn", i18n("Alternatives"),
-               i18n("<qt>This <i>regexp item</i> will match any of its alternatives.</p>"
-                    "You specify alternatives by placing <i>regexp items</i> on top of "
-                    "each other inside this widget.</qt>") );
+               i18n("<p>This <i>regexp item</i> will match any of its alternatives.</p>"
+                    "<p>You specify alternatives by placing <i>regexp items</i> on top of "
+                    "each other inside this widget.</p>") );
   layout->addWidget( but );
 
 
