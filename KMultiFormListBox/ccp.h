@@ -20,6 +20,10 @@
 #ifndef __ccp
 #define __ccp
 
+#include <QObject>
+
+class KMultiFormListBoxMultiVisible;
+class KMultiFormListBoxEntry;
 
 /**
    Helper class for @ref KMultiFormListBoxMultiVisible which is used to install EventFilters.

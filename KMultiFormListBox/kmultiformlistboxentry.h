@@ -61,10 +61,10 @@ public:
   // used when showing the fast-search menu available from the `Idx' button.
   virtual QString idxString() { return QString::fromLatin1(""); }
 
-public slots:
+public Q_SLOTS:
   void acceptIndexButton();
 
-signals:
+Q_SIGNALS:
   void gotoIndex(KMultiFormListBoxEntry *);
 
 };

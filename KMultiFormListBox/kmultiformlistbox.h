@@ -94,7 +94,7 @@ public:
   /** reads data in from stream */
   void fromStream( QDataStream& stream );
 
-public slots:
+public Q_SLOTS:
 
   /**
 		 Adds an empty element to the KMultiFormListBox.
