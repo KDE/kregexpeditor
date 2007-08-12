@@ -41,7 +41,7 @@
   @internal
 **/
 class CCP :public  QObject {
-
+  Q_OBJECT
 private:
   friend class KMultiFormListBoxMultiVisible;
   /**
