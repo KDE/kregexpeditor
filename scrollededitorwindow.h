@@ -60,14 +60,14 @@ protected slots:
 
     signals:
     /**
-       This signal is emited when the user has completed an editing
+       This signal is emitted when the user has completed an editing
        action. The application may chose to call @ref slotDoSelect as a
        consequence to reset to selection mode.
     */
     void doneEditing();
 
     /**
-       This signal is emited whenever a change has taked place in the editor widget
+       This signal is emitted whenever a change has taked place in the editor widget
     */
     void change();
 

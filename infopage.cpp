@@ -68,7 +68,7 @@ void InfoPage::setSource ( const QString& name )
 #ifdef QT_ONLY
     mimeSourceFactory()->setFilePath( QStringList() << QString::fromLatin1("manual/"));
     QString nm = name;
-    if ( nm.endsWith("/") )
+    if ( nm.endsWith('/') )
         nm = nm.left( nm.length()-1);
 
     if ( nm.startsWith("mailto:") ) {
