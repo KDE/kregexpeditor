@@ -67,7 +67,7 @@ protected slots:
     void doneEditing();
 
     /**
-       This signal is emitted whenever a change has taked place in the editor widget
+       This signal is emitted whenever a change has taken place in the editor widget
     */
     void change();
 
