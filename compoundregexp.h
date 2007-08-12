@@ -26,7 +26,7 @@
 class CompoundRegExp :public RegExp
 {
 public:
-	CompoundRegExp( bool selected, const QString& title = QString(),
+    explicit CompoundRegExp( bool selected, const QString& title = QString(),
                     const QString& description = QString(),
                     bool hidden = false, bool allowReplace = false, RegExp* child = 0);
 

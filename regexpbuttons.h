@@ -31,7 +31,7 @@ class RegExpButtons :public Q3DockWindow
     Q_OBJECT
 
 public:
-    RegExpButtons( QWidget *parent, const char *name = 0 );
+    explicit RegExpButtons( QWidget *parent, const char *name = 0 );
     void setFeatures( int features );
 
 protected:

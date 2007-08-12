@@ -32,7 +32,7 @@ class UserDefinedRegExps :public Q3DockWindow
 Q_OBJECT
 
 public:
-  UserDefinedRegExps( QWidget *parent, const char *name = 0 );
+  explicit UserDefinedRegExps( QWidget *parent, const char *name = 0 );
   const Q3PtrList<CompoundRegExp> regExps() const;
 
 public slots:

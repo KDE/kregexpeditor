@@ -46,7 +46,7 @@ public:
                   ButtonCode defaultButton,
                   QWidget *parent=0, const char *name=0, bool modal=true );
 
-    KDialogBase( QWidget* parent, const char* name = 0, bool modal = true,
+    explicit KDialogBase( QWidget* parent, const char* name = 0, bool modal = true,
                  const QString& caption = QString(),
                  int buttonMask = 0 );
 

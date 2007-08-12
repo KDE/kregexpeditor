@@ -27,7 +27,7 @@
 class TextRegExp :public RegExp
 {
 public:
-	TextRegExp( bool selected, QString text = QString());
+    explicit TextRegExp( bool selected, QString text = QString());
 
     virtual bool check( ErrorMap&, bool first, bool last );
     virtual int precedence() const {

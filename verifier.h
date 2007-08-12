@@ -26,7 +26,7 @@ class Verifier :public Q3TextEdit
 {
 Q_OBJECT
 public:
-    Verifier( QWidget* parent, const char* name = 0 );
+    explicit Verifier( QWidget* parent, const char* name = 0 );
     void setHighlighter( RegexpHighlighter* );
 
 public slots:

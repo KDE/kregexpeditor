@@ -29,7 +29,7 @@
 class MultiContainerWidget :public RegExpWidget
 {
 public:
-  MultiContainerWidget( RegExpEditorWindow* editorWindow, QWidget* parent = 0);
+  explicit MultiContainerWidget( RegExpEditorWindow* editorWindow, QWidget* parent = 0);
   virtual bool hasSelection() const;
   virtual void clearSelection();
   virtual void deleteSelection();
