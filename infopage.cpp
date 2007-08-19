@@ -45,7 +45,7 @@ InfoPage::InfoPage( QWidget* parent )
 
               "<h2>What is a regular expression?</h2>"
               "If you do not know what a regular expression is, then it might be a good idea "
-              "to read <a href=\"doc://whatIsARegExp\">the introduction to regular expressions</a>.<p>");
+              "to read <a href=\"doc://whatIsARegExp\">the introduction to regular expressions</a>.<br />");
 
 #ifdef HOUSEOFFUSION
     txt += tr("<h2>House Of Fusion note</h2>"

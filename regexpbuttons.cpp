@@ -96,11 +96,11 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
 
   but = insert(REPEAT, "repeat", i18n("Repeated content"),
                i18n("<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
-                    "a specified number of times.<p>"
+                    "a specified number of times.<br />"
                     "The number of times to repeat may be specified using ranges. e.g. You may specify "
                     "that it should match from 2 to 4 times, that it should match exactly 5 times, or "
-                    "that it should match at least one time.<p>"
-                    "Examples:<br/>"
+                    "that it should match at least one time.<br />"
+                    "Examples:<br />"
                     "If you specify that it should match <i>any</i> time, and the content it surrounds "
                     "is <tt>abc</tt>, then this <i>regexp item</i> will match the empty string, "
                     "the string <tt>abc</tt>, the string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, "
@@ -120,7 +120,7 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
                     "<ul><li>It makes it possible for you to collapse a huge <i>regexp item</i> into "
                     "a small box. This makes it easier for you to get an overview of large "
                     "<i>regexp items</i>. This is especially useful if you load a predefined <i>regexp item</i> "
-                    "you perhaps don't care about the inner workings of.") );
+                    "you perhaps don't care about the inner workings of.</qt>") );
   layout->addWidget( but );
 
 
