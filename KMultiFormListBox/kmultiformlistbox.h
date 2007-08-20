@@ -22,7 +22,7 @@
 #include "kmultiformlistbox-shower.h"
 #include "kmultiformlistboxentry.h"
 #include <Qt3Support/Q3PtrList>
-#include <QLayout>
+#include <QtGui/QLayout>
 #include <Qt3Support/Q3ScrollView>
 
 #ifdef QT_ONLY
