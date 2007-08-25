@@ -17,8 +17,8 @@
  **/
 #include "multicontainerwidget.h"
 #include "dragaccepter.h"
-//Added by qt3to4:
-#include <Q3MemArray>
+
+#include <QtCore/QVector>
 
 MultiContainerWidget::MultiContainerWidget( RegExpEditorWindow* editorWindow,
                                             QWidget* parent)
@@ -109,8 +109,8 @@ bool MultiContainerWidget::updateSelection(bool parentSelected)
 {
   bool changed = false;
   bool isSel = _isSelected;
-  Q3MemArray<bool> oldState(_children.count());
-  Q3MemArray<bool> newState(_children.count());
+  QVector<bool> oldState(_children.count());
+  QVector<bool> newState(_children.count());
 
   for (int i = 0; i< (int)_children.count();i++) {
     oldState[i] = _children.at(i)->isSelected();
