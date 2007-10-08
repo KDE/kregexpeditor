@@ -7,26 +7,26 @@ add_subdirectory( KMultiFormListBox )
 add_subdirectory( predefined ) 
 
 include_directories(
-	${CMAKE_SOURCE_DIR}/kregexpeditor/KWidgetStreamer/ 
-	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/ )
+	KWidgetStreamer/ 
+	KMultiFormListBox/ )
 
 add_definitions (-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS)
 
 ########### next target ###############
 set(libkmultiformlistbox_SRCS 
-	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/ccp.cpp 
-	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/kmultiformlistboxentry.cpp 
-	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/kmultiformlistbox.cpp 
-	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/kmultiformlistbox-multivisible.cpp 
-	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/kmultiformlistboxfactory.cpp 
-	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/indexWindow.cpp 
-	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/kmultiformlistbox-windowed.cpp 
-	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/widgetwindow.cpp 
-	${CMAKE_SOURCE_DIR}/kregexpeditor/KMultiFormListBox/windowlistboxitem.cpp
+	KMultiFormListBox/ccp.cpp 
+	KMultiFormListBox/kmultiformlistboxentry.cpp 
+	KMultiFormListBox/kmultiformlistbox.cpp 
+	KMultiFormListBox/kmultiformlistbox-multivisible.cpp 
+	KMultiFormListBox/kmultiformlistboxfactory.cpp 
+	KMultiFormListBox/indexWindow.cpp 
+	KMultiFormListBox/kmultiformlistbox-windowed.cpp 
+	KMultiFormListBox/widgetwindow.cpp 
+	KMultiFormListBox/windowlistboxitem.cpp
 )
 
 set(libkwidgetstreamer_SRCS 
-	${CMAKE_SOURCE_DIR}/kregexpeditor/KWidgetStreamer/kwidgetstreamer.cpp
+	KWidgetStreamer/kwidgetstreamer.cpp
 	)
 
 set(kregexpeditorcommon_LIB_SRCS ${libkmultiformlistbox_SRCS} ${libkwidgetstreamer_SRCS}
