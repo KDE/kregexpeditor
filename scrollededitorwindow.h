@@ -33,7 +33,7 @@ class RegExpScrolledEditorWindow :public QWidget
 {
     Q_OBJECT
 public:
-    RegExpScrolledEditorWindow( QWidget *parent = 0);
+    RegExpScrolledEditorWindow( QWidget *parent );
     RegExp* regExp();
 
 private:
