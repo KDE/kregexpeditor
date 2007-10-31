@@ -108,7 +108,7 @@ KMultiFormListBoxEntryList KMultiFormListBoxWindowed::elements()
   return list;
 }
 
-void KMultiFormListBoxWindowed::delElement(QWidget */*elm*/)
+void KMultiFormListBoxWindowed::delElement(QWidget * /*elm*/)
 {
     // kDebug() << "KMultiFormListBoxWindowed::delElement NOT YET IMPLEMENTED";
 	// TODO

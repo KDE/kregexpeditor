@@ -132,8 +132,7 @@ void RegExpWidget::mousePressEvent ( QMouseEvent* event )
     }
 
     QMouseEvent ev( event->type(), mapTo(_editorWindow, event->pos()),
-                    event->button(), Qt::MouseButtons(event->state() & Qt::MouseButtonMask),
-		    event->modifiers());
+                    event->button(), event->buttons(), event->modifiers());
     QApplication::sendEvent( _editorWindow, &ev );
   }
   else if ( event->button() == Qt::RightButton ) {

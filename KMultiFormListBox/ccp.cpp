@@ -58,7 +58,7 @@ bool CCP::eventFilter(QObject *, QEvent *event)
 {
   if (event->type() != QEvent::MouseButtonPress ||
       ((QMouseEvent *) event)->button() != Qt::RightButton ||
-      ((QMouseEvent *) event)->state() != Qt::ControlModifier) {
+      (((QMouseEvent *) event)->modifiers() & Qt::ControlModifier) == 0) {
     return false;
   }
 

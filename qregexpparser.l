@@ -114,12 +114,10 @@ SpecialEsc \\[afnrtv]
 %%
 
 void setParseData( QString qstr ) {  
-  const char* cstr;
-  if ( qstr.isNull() ) 
-    cstr = "";
-  else
-    cstr = qstr.latin1();
-  yy_switch_to_buffer( yy_scan_string( cstr ) );
+  QByteArray cstr;
+  if ( !qstr.isNull() )
+    cstr = qstr.toLatin1();
+  yy_switch_to_buffer( yy_scan_string( cstr.constData() ) );
 }
 
 /**
@@ -179,7 +177,7 @@ RegExp* parseCharClass( char* match )
   QString txt = QString::fromLocal8Bit( match );
   txt = txt.mid(1,txt.length()-2);
   
-  unsigned int i = 0;
+  int i = 0;
   QChar ch = txt.at(i++);
   QString pendingChar;
   QString thisChar;
