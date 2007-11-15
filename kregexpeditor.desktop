@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=KRegExpEditor
 Name[cs]=Editor regulárních výrazů
 Name[et]=Regulaaravaldiste redaktor
@@ -13,7 +12,7 @@ Name[wa]=Aspougneu d' erîlêyès ratourneures
 Name[x-test]=xxKRegExpEditorxx
 Name[zh_TW]=正規表示式編輯器
 Exec=kregexpeditor
-DocPath=KRegExpEditor/index.html
+X-DocPath=KRegExpEditor/index.html
 GenericName=Regular Expression Editor
 GenericName[ar]=محرّر التعابير النظامية
 GenericName[br]=Aozer an troiennoù reolataet
