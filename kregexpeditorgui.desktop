@@ -55,5 +55,5 @@ Name[xh]=RegExp Umhleli we Widget
 Name[zh_CN]=正则表达式编辑器部件
 Name[zh_TW]=正規表示式編輯小程式
 X-KDE-Library=libkregexpeditorgui
-X-KDE-InitialPreference=2
+InitialPreference=2
 X-KDE-ServiceTypes=KRegExpEditor/KRegExpEditor
