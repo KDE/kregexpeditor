@@ -182,6 +182,7 @@ RepeatRangeWindow::RepeatRangeWindow( QWidget* parent)
   setSpacing( 6 );
 
   _group = new Q3VButtonGroup( i18n("Times to Match"), this, "groupbox" );
+  _group->setExclusive(true);
 
   // Any number of times
   QRadioButton* radioBut = new QRadioButton(i18n("Any number of times (including zero times)"),

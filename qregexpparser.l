@@ -304,9 +304,11 @@ RegExp* parseCharClass( char* match )
         charPending = true;
       }
     }
+    if ( i == txt.length() )
+        break;
     ch = txt.at(i++);
   }
-  while ( ch != QChar(']') && i <= txt.length() );
+  while ( ch != QChar(']') );
 
   if ( charPending ) 
     res->addCharacter( pendingChar );
