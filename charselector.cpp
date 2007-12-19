@@ -26,7 +26,6 @@
 
 #include "limitedcharlineedit.h"
 #include "regexpconverter.h"
-#include <QLayout>
 #include <q3widgetstack.h>
 #include <QComboBox>
 //Added by qt3to4:

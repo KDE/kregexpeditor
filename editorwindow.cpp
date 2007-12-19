@@ -32,7 +32,6 @@
 #endif
 
 #include "concwidget.h"
-#include <QLayout>
 #include <qpainter.h>
 #include <q3accel.h>
 #include <qcursor.h>

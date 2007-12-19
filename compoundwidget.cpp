@@ -27,7 +27,6 @@
   #include "compoundwidget.moc"
 #endif
 
-#include <QLayout>
 #include <qcursor.h>
 #include <QLineEdit>
 #include <qpainter.h>

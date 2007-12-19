@@ -28,7 +28,6 @@
 
 #include <stdio.h>
 #include "kregexpeditorprivate.h"
-#include <QLayout>
 #include <QVBoxLayout>
 #include <QFrame>
 #include <QHBoxLayout>

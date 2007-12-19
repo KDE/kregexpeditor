@@ -24,7 +24,6 @@
 #include "textregexp.h"
 #include "selectablelineedit.h"
 
-#include <QLayout>
 #include <QMouseEvent>
 #include <QHBoxLayout>
 #include <QEvent>

@@ -33,8 +33,7 @@
 #include <kmessagebox.h>
 #endif
 
-
-#include <QLayout>
+#include <QBoxLayout>
 
 #include "qtregexpconverter.h"
 #include "emacsregexpconverter.h"

@@ -31,7 +31,6 @@
 #include "regexpconverter.h"
 
 #include <q3buttongroup.h>
-#include <QLayout>
 #include <qsignalmapper.h>
 #include <QPixmap>
 #include <QBoxLayout>

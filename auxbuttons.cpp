@@ -26,7 +26,6 @@
   #include <klocale.h>
 #endif
 
-#include <QLayout>
 
 
 #include <qtoolbutton.h>

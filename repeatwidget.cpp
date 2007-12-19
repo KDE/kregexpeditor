@@ -31,7 +31,6 @@
 #include <qcursor.h>
 #include <QSpinBox>
 #include <qradiobutton.h>
-#include <QLayout>
 #include <q3grid.h>
 #include <Q3VButtonGroup>
 

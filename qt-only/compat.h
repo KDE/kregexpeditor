@@ -18,9 +18,7 @@
 
 #ifndef COMPAT_H
 #define COMPAT_H
-#include <QObject>
 #include <qmessagebox.h>
-#include <QLayout>
 #include <QPushButton>
 #include <qinputdialog.h>
 #include <qframe.h>

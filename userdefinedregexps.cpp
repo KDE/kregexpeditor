@@ -37,7 +37,6 @@
 #include <QVBoxLayout>
 #include "widgetfactory.h"
 #include "compoundregexp.h"
-#include <QLayout>
 #include <QLabel>
 
 UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const char *name )
