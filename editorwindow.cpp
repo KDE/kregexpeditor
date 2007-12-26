@@ -339,7 +339,7 @@ void RegExpEditorWindow::showRMBMenu( bool enableCutCopy )
         _menu->insertItem(getIcon(QString::fromLocal8Bit("edit-paste")),
                           i18n("&Paste"), PASTE);
         _menu->addSeparator();
-        _menu->insertItem(getIcon(QString::fromLocal8Bit("object-edit")),
+        _menu->insertItem(getIcon(QString::fromLocal8Bit("document-properties")),
                           i18n("&Edit"), EDIT);
         _menu->insertItem(getIcon(QString::fromLocal8Bit("document-save")),
                           i18n("&Save Regular Expression..."), SAVE);
