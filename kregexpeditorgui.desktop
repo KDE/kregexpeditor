@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=RegExp Editor Widget
+Name[el]=Γραφικό συστατικό επεξεργαστή κανονικών εκφράσεων
 X-KDE-Library=libkregexpeditorgui
 InitialPreference=2
 X-KDE-ServiceTypes=KRegExpEditor/KRegExpEditor
