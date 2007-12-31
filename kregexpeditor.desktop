@@ -1,9 +1,11 @@
 [Desktop Entry]
 Name=KRegExpEditor
+Name[sv]=Kregexpeditor
 Exec=kregexpeditor
 X-DocPath=KRegExpEditor/index.html
 GenericName=Regular Expression Editor
 GenericName[el]=Επεξεργαστής κανονικών εκφράσεων
+GenericName[sv]=Editor för reguljära uttryck
 Terminal=false
 Type=Application
 X-KDE-StartupNotify=true
