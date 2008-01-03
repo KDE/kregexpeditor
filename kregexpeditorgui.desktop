@@ -2,6 +2,9 @@
 Type=Service
 Name=RegExp Editor Widget
 Name[el]=Γραφικό συστατικό επεξεργαστή κανονικών εκφράσεων
+Name[et]=Regulaaravaldiste redaktorividin
+Name[pt]=Item de Edição de Expressões Regulares
+Name[pt_BR]=Item de Edição de Expressões Regulares
 Name[sv]=Grafisk komponent för att redigera reguljära uttryck
 X-KDE-Library=libkregexpeditorgui
 InitialPreference=2
