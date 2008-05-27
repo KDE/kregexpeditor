@@ -110,7 +110,7 @@ kde4_add_executable(kregexpeditor ${kregexpeditor_SRCS})
 
 target_link_libraries(kregexpeditor   ${KDE4_KDE3SUPPORT_LIBS} )
 
-install(TARGETS kregexpeditor  DESTINATION ${BIN_INSTALL_DIR} )
+install(TARGETS kregexpeditor  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 
 ########### install files ###############
