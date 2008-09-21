@@ -1,25 +1,16 @@
 [Desktop Entry]
 Name=KRegExpEditor
 Name[sv]=Kregexpeditor
-Name[x-test]=xxKRegExpEditorxx
 Exec=kregexpeditor
 X-DocPath=KRegExpEditor/index.html
 GenericName=Regular Expression Editor
 GenericName[el]=Επεξεργαστής κανονικών εκφράσεων
 GenericName[es]=Editor de expresiones regulares
 GenericName[et]=Regulaaravaldiste redaktor
-GenericName[fr]=Outil de manipulation d'expression rationnelle
-GenericName[ga]=Eagarthóir Slonn Ionadaíochta
-GenericName[gl]=Editor de expresións regulares
-GenericName[hi]=रेगुलर एक्सप्रेशन संपादक
-GenericName[km]=កម្មវិធី​និពន្ធ​កន្សោម​ធម្មតា
-GenericName[ko]=정규 표현식 편집기
+GenericName[nl]=Reguliere Expressie Bewerker
 GenericName[pt]=Editor de Expressões Regulares
-GenericName[pt_BR]=Editor de Expressões Regulares
-GenericName[ro]=Editor de expresii regulate
+GenericName[pt_BR]=Editor de expressões regulares
 GenericName[sv]=Editor för reguljära uttryck
-GenericName[uk]=Редактор формальних виразів
-GenericName[x-test]=xxRegular Expression Editorxx
 Terminal=false
 Type=Application
 X-KDE-StartupNotify=true
