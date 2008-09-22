@@ -1,19 +1,13 @@
 [Desktop Entry]
 Type=Service
 Name=RegExp Editor Widget
-Name[el]=Γραφικό συστατικό επεξεργασίας κανονικών εκφράσεων
-Name[es]=Componente de edición de RegExp
-Name[et]=Regulaaravaldiste redaktori vidin
-Name[fr]=Élément graphique de manipulation de RegExp
-Name[ga]=Giuirléid Eagarthóireachta Slonn Ionadaíochta
-Name[gl]=Widget de edición de expresións regulares
-Name[km]=ធាតុក្រាហ្វិក​របស់​កម្មវិធី​និពន្ធ RegExp
-Name[ko]=정규 표현식 편집기 위젯
-Name[pt]=Item Editor de Expressões Regulares
-Name[pt_BR]=Widget Editor de RegExp
+Name[el]=Γραφικό συστατικό επεξεργαστή κανονικών εκφράσεων
+Name[es]=Componente del editor de expresiones regulares
+Name[et]=Regulaaravaldiste redaktorividin
+Name[nl]=RegExp Editor-widget
+Name[pt]=Item de Edição de Expressões Regulares
+Name[pt_BR]=Widget do Editor de expressões regulares
 Name[sv]=Grafisk komponent för att redigera reguljära uttryck
-Name[uk]=Віджет редактора RegExp
-Name[x-test]=xxRegExp Editor Widgetxx
 X-KDE-Library=libkregexpeditorgui
 InitialPreference=2
 X-KDE-ServiceTypes=KRegExpEditor/KRegExpEditor
