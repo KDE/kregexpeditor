@@ -12,6 +12,7 @@ Name[ko]=정규 표현식 편집기 위젯
 Name[pt]=Item Editor de Expressões Regulares
 Name[pt_BR]=Widget Editor de RegExp
 Name[sv]=Grafisk komponent för att redigera reguljära uttryck
+Name[tr]=RegExp Düzenleme Programcığı
 Name[uk]=Віджет редактора RegExp
 Name[x-test]=xxRegExp Editor Widgetxx
 X-KDE-Library=libkregexpeditorgui
