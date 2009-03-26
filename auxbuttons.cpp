@@ -31,54 +31,52 @@
 #include <qtoolbutton.h>
 //Added by qt3to4:
 #include <QBoxLayout>
-#include <Q3WhatsThis>
+#include <QWhatsThis>
 #include "util.h"
 
 AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)
-  :Q3DockWindow( Q3DockWindow::InDock, parent, name)
+  : QToolBar(name, parent)
 {
-  QBoxLayout* layout = boxLayout();
-
   _undo = new QToolButton( this );
   _undo->setIcon(  Util::getSystemIconSet(QString::fromLatin1("edit-undo") ) );
-  layout->addWidget( _undo );
+  addWidget( _undo );
   connect( _undo, SIGNAL(clicked()), this, SIGNAL(undo()) );
   _undo->setToolTip( i18n( "Undo" ) );
 
   _redo = new QToolButton( this );
   _redo->setIcon(  Util::getSystemIconSet(QString::fromLatin1("edit-redo") ) );
-  layout->addWidget( _redo );
+  addWidget( _redo );
   connect( _redo, SIGNAL(clicked()), this, SIGNAL(redo()) );
   _redo->setToolTip( i18n( "Redo" ) );
 
   _cut = new QToolButton( this );
   _cut->setIcon(  Util::getSystemIconSet(QString::fromLatin1("edit-cut") ) );
-  layout->addWidget( _cut );
+  addWidget( _cut );
   connect( _cut, SIGNAL(clicked()), this, SIGNAL(cut()) );
   _cut->setToolTip( i18n( "Cut" ) );
 
   _copy = new QToolButton( this );
   _copy->setIcon(  Util::getSystemIconSet(QString::fromLatin1("edit-copy") ) );
-  layout->addWidget( _copy );
+  addWidget( _copy );
   connect( _copy, SIGNAL(clicked()), this, SIGNAL(copy()) );
   _copy->setToolTip( i18n( "Copy" ) );
 
   _paste = new QToolButton( this );
   _paste->setIcon( Util::getSystemIconSet(QString::fromLatin1("edit-paste")) );
-  layout->addWidget( _paste );
+  addWidget( _paste );
   connect( _paste, SIGNAL(clicked()), this, SIGNAL(paste()) );
   _paste->setToolTip( i18n( "Paste" ) );
 
   _save = new QToolButton( this );
   _save->setIcon( Util::getSystemIconSet(QString::fromLatin1("document-save")) );
-  layout->addWidget( _save );
+  addWidget( _save );
   connect( _save, SIGNAL(clicked()), this, SIGNAL(save()) );
   _save->setToolTip( i18n( "Save" ) );
 
 
   QToolButton* button = new QToolButton(this);
-  button->setIcon(static_cast<QIcon> (Util::getSystemIcon( QString::fromLatin1("help-whatsthis") ) ));
-  layout->addWidget( button );
+  button->setIcon(static_cast<QIcon> (Util::getSystemIcon( QString::fromLatin1("help-contextual") ) ));
+  addWidget( button );
   connect(button, SIGNAL(clicked()), this, SLOT(slotEnterWhatsThis()));
 
   _undo->setEnabled( false );
@@ -88,7 +86,7 @@ AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)
 
 void AuxButtons::slotEnterWhatsThis()
 {
-  Q3WhatsThis::enterWhatsThisMode ();
+  QWhatsThis::enterWhatsThisMode();
 }
 
 void AuxButtons::slotCanUndo( bool b )

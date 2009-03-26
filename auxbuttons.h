@@ -18,13 +18,13 @@
 #ifndef AUXBUTTONS_H
 #define AUXBUTTONS_H
 
-#include <q3dockwindow.h>
 //Added by qt3to4:
 #include <QLabel>
+#include <QToolBar>
 class QLabel;
 class QToolButton;
 
-class AuxButtons :public Q3DockWindow
+class AuxButtons :public QToolBar
 {
     Q_OBJECT
 

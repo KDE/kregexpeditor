@@ -5,6 +5,7 @@ ADD_DEFINITIONS( -DQT_NO_CAST_ASCII )
 add_subdirectory( KWidgetStreamer ) 
 add_subdirectory( KMultiFormListBox ) 
 add_subdirectory( predefined ) 
+add_subdirectory( pics )
 
 include_directories(
 	KWidgetStreamer/ 

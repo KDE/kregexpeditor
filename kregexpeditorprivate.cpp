@@ -56,24 +56,25 @@
 
 
 KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
-    : QWidget(parent), _updating( false ), _autoVerify( true ), _matchGreedy( false )
+    : QMainWindow(parent), _updating( false ), _autoVerify( true ), _matchGreedy( false )
 {
   setMinimumSize(730,300);
-  Q3DockArea* area = new Q3DockArea( Qt::Horizontal, Q3DockArea::Normal, this );
-  area->setMinimumSize(2,2);
-  Q3DockArea* verArea1 = new Q3DockArea( Qt::Vertical, Q3DockArea::Normal, this );
-  verArea1->setMinimumSize(2,2);
-  Q3DockArea* verArea2 = new Q3DockArea( Qt::Vertical, Q3DockArea::Reverse, this );
-  verArea2->setMinimumSize(2,2);
+  setWindowFlags(Qt::Widget);
 
   // The DockWindows.
-  _regExpButtons = new RegExpButtons( area, "KRegExpEditorPrivate::regExpButton" );
-  _verifyButtons = new VerifyButtons( area, "KRegExpEditorPrivate::VerifyButtons" );
-  _auxButtons = new AuxButtons( area, "KRegExpEditorPrivate::AuxButtons" );
-  _userRegExps = new UserDefinedRegExps( verArea1, "KRegExpEditorPrivate::userRegExps" );
-  _userRegExps->setResizeEnabled( true );
+  _regExpButtons = new RegExpButtons( /*area*/this, "KRegExpEditorPrivate::regExpButton" );
+  addToolBar(Qt::TopToolBarArea, _regExpButtons);
+
+  _verifyButtons = new VerifyButtons( /*area*/this, "KRegExpEditorPrivate::VerifyButtons" );
+  addToolBar(Qt::TopToolBarArea, _verifyButtons);
+  
+  _auxButtons = new AuxButtons( /*area*/this, "KRegExpEditorPrivate::AuxButtons" );
+  addToolBar(Qt::TopToolBarArea, _auxButtons);
+  
+  _userRegExps = new UserDefinedRegExps( /*verArea1*/this, /*"KRegExpEditorPrivate::userRegExps"*/qPrintable(i18n("Compound regular expression:")) );
   _userRegExps->setWhatsThis( i18n( "In this window you will find predefined regular expressions. Both regular expressions "
                                        "you have developed and saved, and regular expressions shipped with the system." ));
+  addDockWidget(Qt::LeftDockWidgetArea, _userRegExps);
 
   // Editor window
   _editor = new QSplitter( Qt::Vertical, this );
@@ -86,6 +87,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
 
   _info = new InfoPage( this );
   _info->setObjectName( "_info" );
+  setCentralWidget(_info);
   _verifier = new Verifier( _editor, "KRegExpEditorPrivate::_verifier" );
   connect( _verifier, SIGNAL( textChanged() ), this, SLOT( maybeVerify() ) );
   _verifier->setWhatsThis( i18n("<p>Type in some text in this window, and see what the regular expression you have developed matches.</p>"
@@ -96,19 +98,6 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
 
   _editor->hide();
   _editor->setSizes( Q3ValueList<int>() << _editor->height()/2 << _editor->height()/2 );
-
-  QVBoxLayout *topLayout = new QVBoxLayout( this );
-  topLayout->setObjectName( "KRegExpEditorPrivate::topLayout" );
-  topLayout->setSpacing( 6 );
-  topLayout->setMargin( 0 );
-  topLayout->addWidget( area );
-  QHBoxLayout* rows = new QHBoxLayout; // I need to cal addLayout explicit to get stretching right.
-  topLayout->addLayout( rows, 1 );
-
-  rows->addWidget( verArea1 );
-  rows->addWidget( _editor, 1 );
-  rows->addWidget( _info, 1 );
-  rows->addWidget( verArea2 );
 
   // Connect the buttons
   connect( _regExpButtons, SIGNAL( clicked( int ) ),   _scrolledEditorWindow, SLOT( slotInsertRegExp( int ) ) );
@@ -168,26 +157,31 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
 
 
   // Line Edit
-  QHBoxLayout* layout = new QHBoxLayout();
-  topLayout->addItem( layout );
+  QDockWidget* editDock = new QDockWidget(i18n("ASCII syntax:"), this);
+  editDock->setFeatures(QDockWidget::NoDockWidgetFeatures);
+  addDockWidget(Qt::BottomDockWidgetArea, editDock);
+  QWidget* editDockWidget = new QWidget(editDock);
+  editDock->setWidget(editDockWidget);
+  QHBoxLayout* layout = new QHBoxLayout(editDockWidget);
+  //topLayout->addItem( layout );
   layout->setSpacing( 6 );
-  QLabel* label = new QLabel( i18n("ASCII synta&x:"), this );
-  layout->addWidget( label );
-  clearButton = new QToolButton( this );
+  //QLabel* label = new QLabel( i18n("ASCII synta&x:"), editDockWidget );
+  //layout->addWidget( label );
+  clearButton = new QToolButton( editDockWidget );
   const QString icon( QString::fromLatin1( QApplication::isRightToLeft() ? "edit-clear-locationbar-rtl" : "edit-clear-locationbar-ltr" ) );
   KIcon clearIcon( icon );
   clearButton->setIcon( clearIcon );
   layout->addWidget( clearButton );
   clearButton->setToolTip( i18n("Clear expression") );
-  _regexpEdit = new QLineEdit( this );
-  label->setBuddy( _regexpEdit );
+  _regexpEdit = new QLineEdit( editDockWidget );
+  //label->setBuddy( _regexpEdit );
   layout->addWidget( _regexpEdit );
   _regexpEdit->setWhatsThis( i18n( "<p>This is the regular expression in ASCII syntax. You are likely only "
 				      "to be interested in this if you are a programmer, and need to "
 				      "develop a regular expression using QRegExp.</p>"
                                       "<p>You may develop your regular expression both by using the graphical "
 				      "editor, and by typing the regular expression in this line edit.</p>") );
-
+  
 #ifdef QT_ONLY
   QPixmap pix( "icons/error.png" );
 #else
@@ -215,6 +209,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
   accel->connectItem( accel->insertItem( Qt::CTRL+Qt::Key_R ), this, SLOT( slotRedo() ) );
 
   setSyntax( QString::fromLatin1( "Qt" ) );
+  
 }
 
 QString KRegExpEditorPrivate::regexp()
@@ -312,6 +307,7 @@ void KRegExpEditorPrivate::slotUndo()
 void KRegExpEditorPrivate::slotShowEditor()
 {
     _info->hide();
+    setCentralWidget(_editor);
     _editor->show();
 }
 
@@ -432,6 +428,7 @@ void KRegExpEditorPrivate::setSyntax( const QString& syntax )
 
 void KRegExpEditorPrivate::showHelp()
 {
+    setCentralWidget(_info);
     _info->show();
     _editor->hide();
 }

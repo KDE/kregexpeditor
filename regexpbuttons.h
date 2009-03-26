@@ -18,15 +18,15 @@
 #ifndef __REGEXPBUTTONS_H
 #define __REGEXPBUTTONS_H
 
-#include <q3dockwindow.h>
+#include <QToolBar>
 #include "widgetfactory.h"
 class DoubleClickButton;
-class Q3ButtonGroup;
+class QButtonGroup;
 class QToolButton;
 class QSignalMapper;
 
 
-class RegExpButtons :public Q3DockWindow
+class RegExpButtons : public QToolBar
 {
     Q_OBJECT
 
@@ -50,7 +50,7 @@ signals:
     void doSelect();
 
 private:
-    Q3ButtonGroup* _grp;
+    QButtonGroup* _grp;
     QToolButton* _selectBut;
     QToolButton* _wordBoundary;
     QToolButton* _nonWordBoundary;

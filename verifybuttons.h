@@ -18,18 +18,17 @@
 #ifndef VERIFYBUTTONS_H
 #define VERIFYBUTTONS_H
 
-#include <q3dockwindow.h>
 //Added by qt3to4:
 #include <QLabel>
-#include <Q3ValueList>
-#include <Q3PopupMenu>
+#include <QLinkedList>
+#include <QMenu>
 #include "regexpconverter.h"
+#include <QToolBar>
 class QToolButton;
 class QLabel;
 class QAction;
-class Q3PopupMenu;
 
-class VerifyButtons :public Q3DockWindow
+class VerifyButtons :public QToolBar
 {
     Q_OBJECT
 
@@ -67,8 +66,8 @@ protected slots:
 private:
     QToolButton* _verify;
     QLabel* _matches;
-    Q3PopupMenu* _configMenu;
-    int _languageId;
+    QMenu* _configMenu;
+    QMenu* _languages;
 
     // Qt anchors do not work for <pre>...</pre>, thefore scrolling to next/prev match
     // do not work. Enable this when they work.
@@ -77,7 +76,7 @@ private:
     // QToolButton* _next;
     // QToolButton* _last;
 
-    Q3ValueList< QPair<RegExpConverter*,QAction*> > _converters;
+    QLinkedList< QPair<RegExpConverter*,QAction*> > _converters;
 };
 
 

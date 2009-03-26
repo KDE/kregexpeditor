@@ -21,7 +21,7 @@
 #include "compat.h"
 #include <q3filedialog.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QLinkedList>
 #include <QBoxLayout>
 #include "images.h"
 #else
@@ -39,33 +39,30 @@
 #include "emacsregexpconverter.h"
 #include <qtoolbutton.h>
 #include "util.h"
-#include <q3popupmenu.h>
 #include <QActionGroup>
 #include <qaction.h>
 
 VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
-    :Q3DockWindow( Q3DockWindow::InDock, parent, name ), _configMenu( 0 )
+    : QToolBar( name, parent ), _configMenu( 0 )
 {
-    QBoxLayout* layout = boxLayout();
-
     _verify =  new QToolButton(this);
     QIcon icon = Util::getSystemIconSet( QString::fromLatin1("tools-check-spelling"));
     _verify->setIcon( icon );
     _verify->setToolTip( i18n( "Verify regular expression" ) );
     _verify->setWhatsThis( i18n("Shows what part of the regular expression is being matched in the <i>verifier window</i>."
                                    "(The window below the graphical editor window)."));
-    layout->addWidget( _verify );
+    addWidget( _verify );
     connect( _verify, SIGNAL( clicked() ), this, SIGNAL( verify() ) );
 
     QToolButton* button = new QToolButton(this);
     button->setIcon(static_cast<QIcon>( Util::getSystemIcon( QString::fromLatin1("document-open")) ));
-    layout->addWidget( button );
+    addWidget( button );
     connect(button, SIGNAL(clicked()), this, SLOT(loadText()));
     button->setToolTip( i18n("Load text in the verifier window") );
 
     button = new QToolButton(this);
-    button->setIcon(static_cast<QIcon>( Util::getSystemIcon( QString::fromLatin1("package_settings")) ));
-    layout->addWidget( button );
+    button->setIcon(static_cast<QIcon>( Util::getSystemIcon( QString::fromLatin1("configure")) ));
+    addWidget( button );
     connect(button, SIGNAL(clicked()), this, SLOT(configure()));
     button->setToolTip( i18n("Verification Settings") );
 
@@ -115,7 +112,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
 
 
     // -------------------------------------------------- Initialize the config menu
-    _configMenu = new Q3PopupMenu( this, "config menu" );
+    _configMenu = new QMenu("config menu", this);
 
     // Auto Verify
     QAction* autoVerify = new QAction( i18n("Verify on the Fly"), this );
@@ -123,7 +120,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     autoVerify->setChecked( true );
     connect( autoVerify, SIGNAL( toggled( bool ) ), this, SLOT( updateVerifyButton( bool ) ) );
     connect( autoVerify, SIGNAL( toggled( bool ) ), this, SIGNAL( autoVerify( bool ) ) );
-    autoVerify->addTo( _configMenu );
+    _configMenu->addAction(autoVerify);
     autoVerify->setToolTip( i18n( "Toggle on-the-fly verification of regular expression" ) );
     autoVerify->setWhatsThis( i18n( "Enabling this option will make the verifier update for each edit. "
                                     "If the verify window contains much text, or if the regular expression is either "
@@ -133,25 +130,26 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     matchGreedy->setCheckable( true );
     matchGreedy->setChecked( false );
     connect( matchGreedy, SIGNAL( toggled( bool ) ), this, SIGNAL( matchGreedy( bool ) ) );
-    matchGreedy->addTo( _configMenu );
+    _configMenu->addAction(matchGreedy);
     matchGreedy->setToolTip( i18n("Toggle greedy matching when verifying the regular expression.") );
     matchGreedy->setWhatsThis( i18n( "When this option is enabled, the regular expression will be evaluated on a so-called greedy way." ) );
 
     // RegExp Languages
-    Q3PopupMenu* languages = new Q3PopupMenu( _configMenu );
-    _languageId = _configMenu->insertItem( i18n("RegExp Language"), languages );
+    _languages = new QMenu( i18n("RegExp Language"), _configMenu );
+    _configMenu->addMenu(_languages);
 
     QActionGroup* grp = new QActionGroup( this );
-    for( Q3ValueList< QPair<RegExpConverter*,QAction*> >::Iterator it = _converters.begin(); it != _converters.end(); ++it ) {
+    for( QLinkedList< QPair<RegExpConverter*,QAction*> >::Iterator it = _converters.begin(); it != _converters.end(); ++it ) {
         QString name = (*it).first->name();
         QAction* action = new QAction( name, this );
         action->setCheckable( true );
         grp->addAction( action );
         (*it).second = action;
     }
-    grp->addTo( languages );
+
+    _languages->addActions(grp->actions());
     connect( grp, SIGNAL( selected( QAction* ) ), this, SLOT( slotChangeSyntax( QAction* ) ) );
-    _configMenu->setItemEnabled( _languageId, false );
+    _languages->setEnabled(false);
 
     // Select the Qt converter by default
     setSyntax( qtConverterName );
@@ -204,7 +202,7 @@ void VerifyButtons::slotChangeSyntax( QAction* action )
 
 RegExpConverter* VerifyButtons::setSyntax( const QString& which)
 {
-    for( Q3ValueList< QPair<RegExpConverter*, QAction*> >::Iterator it = _converters.begin(); it != _converters.end(); ++it ) {
+    for( QLinkedList< QPair<RegExpConverter*, QAction*> >::Iterator it = _converters.begin(); it != _converters.end(); ++it ) {
         QString name = (*it).first->name();
         if ( name == which ) {
             (*it).second->setChecked( true );
@@ -222,5 +220,5 @@ void VerifyButtons::configure()
 
 void VerifyButtons::setAllowNonQtSyntax( bool b )
 {
-    _configMenu->setItemEnabled( _languageId, b );
+    _languages->setEnabled(b);
 }

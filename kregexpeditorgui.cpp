@@ -44,6 +44,7 @@ KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent,
   layout->setSpacing( 6 );
   _editor = new KRegExpEditorPrivate( this );
   layout->addWidget( _editor );
+  _editor->setVisible(true);
   connect( _editor, SIGNAL( canUndo(bool) ), this, SIGNAL( canUndo(bool) ) );
   connect( _editor, SIGNAL( canRedo(bool) ), this, SIGNAL( canRedo(bool) ) );
   connect( _editor, SIGNAL( changes(bool) ), this, SIGNAL( changes(bool) ) );

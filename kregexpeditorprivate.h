@@ -22,6 +22,7 @@
 #include <q3ptrstack.h>
 #include "regexp.h"
 #include "errormap.h"
+#include <QMainWindow>
 class QTimer;
 
 class RegExpScrolledEditorWindow;
@@ -41,7 +42,7 @@ class QToolButton;
    @author Jesper K. Pedersen <blackie@kde.org>
    @version 0.1
 **/
-class KRegExpEditorPrivate  :public QWidget
+class KRegExpEditorPrivate : public QMainWindow
 {
     Q_OBJECT
 

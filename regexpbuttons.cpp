@@ -30,18 +30,16 @@
 #include "dcbutton.h"
 #include "regexpconverter.h"
 
-#include <q3buttongroup.h>
+#include <QButtonGroup>
 #include <qsignalmapper.h>
 #include <QPixmap>
 #include <QBoxLayout>
+#include <QToolBar>
 
 RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
-  : Q3DockWindow( Q3DockWindow::InDock, parent, name), _keepMode(false)
+  : QToolBar(name, parent), _keepMode(false)
 {
-  QBoxLayout *layout = boxLayout();
-
-  _grp = new Q3ButtonGroup(this);
-  _grp->hide();
+  _grp = new QButtonGroup(this);
   _grp->setExclusive( true );
 
   _mapper = new QSignalMapper( this );
@@ -59,8 +57,8 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
 #endif
 
   _selectBut->setIcon(static_cast<QIcon>( pix ));
-  layout->addWidget( _selectBut );
-  _grp->insert(_selectBut);
+  addWidget( _selectBut );
+  _grp->addButton(_selectBut);
   _selectBut->setCheckable( true );
   connect( _selectBut, SIGNAL(clicked()), SIGNAL(doSelect()));
   connect( _selectBut, SIGNAL(clicked()), this, SLOT(slotSetNonKeepMode()) );
@@ -78,19 +76,19 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   but = insert(TEXT, "text", i18n("Text"),
                i18n( "<qt>This will insert a text field, where you may write text. The text you write will "
                      "be matched literally. (i.e. you do not need to escape any characters)</qt>" ) );
-  layout->addWidget( but );
+  addWidget( but );
 
 
   but = insert(CHARSET, "characters", i18n("A single character specified in a range"),
                i18n("<p>This will match a single character from a predefined range.</p>"
                     "<p>When you insert this widget a dialog box will appear, which lets you specify "
                     "which characters this <i>regexp item</i> will match.</p>") );
-  layout->addWidget( but );
+  addWidget( but );
 
 
   but = insert(DOT, "anychar", i18n("Any character"),
                i18n("<qt>This will match any single character</qt>") );
-  layout->addWidget( but );
+  addWidget( but );
 
 
   but = insert(REPEAT, "repeat", i18n("Repeated content"),
@@ -104,14 +102,14 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
                     "is <tt>abc</tt>, then this <i>regexp item</i> will match the empty string, "
                     "the string <tt>abc</tt>, the string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, "
                     "etc.</qt>") );
-  layout->addWidget( but );
+  addWidget( but );
 
 
   but = insert(ALTN, "altn", i18n("Alternatives"),
                i18n("<p>This <i>regexp item</i> will match any of its alternatives.</p>"
                     "<p>Alternatives are specified by placing <i>regexp items</i> on top of "
                     "each other inside this widget.</p>") );
-  layout->addWidget( but );
+  addWidget( but );
 
 
   but = insert(COMPOUND,  "compound", i18n("Compound regexp"),
@@ -120,38 +118,38 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
                     "a small box. This makes it easier for you to get an overview of large "
                     "<i>regexp items</i>. This is especially useful if you load a predefined <i>regexp item</i> "
                     "that you perhaps do not care about the inner workings of.</qt>") );
-  layout->addWidget( but );
+  addWidget( but );
 
 
   but = insert(BEGLINE,  "begline", i18n("Beginning of line"),
                i18n("<qt>This will match the beginning of a line.</qt>") );
-  layout->addWidget( but );
+  addWidget( but );
 
 
   but = insert(ENDLINE,  "endline", i18n("End of line"),
                i18n("<qt>This will match the end of a line.</qt>") );
-  layout->addWidget( but );
+  addWidget( but );
 
 
   _wordBoundary = insert(WORDBOUNDARY,  "wordboundary", i18n("Word boundary"),
                          i18n("<qt>This asserts a word boundary (This part does not actually match any characters)</qt>") );
-  layout->addWidget( _wordBoundary );
+  addWidget( _wordBoundary );
 
   _nonWordBoundary = insert(NONWORDBOUNDARY,  "nonwordboundary", i18n("Non Word boundary"),
                             i18n("<qt>This asserts a non-word boundary "
                                  "(This part does not actually match any characters)</qt>") );
-  layout->addWidget( _nonWordBoundary );
+  addWidget( _nonWordBoundary );
 
   _posLookAhead = insert(POSLOOKAHEAD,  "poslookahead", i18n("Positive Look Ahead"),
                          i18n("<qt>This asserts a regular expression (This part does not actually match any characters). "
                               "You can only use this at the end of a regular expression.</qt>") );
-  layout->addWidget( _posLookAhead );
+  addWidget( _posLookAhead );
 
   _negLookAhead = insert(NEGLOOKAHEAD,  "neglookahead", i18n("Negative Look Ahead"),
                          i18n("<qt>This asserts a regular expression that must not match "
                               "(This part does not actually match any characters). "
                               "You can only use this at the end of a regular expression.</qt>") );
-  layout->addWidget( _negLookAhead );
+  addWidget( _negLookAhead );
 }
 
 DoubleClickButton* RegExpButtons::insert(RegExpType tp, const char* name, QString tooltip, QString whatsthis)
@@ -171,7 +169,7 @@ DoubleClickButton* RegExpButtons::insert(RegExpType tp, const char* name, QStrin
   connect( but, SIGNAL( clicked() ), this, SLOT( slotSetNonKeepMode() ) );
   connect( but, SIGNAL( doubleClicked() ), this, SLOT( slotSetKeepMode() ) );
 
-  _grp->insert( but );
+  _grp->addButton( but );
   but->setCheckable( true );
   but->setToolTip( tooltip );
   but->setWhatsThis( whatsthis );
@@ -181,8 +179,8 @@ DoubleClickButton* RegExpButtons::insert(RegExpType tp, const char* name, QStrin
 
 void RegExpButtons::slotUnSelect()
 {
-  if ( _grp->selected() ) {
-    QToolButton *pb = static_cast<QToolButton*>(_grp->selected());
+  if ( _grp->checkedId() != -1 ) {
+    QToolButton *pb = static_cast<QToolButton*>(_grp->checkedButton());
     if (pb) {
       pb->setChecked( false );
     }
@@ -203,7 +201,7 @@ void RegExpButtons::slotSelectNewAction()
 {
   if ( ! _keepMode ) {
     emit doSelect();
-    _grp->setButton(_grp->id(_selectBut));
+    _selectBut->click();
   }
 }
 

@@ -40,27 +40,29 @@
 #include <QLabel>
 
 UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const char *name )
-  : Q3DockWindow( Q3DockWindow::InDock, parent, name)
+  : QDockWidget(name, parent)
 {
   QWidget* top = new QWidget( this );
   QVBoxLayout* lay = new QVBoxLayout( top );
   lay->setSpacing( 6 );
 
-  QLabel* label = new QLabel( i18n("Compound regular expression:"), top );
+  //QLabel* label = new QLabel( i18n("Compound regular expression:"), top );
 
   // This is to avoid that the label set the minimum width for the window.
-  label->setMinimumSize(1,0);
+  //label->setMinimumSize(1,0);
+  //lay->addWidget(label);
 
-  _userDefined = new Q3ListView( top, "UserDefinedRegExps::_userDefined" );
-  _userDefined->addColumn( QString() );
-  _userDefined->header()->hide();
+  _userDefined = new QTreeWidget( top/*, "UserDefinedRegExps::_userDefined"*/ );
+  //_userDefined->addColumn( QString() );
+  //_userDefined->header()->hide();
   //  _userDefined->setRootIsDecorated( true );
+  lay->addWidget(_userDefined);
   setWidget( top );
   slotPopulateUserRegexps();
 
-  connect( _userDefined, SIGNAL(clicked(Q3ListViewItem*)), this, SLOT(slotLoad(Q3ListViewItem*)) );
-  connect( _userDefined, SIGNAL(rightButtonPressed(Q3ListViewItem*,const QPoint&, int )),
-           this, SLOT( slotEdit( Q3ListViewItem*, const QPoint& ) ) );
+  connect( _userDefined, SIGNAL(itemClicked(QTreeWidgetItem*,int)), this, SLOT(slotLoad(QTreeWidgetItem*)) );
+  //connect( _userDefined, SIGNAL(rightButtonPressed(Q3ListViewItem*,const QPoint&, int )),
+  //         this, SLOT( slotEdit( Q3ListViewItem*, const QPoint& ) ) );
 }
 
 void UserDefinedRegExps::slotPopulateUserRegexps()
@@ -95,8 +97,9 @@ void UserDefinedRegExps::createItems( const QString& _title, const QString& dir,
   if (_title == QString::fromLatin1("general"))
 	  title = i18n("general");
 
-  Q3ListViewItem* lvItem = new Q3ListViewItem( _userDefined, title );
-  lvItem->setOpen( true );
+  QTreeWidgetItem* lvItem = new QTreeWidgetItem( (QTreeWidget*)0, QStringList(title) );
+  lvItem->setExpanded( true );
+  _userDefined->addTopLevelItem(lvItem);
 
   QDir directory( dir );
   QStringList files = directory.entryList( QString::fromLocal8Bit("*.regexp") );
@@ -141,7 +144,7 @@ void UserDefinedRegExps::slotUnSelect()
   _userDefined->clearSelection();
 }
 
-void UserDefinedRegExps::slotLoad(Q3ListViewItem* item)
+void UserDefinedRegExps::slotLoad(QTreeWidgetItem* item)
 {
   if ( !item || ! dynamic_cast<WidgetWinItem*>(item) ) {
     // Mouse pressed outside a widget.
@@ -154,7 +157,7 @@ void UserDefinedRegExps::slotLoad(Q3ListViewItem* item)
   }
 }
 
-void UserDefinedRegExps::slotEdit( Q3ListViewItem* item, const QPoint& pos )
+void UserDefinedRegExps::slotEdit( QTreeWidgetItem* item, const QPoint& pos )
 {
   Q3PopupMenu* menu = new Q3PopupMenu( this );
   menu->insertItem(i18n("Delete"), 1 );
@@ -223,8 +226,8 @@ void UserDefinedRegExps::slotSelectNewAction()
   slotUnSelect();
 }
 
-WidgetWinItem::WidgetWinItem( QString fileName, RegExp* regexp, bool usersRegExp, Q3ListViewItem* parent )
-  :Q3ListViewItem( parent ), _regexp( regexp ), _usersRegExp ( usersRegExp )
+WidgetWinItem::WidgetWinItem( QString fileName, RegExp* regexp, bool usersRegExp, QTreeWidgetItem* parent )
+  :QTreeWidgetItem( parent ), _regexp( regexp ), _usersRegExp ( usersRegExp )
 {
   int index = fileName.lastIndexOf(QLatin1String(".regexp"));
   _name = fileName.left(index);
