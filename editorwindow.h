@@ -20,12 +20,11 @@
 
 #include "drag.h"
 #include "widgetfactory.h"
-#include <q3multilineedit.h>
 #include <qicon.h>
 //Added by qt3to4:
 #include <QMouseEvent>
 #include <QHBoxLayout>
-#include <Q3PopupMenu>
+#include <QMenu>
 #include <QPaintEvent>
 class RegExp;
 class RegExpWidget;
@@ -225,6 +224,7 @@ protected:
 
 protected slots:
     virtual void emitVerifyRegExp();
+    void editWidget();
 
 private:
     void cutCopyAux( QPoint pos );
@@ -263,7 +263,13 @@ private:
     RegExp* _pasteData;
 
     /** Popup menu used for RMB */
-    Q3PopupMenu* _menu;
+    QMenu* _menu;
+    
+    QAction* _cutAction;
+    QAction* _copyAction;
+    QAction* _pasteAction;
+    QAction* _editAction;
+    QAction* _saveAction;
 
     QIcon getIcon( const QString& name );
 

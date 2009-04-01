@@ -20,7 +20,7 @@
 #include <QDockWidget>
 #include <QTreeWidget>
 //Added by qt3to4:
-#include <Q3PtrList>
+#include <QList>
 
 #include "compoundregexp.h"
 
@@ -33,16 +33,18 @@ Q_OBJECT
 
 public:
   explicit UserDefinedRegExps( QWidget *parent, const char *name = 0 );
-  const Q3PtrList<CompoundRegExp> regExps() const;
+  const QList<CompoundRegExp *> regExps() const;
 
 public slots:
   void slotSelectNewAction();
 
 protected slots:
   void slotLoad(QTreeWidgetItem* item);
-  void slotEdit( QTreeWidgetItem* item, const QPoint& pos );
+  void slotContextMenuTriggered( const QPoint& pos );
   void slotPopulateUserRegexps();
   void slotUnSelect();
+  void slotRenameUserRegexp();
+  void slotDeleteUserRegexp();
 
 protected:
   void createItems( const QString& title, const QString& dir, bool usersRegExp );
@@ -52,7 +54,7 @@ signals:
 
 private:
   QTreeWidget* _userDefined;
-  Q3PtrList<CompoundRegExp> _regExps;
+  QList<CompoundRegExp *> _regExps;
 };
 
 class WidgetWinItem :public QTreeWidgetItem
@@ -72,6 +74,5 @@ private:
   RegExp* _regexp;
   bool _usersRegExp;
 };
-
 
 #endif // __USERDEFINEDREGEXPS_H

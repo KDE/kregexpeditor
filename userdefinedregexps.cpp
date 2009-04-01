@@ -28,16 +28,17 @@
   #include "userdefinedregexps.moc"
 #endif
 
-#include <q3header.h>
-#include <q3popupmenu.h>
+#include <QMenu>
 #include <QDir>
 //Added by qt3to4:
 #include <QTextStream>
-#include <Q3PtrList>
+#include <QList>
 #include <QVBoxLayout>
 #include "widgetfactory.h"
 #include "compoundregexp.h"
 #include <QLabel>
+#include <QAction>
+#include <QHeaderView>
 
 UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const char *name )
   : QDockWidget(name, parent)
@@ -54,15 +55,15 @@ UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const char *name )
 
   _userDefined = new QTreeWidget( top/*, "UserDefinedRegExps::_userDefined"*/ );
   //_userDefined->addColumn( QString() );
-  //_userDefined->header()->hide();
-  //  _userDefined->setRootIsDecorated( true );
+  _userDefined->header()->hide();
+  _userDefined->setRootIsDecorated( true );
+  _userDefined->setContextMenuPolicy(Qt::CustomContextMenu);
   lay->addWidget(_userDefined);
   setWidget( top );
   slotPopulateUserRegexps();
 
   connect( _userDefined, SIGNAL(itemClicked(QTreeWidgetItem*,int)), this, SLOT(slotLoad(QTreeWidgetItem*)) );
-  //connect( _userDefined, SIGNAL(rightButtonPressed(Q3ListViewItem*,const QPoint&, int )),
-  //         this, SLOT( slotEdit( Q3ListViewItem*, const QPoint& ) ) );
+  connect( _userDefined, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(slotContextMenuTriggered(const QPoint&)));
 }
 
 void UserDefinedRegExps::slotPopulateUserRegexps()
@@ -102,7 +103,7 @@ void UserDefinedRegExps::createItems( const QString& _title, const QString& dir,
   _userDefined->addTopLevelItem(lvItem);
 
   QDir directory( dir );
-  QStringList files = directory.entryList( QString::fromLocal8Bit("*.regexp") );
+  QStringList files = directory.entryList( QStringList(QString::fromLocal8Bit("*.regexp")) );
   for ( QStringList::Iterator it = files.begin(); it != files.end(); ++it ) {
     QString fileName = dir + QString::fromLocal8Bit("/") + *it;
 
@@ -133,7 +134,7 @@ void UserDefinedRegExps::createItems( const QString& _title, const QString& dir,
   }
 }
 
-const Q3PtrList<CompoundRegExp> UserDefinedRegExps::regExps() const
+const QList<CompoundRegExp *> UserDefinedRegExps::regExps() const
 {
   return _regExps;
 }
@@ -150,44 +151,56 @@ void UserDefinedRegExps::slotLoad(QTreeWidgetItem* item)
     // Mouse pressed outside a widget.
     return;
   }
-
+  
   WidgetWinItem* wwi = dynamic_cast<WidgetWinItem*>(item);
   if (wwi) {
     emit load( wwi->regExp() );
   }
 }
 
-void UserDefinedRegExps::slotEdit( QTreeWidgetItem* item, const QPoint& pos )
+void UserDefinedRegExps::slotContextMenuTriggered( const QPoint& pos )
 {
-  Q3PopupMenu* menu = new Q3PopupMenu( this );
-  menu->insertItem(i18n("Delete"), 1 );
-  menu->insertItem(i18n("Rename..."), 2 );
-  if ( !item || ! dynamic_cast<WidgetWinItem*>( item ) ) {
+  QMenu menu;
+  QAction *deleteAction = menu.addAction(i18n("Delete"), this, SLOT(slotDeleteUserRegexp()) );
+  QAction *renameAction = menu.addAction(i18n("Rename"), this, SLOT(slotRenameUserRegexp()) );
+  
+  QTreeWidgetItem* item = _userDefined->itemAt(pos);
+  
+  if ( !item || ! dynamic_cast<WidgetWinItem *>( item ) ) {
     // menu not selected on an item
-    menu->setItemEnabled( 1, false );
-    menu->setItemEnabled( 2, false );
+    deleteAction->setEnabled(false);
+    renameAction->setEnabled(false);
   }
   else {
     // Only allow rename and delete of users own regexps.
-    WidgetWinItem* winItem = dynamic_cast<WidgetWinItem*>( item );
-    if ( winItem && ! winItem->isUsersRegExp() ) {
-      menu->setItemEnabled( 1, false );
-      menu->setItemEnabled( 2, false );
+    WidgetWinItem* winItem = dynamic_cast<WidgetWinItem *>( item );
+    if ( winItem ) {
+      if ( ! winItem->isUsersRegExp() ) {
+        deleteAction->setEnabled(false);
+        renameAction->setEnabled(false);
+      }
+      else {
+        QVariant var = QVariant::fromValue<void *>((void *)(winItem));
+        deleteAction->setData(var);
+        renameAction->setData(var);
+      }
     }
   }
+  
+  menu.exec( _userDefined->mapToGlobal(pos) );
+}
 
-  int which = menu->exec( pos );
+void UserDefinedRegExps::slotSelectNewAction()
+{
+  slotUnSelect();
+}
 
-  if ( which == 1 ) { // Delete
-    WidgetWinItem* winItem = dynamic_cast<WidgetWinItem*>( item );
-    Q_ASSERT( winItem );
-    QFile file( winItem->fileName() );
-    Q_ASSERT( file.exists() );
-    file.remove();
-    delete item;
-  }
-  else if ( which == 2 ) { // Rename
-    WidgetWinItem* winItem = dynamic_cast<WidgetWinItem*>( item );
+void UserDefinedRegExps::slotRenameUserRegexp() 
+{
+    QAction* const action = qobject_cast<QAction*>(sender());
+    Q_ASSERT(action);
+    
+    WidgetWinItem* winItem = static_cast<WidgetWinItem *>(action->data().value<void *>());
     Q_ASSERT( winItem );
 
     QString oldFile = winItem->fileName();
@@ -213,17 +226,24 @@ void UserDefinedRegExps::slotEdit( QTreeWidgetItem* item, const QPoint& pos )
       else
         winItem->setName( txt );
       QDir dir;
-      dir.rename( oldFile, fileName  );
+      dir.remove(fileName);
+      qDebug() << dir.rename( oldFile, fileName  );
     }
-  }
-
-
-  delete menu;
 }
 
-void UserDefinedRegExps::slotSelectNewAction()
+void UserDefinedRegExps::slotDeleteUserRegexp() 
 {
-  slotUnSelect();
+    QAction* const action = qobject_cast<QAction*>(sender());
+    Q_ASSERT(action);
+    
+    WidgetWinItem* winItem = static_cast<WidgetWinItem *>(action->data().value<void *>());
+    Q_ASSERT( winItem );
+    
+    QFile file( winItem->fileName() );
+    Q_ASSERT( file.exists() );
+    
+    file.remove();
+    delete winItem;
 }
 
 WidgetWinItem::WidgetWinItem( QString fileName, RegExp* regexp, bool usersRegExp, QTreeWidgetItem* parent )

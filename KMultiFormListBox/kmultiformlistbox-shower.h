@@ -1,5 +1,5 @@
 //Added by qt3to4:
-#include <Q3PtrList>
+#include <QList>
 /*
  *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
  *
@@ -22,7 +22,7 @@
 
 // -------------------------------- includes ------------------------------
 //-------------------------------------------------------------------------
-typedef Q3PtrList<KMultiFormListBoxEntry> KMultiFormListBoxEntryList ;
+typedef QList<KMultiFormListBoxEntry *> KMultiFormListBoxEntryList ;
 
 /**
    Abstract class defining the interface for widgets showing a number of @ref KMultiFormListBoxEntry.

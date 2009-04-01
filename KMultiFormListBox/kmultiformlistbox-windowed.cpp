@@ -40,8 +40,8 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
 	QHBoxLayout *innerLayout = new QHBoxLayout();
 	_layout->addLayout(innerLayout);
 
-  _listbox = new K3ListBox(this,"listbox");
-  _listbox->setSelectionMode(Q3ListBox::Single);
+  _listbox = new KListWidget(this/*,"listbox"*/);
+  _listbox->setSelectionMode(QAbstractItemView::SingleSelection);
   innerLayout->addWidget(_listbox);
 
   QVBoxLayout *buttons = new QVBoxLayout();
@@ -56,7 +56,7 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
   but->setObjectName("Edit Button");
   buttons->addWidget(but,0);
   connect(but,SIGNAL(clicked()), this, SLOT(slotEditSelected()));
-  connect(_listbox, SIGNAL(doubleClicked(Q3ListBoxItem *)), this, SLOT(slotEditSelected(Q3ListBoxItem *)));
+  connect(_listbox, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this, SLOT(slotEditSelected(QListWidgetItem *)));
 	_buttonList.append(but);
 
   but = new QPushButton(i18n("Delete"), this);
@@ -142,7 +142,7 @@ void KMultiFormListBoxWindowed::addElement()
 	slotUpdateButtonState();
 }
 
-void KMultiFormListBoxWindowed::slotEditSelected(Q3ListBoxItem *item)
+void KMultiFormListBoxWindowed::slotEditSelected(QListWidgetItem *item)
 {
   ((WindowListboxItem *) item)->displayWidget();
 }
@@ -178,12 +178,15 @@ void KMultiFormListBoxWindowed::slotCopySelected()
 
 WindowListboxItem *KMultiFormListBoxWindowed::selected()
 {
+    /*
   int i = _listbox->currentItem();
   if (i == -1) {
     return 0;
   } else {
     return (WindowListboxItem *) _listbox->item(i);
   }
+  */
+    return (WindowListboxItem *) _listbox->currentItem();
 }
 
 void KMultiFormListBoxWindowed::slotMoveItemUp()
@@ -192,10 +195,10 @@ void KMultiFormListBoxWindowed::slotMoveItemUp()
 	if (item == 0)
 		return;
 
-	int index = _listbox->index(item);
+	int index = _listbox->row(item);
 	if (index != 0) {
-		_listbox->takeItem(item);
-		_listbox->insertItem(item, index-1);
+		_listbox->takeItem(index);
+		_listbox->insertItem(index-1, item);
 		_listbox->setCurrentItem(item);
 	}
 }
@@ -206,10 +209,10 @@ void KMultiFormListBoxWindowed::slotMoveItemDown()
 	if (item == 0)
 		return;
 
-	unsigned int index = _listbox->index(item);
+	unsigned int index = _listbox->row(item);
 	if (index < _listbox->count()) {
-		_listbox->takeItem(item);
-		_listbox->insertItem(item, index+1);
+		_listbox->takeItem(index);
+		_listbox->insertItem(index+1, item);
 		_listbox->setCurrentItem(item);
 	}
 }

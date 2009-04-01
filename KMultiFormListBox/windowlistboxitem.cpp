@@ -18,8 +18,8 @@
 #include "windowlistboxitem.h"
 #include "widgetwindow.h"
 
-WindowListboxItem::WindowListboxItem(Q3ListBox *lb, QString text, WidgetWindow *windowWidget)
-  :Q3ListBoxText(lb, text), myItem(windowWidget)
+WindowListboxItem::WindowListboxItem(QListWidget *lb, QString text, WidgetWindow *windowWidget)
+  :QListWidgetItem(text, lb), myItem(windowWidget)
 {
 }
 

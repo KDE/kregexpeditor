@@ -24,14 +24,17 @@
 #include "editorwindow.h"
 //Added by qt3to4:
 #include <QResizeEvent>
+#include <QScrollArea>
+#include <QLabel>
 
 RegExpScrolledEditorWindow::RegExpScrolledEditorWindow( QWidget* parent)
     : QWidget(parent)
 {
-    _scrollView = new Q3ScrollView( this );
-    _editorWindow = new RegExpEditorWindow( _scrollView->viewport());
-    _scrollView->addChild( _editorWindow );
-    _scrollView->setResizePolicy( Q3ScrollView::Manual );
+    _scrollArea = new QScrollArea(this);
+    _editorWindow = new RegExpEditorWindow(this);
+    _scrollArea->setWidget(_editorWindow);
+    _scrollArea->setWidgetResizable(true);
+    _scrollArea->ensureWidgetVisible(_editorWindow);
 
     connect( _editorWindow, SIGNAL( contentChanged( QPoint ) ),
              this, SLOT( slotUpdateContentSize( QPoint ) ) );
@@ -103,12 +106,13 @@ RegExp* RegExpScrolledEditorWindow::regExp()
 
 void RegExpScrolledEditorWindow::resizeEvent( QResizeEvent *event )
 {
-    _scrollView->resize( event->size() );
+    _scrollArea->resize( event->size() );
     slotUpdateContentSize(QPoint());
 }
 
 void RegExpScrolledEditorWindow::slotUpdateContentSize( QPoint focusPoint )
-{
+{    
+    /*
     QSize childSize = _editorWindow->sizeHint();
     QSize vpSize = _scrollView->viewportSize(10,10);
 
@@ -130,9 +134,9 @@ void RegExpScrolledEditorWindow::slotUpdateContentSize( QPoint focusPoint )
         _editorWindow->resize( childSize );
         _scrollView->resizeContents( childSize.width(), childSize.height() );
     }
-
+*/
     if ( !focusPoint.isNull() ) {
-        _scrollView->ensureVisible ( focusPoint.x(), focusPoint.y(), 250,250 );
+        _scrollArea->ensureVisible ( focusPoint.x(), focusPoint.y(), 250,250 );
     }
 
 }
@@ -142,6 +146,6 @@ void RegExpScrolledEditorWindow::slotUpdateContentSize( QPoint focusPoint )
 // outside the QScrollView.
 void RegExpScrolledEditorWindow::slotScroll( QPoint focusPoint )
 {
-    _scrollView->ensureVisible( focusPoint.x(), focusPoint.y() );
+    _scrollArea->ensureVisible( focusPoint.x(), focusPoint.y() );
 }
 

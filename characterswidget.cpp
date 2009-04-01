@@ -32,17 +32,16 @@
 #include "regexpconverter.h"
 #include <QApplication>
 #include <qpainter.h>
-#include <q3grid.h>
 //Added by qt3to4:
 #include <QPaintEvent>
-#include <Q3PtrList>
+#include <QList>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QVBoxLayout>
 #include <iostream>
 #include <qcursor.h>
 #include <QCheckBox>
-#include <Q3GroupBox>
+#include <QGroupBox>
 
 CharacterEdits* CharactersWidget::_configWindow = 0;
 
@@ -152,8 +151,9 @@ QString CharactersWidget::text() const
     }
 
     // Ranges characters
-    Q3PtrList<StringPair> range = _regexp->range();
-    for ( Q3PtrListIterator<StringPair> it( range ); *it; ++it ) {
+    QList<StringPair *> range = _regexp->range();
+    QList<StringPair *>::const_iterator it = range.constBegin();
+    for ( ; it != range.constEnd() ; ++it ) {
         StringPair* elm = static_cast<StringPair*>(*it);
         if (elm) {
             QString fromText = elm->first();
@@ -206,8 +206,8 @@ int CharactersWidget::edit()
 void CharacterEdits::addCharacter( QString txt )
 {
     KMultiFormListBoxEntryList list = _single->elements();
-    for ( Q3PtrListIterator<KMultiFormListBoxEntry> it(list); *it; ++it ) {
-        SingleEntry* entry = dynamic_cast<SingleEntry*>( *it );
+    foreach ( KMultiFormListBoxEntry * e, list ) {
+        SingleEntry* entry = dynamic_cast<SingleEntry*>( e );
         if ( entry && entry->isEmpty() ) {
             entry->setText( txt );
             return;
@@ -222,8 +222,8 @@ void CharacterEdits::addCharacter( QString txt )
 void CharacterEdits::addRange( QString from, QString to )
 {
     KMultiFormListBoxEntryList list = _range->elements();
-    for ( Q3PtrListIterator<KMultiFormListBoxEntry> it(list); *it; ++it ) {
-        RangeEntry* entry = dynamic_cast<RangeEntry*>( *it );
+    foreach ( KMultiFormListBoxEntry * e, list ) {
+        RangeEntry* entry = dynamic_cast<RangeEntry*>( e );
         if ( entry && entry->isEmpty() ) {
             entry->setFrom( from );
             entry->setTo( to );
@@ -256,28 +256,29 @@ int CharacterEdits::exec( TextRangeRegExp* regexp )
     // Characters
 
     KMultiFormListBoxEntryList list1 = _single->elements();
-    for ( Q3PtrListIterator<KMultiFormListBoxEntry> it(list1); *it; ++it ) {
-        SingleEntry* entry = dynamic_cast<SingleEntry*>( *it );
+    foreach ( KMultiFormListBoxEntry * e, list1 ) {
+        SingleEntry* entry = dynamic_cast<SingleEntry*>( e );
         if (entry)
             entry->setText( QString::fromLocal8Bit("") );
     }
     QStringList list2 = regexp->chars();
-    for ( QStringList::Iterator it2( list2.begin() ); ! (*it2).isNull(); ++it2 ) {
+    for ( QStringList::Iterator it2( list2.begin() ); it2 != list2.end(); ++it2 ) {
         addCharacter( *it2 );
     }
 
     // Ranges
     KMultiFormListBoxEntryList list3 = _range->elements();
-    for ( Q3PtrListIterator<KMultiFormListBoxEntry> it3(list3); *it3; ++it3 ) {
-        RangeEntry* entry = dynamic_cast<RangeEntry*>( *it3 );
+    foreach ( KMultiFormListBoxEntry * e, list3 ) {
+        RangeEntry* entry = dynamic_cast<RangeEntry*>( e );
         if (entry) {
             entry->setFrom( QString::fromLocal8Bit("") );
             entry->setTo( QString::fromLocal8Bit("") );
         }
     }
 
-    Q3PtrList<StringPair> ranges = regexp->range();
-    for ( Q3PtrListIterator<StringPair> it4(ranges); *it4; ++it4 ) {
+    QList<StringPair *> ranges = regexp->range();
+    QList<StringPair *>::const_iterator it4 = ranges.constBegin();
+    for ( ; it4 != ranges.constEnd() ; ++it4 ) {
         QString from = (*it4)->first();
         QString to = (*it4)->second();
         addRange(from,to);
@@ -300,50 +301,59 @@ CharacterEdits::CharacterEdits( QWidget *parent)
     topLayout->setSpacing(6);
     setMainWidget( top );
 
-    negate = new QCheckBox(i18n("Do not match the characters specified here"),
-                           top);
+    negate = new QCheckBox(i18n("Do not match the characters specified here"));
     topLayout->addWidget( negate );
 
 
     // The predefined box
-    Q3GroupBox* predefined = new Q3GroupBox(1, Qt::Vertical,i18n("Predefined Character Ranges"),top);
+    QGroupBox *predefined = new QGroupBox(i18n("Predefined Character Ranges"));
     topLayout->addWidget(predefined);
-    Q3Grid* grid = new Q3Grid(3, predefined );
+    QGridLayout* predefinedLayout = new QGridLayout( predefined );
 
-    wordChar = new QCheckBox(i18n("A word character"),grid);
-    digit = new QCheckBox(i18n("A digit character"),grid);
-    space = new QCheckBox(i18n("A space character"), grid);
+    wordChar = new QCheckBox(i18n("A word character"));
+    predefinedLayout->addWidget(wordChar, 0, 0);
+    digit = new QCheckBox(i18n("A digit character"));
+    predefinedLayout->addWidget(digit, 0, 1);
+    space = new QCheckBox(i18n("A space character"));
+    predefinedLayout->addWidget(space, 0, 2);
 
-    _nonWordChar = new QCheckBox(i18n("A non-word character"),grid);
-    _nonDigit = new QCheckBox(i18n("A non-digit character"),grid);
-    _nonSpace = new QCheckBox(i18n("A non-space character"), grid);
+    _nonWordChar = new QCheckBox(i18n("A non-word character"));
+    predefinedLayout->addWidget(_nonWordChar, 1, 0);
+    _nonDigit = new QCheckBox(i18n("A non-digit character"));
+    predefinedLayout->addWidget(_nonDigit, 1, 1);
+    _nonSpace = new QCheckBox(i18n("A non-space character"));
+    predefinedLayout->addWidget(_nonSpace, 1, 2);
 
     // Single characters
-    Q3GroupBox * singleBox = new Q3GroupBox(1, Qt::Horizontal,i18n("Single Characters"), top );
+    QGroupBox * singleBox = new QGroupBox(i18n("Single Characters"));
+    QVBoxLayout* groupLayout = new QVBoxLayout(singleBox);
     topLayout->addWidget( singleBox );
-    _single = new KMultiFormListBox(new SingleFactory(), KMultiFormListBox::MultiVisible,
-                                    singleBox);
+    _single = new KMultiFormListBox(new SingleFactory(), KMultiFormListBox::MultiVisible);
+    groupLayout->addWidget(_single);
     _single->addElement(); _single->addElement(); _single->addElement();
 
-    QWidget* moreW = new QWidget( singleBox );
+    QWidget* moreW = new QWidget();
+    groupLayout->addWidget(moreW);
     QHBoxLayout* moreLay = new QHBoxLayout( moreW );
-    QPushButton* more = new QPushButton( i18n("More Entries"), moreW );
+    QPushButton* more = new QPushButton( i18n("More Entries"));
     moreLay->addWidget( more );
     moreLay->addStretch( 1 );
 
     connect(more,SIGNAL(clicked()), _single, SLOT(addElement()));
 
     // Ranges
-    Q3GroupBox * rangeBox = new Q3GroupBox(1, Qt::Horizontal,i18n("Character Ranges"), top );
+    QGroupBox * rangeBox = new QGroupBox(i18n("Character Ranges"));
+    groupLayout = new QVBoxLayout(rangeBox);
     topLayout->addWidget( rangeBox );
 
-    _range = new KMultiFormListBox(new RangeFactory(), KMultiFormListBox::MultiVisible,
-                                   rangeBox);
+    _range = new KMultiFormListBox(new RangeFactory(), KMultiFormListBox::MultiVisible);
+    groupLayout->addWidget(_range);
     _range->addElement(); _range->addElement(); _range->addElement();
 
-    moreW = new QWidget( rangeBox );
+    moreW = new QWidget();
+    groupLayout->addWidget(moreW);
     moreLay = new QHBoxLayout( moreW );
-    more = new QPushButton( i18n("More Entries"), moreW );
+    more = new QPushButton( i18n("More Entries"));
     moreLay->addWidget( more );
     moreLay->addStretch( 1 );
     connect(more,SIGNAL(clicked()), _range, SLOT(addElement()));
@@ -367,8 +377,8 @@ void CharacterEdits::slotOK()
 	// single characters
     _regexp->clearChars();
     KMultiFormListBoxEntryList list = _single->elements();
-    for ( Q3PtrListIterator<KMultiFormListBoxEntry> it( list ); *it; ++it ) {
-        SingleEntry* entry = dynamic_cast<SingleEntry*>(*it);
+    foreach ( KMultiFormListBoxEntry * e, list ) {
+        SingleEntry* entry = dynamic_cast<SingleEntry*>(e);
         if ( entry && !entry->isEmpty() ) {
             _regexp->addCharacter( entry->text() );
         }
@@ -377,8 +387,8 @@ void CharacterEdits::slotOK()
     // Ranges
     _regexp->clearRange();
     list = _range->elements();
-    for ( Q3PtrListIterator<KMultiFormListBoxEntry> it2( list ); *it2; ++it2 ) {
-        RangeEntry* entry = dynamic_cast<RangeEntry*>(*it2);
+    foreach ( KMultiFormListBoxEntry * e, list ) {
+        RangeEntry* entry = dynamic_cast<RangeEntry*>(e);
         if ( entry && !entry->isEmpty() ) {
             _regexp->addRange( entry->fromText(), entry->toText() );
         }

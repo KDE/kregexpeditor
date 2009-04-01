@@ -31,8 +31,7 @@
 #include <kmessagebox.h>
 #include <klocale.h>
 //Added by qt3to4:
-#include <Q3ValueList>
-#include <Q3PtrList>
+#include <QList>
 bool EmacsRegExpConverter::canParse()
 {
     return false;
@@ -44,12 +43,12 @@ QString EmacsRegExpConverter::toString( AltnRegExp* regexp, bool markSelection )
 
 	bool first = true;
     RegExpList list = regexp->children();
-    for ( RegExpListIt it(list); *it; ++it ) {
+    foreach ( RegExp *r, list ) {
 		if ( !first ) {
 			res += QString::fromLatin1("\\|");
 		}
 		first = false;
-        res += toStr( *it, markSelection );
+        res += toStr( r, markSelection );
 	}
 	return res;
 
@@ -60,15 +59,15 @@ QString EmacsRegExpConverter::toString( ConcRegExp* regexp, bool markSelection )
 	QString res;
 
     RegExpList list = regexp->children();
-	for ( RegExpListIt it(list); *it; ++it ) {
+	foreach ( RegExp *r, list ) {
         QString startPar = QString::fromLocal8Bit("");
         QString endPar = QString::fromLocal8Bit("");
-        if ( (*it)->precedence() < regexp->precedence() ) {
+        if ( r->precedence() < regexp->precedence() ) {
             startPar = QString::fromLatin1( "\\(" );
             endPar = QString::fromLatin1( "\\)" );
         }
 
-		res += startPar + toStr( *it, markSelection ) + endPar;
+		res += startPar + toStr( r, markSelection ) + endPar;
 	}
 
 	return res;
@@ -113,8 +112,9 @@ QString EmacsRegExpConverter::toString( TextRangeRegExp* regexp, bool /*markSele
 	}
 
 	// Now insert the ranges.
-    Q3PtrList<StringPair> ranges = regexp->range();
-    for ( Q3PtrListIterator<StringPair> it(ranges); *it; ++it ) {
+    QList<StringPair *> ranges = regexp->range();
+    QList<StringPair *>::const_iterator it = ranges.constBegin();
+    for ( ; it != ranges.constEnd() ; ++it ) {
 		txt.append((*it)->first()+ QString::fromLatin1("-")+ (*it)->second());
 	}
 
@@ -230,7 +230,7 @@ QString EmacsRegExpConverter::toString( RepeatRegExp* regexp, bool markSelection
 
 QString EmacsRegExpConverter::toString( TextRegExp* regexp, bool /*markSelection*/ )
 {
-    Q3ValueList<QChar> list;
+    QList<QChar> list;
     list << QChar('$')
          << QChar('^')
          << QChar('.')

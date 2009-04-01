@@ -17,12 +17,12 @@
  **/
 #ifndef VERIFIER_H
 #define VERIFIER_H
-#include <q3textedit.h>
+#include <QTextEdit>
 //Added by qt3to4:
 #include <QLabel>
 #include "regexphighlighter.h"
 class QLabel;
-class Verifier :public Q3TextEdit
+class Verifier :public QTextEdit
 {
 Q_OBJECT
 public:

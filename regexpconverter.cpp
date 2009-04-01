@@ -27,9 +27,8 @@
 #include "positionregexp.h"
 #include "repeatregexp.h"
 #include "textregexp.h"
-#include <q3textedit.h>
+#include <QTextEdit>
 //Added by qt3to4:
-#include <Q3ValueList>
 #include "regexphighlighter.h"
 
 RegExpConverter* RegExpConverter::_current = 0;
@@ -59,7 +58,7 @@ QString RegExpConverter::toStr( RegExp* regexp, bool markSelection )
 }
 
 
-QString RegExpConverter::escape( QString text, Q3ValueList<QChar> chars, QChar escapeChar) const
+QString RegExpConverter::escape( QString text, QList<QChar> chars, QChar escapeChar) const
 {
 	QString res;
 	for (int i=0; i<text.length(); i++) {
@@ -78,7 +77,7 @@ QString RegExpConverter::escape( QString text, Q3ValueList<QChar> chars, QChar e
 /**
    Returns a QSyntaxHighlighter to be used in the virifyer widget.
 */
-RegexpHighlighter* RegExpConverter::highlighter( Q3TextEdit* )
+RegexpHighlighter* RegExpConverter::highlighter( QTextEdit* )
 {
     return 0;
 }

@@ -49,8 +49,8 @@ AltnWidget::AltnWidget( AltnRegExp* regexp, RegExpEditorWindow* editorWindow,
   _text = i18n("Alternatives");
 
   RegExpList list = regexp->children();
-  for ( RegExpListIt it(list); *it; ++it ) {
-    RegExpWidget* child = WidgetFactory::createWidget( *it, editorWindow, this );
+  foreach ( RegExp *r, list ) {
+    RegExpWidget* child = WidgetFactory::createWidget( r, editorWindow, this );
     ConcWidget* conc;
     if (  ! (conc = dynamic_cast<ConcWidget*>( child ) ) ) {
       conc = new ConcWidget( editorWindow, child, parent );
@@ -84,7 +84,7 @@ void AltnWidget::addNewConcChild(DragAccepter *accepter, ConcWidget *child)
 
 QSize AltnWidget::sizeHint() const
 {
-  Q3PtrListIterator<RegExpWidget> it(_children);
+  QList<RegExpWidget *>::const_iterator it = _children.constBegin();
   // Skip the first child, as we only need half of the size of the first and the
   // last drag accepter. Does, however, not apply when there only is onw child.
   if ( _children.count() != 1 )
@@ -173,7 +173,7 @@ RegExp* AltnWidget::regExp() const
 {
 	AltnRegExp *regexp = new AltnRegExp( isSelected() );
 
-  Q3PtrListIterator<RegExpWidget> it(_children);
+  QList<RegExpWidget *>::const_iterator it = _children.constBegin();
   ++it; // start with the second element
 	for ( ; *it; it+=2 ) {
     regexp->addRegExp( (*it)->regExp() );
@@ -198,7 +198,7 @@ RegExp* AltnWidget::selection() const
   if ( isSelected() )
     return regExp();
   else {
-    Q3PtrListIterator<RegExpWidget> it(_children);
+    QList<RegExpWidget *>::const_iterator it = _children.constBegin();
     ++it; // Skip past DragAccepter
     for ( ; *it; it+=2 ) {
       if ( (*it)->hasSelection() ) {
@@ -217,7 +217,7 @@ bool AltnWidget::validateSelection() const
   }
 
   bool foundASelection = false;
-  Q3PtrListIterator<RegExpWidget> it(_children);
+  QList<RegExpWidget *>::const_iterator it = _children.constBegin();
   ++it; // Skip past DragAccepter
   for ( ; *it; it+=2 ) {
     if ( (*it)->hasSelection() ) {

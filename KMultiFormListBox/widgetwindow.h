@@ -19,10 +19,10 @@
  **/
 #ifdef QT_ONLY
   #include "compat.h"
-  #include <q3listbox.h>
+  #include <QListWidget>
 #else
   #include <kdialog.h>
-  #include <k3listbox.h>
+  #include <KListWidget>
 #endif
 
 #include "kmultiformlistbox-windowed.h"
@@ -35,9 +35,9 @@ class WidgetWindow :public KDialog
   friend class KMultiFormListBoxWindowed;
   friend class WindowListboxItem;
 
-  WidgetWindow(KMultiFormListBoxFactory *, K3ListBox *);
-  WidgetWindow(KMultiFormListBoxFactory *, KMultiFormListBoxEntry *widget, K3ListBox *);
-  void init(KMultiFormListBoxFactory *, K3ListBox *, KMultiFormListBoxEntry *widget = 0);
+  WidgetWindow(KMultiFormListBoxFactory *, KListWidget *);
+  WidgetWindow(KMultiFormListBoxFactory *, KMultiFormListBoxEntry *widget, KListWidget *);
+  void init(KMultiFormListBoxFactory *, KListWidget *, KMultiFormListBoxEntry *widget = 0);
   void display();
   KMultiFormListBoxEntry *entry();
   WidgetWindow *clone();
@@ -51,7 +51,7 @@ private:
   KMultiFormListBoxFactory *myFact;
   KMultiFormListBoxEntry *myWidget;
   QByteArray _backup;
-  K3ListBox *listbox;
+  KListWidget *listbox;
   WindowListboxItem *myListboxItem;
   bool initialShow;
 };

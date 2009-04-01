@@ -19,10 +19,9 @@
 #ifndef REGEXPCONVERTER_H
 #define REGEXPCONVERTER_H
 
+#include <QList>
 
-#include <q3valuelist.h>
-
-class Q3TextEdit;
+class QTextEdit;
 class AltnRegExp;
 class ConcRegExp;
 class LookAheadRegExp;
@@ -34,6 +33,7 @@ class RepeatRegExp;
 class TextRegExp;
 class RegexpHighlighter;
 class RegExp;
+class QChar;
 
 class RegExpConverter
 {
@@ -54,7 +54,7 @@ public:
     virtual int features() = 0;
     virtual RegExp* parse( const QString&, bool* ok );
     QString toStr( RegExp*, bool markSelection );
-    virtual RegexpHighlighter* highlighter( Q3TextEdit* );
+    virtual RegexpHighlighter* highlighter( QTextEdit* );
 
     static void setCurrent( RegExpConverter* );
     static RegExpConverter* current();
@@ -69,7 +69,7 @@ protected:
     virtual QString toString( PositionRegExp*, bool markSelection ) = 0;
     virtual QString toString( RepeatRegExp*, bool markSelection ) = 0;
     virtual QString toString( TextRegExp*, bool markSelection ) = 0;
-    QString escape( QString text, Q3ValueList<QChar> chars, QChar escapeChar) const;
+    QString escape( QString text, QList<QChar> chars, QChar escapeChar) const;
 
 private:
     static RegExpConverter* _current;

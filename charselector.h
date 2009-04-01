@@ -21,7 +21,7 @@
 #include <QWidget>
 
 class QComboBox;
-class Q3WidgetStack;
+class QStackedWidget;
 class LimitedCharLineEdit;
 
 class CharSelector :public QWidget
@@ -42,7 +42,7 @@ private slots:
 
 private:
     QComboBox* _type;
-    Q3WidgetStack* _stack;
+    QStackedWidget* _stack;
     LimitedCharLineEdit* _normal;
     LimitedCharLineEdit* _hex;
     LimitedCharLineEdit* _oct;

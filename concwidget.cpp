@@ -23,6 +23,7 @@
 //Added by qt3to4:
 #include <QMouseEvent>
 #include <QPaintEvent>
+#include <QDebug>
 
 ConcWidget::ConcWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
   :MultiContainerWidget(editorWindow, parent)
@@ -51,11 +52,14 @@ ConcWidget::ConcWidget( RegExpEditorWindow* editorWindow, ConcWidget* origConc,
 {
   init();
   _children.prepend( new DragAccepter(editorWindow, this) );
-  for (unsigned int i = end; i >= start; i--) {
-    RegExpWidget* child = origConc->_children.take( i );
-    _children.prepend( child );
-    child->setParent( this );
+  QMutableListIterator<RegExpWidget *> i(origConc->_children);
+  while(i.hasNext()) {
+      RegExpWidget* child = i.next();
+      i.remove();
+      _children.prepend(child);
+      child->setParent(this);
   }
+
   _children.prepend( new DragAccepter(editorWindow, this) );
 }
 
@@ -68,8 +72,8 @@ ConcWidget::ConcWidget( ConcRegExp* regexp, RegExpEditorWindow* editorWindow,
   _children.append(accepter);
 
   RegExpList list = regexp->children();
-  for ( RegExpListIt it(list); *it; ++it ) {
-    RegExpWidget* child = WidgetFactory::createWidget( *it, editorWindow, this );
+  foreach ( RegExp * r, list ) {
+    RegExpWidget* child = WidgetFactory::createWidget( r, editorWindow, this );
     append( child );
   }
 }
@@ -84,10 +88,10 @@ QSize ConcWidget::sizeHint() const
 {
   int childrenWidth = 0;
   int childrenHeight = 0;
-  Q3PtrListIterator<RegExpWidget> it(_children);
-
-  for ( ; *it; ++it) {
-    QSize thisChildSize = (*it)->sizeHint();
+  
+  foreach(const RegExpWidget *regExpWidget, _children)
+  {
+    QSize thisChildSize = regExpWidget->sizeHint();
     childrenWidth += thisChildSize.width();
     childrenHeight = qMax(childrenHeight, thisChildSize.height());
   }
@@ -214,7 +218,7 @@ void ConcWidget::sizeAccepter( DragAccepter* accepter, int height, int totHeight
 
 RegExp* ConcWidget::regExp() const
 {
-  Q3PtrListIterator<RegExpWidget> it( _children );
+  QList<RegExpWidget *>::const_iterator it =  _children.constBegin();
   ++it; // start with the second element.
 
   if ( _children.count() == 3 ) {
@@ -224,7 +228,7 @@ RegExp* ConcWidget::regExp() const
   else {
     ConcRegExp *regexp = new ConcRegExp( isSelected() );
 
-    for ( ; *it; it+=2 ) {
+    for ( ; it != _children.constEnd() ; it+=2 ) {
       regexp->addRegExp( (*it)->regExp() );
     }
     return regexp;
@@ -238,9 +242,9 @@ bool ConcWidget::updateSelection(bool parentSelected)
 
   _maxSelectedHeight = 0;
 
-  Q3PtrListIterator<RegExpWidget> it(_children);
+  QList<RegExpWidget *>::const_iterator it = _children.constBegin();
   ++it; // Skip past the first DragAccepter
-	for ( ; *it; it +=2  ) {
+	for ( ; it != _children.constEnd() ; it +=2  ) {
     if ( (*it)->isSelected() ) {
       _maxSelectedHeight = qMax( _maxSelectedHeight, (*it)->sizeHint().height() );
     }
@@ -289,9 +293,9 @@ void ConcWidget::applyRegExpToSelection( RegExpType type )
   if ( start == -1 ) {
     // No item selected at top level
 
-    Q3PtrListIterator<RegExpWidget> it(_children);
+    QList<RegExpWidget * >::const_iterator it = _children.constBegin();
     ++it; // Skip past the first DragAccepter
-    for ( ; *it ; it += 2 ) {
+    for ( ; it != _children.constEnd() ; it += 2 ) {
       if ( (*it)->hasSelection() ) {
         (*it)->applyRegExpToSelection( type );
         break;
@@ -320,9 +324,9 @@ bool ConcWidget::isSelected() const
   // A ConcWidget should be considered selected when all its elements has been selected
   // otherwise empty ConcWidgets may be left behind when for example selection is deleted.
   bool allSelected = true;
-  Q3PtrListIterator<RegExpWidget> it(_children);
+  QList<RegExpWidget *>::const_iterator it = _children.constBegin();
   ++it; // Skip past first DragAccepter.
-  for ( ; *it && allSelected; it += 2 ) {
+  for ( ; (it != _children.constEnd()) && allSelected; it += 2 ) {
     allSelected = allSelected && (*it)->isSelected();
   }
 
@@ -338,9 +342,9 @@ RegExp* ConcWidget::selection() const
   bool foundMoreThanOne = false;
   RegExp* regexp = 0;
 
-  Q3PtrListIterator<RegExpWidget> it(_children);
+  QList<RegExpWidget * >::const_iterator it = _children.constBegin();
   ++it; // Skip past the first DragAccepter
-  for ( ; (*it) ; it += 2 ) {
+  for ( ; it != _children.constEnd() ; it += 2 ) {
     if ( (*it)->hasSelection() ) {
       if (!foundAny) {
         regexp = (*it)->selection();
@@ -374,10 +378,10 @@ void ConcWidget::addNewConcChild(DragAccepter *accepter, ConcWidget *other)
       // We must take them in pairs to avoid breaking the invariant for paintEvent,
       // namely that every second element is a dragAccepter
       for ( unsigned int j = other->_children.count()-1; j > 0 ; j-=2 ) {
-        RegExpWidget* newChildA = other->_children.take(j);
+        RegExpWidget* newChildA = other->_children.takeAt(j);
         newChildA->setParent( this );
         _children.insert( i+1, newChildA );
-        RegExpWidget* newChildB = other->_children.take(j-1);
+        RegExpWidget* newChildB = other->_children.takeAt(j-1);
         newChildB->setParent( this );
         _children.insert( i+1, newChildB );
         newChildA->show();
@@ -393,9 +397,9 @@ void ConcWidget::addNewConcChild(DragAccepter *accepter, ConcWidget *other)
 bool ConcWidget::validateSelection() const
 {
   bool cont = true;
-  Q3PtrListIterator<RegExpWidget> it(_children);
+  QList<RegExpWidget *>::const_iterator it = _children.constBegin();
   ++it; // skip past the DragAccepter.
-  for ( ; *it && cont; it += 2 ) {
+  for ( ; (it != _children.constEnd()) && cont; it += 2 ) {
     cont = (*it)->validateSelection();
   }
   return cont;

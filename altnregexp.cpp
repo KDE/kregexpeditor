@@ -37,8 +37,8 @@ RegExpList AltnRegExp::children() const
 bool AltnRegExp::check( ErrorMap& map, bool first, bool last )
 {
     bool possibleEmpty = false;
-    for ( RegExpListIt it(list); *it; ++it ) {
-        possibleEmpty = (*it)->check( map, first, last ) || possibleEmpty;
+    foreach ( RegExp *r, list ) {
+        possibleEmpty = r->check( map, first, last ) || possibleEmpty;
     }
     return possibleEmpty;
 }
@@ -46,8 +46,8 @@ bool AltnRegExp::check( ErrorMap& map, bool first, bool last )
 QDomNode AltnRegExp::toXml( QDomDocument* doc ) const
 {
     QDomElement top = doc->createElement( QString::fromLocal8Bit( "Alternatives" ) );
-    for ( RegExpListIt it(list); *it; ++it ) {
-        top.appendChild( (*it)->toXml( doc ) );
+    foreach ( RegExp *r, list ) {
+        top.appendChild( r->toXml( doc ) );
     }
     return top;
 }
@@ -84,19 +84,17 @@ bool AltnRegExp::operator==( const RegExp& other ) const
     RegExpListIt it1( list );
     RegExpListIt it2( theOther.list );
 
-    for ( ; *it1 && *it2 ; ) {
-        if ( ! (**it1 == **it2) )
+    while( it1.hasNext() && it2.hasNext() ) {
+        if ( ! (it1.next() == it2.next()) )
             return false;
-        ++it1;
-        ++it2;
     }
     return true;
 }
 
 void AltnRegExp::replacePart( CompoundRegExp* replacement )
 {
-    for ( RegExpListIt it( list ); *it; ++it ) {
-        (*it)->replacePart( replacement );
+    foreach ( RegExp *r, list ) {
+        r->replacePart( replacement );
     }
 }
 

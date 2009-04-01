@@ -21,9 +21,7 @@
 #include "kmultiformlistboxfactory.h"
 #include "kmultiformlistbox-shower.h"
 #include "kmultiformlistboxentry.h"
-#include <Qt3Support/Q3PtrList>
 #include <QtGui/QLayout>
-#include <Qt3Support/Q3ScrollView>
 
 #ifdef QT_ONLY
   #include "compat.h"
@@ -34,8 +32,8 @@
 class QDataStream;
 
 
-typedef Q3PtrList<KMultiFormListBoxEntry> KMultiFormListBoxEntryList ;
-typedef Q3PtrList<QWidget> WidgetList;
+typedef QList<KMultiFormListBoxEntry *> KMultiFormListBoxEntryList ;
+typedef QList<QWidget *> WidgetList;
 
 /**
  The main class used to get an KMultiFormListBox widget.

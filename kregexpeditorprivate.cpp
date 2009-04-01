@@ -35,25 +35,22 @@
 //Added by qt3to4:
 #include <QPixmap>
 #include <QTextStream>
-#include <Q3PtrList>
 #include <QHBoxLayout>
 #include <QLabel>
-#include <Q3ValueList>
 #include <QVBoxLayout>
 #include "scrollededitorwindow.h"
 #include "regexpbuttons.h"
 #include <stdio.h>
 #include "infopage.h"
 #include <qsplitter.h>
-#include <q3dockarea.h>
 #include "userdefinedregexps.h"
 #include "auxbuttons.h"
-#include <q3accel.h>
 #include <QTimer>
 #include "verifier.h"
 #include <QFile>
 #include "verifybuttons.h"
-
+#include <QShortcut>
+#include <QDebug>
 
 KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     : QMainWindow(parent), _updating( false ), _autoVerify( true ), _matchGreedy( false )
@@ -87,7 +84,6 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
 
   _info = new InfoPage( this );
   _info->setObjectName( "_info" );
-  setCentralWidget(_info);
   _verifier = new Verifier( _editor, "KRegExpEditorPrivate::_verifier" );
   connect( _verifier, SIGNAL( textChanged() ), this, SLOT( maybeVerify() ) );
   _verifier->setWhatsThis( i18n("<p>Type in some text in this window, and see what the regular expression you have developed matches.</p>"
@@ -97,7 +93,13 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
                                    "highlighted - This allows you to <i>debug</i> your regular expressions</p>") );
 
   _editor->hide();
-  _editor->setSizes( Q3ValueList<int>() << _editor->height()/2 << _editor->height()/2 );
+  _editor->setSizes( QList<int>() << _editor->height()/2 << _editor->height()/2 );
+  
+  QWidget* centralWidget = new QWidget(this);
+  QHBoxLayout* layout = new QHBoxLayout(centralWidget);
+  layout->addWidget(_editor);
+  layout->addWidget(_info);
+  setCentralWidget(centralWidget);
 
   // Connect the buttons
   connect( _regExpButtons, SIGNAL( clicked( int ) ),   _scrolledEditorWindow, SLOT( slotInsertRegExp( int ) ) );
@@ -160,22 +162,21 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
   QDockWidget* editDock = new QDockWidget(i18n("ASCII syntax:"), this);
   editDock->setFeatures(QDockWidget::NoDockWidgetFeatures);
   addDockWidget(Qt::BottomDockWidgetArea, editDock);
+  
   QWidget* editDockWidget = new QWidget(editDock);
   editDock->setWidget(editDockWidget);
-  QHBoxLayout* layout = new QHBoxLayout(editDockWidget);
-  //topLayout->addItem( layout );
-  layout->setSpacing( 6 );
-  //QLabel* label = new QLabel( i18n("ASCII synta&x:"), editDockWidget );
-  //layout->addWidget( label );
+  QHBoxLayout* dockLayout = new QHBoxLayout(editDockWidget);
+  dockLayout->setSpacing( 6 );
+  
   clearButton = new QToolButton( editDockWidget );
   const QString icon( QString::fromLatin1( QApplication::isRightToLeft() ? "edit-clear-locationbar-rtl" : "edit-clear-locationbar-ltr" ) );
   KIcon clearIcon( icon );
   clearButton->setIcon( clearIcon );
-  layout->addWidget( clearButton );
+  dockLayout->addWidget( clearButton );
   clearButton->setToolTip( i18n("Clear expression") );
+  
   _regexpEdit = new QLineEdit( editDockWidget );
-  //label->setBuddy( _regexpEdit );
-  layout->addWidget( _regexpEdit );
+  dockLayout->addWidget( _regexpEdit );
   _regexpEdit->setWhatsThis( i18n( "<p>This is the regular expression in ASCII syntax. You are likely only "
 				      "to be interested in this if you are a programmer, and need to "
 				      "develop a regular expression using QRegExp.</p>"
@@ -202,11 +203,9 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
 
   // Push an initial empty element on the stack.
   _undoStack.push( _scrolledEditorWindow->regExp() );
-  _redoStack.setAutoDelete( true );
 
-  Q3Accel* accel = new Q3Accel( this );
-  accel->connectItem( accel->insertItem( Qt::CTRL+Qt::Key_Z ), this, SLOT( slotUndo() ) );
-  accel->connectItem( accel->insertItem( Qt::CTRL+Qt::Key_R ), this, SLOT( slotRedo() ) );
+  (void) new QShortcut( Qt::CTRL+Qt::Key_Z , this, SLOT( slotUndo() ) );
+  (void) new QShortcut( Qt::CTRL+Qt::Key_R , this, SLOT( slotRedo() ) );
 
   setSyntax( QString::fromLatin1( "Qt" ) );
   
@@ -226,13 +225,14 @@ void KRegExpEditorPrivate::slotUpdateEditor( const QString & txt)
   bool ok;
   if ( !RegExpConverter::current()->canParse() ) {
       // This can happend if the application set a text through the API.
+      //qDebug("cannot parse");
   }
   else {
       RegExp* result = RegExpConverter::current()->parse( txt, &ok );
       if ( ok ) {
-          Q3PtrList<CompoundRegExp> list = _userRegExps->regExps();
-          for ( Q3PtrListIterator<CompoundRegExp> it( list ); *it; ++it ) {
-              result->replacePart( *it );
+          QList<CompoundRegExp *> list = _userRegExps->regExps();
+          foreach ( CompoundRegExp* regExp, list ) {
+              result->replacePart( regExp );
           }
 
           _scrolledEditorWindow->slotSetRegExp( result );
@@ -277,7 +277,8 @@ void KRegExpEditorPrivate::recordUndoInfo()
   RegExp* regexp = _scrolledEditorWindow->regExp();
   if ( regexp->toXmlString() != _undoStack.top()->toXmlString() ) {
     _undoStack.push( regexp );
-    _redoStack = Q3PtrStack<RegExp>();
+    qDeleteAll(_redoStack);
+    _redoStack = QStack<RegExp *>();
     emitUndoRedoSignals();
   }
 }
@@ -307,7 +308,6 @@ void KRegExpEditorPrivate::slotUndo()
 void KRegExpEditorPrivate::slotShowEditor()
 {
     _info->hide();
-    setCentralWidget(_editor);
     _editor->show();
 }
 
@@ -428,7 +428,6 @@ void KRegExpEditorPrivate::setSyntax( const QString& syntax )
 
 void KRegExpEditorPrivate::showHelp()
 {
-    setCentralWidget(_info);
     _info->show();
     _editor->hide();
 }

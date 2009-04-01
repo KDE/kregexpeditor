@@ -29,12 +29,14 @@
 #include "kmultiformlistbox.h"
 //Added by qt3to4:
 #include <QResizeEvent>
+#include <QScrollArea>
 //-------------------------------------------------------------------------
+class QVBoxLayout;
 
 /**
    @internal
 */
-class KMultiFormListBoxMultiVisible :public Q3ScrollView, KMultiFormListBoxShower {
+class KMultiFormListBoxMultiVisible :public QScrollArea, KMultiFormListBoxShower {
 
 Q_OBJECT
 
@@ -130,6 +132,7 @@ private:
   WidgetList *elms;
   QPushButton *addBut;
   QByteArray clipboard;
+  QVBoxLayout *layout;
 };
 
 

@@ -78,8 +78,8 @@ void KMultiFormListBox::toStream( QDataStream& stream ) const
 {
   const KMultiFormListBoxEntryList elms = elements();
   stream << elms.count();
-  for ( Q3PtrListIterator<KMultiFormListBoxEntry> it(elms); *it; ++it)
-    _factory->toStream( *it, stream );
+  foreach ( KMultiFormListBoxEntry * entry, elms)
+    _factory->toStream( entry, stream );
 }
 
 void KMultiFormListBox::fromStream( QDataStream& stream )
@@ -98,8 +98,8 @@ void KMultiFormListBox::fromStream( QDataStream& stream )
   }
 
   KMultiFormListBoxEntryList elms = elements();
-  for (Q3PtrListIterator<KMultiFormListBoxEntry> it(elms); *it; ++it)
-    _factory->fromStream( stream, *it );
+  foreach ( KMultiFormListBoxEntry * entry, elms)
+    _factory->fromStream( stream, entry );
 }
 
 

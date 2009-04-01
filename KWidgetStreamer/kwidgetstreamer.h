@@ -21,7 +21,6 @@
 #include <QtCore/QMap>
 #include <QtCore/QStringList>
 #include <QtCore/QObject>
-#include <Qt3Support/Q3PtrList>
 
 /**
    This class defines methods for streaming widget data.

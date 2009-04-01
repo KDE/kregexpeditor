@@ -33,10 +33,9 @@
 
 #include "concwidget.h"
 #include <qpainter.h>
-#include <q3accel.h>
+#include <QShortcut>
 #include <qcursor.h>
 #include <qclipboard.h>
-#include <q3popupmenu.h>
 //Added by qt3to4:
 #include <QPixmap>
 #include <QTextStream>
@@ -61,14 +60,13 @@ RegExpEditorWindow::RegExpEditorWindow( QWidget *parent)
     _pasteInAction = false;
     _pasteData = 0;
 
-    Q3Accel* accel = new Q3Accel( this );
-    accel->connectItem( accel->insertItem( Qt::CTRL+Qt::Key_C ), this, SLOT( slotCopy() ) );
-    accel->connectItem( accel->insertItem( Qt::CTRL+Qt::Key_X ), this, SLOT( slotCut() ) );
-    accel->connectItem( accel->insertItem( Qt::Key_Delete ), this, SLOT( slotCut() ) );
-    accel->connectItem( accel->insertItem( Qt::Key_Backspace ), this, SLOT( slotCut() ) );
-    accel->connectItem( accel->insertItem( Qt::CTRL+Qt::Key_V ), this, SLOT( slotStartPasteAction() ) );
-    accel->connectItem( accel->insertItem( Qt::Key_Escape ), this, SLOT( slotEndActions() ) );
-    accel->connectItem( accel->insertItem( Qt::CTRL+Qt::Key_S ), this, SLOT( slotSave() ) );
+    (void) new QShortcut( Qt::CTRL+Qt::Key_C , this, SLOT( slotCopy() ) );
+    (void) new QShortcut( Qt::CTRL+Qt::Key_X , this, SLOT( slotCut() ) );
+    (void) new QShortcut( Qt::Key_Delete , this, SLOT( slotCut() ) );
+    (void) new QShortcut( Qt::Key_Backspace , this, SLOT( slotCut() ) );
+    (void) new QShortcut( Qt::CTRL+Qt::Key_V , this, SLOT( slotStartPasteAction() ) );
+    (void) new QShortcut( Qt::Key_Escape , this, SLOT( slotEndActions() ) );
+    (void) new QShortcut( Qt::CTRL+Qt::Key_S , this, SLOT( slotSave() ) );
 
     connect( this, SIGNAL( change() ), this, SLOT( emitVerifyRegExp() ) );
 }
@@ -331,43 +329,48 @@ void RegExpEditorWindow::showRMBMenu( bool enableCutCopy )
     enum CHOICES { CUT, COPY, PASTE, SAVE, EDIT };
 
     if ( !_menu ) {
-        _menu = new Q3PopupMenu( 0 );
-        _menu->insertItem(getIcon(QString::fromLocal8Bit("edit-cut")),
-                          i18n("C&ut"), CUT);
-        _menu->insertItem(getIcon(QString::fromLocal8Bit("edit-copy")),
-                          i18n("&Copy"), COPY);
-        _menu->insertItem(getIcon(QString::fromLocal8Bit("edit-paste")),
-                          i18n("&Paste"), PASTE);
+        _menu = new QMenu( 0 );
+        
+        _cutAction = _menu->addAction(getIcon(QString::fromLocal8Bit("edit-cut")),
+                          i18n("C&ut"));
+        connect(_cutAction, SIGNAL(triggered()), this, SLOT(slotCut()));
+        
+        _copyAction = _menu->addAction(getIcon(QString::fromLocal8Bit("edit-copy")),
+                          i18n("&Copy"));
+        connect(_copyAction, SIGNAL(triggered()), this, SLOT(slotCopy()));
+        
+        _pasteAction = _menu->addAction(getIcon(QString::fromLocal8Bit("edit-paste")),
+                          i18n("&Paste"));
+        connect(_pasteAction, SIGNAL(triggered()), this, SLOT(slotStartPasteAction()));
+        
         _menu->addSeparator();
-        _menu->insertItem(getIcon(QString::fromLocal8Bit("document-properties")),
-                          i18n("&Edit"), EDIT);
-        _menu->insertItem(getIcon(QString::fromLocal8Bit("document-save")),
-                          i18n("&Save Regular Expression..."), SAVE);
+        
+        _editAction = _menu->addAction(getIcon(QString::fromLocal8Bit("document-properties")),
+                          i18n("&Edit"));
+        connect(_editAction, SIGNAL(triggered()), this, SLOT(editWidget()));
+        
+        _saveAction = _menu->addAction(getIcon(QString::fromLocal8Bit("document-save")),
+                          i18n("&Save Regular Expression..."));
+        connect(_saveAction, SIGNAL(triggered()), this, SLOT(slotSave()));
     }
 
-    _menu->setItemEnabled( CUT, enableCutCopy );
-    _menu->setItemEnabled( COPY, enableCutCopy );
+    _cutAction->setEnabled( enableCutCopy );
+    _copyAction->setEnabled( enableCutCopy );
 
     if ( ! qApp->clipboard()->data()->provides( "KRegExpEditor/widgetdrag" ) )
-        _menu->setItemEnabled( PASTE, false );
+        _pasteAction->setEnabled( false );
     else
-        _menu->setItemEnabled( PASTE, true );
+        _pasteAction->setEnabled( true );
 
-    _menu->setItemEnabled( SAVE, _top->hasAnyChildren() );
+    _saveAction->setEnabled( _top->hasAnyChildren() );
 
     RegExpWidget* editWidget = _top->findWidgetToEdit( QCursor::pos() );
 
-    _menu->setItemEnabled( EDIT, editWidget  );
+    _editAction->setEnabled( editWidget  );
 
     QPoint pos = QCursor::pos();
-    int choice = _menu->exec( pos );
-    switch ( choice ) {
-    case COPY: copy( pos ); break;
-    case CUT: cut( pos ); break;
-    case PASTE: slotStartPasteAction(); break;
-    case SAVE: slotSave(); break;
-    case EDIT: editWidget->edit(); break;
-    }
+    _menu->exec( pos );
+
     emit change();
     emit canSave( _top->hasAnyChildren() );
 }
@@ -451,6 +454,11 @@ void RegExpEditorWindow::emitVerifyRegExp()
     emit verifyRegExp();
 }
 
+void RegExpEditorWindow::editWidget() 
+{
+    RegExpWidget* editWidget = _top->findWidgetToEdit( QCursor::pos() );
+    editWidget->edit();
+}
 
 QIcon RegExpEditorWindow::getIcon( const QString& name )
 {

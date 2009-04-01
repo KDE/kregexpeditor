@@ -17,21 +17,25 @@
  **/
 #include "qtregexphighlighter.h"
 #include <QRegExp>
-QtRegexpHighlighter::QtRegexpHighlighter( Q3TextEdit* editor )
+QtRegexpHighlighter::QtRegexpHighlighter( QTextEdit* editor )
     :RegexpHighlighter( editor ), _editor( editor )
 {
 }
 
-int QtRegexpHighlighter::highlightParagraph( const QString & text, int endStateOfLastPara )
+void QtRegexpHighlighter::highlightBlock( const QString& text )
 {
+    int endStateOfLastPara;
     QRegExp regexp( _regexp );
     regexp.setCaseSensitivity( _caseSensitive ? Qt::CaseSensitive : Qt::CaseInsensitive );
     regexp.setMinimal( _minimal );
 
-    setFormat( 0, text.length(), _editor->font(), Qt::black );
+    QTextCharFormat format;
+    format.setForeground(Qt::black);
+    format.setFont(_editor->font());
+    setFormat( 0, text.length(), format );
 
     if ( !regexp.isValid() || regexp.isEmpty() ) {
-        return 0;
+        return/* 0*/;
     }
 
     // ------------------------------ Process with the regular expression.
@@ -58,7 +62,10 @@ int QtRegexpHighlighter::highlightParagraph( const QString & text, int endStateO
         QFont font = _editor->font();
         font.setUnderline( true );
         font.setPointSize( (int) (font.pointSize() * 1.3) );
-        setFormat( start, length, font, colors[color] );
+        QTextCharFormat format;
+        format.setFont(font);
+        format.setForeground(colors[color]);
+        setFormat( start, length, format );
 
         if ( length + (start-index) != regexp.matchedLength() )
             setFormat( start+length, regexp.matchedLength()-length-(start-index), colors[color] );
@@ -66,6 +73,6 @@ int QtRegexpHighlighter::highlightParagraph( const QString & text, int endStateO
         index +=  qMax( 1, regexp.matchedLength() ); // ensure progress when matching for example ^ or \b
         color = (color+1)%2;
     }
-    return color;
+    return /*color*/;
 }
 

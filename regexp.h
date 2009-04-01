@@ -19,7 +19,7 @@
 #define REGEXP_H
 
 #include <qdom.h>
-#include <q3ptrlist.h>
+#include <QList>
 
 class CompoundRegExp;
 class ErrorMap;
@@ -59,14 +59,15 @@ protected:
 
 private:
     RegExp() {} // disable
-    Q3PtrList<RegExp> _children;
+    QList<RegExp *> _children;
     RegExp* _parent;
     bool _destructing;
     bool _selected;
 };
 
-typedef Q3PtrList<RegExp> RegExpList;
-typedef Q3PtrListIterator<RegExp> RegExpListIt;
+typedef QList<RegExp *> RegExpList;
+typedef QListIterator<RegExp *> RegExpListIt;
+typedef QList<RegExp *>::iterator RegExpListStlIt;
 
 #endif // REGEXP_H
 

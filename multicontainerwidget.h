@@ -20,7 +20,7 @@
 
 #include "regexpwidget.h"
 //Added by qt3to4:
-#include <Q3PtrList>
+#include <QList>
 
 /**
    Abstract RegExp widget class representing widgets having multiple children.
@@ -44,7 +44,7 @@ public:
 
 protected:
   void append( RegExpWidget* child );
-  Q3PtrList<RegExpWidget> _children;
+  QList<RegExpWidget *> _children;
 };
 
 

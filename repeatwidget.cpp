@@ -31,14 +31,14 @@
 #include <qcursor.h>
 #include <QSpinBox>
 #include <qradiobutton.h>
-#include <q3grid.h>
-#include <Q3VButtonGroup>
 
 //Added by qt3to4:
 #include <QPaintEvent>
 #include <QHBoxLayout>
 #include <QLabel>
 #include "kwidgetstreamer.h"
+#include <QButtonGroup>
+#include <QGroupBox>
 
 RepeatWidget::RepeatWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
   : SingleContainerWidget(editorWindow, parent)
@@ -176,73 +176,79 @@ int RepeatWidget::edit()
 
 //--------------------------------------------------------------------------------
 RepeatRangeWindow::RepeatRangeWindow( QWidget* parent)
-  : Q3VBox( parent )
+  : QWidget( parent )
 {
-  setSpacing( 6 );
-
-  _group = new Q3VButtonGroup( i18n("Times to Match"), this, "groupbox" );
-  _group->setExclusive(true);
-
+  QVBoxLayout* mainLayout = new QVBoxLayout(this);
+  
+  _groupWidget = new QGroupBox( i18n("Times to Match"));
+  mainLayout->addWidget(_groupWidget);
+  _group = new QButtonGroup(this);
+  
+  QGridLayout* groupLayout = new QGridLayout(_groupWidget);
+  
   // Any number of times
-  QRadioButton* radioBut = new QRadioButton(i18n("Any number of times (including zero times)"),
-                                            _group);
+  QRadioButton* radioBut = new QRadioButton(i18n("Any number of times (including zero times)"));
   radioBut->setObjectName("RepeatRangeWindow::choice any times");
 
-  _group->insert(radioBut, ANY);
+  groupLayout->addWidget(radioBut, 0, 0, 1, 3);
+  _group->addButton(radioBut, ANY);
+  radioBut->click();
 
-  QWidget* container = new QWidget( _group );
-  QHBoxLayout* lay = new QHBoxLayout( container );
-  Q3Grid* grid = new Q3Grid( 3, container );
-  grid->setSpacing( 5 );
-
-  lay->addWidget( grid );
-  lay->addStretch( 1 );
-
-  createLine( grid, i18n( "At least" ), &_leastTimes, ATLEAST );
-  createLine( grid, i18n( "At most" ), &_mostTimes, ATMOST );
-  createLine( grid, i18n( "Exactly" ), &_exactlyTimes, EXACTLY );
+  createLine( groupLayout, i18n( "At least" ), &_leastTimes, ATLEAST );
+  createLine( groupLayout, i18n( "At most" ), &_mostTimes, ATMOST );
+  createLine( groupLayout, i18n( "Exactly" ), &_exactlyTimes, EXACTLY );
 
   // from ___ to ___ times
-  radioBut = new QRadioButton( i18n( "From" ), grid );
+  radioBut = new QRadioButton( i18n( "From" ));
   radioBut->setObjectName( "RepeatRangeWindow::from" );
-  _group->insert( radioBut, MINMAX );
+  groupLayout->addWidget(radioBut, 4, 0);
+  _group->addButton( radioBut, MINMAX );
 
-  _rangeFrom = new QSpinBox( grid );
+  _rangeFrom = new QSpinBox();
   _rangeFrom->setRange( 1, 999 );
   _rangeFrom->setSingleStep( 1 );
+  groupLayout->addWidget(_rangeFrom, 4, 1);
 
-  Q3HBox* box = new Q3HBox( grid );
-  box->setSpacing( 5 );
-
-  (void) new QLabel(i18n( "to" ), box);
-  _rangeTo = new QSpinBox( grid );
+  QHBoxLayout* layout = new QHBoxLayout();
+  
+  QLabel* label = new QLabel(i18n( "to" ));
+  layout->addWidget(label);
+  
+  _rangeTo = new QSpinBox();
   _rangeTo->setRange( 1, 999 );
   _rangeTo->setSingleStep( 1 );
-  (void) new QLabel( i18n( "time(s)" ), box );
-
+  layout->addWidget(_rangeTo);
+  
+  label = new QLabel( i18n( "time(s)" ));
+  layout->addWidget(label);
+  
+  groupLayout->addLayout(layout, 4, 2);
+  
   connect( _rangeFrom, SIGNAL( valueChanged( int ) ), this, SLOT( slotUpdateMaxVal( int ) ) );
   connect( _rangeTo, SIGNAL( valueChanged( int ) ), this, SLOT( slotUpdateMinVal( int ) ) );
 
-  // set a default button.
-  _group->setButton(ANY);
-  slotItemChange( ANY );
-
-
-  connect( _group, SIGNAL( clicked( int ) ), this, SLOT( slotItemChange( int ) ) );
+  connect( _group, SIGNAL( buttonClicked( int ) ), this, SLOT( slotItemChange( int ) ) );
+  
+  _group->button(ANY)->click();
 }
 
 
-void RepeatRangeWindow::createLine( QWidget* parent, QString text, QSpinBox** spin, REPEATTYPE tp )
+void RepeatRangeWindow::createLine( QGridLayout* layout, QString text, QSpinBox** spin, REPEATTYPE tp )
 {
-
-  QRadioButton* radioBut = new QRadioButton(text, parent);
-  *spin = new QSpinBox(parent);
+  int row = layout->rowCount();
+  
+  QRadioButton* radioBut = new QRadioButton(text);
+  layout->addWidget(radioBut, row, 0);
+  
+  *spin = new QSpinBox();
   (*spin)->setRange(1, 999);
   (*spin)->setSingleStep(1);
   (*spin)->setValue(1);
+  layout->addWidget(*spin, row, 1);
 
-  (void) new QLabel(i18n("time(s)"), parent);
-  _group->insert(radioBut, tp);
+  QLabel* label = new QLabel(i18n("time(s)"));
+  layout->addWidget(label, row, 2, 1, 2);
+  _group->addButton(radioBut, tp);
 }
 
 void RepeatRangeWindow::slotItemChange( int which )
@@ -281,7 +287,7 @@ void RepeatRangeWindow::slotUpdateMaxVal( int minVal )
 
 QString RepeatRangeWindow::text()
 {
-  switch ( _group->id(_group->selected()) ) {
+  switch ( _group->checkedId() ) {
   case ANY: return i18n("Repeated Any Number of Times");
   case ATLEAST: return i18np("Repeated at Least 1 Time", "Repeated at Least %1 Times", _leastTimes->value() );
   case ATMOST: return i18np("Repeated at Most 1 Time", "Repeated at Most %1 Times", _mostTimes->value() );
@@ -289,13 +295,14 @@ QString RepeatRangeWindow::text()
   case MINMAX: return i18n("Repeated From %1 to %2 Times",
                    _rangeFrom->value(), _rangeTo->value() );
   }
+  
   qFatal("Fall through!");
   return QString::fromLocal8Bit("");
 }
 
 int RepeatRangeWindow::min()
 {
-  switch ( _group->id(_group->selected()) ) {
+  switch ( _group->checkedId() ) {
   case ANY: return 0;
   case ATLEAST: return _leastTimes->value();
   case ATMOST: return 0;
@@ -308,7 +315,7 @@ int RepeatRangeWindow::min()
 
 int RepeatRangeWindow::max()
 {
-  switch ( _group->id(_group->selected()) ) {
+  switch ( _group->checkedId() ) {
   case ANY: return -1;
   case ATLEAST: return -1;
   case ATMOST: return _mostTimes->value();
@@ -320,8 +327,8 @@ int RepeatRangeWindow::max()
 }
 
 void RepeatRangeWindow::set( REPEATTYPE tp, int min, int max )
-{
-  _group->setButton( tp );
+{ 
+  _group->button( tp )->click();
   switch ( tp ) {
   case ANY:
     break;

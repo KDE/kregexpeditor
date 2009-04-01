@@ -36,7 +36,7 @@ public:
     virtual QString toString( PositionRegExp*, bool markSelection );
     virtual QString toString( RepeatRegExp*, bool markSelection );
     virtual QString toString( TextRegExp*, bool markSelection );
-    RegexpHighlighter* highlighter( Q3TextEdit* edit );
+    RegexpHighlighter* highlighter( QTextEdit* edit );
 };
 
 #endif /* QTREGEXPCONVERTER_H */

@@ -19,7 +19,6 @@
 
 #ifdef QT_ONLY
 #include "compat.h"
-#include <q3filedialog.h>
 //Added by qt3to4:
 #include <QLinkedList>
 #include <QBoxLayout>

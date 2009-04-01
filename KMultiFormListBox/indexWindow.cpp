@@ -31,7 +31,7 @@
 
 indexWindow::indexWindow() : QWidget(0,Qt::WStyle_Customize | Qt::WType_Popup)
 {
-  lb = new Q3ListBox(this);
+  lb = new QListWidget(this);
   connect(lb,SIGNAL(selected(int)), this, SLOT(lbSelected(int)));
   QHBoxLayout *lay = new QHBoxLayout(this);
   lay->addWidget(lb);
@@ -55,7 +55,7 @@ void indexWindow::finish(int index)
 
 void indexWindow::insertItem(QString txt)
 {
-  lb->insertItem(txt);
+  lb->addItem(txt);
 }
 
 void indexWindow::hideEvent(QHideEvent *h)

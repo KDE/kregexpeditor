@@ -18,8 +18,8 @@
 
 #include "regexphighlighter.h"
 
-RegexpHighlighter::RegexpHighlighter( Q3TextEdit* edit )
-    :Q3SyntaxHighlighter( edit ), _caseSensitive( false ), _minimal( false )
+RegexpHighlighter::RegexpHighlighter( QTextEdit* edit )
+    :QSyntaxHighlighter( edit ), _caseSensitive( false ), _minimal( false )
 {
 }
 

@@ -22,7 +22,7 @@
 #include <QFrame>
 #include <QHBoxLayout>
 
-WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, K3ListBox *lb)
+WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KListWidget *lb)
   :KDialog(0)
 {
     setCaption( i18n("Widget Configuration") );
@@ -31,7 +31,7 @@ WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, K3ListBox *lb)
   init(factory, lb);
 }
 
-WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KMultiFormListBoxEntry *widget, K3ListBox *lb)
+WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KMultiFormListBoxEntry *widget, KListWidget *lb)
   :KDialog(0)
 {
     setCaption( i18n("Widget Configuration") );
@@ -40,7 +40,7 @@ WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KMultiFormListBoxE
   init(factory, lb, widget);
 }
 
-void WidgetWindow::init(KMultiFormListBoxFactory *factory, K3ListBox *lb, KMultiFormListBoxEntry *widget)
+void WidgetWindow::init(KMultiFormListBoxFactory *factory, KListWidget *lb, KMultiFormListBoxEntry *widget)
 {
   listbox = lb;
   myFact = factory;

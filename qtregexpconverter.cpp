@@ -19,8 +19,6 @@
 #include "qtregexpconverter.h"
 #include "qtregexphighlighter.h"
 //Added by qt3to4:
-#include <Q3ValueList>
-#include <Q3PtrList>
 #include "regexp.h"
 #include "textregexp.h"
 #include "altnregexp.h"
@@ -52,16 +50,16 @@ QString QtRegExpConverter::toString( AltnRegExp* regexp, bool markSelection )
 
 	bool first = true;
     RegExpList list = regexp->children();
-    for ( RegExpListIt it(list); *it; ++it ) {
+    foreach ( RegExp *r, list ) {
 		if ( !first ) {
 			res += QString::fromLatin1( "|" );
 		}
 		first = false;
-        if ( markSelection && !regexp->isSelected() && (*it)->isSelected() ) {
-            res += QString::fromLatin1("(") + toStr( *it, markSelection ) + QString::fromLatin1(")");
+        if ( markSelection && !regexp->isSelected() && r->isSelected() ) {
+            res += QString::fromLatin1("(") + toStr( r, markSelection ) + QString::fromLatin1(")");
         }
         else {
-            res += toStr( *it, markSelection );
+            res += toStr( r, markSelection );
         }
 	}
 	return res;
@@ -73,10 +71,10 @@ QString QtRegExpConverter::toString( ConcRegExp* regexp, bool markSelection )
     bool childSelected = false;
 
     RegExpList list = regexp->children();
-	for ( RegExpListIt it(list); *it; ++it ) {
+	foreach ( RegExp *r, list ) {
         QString startPar = QString::fromLocal8Bit("");
         QString endPar = QString::fromLocal8Bit("");
-        if ( (*it)->precedence() < regexp->precedence() ) {
+        if ( r->precedence() < regexp->precedence() ) {
             if ( markSelection )
                 startPar = QString::fromLocal8Bit("(?:");
             else
@@ -85,17 +83,17 @@ QString QtRegExpConverter::toString( ConcRegExp* regexp, bool markSelection )
         }
 
         // Note these two have different tests! They are activated in each their iteration of the loop.
-        if ( markSelection && !childSelected && !regexp->isSelected() && (*it)->isSelected() ) {
+        if ( markSelection && !childSelected && !regexp->isSelected() && r->isSelected() ) {
             res += QString::fromLatin1("(");
             childSelected = true;
         }
 
-        if ( markSelection && childSelected && !regexp->isSelected() && !(*it)->isSelected() ) {
+        if ( markSelection && childSelected && !regexp->isSelected() && !r->isSelected() ) {
             res += QString::fromLatin1(")");
             childSelected= false;
         }
 
-		res += startPar + toStr( *it, markSelection ) + endPar;
+		res += startPar + toStr( r, markSelection ) + endPar;
 	}
     if ( markSelection && childSelected && !regexp->isSelected() ) {
         res += QString::fromLatin1(")");
@@ -138,8 +136,9 @@ QString QtRegExpConverter::toString( TextRangeRegExp* regexp, bool /*markSelecti
 	}
 
 	// Now insert the ranges.
-    Q3PtrList<StringPair> ranges = regexp->range();
-    for ( Q3PtrListIterator<StringPair> it(ranges); *it; ++it ) {
+    QList<StringPair *> ranges = regexp->range();
+    QList<StringPair *>::const_iterator it = ranges.constBegin();
+    for ( ; it != ranges.constEnd() ; ++it ) {
 		txt.append((*it)->first()+ QString::fromLatin1("-")+ (*it)->second());
 	}
 
@@ -266,7 +265,7 @@ QString QtRegExpConverter::toString( RepeatRegExp* regexp, bool markSelection )
 
 QString QtRegExpConverter::toString( TextRegExp* regexp, bool /*markSelection*/ )
 {
-    Q3ValueList<QChar> list;
+    QList<QChar> list;
 	list << QChar('$')
          << QChar('^')
          << QChar('.')
@@ -296,7 +295,7 @@ int QtRegExpConverter::features()
     return WordBoundary | NonWordBoundary | PosLookAhead | NegLookAhead | CharacterRangeNonItems | ExtRange;
 }
 
-RegexpHighlighter* QtRegExpConverter::highlighter( Q3TextEdit* edit )
+RegexpHighlighter* QtRegExpConverter::highlighter( QTextEdit* edit )
 {
     return new QtRegexpHighlighter( edit );
 }

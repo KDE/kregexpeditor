@@ -75,7 +75,8 @@ QDomNode TextRangeRegExp::toXml( QDomDocument* doc ) const
         top.appendChild( elm );
     }
 
-    for ( Q3PtrListIterator<StringPair> it2(_ranges); *it2; ++it2 ) {
+    QList<StringPair *>::const_iterator it2 = _ranges.constBegin();
+    for ( ; it2 != _ranges.constEnd() ; ++it2 ) {
         QDomElement elm = doc->createElement( QString::fromLocal8Bit( "Range" ) );
         elm.setAttribute( QString::fromLocal8Bit( "from" ), (*it2)->first() );
         elm.setAttribute( QString::fromLocal8Bit( "to" ), (*it2)->second() );

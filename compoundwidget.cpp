@@ -40,6 +40,7 @@
 #include "concwidget.h"
 #include "kwidgetstreamer.h"
 #include "qcheckbox.h"
+#include <QTextEdit>
 
 //================================================================================
 
@@ -56,7 +57,7 @@ CompoundDetailWindow::CompoundDetailWindow( QWidget* parent )
 
   label = new QLabel( i18n("&Description:"), this );
   layout->addWidget(label);
-  _description  = new Q3MultiLineEdit( this );
+  _description  = new QTextEdit( this );
   layout->addWidget(_description);
   label->setBuddy( _description );
 

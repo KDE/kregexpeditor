@@ -19,7 +19,7 @@
 #include "widgetfactory.h"
 #include "compoundregexp.h"
 //Added by qt3to4:
-#include <Q3PtrList>
+#include <QList>
 
 ConcRegExp::ConcRegExp( bool selected ) :RegExp( selected )
 {
@@ -41,8 +41,9 @@ bool ConcRegExp::check( ErrorMap& map, bool first, bool last)
 {
     bool f = first;
     bool possibleEmpty = true;
-    for ( RegExpListIt it(list); *it; ++it ) {
-        possibleEmpty = (*it)->check( map, f, last && it.atLast() ) && possibleEmpty;
+    RegExpListIt it(list);
+    while(it.hasNext()) {
+        possibleEmpty = it.next()->check( map, f, last && !it.hasNext() ) && possibleEmpty;
         if ( ! possibleEmpty )
             f = false;
     }
@@ -60,8 +61,8 @@ RegExp* ConcRegExp::lastRegExp()
 QDomNode ConcRegExp::toXml( QDomDocument* doc ) const
 {
     QDomElement top = doc->createElement( QString::fromLocal8Bit("Concatenation") );
-    for ( RegExpListIt it(list); *it; ++it ) {
-        top.appendChild( (*it)->toXml( doc ) );
+    foreach ( RegExp *r, list ) {
+        top.appendChild( r->toXml( doc ) );
     }
     return top;
 }
@@ -86,7 +87,7 @@ bool ConcRegExp::operator==( const RegExp& other ) const
 {
     // TODO: Merge with AltnRegExp::operator==
     if ( list.count() == 1 )
-        return ( other == *(const_cast< Q3PtrList<RegExp>& >(list).at(0)) );
+        return ( other == *(const_cast< QList<RegExp *>& >(list).at(0)) );
 
     if ( other.type() != type() )
         return false;
@@ -99,11 +100,9 @@ bool ConcRegExp::operator==( const RegExp& other ) const
     RegExpListIt it1( list );
     RegExpListIt it2( theOther.list );
 
-    for ( ; *it1 && *it2 ; ) {
-        if ( ! (**it1 == **it2) )
+    while( it1.hasNext() && it2.hasNext() ) {
+        if ( ! (it1.next() == it2.next()) )
             return false;
-        ++it1;
-        ++it2;
     }
     return true;
 }
@@ -120,11 +119,11 @@ void ConcRegExp::replacePart( CompoundRegExp* replacement )
     }
 
     RegExpList newList;
-    RegExpListIt it1( list );
-    while ( *it1 ) {
+    RegExpListStlIt it1(list.begin());
+    while ( it1 != list.end() ) {
         (*it1)->replacePart( replacement );
-        RegExpListIt it2 = it1;
-        RegExpListIt it3( otherConc->list );
+        RegExpListStlIt it2 = it1;
+        RegExpListStlIt it3( otherConc->list.begin() );
         bool match = true;
         int count = 0;
 

@@ -26,7 +26,7 @@
 
 #include "limitedcharlineedit.h"
 #include "regexpconverter.h"
-#include <q3widgetstack.h>
+#include <QStackedWidget>
 #include <QComboBox>
 //Added by qt3to4:
 #include <QHBoxLayout>
@@ -74,19 +74,19 @@ CharSelector::CharSelector( QWidget* parent )
   _type->addItems( items );
   layout->addWidget( _type );
 
-  _stack = new Q3WidgetStack( this, "_stack" );
+  _stack = new QStackedWidget( this/*, "_stack"*/ );
   layout->addWidget( _stack );
 
   _normal = new LimitedCharLineEdit( LimitedCharLineEdit::NORMAL, 0, "_normal" );
-  _stack->addWidget( new StackContainer( _normal, _stack ), 0 );
+  _stack->insertWidget( 0, new StackContainer( _normal, _stack ) );
 
   _hex = new LimitedCharLineEdit( LimitedCharLineEdit::HEX, _stack, "_hex" );
-  _stack->addWidget( new StackContainer( _hex, _stack ), 1 );
+  _stack->insertWidget( 1, new StackContainer( _hex, _stack ) );
 
   _oct = new LimitedCharLineEdit( LimitedCharLineEdit::OCT, _stack, "_oct" );
-  _stack->addWidget( new StackContainer( _oct, _stack ), 2 );
+  _stack->insertWidget( 2, new StackContainer( _oct, _stack ) );
 
-  _stack->raiseWidget( 0 );
+  _stack->setCurrentIndex( 0 );
 
   connect( _type, SIGNAL( activated( int ) ), this, SLOT(slotNewItem( int ) ) );
 }
@@ -95,7 +95,7 @@ void CharSelector::slotNewItem( int which )
 {
   _type->setCurrentIndex( which );
   if ( which <= 2 ) {
-    _stack->raiseWidget( which );
+    _stack->setCurrentIndex( which );
     _normal->setEnabled( true );
     _hex->setEnabled( true );
     _oct->setEnabled( true );

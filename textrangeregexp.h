@@ -22,7 +22,7 @@
 #include "pair.h"
 #include <qstringlist.h>
 //Added by qt3to4:
-#include <Q3PtrList>
+#include <QList>
 
 typedef Pair<QString,QString> StringPair;
 
@@ -42,7 +42,7 @@ public:
     void clearChars() { _chars.clear(); }
 
 	void addRange( QString from, QString to );
-    Q3PtrList<StringPair> range() const { return _ranges; }
+    QList<StringPair *> range() const { return _ranges; }
     void clearRange() { _ranges.clear(); }
 
     void setNegate( bool set ) { _negate = set; }
@@ -71,7 +71,7 @@ public:
 private:
 	bool _negate, _digit, _nonDigit, _space, _nonSpace, _wordChar, _nonWordChar;
 	QStringList _chars;
-	Q3PtrList<StringPair> _ranges;
+	QList<StringPair *> _ranges;
 };
 
 #endif // __TEXTRANGEREGEXP_H

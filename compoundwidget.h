@@ -22,7 +22,7 @@
 #ifndef compoundwidget
 #define compoundwidget
 class QLineEdit;
-class Q3MultiLineEdit;
+class QTextEdit;
 class KDialog;
 class QCheckBox;
 
@@ -46,7 +46,7 @@ public:
 
 private:
   QLineEdit* _title;
-  Q3MultiLineEdit* _description;
+  QTextEdit* _description;
   QCheckBox* _allowReplace;
 };
 

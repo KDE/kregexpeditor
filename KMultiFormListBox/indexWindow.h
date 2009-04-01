@@ -18,7 +18,7 @@
 #ifndef __indexWindow
 #define __indexWindow
 
-#include <q3listbox.h>
+#include <QListWidget>
 //Added by qt3to4:
 #include <QHideEvent>
 
@@ -75,7 +75,7 @@ protected slots:
   void lbSelected(int);
 
 private:
-  Q3ListBox *lb;
+  QListWidget *lb;
   bool lbFinish;
   int itemSelected;
 

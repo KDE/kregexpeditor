@@ -19,7 +19,7 @@
 #define kregexpeditorprivate_h
 
 #include <QLabel>
-#include <q3ptrstack.h>
+#include <QStack>
 #include "regexp.h"
 #include "errormap.h"
 #include <QMainWindow>
@@ -92,8 +92,8 @@ private:
     QSplitter* _editor;
     bool _updating;
     QLabel* _error;
-    Q3PtrStack<RegExp> _undoStack;
-    Q3PtrStack<RegExp> _redoStack;
+    QStack<RegExp *> _undoStack;
+    QStack<RegExp *> _redoStack;
     UserDefinedRegExps*  _userRegExps;
     QTimer* _timer;
     Verifier* _verifier;

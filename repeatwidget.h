@@ -19,10 +19,10 @@
 #define __repeatwidget
 
 #include "singlecontainerwidget.h"
-#include <q3vbox.h>
 //Added by qt3to4:
 #include <QPaintEvent>
-class Q3ButtonGroup;
+class QGroupBox;
+class QButtonGroup;
 class KDialog;
 class QSpinBox;
 class RepeatRegExp;
@@ -31,7 +31,7 @@ class RepeatRegExp;
    Widget containging the configuration for a @ref RepeatWidget
    @internal
 */
-class RepeatRangeWindow :public Q3VBox
+class RepeatRangeWindow :public QWidget
 {
 Q_OBJECT
 
@@ -51,14 +51,15 @@ protected slots:
 
 
 private:
-  void createLine( QWidget* parent, QString text, QSpinBox** spin, REPEATTYPE tp );
+  void createLine( QGridLayout* layout, QString text, QSpinBox** spin, REPEATTYPE tp );
 
   QSpinBox* _leastTimes;
   QSpinBox* _mostTimes;
   QSpinBox* _exactlyTimes;
   QSpinBox* _rangeFrom;
   QSpinBox* _rangeTo;
-  Q3ButtonGroup* _group;
+  QGroupBox* _groupWidget;
+  QButtonGroup* _group;
 };
 
 

@@ -38,9 +38,9 @@ bool MultiContainerWidget::hasSelection() const
   if ( _isSelected )
     return true;
 
-  Q3PtrListIterator<RegExpWidget> it(_children);
+  QList<RegExpWidget *>::const_iterator it = _children.constBegin();
   ++it; // Move past the first dragAccepter
-	for ( ; *it;  it += 2 ) {
+	for ( ; it != _children.constEnd() ;  it += 2 ) {
 		if ( (*it)->hasSelection() ) {
       return true;
     }
@@ -66,9 +66,9 @@ void MultiContainerWidget::deleteSelection()
     RegExpWidget* child = _children.at( i );
     if ( child->isSelected() ) {
       delete _children.at( i+1 );
-      _children.remove( i+1 );
+      _children.removeAt( i+1 );
       delete child;
-      _children.remove(i);
+      _children.removeAt(i);
     }
     else if ( child->hasSelection() ) {
       child->deleteSelection();
@@ -185,9 +185,9 @@ QRect MultiContainerWidget::selectionRect() const
     return QRect( mapToGlobal( QPoint(0,0) ), size() );
   else {
     QRect res;
-    Q3PtrListIterator<RegExpWidget> it(_children);
+    QList<RegExpWidget *>::const_iterator it = _children.constBegin();
     ++it; // Move past the first dragAccepter
-    for ( ; *it; it +=2 ) {
+    for ( ; it != _children.constEnd() ; it +=2 ) {
       if ( (*it)->hasSelection() ) {
         QRect childSel = (*it)->selectionRect();
         if ( res.isNull() )
@@ -243,7 +243,7 @@ RegExpWidget* MultiContainerWidget::findWidgetToEdit( QPoint globalPos )
 void MultiContainerWidget::selectWidget( bool sel )
 {
   RegExpWidget::selectWidget( sel );
-  Q3PtrListIterator<RegExpWidget> it(_children);
+  QList<RegExpWidget *>::const_iterator it = _children.constBegin();
   for ( ; *it ; ++it ) {
     (*it)->selectWidget( sel );
   }
@@ -252,7 +252,8 @@ void MultiContainerWidget::selectWidget( bool sel )
 
 void MultiContainerWidget::updateAll()
 {
-  for ( Q3PtrListIterator<RegExpWidget> it(_children); *it ; ++it ) {
+  QList<RegExpWidget *>::const_iterator it = _children.constBegin();
+  for ( ; it != _children.constEnd() ; ++it ) {
     (*it)->updateAll();
   }
   RegExpWidget::updateAll();
@@ -260,7 +261,8 @@ void MultiContainerWidget::updateAll()
 
 void MultiContainerWidget::updateCursorRecursively()
 {
-  for ( Q3PtrListIterator<RegExpWidget> it(_children); *it ; ++it ) {
+  QList<RegExpWidget *>::const_iterator it = _children.constBegin();
+  for ( ; it != _children.constEnd() ; ++it ) {
     (*it)->updateCursorRecursively();
   }
   updateCursorShape();
