@@ -79,7 +79,7 @@ QString CompoundDetailWindow::title() const
 
 QString CompoundDetailWindow::description() const
 {
-  return _description->text();
+  return _description->toPlainText();
 }
 
 bool CompoundDetailWindow::allowReplace() const

@@ -29,7 +29,7 @@
   #include "indexWindow.moc"
 #endif
 
-indexWindow::indexWindow() : QWidget(0,Qt::WStyle_Customize | Qt::WType_Popup)
+indexWindow::indexWindow() : QWidget(0, Qt::Popup)
 {
   lb = new QListWidget(this);
   connect(lb,SIGNAL(selected(int)), this, SLOT(lbSelected(int)));
@@ -49,7 +49,7 @@ void indexWindow::lbSelected(int index)
 void indexWindow::finish(int index)
 {
   itemSelected = index;
-  qApp->exit_loop();
+  //qApp->exit_loop();
 }
 
 

@@ -11,8 +11,6 @@ include_directories(
 	KWidgetStreamer/ 
 	KMultiFormListBox/ )
 
-add_definitions (-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS)
-
 ########### next target ###############
 set(libkmultiformlistbox_SRCS 
 	KMultiFormListBox/ccp.cpp 
@@ -34,7 +32,6 @@ set(kregexpeditorcommon_LIB_SRCS ${libkmultiformlistbox_SRCS} ${libkwidgetstream
    kregexpeditorgui.cpp 
    editorwindow.cpp 
    regexpwidget.cpp 
-   drag.cpp 
    concwidget.cpp 
    zerowidgets.cpp 
    dragaccepter.cpp 
@@ -83,7 +80,7 @@ set(kregexpeditorcommon_LIB_SRCS ${libkmultiformlistbox_SRCS} ${libkwidgetstream
 
 kde4_add_library(kregexpeditorcommon SHARED ${kregexpeditorcommon_LIB_SRCS})
 
-target_link_libraries(kregexpeditorcommon    ${KDE4_KDE3SUPPORT_LIBS} )
+target_link_libraries(kregexpeditorcommon    ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS} )
 
 set_target_properties(kregexpeditorcommon PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 install(TARGETS kregexpeditorcommon  DESTINATION ${LIB_INSTALL_DIR})
@@ -97,7 +94,7 @@ set(kregexpeditorgui_PART_SRCS  ${kregexpeditorcommon_LIB_SRCS})
 kde4_add_plugin(kregexpeditorgui WITH_PREFIX ${kregexpeditorgui_PART_SRCS})
 
 
-target_link_libraries(kregexpeditorgui   ${KDE4_KDE3SUPPORT_LIBS} )
+target_link_libraries(kregexpeditorgui   ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS} )
 
 install(TARGETS kregexpeditorgui  DESTINATION ${PLUGIN_INSTALL_DIR})
 
@@ -109,7 +106,7 @@ set(kregexpeditor_SRCS main.cpp ${kregexpeditorcommon_LIB_SRCS})
 
 kde4_add_executable(kregexpeditor ${kregexpeditor_SRCS})
 
-target_link_libraries(kregexpeditor   ${KDE4_KDE3SUPPORT_LIBS} )
+target_link_libraries(kregexpeditor   ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS} )
 
 install(TARGETS kregexpeditor  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 

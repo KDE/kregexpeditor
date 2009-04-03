@@ -23,7 +23,6 @@ HEADERS += altnregexp.h \
            concwidget.h \
            dcbutton.h \
            dotregexp.h \
-           drag.h \
            dragaccepter.h \
            editorwindow.h \
            emacsregexpconverter.h \
@@ -88,7 +87,6 @@ SOURCES += altnregexp.cpp \
            concwidget.cpp \
            dcbutton.cpp \
            dotregexp.cpp \
-           drag.cpp \
            dragaccepter.cpp \
            editorwindow.cpp \
            emacsregexpconverter.cpp \

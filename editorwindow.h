@@ -18,7 +18,6 @@
 #ifndef editorwindow_h
 #define editorwindow_h
 
-#include "drag.h"
 #include "widgetfactory.h"
 #include <qicon.h>
 //Added by qt3to4:
@@ -243,12 +242,6 @@ private:
 
     /** The area which the rubber band selection is over */
     QRect _selection;
-
-    /**
-        True when a rubber band selection rectangle is drawn, and need to be
-        un-drawn before next rubber band selection rectangle may be drawn.
-    */
-    bool _undrawSelection;
 
     /** true when a paste action is in action (see @ref isPasteing ). */
     bool _pasteInAction;

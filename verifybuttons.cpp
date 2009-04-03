@@ -21,7 +21,6 @@
 #include "compat.h"
 //Added by qt3to4:
 #include <QLinkedList>
-#include <QBoxLayout>
 #include "images.h"
 #else
 #include <klocale.h>

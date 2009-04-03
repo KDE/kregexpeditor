@@ -43,7 +43,7 @@ void RegExp::addChild( RegExp* child )
 void RegExp::removeChild( RegExp* child )
 {
   if ( ! _destructing ) {
-    _children.remove( child );
+    _children.removeOne( child );
   }
 }
 

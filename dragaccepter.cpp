@@ -105,14 +105,19 @@ void DragAccepter::mouseReleaseEvent( QMouseEvent* event )
 void DragAccepter::dragEnterEvent(QDragEnterEvent *event)
 {
   bool selfDrag = (  event->source() && event->source()->topLevelWidget() == topLevelWidget() && _isSelected );
-  event->setAccepted(RegExpWidgetDrag::canDecode( event ) && !selfDrag );
+  if(!selfDrag && event->mimeData()->hasFormat("KRegExpEditor/widgetdrag")) {
+    event->setDropAction(Qt::MoveAction);
+    event->accept();
+  }
 }
 
 void DragAccepter::dropEvent(QDropEvent *event)
 {
   // The widget will be reparent afterward or part of it will, so no need to give
   // it a parent here.
-  RegExpWidget *newElm = RegExpWidgetDrag::decode( event, _editorWindow, 0 );
+  QString name = event->mimeData()->data("KRegExpEditor/widgetdrag");
+  RegExp* regexp = WidgetFactory::createRegExp( name );
+  RegExpWidget *newElm = WidgetFactory::createWidget( regexp, _editorWindow, 0 );
   ConcWidget* elm;
   if ( !(elm = dynamic_cast<ConcWidget*>( newElm ) ) ) {
     elm = new ConcWidget( _editorWindow, newElm, 0 );
@@ -134,6 +139,7 @@ void DragAccepter::dropEvent(QDropEvent *event)
   else {
     // selection should not be cleared here, since we might want to delete it.
   }
+  event->setDropAction(Qt::MoveAction);
   event->accept();
 }
 

@@ -46,6 +46,7 @@
 #include "regexp.h"
 #include "userdefinedregexps.h"
 #include <qfileinfo.h>
+#include "regexpconverter.h"
 
 RegExpEditorWindow::RegExpEditorWindow( QWidget *parent)
     : QWidget(parent /*, Qt::WPaintUnclipped*/)
@@ -54,7 +55,6 @@ RegExpEditorWindow::RegExpEditorWindow( QWidget *parent)
     _layout = new QHBoxLayout( this);
     _layout->addWidget(_top);
     _top->setToplevel();
-    _undrawSelection = false;
     _menu = 0;
     _insertInAction = false;
     _pasteInAction = false;
@@ -110,43 +110,38 @@ void RegExpEditorWindow::mouseMoveEvent ( QMouseEvent* event )
             RegExp* regexp = _top->selection();
             if ( !regexp )
                 return;
-            Q3DragObject *d = new RegExpWidgetDrag( regexp, this );
+            
+            QDrag *drag = new QDrag(this);
+            QMimeData *mimeData = new QMimeData;
+            
+            mimeData->setText(RegExpConverter::current()->toStr( regexp, false));
+            mimeData->setData("KRegExpEditor/widgetdrag", regexp->toXmlString().toAscii());
             delete regexp;
-
-            bool del = d->drag();
-            if ( del )
+            
+            drag->setMimeData(mimeData);
+            
+            Qt::DropAction dropAction = drag->exec(Qt::MoveAction | Qt::CopyAction, Qt::CopyAction);
+            if ( dropAction == Qt::MoveAction ) {
                 slotDeleteSelection();
+            }
             else {
                 clearSelection( true );
             }
+            
             releaseMouse();
             emit change();
             emit canSave( _top->hasAnyChildren() );
         }
     }
     else {
-        QPainter p( this );
-#ifdef __GNUC__
-#warning "QT4 ???? p.setRasterOp( Qt::NotROP ); "
-#endif	
-        //p.setRasterOp( Qt::NotROP );
-        p.setPen( Qt::DotLine );
-
-        // remove last selection rectangle
-        if ( ! _lastPoint.isNull() && _undrawSelection ) {
-            p.drawRect(QRect(_start, _lastPoint));
-        }
-
-        // Note this line must come after the old rect has been removed
-        // and before the new one is draw otherwise the update event which this
-        // line invokes, will remove a line, which later will be drawn instead of
-        // removed during NotROP.
+        
         _top->updateSelection( false );
+        
         emit scrolling( event->pos() );
-
-        p.drawRect(QRect(_start, event->pos()));
-        _undrawSelection = true;
+        
         _lastPoint = event->pos();
+        
+        update();
 
         _selection = QRect(mapToGlobal(_start), mapToGlobal(_lastPoint)).normalized();
     }
@@ -156,17 +151,9 @@ void RegExpEditorWindow::mouseReleaseEvent( QMouseEvent *event)
 {
     releaseMouse();
     QWidget::mouseReleaseEvent( event);
+    
+    _lastPoint = QPoint(0, 0);
 
-    // remove last selection rectangle
-    QPainter p( this );
-#ifdef __GNUC__
-#warning "QT4 ????? p.setRasterOp( Qt::NotROP );"
-#endif    
-    //p.setRasterOp( Qt::NotROP );
-    p.setPen( Qt::DotLine );
-    if ( ! _lastPoint.isNull() ) {
-        p.drawRect(QRect(_start, _lastPoint));
-    }
     _top->validateSelection();
     _top->updateAll();
     emit anythingSelected( hasSelection() );
@@ -254,8 +241,15 @@ QSize RegExpEditorWindow::sizeHint() const
 
 void RegExpEditorWindow::paintEvent( QPaintEvent* event )
 {
+    QPainter p(this);
+    
+    p.setPen(Qt::DotLine);
+    
+    if ( ! _lastPoint.isNull() ) {
+        p.drawRect(QRect(_start, _lastPoint));
+    }
+    
     QWidget::paintEvent( event );
-    _undrawSelection = false;
 }
 
 void RegExpEditorWindow::slotCut()
@@ -297,11 +291,15 @@ void RegExpEditorWindow::cutCopyAux( QPoint pos )
     }
 
     RegExp* regexp = _top->selection();
-    RegExpWidgetDrag *clipboardData = new RegExpWidgetDrag( regexp, this );
+    
+    QMimeData *mimeData = new QMimeData;            
+    mimeData->setText(RegExpConverter::current()->toStr( regexp, false));
+    mimeData->setData("KRegExpEditor/widgetdrag", regexp->toXmlString().toAscii());
+    
     delete regexp;
 
     QClipboard* clipboard = qApp->clipboard();
-    clipboard->setData( clipboardData );
+    clipboard->setMimeData( mimeData );
     emit anythingOnClipboard( true );
     emit canSave( _top->hasAnyChildren() );
 }
@@ -309,9 +307,7 @@ void RegExpEditorWindow::cutCopyAux( QPoint pos )
 
 void RegExpEditorWindow::slotStartPasteAction()
 {
-    QByteArray data = qApp->clipboard()->data()->encodedData( "KRegExpEditor/widgetdrag" );
-    QTextStream stream( data, QIODevice::ReadOnly );
-    QString str = stream.readAll();
+    QString str = qApp->clipboard()->mimeData()->data( "KRegExpEditor/widgetdrag" );
 
     RegExp* regexp = WidgetFactory::createRegExp( str );
     if ( regexp )
@@ -357,7 +353,7 @@ void RegExpEditorWindow::showRMBMenu( bool enableCutCopy )
     _cutAction->setEnabled( enableCutCopy );
     _copyAction->setEnabled( enableCutCopy );
 
-    if ( ! qApp->clipboard()->data()->provides( "KRegExpEditor/widgetdrag" ) )
+    if ( ! qApp->clipboard()->mimeData()->hasFormat( "KRegExpEditor/widgetdrag" ) )
         _pasteAction->setEnabled( false );
     else
         _pasteAction->setEnabled( true );
