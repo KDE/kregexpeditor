@@ -113,6 +113,8 @@ SpecialEsc \\[afnrtv]
 
 %%
 
+void (*jj_junk)(int,char *) = yyunput; /* avoids gcc warning */
+
 void setParseData( QString qstr ) {  
   QByteArray cstr;
   if ( !qstr.isNull() )

@@ -16,6 +16,14 @@
  *  Boston, MA 02110-1301, USA.
  **/
 %{
+#ifndef YYENABLE_NLS
+#  define YYENABLE_NLS 0
+#endif
+
+#ifndef YYLTYPE_IS_TRIVIAL
+#  define YYLTYPE_IS_TRIVIAL 0
+#endif
+
 #ifdef QT_ONLY
   #include "compat.h"
 #else
