@@ -25,7 +25,7 @@
   #include "verifier.moc"
 #endif
 
-Verifier::Verifier( QWidget* parent, const char* name ) : QTextEdit( parent/*, name*/ )
+Verifier::Verifier( QWidget* parent ) : QTextEdit( parent )
     /* QT_ANCHOR_DO_NOT_WORK: ,_current( 0 ) */
 {
     _highlighter = 0;

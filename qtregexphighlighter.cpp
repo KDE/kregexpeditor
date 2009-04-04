@@ -24,7 +24,7 @@ QtRegexpHighlighter::QtRegexpHighlighter( QTextEdit* editor )
 
 void QtRegexpHighlighter::highlightBlock( const QString& text )
 {
-    int endStateOfLastPara;
+    
     QRegExp regexp( _regexp );
     regexp.setCaseSensitivity( _caseSensitive ? Qt::CaseSensitive : Qt::CaseInsensitive );
     regexp.setMinimal( _minimal );
@@ -35,12 +35,12 @@ void QtRegexpHighlighter::highlightBlock( const QString& text )
     setFormat( 0, text.length(), format );
 
     if ( !regexp.isValid() || regexp.isEmpty() ) {
-        return/* 0*/;
+        return;
     }
 
     // ------------------------------ Process with the regular expression.
     QColor colors[] = { Qt::red, Qt::blue };
-    int color = endStateOfLastPara;
+    int color = previousBlockState();
     if ( color < 0 || color > 1 )
         color = 0;
 
@@ -73,6 +73,7 @@ void QtRegexpHighlighter::highlightBlock( const QString& text )
         index +=  qMax( 1, regexp.matchedLength() ); // ensure progress when matching for example ^ or \b
         color = (color+1)%2;
     }
-    return /*color*/;
+    setCurrentBlockState(color);
+    
 }
 

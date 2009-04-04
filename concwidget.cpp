@@ -50,6 +50,8 @@ ConcWidget::ConcWidget( RegExpEditorWindow* editorWindow, ConcWidget* origConc,
                     unsigned int start, unsigned int end)
   :MultiContainerWidget(editorWindow, 0)
 {
+  Q_UNUSED(start);
+  Q_UNUSED(end);
   init();
   _children.prepend( new DragAccepter(editorWindow, this) );
   QMutableListIterator<RegExpWidget *> i(origConc->_children);
@@ -131,7 +133,7 @@ void ConcWidget::paintEvent( QPaintEvent *e)
     int lastHeight = 0;
     int offset = 0;
 
-    for (unsigned int i = 1; i < _children.count(); i += 2 ) {
+    for ( int i = 1; i < _children.count(); i += 2 ) {
       DragAccepter* accepter = dynamic_cast<DragAccepter*>(_children.at(i-1));
       if (!accepter)
         continue;
@@ -265,7 +267,7 @@ void ConcWidget::getSelectionIndexes( int* start, int* end )
 
   // Start with element at index 1, and skip every second element, as we
   // know they are dragAccepters.
-	for ( unsigned int index = 1; index< _children.count(); index += 2 ) {
+	for ( int index = 1; index< _children.count(); index += 2 ) {
     RegExpWidget* child = _children.at(index);
 
     if ( child->isSelected() ) {
@@ -369,7 +371,7 @@ RegExp* ConcWidget::selection() const
 
 void ConcWidget::addNewConcChild(DragAccepter *accepter, ConcWidget *other)
 {
-  for ( unsigned int i=0; i<_children.count(); i+= 2 ) {
+  for ( int i=0; i<_children.count(); i+= 2 ) {
     RegExpWidget *ch = _children.at( i );
     if ( ch == accepter ) {
       // Move all the element from the `child' ConcWidget to this one.

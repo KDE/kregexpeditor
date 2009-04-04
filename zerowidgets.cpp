@@ -60,11 +60,12 @@ void ZeroWidget::paintEvent( QPaintEvent *e)
   QSize mySize = sizeHint();
 
   QPainter painter(this);
+  painter.setRenderHint(QPainter::Antialiasing);
   drawPossibleSelection( painter, mySize);
 
   // Write the text and the rectangle
   painter.drawText(space, space, _textSize.width(), _textSize.height(), 0, _text);
-  painter.drawRoundRect(0, 0, _boxSize.width(), _boxSize.height());
+  painter.drawRoundedRect(0, 0, _boxSize.width()-1, _boxSize.height()-1, 5, 5);
 
   RegExpWidget::paintEvent(e);
 }

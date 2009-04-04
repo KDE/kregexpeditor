@@ -101,7 +101,7 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
 KMultiFormListBoxEntryList KMultiFormListBoxWindowed::elements()
 {
   KMultiFormListBoxEntryList list;
-  for (unsigned int i=0; i < _listbox->count(); i++) {
+  for ( int i=0; i < _listbox->count(); ++i) {
     WindowListboxItem *item = (WindowListboxItem *) _listbox->item(i);
     list.append(item->entry());
   }
@@ -172,7 +172,7 @@ void KMultiFormListBoxWindowed::slotCopySelected()
 {
   WindowListboxItem *item = selected();
   if (item) {
-    item->clone();
+    item->cloneItem();
   }
 }
 
@@ -209,7 +209,7 @@ void KMultiFormListBoxWindowed::slotMoveItemDown()
 	if (item == 0)
 		return;
 
-	unsigned int index = _listbox->row(item);
+	int index = _listbox->row(item);
 	if (index < _listbox->count()) {
 		_listbox->takeItem(index);
 		_listbox->insertItem(index+1, item);
@@ -220,7 +220,7 @@ void KMultiFormListBoxWindowed::slotMoveItemDown()
 void KMultiFormListBoxWindowed::slotUpdateButtonState()
 {
 	bool on = (_listbox->count() != 0);
-	for (unsigned int i=0; i<_buttonList.count(); i++) {
+	for (int i=0; i<_buttonList.count(); i++) {
 		_buttonList.at(i)->setEnabled(on);
 	}
 }

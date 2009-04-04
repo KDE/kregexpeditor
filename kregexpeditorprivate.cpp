@@ -84,7 +84,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
 
   _info = new InfoPage( this );
   _info->setObjectName( "_info" );
-  _verifier = new Verifier( _editor, "KRegExpEditorPrivate::_verifier" );
+  _verifier = new Verifier( _editor );
   connect( _verifier, SIGNAL( textChanged() ), this, SLOT( maybeVerify() ) );
   _verifier->setWhatsThis( i18n("<p>Type in some text in this window, and see what the regular expression you have developed matches.</p>"
                                    "<p>Each second match will be colored in red and each other match will be colored blue, simply so you "

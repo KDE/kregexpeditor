@@ -38,7 +38,6 @@ public:
     TextWidget(RegExpEditorWindow* editorWindow, QWidget *parent);
     TextWidget( TextRegExp* regexp,  RegExpEditorWindow* editorWindow,
                 QWidget* parent);
-    virtual QSize sizeHint() const;
 	virtual RegExp* regExp() const;
     virtual RegExpType type() const { return TEXT; }
     virtual void updateAll();

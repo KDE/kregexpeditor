@@ -338,6 +338,7 @@ CharacterEdits::CharacterEdits( QWidget *parent)
     QPushButton* more = new QPushButton( i18n("More Entries"));
     moreLay->addWidget( more );
     moreLay->addStretch( 1 );
+    moreLay->setMargin(0);
 
     connect(more,SIGNAL(clicked()), _single, SLOT(addElement()));
 
@@ -356,6 +357,7 @@ CharacterEdits::CharacterEdits( QWidget *parent)
     more = new QPushButton( i18n("More Entries"));
     moreLay->addWidget( more );
     moreLay->addStretch( 1 );
+    moreLay->setMargin(0);
     connect(more,SIGNAL(clicked()), _range, SLOT(addElement()));
     // Buttons
     connect(this, SIGNAL(okClicked()), this, SLOT(slotOK()));
@@ -401,7 +403,7 @@ SingleEntry::SingleEntry(QWidget* parent)
 {
     QHBoxLayout* layout = new QHBoxLayout( this );
     layout->setSpacing( 6 );
-    layout->setMargin( 3 );
+    layout->setMargin( 0 );
     _selector = new CharSelector( this );
     layout->addWidget( _selector );
     layout->addStretch(1);
@@ -428,7 +430,7 @@ RangeEntry::RangeEntry(QWidget* parent)
 {
     QHBoxLayout* layout = new QHBoxLayout( this );
     layout->setSpacing( 6 );
-    layout->setMargin( 3 );
+    layout->setMargin( 0 );
 
     QLabel* label = new QLabel(i18n("From:"), this );
     _from = new CharSelector( this );

@@ -70,11 +70,6 @@ void TextWidget::slotUpdate()
   _editorWindow->updateContent( this );
 }
 
-QSize TextWidget::sizeHint() const
-{
-  return _edit->sizeHint();
-}
-
 void TextWidget::paintEvent( QPaintEvent *e)
 {
   RegExpWidget::paintEvent(e);

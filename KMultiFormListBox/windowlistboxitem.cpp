@@ -33,7 +33,7 @@ void WindowListboxItem::displayWidget()
   myItem->display();
 }
 
-void WindowListboxItem::clone()
+void WindowListboxItem::cloneItem()
 {
   myItem->clone();
 }

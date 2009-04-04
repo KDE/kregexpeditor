@@ -64,11 +64,11 @@ InfoPage::InfoPage( QWidget* parent )
     setText( txt );
 }
 
-void InfoPage::setSource ( const QString& name )
+void InfoPage::setSource ( const QUrl& name )
 {
+    QString nm = name.toString();
 #ifdef QT_ONLY
     mimeSourceFactory()->setFilePath( QStringList() << QString::fromLatin1("manual/"));
-    QString nm = name;
     if ( nm.endsWith('/') )
         nm = nm.left( nm.length()-1);
 
@@ -89,8 +89,8 @@ void InfoPage::setSource ( const QString& name )
 
     QTextBrowser::setSource( nm );
 #else
-  if ( name.startsWith( QString::fromLocal8Bit("doc://") ) ) {
-    KToolInvocation::invokeHelp( name.mid(6, name.length()-7), QString::fromLocal8Bit("KRegExpEditor") );
+  if ( nm.startsWith( QString::fromLocal8Bit("doc://") ) ) {
+    KToolInvocation::invokeHelp( nm.mid(6, nm.length()-7), QString::fromLocal8Bit("KRegExpEditor") );
   }
   else {
     KTextBrowser::setSource( name ); // handle mailto and other links

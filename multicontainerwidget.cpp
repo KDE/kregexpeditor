@@ -51,7 +51,7 @@ bool MultiContainerWidget::hasSelection() const
 void MultiContainerWidget::clearSelection()
 {
   _isSelected = false;
-	for ( unsigned int i = 0; i< _children.count(); i++ ) {
+	for ( int i = 0; i< _children.count(); i++ ) {
 		_children.at(i)->clearSelection();
   }
 }
@@ -80,7 +80,7 @@ void MultiContainerWidget::deleteSelection()
 
 void MultiContainerWidget::addNewChild(DragAccepter *accepter, RegExpWidget *child)
 {
-  for ( unsigned int i=0; i<_children.count(); i+= 2 ) {
+  for ( int i=0; i<_children.count(); i+= 2 ) {
     RegExpWidget *ch = _children.at( i );
     if ( ch == accepter ) {
       // Insert the new child
@@ -208,7 +208,7 @@ QRect MultiContainerWidget::selectionRect() const
 
 RegExpWidget* MultiContainerWidget::widgetUnderPoint( QPoint globalPos, bool justVisibleWidgets )
 {
-  unsigned int start, incr;
+  int start, incr;
   if ( justVisibleWidgets ) {
     start = 1;
     incr = 2;
@@ -218,7 +218,7 @@ RegExpWidget* MultiContainerWidget::widgetUnderPoint( QPoint globalPos, bool jus
     incr = 1;
   }
 
-  for ( unsigned int i = start; i < _children.count(); i+=incr ) {
+  for ( int i = start; i < _children.count(); i+=incr ) {
     RegExpWidget* wid = _children.at(i)->widgetUnderPoint( globalPos, justVisibleWidgets );
     if ( wid )
       return wid;
@@ -232,7 +232,7 @@ RegExpWidget* MultiContainerWidget::widgetUnderPoint( QPoint globalPos, bool jus
 
 RegExpWidget* MultiContainerWidget::findWidgetToEdit( QPoint globalPos )
 {
-  for ( unsigned int i = 1; i < _children.count(); i+=2 ) {
+  for ( int i = 1; i < _children.count(); i+=2 ) {
     RegExpWidget* wid = _children.at(i)->findWidgetToEdit( globalPos );
     if ( wid )
       return wid;
@@ -244,7 +244,7 @@ void MultiContainerWidget::selectWidget( bool sel )
 {
   RegExpWidget::selectWidget( sel );
   QList<RegExpWidget *>::const_iterator it = _children.constBegin();
-  for ( ; *it ; ++it ) {
+  for ( ; it != _children.constEnd() ; ++it ) {
     (*it)->selectWidget( sel );
   }
   update();

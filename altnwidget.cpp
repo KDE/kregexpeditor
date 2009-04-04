@@ -93,7 +93,7 @@ QSize AltnWidget::sizeHint() const
   _childrenWidth = 0;
   _childrenHeight = 0;
 
-  for ( ; *it ; ++it) {
+  for ( ; it != _children.constEnd() ; ++it) {
     QSize thisChildSize = (*it)->sizeHint();
     _childrenWidth = qMax(_childrenWidth, thisChildSize.width());
     _childrenHeight += thisChildSize.height();
@@ -141,7 +141,7 @@ void AltnWidget::paintEvent( QPaintEvent *e)
   offset = _textSize.height();
   xOffset = pw;
 
-  for (unsigned int i = 0; i < _children.count(); i++ ) {
+  for ( int i = 0; i < _children.count(); i++ ) {
 
     RegExpWidget* child = _children.at(i);
 
@@ -175,7 +175,7 @@ RegExp* AltnWidget::regExp() const
 
   QList<RegExpWidget *>::const_iterator it = _children.constBegin();
   ++it; // start with the second element
-	for ( ; *it; it+=2 ) {
+	for ( ; it != _children.constEnd() ; it+=2 ) {
     regexp->addRegExp( (*it)->regExp() );
 	}
 
@@ -184,7 +184,7 @@ RegExp* AltnWidget::regExp() const
 
 void AltnWidget::applyRegExpToSelection( RegExpType type )
 {
-  for ( unsigned int i=1; i < _children.count(); i += 2 ) {
+  for ( int i=1; i < _children.count(); i += 2 ) {
     RegExpWidget* child = _children.at( i );
     if ( child->hasSelection() ) {
       child->applyRegExpToSelection( type );
@@ -219,7 +219,7 @@ bool AltnWidget::validateSelection() const
   bool foundASelection = false;
   QList<RegExpWidget *>::const_iterator it = _children.constBegin();
   ++it; // Skip past DragAccepter
-  for ( ; *it; it+=2 ) {
+  for ( ; it != _children.constEnd() ; it+=2 ) {
     if ( (*it)->hasSelection() ) {
       if ( foundASelection ) {
           KMessageBox::information( const_cast<AltnWidget*>(this),
@@ -239,7 +239,7 @@ bool AltnWidget::validateSelection() const
 
 void AltnWidget::updateDrawLineInfo()
 {
-  for ( unsigned int i=0; i < _children.count(); i+=2 ) {
+  for ( int i=0; i < _children.count(); i+=2 ) {
     bool line = ( i != 0 && i!= _children.count()-1 );
     DragAccepter *accepter = dynamic_cast<DragAccepter*>(_children.at(i));
     if (accepter)

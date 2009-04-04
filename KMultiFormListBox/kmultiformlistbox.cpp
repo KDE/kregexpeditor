@@ -31,7 +31,7 @@ KMultiFormListBox::KMultiFormListBox( KMultiFormListBoxFactory *factory, KMultiF
 	switch ( tp ) {
 
 	case MultiVisible:
-    theWidget = new KMultiFormListBoxMultiVisible( factory, this, "KMultiFormListBox Widget" );
+    theWidget = new KMultiFormListBoxMultiVisible( factory, this );
 		break;
 
 	case Windowed:

@@ -29,7 +29,7 @@ class InfoPage :public KTextBrowser
 {
 public:
   InfoPage( QWidget* parent );
-  virtual void setSource ( const QString& name );
+  virtual void setSource ( const QUrl& name );
 };
 
 

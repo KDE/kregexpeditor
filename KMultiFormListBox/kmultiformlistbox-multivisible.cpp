@@ -41,8 +41,8 @@ const uchar indexButtonBits[] = {
 };
 
 
-KMultiFormListBoxMultiVisible::KMultiFormListBoxMultiVisible(KMultiFormListBoxFactory *fact, QWidget *parent, const char *name)
-  : QScrollArea(parent/*, name*/)
+KMultiFormListBoxMultiVisible::KMultiFormListBoxMultiVisible(KMultiFormListBoxFactory *fact, QWidget *parent)
+  : QScrollArea(parent)
 {
   factory = fact;
 
@@ -51,10 +51,10 @@ KMultiFormListBoxMultiVisible::KMultiFormListBoxMultiVisible(KMultiFormListBoxFa
   
   QWidget *widget = new QWidget();
   layout = new QVBoxLayout(widget);
+  layout->setSpacing(0);
+  layout->setMargin(0);
   setWidget(widget);
   setWidgetResizable(true);
-  ensureWidgetVisible(widget);
-  widget->show();
 }
 
 
@@ -201,6 +201,7 @@ void KMultiFormListBoxMultiVisible::insertElmIntoWidget(KMultiFormListBoxEntry *
   elms->insert(index, elm);
   layout->insertWidget(index, elm);
   elm->show();
+  ensureWidgetVisible(elm, 0, 0);
   //addChild(elm,0,0); // updateClipperContent will place the child correctly.
 
   QWidget *sep = factory->separator(widget());
@@ -263,7 +264,7 @@ void KMultiFormListBoxMultiVisible::showIndexList(KMultiFormListBoxEntry *elm)
 //----------------------------------------------------------------------
 void KMultiFormListBoxMultiVisible::showWidget(KMultiFormListBoxEntry *elm)
 {
-  //setContentsPos(childX(elm), childY(elm));
+  ensureWidgetVisible(elm);
 }
 
 
