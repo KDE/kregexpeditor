@@ -17,11 +17,7 @@
  **/
 #include "dcbutton.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include "dcbutton.moc"
-#endif
+#include "dcbutton.moc"
 
 #include <QPixmap>
 #include <QMouseEvent>

@@ -17,14 +17,9 @@
  **/
 #include "auxbuttons.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-  #include "images.h"
-#else
-  #include "auxbuttons.moc"
-  #include <kiconloader.h>
-  #include <klocale.h>
-#endif
+#include "auxbuttons.moc"
+#include <kiconloader.h>
+#include <klocale.h>
 
 
 

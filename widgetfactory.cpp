@@ -17,11 +17,7 @@
  **/
 #include "widgetfactory.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include <kmessagebox.h>
-#endif
+#include <kmessagebox.h>
 
 #include "repeatwidget.h"
 #include "textwidget.h"

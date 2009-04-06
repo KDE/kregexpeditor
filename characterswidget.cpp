@@ -18,12 +18,8 @@
 
 #include "characterswidget.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include <kdialog.h>
-  #include "characterswidget.moc"
-#endif
+#include <kdialog.h>
+#include "characterswidget.moc"
 
 #include "textrangeregexp.h"
 #include "regexp.h"

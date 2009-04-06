@@ -18,12 +18,8 @@
 
 #include "verifier.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include <klocale.h>
-  #include "verifier.moc"
-#endif
+#include <klocale.h>
+#include "verifier.moc"
 
 Verifier::Verifier( QWidget* parent ) : QTextEdit( parent )
     /* QT_ANCHOR_DO_NOT_WORK: ,_current( 0 ) */

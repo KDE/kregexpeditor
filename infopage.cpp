@@ -18,13 +18,9 @@
 
 #include "infopage.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include <klocale.h>
-  #include <kapplication.h>
+#include <klocale.h>
+#include <kapplication.h>
 #include <ktoolinvocation.h>
-#endif
 
 InfoPage::InfoPage( QWidget* parent )
   :KTextBrowser( parent )
@@ -66,34 +62,13 @@ InfoPage::InfoPage( QWidget* parent )
 
 void InfoPage::setSource ( const QUrl& name )
 {
-    QString nm = name.toString();
-#ifdef QT_ONLY
-    mimeSourceFactory()->setFilePath( QStringList() << QString::fromLatin1("manual/"));
-    if ( nm.endsWith('/') )
-        nm = nm.left( nm.length()-1);
+  QString nm = name.toString();
 
-    if ( nm.startsWith("mailto:") ) {
-        QMessageBox::information( this, tr("Support mail"), tr("Please send the mail to blackie@kde.org") );
-        return;
-    }
-    if ( nm.startsWith( "http:" ) )
-        return;
-
-
-    if ( nm == "doc://" )
-        nm = "doc://index";
-
-    if ( nm.startsWith( QString::fromLocal8Bit("doc://") ) ) {
-        nm = nm.mid(6) + ".html";
-    }
-
-    QTextBrowser::setSource( nm );
-#else
   if ( nm.startsWith( QString::fromLocal8Bit("doc://") ) ) {
     KToolInvocation::invokeHelp( nm.mid(6, nm.length()-7), QString::fromLocal8Bit("KRegExpEditor") );
   }
   else {
     KTextBrowser::setSource( name ); // handle mailto and other links
   }
-#endif
+
 }

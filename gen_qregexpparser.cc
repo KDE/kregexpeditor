@@ -86,12 +86,8 @@
 #  define YYLTYPE_IS_TRIVIAL 0
 #endif
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
   #include <klocale.h>
   #include <kmessagebox.h>
-#endif
 
   
   #include <stdlib.h>
@@ -117,7 +113,7 @@
 
 
 /* Line 189 of yacc.c  */
-#line 121 "gen_qregexpparser.cc"
+#line 117 "gen_qregexpparser.cc"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -170,7 +166,7 @@ typedef union YYSTYPE
 {
 
 /* Line 214 of yacc.c  */
-#line 57 "qregexpparser.y"
+#line 53 "qregexpparser.y"
 
   struct {
     int min;
@@ -183,7 +179,7 @@ typedef union YYSTYPE
 
 
 /* Line 214 of yacc.c  */
-#line 187 "gen_qregexpparser.cc"
+#line 183 "gen_qregexpparser.cc"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -195,7 +191,7 @@ typedef union YYSTYPE
 
 
 /* Line 264 of yacc.c  */
-#line 199 "gen_qregexpparser.cc"
+#line 195 "gen_qregexpparser.cc"
 
 #ifdef short
 # undef short
@@ -486,9 +482,9 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    88,    88,    90,    91,    94,   104,   105,   115,   120,
-     123,   137,   144,   147,   150,   153,   154,   157,   160,   161,
-     162,   163,   164,   165,   180,   181,   184,   190
+       0,    84,    84,    86,    87,    90,   100,   101,   111,   116,
+     119,   133,   140,   143,   146,   149,   150,   153,   156,   157,
+     158,   159,   160,   161,   176,   177,   180,   186
 };
 #endif
 
@@ -1410,21 +1406,21 @@ yyreduce:
         case 3:
 
 /* Line 1455 of yacc.c  */
-#line 90 "qregexpparser.y"
+#line 86 "qregexpparser.y"
     { setParseResult( (yyvsp[(1) - (1)].regexp)) ; ;}
     break;
 
   case 4:
 
 /* Line 1455 of yacc.c  */
-#line 91 "qregexpparser.y"
+#line 87 "qregexpparser.y"
     { setParseResult( new ConcRegExp( false ) ); ;}
     break;
 
   case 5:
 
 /* Line 1455 of yacc.c  */
-#line 94 "qregexpparser.y"
+#line 90 "qregexpparser.y"
     {
                if ( dynamic_cast<AltnRegExp*>( (yyvsp[(1) - (3)].regexp) ) ) {
                  (yyval.regexp) = (yyvsp[(1) - (3)].regexp);
@@ -1440,14 +1436,14 @@ yyreduce:
   case 6:
 
 /* Line 1455 of yacc.c  */
-#line 104 "qregexpparser.y"
+#line 100 "qregexpparser.y"
     { (yyval.regexp) = (yyvsp[(1) - (1)].regexp); ;}
     break;
 
   case 7:
 
 /* Line 1455 of yacc.c  */
-#line 105 "qregexpparser.y"
+#line 101 "qregexpparser.y"
     { 
                if ( dynamic_cast<AltnRegExp*>( (yyvsp[(1) - (2)].regexp) ) ) {
                  (yyval.regexp) = (yyvsp[(1) - (2)].regexp);
@@ -1463,7 +1459,7 @@ yyreduce:
   case 8:
 
 /* Line 1455 of yacc.c  */
-#line 115 "qregexpparser.y"
+#line 111 "qregexpparser.y"
     {  
                (yyval.regexp) = new AltnRegExp( false );
                dynamic_cast<AltnRegExp*>( (yyval.regexp) )->addRegExp( new TextRegExp( false, QString::fromLatin1("") ) );
@@ -1474,14 +1470,14 @@ yyreduce:
   case 9:
 
 /* Line 1455 of yacc.c  */
-#line 120 "qregexpparser.y"
+#line 116 "qregexpparser.y"
     { (yyval.regexp) = new AltnRegExp( false ); ;}
     break;
 
   case 10:
 
 /* Line 1455 of yacc.c  */
-#line 123 "qregexpparser.y"
+#line 119 "qregexpparser.y"
     {
        RegExp* last = dynamic_cast<ConcRegExp*>( (yyvsp[(1) - (2)].regexp) )->lastRegExp();
        TextRegExp *reg1, *reg2;
@@ -1501,7 +1497,7 @@ yyreduce:
   case 11:
 
 /* Line 1455 of yacc.c  */
-#line 137 "qregexpparser.y"
+#line 133 "qregexpparser.y"
     { 
          ConcRegExp* reg = new ConcRegExp( false );
          reg->addRegExp( (yyvsp[(1) - (1)].regexp) );
@@ -1512,7 +1508,7 @@ yyreduce:
   case 12:
 
 /* Line 1455 of yacc.c  */
-#line 144 "qregexpparser.y"
+#line 140 "qregexpparser.y"
     {
            (yyval.regexp) = new RepeatRegExp( false, (yyvsp[(2) - (2)].range).min, (yyvsp[(2) - (2)].range).max, (yyvsp[(1) - (2)].regexp) );
          ;}
@@ -1521,14 +1517,14 @@ yyreduce:
   case 13:
 
 /* Line 1455 of yacc.c  */
-#line 147 "qregexpparser.y"
+#line 143 "qregexpparser.y"
     { (yyval.regexp) = (yyvsp[(1) - (1)].regexp); ;}
     break;
 
   case 14:
 
 /* Line 1455 of yacc.c  */
-#line 150 "qregexpparser.y"
+#line 146 "qregexpparser.y"
     { 
          (yyval.regexp) = (yyvsp[(2) - (3)].regexp); 
        ;}
@@ -1537,14 +1533,14 @@ yyreduce:
   case 15:
 
 /* Line 1455 of yacc.c  */
-#line 153 "qregexpparser.y"
+#line 149 "qregexpparser.y"
     { (yyval.regexp) = (yyvsp[(2) - (3)].regexp); ;}
     break;
 
   case 16:
 
 /* Line 1455 of yacc.c  */
-#line 154 "qregexpparser.y"
+#line 150 "qregexpparser.y"
     { 
          (yyval.regexp) = new LookAheadRegExp( false, LookAheadRegExp::POSITIVE, (yyvsp[(2) - (3)].regexp) );
        ;}
@@ -1553,7 +1549,7 @@ yyreduce:
   case 17:
 
 /* Line 1455 of yacc.c  */
-#line 157 "qregexpparser.y"
+#line 153 "qregexpparser.y"
     {
          (yyval.regexp) = new LookAheadRegExp( false, LookAheadRegExp::NEGATIVE, (yyvsp[(2) - (3)].regexp) );
        ;}
@@ -1562,42 +1558,42 @@ yyreduce:
   case 18:
 
 /* Line 1455 of yacc.c  */
-#line 160 "qregexpparser.y"
+#line 156 "qregexpparser.y"
     { (yyval.regexp) = (yyvsp[(1) - (1)].regexp); ;}
     break;
 
   case 19:
 
 /* Line 1455 of yacc.c  */
-#line 161 "qregexpparser.y"
+#line 157 "qregexpparser.y"
     { (yyval.regexp) = (yyvsp[(1) - (1)].regexp); ;}
     break;
 
   case 20:
 
 /* Line 1455 of yacc.c  */
-#line 162 "qregexpparser.y"
+#line 158 "qregexpparser.y"
     { (yyval.regexp) = new PositionRegExp( false, PositionRegExp::ENDLINE ); ;}
     break;
 
   case 21:
 
 /* Line 1455 of yacc.c  */
-#line 163 "qregexpparser.y"
+#line 159 "qregexpparser.y"
     { (yyval.regexp) = new PositionRegExp( false, PositionRegExp::BEGLINE ); ;}
     break;
 
   case 22:
 
 /* Line 1455 of yacc.c  */
-#line 164 "qregexpparser.y"
+#line 160 "qregexpparser.y"
     { (yyval.regexp) = new DotRegExp( false ); ;}
     break;
 
   case 23:
 
 /* Line 1455 of yacc.c  */
-#line 165 "qregexpparser.y"
+#line 161 "qregexpparser.y"
     { 
         QString match = QString::fromLocal8Bit("\\%1").arg( (yyvsp[(1) - (1)].backRef) );
         (yyval.regexp) = new TextRegExp( false, match );
@@ -1618,21 +1614,21 @@ yyreduce:
   case 24:
 
 /* Line 1455 of yacc.c  */
-#line 180 "qregexpparser.y"
+#line 176 "qregexpparser.y"
     { (yyval.regexp) = new PositionRegExp( false, PositionRegExp::WORDBOUNDARY ); ;}
     break;
 
   case 25:
 
 /* Line 1455 of yacc.c  */
-#line 181 "qregexpparser.y"
+#line 177 "qregexpparser.y"
     { (yyval.regexp) = new PositionRegExp( false, PositionRegExp::NONWORDBOUNDARY ); ;}
     break;
 
   case 26:
 
 /* Line 1455 of yacc.c  */
-#line 184 "qregexpparser.y"
+#line 180 "qregexpparser.y"
     { 
        if ( (yyvsp[(1) - (1)].ch) == '{' || (yyvsp[(1) - (1)].ch) == '}' || (yyvsp[(1) - (1)].ch) == '[' || (yyvsp[(1) - (1)].ch) == ']' || (yyvsp[(1) - (1)].ch) == '\\' ) {
           yyerror( "illigal character - needs escaping" );
@@ -1644,14 +1640,14 @@ yyreduce:
   case 27:
 
 /* Line 1455 of yacc.c  */
-#line 190 "qregexpparser.y"
+#line 186 "qregexpparser.y"
     { (yyval.regexp) = new TextRegExp( false, QString::fromLocal8Bit("%1").arg((yyvsp[(1) - (1)].ch))); ;}
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 1655 "gen_qregexpparser.cc"
+#line 1651 "gen_qregexpparser.cc"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1863,7 +1859,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 193 "qregexpparser.y"
+#line 189 "qregexpparser.y"
 
 
 RegExp* parseQtRegExp( QString qstr, bool* ok ) {

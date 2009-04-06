@@ -18,11 +18,7 @@
 
 #include "compoundregexp.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include <klocale.h>
-#endif
+#include <klocale.h>
 
 #include "widgetfactory.h"
 

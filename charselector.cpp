@@ -17,12 +17,8 @@
  **/
 #include "charselector.h"
 
-#ifdef QT_ONLY
-#include "compat.h"
-#else
 #include <klocale.h>
 #include "charselector.moc"
-#endif
 
 #include "limitedcharlineedit.h"
 #include "regexpconverter.h"

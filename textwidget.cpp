@@ -17,9 +17,7 @@
  **/
 #include "textwidget.h"
 
-#ifndef QT_ONLY
-  #include "textwidget.moc"
-#endif
+#include "textwidget.moc"
 
 #include "textregexp.h"
 #include "selectablelineedit.h"

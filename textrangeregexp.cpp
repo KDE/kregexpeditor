@@ -16,12 +16,8 @@
  *  Boston, MA 02110-1301, USA.
  **/
 #include "textrangeregexp.h"
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include <klocale.h>
-  #include <kmessagebox.h>
-#endif
+#include <klocale.h>
+#include <kmessagebox.h>
 
 #include "regexpconverter.h"
 

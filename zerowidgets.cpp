@@ -18,11 +18,7 @@
 
 #include "zerowidgets.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include <klocale.h>
-#endif
+#include <klocale.h>
 
 #include "dotregexp.h"
 #include "positionregexp.h"

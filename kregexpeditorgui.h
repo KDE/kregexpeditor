@@ -18,11 +18,7 @@
 #ifndef kregexpeditorgui_h
 #define kregexpeditorgui_h
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include <kdialog.h>
-#endif
+#include <kdialog.h>
 
 #include <kregexpeditorinterface.h>
 

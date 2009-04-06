@@ -18,15 +18,11 @@
 
 #include "kregexpeditorprivate.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include <klocale.h>
-  #include <kiconloader.h>
-  #include <kstandarddirs.h>
-  #include <kmessagebox.h>
-  #include "kregexpeditorprivate.moc"
-#endif
+#include <klocale.h>
+#include <kiconloader.h>
+#include <kstandarddirs.h>
+#include <kmessagebox.h>
+#include "kregexpeditorprivate.moc"
 
 #include <qapplication.h>
 #include <QLineEdit>
@@ -183,11 +179,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
                                       "<p>You may develop your regular expression both by using the graphical "
 				      "editor, and by typing the regular expression in this line edit.</p>") );
   
-#ifdef QT_ONLY
-  QPixmap pix( "icons/error.png" );
-#else
   QPixmap pix = KIconLoader::global()->loadIcon(KStandardDirs::locate("data", QString::fromLatin1("kregexpeditor/pics/error.png") ), KIconLoader::Toolbar );
-#endif
   _error = new QLabel( this );
   _error->setPixmap( pix );
   layout->addWidget( _error );

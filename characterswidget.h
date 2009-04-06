@@ -18,11 +18,7 @@
 #ifndef characterswidget
 #define characterswidget
 
-#ifdef QT_ONLY
-#include "compat.h"
-#else
 #include <kdialog.h>
-#endif
 
 #include <kmultiformlistbox.h>
 #include "regexpwidget.h"

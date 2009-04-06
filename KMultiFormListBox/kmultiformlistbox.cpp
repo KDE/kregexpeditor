@@ -15,9 +15,8 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
-#ifndef QT_ONLY
-  #include "kmultiformlistbox.moc"
-#endif
+
+#include "kmultiformlistbox.moc"
 
 #include "kmultiformlistbox-multivisible.h"
 #include "kmultiformlistbox-windowed.h"

@@ -23,35 +23,17 @@
 
 QPixmap Util::getKRegExpEditorIcon( const QString& name )
 {
-#ifdef QT_ONLY
-    QPixmap pix;
-    pix.convertFromImage( qembed_findImage(name) );
-    return pix;
-#else
   return BarIcon(KStandardDirs::locate("data", QString::fromLatin1("kregexpeditor/pics/") +name ) );
-#endif
 }
 
 QPixmap Util::getSystemIcon( const QString& name )
 {
-#ifdef QT_ONLY
-    QPixmap pix;
-    pix.convertFromImage( qembed_findImage( name ) );
-    return pix;
-#else
   return BarIcon( name );
-#endif
 
 }
 
 QIcon Util::getSystemIconSet( const QString& name )
 {
-#ifdef QT_ONLY
-    QPixmap pix;
-    pix.convertFromImage( qembed_findImage( name ) );
-    return QIcon( pix );
-#else
   return KIcon( name );
-#endif
 
 }

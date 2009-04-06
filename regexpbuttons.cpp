@@ -17,15 +17,10 @@
  **/
 #include "regexpbuttons.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-  #include "images.h"
-#else
-  #include <kiconloader.h>
-  #include <klocale.h>
-  #include <kstandarddirs.h>
-  #include "regexpbuttons.moc"
-#endif
+#include <kiconloader.h>
+#include <klocale.h>
+#include <kstandarddirs.h>
+#include "regexpbuttons.moc"
 
 #include "dcbutton.h"
 #include "regexpconverter.h"
@@ -49,12 +44,7 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   // The "select" button.
   _selectBut = new QToolButton( this);
 
-#ifdef QT_ONLY
-  QPixmap pix;
-  pix.convertFromImage( qembed_findImage( "select" ) );
-#else
   QPixmap pix = KIconLoader::global()->loadIcon(KStandardDirs::locate("data", QString::fromLatin1("kregexpeditor/pics/select.png") ), KIconLoader::Toolbar );
-#endif
 
   _selectBut->setIcon(static_cast<QIcon>( pix ));
   addWidget( _selectBut );
@@ -154,12 +144,7 @@ RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
 
 DoubleClickButton* RegExpButtons::insert(RegExpType tp, const char* name, QString tooltip, QString whatsthis)
 {
-#ifdef QT_ONLY
-    QPixmap pix;
-    pix.convertFromImage( qembed_findImage( QString::fromLatin1( name ) ) );
-#else
-    QPixmap pix = KIconLoader::global()->loadIcon(KStandardDirs::locate("data", QString::fromLatin1("kregexpeditor/pics/")+QString::fromLatin1(name) + QString::fromLatin1(".png") ), KIconLoader::Toolbar );
-#endif
+  QPixmap pix = KIconLoader::global()->loadIcon(KStandardDirs::locate("data", QString::fromLatin1("kregexpeditor/pics/")+QString::fromLatin1(name) + QString::fromLatin1(".png") ), KIconLoader::Toolbar );
 
   DoubleClickButton* but = new DoubleClickButton( pix, this, "RegExpButtons::but");
 

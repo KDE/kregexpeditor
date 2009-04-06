@@ -15,14 +15,11 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include <kmessagebox.h>
-  #include <kpushbutton.h>
-  #include <KStandardGuiItem>
-  #include "kmultiformlistbox-windowed.moc"
-#endif
+
+#include <kmessagebox.h>
+#include <kpushbutton.h>
+#include <KStandardGuiItem>
+#include "kmultiformlistbox-windowed.moc"
 
 #include "widgetwindow.h"
 #include "windowlistboxitem.h"

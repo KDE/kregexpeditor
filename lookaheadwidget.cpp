@@ -18,12 +18,8 @@
 
 #include "lookaheadwidget.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include <klocale.h>
-  #include "lookaheadwidget.moc"
-#endif
+#include <klocale.h>
+#include "lookaheadwidget.moc"
 
 #include "lookaheadregexp.h"
 #include "concwidget.h"

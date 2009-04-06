@@ -16,10 +16,8 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
-#ifndef QT_ONLY
 #include <kgenericfactory.h>
 #include "kregexpeditorgui.h"
 typedef K_TYPELIST_2( KRegExpEditorGUI, KRegExpEditorGUIDialog ) Products;
 K_EXPORT_COMPONENT_FACTORY( libkregexpeditorgui,
                             KGenericFactory<Products>( "kregexpeditor" ) )
-#endif

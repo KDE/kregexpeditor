@@ -17,15 +17,10 @@
  **/
 #include "compoundwidget.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-  #include "images.h"
-#else
-  #include <klocale.h>
-  #include <kdialog.h>
-  #include <kiconloader.h>
-  #include "compoundwidget.moc"
-#endif
+#include <klocale.h>
+#include <kdialog.h>
+#include <kiconloader.h>
+#include "compoundwidget.moc"
 
 #include <qcursor.h>
 #include <QLineEdit>
@@ -326,13 +321,7 @@ int nextId()
 
 QPixmap CompoundWidget::getIcon( const QString& name )
 {
-#ifdef QT_ONLY
-    QPixmap pix;
-    pix.convertFromImage( qembed_findImage(name) );
-    return pix;
-#else
     return SmallIcon( name );
-#endif
 }
 
 

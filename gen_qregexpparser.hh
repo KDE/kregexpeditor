@@ -65,7 +65,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 57 "qregexpparser.y"
+#line 53 "qregexpparser.y"
 
   struct {
     int min;

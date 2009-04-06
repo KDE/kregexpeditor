@@ -17,16 +17,12 @@
  **/
 #include "userdefinedregexps.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include <kinputdialog.h>
-  #include <klocale.h>
-  #include <kmessagebox.h>
-  #include <kstandarddirs.h>
-  #include <kdebug.h>
-  #include "userdefinedregexps.moc"
-#endif
+#include <kinputdialog.h>
+#include <klocale.h>
+#include <kmessagebox.h>
+#include <kstandarddirs.h>
+#include <kdebug.h>
+#include "userdefinedregexps.moc"
 
 #include <QMenu>
 #include <QDir>
@@ -73,12 +69,7 @@ void UserDefinedRegExps::slotPopulateUserRegexps()
 
   createItems( i18n("User Defined"), WidgetWinItem::path(), true );
 
-#ifdef QT_ONLY
-  QStringList dirs;
-  dirs << QString::fromLatin1( "predefined" );
-#else
   QStringList dirs = KGlobal::dirs()->findDirs( "data", QString::fromLocal8Bit("kregexpeditor/predefined/") );
-#endif
 
   for ( QStringList::iterator it1 = dirs.begin(); it1 != dirs.end(); ++it1 ) {
     QDir dir( *it1, QString(), QDir::Name, QDir::Dirs );
@@ -207,11 +198,8 @@ void UserDefinedRegExps::slotRenameUserRegexp()
     QString oldName = winItem->name();
 
     QString txt;
-#ifdef QT_ONLY
-    txt = QInputDialog::getText( tr("Rename Regular Expression"), tr("New name:") );
-#else
     txt = KInputDialog::getText( i18n("Rename Item"), i18n("New name:"), oldName );
-#endif
+    
     if ( !txt.isNull() && oldName != txt ) {
       QString fileName = WidgetWinItem::path() + QString::fromLocal8Bit("/") + txt + QString::fromLocal8Bit(".regexp");
       QFileInfo finfo( fileName );
@@ -278,11 +266,7 @@ void WidgetWinItem::setName( const QString& nm )
 
 QString WidgetWinItem::path()
 {
-#ifdef QT_ONLY
-    return QString::fromLatin1( "predefined" );
-#else
     return KStandardDirs::locateLocal("data", QString::fromLocal8Bit("KRegExpEditor/"));
-#endif
 }
 
 

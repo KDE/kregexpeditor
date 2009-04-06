@@ -18,11 +18,7 @@
 
 #include "regexpwidget.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include "regexpwidget.moc"
-#endif
+#include "regexpwidget.moc"
 
 #include <iostream>
 #include <qpainter.h>

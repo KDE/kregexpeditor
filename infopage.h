@@ -18,12 +18,7 @@
 #ifndef infopage_h
 #define infopage_h
 
-#ifdef QT_ONLY
-  #include "compat.h"
-  #include <QTextBrowser>
-#else
-  # include <ktextbrowser.h>
-#endif
+#include <ktextbrowser.h>
 
 class InfoPage :public KTextBrowser
 {

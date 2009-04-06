@@ -26,11 +26,7 @@
 //Added by qt3to4:
 #include <QMouseEvent>
 #include <QEvent>
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include <klocale.h>
-#endif
+#include <klocale.h>
 
 CCP::CCP(KMultiFormListBoxMultiVisible *ee_, KMultiFormListBoxEntry *eee_) : QObject() {
   ee = ee_;

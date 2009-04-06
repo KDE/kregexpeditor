@@ -17,9 +17,7 @@
  **/
 
 #include "kmultiformlistboxentry.h"
-#ifndef QT_ONLY
-  #include "kmultiformlistboxentry.moc"
-#endif
+#include "kmultiformlistboxentry.moc"
 
 //----------------------------------------------------------------------
 // This function is needed to signal which of the KMultiFormListBox entries

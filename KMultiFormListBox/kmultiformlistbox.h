@@ -23,11 +23,7 @@
 #include "kmultiformlistboxentry.h"
 #include <QtGui/QLayout>
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include <klocale.h>
-#endif
+#include <klocale.h>
 
 class QDataStream;
 

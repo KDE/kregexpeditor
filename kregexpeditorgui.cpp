@@ -17,14 +17,10 @@
  **/
 #include "kregexpeditorgui.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include <klocale.h>
-  #include <kgenericfactory.h>
-  #include <kapplication.h>
-  #include "kregexpeditorgui.moc"
-#endif
+#include <klocale.h>
+#include <kgenericfactory.h>
+#include <kapplication.h>
+#include "kregexpeditorgui.moc"
 
 #include <stdio.h>
 #include "kregexpeditorprivate.h"
@@ -91,9 +87,6 @@ KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent,
   resize( 640, 400 );
 
   setHelp( QString(), QString::fromLocal8Bit( "KRegExpEditor" ) );
-#ifdef QT_ONLY
-  connect( this, SIGNAL( helpClicked() ), _editor, SLOT( showHelp() ) );
-#endif
 }
 
 
@@ -154,15 +147,9 @@ void KRegExpEditorGUI::setMatchText( const QString& txt )
 
 void KRegExpEditorGUI::showHelp()
 {
-#ifdef QT_ONLY
-    _editor->showHelp();
-#else
     KToolInvocation::invokeHelp( QString(), QString::fromLocal8Bit( "KRegExpEditor" ) );
-#endif
 }
 
-#ifndef QT_ONLY
 typedef K_TYPELIST_2( KRegExpEditorGUI, KRegExpEditorGUIDialog ) Products;
 K_EXPORT_COMPONENT_FACTORY( libkregexpeditorgui,
                             KGenericFactory<Products>( "kregexpeditor" ) )
-#endif

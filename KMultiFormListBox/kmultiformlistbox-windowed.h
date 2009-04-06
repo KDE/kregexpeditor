@@ -18,12 +18,7 @@
 #ifndef __kmultiformlistboxwindowed
 #define __kmultiformlistboxwindowed
 
-#ifdef QT_ONLY
-  #include "compat.h"
-  #include <QListWidget>
-#else
-  #include <KListWidget>
-#endif
+#include <KListWidget>
 
 #include "kmultiformlistboxfactory.h"
 #include "kmultiformlistbox.h"

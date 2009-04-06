@@ -16,16 +16,13 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
-#ifdef QT_ONLY
-  #include "compat.h"
-  #include <qapplication.h>
-#else
-  #include <kaboutdata.h>
-  #include <kapplication.h>
-  #include <kcmdlineargs.h>
-  #include <klocale.h>
-  #include <kpushbutton.h>
-#endif
+
+#include <kaboutdata.h>
+#include <kapplication.h>
+#include <kcmdlineargs.h>
+#include <klocale.h>
+#include <kpushbutton.h>
+
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 
@@ -33,16 +30,12 @@
 
 int main( int argc, char* argv[] )
 {
-#ifdef QT_ONLY
-    QApplication myapp( argc, argv );
-#else
     KAboutData aboutData( "kregexpeditor", 0, ki18n("RegExp Editor"),
                           "1.0", ki18n("Editor for Regular Expressions"),
 			  KAboutData::License_GPL,
                           ki18n("(c) 2002-2003 Jesper K. Pedersen"));
     KCmdLineArgs::init(argc, argv, &aboutData);
     KApplication myapp;
-#endif
 
     QDialog* top = new QDialog( 0 );
     QVBoxLayout* lay = new QVBoxLayout( top );

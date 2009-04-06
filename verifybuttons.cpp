@@ -17,19 +17,12 @@
  **/
 #include "verifybuttons.h"
 
-#ifdef QT_ONLY
-#include "compat.h"
-//Added by qt3to4:
-#include <QLinkedList>
-#include "images.h"
-#else
 #include <klocale.h>
 #include "verifybuttons.moc"
 #include <kstandarddirs.h>
 #include <kfiledialog.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
-#endif
 
 #include <QBoxLayout>
 

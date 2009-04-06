@@ -18,9 +18,7 @@
 
 #include "selectablelineedit.h"
 
-#ifndef QT_ONLY
-  #include "selectablelineedit.moc"
-#endif
+#include "selectablelineedit.moc"
 
 SelectableLineEdit::SelectableLineEdit( RegExpWidget* owner, QWidget* parent, const char* name)
   : QLineEdit( parent ), _owner(owner)

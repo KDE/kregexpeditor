@@ -24,12 +24,8 @@
 #  define YYLTYPE_IS_TRIVIAL 0
 #endif
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
   #include <klocale.h>
   #include <kmessagebox.h>
-#endif
 
   
   #include <stdlib.h>

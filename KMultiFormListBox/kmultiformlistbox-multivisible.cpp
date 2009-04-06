@@ -17,15 +17,8 @@
  **/
 
 #include "kmultiformlistbox-multivisible.h"
-#ifdef QT_ONLY
-  #include "compat.h"
-  #include <qmessagebox.h>
-//Added by qt3to4:
-#include <QResizeEvent>
-#else
-  #include <kmessagebox.h>
-  #include "kmultiformlistbox-multivisible.moc"
-#endif
+#include <kmessagebox.h>
+#include "kmultiformlistbox-multivisible.moc"
 
 #include "indexWindow.h"
 #include "ccp.h"

@@ -18,18 +18,13 @@
 
 #include "editorwindow.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-  #include "images.h"
-#else
-  #include <klocale.h>
-  #include <kmessagebox.h>
+#include <klocale.h>
+#include <kmessagebox.h>
 //   #include <kfiledialog.h>
-  #include <kstandarddirs.h>
-  #include <kiconloader.h>
-  #include "editorwindow.moc"
-  #include <kinputdialog.h>
-#endif
+#include <kstandarddirs.h>
+#include <kiconloader.h>
+#include "editorwindow.moc"
+#include <kinputdialog.h>
 
 #include "concwidget.h"
 #include <qpainter.h>
@@ -381,15 +376,9 @@ void RegExpEditorWindow::slotSave()
     QString dir = WidgetWinItem::path();
     QString txt;
 
-#ifdef QT_ONLY
-    txt = QInputDialog::getText( tr("Name for regexp"), tr("Enter name:") );
-    if ( txt.isNull() )
-        return;
-#else
     QString tmp = KInputDialog::getText( i18n("Name for Regular Expression"), i18n("Enter name:"));
     if( tmp.isEmpty()) return;
     txt = tmp;
-#endif
 
     QString fileName = dir + QString::fromLocal8Bit("/") + txt + QString::fromLocal8Bit(".regexp");
     QFileInfo finfo( fileName );
@@ -458,12 +447,6 @@ void RegExpEditorWindow::editWidget()
 
 QIcon RegExpEditorWindow::getIcon( const QString& name )
 {
-#ifdef QT_ONLY
-    QPixmap pix;
-    pix.convertFromImage( qembed_findImage( name ) );
-    return pix;
-#else
-        return KIcon( name );
-#endif
+    return KIcon( name );
 }
 

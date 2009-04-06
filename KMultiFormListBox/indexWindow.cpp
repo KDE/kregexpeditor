@@ -23,11 +23,7 @@
 #include <QHBoxLayout>
 #include <QApplication>
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include "indexWindow.moc"
-#endif
+#include "indexWindow.moc"
 
 indexWindow::indexWindow() : QWidget(0, Qt::Popup)
 {

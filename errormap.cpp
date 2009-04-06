@@ -18,12 +18,8 @@
 
 #include "errormap.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include <kmessagebox.h>
-  #include <klocale.h>
-#endif
+#include <kmessagebox.h>
+#include <klocale.h>
 
 ErrorMap::ErrorMap() : _prevLineStartError( false ), _prevLineEndError( false ), _prevLookAHeadError( false )
 {

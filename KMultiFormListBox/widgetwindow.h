@@ -17,13 +17,9 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
-#ifdef QT_ONLY
-  #include "compat.h"
-  #include <QListWidget>
-#else
-  #include <kdialog.h>
-  #include <KListWidget>
-#endif
+
+#include <kdialog.h>
+#include <KListWidget>
 
 #include "kmultiformlistbox-windowed.h"
 

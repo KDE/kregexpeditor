@@ -17,9 +17,7 @@
  **/
 #include "singlecontainerwidget.h"
 
-#ifndef QT_ONLY
-  #include "singlecontainerwidget.moc"
-#endif
+#include "singlecontainerwidget.moc"
 
 #include "concwidget.h"
 

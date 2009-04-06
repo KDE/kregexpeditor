@@ -18,12 +18,8 @@
 
 #include "repeatregexp.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include "kmessagebox.h"
-  #include <klocale.h>
-#endif
+#include "kmessagebox.h"
+#include <klocale.h>
 
 RepeatRegExp::RepeatRegExp( bool selected, int lower, int upper, RegExp* child) : RegExp( selected )
 {

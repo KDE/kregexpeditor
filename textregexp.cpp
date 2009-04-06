@@ -18,12 +18,8 @@
 
 #include "textregexp.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include <kmessagebox.h>
-  #include <klocale.h>
-#endif
+#include <kmessagebox.h>
+#include <klocale.h>
 
 TextRegExp::TextRegExp( bool selected, QString text) :RegExp( selected )
 {

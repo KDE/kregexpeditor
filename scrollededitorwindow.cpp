@@ -17,9 +17,7 @@
  **/
 #include "scrollededitorwindow.h"
 
-#ifndef QT_ONLY
-  #include "scrollededitorwindow.moc"
-#endif
+#include "scrollededitorwindow.moc"
 
 #include "editorwindow.h"
 //Added by qt3to4:

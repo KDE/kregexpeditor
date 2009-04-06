@@ -17,13 +17,9 @@
  **/
 #include "repeatwidget.h"
 
-#ifdef QT_ONLY
-  #include "compat.h"
-#else
-  #include <klocale.h>
-  #include <kdialog.h>
-  #include "repeatwidget.moc"
-#endif
+#include <klocale.h>
+#include <kdialog.h>
+#include "repeatwidget.moc"
 
 #include "concwidget.h"
 #include "repeatregexp.h"
