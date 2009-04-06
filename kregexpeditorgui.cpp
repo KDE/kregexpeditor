@@ -149,7 +149,3 @@ void KRegExpEditorGUI::showHelp()
 {
     KToolInvocation::invokeHelp( QString(), QString::fromLocal8Bit( "KRegExpEditor" ) );
 }
-
-typedef K_TYPELIST_2( KRegExpEditorGUI, KRegExpEditorGUIDialog ) Products;
-K_EXPORT_COMPONENT_FACTORY( libkregexpeditorgui,
-                            KGenericFactory<Products>( "kregexpeditor" ) )
