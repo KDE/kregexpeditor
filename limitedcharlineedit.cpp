@@ -15,9 +15,10 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #include "limitedcharlineedit.h"
-#include <qvalidator.h>
-//Added by qt3to4:
+
+#include <QValidator>
 #include <QKeyEvent>
 
 /**
@@ -54,13 +55,13 @@ private:
 
 void LimitedCharLineEdit::keyPressEvent ( QKeyEvent *event )
 {
-  QLineEdit::keyPressEvent( event );
+  KLineEdit::keyPressEvent( event );
   if ( text().length() == _count && !event->text().isNull() )
     focusNextPrevChild(true);
 }
 
 LimitedCharLineEdit::LimitedCharLineEdit( Mode mode, QWidget* parent, const char* name )
-	:QLineEdit( parent ), _mode(mode)
+	:KLineEdit( parent ), _mode(mode)
 {
   setObjectName( name );
 

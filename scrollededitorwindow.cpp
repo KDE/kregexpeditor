@@ -15,15 +15,13 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #include "scrollededitorwindow.h"
 
-#include "scrollededitorwindow.moc"
-
-#include "editorwindow.h"
-//Added by qt3to4:
 #include <QResizeEvent>
 #include <QScrollArea>
-#include <QLabel>
+
+#include "editorwindow.h"
 
 RegExpScrolledEditorWindow::RegExpScrolledEditorWindow( QWidget* parent)
     : QWidget(parent)
@@ -147,3 +145,4 @@ void RegExpScrolledEditorWindow::slotScroll( QPoint focusPoint )
     _scrollArea->ensureVisible( focusPoint.x(), focusPoint.y() );
 }
 
+#include "scrollededitorwindow.moc"

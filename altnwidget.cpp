@@ -15,16 +15,18 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #include "altnwidget.h"
-#include <klocale.h>
-#include <kmessagebox.h>
+
+#include <QPainter>
+#include <QPaintEvent>
+
+#include <KLocale>
+#include <KMessageBox>
 
 #include "dragaccepter.h"
 #include "concwidget.h"
 #include "altnregexp.h"
-#include <qpainter.h>
-//Added by qt3to4:
-#include <QPaintEvent>
 
 AltnWidget::AltnWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
   :MultiContainerWidget(editorWindow, parent)

@@ -18,26 +18,18 @@
 
 #include "characterswidget.h"
 
-#include <kdialog.h>
-#include "characterswidget.moc"
+#include <QApplication>
+#include <QPainter>
+#include <QLabel>
+#include <QCheckBox>
+#include <QGroupBox>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 #include "textrangeregexp.h"
-#include "regexp.h"
 #include "charselector.h"
 #include "myfontmetrics.h"
 #include "regexpconverter.h"
-#include <QApplication>
-#include <qpainter.h>
-//Added by qt3to4:
-#include <QPaintEvent>
-#include <QList>
-#include <QHBoxLayout>
-#include <QLabel>
-#include <QVBoxLayout>
-#include <iostream>
-#include <qcursor.h>
-#include <QCheckBox>
-#include <QGroupBox>
 
 CharacterEdits* CharactersWidget::_configWindow = 0;
 
@@ -152,8 +144,8 @@ QString CharactersWidget::text() const
     for ( ; it != range.constEnd() ; ++it ) {
         StringPair* elm = static_cast<StringPair*>(*it);
         if (elm) {
-            QString fromText = elm->first();
-            QString toText = elm->second();
+            QString fromText = elm->first;
+            QString toText = elm->second;
 
             res += QString::fromLocal8Bit("- ") + i18n("from ") + fromText + i18n(" to ") + toText + QString::fromLocal8Bit("\n");
         }
@@ -275,8 +267,8 @@ int CharacterEdits::exec( TextRangeRegExp* regexp )
     QList<StringPair *> ranges = regexp->range();
     QList<StringPair *>::const_iterator it4 = ranges.constBegin();
     for ( ; it4 != ranges.constEnd() ; ++it4 ) {
-        QString from = (*it4)->first();
-        QString to = (*it4)->second();
+        QString from = (*it4)->first;
+        QString to = (*it4)->second;
         addRange(from,to);
     }
 
@@ -466,3 +458,4 @@ bool RangeEntry::isEmpty() const
     return _from->isEmpty() || _to->isEmpty();
 }
 
+#include "characterswidget.moc"

@@ -15,17 +15,18 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef __repeatwidget
 #define __repeatwidget
 
 #include "singlecontainerwidget.h"
-//Added by qt3to4:
-#include <QPaintEvent>
+
 class QGroupBox;
 class QButtonGroup;
 class KDialog;
 class QSpinBox;
 class RepeatRegExp;
+class QGridLayout;
 
 /**
    Widget containging the configuration for a @ref RepeatWidget
@@ -36,7 +37,7 @@ class RepeatRangeWindow :public QWidget
 Q_OBJECT
 
 public:
-  enum REPEATTYPE {ANY, ATLEAST, ATMOST, EXACTLY, MINMAX};
+  enum REPEATTYPE {ANY, ATLEAST, ATMOST, EXACTLY, MINMAX}; // krazy:exclude=spelling
 
   RepeatRangeWindow( QWidget* parent );
   QString text();

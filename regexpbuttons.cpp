@@ -15,21 +15,18 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #include "regexpbuttons.h"
 
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kstandarddirs.h>
-#include "regexpbuttons.moc"
+#include <QButtonGroup>
+#include <QSignalMapper>
+
+#include <KIconLoader>
+#include <KLocale>
+#include <KStandardDirs>
 
 #include "dcbutton.h"
 #include "regexpconverter.h"
-
-#include <QButtonGroup>
-#include <qsignalmapper.h>
-#include <QPixmap>
-#include <QBoxLayout>
-#include <QToolBar>
 
 RegExpButtons::RegExpButtons( QWidget *parent, const char *name )
   : QToolBar(name, parent), _keepMode(false)
@@ -199,3 +196,4 @@ void RegExpButtons::setFeatures( int features )
 
 }
 
+#include "regexpbuttons.moc"

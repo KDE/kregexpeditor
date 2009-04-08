@@ -15,12 +15,12 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef AUXBUTTONS_H
 #define AUXBUTTONS_H
 
-//Added by qt3to4:
-#include <QLabel>
 #include <QToolBar>
+
 class QLabel;
 class QToolButton;
 

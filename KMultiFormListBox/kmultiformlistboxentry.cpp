@@ -17,7 +17,8 @@
  **/
 
 #include "kmultiformlistboxentry.h"
-#include "kmultiformlistboxentry.moc"
+
+#include <QPushButton>
 
 //----------------------------------------------------------------------
 // This function is needed to signal which of the KMultiFormListBox entries
@@ -40,3 +41,5 @@ void KMultiFormListBoxEntry::indexWindowPos(QPoint *start, int *width)
   global_point = indexButton()->mapToGlobal(QPoint(0,0));
   *width = global_point.x() + indexButton()->width() - start->x();
 }
+
+#include "kmultiformlistboxentry.moc"

@@ -15,14 +15,12 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef __concwidget
 #define __concwidget
 
 #include "multicontainerwidget.h"
-//Added by qt3to4:
-#include <QMouseEvent>
-#include <QDragEnterEvent>
-#include <QPaintEvent>
+
 class ConcRegExp;
 
 /**
@@ -62,7 +60,7 @@ protected:
   virtual void mousePressEvent ( QMouseEvent* event );
   void sizeAccepter( DragAccepter* accepter, int height, int totHeight );
   void getSelectionIndexes( int* start, int* end );
-  virtual void dragEnterEvent(QDragEnterEvent* event) { event->setAccepted( false ); }
+  //virtual void dragEnterEvent(QDragEnterEvent* event) { event->setAccepted( false ); }
 
 private:
   int _maxSelectedHeight;

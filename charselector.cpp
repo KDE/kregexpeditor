@@ -15,17 +15,17 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #include "charselector.h"
 
-#include <klocale.h>
-#include "charselector.moc"
+#include <QHBoxLayout>
+#include <QStackedWidget>
+
+#include <KComboBox>
+#include <KLocale>
 
 #include "limitedcharlineedit.h"
 #include "regexpconverter.h"
-#include <QStackedWidget>
-#include <QComboBox>
-//Added by qt3to4:
-#include <QHBoxLayout>
 
 /**
    In the class CharSelector, three LimitedCharLineEdit are used.
@@ -55,7 +55,7 @@ CharSelector::CharSelector( QWidget* parent )
   layout->setSpacing( 6 );
   layout->setMargin( 0 );
 
-  _type = new QComboBox( this );
+  _type = new KComboBox( this );
   _type->setObjectName("_type");
   items << i18n("Normal Character")
         << i18n("Unicode Char in Hex.")
@@ -183,3 +183,5 @@ QString CharSelector::text() const
   }
   return QString();
 }
+
+#include "charselector.moc"

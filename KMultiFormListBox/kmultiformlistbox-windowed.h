@@ -15,18 +15,19 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef __kmultiformlistboxwindowed
 #define __kmultiformlistboxwindowed
 
-#include <KListWidget>
+#include <QWidget>
+#include "kmultiformlistbox-shower.h"
 
-#include "kmultiformlistboxfactory.h"
-#include "kmultiformlistbox.h"
-//Added by qt3to4:
-#include <QVBoxLayout>
-#include <QList>
+class QVBoxLayout;
+class QListWidgetItem;
+class KListWidget;
 class WindowListboxItem;
-
+class KMultiFormListBoxFactory;
+class KPushButton;
 
 /**
    This class implements the windowed look for a @ref KMultiFormListBox
@@ -56,7 +57,7 @@ private:
 
 	QVBoxLayout* _layout;
   KMultiFormListBoxFactory* _factory;
-	QList<QPushButton *> _buttonList;
+	QList<KPushButton *> _buttonList;
   KListWidget* _listbox;
 	virtual void delElement(QWidget *); // Deletes the given element
 	virtual void delAnElement();

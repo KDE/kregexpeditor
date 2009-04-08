@@ -19,8 +19,8 @@
 #ifndef UTIL_H
 #define UTIL_H
 
-#include <qpixmap.h>
-#include <qicon.h>
+#include <QPixmap>
+#include <QIcon>
 
 class Util
 {

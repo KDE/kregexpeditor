@@ -15,16 +15,17 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef __TEXTRANGEREGEXP_H
 #define __TEXTRANGEREGEXP_H
 
 #include "regexp.h"
-#include "pair.h"
-#include <qstringlist.h>
-//Added by qt3to4:
+
+#include <QPair>
+#include <QStringList>
 #include <QList>
 
-typedef Pair<QString,QString> StringPair;
+typedef QPair<QString,QString> StringPair;
 
 /**
    Abstract syntax node for `text range' regular expression

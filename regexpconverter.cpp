@@ -18,6 +18,8 @@
 
 #include "regexpconverter.h"
 
+#include <QTextEdit>
+
 #include "altnregexp.h"
 #include "concregexp.h"
 #include "lookaheadregexp.h"
@@ -27,8 +29,6 @@
 #include "positionregexp.h"
 #include "repeatregexp.h"
 #include "textregexp.h"
-#include <QTextEdit>
-//Added by qt3to4:
 #include "regexphighlighter.h"
 
 RegExpConverter* RegExpConverter::_current = 0;

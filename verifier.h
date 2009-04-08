@@ -15,14 +15,16 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef VERIFIER_H
 #define VERIFIER_H
-#include <QTextEdit>
-//Added by qt3to4:
-#include <QLabel>
-#include "regexphighlighter.h"
+
+#include <KTextEdit>
+
 class QLabel;
-class Verifier :public QTextEdit
+class RegexpHighlighter;
+
+class Verifier :public KTextEdit
 {
 Q_OBJECT
 public:

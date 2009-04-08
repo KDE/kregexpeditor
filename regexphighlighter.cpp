@@ -16,6 +16,8 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
+// krazy:excludeall=qclasses
+
 #include "regexphighlighter.h"
 
 RegexpHighlighter::RegexpHighlighter( QTextEdit* edit )
@@ -37,8 +39,3 @@ void RegexpHighlighter::setMinimal( bool b )
 {
     _minimal = b;
 }
-
-
-
-
-

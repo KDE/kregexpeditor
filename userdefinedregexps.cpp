@@ -15,26 +15,23 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
-#include "userdefinedregexps.h"
 
-#include <kinputdialog.h>
-#include <klocale.h>
-#include <kmessagebox.h>
-#include <kstandarddirs.h>
-#include <kdebug.h>
-#include "userdefinedregexps.moc"
+#include "userdefinedregexps.h"
 
 #include <QMenu>
 #include <QDir>
-//Added by qt3to4:
 #include <QTextStream>
-#include <QList>
 #include <QVBoxLayout>
-#include "widgetfactory.h"
-#include "compoundregexp.h"
-#include <QLabel>
 #include <QAction>
 #include <QHeaderView>
+
+#include <KInputDialog>
+#include <KLocale>
+#include <KMessageBox>
+#include <KStandardDirs>
+
+#include "widgetfactory.h"
+#include "compoundregexp.h"
 
 UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const char *name )
   : QDockWidget(name, parent)
@@ -215,7 +212,6 @@ void UserDefinedRegExps::slotRenameUserRegexp()
         winItem->setName( txt );
       QDir dir;
       dir.remove(fileName);
-      qDebug() << dir.rename( oldFile, fileName  );
     }
 }
 
@@ -269,5 +265,4 @@ QString WidgetWinItem::path()
     return KStandardDirs::locateLocal("data", QString::fromLocal8Bit("KRegExpEditor/"));
 }
 
-
-
+#include "userdefinedregexps.moc"

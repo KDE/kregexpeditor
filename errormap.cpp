@@ -18,8 +18,8 @@
 
 #include "errormap.h"
 
-#include <kmessagebox.h>
-#include <klocale.h>
+#include <KMessageBox>
+#include <KLocale>
 
 ErrorMap::ErrorMap() : _prevLineStartError( false ), _prevLineEndError( false ), _prevLookAHeadError( false )
 {

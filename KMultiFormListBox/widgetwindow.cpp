@@ -15,12 +15,17 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #include "widgetwindow.h"
-#include "windowlistboxitem.h"
-#include <iostream>
-//Added by qt3to4:
-#include <QFrame>
+
 #include <QHBoxLayout>
+
+#include <KLocale>
+#include <KListWidget>
+
+#include "kmultiformlistboxentry.h"
+#include "kmultiformlistboxfactory.h"
+#include "windowlistboxitem.h"
 
 WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KListWidget *lb)
   :KDialog(0)

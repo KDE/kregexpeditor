@@ -15,12 +15,13 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef __indexWindow
 #define __indexWindow
 
-#include <QListWidget>
-//Added by qt3to4:
-#include <QHideEvent>
+#include <QWidget>
+
+class QListWidget;
 
 /**
    Post a toplevel listbox synchronously.

@@ -15,10 +15,11 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef __MYFONTMETRICS_H
 #define __MYFONTMETRICS_H
-#include <qfontmetrics.h>
-#include <qstringlist.h>
+
+#include <QFontMetrics>
 
 // QFontMetrics::size is broken, therefore I need this hack until it works in QT3
 

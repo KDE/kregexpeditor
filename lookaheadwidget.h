@@ -15,12 +15,12 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef __lookaheadwidget
 #define __lookaheadwidget
 
 #include "singlecontainerwidget.h"
-//Added by qt3to4:
-#include <QPaintEvent>
+
 class LookAheadRegExp;
 
 class LookAheadWidget :public SingleContainerWidget

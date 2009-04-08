@@ -18,29 +18,23 @@
 
 #include "editorwindow.h"
 
-#include <klocale.h>
-#include <kmessagebox.h>
-//   #include <kfiledialog.h>
-#include <kstandarddirs.h>
-#include <kiconloader.h>
-#include "editorwindow.moc"
-#include <kinputdialog.h>
-
-#include "concwidget.h"
-#include <qpainter.h>
+#include <QMenu>
+#include <QFileInfo>
+#include <QPainter>
 #include <QShortcut>
-#include <qcursor.h>
-#include <qclipboard.h>
-//Added by qt3to4:
-#include <QPixmap>
+#include <QClipboard>
 #include <QTextStream>
-#include <QPaintEvent>
 #include <QHBoxLayout>
-#include <QMouseEvent>
 #include <QApplication>
+#include <QMouseEvent>
+
+#include <KLocale>
+#include <KMessageBox>
+#include <KInputDialog>
+
 #include "regexp.h"
 #include "userdefinedregexps.h"
-#include <qfileinfo.h>
+#include "concwidget.h"
 #include "regexpconverter.h"
 
 RegExpEditorWindow::RegExpEditorWindow( QWidget *parent)
@@ -450,3 +444,4 @@ QIcon RegExpEditorWindow::getIcon( const QString& name )
     return KIcon( name );
 }
 
+#include "editorwindow.moc"

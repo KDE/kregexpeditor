@@ -15,18 +15,15 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef editorwindow_h
 #define editorwindow_h
 
+#include <QWidget>
+
 #include "widgetfactory.h"
-#include <qicon.h>
-//Added by qt3to4:
-#include <QMouseEvent>
-#include <QHBoxLayout>
-#include <QMenu>
-#include <QPaintEvent>
-class RegExp;
-class RegExpWidget;
+
+class QMenu;
 class QHBoxLayout;
 
 /** Widget representing the editor window of a regular expression editor.

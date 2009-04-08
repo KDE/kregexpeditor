@@ -15,18 +15,18 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef VERIFYBUTTONS_H
 #define VERIFYBUTTONS_H
 
-//Added by qt3to4:
-#include <QLabel>
-#include <QLinkedList>
-#include <QMenu>
-#include "regexpconverter.h"
 #include <QToolBar>
+#include <QLinkedList>
+
 class QToolButton;
 class QLabel;
 class QAction;
+class QMenu;
+class RegExpConverter;
 
 class VerifyButtons :public QToolBar
 {

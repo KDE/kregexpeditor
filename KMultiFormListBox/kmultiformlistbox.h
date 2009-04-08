@@ -15,18 +15,17 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef __kmultiformlistbox
 #define __kmultiformlistbox
 
-#include "kmultiformlistboxfactory.h"
-#include "kmultiformlistbox-shower.h"
 #include "kmultiformlistboxentry.h"
-#include <QtGui/QLayout>
 
-#include <klocale.h>
+#include <KLocale>
 
 class QDataStream;
-
+class KMultiFormListBoxFactory;
+class KMultiFormListBoxShower;
 
 typedef QList<KMultiFormListBoxEntry *> KMultiFormListBoxEntryList ;
 typedef QList<QWidget *> WidgetList;

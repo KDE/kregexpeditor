@@ -15,12 +15,8 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #include "dcbutton.h"
-
-#include "dcbutton.moc"
-
-#include <QPixmap>
-#include <QMouseEvent>
 
 DoubleClickButton::DoubleClickButton( QPixmap pixmap, QWidget* parent, const char* name )
   : QToolButton( parent )
@@ -34,4 +30,4 @@ void DoubleClickButton::mouseDoubleClickEvent( QMouseEvent* )
   emit doubleClicked();
 }
 
-
+#include "dcbutton.moc"

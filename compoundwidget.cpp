@@ -15,27 +15,23 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #include "compoundwidget.h"
 
-#include <klocale.h>
-#include <kdialog.h>
-#include <kiconloader.h>
-#include "compoundwidget.moc"
-
-#include <qcursor.h>
-#include <QLineEdit>
-#include <qpainter.h>
-
-//Added by qt3to4:
-#include <QPixmap>
-#include <QPaintEvent>
+#include <QPainter>
 #include <QLabel>
+#include <QCheckBox>
 #include <QVBoxLayout>
 #include <QMouseEvent>
+
+#include <KLocale>
+#include <KDialog>
+#include <KLineEdit>
+#include <KTextEdit>
+
 #include "concwidget.h"
 #include "kwidgetstreamer.h"
-#include "qcheckbox.h"
-#include <QTextEdit>
+#include "compoundregexp.h"
 
 //================================================================================
 
@@ -46,13 +42,13 @@ CompoundDetailWindow::CompoundDetailWindow( QWidget* parent )
 
   QLabel* label = new QLabel( i18n("&Title:"), this);
   layout->addWidget(label);
-  _title = new QLineEdit( this );
+  _title = new KLineEdit( this );
   layout->addWidget(_title);
   label->setBuddy( _title );
 
   label = new QLabel( i18n("&Description:"), this );
   layout->addWidget(label);
-  _description  = new QTextEdit( this );
+  _description  = new KTextEdit( this );
   layout->addWidget(_description);
   label->setBuddy( _description );
 
@@ -324,4 +320,4 @@ QPixmap CompoundWidget::getIcon( const QString& name )
     return SmallIcon( name );
 }
 
-
+#include "compoundwidget.moc"

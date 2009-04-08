@@ -1,5 +1,3 @@
-//Added by qt3to4:
-#include <QEvent>
 /*
  *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
  *

@@ -21,6 +21,7 @@
 #define __kmultiformlistboxshower
 
 // -------------------------------- includes ------------------------------
+class KMultiFormListBoxEntry;
 //-------------------------------------------------------------------------
 typedef QList<KMultiFormListBoxEntry *> KMultiFormListBoxEntryList ;
 

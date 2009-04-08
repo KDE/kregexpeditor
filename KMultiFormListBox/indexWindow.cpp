@@ -17,13 +17,9 @@
  **/
 
 #include "indexWindow.h"
-#include <iostream>
-//Added by qt3to4:
-#include <QHideEvent>
-#include <QHBoxLayout>
-#include <QApplication>
 
-#include "indexWindow.moc"
+#include <QHBoxLayout>
+#include <QListWidget>
 
 indexWindow::indexWindow() : QWidget(0, Qt::Popup)
 {
@@ -94,3 +90,4 @@ int indexWindow::exec(const QPoint & /*start*/, int /*width*/)
     return 0;
 }
 
+#include "indexWindow.moc"

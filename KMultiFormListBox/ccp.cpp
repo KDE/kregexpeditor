@@ -15,18 +15,18 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 //---------------------
 // ccp = Cut-Copy-Paste
 //---------------------
 
 #include "ccp.h"
-#include "kmultiformlistbox-multivisible.h"
-#include <QObject>
+
 #include <QMenu>
-//Added by qt3to4:
-#include <QMouseEvent>
 #include <QEvent>
-#include <klocale.h>
+#include <QMouseEvent>
+
+#include "kmultiformlistbox-multivisible.h"
 
 CCP::CCP(KMultiFormListBoxMultiVisible *ee_, KMultiFormListBoxEntry *eee_) : QObject() {
   ee = ee_;

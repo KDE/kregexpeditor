@@ -15,19 +15,16 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #include "kregexpeditorgui.h"
 
-#include <klocale.h>
-#include <kgenericfactory.h>
-#include <kapplication.h>
-#include "kregexpeditorgui.moc"
-
-#include <stdio.h>
-#include "kregexpeditorprivate.h"
 #include <QVBoxLayout>
 #include <QFrame>
-#include <QHBoxLayout>
-#include <ktoolinvocation.h>
+
+#include <KLocale>
+#include <KToolInvocation>
+
+#include "kregexpeditorprivate.h"
 
 const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
 
@@ -149,3 +146,5 @@ void KRegExpEditorGUI::showHelp()
 {
     KToolInvocation::invokeHelp( QString(), QString::fromLocal8Bit( "KRegExpEditor" ) );
 }
+
+#include "kregexpeditorgui.moc"

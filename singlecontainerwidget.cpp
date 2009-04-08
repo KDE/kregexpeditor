@@ -15,9 +15,8 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
-#include "singlecontainerwidget.h"
 
-#include "singlecontainerwidget.moc"
+#include "singlecontainerwidget.h"
 
 #include "concwidget.h"
 
@@ -128,4 +127,4 @@ void SingleContainerWidget::updateCursorRecursively()
   updateCursorShape();
 }
 
-
+#include "singlecontainerwidget.moc"

@@ -18,10 +18,9 @@
 
 #include "verifier.h"
 
-#include <klocale.h>
-#include "verifier.moc"
+#include "regexphighlighter.h"
 
-Verifier::Verifier( QWidget* parent ) : QTextEdit( parent )
+Verifier::Verifier( QWidget* parent ) : KTextEdit( parent )
     /* QT_ANCHOR_DO_NOT_WORK: ,_current( 0 ) */
 {
     _highlighter = 0;
@@ -111,4 +110,4 @@ void Verifier::setHighlighter( RegexpHighlighter* highlighter )
 
 }
 
-
+#include "verifier.moc"

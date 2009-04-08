@@ -15,15 +15,15 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef __USERDEFINEDREGEXPS_H
 #define __USERDEFINEDREGEXPS_H
+
 #include <QDockWidget>
-#include <QTreeWidget>
-//Added by qt3to4:
+#include <QTreeWidgetItem>
 #include <QList>
 
-#include "compoundregexp.h"
-
+class CompoundRegExp;
 class QPoint;
 class RegExp;
 

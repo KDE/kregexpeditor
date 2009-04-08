@@ -18,8 +18,8 @@
 
 #include "repeatregexp.h"
 
-#include "kmessagebox.h"
-#include <klocale.h>
+#include <KMessageBox>
+#include <KLocale>
 
 RepeatRegExp::RepeatRegExp( bool selected, int lower, int upper, RegExp* child) : RegExp( selected )
 {

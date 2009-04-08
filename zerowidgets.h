@@ -15,12 +15,11 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef zerowidget
 #define zerowidget
 
 #include "regexpwidget.h"
-//Added by qt3to4:
-#include <QPaintEvent>
 
 /**
    Represents any widget in the regular expression dialog, which do not have sub widget.

@@ -17,21 +17,19 @@
  **/
 
 #include "emacsregexpconverter.h"
+
+#include <KMessageBox>
+#include <KLocale>
+
 #include "regexp.h"
 #include "altnregexp.h"
 #include "concregexp.h"
-#include "lookaheadregexp.h"
 #include "textrangeregexp.h"
 #include "textregexp.h"
 #include "compoundregexp.h"
-#include "dotregexp.h"
 #include "positionregexp.h"
 #include "repeatregexp.h"
 
-#include <kmessagebox.h>
-#include <klocale.h>
-//Added by qt3to4:
-#include <QList>
 bool EmacsRegExpConverter::canParse()
 {
     return false;
@@ -115,7 +113,7 @@ QString EmacsRegExpConverter::toString( TextRangeRegExp* regexp, bool /*markSele
     QList<StringPair *> ranges = regexp->range();
     QList<StringPair *>::const_iterator it = ranges.constBegin();
     for ( ; it != ranges.constEnd() ; ++it ) {
-		txt.append((*it)->first()+ QString::fromLatin1("-")+ (*it)->second());
+		txt.append((*it)->first+ QString::fromLatin1("-")+ (*it)->second);
 	}
 
 	// Ok, its time to build each part of the regexp, here comes the rule:

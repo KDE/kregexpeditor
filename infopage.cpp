@@ -18,9 +18,8 @@
 
 #include "infopage.h"
 
-#include <klocale.h>
-#include <kapplication.h>
-#include <ktoolinvocation.h>
+#include <KLocale>
+#include <KToolInvocation>
 
 InfoPage::InfoPage( QWidget* parent )
   :KTextBrowser( parent )

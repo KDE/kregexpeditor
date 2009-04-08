@@ -15,10 +15,10 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
-#include "multicontainerwidget.h"
-#include "dragaccepter.h"
 
-#include <QtCore/QVector>
+#include "multicontainerwidget.h"
+
+#include "dragaccepter.h"
 
 MultiContainerWidget::MultiContainerWidget( RegExpEditorWindow* editorWindow,
                                             QWidget* parent)

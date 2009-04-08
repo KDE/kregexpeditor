@@ -18,13 +18,12 @@
 
 #include "lookaheadwidget.h"
 
+#include <QPainter>
+
 #include <klocale.h>
-#include "lookaheadwidget.moc"
 
 #include "lookaheadregexp.h"
 #include "concwidget.h"
-#include <qpainter.h>
-#include <QPaintEvent>
 
 LookAheadWidget::LookAheadWidget( RegExpEditorWindow* editorWindow, RegExpType tp, QWidget* parent )
   :SingleContainerWidget(editorWindow, parent ), _tp(tp)
@@ -106,3 +105,5 @@ RegExpWidget* LookAheadWidget::findWidgetToEdit( QPoint globalPos )
 {
     return _child->findWidgetToEdit( globalPos );
 }
+
+#include "lookaheadwidget.moc"

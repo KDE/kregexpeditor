@@ -15,13 +15,11 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef __regexpwidget
 #define __regexpwidget
 
 #include "editorwindow.h"
-//Added by qt3to4:
-#include <QMouseEvent>
-#include <QEvent>
 
 class DragAccepter;
 class RegExp;

@@ -15,16 +15,16 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef kregexpeditorprivate_h
 #define kregexpeditorprivate_h
 
-#include <QLabel>
-#include <QStack>
-#include "regexp.h"
-#include "errormap.h"
 #include <QMainWindow>
-class QTimer;
+#include <QStack>
 
+#include "errormap.h"
+
+class QTimer;
 class RegExpScrolledEditorWindow;
 class QLineEdit;
 class InfoPage;
@@ -35,6 +35,8 @@ class VerifyButtons;
 class AuxButtons;
 class RegExpButtons;
 class QToolButton;
+class RegExp;
+class QLabel;
 
 /**
    Widget used to build a regular expression

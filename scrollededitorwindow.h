@@ -15,16 +15,15 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef __scrolledEditorWindow
 #define __scrolledEditorWindow
 
-//Added by qt3to4:
 #include <QWidget>
-#include <QResizeEvent>
+
 class QScrollArea;
 class RegExpEditorWindow;
 class RegExp;
-
 
 /**
    Regular Expression editor window.

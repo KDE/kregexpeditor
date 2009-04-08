@@ -15,12 +15,13 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef __kmultiformlistboxentry
 #define __kmultiformlistboxentry
 
-#include <QtCore/QPoint>
 #include <QtGui/QWidget>
-#include <QtGui/QPushButton>
+
+class QPushButton;
 
 /**
    This widget must be the base class for an entry widget used in the @ref

@@ -15,12 +15,14 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef __kwidgetstreamer
 #define __kwidgetstreamer
 
 #include <QtCore/QMap>
 #include <QtCore/QStringList>
-#include <QtCore/QObject>
+
+class QObject;
 
 /**
    This class defines methods for streaming widget data.

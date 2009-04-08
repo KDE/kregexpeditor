@@ -1,7 +1,3 @@
-//Added by qt3to4:
-#include <QMouseEvent>
-#include <QPixmap>
-#include <QPaintEvent>
 /*
  *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
  *
@@ -19,15 +15,20 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef compoundwidget
 #define compoundwidget
-class QLineEdit;
-class QTextEdit;
-class KDialog;
-class QCheckBox;
+
+#include <QWidget>
 
 #include "singlecontainerwidget.h"
-#include "compoundregexp.h"
+
+class KLineEdit;
+class KTextEdit;
+class KDialog;
+class QCheckBox;
+class QPaintEvent;
+class CompoundRegExp;
 
 /**
    Widget containing configuration details for @ref CompoundWidget
@@ -45,8 +46,8 @@ public:
   void setAllowReplace( bool );
 
 private:
-  QLineEdit* _title;
-  QTextEdit* _description;
+  KLineEdit* _title;
+  KTextEdit* _description;
   QCheckBox* _allowReplace;
 };
 

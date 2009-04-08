@@ -15,15 +15,13 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
-#include "dragaccepter.h"
-#include "concwidget.h"
 
-#include <qpainter.h>
-//Added by qt3to4:
+#include "dragaccepter.h"
+
+#include <QPainter>
 #include <QMouseEvent>
-#include <QDragEnterEvent>
-#include <QPaintEvent>
-#include <QDropEvent>
+
+#include "concwidget.h"
 
 DragAccepter::DragAccepter(RegExpEditorWindow* editorWindow, RegExpWidget *parent)
   : RegExpWidget(editorWindow, parent ),

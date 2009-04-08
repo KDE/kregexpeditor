@@ -15,16 +15,17 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef __REGEXPBUTTONS_H
 #define __REGEXPBUTTONS_H
 
 #include <QToolBar>
 #include "widgetfactory.h"
+
 class DoubleClickButton;
 class QButtonGroup;
 class QToolButton;
 class QSignalMapper;
-
 
 class RegExpButtons : public QToolBar
 {

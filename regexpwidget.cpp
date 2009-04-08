@@ -18,15 +18,10 @@
 
 #include "regexpwidget.h"
 
-#include "regexpwidget.moc"
-
-#include <iostream>
-#include <qpainter.h>
-#include <qcursor.h>
-//Added by qt3to4:
+#include <QPainter>
 #include <QMouseEvent>
 #include <QApplication>
-#include <QEvent>
+
 #include "concwidget.h"
 #include "dragaccepter.h"
 
@@ -225,4 +220,4 @@ void RegExpWidget::updateAll()
   update();
 }
 
-
+#include "regexpwidget.moc"

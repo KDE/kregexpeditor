@@ -15,26 +15,23 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #include "repeatwidget.h"
 
-#include <klocale.h>
-#include <kdialog.h>
-#include "repeatwidget.moc"
-
-#include "concwidget.h"
-#include "repeatregexp.h"
-#include <qpainter.h>
-#include <qcursor.h>
+#include <QPainter>
 #include <QSpinBox>
-#include <qradiobutton.h>
-
-//Added by qt3to4:
-#include <QPaintEvent>
-#include <QHBoxLayout>
+#include <QRadioButton>
+#include <QVBoxLayout>
 #include <QLabel>
-#include "kwidgetstreamer.h"
 #include <QButtonGroup>
 #include <QGroupBox>
+
+#include <KLocale>
+#include <KDialog>
+
+#include "kwidgetstreamer.h"
+#include "concwidget.h"
+#include "repeatregexp.h"
 
 RepeatWidget::RepeatWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
   : SingleContainerWidget(editorWindow, parent)
@@ -57,7 +54,7 @@ RepeatWidget::RepeatWidget( RepeatRegExp* regexp, RegExpEditorWindow* editorWind
       _content->set( RepeatRangeWindow::ANY, regexp->min(), regexp->max() );
     }
     else {
-      _content->set( RepeatRangeWindow::ATLEAST, regexp->min(), regexp->max() );
+      _content->set( RepeatRangeWindow::ATLEAST, regexp->min(), regexp->max() ); // krazy:exclude=spelling
     }
   }
   else {
@@ -190,7 +187,7 @@ RepeatRangeWindow::RepeatRangeWindow( QWidget* parent)
   _group->addButton(radioBut, ANY);
   radioBut->click();
 
-  createLine( groupLayout, i18n( "At least" ), &_leastTimes, ATLEAST );
+  createLine( groupLayout, i18n( "At least" ), &_leastTimes, ATLEAST ); // krazy:exclude=spelling
   createLine( groupLayout, i18n( "At most" ), &_mostTimes, ATMOST );
   createLine( groupLayout, i18n( "Exactly" ), &_exactlyTimes, EXACTLY );
 
@@ -257,7 +254,7 @@ void RepeatRangeWindow::slotItemChange( int which )
 
   switch ( which ) {
   case ANY: break;
-  case ATLEAST: _leastTimes->setEnabled( true ); break;
+  case ATLEAST: _leastTimes->setEnabled( true ); break; // krazy:exclude=spelling
   case ATMOST: _mostTimes->setEnabled( true ); break;
   case EXACTLY: _exactlyTimes->setEnabled( true ); break;
   case MINMAX:
@@ -285,7 +282,7 @@ QString RepeatRangeWindow::text()
 {
   switch ( _group->checkedId() ) {
   case ANY: return i18n("Repeated Any Number of Times");
-  case ATLEAST: return i18np("Repeated at Least 1 Time", "Repeated at Least %1 Times", _leastTimes->value() );
+  case ATLEAST: return i18np("Repeated at Least 1 Time", "Repeated at Least %1 Times", _leastTimes->value() ); // krazy:exclude=spelling
   case ATMOST: return i18np("Repeated at Most 1 Time", "Repeated at Most %1 Times", _mostTimes->value() );
   case EXACTLY: return i18np("Repeated Exactly 1 Time", "Repeated Exactly %1 Times", _exactlyTimes->value() );
   case MINMAX: return i18n("Repeated From %1 to %2 Times",
@@ -300,7 +297,7 @@ int RepeatRangeWindow::min()
 {
   switch ( _group->checkedId() ) {
   case ANY: return 0;
-  case ATLEAST: return _leastTimes->value();
+  case ATLEAST: return _leastTimes->value(); // krazy:exclude=spelling
   case ATMOST: return 0;
   case EXACTLY: return _exactlyTimes->value();
   case MINMAX: return _rangeFrom->value();
@@ -313,7 +310,7 @@ int RepeatRangeWindow::max()
 {
   switch ( _group->checkedId() ) {
   case ANY: return -1;
-  case ATLEAST: return -1;
+  case ATLEAST: return -1; // krazy:exclude=spelling
   case ATMOST: return _mostTimes->value();
   case EXACTLY: return _exactlyTimes->value();
   case MINMAX:  return _rangeTo->value();
@@ -328,7 +325,7 @@ void RepeatRangeWindow::set( REPEATTYPE tp, int min, int max )
   switch ( tp ) {
   case ANY:
     break;
-  case ATLEAST:
+  case ATLEAST: // krazy:exclude=spelling
     _leastTimes->setValue( min );
     break;
   case ATMOST:
@@ -343,3 +340,5 @@ void RepeatRangeWindow::set( REPEATTYPE tp, int min, int max )
     break;
   }
 }
+
+#include "repeatwidget.moc"

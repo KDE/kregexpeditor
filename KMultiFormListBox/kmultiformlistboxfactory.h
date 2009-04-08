@@ -15,11 +15,13 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 // -------------------------------- includes ------------------------------
 #ifndef __kmultiformlistboxfactory
 #define __kmultiformlistboxfactory
-#include <QtCore/QObject>
+
 #include "kwidgetstreamer.h"
+
 class KMultiFormListBoxEntry;
 //-------------------------------------------------------------------------
 

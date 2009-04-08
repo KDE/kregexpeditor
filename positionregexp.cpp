@@ -15,7 +15,9 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #include "positionregexp.h"
+
 #include "errormap.h"
 
 PositionRegExp::PositionRegExp( bool selected, PositionType tp ) :RegExp( selected )

@@ -18,35 +18,31 @@
 
 #include "kregexpeditorprivate.h"
 
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kstandarddirs.h>
-#include <kmessagebox.h>
-#include "kregexpeditorprivate.moc"
+#include <KLocale>
+#include <KIconLoader>
+#include <KStandardDirs>
+#include <KMessageBox>
+#include <KLineEdit>
 
-#include <qapplication.h>
-#include <QLineEdit>
-
-#include <qtoolbutton.h>
-//Added by qt3to4:
-#include <QPixmap>
+#include <QApplication>
+#include <QToolButton>
 #include <QTextStream>
 #include <QHBoxLayout>
-#include <QLabel>
-#include <QVBoxLayout>
-#include "scrollededitorwindow.h"
-#include "regexpbuttons.h"
-#include <stdio.h>
-#include "infopage.h"
-#include <qsplitter.h>
-#include "userdefinedregexps.h"
-#include "auxbuttons.h"
+#include <QSplitter>
 #include <QTimer>
-#include "verifier.h"
 #include <QFile>
-#include "verifybuttons.h"
 #include <QShortcut>
-#include <QDebug>
+#include <QLabel>
+
+#include "auxbuttons.h"
+#include "verifybuttons.h"
+#include "regexpbuttons.h"
+#include "userdefinedregexps.h"
+#include "scrollededitorwindow.h"
+#include "infopage.h"
+#include "verifier.h"
+#include "regexpconverter.h"
+#include "regexp.h"
 
 KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     : QMainWindow(parent), _updating( false ), _autoVerify( true ), _matchGreedy( false )
@@ -171,7 +167,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
   dockLayout->addWidget( clearButton );
   clearButton->setToolTip( i18n("Clear expression") );
   
-  _regexpEdit = new QLineEdit( editDockWidget );
+  _regexpEdit = new KLineEdit( editDockWidget );
   dockLayout->addWidget( _regexpEdit );
   _regexpEdit->setWhatsThis( i18n( "<p>This is the regular expression in ASCII syntax. You are likely only "
 				      "to be interested in this if you are a programmer, and need to "
@@ -435,3 +431,5 @@ void KRegExpEditorPrivate::setMatchGreedy( bool b )
   _verifier->setMinimal( !b );
   doVerify();
 }
+
+#include "kregexpeditorprivate.moc"

@@ -15,18 +15,15 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #include "textwidget.h"
 
-#include "textwidget.moc"
+#include <QHBoxLayout>
+#include <QApplication>
+#include <QMouseEvent>
 
 #include "textregexp.h"
 #include "selectablelineedit.h"
-
-#include <QMouseEvent>
-#include <QHBoxLayout>
-#include <QEvent>
-#include <QPaintEvent>
-#include <QApplication>
 
 TextWidget::TextWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
   :RegExpWidget(editorWindow, parent)
@@ -151,4 +148,4 @@ bool TextWidget::eventFilter( QObject*, QEvent* event)
     return false;
 }
 
-
+#include "textwidget.moc"

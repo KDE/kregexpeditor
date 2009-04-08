@@ -15,10 +15,15 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef QTREGEXPHIGHLIGHTER_H
 #define QTREGEXPHIGHLIGHTER_H
+
 #include "regexphighlighter.h"
-#include <QTextEdit>
+
+class QTextEdit;
+
+// krazy:excludeall=qclasses
 
 class QtRegexpHighlighter :public RegexpHighlighter
 {

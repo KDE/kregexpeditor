@@ -16,15 +16,15 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
-
-#include <kaboutdata.h>
-#include <kapplication.h>
-#include <kcmdlineargs.h>
-#include <klocale.h>
-#include <kpushbutton.h>
-
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+
+#include <KAboutData>
+#include <KApplication>
+#include <KCmdLineArgs>
+#include <KLocale>
+#include <QDialog>
+#include <KPushButton>
 
 #include "kregexpeditorgui.h"
 
@@ -38,6 +38,7 @@ int main( int argc, char* argv[] )
     KApplication myapp;
 
     QDialog* top = new QDialog( 0 );
+    //top->setButtons(KDialog::None);
     QVBoxLayout* lay = new QVBoxLayout( top );
     lay->setSpacing( 6 );
 

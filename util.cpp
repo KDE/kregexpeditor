@@ -17,9 +17,10 @@
  **/
 
 #include "util.h"
-#include <kicon.h>
-#include <kiconloader.h>
-#include <kstandarddirs.h>
+
+#include <KIcon>
+#include <KIconLoader>
+#include <KStandardDirs>
 
 QPixmap Util::getKRegExpEditorIcon( const QString& name )
 {

@@ -18,7 +18,7 @@
 
 #include "compoundregexp.h"
 
-#include <klocale.h>
+#include <KLocale>
 
 #include "widgetfactory.h"
 

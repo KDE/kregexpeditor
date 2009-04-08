@@ -15,11 +15,11 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #include "concregexp.h"
+
 #include "widgetfactory.h"
 #include "compoundregexp.h"
-//Added by qt3to4:
-#include <QList>
 
 ConcRegExp::ConcRegExp( bool selected ) :RegExp( selected )
 {

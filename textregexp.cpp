@@ -18,8 +18,8 @@
 
 #include "textregexp.h"
 
-#include <kmessagebox.h>
-#include <klocale.h>
+#include <KMessageBox>
+#include <KLocale>
 
 TextRegExp::TextRegExp( bool selected, QString text) :RegExp( selected )
 {

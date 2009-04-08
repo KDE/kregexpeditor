@@ -17,11 +17,13 @@
  **/
 #ifndef __selectablelineedit
 #define __selectablelineedit
-#include <QLineEdit>
+
+#include <KLineEdit>
+
 class RegExpWidget;
 
 /**
-   A specialized QLineEdit for use in @ref TextWidget.
+   A specialized KLineEdit for use in @ref TextWidget.
 
    This widget has two main features:
    @li when the @ref TextWidget which contains it is selected, then the
@@ -31,7 +33,7 @@ class RegExpWidget;
 
    @internal
 */
-class SelectableLineEdit :public QLineEdit
+class SelectableLineEdit :public KLineEdit
 {
 Q_OBJECT
 

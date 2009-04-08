@@ -15,11 +15,13 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #include "kwidgetstreamer.h"
-#include "kmultiformlistbox.h"
+
 #include <QObject>
 #include <QVariant>
 
+#include "kmultiformlistbox.h"
 
 void KWidgetStreamer::toStream(const QObject* from, QDataStream& stream )
 {
@@ -65,7 +67,7 @@ void KWidgetStreamer::propertyToStream( const QObject* from, QDataStream& stream
 	stream << (unsigned int) 0;
   
   // Now stream out properties
-  for ( PropertyMapIt mapIt = _map.begin(); mapIt != _map.end(); mapIt++ ) {
+  for ( PropertyMapIt mapIt = _map.begin(); mapIt != _map.end(); ++mapIt ) {
     QString tp = mapIt.key();
     PropertyList list = mapIt.value();
     if ( from->inherits( tp.toAscii() ) ) {
@@ -99,7 +101,7 @@ void KWidgetStreamer::propertyFromStream( QDataStream& stream, QObject* to )
 	} 
   
   // Now stream in properties
-  for ( PropertyMapIt mapIt = _map.begin(); mapIt != _map.end(); mapIt++ ) {
+  for ( PropertyMapIt mapIt = _map.begin(); mapIt != _map.end(); ++mapIt ) {
     QString tp = mapIt.key();
     PropertyList list = mapIt.value();
     if ( to->inherits( tp.toAscii() ) ) {

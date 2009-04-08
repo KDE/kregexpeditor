@@ -15,6 +15,7 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #include "widgetfactory.h"
 
 #include <kmessagebox.h>
@@ -36,6 +37,7 @@
 #include "altnregexp.h"
 #include "positionregexp.h"
 #include "dotregexp.h"
+#include "compoundregexp.h"
 #include "kregexpeditorgui.h"
 
 bool WidgetFactory::isContainer( RegExpType tp )

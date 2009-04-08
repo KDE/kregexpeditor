@@ -1,5 +1,3 @@
-#ifndef KMULTIFORMLISTBOX_MULTIVISIBLE_H
-#define KMULTIFORMLISTBOX_MULTIVISIBLE_H
 /*
  *  Copyright (c) 2002-2003 Jesper K. Pedersen <blackie@kde.org>
  *
@@ -17,6 +15,10 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
+#ifndef KMULTIFORMLISTBOX_MULTIVISIBLE_H
+#define KMULTIFORMLISTBOX_MULTIVISIBLE_H
+
 // ------------------------------- Description ----------------------------
 // This is the KMultiFormListBox Widget. You do not need to inherit from this class,
 // your interface to it will be through the methods `append` and `elements'.
@@ -26,12 +28,12 @@
 // ------------------------------------------------------------------------
 
 // -------------------------------- includes ------------------------------
-#include "kmultiformlistbox.h"
-//Added by qt3to4:
-#include <QResizeEvent>
 #include <QScrollArea>
+#include "kmultiformlistbox.h"
+#include "kmultiformlistbox-shower.h"
 //-------------------------------------------------------------------------
 class QVBoxLayout;
+class KMultiFormListBoxFactory;
 
 /**
    @internal

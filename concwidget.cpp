@@ -15,15 +15,14 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #include "concwidget.h"
+
+#include <QPainter>
+#include <QMouseEvent>
+
 #include "concregexp.h"
 #include "dragaccepter.h"
-
-#include <qpainter.h>
-//Added by qt3to4:
-#include <QMouseEvent>
-#include <QPaintEvent>
-#include <QDebug>
 
 ConcWidget::ConcWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
   :MultiContainerWidget(editorWindow, parent)

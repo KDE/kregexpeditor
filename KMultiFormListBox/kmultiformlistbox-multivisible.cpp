@@ -17,14 +17,16 @@
  **/
 
 #include "kmultiformlistbox-multivisible.h"
-#include <kmessagebox.h>
-#include "kmultiformlistbox-multivisible.moc"
 
+#include <QBitmap>
+#include <QVBoxLayout>
+#include <QPushButton>
+
+#include <KMessageBox>
+
+#include "kmultiformlistboxfactory.h"
 #include "indexWindow.h"
 #include "ccp.h"
-
-#include <qbitmap.h>
-#include <QVBoxLayout>
 
 const int indexButtonWidth = 16;
 const int indexButtonHeight = 12;
@@ -312,4 +314,4 @@ int KMultiFormListBoxMultiVisible::countElements(WidgetList *elms)
   return count;
 }
 
-
+#include "kmultiformlistbox-multivisible.moc"

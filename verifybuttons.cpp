@@ -18,20 +18,14 @@
 #include "verifybuttons.h"
 
 #include <klocale.h>
-#include "verifybuttons.moc"
-#include <kstandarddirs.h>
-#include <kfiledialog.h>
-#include <kiconloader.h>
-#include <kmessagebox.h>
+#include <KFileDialog>
 
-#include <QBoxLayout>
+#include <QMenu>
+#include <QToolButton>
 
+#include "util.h"
 #include "qtregexpconverter.h"
 #include "emacsregexpconverter.h"
-#include <qtoolbutton.h>
-#include "util.h"
-#include <QActionGroup>
-#include <qaction.h>
 
 VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     : QToolBar( name, parent ), _configMenu( 0 )
@@ -213,3 +207,5 @@ void VerifyButtons::setAllowNonQtSyntax( bool b )
 {
     _languages->setEnabled(b);
 }
+
+#include "verifybuttons.moc"

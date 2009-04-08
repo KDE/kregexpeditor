@@ -15,18 +15,16 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef characterswidget
 #define characterswidget
 
-#include <kdialog.h>
+#include <KDialog>
 
-#include <kmultiformlistbox.h>
+#include "kmultiformlistbox.h"
+#include "kmultiformlistboxfactory.h"
 #include "regexpwidget.h"
 
-//Added by qt3to4:
-#include <QPaintEvent>
-
-class KDialog;
 class CharacterEdits;
 class TextRangeRegExp;
 class CharSelector;

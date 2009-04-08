@@ -18,10 +18,12 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
-#include <kdialog.h>
-#include <KListWidget>
+#include <KDialog>
 
-#include "kmultiformlistbox-windowed.h"
+class KListWidget;
+class KMultiFormListBoxFactory;
+class KMultiFormListBoxEntry;
+class WindowListboxItem;
 
 /**
    @internal

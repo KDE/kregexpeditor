@@ -15,18 +15,17 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #ifndef __limitedcharlineedit
 #define __limitedcharlineedit
 
-#include <QLineEdit>
-//Added by qt3to4:
-#include <QKeyEvent>
+#include <KLineEdit>
 
 /**
    QLineEdit which only accepts a prespecified number of character.
    @internal
 */
-class LimitedCharLineEdit :public QLineEdit
+class LimitedCharLineEdit :public KLineEdit
 {
 public:
   enum Mode { NORMAL = 0, HEX = 1, OCT = 2 };

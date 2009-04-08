@@ -15,18 +15,15 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #include "auxbuttons.h"
 
-#include "auxbuttons.moc"
-#include <kiconloader.h>
-#include <klocale.h>
-
-
-
-#include <qtoolbutton.h>
-//Added by qt3to4:
-#include <QBoxLayout>
+#include <QToolButton>
 #include <QWhatsThis>
+
+#include <KIconLoader>
+#include <KLocale>
+
 #include "util.h"
 
 AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)
@@ -114,3 +111,4 @@ void AuxButtons::slotCanSave( bool b )
   _save->setEnabled( b );
 }
 
+#include "auxbuttons.moc"

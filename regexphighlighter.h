@@ -18,7 +18,10 @@
 
 #ifndef REGEXPHIGHLIGHTER_H
 #define REGEXPHIGHLIGHTER_H
+
 #include <QSyntaxHighlighter>
+
+// krazy:excludeall=qclasses
 
 class QTextEdit;
 
@@ -37,4 +40,3 @@ protected:
 };
 
 #endif /* REGEXPHIGHLIGHTER_H */
-

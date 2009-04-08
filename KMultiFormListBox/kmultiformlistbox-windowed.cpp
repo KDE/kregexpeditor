@@ -16,16 +16,17 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
-#include <kmessagebox.h>
-#include <kpushbutton.h>
-#include <KStandardGuiItem>
-#include "kmultiformlistbox-windowed.moc"
+#include "kmultiformlistbox-windowed.h"
+
+#include <QVBoxLayout>
+
+#include <KLocale>
+#include <KListWidget>
+#include <KMessageBox>
+#include <KPushButton>
 
 #include "widgetwindow.h"
 #include "windowlistboxitem.h"
-//Added by qt3to4:
-#include <QVBoxLayout>
-#include <QHBoxLayout>
 
 KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent,
 																	 bool showUpDownButtons, bool showHelpButton,
@@ -44,38 +45,38 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
   QVBoxLayout *buttons = new QVBoxLayout();
   innerLayout->addLayout(buttons);
 
-  QPushButton *but = new QPushButton(addButtonText, this);
+  KPushButton *but = new KPushButton(addButtonText, this);
   but->setObjectName("Add Button");
   buttons->addWidget(but,0);
   connect(but, SIGNAL(clicked()), this, SLOT(addNewElement()));
 
-  but = new QPushButton(i18n("Edit"), this);
+  but = new KPushButton(i18n("Edit"), this);
   but->setObjectName("Edit Button");
   buttons->addWidget(but,0);
   connect(but,SIGNAL(clicked()), this, SLOT(slotEditSelected()));
   connect(_listbox, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this, SLOT(slotEditSelected(QListWidgetItem *)));
 	_buttonList.append(but);
 
-  but = new QPushButton(i18n("Delete"), this);
+  but = new KPushButton(i18n("Delete"), this);
   but->setObjectName("Delete Button");
   buttons->addWidget(but,0);
   connect(but, SIGNAL(clicked()), this, SLOT(slotDeleteEntry()));
 	_buttonList.append(but);
 
-  but = new QPushButton(i18n("Copy"), this);
+  but = new KPushButton(i18n("Copy"), this);
   but->setObjectName("Copy Button");
   buttons->addWidget(but,0);
   connect(but, SIGNAL(clicked()), this, SLOT(slotCopySelected()));
 	_buttonList.append(but);
 
 	if (showUpDownButtons) {
-		but = new QPushButton(i18n("Up"), this);
+		but = new KPushButton(i18n("Up"), this);
 		but->setObjectName("Up Button");
 		buttons->addWidget(but, 0);
 		connect(but, SIGNAL(clicked()), this, SLOT(slotMoveItemUp()));
 		_buttonList.append(but);
 
-		but = new QPushButton(i18n("Down"), this);
+		but = new KPushButton(i18n("Down"), this);
 		but->setObjectName( "Down Button");
 		buttons->addWidget(but, 0);
 		connect(but, SIGNAL(clicked()), this, SLOT(slotMoveItemDown()));
@@ -221,3 +222,5 @@ void KMultiFormListBoxWindowed::slotUpdateButtonState()
 		_buttonList.at(i)->setEnabled(on);
 	}
 }
+
+#include "kmultiformlistbox-windowed.moc"
