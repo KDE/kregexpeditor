@@ -107,7 +107,7 @@
 
     <example>
       <title>Searching for normal text.</title>
-      <para>If you just want to search for a given text, a then regular
+      <para>If you just want to search for a given text, then regular
         expression is definitely not a good choice. The reason for this is that
         regular expressions assign special meaning to some characters. This
         includes the following characters: <literal>.*|$</literal>. Thus if you want to
@@ -230,7 +230,7 @@
       </para>
 
       <para>Given the information above, it hopefully isn't hard for you to write the
-        shell wildcard <literal>test??.res</literal> as a regular expression
+        shell wildcard <literal>test??.res</literal> as a regular expression.
         Answer: <literal>test..\.res</literal>. The dot on its own is any
         character. To match a single dot you must write
         <literal>\.</literal><footnote><para>This is called escaping</para></footnote>. In
