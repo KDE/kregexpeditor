@@ -67,7 +67,7 @@ void KWidgetStreamer::propertyToStream( const QObject* from, QDataStream& stream
 	stream << (unsigned int) 0;
   
   // Now stream out properties
-  for ( PropertyMapIt mapIt = _map.begin(); mapIt != _map.end(); ++mapIt ) {
+  for ( PropertyMapIt mapIt = _map.constBegin(); mapIt != _map.constEnd(); ++mapIt ) {
     QString tp = mapIt.key();
     PropertyList list = mapIt.value();
     if ( from->inherits( tp.toAscii() ) ) {
@@ -101,7 +101,7 @@ void KWidgetStreamer::propertyFromStream( QDataStream& stream, QObject* to )
 	} 
   
   // Now stream in properties
-  for ( PropertyMapIt mapIt = _map.begin(); mapIt != _map.end(); ++mapIt ) {
+  for ( PropertyMapIt mapIt = _map.constBegin(); mapIt != _map.constEnd(); ++mapIt ) {
     QString tp = mapIt.key();
     PropertyList list = mapIt.value();
     if ( to->inherits( tp.toAscii() ) ) {

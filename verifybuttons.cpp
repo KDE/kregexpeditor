@@ -187,14 +187,16 @@ void VerifyButtons::slotChangeSyntax( QAction* action )
 
 RegExpConverter* VerifyButtons::setSyntax( const QString& which)
 {
+    QString noAmpersand = which;
+    noAmpersand.remove(QChar('&')); // HACK, can probably be done more cleanly
     for( QLinkedList< QPair<RegExpConverter*, QAction*> >::Iterator it = _converters.begin(); it != _converters.end(); ++it ) {
         QString name = (*it).first->name();
-        if ( name == which ) {
+        if ( name == noAmpersand ) {
             (*it).second->setChecked( true );
             return (*it).first;
         }
     }
-    qWarning( "No such converter: '%s'", qPrintable(which) );
+    qWarning( "No such converter: '%s'", qPrintable(noAmpersand) );
     return 0;
 }
 
