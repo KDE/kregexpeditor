@@ -18,7 +18,7 @@
 #ifndef __ccp
 #define __ccp
 
-#include <QObject>
+#include <QtCore/QObject>
 
 class KMultiFormListBoxMultiVisible;
 class KMultiFormListBoxEntry;

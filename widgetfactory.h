@@ -19,7 +19,7 @@
 #ifndef widgetfactory
 #define widgetfactory
 
-#include <QDomElement>
+#include <QtXml/QDomElement>
 
 class RegExpWidget;
 class RegExpEditorWindow;

@@ -19,8 +19,10 @@
 #ifndef REGEXP_H
 #define REGEXP_H
 
-#include <qdom.h>
-#include <QList>
+#include <QtXml/QDomDocument>
+#include <QtXml/QDomElement>
+#include <QtXml/QDomNode>
+#include <QtCore/QList>
 
 class CompoundRegExp;
 class ErrorMap;

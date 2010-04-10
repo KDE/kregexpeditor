@@ -1,5 +1,19 @@
 project(kregexpeditor)
 
+############### search packages used by KDE ###############
+
+set (QT_MIN_VERSION "4.6.0")
+find_package(KDE4 4.4.1 REQUIRED)
+include(KDE4Defaults)
+include(MacroLibrary)
+
+############### Needed commands before building anything ###############
+
+add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
+include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES})
+
+############### Find the stuff we need ###############
+
 add_definitions( -DQT_NO_CAST_ASCII )
 
 add_subdirectory( predefined ) 

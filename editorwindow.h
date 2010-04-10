@@ -19,7 +19,7 @@
 #ifndef editorwindow_h
 #define editorwindow_h
 
-#include <QWidget>
+#include <QtGui/QWidget>
 
 #include "widgetfactory.h"
 

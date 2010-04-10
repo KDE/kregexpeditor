@@ -19,7 +19,7 @@
 #ifndef characterswidget
 #define characterswidget
 
-#include <KDialog>
+#include <KDE/KDialog>
 
 #include "kmultiformlistbox.h"
 #include "kmultiformlistboxfactory.h"

@@ -19,7 +19,7 @@
 #include "auxbuttons.h"
 
 #include <QToolButton>
-#include <QWhatsThis>
+#include <QtGui/QWhatsThis>
 
 #include <KIconLoader>
 #include <KLocale>
