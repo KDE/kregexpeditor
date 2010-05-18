@@ -128,7 +128,7 @@ void ConcRegExp::replacePart( CompoundRegExp* replacement )
         int count = 0;
 
         // See if replacement is a sublist of list starting from what it1 points at
-        for ( ; *it2 && * it3 && match ; ) {
+        for ( ; it2 != list.end() && it3 != otherConc->list.end() && match ; ) {
             if (! ( **it2 == **it3 ) )
                 match = false;
             ++it2;
@@ -136,7 +136,7 @@ void ConcRegExp::replacePart( CompoundRegExp* replacement )
             ++count;
         }
 
-        if ( match && ! *it3) {
+        if ( match && it3 == otherConc->list.end() ) {
             // I found a match, delete the element in it1, which is common with it3
             while ( *it1 != *it2 ) {
                 RegExp* item = *it1;

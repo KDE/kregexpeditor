@@ -133,7 +133,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     }
 
     _languages->addActions(grp->actions());
-    connect( grp, SIGNAL( selected( QAction* ) ), this, SLOT( slotChangeSyntax( QAction* ) ) );
+    connect( grp, SIGNAL( triggered( QAction* ) ), this, SLOT( slotChangeSyntax( QAction* ) ) );
     _languages->setEnabled(false);
 
     // Select the Qt converter by default
