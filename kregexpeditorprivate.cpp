@@ -169,6 +169,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
   
   _regexpEdit = new KLineEdit( editDockWidget );
   dockLayout->addWidget( _regexpEdit );
+  _regexpEdit->setFocus(Qt::OtherFocusReason);
   _regexpEdit->setWhatsThis( i18n( "<p>This is the regular expression in ASCII syntax. You are likely only "
 				      "to be interested in this if you are a programmer, and need to "
 				      "develop a regular expression using QRegExp.</p>"

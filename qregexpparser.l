@@ -21,9 +21,7 @@
   
   #include "textrangeregexp.h"
   #include "gen_qregexpparser.hh"
-#ifdef QT_ONLY
-  #include "compat.h"
-#endif
+
   void parseRange( char* txt, int* min, int* max );  
   RegExp* parseCharClass( char* match );
 %}
@@ -177,6 +175,8 @@ RegExp* parseCharClass( char* match )
 {
   TextRangeRegExp* res = new TextRangeRegExp( false );
   QString txt = QString::fromLocal8Bit( match );
+  if(txt.length() <= 2)
+    return res;
   txt = txt.mid(1,txt.length()-2);
   
   int i = 0;
@@ -195,7 +195,7 @@ RegExp* parseCharClass( char* match )
   do {
     // If a character is pending, and the next char is '-' then we are
     // possible looking at a range.
-    if ( ch == QChar('-') && charPending ) {
+    if ( i < txt.length() && ch == QChar('-') && charPending ) {
       rangePending = true;
       ch = txt.at(i++);
       continue;

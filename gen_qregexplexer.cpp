@@ -543,12 +543,10 @@ char *qregexptext;
   
   #include "textrangeregexp.h"
   #include "gen_qregexpparser.hh"
-#ifdef QT_ONLY
-  #include "compat.h"
-#endif
+
   void parseRange( char* txt, int* min, int* max );  
   RegExp* parseCharClass( char* match );
-#line 552 "gen_qregexplexer.cpp"
+#line 550 "gen_qregexplexer.cpp"
 
 #define INITIAL 0
 
@@ -730,9 +728,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 38 "qregexpparser.l"
+#line 36 "qregexpparser.l"
 
-#line 736 "gen_qregexplexer.cpp"
+#line 734 "gen_qregexplexer.cpp"
 
 	if ( !(yy_init) )
 		{
@@ -817,17 +815,17 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 39 "qregexpparser.l"
+#line 37 "qregexpparser.l"
 return TOK_PosWordChar;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 40 "qregexpparser.l"
+#line 38 "qregexpparser.l"
 return TOK_PosNonWordChar;
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 41 "qregexpparser.l"
+#line 39 "qregexpparser.l"
 { 
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setDigit( true );
@@ -837,7 +835,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 47 "qregexpparser.l"
+#line 45 "qregexpparser.l"
 { 
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setNonDigit( true );
@@ -847,7 +845,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 53 "qregexpparser.l"
+#line 51 "qregexpparser.l"
 { 
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setSpace( true );
@@ -857,7 +855,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 59 "qregexpparser.l"
+#line 57 "qregexpparser.l"
 { 
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setNonSpace( true );
@@ -867,7 +865,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 65 "qregexpparser.l"
+#line 63 "qregexpparser.l"
 { 
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setWordChar( true );
@@ -877,7 +875,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 71 "qregexpparser.l"
+#line 69 "qregexpparser.l"
 { 
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setNonWordChar( true );
@@ -887,7 +885,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 77 "qregexpparser.l"
+#line 75 "qregexpparser.l"
 {
                TextRangeRegExp* regexp = new TextRangeRegExp( false );
                regexp->addCharacter( QString::fromLocal8Bit( qregexptext ) );
@@ -897,7 +895,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 84 "qregexpparser.l"
+#line 82 "qregexpparser.l"
 {
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->addCharacter( QString::fromLocal8Bit(qregexptext) );
@@ -907,7 +905,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 90 "qregexpparser.l"
+#line 88 "qregexpparser.l"
 {
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->addCharacter( QString::fromLocal8Bit(qregexptext) );
@@ -917,96 +915,96 @@ YY_RULE_SETUP
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 96 "qregexpparser.l"
+#line 94 "qregexpparser.l"
 return TOK_Dot;
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 97 "qregexpparser.l"
+#line 95 "qregexpparser.l"
 return TOK_Dollar;
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 98 "qregexpparser.l"
+#line 96 "qregexpparser.l"
 return TOK_Carat;
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 99 "qregexpparser.l"
+#line 97 "qregexpparser.l"
 return TOK_MagicLeftParent;
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 100 "qregexpparser.l"
+#line 98 "qregexpparser.l"
 return TOK_PosLookAhead;
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 101 "qregexpparser.l"
+#line 99 "qregexpparser.l"
 return TOK_NegLookAhead;
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 102 "qregexpparser.l"
+#line 100 "qregexpparser.l"
 return TOK_LeftParen;
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 103 "qregexpparser.l"
+#line 101 "qregexpparser.l"
 return TOK_RightParent;
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 104 "qregexpparser.l"
+#line 102 "qregexpparser.l"
 return TOK_Bar;
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 105 "qregexpparser.l"
+#line 103 "qregexpparser.l"
 { qregexplval.range.min = 0; qregexplval.range.max=-1; return TOK_Quantifier; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 106 "qregexpparser.l"
+#line 104 "qregexpparser.l"
 { qregexplval.range.min = 0; qregexplval.range.max=1;  return TOK_Quantifier; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 107 "qregexpparser.l"
+#line 105 "qregexpparser.l"
 { qregexplval.range.min = 1; qregexplval.range.max=-1; return TOK_Quantifier; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 108 "qregexpparser.l"
+#line 106 "qregexpparser.l"
 { parseRange( qregexptext, &qregexplval.range.min, &qregexplval.range.max ); return TOK_Quantifier; }  
 	YY_BREAK
 case 25:
 /* rule 25 can match eol */
 YY_RULE_SETUP
-#line 109 "qregexpparser.l"
+#line 107 "qregexpparser.l"
 { qregexplval.regexp = parseCharClass(qregexptext); return TOK_CharClass; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 110 "qregexpparser.l"
+#line 108 "qregexpparser.l"
 { qregexplval.backRef = atoi( qregexptext+1 ); return TOK_BackRef; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 111 "qregexpparser.l"
+#line 109 "qregexpparser.l"
 { qregexplval.ch = qregexptext[1]; return TOK_EscapeChar; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 112 "qregexpparser.l"
+#line 110 "qregexpparser.l"
 { qregexplval.ch = qregexptext[0]; return TOK_Char; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 114 "qregexpparser.l"
+#line 112 "qregexpparser.l"
 ECHO;
 	YY_BREAK
-#line 1010 "gen_qregexplexer.cpp"
+#line 1008 "gen_qregexplexer.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2014,7 +2012,7 @@ void qregexpfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 114 "qregexpparser.l"
+#line 112 "qregexpparser.l"
 
 
 
@@ -2082,6 +2080,8 @@ RegExp* parseCharClass( char* match )
 {
   TextRangeRegExp* res = new TextRangeRegExp( false );
   QString txt = QString::fromLocal8Bit( match );
+  if(txt.length() <= 2)
+    return res;
   txt = txt.mid(1,txt.length()-2);
   
   int i = 0;
@@ -2100,7 +2100,7 @@ RegExp* parseCharClass( char* match )
   do {
     // If a character is pending, and the next char is '-' then we are
     // possible looking at a range.
-    if ( ch == QChar('-') && charPending ) {
+    if ( i < txt.length() && ch == QChar('-') && charPending ) {
       rangePending = true;
       ch = txt.at(i++);
       continue;

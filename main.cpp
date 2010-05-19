@@ -16,14 +16,11 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-
 #include <KAboutData>
 #include <KApplication>
 #include <KCmdLineArgs>
 #include <KLocale>
-#include <QDialog>
+#include <KDialog>
 #include <KPushButton>
 
 #include "kregexpeditorgui.h"
@@ -37,27 +34,14 @@ int main( int argc, char* argv[] )
     KCmdLineArgs::init(argc, argv, &aboutData);
     KApplication myapp;
 
-    QDialog* top = new QDialog( 0 );
-    //top->setButtons(KDialog::None);
-    QVBoxLayout* lay = new QVBoxLayout( top );
-    lay->setSpacing( 6 );
+    KDialog* top = new KDialog( 0 );
+    top->setButtons(KDialog::Help | KDialog::Close);
 
     KRegExpEditorGUI* iface = new KRegExpEditorGUI( top, QStringList() );
     iface->doSomething( QString::fromLatin1("setAllowNonQtSyntax"), (bool*) true );
-    lay->addWidget( iface );
+    top->setMainWidget(iface);
 
-    QHBoxLayout* lay2 = new QHBoxLayout();
-    lay->addItem( lay2 );
-    lay2->setSpacing( 6 );
-    KPushButton* help = new KPushButton( KStandardGuiItem::help(), top );
-    KPushButton* quit = new KPushButton( KStandardGuiItem::quit(), top );
-
-    lay2->addWidget( help );
-    lay2->addStretch(1);
-    lay2->addWidget( quit );
-
-    QObject::connect( help, SIGNAL( clicked() ), iface, SLOT( showHelp() ) );
-    QObject::connect( quit, SIGNAL( clicked() ), qApp, SLOT( quit() ) );
+    QObject::connect( top, SIGNAL( helpClicked() ), iface, SLOT( showHelp() ) );
 
     top->show();
     QObject::connect( qApp, SIGNAL( lastWindowClosed() ), qApp, SLOT( quit() ) );
