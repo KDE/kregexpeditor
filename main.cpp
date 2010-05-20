@@ -37,7 +37,7 @@ int main( int argc, char* argv[] )
     KDialog* top = new KDialog( 0 );
     top->setButtons(KDialog::Help | KDialog::Close);
 
-    KRegExpEditorGUI* iface = new KRegExpEditorGUI( top, QStringList() );
+    KRegExpEditorGUI* iface = new KRegExpEditorGUI( top );
     iface->doSomething( QString::fromLatin1("setAllowNonQtSyntax"), (bool*) true );
     top->setMainWidget(iface);
 

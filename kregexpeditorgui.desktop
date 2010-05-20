@@ -23,6 +23,6 @@ Name[sv]=Grafisk komponent för att redigera reguljära uttryck
 Name[tr]=RegExp Düzenleme Programcığı
 Name[uk]=Віджет редактора RegExp
 Name[x-test]=xxRegExp Editor Widgetxx
-X-KDE-Library=libkregexpeditorgui
+X-KDE-Library=kregexpeditorgui
 InitialPreference=2
 X-KDE-ServiceTypes=KRegExpEditor/KRegExpEditor

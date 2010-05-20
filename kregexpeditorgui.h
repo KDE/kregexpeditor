@@ -37,7 +37,7 @@ class KDE_EXPORT KRegExpEditorGUI  :public QWidget, public KRegExpEditorInterfac
   Q_PROPERTY( QString regexp READ regExp WRITE setRegExp )
 public:
   KRegExpEditorGUI( QWidget *parent, 
-	            const QStringList & = QStringList() );
+                    const QVariantList & = QVariantList() );
   virtual QString regExp() const;
 
   static const QString version;
@@ -66,7 +66,7 @@ class KDE_EXPORT KRegExpEditorGUIDialog : public KDialog, public KRegExpEditorIn
     Q_INTERFACES(KRegExpEditorInterface)
     Q_PROPERTY( QString regexp READ regExp WRITE setRegExp )
 public:
-    KRegExpEditorGUIDialog( QWidget *parent, const QStringList &args );
+    KRegExpEditorGUIDialog( QWidget *parent, const QVariantList & = QVariantList() );
 
     virtual QString regExp() const;
 

@@ -96,7 +96,7 @@ install(TARGETS kregexpeditorcommon DESTINATION ${LIB_INSTALL_DIR})
 
 set(kregexpeditorgui_PART_SRCS kregexpeditorfactory.cpp)
 
-kde4_add_plugin(kregexpeditorgui WITH_PREFIX ${kregexpeditorgui_PART_SRCS})
+kde4_add_plugin(kregexpeditorgui ${kregexpeditorgui_PART_SRCS})
 
 target_link_libraries(kregexpeditorgui ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS} kregexpeditorcommon)
 

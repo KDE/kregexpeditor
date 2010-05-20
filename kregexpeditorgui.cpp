@@ -30,7 +30,7 @@ const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
 
 
 KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent,
-	                           const QStringList & )
+                                   const QVariantList & )
   : QWidget( parent)
 {
   QHBoxLayout* layout = new QHBoxLayout( this );
@@ -64,7 +64,7 @@ void KRegExpEditorGUI::setRegExp( const QString &regexp )
 }
 
 KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent,
-                                                const QStringList & )
+                                                const QVariantList & )
   : KDialog( parent )
 {
     setCaption( i18n("Regular Expression Editor") );
