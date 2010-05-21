@@ -24,5 +24,6 @@ Name[tr]=RegExp Düzenleme Programcığı
 Name[uk]=Віджет редактора RegExp
 Name[x-test]=xxRegExp Editor Widgetxx
 X-KDE-Library=kregexpeditorgui
+X-KDE-PluginKeyword=dialog
 InitialPreference=2
 X-KDE-ServiceTypes=KRegExpEditor/KRegExpEditor
