@@ -578,7 +578,7 @@
       <ulink url="http://bugs.kde.org/">&kde; Bug Tracking System</ulink>.
       <emphasis role="strong">Before</emphasis> you report a bug or suggest a feature,
       please check that it hasn't already been 
-      <ulink url="http://bugs.kde.org/simple_search.cgi?id=kregexpeditor">reported/suggested.</ulink></para>
+      <ulink url="http://bugs.kde.org/buglist.cgi?quicksearch=kregexpeditor">reported/suggested.</ulink></para>
   </chapter>
 
   <!-- ====================================================================== -->
