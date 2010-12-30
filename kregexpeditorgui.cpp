@@ -63,54 +63,6 @@ void KRegExpEditorGUI::setRegExp( const QString &regexp )
   _editor->slotSetRegexp( regexp );
 }
 
-KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent,
-                                                const QVariantList & )
-  : KDialog( parent )
-{
-    setCaption( i18n("Regular Expression Editor") );
-    setButtons( KDialog::Ok | KDialog::Cancel | KDialog::Help );
-    setDefaultButton( KDialog::Ok );
-
-  QFrame* frame = new QFrame(this);
-  setMainWidget( frame );
-  QVBoxLayout* layout = new QVBoxLayout( frame );
-  layout->setSpacing( 6 );
-  _editor = new KRegExpEditorGUI( frame );
-  layout->addWidget(_editor);
-
-  connect( _editor, SIGNAL( canUndo(bool) ), this, SIGNAL( canUndo(bool) ) );
-  connect( _editor, SIGNAL( canRedo(bool) ), this, SIGNAL( canRedo(bool) ) );
-  connect( _editor, SIGNAL( changes(bool) ), this, SIGNAL( changes(bool) ) );
-  resize( 640, 400 );
-
-  setHelp( QString(), QString::fromLocal8Bit( "KRegExpEditor" ) );
-}
-
-
-QString KRegExpEditorGUIDialog::regExp() const
-{
-    return _editor->regExp();
-}
-
-void KRegExpEditorGUIDialog::setRegExp( const QString &regexp )
-{
-    _editor->setRegExp( regexp );
-}
-
-void KRegExpEditorGUIDialog::redo()
-{
-  _editor->redo();
-}
-
-void KRegExpEditorGUIDialog::undo()
-{
-  _editor->undo();
-}
-
-void KRegExpEditorGUIDialog::doSomething( QString method, void* arguments )
-{
-    _editor->doSomething( method, arguments );
-}
 
 void KRegExpEditorGUI::doSomething( QString method, void* arguments )
 {
@@ -129,11 +81,6 @@ void KRegExpEditorGUI::doSomething( QString method, void* arguments )
     else {
         qFatal( "%s", qPrintable(tr("Method '%1' is not valid!").arg(method)) );
     }
-}
-
-void KRegExpEditorGUIDialog::setMatchText( const QString& txt )
-{
-    _editor->setMatchText( txt );
 }
 
 void KRegExpEditorGUI::setMatchText( const QString& txt )

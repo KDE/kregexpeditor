@@ -15,32 +15,24 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
-
-#ifndef kregexpeditorgui_h
-#define kregexpeditorgui_h
+ 
+#ifndef kregexpeditorguidialog_h
+#define kregexpeditorguidialog_h
 
 #include <kdialog.h>
+#include <kregexpeditorgui.h>
 #include <kregexpeditorinterface.h>
 
-class KRegExpEditorPrivate;
 
-/**
-   Regular Expression Editor.
-
-   @author Jesper Kjær Pedersen <blackie@kde.org>
-   @version 0.1
- **/
-class KDE_EXPORT KRegExpEditorGUI  :public QWidget, public KRegExpEditorInterface
+class KDE_EXPORT KRegExpEditorGUIDialog : public KDialog, public KRegExpEditorInterface
 {
-  Q_OBJECT
-  Q_INTERFACES(KRegExpEditorInterface)
-  Q_PROPERTY( QString regexp READ regExp WRITE setRegExp )
+    Q_OBJECT
+    Q_INTERFACES(KRegExpEditorInterface)
+    Q_PROPERTY( QString regexp READ regExp WRITE setRegExp )
 public:
-  KRegExpEditorGUI( QWidget *parent, 
-                    const QVariantList & = QVariantList() );
-  virtual QString regExp() const;
+    KRegExpEditorGUIDialog( QWidget *parent, const QVariantList & = QVariantList() );
 
-  static const QString version;
+    virtual QString regExp() const;
 
 signals:
   /** This signal tells whether undo is available. */
@@ -54,11 +46,9 @@ public slots:
   virtual void setRegExp( const QString &regexp );
   virtual void doSomething( QString method, void* arguments );
   virtual void setMatchText( const QString& );
-  void showHelp();
 
 private:
-	KRegExpEditorPrivate* _editor;
+    KRegExpEditorGUI *_editor;
 };
 
 #endif
-

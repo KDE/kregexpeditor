@@ -19,9 +19,13 @@
 #include <KPluginFactory>
 
 #include "kregexpeditorgui.h"
+#include "kregexpeditorguidialog.h"
 
 K_PLUGIN_FACTORY(KRegExpEditorPluginFactory,
                  registerPlugin<KRegExpEditorGUI>("widget");
                  registerPlugin<KRegExpEditorGUIDialog>("dialog");
 )
 K_EXPORT_PLUGIN(KRegExpEditorPluginFactory("kregexpeditorgui"))
+
+#include "kregexpeditorgui.moc"
+#include "kregexpeditorguidialog.moc"

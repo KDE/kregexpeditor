@@ -48,3 +48,5 @@ int main( int argc, char* argv[] )
     myapp.exec();
 }
 
+#include "kregexpeditorgui.moc"
+#include "kregexpeditorguidialog.moc"

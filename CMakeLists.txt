@@ -54,6 +54,7 @@ set(kregexpeditorcommon_SRCS
     KMultiFormListBox/widgetwindow.cpp 
     KMultiFormListBox/windowlistboxitem.cpp
     kregexpeditorgui.cpp
+    kregexpeditorguidialog.cpp
     kregexpeditorprivate.cpp
     KWidgetStreamer/kwidgetstreamer.cpp
     limitedcharlineedit.cpp
@@ -90,7 +91,9 @@ kde4_add_library(kregexpeditorcommon SHARED ${kregexpeditorcommon_SRCS})
 target_link_libraries(kregexpeditorcommon ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS})
 
 set_target_properties(kregexpeditorcommon PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})
-install(TARGETS kregexpeditorcommon DESTINATION ${LIB_INSTALL_DIR})
+install(TARGETS kregexpeditorcommon RUNTIME DESTINATION bin
+                       LIBRARY DESTINATION lib
+                       ARCHIVE DESTINATION lib)
 
 ########### next target ###############
 
