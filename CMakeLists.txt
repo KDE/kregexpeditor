@@ -109,6 +109,8 @@ install(TARGETS kregexpeditorgui DESTINATION ${PLUGIN_INSTALL_DIR})
 
 set(kregexpeditor_SRCS main.cpp)
 
+kde4_add_app_icon(kregexpeditor_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-kregexpeditor.png")
+
 kde4_add_executable(kregexpeditor ${kregexpeditor_SRCS})
 
 target_link_libraries(kregexpeditor ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS} kregexpeditorcommon)
