@@ -92,10 +92,14 @@ void KWidgetStreamer::propertyFromStream( QDataStream& stream, QObject* to )
   // Stream in all the children (if any)
   const QList<QObject*> children= to->children();
   //const QObjectList* children = to->children();
-  unsigned int count;
+
+/*  unsigned int count;
 
   stream >> count;
+
   Q_ASSERT( count == 0 );
+*/
+
   for (int i = 0; i < children.size(); ++i) {
 	fromStream( stream, children.at(i) );
 	} 

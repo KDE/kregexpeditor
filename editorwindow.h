@@ -229,10 +229,13 @@ private:
 
 private:
     /** This points to the top @ref RegExpWidget in the editor window. */
-	ConcWidget *_top;
+    ConcWidget *_top;
 
     /** This points to the layout manager for the editor window */
     QHBoxLayout* _layout;
+
+    /** This points to the edit widget */
+    QPoint _PosEdit; 
 
     /** Start point and last point draw. Used when doing rubber band selection  */
     QPoint _start, _lastPoint;

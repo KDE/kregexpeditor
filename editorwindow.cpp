@@ -50,6 +50,8 @@ RegExpEditorWindow::RegExpEditorWindow( QWidget *parent)
     _pasteInAction = false;
     _pasteData = 0;
 
+    _PosEdit= QPoint ( 0, 0 );
+
     (void) new QShortcut( Qt::CTRL+Qt::Key_C , this, SLOT( slotCopy() ) );
     (void) new QShortcut( Qt::CTRL+Qt::Key_X , this, SLOT( slotCut() ) );
     (void) new QShortcut( Qt::Key_Delete , this, SLOT( slotCut() ) );
@@ -351,12 +353,15 @@ void RegExpEditorWindow::showRMBMenu( bool enableCutCopy )
 
     _saveAction->setEnabled( _top->hasAnyChildren() );
 
-    RegExpWidget* editWidget = _top->findWidgetToEdit( QCursor::pos() );
+    _PosEdit = QCursor::pos();
+
+    RegExpWidget* editWidget = _top->findWidgetToEdit( _PosEdit );
 
     _editAction->setEnabled( editWidget  );
 
-    QPoint pos = QCursor::pos();
-    _menu->exec( pos );
+    _menu->exec( _PosEdit );
+
+    _PosEdit = QPoint ( 0, 0 );
 
     emit change();
     emit canSave( _top->hasAnyChildren() );
@@ -437,8 +442,10 @@ void RegExpEditorWindow::emitVerifyRegExp()
 
 void RegExpEditorWindow::editWidget() 
 {
-    RegExpWidget* editWidget = _top->findWidgetToEdit( QCursor::pos() );
-    editWidget->edit();
+    QPoint EditPos = _PosEdit.isNull() ? QCursor::pos() : _PosEdit;
+    RegExpWidget* editWidget = _top->findWidgetToEdit( EditPos );
+    if ( editWidget )
+      editWidget->edit();
 }
 
 QIcon RegExpEditorWindow::getIcon( const QString& name )
