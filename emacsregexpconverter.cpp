@@ -48,6 +48,7 @@ QString EmacsRegExpConverter::toString( AltnRegExp* regexp, bool markSelection )
 		first = false;
         res += toStr( r, markSelection );
 	}
+
 	return res;
 
 }

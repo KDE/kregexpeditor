@@ -15,6 +15,7 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
+
 #include "verifybuttons.h"
 
 #include <klocale.h>
@@ -94,6 +95,7 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     // Emacs
     converter = new EmacsRegExpConverter();
     _converters.append( qMakePair( converter, static_cast<QAction*>( 0 )  ) );
+    QString emacsConverterName = converter->name();
 
 
     // -------------------------------------------------- Initialize the config menu

@@ -79,7 +79,7 @@ QString RegExpConverter::escape( QString text, QList<QChar> chars, QChar escapeC
 */
 RegexpHighlighter* RegExpConverter::highlighter( QTextEdit* )
 {
-    return 0;
+    return NULL;
 }
 
 RegExpConverter* RegExpConverter::current()

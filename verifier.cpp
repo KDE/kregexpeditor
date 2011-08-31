@@ -106,10 +106,15 @@ void Verifier::setMinimal( bool b )
 
 void Verifier::setHighlighter( RegexpHighlighter* highlighter )
 {
-    delete _highlighter;
+    if ( _highlighter ) {
+       _highlighter->deleteLater();
+    }
     _highlighter = highlighter;
-    setEnabled( _highlighter != 0 );
-
+    if ( _highlighter ) {
+       setEnabled( true );
+    } else {
+       setEnabled( false );
+    }
 }
 
 #include "verifier.moc"
