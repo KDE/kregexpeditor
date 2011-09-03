@@ -18,8 +18,8 @@
 
 #include "widgetfactory.h"
 
-#include <kmessagebox.h>
-#include <kdebug.h>
+#include <KMessageBox>
+#include <KDebug>
 
 #include "repeatwidget.h"
 #include "textwidget.h"
