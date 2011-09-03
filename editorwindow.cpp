@@ -281,7 +281,7 @@ void RegExpEditorWindow::cutCopyAux( QPoint pos )
 
     RegExp* regexp = _top->selection();
 
-    QMimeData *mimeData = new QMimeData;
+    QMimeData *mimeData = new QMimeData; 
     mimeData->setText(RegExpConverter::current()->toStr( regexp, false));
     mimeData->setData("KRegExpEditor/widgetdrag", regexp->toXmlString().toAscii());
 
