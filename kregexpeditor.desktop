@@ -2,6 +2,7 @@
 Name=KRegExpEditor
 Name[bg]=KRegExpEditor
 Name[cs]=KRegExpEditor
+Name[da]=KRegExpEditor
 Name[de]=KRegExpEditor
 Name[el]=KRegExpEditor
 Name[en_GB]=KRegExpEditor
@@ -32,6 +33,7 @@ X-DocPath=kregexpeditor/index.html
 GenericName=Regular Expression Editor
 GenericName[bg]=Редактор за регулярни изрази
 GenericName[cs]=Editor regulárních výrazů
+GenericName[da]=Editor til regulære udtryk
 GenericName[de]=Editor für reguläre Ausdrücke
 GenericName[el]=Επεξεργαστής κανονικών εκφράσεων
 GenericName[en_GB]=Regular Expression Editor
