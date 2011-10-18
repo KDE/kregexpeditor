@@ -1,6 +1,13 @@
 TODO:
 -----
 
+- Add a match field, there the user can see which parts of the regex will give a submatch
+- Double clicking a regex-widget should select the relevant text in the regexp-input field.
+- Enhance highlighting of text area, two colors are too few.
+- Highlight the regexp string.
+- Plasma widget, preferable in QML.
+
+
 When the user drops something on the regular expression area that is of
 mime type text/plain, then ask the user whether he want it parsed as a
 regular expression or whether he wants it inserted as plain text (that is the text escaped)
