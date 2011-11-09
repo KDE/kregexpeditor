@@ -187,7 +187,7 @@ RegExp* parseCharClass( char* match )
   bool rangePending = false;
   bool flushPending = false;
   
-  if ( ch == QChar('^') ) {
+  if ( i < txt.length() && ch == QChar('^') ) {
     res->setNegate( true );
     ch = txt.at(i++);
   }
