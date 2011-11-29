@@ -19,6 +19,7 @@
 #include "widgetfactory.h"
 
 #include <kmessagebox.h>
+#include <kdebug.h>
 
 #include "repeatwidget.h"
 #include "textwidget.h"
@@ -180,9 +181,13 @@ RegExp* WidgetFactory::createRegExp( QDomElement node, const QString& version )
 RegExp* WidgetFactory::createRegExp( QString str )
 {
   QDomDocument doc;
-  bool ok = doc.setContent( str );
+  QString error;
+  int errorLine, errorCol;
+  bool ok = doc.setContent( str, &error, &errorLine, &errorCol );
   if ( !ok ) {
-    KMessageBox::sorry( 0, i18n("Error while loading regular expression from XML. Most probably the regular expression had unmatched tags."),
+    kDebug() << error << "at line" << errorLine << "xml was:";
+    kDebug() << str;
+    KMessageBox::sorry( 0, i18n("Error while loading regular expression from XML.") + "\n" + error,
                         i18n("Error While Loading Regular Expression From XML") ) ;
   }
 
