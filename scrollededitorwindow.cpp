@@ -19,6 +19,7 @@
 #include "scrollededitorwindow.h"
 
 #include <QResizeEvent>
+#include <QDebug>
 #include <QScrollArea>
 
 #include "editorwindow.h"
@@ -29,7 +30,7 @@ RegExpScrolledEditorWindow::RegExpScrolledEditorWindow( QWidget* parent)
     _scrollArea = new QScrollArea(this);
     _editorWindow = new RegExpEditorWindow(this);
     _scrollArea->setWidget(_editorWindow);
-    _scrollArea->setWidgetResizable(true);
+    //_scrollArea->setWidgetResizable(true);
     _scrollArea->ensureWidgetVisible(_editorWindow);
 
     connect( _editorWindow, SIGNAL( contentChanged( QPoint ) ),
@@ -107,34 +108,12 @@ void RegExpScrolledEditorWindow::resizeEvent( QResizeEvent *event )
 }
 
 void RegExpScrolledEditorWindow::slotUpdateContentSize( QPoint focusPoint )
-{    
-    /*
-    QSize childSize = _editorWindow->sizeHint();
-    QSize vpSize = _scrollView->viewportSize(10,10);
+{
+    _editorWindow->resize(_editorWindow->sizeHint());
 
-    bool change = false;
-
-    if ( childSize.width() < vpSize.width() ) {
-        childSize.setWidth( vpSize.width() );
-        change = true;
-    }
-
-    if ( childSize.height() < vpSize.height() ) {
-        childSize.setHeight( vpSize.height() );
-        change = true;
-    }
-
-    if ( change ||
-         _scrollView->contentsWidth() != childSize.width() ||
-         _scrollView->contentsHeight() != childSize.height() ) {
-        _editorWindow->resize( childSize );
-        _scrollView->resizeContents( childSize.width(), childSize.height() );
-    }
-*/
     if ( !focusPoint.isNull() ) {
         _scrollArea->ensureVisible ( focusPoint.x(), focusPoint.y(), 250,250 );
     }
-
 }
 
 
