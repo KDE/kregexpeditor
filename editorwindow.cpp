@@ -31,6 +31,7 @@
 #include <KLocale>
 #include <KMessageBox>
 #include <KInputDialog>
+#include <KDebug>
 
 #include "regexp.h"
 #include "userdefinedregexps.h"
@@ -182,8 +183,7 @@ void RegExpEditorWindow::slotInsertRegExp( RegExpType type )
 
 void RegExpEditorWindow::slotInsertRegExp( RegExp* regexp )
 {
-    if ( _pasteData )
-        delete _pasteData;
+    delete _pasteData;
 
     _pasteData = regexp->clone();
     _pasteInAction = true;
@@ -280,11 +280,11 @@ void RegExpEditorWindow::cutCopyAux( QPoint pos )
     }
 
     RegExp* regexp = _top->selection();
-    
-    QMimeData *mimeData = new QMimeData;            
+
+    QMimeData *mimeData = new QMimeData;
     mimeData->setText(RegExpConverter::current()->toStr( regexp, false));
     mimeData->setData("KRegExpEditor/widgetdrag", regexp->toXmlString().toAscii());
-    
+
     delete regexp;
 
     QClipboard* clipboard = qApp->clipboard();
@@ -297,6 +297,8 @@ void RegExpEditorWindow::cutCopyAux( QPoint pos )
 void RegExpEditorWindow::slotStartPasteAction()
 {
     QString str = qApp->clipboard()->mimeData()->data( "KRegExpEditor/widgetdrag" );
+    if (str.isEmpty())
+        return;
 
     RegExp* regexp = WidgetFactory::createRegExp( str );
     if ( regexp )
