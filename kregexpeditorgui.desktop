@@ -1,6 +1,11 @@
 [Desktop Entry]
 Type=Service
 Name=RegExp Editor Widget
+Name[nl]=Widget voor RegExp-bewerker
+Name[pt]=Item Editor de Expressões Regulares
+Name[pt_BR]=Widget Editor de ExpReg
+Name[uk]=Віджет редактора формальних виразів
+Name[x-test]=xxRegExp Editor Widgetxx
 X-KDE-Library=libkregexpeditorgui
 InitialPreference=2
 X-KDE-ServiceTypes=KRegExpEditor/KRegExpEditor

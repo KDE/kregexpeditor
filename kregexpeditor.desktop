@@ -1,8 +1,18 @@
 [Desktop Entry]
 Name=KRegExpEditor
+Name[nl]=KRegExpEditor
+Name[pt]=KRegExpEditor
+Name[pt_BR]=KRegExpEditor
+Name[uk]=KRegExpEditor
+Name[x-test]=xxKRegExpEditorxx
 Exec=kregexpeditor
 X-DocPath=KRegExpEditor/index.html
 GenericName=Regular Expression Editor
+GenericName[nl]=Editor voor regular expressions
+GenericName[pt]=Editor de Expressões Regulares
+GenericName[pt_BR]=Editor de Expressões Regulares
+GenericName[uk]=Редактор формальних виразів
+GenericName[x-test]=xxRegular Expression Editorxx
 Terminal=false
 Type=Application
 X-KDE-StartupNotify=true
