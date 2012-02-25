@@ -9,6 +9,7 @@ Name[x-test]=xxKRegExpEditorxx
 Exec=kregexpeditor
 X-DocPath=kregexpeditor/index.html
 GenericName=Regular Expression Editor
+GenericName[nds]=Editor för regulere Utdrück
 GenericName[nl]=Editor voor regular expressions
 GenericName[pt]=Editor de Expressões Regulares
 GenericName[pt_BR]=Editor de Expressões Regulares
