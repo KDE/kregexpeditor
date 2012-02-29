@@ -1,5 +1,7 @@
 [Desktop Entry]
 Name=KRegExpEditor
+Name[es]=KRegExpEditor
+Name[ga]=KRegExpEditor
 Name[nl]=KRegExpEditor
 Name[pt]=KRegExpEditor
 Name[pt_BR]=KRegExpEditor
@@ -9,6 +11,8 @@ Name[x-test]=xxKRegExpEditorxx
 Exec=kregexpeditor
 X-DocPath=kregexpeditor/index.html
 GenericName=Regular Expression Editor
+GenericName[es]=Editor de expresiones regulares
+GenericName[ga]=Eagarthóir Slonn Ionadaíochta
 GenericName[nds]=Editor för regulere Utdrück
 GenericName[nl]=Editor voor regular expressions
 GenericName[pt]=Editor de Expressões Regulares

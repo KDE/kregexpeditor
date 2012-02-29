@@ -1,6 +1,8 @@
 [Desktop Entry]
 Type=Service
 Name=RegExp Editor Widget
+Name[es]=Complemento de edición para RegExp
+Name[ga]=Giuirléid Eagarthóireachta Slonn Ionadaíochta
 Name[nds]=RegUtd-Editorlüttprogramm
 Name[nl]=Widget voor RegExp-bewerker
 Name[pt]=Item Editor de Expressões Regulares
