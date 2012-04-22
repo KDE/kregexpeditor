@@ -3,6 +3,7 @@ Type=Service
 Name=RegExp Editor Widget
 Name[de]=RegExp-Editorfenster
 Name[es]=Complemento de edición para RegExp
+Name[fr]=Composant graphique d'édition d'expressions rationnelles
 Name[ga]=Giuirléid Eagarthóireachta Slonn Ionadaíochta
 Name[nds]=RegUtd-Editorlüttprogramm
 Name[nl]=Widget voor RegExp-bewerker
