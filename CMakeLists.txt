@@ -18,6 +18,7 @@ add_definitions( -DQT_NO_CAST_ASCII )
 
 add_subdirectory( predefined ) 
 add_subdirectory( pics )
+add_subdirectory( doc )
 
 include_directories(
     KWidgetStreamer/ 
