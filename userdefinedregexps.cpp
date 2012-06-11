@@ -33,8 +33,8 @@
 #include "widgetfactory.h"
 #include "compoundregexp.h"
 
-UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const char *name )
-  : QDockWidget(name, parent)
+UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const QString &title )
+  : QDockWidget(title, parent)
 {
   QWidget* top = new QWidget( this );
   QVBoxLayout* lay = new QVBoxLayout( top );

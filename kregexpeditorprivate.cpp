@@ -60,7 +60,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
   _auxButtons = new AuxButtons( /*area*/this, "KRegExpEditorPrivate::AuxButtons" );
   addToolBar(Qt::TopToolBarArea, _auxButtons);
   
-  _userRegExps = new UserDefinedRegExps( /*verArea1*/this, /*"KRegExpEditorPrivate::userRegExps"*/qPrintable(i18n("Compound regular expression:")) );
+  _userRegExps = new UserDefinedRegExps( /*verArea1*/this, /*"KRegExpEditorPrivate::userRegExps"*/i18n("Compound regular expression:") );
   _userRegExps->setWhatsThis( i18n( "In this window you will find predefined regular expressions. Both regular expressions "
                                        "you have developed and saved, and regular expressions shipped with the system." ));
   addDockWidget(Qt::LeftDockWidgetArea, _userRegExps);
