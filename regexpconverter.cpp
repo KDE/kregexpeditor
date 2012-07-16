@@ -34,7 +34,7 @@
 RegExpConverter* RegExpConverter::_current = 0;
 RegExp* RegExpConverter::parse( const QString&, bool* ok )
 {
-    ok = false;
+    *ok = false;
     return new DotRegExp( false ); // This method should never be called.
 }
 
