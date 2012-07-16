@@ -89,6 +89,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
   
   QWidget* centralWidget = new QWidget(this);
   QHBoxLayout* layout = new QHBoxLayout(centralWidget);
+  layout->setMargin(0);
   layout->addWidget(_editor);
   layout->addWidget(_info);
   setCentralWidget(centralWidget);
@@ -158,7 +159,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
   QWidget* editDockWidget = new QWidget(editDock);
   editDock->setWidget(editDockWidget);
   QHBoxLayout* dockLayout = new QHBoxLayout(editDockWidget);
-  dockLayout->setSpacing( 6 );
+  dockLayout->setMargin(0);
   
   clearButton = new QToolButton( editDockWidget );
   const QString icon( QString::fromLatin1( QApplication::isRightToLeft() ? "edit-clear-locationbar-rtl" : "edit-clear-locationbar-ltr" ) );

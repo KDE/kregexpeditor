@@ -34,7 +34,7 @@ KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent,
   : QWidget( parent)
 {
   QHBoxLayout* layout = new QHBoxLayout( this );
-  layout->setSpacing( 6 );
+  layout->setMargin(0);
   _editor = new KRegExpEditorPrivate( this );
   layout->addWidget( _editor );
   _editor->setVisible(true);

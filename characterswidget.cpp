@@ -286,7 +286,7 @@ CharacterEdits::CharacterEdits( QWidget *parent)
     setObjectName( "CharacterEdits" );
     QWidget* top = new QWidget( this );
     QVBoxLayout *topLayout = new QVBoxLayout(top);
-    topLayout->setSpacing(6);
+    topLayout->setMargin(0);
     setMainWidget( top );
 
     negate = new QCheckBox(i18n("Do not match the characters specified here"));
@@ -390,7 +390,6 @@ SingleEntry::SingleEntry(QWidget* parent)
     :KMultiFormListBoxEntry( parent )
 {
     QHBoxLayout* layout = new QHBoxLayout( this );
-    layout->setSpacing( 6 );
     layout->setMargin( 0 );
     _selector = new CharSelector( this );
     layout->addWidget( _selector );
@@ -417,7 +416,6 @@ RangeEntry::RangeEntry(QWidget* parent)
     :KMultiFormListBoxEntry( parent )
 {
     QHBoxLayout* layout = new QHBoxLayout( this );
-    layout->setSpacing( 6 );
     layout->setMargin( 0 );
 
     QLabel* label = new QLabel(i18n("From:"), this );

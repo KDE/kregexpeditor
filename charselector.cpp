@@ -52,7 +52,6 @@ CharSelector::CharSelector( QWidget* parent )
 {
   QStringList items;
   QHBoxLayout* layout = new QHBoxLayout( this );
-  layout->setSpacing( 6 );
   layout->setMargin( 0 );
 
   _type = new KComboBox( this );

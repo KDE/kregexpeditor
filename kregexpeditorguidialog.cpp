@@ -37,7 +37,6 @@ KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent,
   QFrame* frame = new QFrame(this);
   setMainWidget( frame );
   QVBoxLayout* layout = new QVBoxLayout( frame );
-  layout->setSpacing( 6 );
   _editor = new KRegExpEditorGUI( frame );
   layout->addWidget(_editor);
 
