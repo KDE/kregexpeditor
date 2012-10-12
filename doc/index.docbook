@@ -4,9 +4,9 @@
  <!ENTITY % addindex "IGNORE">
 ]>
 
-<book lang="&language;">
+<book id="kregexpeditor" lang="&language;">
 
-  <bookinfo>
+  <book id="kregexpeditor"info>
     <title>The Regular Expression Editor Manual</title>
 
     <authorgroup>
