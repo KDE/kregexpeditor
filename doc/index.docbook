@@ -6,7 +6,7 @@
 
 <book id="kregexpeditor" lang="&language;">
 
-  <book id="kregexpeditor"info>
+  <bookinfo>
     <title>The Regular Expression Editor Manual</title>
 
     <authorgroup>
