@@ -7,6 +7,16 @@ find_package(KDE4 4.4.1 REQUIRED)
 include(KDE4Defaults)
 include(MacroLibrary)
 
+find_package(BISON)
+find_package(FLEX)
+
+BISON_TARGET(qregexpparser qregexpparser.y ${CMAKE_CURRENT_BINARY_DIR}/gen_qregexpparser.cc COMPILE_FLAGS "-d -p qregexp")
+FLEX_TARGET(qregexplexer qregexpparser.l  ${CMAKE_CURRENT_BINARY_DIR}/gen_qregexplexer.cpp COMPILE_FLAGS "-Pqregexp")
+ADD_FLEX_BISON_DEPENDENCY( qregexplexer qregexpparser )
+
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+
+
 ############### Needed commands before building anything ###############
 
 add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
@@ -16,18 +26,20 @@ include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES})
 
 add_definitions( -DQT_NO_CAST_ASCII )
 
-add_subdirectory( predefined ) 
+add_subdirectory( predefined )
 add_subdirectory( pics )
 add_subdirectory( doc )
 
 include_directories(
-    KWidgetStreamer/ 
+    KWidgetStreamer/
     KMultiFormListBox/ )
 
 ########### next target ###############
 
 set(kregexpeditorcommon_SRCS
-    altnregexp.cpp                                      
+   ${BISON_qregexpparser_OUTPUTS}
+   ${FLEX_qregexplexer_OUTPUTS}
+    altnregexp.cpp
     altnwidget.cpp
     auxbuttons.cpp
     characterswidget.cpp
@@ -42,17 +54,15 @@ set(kregexpeditorcommon_SRCS
     editorwindow.cpp
     emacsregexpconverter.cpp
     errormap.cpp
-    gen_qregexplexer.cpp
-    gen_qregexpparser.cc
     infopage.cpp
-    KMultiFormListBox/ccp.cpp 
-    KMultiFormListBox/kmultiformlistboxentry.cpp 
-    KMultiFormListBox/kmultiformlistbox.cpp 
-    KMultiFormListBox/kmultiformlistbox-multivisible.cpp 
-    KMultiFormListBox/kmultiformlistboxfactory.cpp 
-    KMultiFormListBox/indexWindow.cpp 
-    KMultiFormListBox/kmultiformlistbox-windowed.cpp 
-    KMultiFormListBox/widgetwindow.cpp 
+    KMultiFormListBox/ccp.cpp
+    KMultiFormListBox/kmultiformlistboxentry.cpp
+    KMultiFormListBox/kmultiformlistbox.cpp
+    KMultiFormListBox/kmultiformlistbox-multivisible.cpp
+    KMultiFormListBox/kmultiformlistboxfactory.cpp
+    KMultiFormListBox/indexWindow.cpp
+    KMultiFormListBox/kmultiformlistbox-windowed.cpp
+    KMultiFormListBox/widgetwindow.cpp
     KMultiFormListBox/windowlistboxitem.cpp
     kregexpeditorgui.cpp
     kregexpeditorguidialog.cpp
@@ -123,13 +133,13 @@ install(TARGETS kregexpeditor ${INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES kregexpeditor.desktop  DESTINATION ${XDG_APPS_INSTALL_DIR})
 install(FILES kregexpeditorgui.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
 
-install(FILES 
+install(FILES
     KMultiFormListBox/kmultiformlistboxentry.h
     KMultiFormListBox/kmultiformlistbox.h
     KMultiFormListBox/kmultiformlistboxfactory.h
     DESTINATION ${INCLUDE_INSTALL_DIR}
 )
-    
+
 install(FILES KWidgetStreamer/kwidgetstreamer.h DESTINATION ${INCLUDE_INSTALL_DIR})
 
 kde4_install_icons(${ICON_INSTALL_DIR})
