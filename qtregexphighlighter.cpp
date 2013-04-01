@@ -48,8 +48,9 @@ void QtRegexpHighlighter::highlightBlock( const QString& text )
     // ------------------------------ Process with the regular expression.
     QColor colors[] = { Qt::red, Qt::blue };
     int color = previousBlockState();
-    if ( color < 0 || color > 1 )
+    if ( color < 0 || color > 1 ) {
         color = 0;
+    }
 
     int index = 0;
     int start, length;
@@ -57,14 +58,14 @@ void QtRegexpHighlighter::highlightBlock( const QString& text )
         if ( regexp.pos(1) != -1 ) {
             start = regexp.pos(1);
             length = regexp.cap(1).length();
-        }
-        else {
+        } else {
             start = index;
             length = regexp.matchedLength();
         }
 
-        if ( start != index )
+        if ( start != index ) {
             setFormat( index, start-index, colors[color] );
+	}
 
         QFont font = _editor->font();
         font.setUnderline( true );
@@ -74,8 +75,9 @@ void QtRegexpHighlighter::highlightBlock( const QString& text )
         format.setForeground(colors[color]);
         setFormat( start, length, format );
 
-        if ( length + (start-index) != regexp.matchedLength() )
+        if ( length + (start-index) != regexp.matchedLength() ) {
             setFormat( start+length, regexp.matchedLength()-length-(start-index), colors[color] );
+	}
 
         index +=  qMax( 1, regexp.matchedLength() ); // ensure progress when matching for example ^ or \b
         color = (color+1)%2;

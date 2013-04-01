@@ -71,8 +71,9 @@ void UserDefinedRegExps::slotPopulateUserRegexps()
     QDir dir( *it1, QString(), QDir::Name, QDir::Dirs );
     QStringList subdirs = dir.entryList();
     for ( QStringList::iterator it2 = subdirs.begin(); it2 != subdirs.end(); ++it2 ) {
-      if ( *it2 == QString::fromLocal8Bit(".") || *it2 == QString::fromLocal8Bit("..") )
+      if ( *it2 == QString::fromLocal8Bit(".") || *it2 == QString::fromLocal8Bit("..") ) {
         continue;
+      }
       createItems( *it2, *it1 + QString::fromLocal8Bit("/") + *it2, false );
     }
   }
@@ -82,8 +83,9 @@ void UserDefinedRegExps::slotPopulateUserRegexps()
 void UserDefinedRegExps::createItems( const QString& _title, const QString& dir, bool usersRegExp )
 {
   QString title = _title;
-  if (_title == QString::fromLatin1("general"))
+  if (_title == QString::fromLatin1("general")) {
 	  title = i18n("general");
+  }
 
   QTreeWidgetItem* lvItem = new QTreeWidgetItem( (QTreeWidget*)0, QStringList(title) );
   lvItem->setExpanded( true );
@@ -115,8 +117,9 @@ void UserDefinedRegExps::createItems( const QString& _title, const QString& dir,
     // Inserth the regexp into the list of compound regexps
     if ( regexp->type() == RegExp::COMPOUND ) {
       CompoundRegExp* cregexp = dynamic_cast<CompoundRegExp*>( regexp );
-      if ( cregexp && cregexp->allowReplace() )
+      if ( cregexp && cregexp->allowReplace() ) {
         _regExps.append( cregexp );
+      }
     }
   }
 }
@@ -157,16 +160,14 @@ void UserDefinedRegExps::slotContextMenuTriggered( const QPoint& pos )
     // menu not selected on an item
     deleteAction->setEnabled(false);
     renameAction->setEnabled(false);
-  }
-  else {
+  } else {
     // Only allow rename and delete of users own regexps.
     WidgetWinItem* winItem = dynamic_cast<WidgetWinItem *>( item );
     if ( winItem ) {
       if ( ! winItem->isUsersRegExp() ) {
         deleteAction->setEnabled(false);
         renameAction->setEnabled(false);
-      }
-      else {
+      } else {
         QVariant var = QVariant::fromValue<void *>((void *)(winItem));
         deleteAction->setData(var);
         renameAction->setData(var);
@@ -201,14 +202,15 @@ void UserDefinedRegExps::slotRenameUserRegexp()
       QFileInfo finfo( fileName );
       if ( finfo.exists() ) {
         int answer = KMessageBox::warningYesNo( this, i18n("<p>Overwrite named regular expression <b>%1</b>?</p>", txt), QString(), KStandardGuiItem::overwrite(), KGuiItem(i18n("Do Not Overwrite")) );
-        if ( answer != KMessageBox::Yes )
+        if ( answer != KMessageBox::Yes ) {
           return;
+	}
 
         // An item with this name already exists.
         delete winItem;
-      }
-      else
+      } else {
         winItem->setName( txt );
+      }
       QDir dir;
       dir.remove(fileName);
     }

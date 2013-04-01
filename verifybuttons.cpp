@@ -175,10 +175,11 @@ void VerifyButtons::setMatchCount( int /*count*/ )
 {
 // currently this is not possible due to limitation in QSyntaxHighlighter
 /*
-  if ( count == -1 )
+  if ( count == -1 ) {
   _matches->setText( QString::fromLatin1("-") );
-  else
+  } else {
   _matches->setText( QString::number( count ) );
+  }
 */
 }
 

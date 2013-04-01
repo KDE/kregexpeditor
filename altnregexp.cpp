@@ -58,12 +58,14 @@ bool AltnRegExp::load( QDomElement top, const QString& version )
     Q_ASSERT( top.tagName() == QString::fromLocal8Bit( "Alternatives" ) );
 
     for ( QDomNode child = top.firstChild(); !child.isNull(); child = child.nextSibling() ) {
-        if ( ! child.isElement() )
+        if ( ! child.isElement() ) {
             continue; // User might have added a comment.
+        }
 
         RegExp* regexp = WidgetFactory::createRegExp( child.toElement(), version );
-        if ( regexp == 0 )
+        if ( regexp == 0 ) {
             return false;
+        }
         addRegExp( regexp );
     }
     return true;
@@ -74,20 +76,23 @@ bool AltnRegExp::operator==( const RegExp& other ) const
 {
     // TODO: merge with ConcRegExp::operator==
 
-    if ( other.type() != type() )
+    if ( other.type() != type() ) {
         return false;
+    }
 
     const AltnRegExp& theOther = dynamic_cast<const AltnRegExp&>( other );
 
-    if ( list.count() != theOther.list.count() )
+    if ( list.count() != theOther.list.count() ) {
         return false;
+    }
 
     RegExpListIt it1( list );
     RegExpListIt it2( theOther.list );
 
     while( it1.hasNext() && it2.hasNext() ) {
-        if ( ! (it1.next() == it2.next()) )
+        if ( ! (it1.next() == it2.next()) ) {
             return false;
+        }
     }
     return true;
 }

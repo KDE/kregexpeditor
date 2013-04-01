@@ -57,8 +57,7 @@ bool TextRegExp::load( QDomElement top, const QString& /*version*/)
         }
         QDomText txtNode = child.toText();
         _text = txtNode.data();
-    }
-    else {
+    } else {
         _text = QString::fromLatin1( "" );
     }
 
@@ -66,12 +65,14 @@ bool TextRegExp::load( QDomElement top, const QString& /*version*/)
 }
 
 bool TextRegExp::operator==( const RegExp& other ) const {
-    if ( other.type() != type() )
+    if ( other.type() != type() ) {
         return false;
+    }
 
     const TextRegExp& theOther = dynamic_cast<const TextRegExp&>( other );
-    if ( text() == theOther.text() )
+    if ( text() == theOther.text() ) {
         return true;
+    }
 
     return false;
 }

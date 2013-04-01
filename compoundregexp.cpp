@@ -26,8 +26,9 @@ CompoundRegExp::CompoundRegExp( bool selected, const QString& title, const QStri
                                 bool allowReplace, RegExp* child)
     : RegExp( selected ), _title( title ), _description( description ), _hidden( hidden ), _allowReplace( allowReplace ), _child( child )
 {
-    if ( child )
+    if ( child ) {
         addChild( child );
+    }
 }
 
 bool CompoundRegExp::check( ErrorMap& map, bool first, bool last )
@@ -38,10 +39,13 @@ bool CompoundRegExp::check( ErrorMap& map, bool first, bool last )
 QDomNode CompoundRegExp::toXml( QDomDocument* doc ) const
 {
     QDomElement top = doc->createElement( QString::fromLocal8Bit( "Compound" ) );
-    if (_hidden)
+    if (_hidden) {
         top.setAttribute( QString::fromLocal8Bit("hidden"), true );
-    if ( _allowReplace )
+    }
+
+    if ( _allowReplace ) {
         top.setAttribute( QString::fromLocal8Bit("allowReplace"), true );
+    }
 
     QDomElement title = doc->createElement( QString::fromLocal8Bit( "Title" ) );
     QDomText titleTxt = doc->createTextNode( _title );
@@ -69,32 +73,35 @@ bool CompoundRegExp::load( QDomElement top, const QString& version )
     _allowReplace = (str == QString::fromLocal8Bit("1") );
 
     for ( QDomNode node = top.firstChild(); !node.isNull(); node = node.nextSibling() ) {
-        if ( !node.isElement() )
+        if ( !node.isElement() ) {
             continue; // skip past comments.
+	}
+
         QString txt;
         QDomElement child = node.toElement();
         QDomNode txtNode = child.firstChild();
-        if ( txtNode.isText() )
+        if ( txtNode.isText() ) {
             txt = txtNode.toText().data();
+	}
+
         if ( child.tagName() == QString::fromLocal8Bit( "Title" ) ) {
-            if ( txt.isEmpty() )
+            if ( txt.isEmpty() ) {
                 _title = txt;
-            else
+	    } else {
                 _title = i18n(txt.toUtf8());
-        }
-        else if ( child.tagName() == QString::fromLocal8Bit( "Description" ) ) {
-            if ( txt.isEmpty() )
+	    }
+        } else if ( child.tagName() == QString::fromLocal8Bit( "Description" ) ) {
+            if ( txt.isEmpty() ) {
                 _description = txt;
-            else
+	    } else {
                 _description = i18n(txt.toUtf8());
-        }
-        else {
+	    }
+        } else {
             _child = WidgetFactory::createRegExp( child, version );
             if ( _child ) {
                 addChild( _child );
                 return true;
-            }
-            else {
+            } else {
                 return false;
             }
         }

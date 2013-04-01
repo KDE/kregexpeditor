@@ -78,8 +78,7 @@ void  RegExpEditorWindow::mousePressEvent ( QMouseEvent* event )
 
     if ( pointSelected( event->globalPos() ) ) {
         _isDndOperation = true;
-    }
-    else {
+    } else {
         _isDndOperation = false;
         _selection = QRect();
         _top->updateSelection( false );
@@ -100,9 +99,10 @@ void RegExpEditorWindow::mouseMoveEvent ( QMouseEvent* event )
     if ( _isDndOperation ) {
         if ( ( _start - event->pos() ).manhattanLength() > QApplication::startDragDistance() ) {
             RegExp* regexp = _top->selection();
-            if ( !regexp )
+            if ( !regexp ) {
                 return;
-            
+            }
+
             QDrag *drag = new QDrag(this);
             QMimeData *mimeData = new QMimeData;
             
@@ -169,8 +169,9 @@ bool RegExpEditorWindow::hasSelection() const
 void RegExpEditorWindow::clearSelection( bool update )
 {
     _top->clearSelection();
-    if ( update )
+    if ( update ) {
         _top->updateAll();
+    }
     emit anythingSelected(false);
 }
 
@@ -218,8 +219,9 @@ void RegExpEditorWindow::slotDeleteSelection()
 void RegExpEditorWindow::updateContent( QWidget* focusChild)
 {
     QPoint p(0,0);
-    if ( focusChild )
+    if ( focusChild ) {
         p = focusChild->mapTo( this, QPoint(0,0) );
+    }
 
     _top->update();
     emit contentChanged( p );
@@ -299,12 +301,14 @@ void RegExpEditorWindow::cutCopyAux( QPoint pos )
 void RegExpEditorWindow::slotStartPasteAction()
 {
     QString str = qApp->clipboard()->mimeData()->data( "KRegExpEditor/widgetdrag" );
-    if (str.isEmpty())
+    if (str.isEmpty()) {
         return;
+    }
 
     RegExp* regexp = WidgetFactory::createRegExp( str );
-    if ( regexp )
+    if ( regexp ) {
         slotInsertRegExp( regexp );
+    }
 }
 
 void RegExpEditorWindow::slotEndActions() {
@@ -346,10 +350,11 @@ void RegExpEditorWindow::showRMBMenu( bool enableCutCopy )
     _cutAction->setEnabled( enableCutCopy );
     _copyAction->setEnabled( enableCutCopy );
 
-    if ( ! qApp->clipboard()->mimeData()->hasFormat( "KRegExpEditor/widgetdrag" ) )
+    if ( ! qApp->clipboard()->mimeData()->hasFormat( "KRegExpEditor/widgetdrag" ) ) {
         _pasteAction->setEnabled( false );
-    else
+    } else {
         _pasteAction->setEnabled( true );
+    }
 
     _saveAction->setEnabled( _top->hasAnyChildren() );
 
@@ -378,15 +383,18 @@ void RegExpEditorWindow::slotSave()
     QString txt;
 
     QString tmp = KInputDialog::getText( i18n("Name for Regular Expression"), i18n("Enter name:"));
-    if( tmp.isEmpty()) return;
+    if( tmp.isEmpty()) {
+      return;
+    }
     txt = tmp;
 
     QString fileName = dir + QString::fromLocal8Bit("/") + txt + QString::fromLocal8Bit(".regexp");
     QFileInfo finfo( fileName );
     if ( finfo.exists() ) {
         int answer = KMessageBox::warningContinueCancel( this, i18n("<p>Overwrite named regular expression <b>%1</b></p>", txt), QString(), KStandardGuiItem::overwrite() );
-        if ( answer != KMessageBox::Continue )
+        if ( answer != KMessageBox::Continue ) {
             return;
+	}
     }
 
     QFile file( fileName );
@@ -431,8 +439,9 @@ void RegExpEditorWindow::slotSetRegExp( RegExp* regexp )
 void RegExpEditorWindow::updateCursorUnderPoint()
 {
     RegExpWidget* widget = _top->widgetUnderPoint( QCursor::pos(), false );
-    if ( widget )
+    if ( widget ) {
         widget->updateCursorShape();
+    }
 }
 
 void RegExpEditorWindow::emitVerifyRegExp()
@@ -444,8 +453,9 @@ void RegExpEditorWindow::editWidget()
 {
     QPoint EditPos = _PosEdit.isNull() ? QCursor::pos() : _PosEdit;
     RegExpWidget* editWidget = _top->findWidgetToEdit( EditPos );
-    if ( editWidget )
+    if ( editWidget ) {
       editWidget->edit();
+    }
 }
 
 QIcon RegExpEditorWindow::getIcon( const QString& name )

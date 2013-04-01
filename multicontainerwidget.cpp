@@ -36,13 +36,14 @@ void MultiContainerWidget::append( RegExpWidget* child )
 
 bool MultiContainerWidget::hasSelection() const
 {
-  if ( _isSelected )
+  if ( _isSelected ) {
     return true;
+  }
 
   QList<RegExpWidget *>::const_iterator it = _children.constBegin();
   ++it; // Move past the first dragAccepter
-	for ( ; it != _children.constEnd() ;  it += 2 ) {
-		if ( (*it)->hasSelection() ) {
+  for ( ; it != _children.constEnd() ;  it += 2 ) {
+    if ( (*it)->hasSelection() ) {
       return true;
     }
   }
@@ -70,8 +71,7 @@ void MultiContainerWidget::deleteSelection()
       _children.removeAt( i+1 );
       delete child;
       _children.removeAt(i);
-    }
-    else if ( child->hasSelection() ) {
+    } else if ( child->hasSelection() ) {
       child->deleteSelection();
     }
   }
@@ -127,8 +127,9 @@ bool MultiContainerWidget::updateSelection(bool parentSelected)
     RegExpWidget* child = _children.at(first);
     changed = child->updateSelection( _isSelected ) || changed;
     newState[first] = child->isSelected();
-    if ( child->isSelected() )
+    if ( child->isSelected() ) {
       break;
+    }
   }
 
   // scan for the last selected item
@@ -136,8 +137,9 @@ bool MultiContainerWidget::updateSelection(bool parentSelected)
     RegExpWidget* child = _children.at(last);
     changed = child->updateSelection( _isSelected ) || changed;
     newState[last] = child->isSelected();
-    if ( child->isSelected() )
+    if ( child->isSelected() ) {
       break;
+    }
   }
 
   // everything between first and last must be selected.
@@ -155,8 +157,7 @@ bool MultiContainerWidget::updateSelection(bool parentSelected)
     if ( k == 0 || k == (int)_children.count()-1) {
       // The elements at the border is only selected if the parent is selected.
       select = _isSelected;
-    }
-    else {
+    } else {
       // Drag accepters in the middle is selected if the elements at both
       // sides are selected.
       select = newState[k-1] && newState[k+1];
@@ -164,10 +165,13 @@ bool MultiContainerWidget::updateSelection(bool parentSelected)
 
     bool isChildSel = child->isSelected();
     DragAccepter *accepter = dynamic_cast<DragAccepter*>(child);
-    if (accepter)
+    if (accepter) {
       accepter->_isSelected = select;
-    if ( select != isChildSel )
+    }
+
+    if ( select != isChildSel ) {
       child->repaint();
+    }
   }
 
   changed = changed || isSel != _isSelected;
@@ -182,18 +186,18 @@ bool MultiContainerWidget::updateSelection(bool parentSelected)
 
 QRect MultiContainerWidget::selectionRect() const
 {
-  if ( _isSelected )
+  if ( _isSelected ) {
     return QRect( mapToGlobal( QPoint(0,0) ), size() );
-  else {
+  } else {
     QRect res;
     QList<RegExpWidget *>::const_iterator it = _children.constBegin();
     ++it; // Move past the first dragAccepter
     for ( ; it != _children.constEnd() ; it +=2 ) {
       if ( (*it)->hasSelection() ) {
         QRect childSel = (*it)->selectionRect();
-        if ( res.isNull() )
+        if ( res.isNull() ) {
           res = childSel;
-        else {
+	} else {
           QRect newRes;
           newRes.setLeft( qMin( res.left(), childSel.left() ) );
           newRes.setTop( qMin( res.top(), childSel.top() ) );
@@ -213,20 +217,21 @@ RegExpWidget* MultiContainerWidget::widgetUnderPoint( QPoint globalPos, bool jus
   if ( justVisibleWidgets ) {
     start = 1;
     incr = 2;
-  }
-  else {
+  } else {
     start = 0;
     incr = 1;
   }
 
   for ( int i = start; i < _children.count(); i+=incr ) {
     RegExpWidget* wid = _children.at(i)->widgetUnderPoint( globalPos, justVisibleWidgets );
-    if ( wid )
+    if ( wid ) {
       return wid;
+    }
   }
-  if ( justVisibleWidgets )
+
+  if ( justVisibleWidgets ) {
     return 0;
-  else {
+  } else {
     return RegExpWidget::widgetUnderPoint( globalPos, justVisibleWidgets );
   }
 }
@@ -235,8 +240,9 @@ RegExpWidget* MultiContainerWidget::findWidgetToEdit( QPoint globalPos )
 {
   for ( int i = 1; i < _children.count(); i+=2 ) {
     RegExpWidget* wid = _children.at(i)->findWidgetToEdit( globalPos );
-    if ( wid )
+    if ( wid ) {
       return wid;
+    }
   }
   return 0;
 }

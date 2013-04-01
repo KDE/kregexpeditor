@@ -42,8 +42,7 @@ public:
          (_mode == LimitedCharLineEdit::OCT &&
           QRegExp(QString::fromLocal8Bit("^[0-7]*$")).indexIn( txt ) != -1 ) ) {
       return QValidator::Acceptable;
-    }
-    else {
+    } else {
       return QValidator::Invalid;
     }
   }
@@ -56,8 +55,9 @@ private:
 void LimitedCharLineEdit::keyPressEvent ( QKeyEvent *event )
 {
   KLineEdit::keyPressEvent( event );
-  if ( text().length() == _count && !event->text().isNull() )
+  if ( text().length() == _count && !event->text().isNull() ) {
     focusNextPrevChild(true);
+  }
 }
 
 LimitedCharLineEdit::LimitedCharLineEdit( Mode mode, QWidget* parent, const char* name )
@@ -65,17 +65,16 @@ LimitedCharLineEdit::LimitedCharLineEdit( Mode mode, QWidget* parent, const char
 {
   setObjectName( name );
 
-  if ( mode == NORMAL )
+  if ( mode == NORMAL ) {
     _count = 1;
-  else if ( mode == HEX )
+  } else if ( mode == HEX ) {
     _count = 4;
-  else
+  } else {
     _count = 4;
+  }
 
   setMaxLength( _count );
   setFixedSize( fontMetrics().width('A')*5+5, sizeHint().height());
 
   setValidator( new Validator( mode, this ) );
 }
-
-

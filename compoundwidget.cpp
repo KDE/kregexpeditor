@@ -148,12 +148,12 @@ QSize CompoundWidget::sizeHint() const
     _pixmapSize = _up.size();
     width = 2*pw + qMax( 2*bdSize+_textSize.width(), 2*bdSize+_pixmapSize.width());
     height = _pixmapSize.height() + 2*bdSize + _textSize.height()+pw;
-  }
-  else {
+  } else {
     _pixmapSize = _down.size();
     int headerLineWidth = 2*pw + 2*bdSize + _pixmapSize.width();
-    if ( _textSize.width() != 0)
+    if ( _textSize.width() != 0) {
       headerLineWidth += 3*bdSize + _textSize.width();
+    }
 
     width = qMax( 2*pw + _childSize.width(), headerLineWidth );
     height = qMax( _textSize.height(), _pixmapSize.height() ) +
@@ -265,9 +265,9 @@ void CompoundWidget::mousePressEvent( QMouseEvent* event )
        QRect( _pixmapPos, _pixmapSize ).contains( event->pos() ) ) {
     // Skip otherwise we will never see the mouse release
     // since it is eaten by Editor window.
-  }
-  else
+  } else {
     SingleContainerWidget::mousePressEvent( event );
+  }
 }
 
 void CompoundWidget::mouseReleaseEvent( QMouseEvent* event)
@@ -278,9 +278,9 @@ void CompoundWidget::mouseReleaseEvent( QMouseEvent* event)
     _editorWindow->updateContent( 0 );
     repaint(); // is this necesary?
     _editorWindow->emitChange();
-  }
-  else
+  } else {
     SingleContainerWidget::mouseReleaseEvent( event );
+  }
 }
 
 bool CompoundWidget::updateSelection( bool parentSelected )
@@ -288,11 +288,11 @@ bool CompoundWidget::updateSelection( bool parentSelected )
   if ( _hidden ) {
     bool changed = RegExpWidget::updateSelection( parentSelected );
     _child->selectWidget( _isSelected );
-    if (changed)
+    if (changed) {
       repaint();
+    }
     return changed;
-  }
-  else {
+  } else {
     return SingleContainerWidget::updateSelection( parentSelected );
   }
 }

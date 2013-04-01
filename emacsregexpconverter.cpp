@@ -126,9 +126,9 @@ QString EmacsRegExpConverter::toString( TextRangeRegExp* regexp, bool /*markSele
 
 	QString res = QString::fromLatin1("[");
 
-	if ( regexp->negate() )
+	if ( regexp->negate() ) {
 		res.append(QString::fromLatin1("^"));
-
+	}
 
 	// a ']' must be the first character in teh range.
 	if ( foundParenthesis ) {
@@ -144,12 +144,17 @@ QString EmacsRegExpConverter::toString( TextRangeRegExp* regexp, bool /*markSele
 
 	// Insert equivalents to \s,\S,\d,\D,\w, and \W
     // non-digit, non-space, and non-word is not supported in Emacs style
-    if ( regexp->digit() )
+    if ( regexp->digit() ) {
         res += QString::fromLocal8Bit("0-9");
-    if ( regexp->space() )
+    }
+
+    if ( regexp->space() ) {
         res += QString::fromLocal8Bit(" ") + QString( QChar( (char) 9 ) ); // Tab char
-    if ( regexp->wordChar() )
+    }
+
+    if ( regexp->wordChar() ) {
         res += QString::fromLocal8Bit("a-zA-Z");
+    }
 
 	if ( foundCarrot ) {
 		res.append( QChar( '^' ) );
@@ -209,8 +214,7 @@ QString EmacsRegExpConverter::toString( RepeatRegExp* regexp, bool markSelection
     }
     else if ( regexp->min() == 1 && regexp->max() == -1 ) {
         return startPar + cText + endPar + QString::fromLocal8Bit("+");
-    }
-    else {
+    } else {
         QString res = QString::fromLatin1("");
         for ( int i = 0; i < regexp->min(); ++i ) {
             res += QString::fromLatin1( "\\(" ) + cText + QString::fromLatin1( "\\)" );
@@ -219,9 +223,9 @@ QString EmacsRegExpConverter::toString( RepeatRegExp* regexp, bool markSelection
             for ( int i = regexp->min(); i < regexp->max(); ++i ) {
                 res += QString::fromLatin1("\\(") + cText + QString::fromLatin1("\\)?");
             }
-        }
-        else
+        } else {
             res += QString::fromLatin1("+");
+        }
 
         return res;
     }

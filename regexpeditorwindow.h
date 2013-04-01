@@ -87,15 +87,23 @@ public:
     */
     void updateContent(QWidget* focusChild);
 
-    RegExp* pasteData() { return _pasteData; }
-    bool isPasteing() const { return _pasteInAction; }
-    bool isInserting() const { return _insertInAction; }
+    RegExp* pasteData() {
+      return _pasteData;
+    }
+    bool isPasteing() const {
+      return _pasteInAction;
+    }
+    bool isInserting() const {
+      return _insertInAction;
+    }
 
     /**
        Returns the type currently being inserted.
        This is the type, which was given to @ref slotInsertRegExp
     */
-    RegExpType insertType() const { return _insertTp; }
+    RegExpType insertType() const {
+      return _insertTp;
+    }
 
     /**
        Create a regexp widget, so that it wraps around the current selected

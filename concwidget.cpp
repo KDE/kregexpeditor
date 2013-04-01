@@ -134,8 +134,10 @@ void ConcWidget::paintEvent( QPaintEvent *e)
 
     for ( int i = 1; i < _children.count(); i += 2 ) {
       DragAccepter* accepter = dynamic_cast<DragAccepter*>(_children.at(i-1));
-      if (!accepter)
+      if (!accepter) {
         continue;
+      }
+
       RegExpWidget* child = _children.at(i);
 
       QSize childSize = child->sizeHint();
@@ -144,7 +146,10 @@ void ConcWidget::paintEvent( QPaintEvent *e)
       //----------------------------- first place the accepter
       int x = offset;
       int w = accepter->sizeHint().width();
-      if ( i == 1 ) w+= extra;
+      if ( i == 1 ) {
+	w+= extra;
+      }
+
       int h = qMax( lastHeight, childSize.height() );
       int y = (mySize.height() - h)/2;
       accepter->setGeometry( x, y, w, h );
@@ -198,8 +203,7 @@ void ConcWidget::mousePressEvent ( QMouseEvent* event )
 {
   if ( event->button() == Qt::RightButton ) {
     _editorWindow->showRMBMenu( _editorWindow->hasSelection() );
-  }
-  else {
+  } else {
     RegExpWidget::mousePressEvent( event );
   }
 }
@@ -225,8 +229,7 @@ RegExp* ConcWidget::regExp() const
   if ( _children.count() == 3 ) {
     // Exactly one child (and two drag accepters)
     return (*it)->regExp();
-  }
-  else {
+  } else {
     ConcRegExp *regexp = new ConcRegExp( isSelected() );
 
     for ( ; it != _children.constEnd() ; it+=2 ) {
@@ -274,16 +277,16 @@ void ConcWidget::getSelectionIndexes( int* start, int* end )
       if ( *start == -1 ) {
         *start = index;
       }
-    }
-    else if ( *start != -1 ) {
+    } else if ( *start != -1 ) {
       // Found the end of the selection.
       *end = index -2;
       break;
     }
   }
 
-  if ( *start != -1 && *end == -1 )
+  if ( *start != -1 && *end == -1 ) {
     *end = _children.count() -2;
+  }
 }
 
 void ConcWidget::applyRegExpToSelection( RegExpType type )
@@ -302,8 +305,7 @@ void ConcWidget::applyRegExpToSelection( RegExpType type )
         break;
       }
     }
-  }
-  else {
+  } else {
     // Apply RegExp to selection.
     RegExpWidget* newElm = WidgetFactory::createWidget( _editorWindow, this, type );
 
@@ -336,8 +338,9 @@ bool ConcWidget::isSelected() const
 
 RegExp* ConcWidget::selection() const
 {
-  if ( isSelected() )
+  if ( isSelected() ) {
     return regExp();
+  }
 
   bool foundAny = false;
   bool foundMoreThanOne = false;
@@ -350,15 +353,13 @@ RegExp* ConcWidget::selection() const
       if (!foundAny) {
         regexp = (*it)->selection();
         foundAny = true;
-      }
-      else if ( !foundMoreThanOne ) {
+      } else if ( !foundMoreThanOne ) {
         ConcRegExp* reg = new ConcRegExp( isSelected() );
         reg->addRegExp( regexp );
         reg->addRegExp( (*it)->selection() );
         regexp = reg;
         foundMoreThanOne = true;
-      }
-      else {
+      } else {
         dynamic_cast<ConcRegExp*>(regexp)->addRegExp( (*it)->selection() );
       }
     }

@@ -230,11 +230,11 @@ void KRegExpEditorPrivate::slotUpdateEditor( const QString & txt)
           maybeVerify( );
           recordUndoInfo();
           result->check( _errorMap );
-      }
-      else {
+      } else {
           _error->show();
-          if ( _autoVerify )
+          if ( _autoVerify ) {
               _verifier->clearRegexp();
+          }
       }
       delete result;
   }
@@ -243,8 +243,9 @@ void KRegExpEditorPrivate::slotUpdateEditor( const QString & txt)
 
 void KRegExpEditorPrivate::slotUpdateLineEdit()
 {
-  if ( _updating )
+  if ( _updating ) {
     return;
+  }
   _updating = true;
 
   RegExp* regexp = _scrolledEditorWindow->regExp();
@@ -343,10 +344,11 @@ void KRegExpEditorPrivate::setMatchText( const QString& text )
 
 void KRegExpEditorPrivate::maybeVerify()
 {
-    if ( _autoVerify )
+    if ( _autoVerify ) {
         doVerify();
-    else
+    } else {
         _verifyButtons->setMatchCount(-1);
+    }
 }
 
 void KRegExpEditorPrivate::doVerify()
@@ -363,10 +365,11 @@ void KRegExpEditorPrivate::doVerify()
 void KRegExpEditorPrivate::setAutoVerify( bool on )
 {
     _autoVerify = on;
-    if ( !_autoVerify )
+    if ( !_autoVerify ) {
         _verifier->clearRegexp();
-    else
+    } else {
         doVerify();
+    }
 }
 
 void KRegExpEditorPrivate::setVerifyText( const QString& fileName )
@@ -376,8 +379,7 @@ void KRegExpEditorPrivate::setVerifyText( const QString& fileName )
     QFile file( fileName );
     if ( !file.open( QIODevice::ReadOnly ) ) {
         KMessageBox::sorry(0, i18n("Could not open file '%1' for reading", fileName ) );
-    }
-    else {
+    } else {
         QTextStream s( &file );
         QString txt = s.readAll();
         file.close();
@@ -406,8 +408,7 @@ void KRegExpEditorPrivate::setSyntax( const QString& syntax )
     if ( converter->canParse() ) {
         _regexpEdit->setReadOnly( false );
         _regexpEdit->setBackgroundRole( QPalette::Base );
-    }
-    else {
+    } else {
         _regexpEdit->setReadOnly( true );
         _regexpEdit->setBackgroundRole( QPalette::Background );
     }

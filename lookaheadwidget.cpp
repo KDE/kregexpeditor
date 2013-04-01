@@ -37,18 +37,20 @@ LookAheadWidget::LookAheadWidget( LookAheadRegExp* regexp, RegExpEditorWindow* e
   :SingleContainerWidget( editorWindow, parent ), _tp(tp)
 {
   RegExpWidget* child = WidgetFactory::createWidget( regexp->child(), editorWindow, this );
-  if ( ! (_child = dynamic_cast<ConcWidget*>( child ) ) )
+  if ( ! (_child = dynamic_cast<ConcWidget*>( child ) ) ) {
     _child = new ConcWidget( editorWindow, child, this );
+  }
 
   init();
 }
 
 void LookAheadWidget::init()
 {
-  if ( _tp == POSLOOKAHEAD )
+  if ( _tp == POSLOOKAHEAD ) {
     _text = i18n("Pos. Look Ahead");
-  else
+  } else {
     _text = i18n("Neg. Look Ahead");
+  }
 }
 
 RegExp* LookAheadWidget::regExp() const

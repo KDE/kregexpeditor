@@ -60,8 +60,9 @@ void TextWidget::slotUpdate()
   // case the parent would not repaint, and the text widget would not be
   // resized.
   QWidget *p = static_cast<QWidget*>(parent());
-  if (p)
+  if (p) {
     p->repaint();
+  }
   _editorWindow->updateContent( this );
 }
 

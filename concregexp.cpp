@@ -44,18 +44,20 @@ bool ConcRegExp::check( ErrorMap& map, bool first, bool last)
     RegExpListIt it(list);
     while(it.hasNext()) {
         possibleEmpty = it.next()->check( map, f, last && !it.hasNext() ) && possibleEmpty;
-        if ( ! possibleEmpty )
+        if ( ! possibleEmpty ) {
             f = false;
+	}
     }
     return possibleEmpty;
 }
 
 RegExp* ConcRegExp::lastRegExp()
 {
-    if ( list.count() == 0)
+    if ( list.count() == 0) {
         return 0;
-    else
+    } else {
         return list.at( list.count()-1);
+    }
 }
 
 QDomNode ConcRegExp::toXml( QDomDocument* doc ) const
@@ -72,12 +74,14 @@ bool ConcRegExp::load( QDomElement top, const QString& version )
     Q_ASSERT( top.tagName() == QString::fromLocal8Bit( "Concatenation" ) );
 
     for ( QDomNode child = top.firstChild(); !child.isNull(); child = child.nextSibling() ) {
-        if ( ! child.isElement() )
+        if ( ! child.isElement() ) {
             continue; // User might have added a comment.
+        }
 
         RegExp* regexp = WidgetFactory::createRegExp( child.toElement(), version );
-        if ( regexp == 0 )
+        if ( regexp == 0 ) {
             return false;
+        }
         addRegExp( regexp );
     }
     return true;
@@ -86,23 +90,27 @@ bool ConcRegExp::load( QDomElement top, const QString& version )
 bool ConcRegExp::operator==( const RegExp& other ) const
 {
     // TODO: Merge with AltnRegExp::operator==
-    if ( list.count() == 1 )
+    if ( list.count() == 1 ) {
         return ( other == *(const_cast< QList<RegExp *>& >(list).at(0)) );
+    }
 
-    if ( other.type() != type() )
+    if ( other.type() != type() ) {
         return false;
+    }
 
     const ConcRegExp& theOther = dynamic_cast<const ConcRegExp&>( other );
 
-    if ( list.count() != theOther.list.count() )
+    if ( list.count() != theOther.list.count() ) {
         return false;
+    }
 
     RegExpListIt it1( list );
     RegExpListIt it2( theOther.list );
 
     while( it1.hasNext() && it2.hasNext() ) {
-        if ( ! (it1.next() == it2.next()) )
+        if ( ! (it1.next() == it2.next()) ) {
             return false;
+        }
     }
     return true;
 }
@@ -129,8 +137,9 @@ void ConcRegExp::replacePart( CompoundRegExp* replacement )
 
         // See if replacement is a sublist of list starting from what it1 points at
         for ( ; it2 != list.end() && it3 != otherConc->list.end() && match ; ) {
-            if (! ( **it2 == **it3 ) )
+            if (! ( **it2 == **it3 ) ) {
                 match = false;
+            }
             ++it2;
             ++it3;
             ++count;
@@ -146,13 +155,10 @@ void ConcRegExp::replacePart( CompoundRegExp* replacement )
             RegExp* theClone = replacement->clone();
             newList.append( theClone );
             addChild( theClone );
-        }
-        else {
+        } else {
             newList.append( *it1 );
             ++it1;
         }
     }
     list = newList;
 }
-
-

@@ -112,8 +112,9 @@ int RegExpWidget::edit()
 
 void RegExpWidget::mousePressEvent ( QMouseEvent* event )
 {
-  if ( _editorWindow->isPasteing() || _editorWindow->isInserting() )
+  if ( _editorWindow->isPasteing() || _editorWindow->isInserting() ) {
     return;
+  }
 
   if ( event->button() == Qt::LeftButton ) {
     if ( ! _editorWindow->pointSelected( QCursor::pos() ) ) {
@@ -141,8 +142,9 @@ void RegExpWidget::mousePressEvent ( QMouseEvent* event )
 void RegExpWidget::mouseReleaseEvent( QMouseEvent* )
 {
   if ( _editorWindow->isInserting() && acceptWidgetInsert( _editorWindow->insertType() ) ) {
-    if ( !_editorWindow->hasSelection() )
+    if ( !_editorWindow->hasSelection() ) {
       _isSelected = true;
+    }
 
     _editorWindow->applyRegExpToSelection( _editorWindow->insertType() );
     _editorWindow->clearSelection( true );
@@ -168,19 +170,20 @@ void RegExpWidget::updateCursorShape()
   QCursor cursor;
 
   if ( _editorWindow->isPasteing() ) {
-    if ( acceptWidgetPaste() )
+    if ( acceptWidgetPaste() ) {
       cursor =  Qt::CrossCursor;
-    else
+    } else {
       cursor =  Qt::ForbiddenCursor;
-  }
-  else if ( _editorWindow->isInserting() ) {
-    if ( acceptWidgetInsert( _editorWindow->insertType() ) )
+    }
+  } else if ( _editorWindow->isInserting() ) {
+    if ( acceptWidgetInsert( _editorWindow->insertType() ) ) {
       cursor = Qt::CrossCursor;
-    else
+    } else {
       cursor = Qt::ForbiddenCursor;
-  }
-  else
+    }
+  } else {
     cursor = Qt::ArrowCursor;
+  }
 
   setCursor( cursor );
 }
@@ -203,10 +206,11 @@ bool RegExpWidget::acceptWidgetInsert( RegExpType tp ) const
 
 RegExpWidget* RegExpWidget::widgetUnderPoint( QPoint globalPos, bool )
 {
-  if ( QRect(mapToGlobal( QPoint(0,0) ), size() ).contains( globalPos ) )
+  if ( QRect(mapToGlobal( QPoint(0,0) ), size() ).contains( globalPos ) ) {
     return this;
-  else
+  } else {
     return 0;
+  }
 }
 
 void RegExpWidget::selectWidget( bool sel)

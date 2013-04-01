@@ -33,8 +33,7 @@ void SelectableLineEdit::setSelected( bool selected )
     QPalette pal = palette();
     pal.setBrush( QPalette::Base, Qt::gray );
     setPalette( pal );
-  }
-  else {
+  } else {
     setPalette(QPalette());
   }
   repaint();
@@ -49,10 +48,12 @@ QSize SelectableLineEdit::sizeHint() const
   int height = KLineEdit::sizeHint().height();
 
   int width;
-  if ( hasFocus() )
+  if ( hasFocus() ) {
     width = actualSize+6*charWidth + frameWidth;
-  else
+  } else {
     width = qMax(actualSize, charWidth) + frameWidth;
+  }
+
   return QSize( width , height );
 }
 

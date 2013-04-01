@@ -31,8 +31,9 @@ RegExp::~RegExp()
 {
   _destructing = true;
   qDeleteAll(_children);
-  if ( _parent )
+  if ( _parent ) {
     _parent->removeChild( this );
+  }
   _parent = 0;
 }
 
@@ -57,8 +58,10 @@ void RegExp::setParent( RegExp* parent )
 RegExp* RegExp::readRegExp( QDomElement top, const QString& version )
 {
   for ( QDomNode node = top.firstChild(); !node.isNull(); node = node.nextSibling() ) {
-    if (!node.isElement() )
+    if (!node.isElement() ) {
       continue; // skip past comments
+    }
+
     RegExp* regexp = WidgetFactory::createRegExp(node.toElement(), version );
     return regexp;
   }

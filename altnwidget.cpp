@@ -85,8 +85,9 @@ QSize AltnWidget::sizeHint() const
   QList<RegExpWidget *>::const_iterator it = _children.constBegin();
   // Skip the first child, as we only need half of the size of the first and the
   // last drag accepter. Does, however, not apply when there only is onw child.
-  if ( _children.count() != 1 )
+  if ( _children.count() != 1 ) {
     ++it;
+  }
 
   _childrenWidth = 0;
   _childrenHeight = 0;
@@ -193,9 +194,9 @@ void AltnWidget::applyRegExpToSelection( RegExpType type )
 
 RegExp* AltnWidget::selection() const
 {
-  if ( isSelected() )
+  if ( isSelected() ) {
     return regExp();
-  else {
+  } else {
     QList<RegExpWidget *>::const_iterator it = _children.constBegin();
     ++it; // Skip past DragAccepter
     for ( ; *it; it+=2 ) {
@@ -240,8 +241,9 @@ void AltnWidget::updateDrawLineInfo()
   for ( int i=0; i < _children.count(); i+=2 ) {
     bool line = ( i != 0 && i!= _children.count()-1 );
     DragAccepter *accepter = dynamic_cast<DragAccepter*>(_children.at(i));
-    if (accepter)
+    if (accepter) {
       accepter->setDrawLine( line );
+    }
   }
 }
 

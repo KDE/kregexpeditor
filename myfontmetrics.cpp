@@ -26,8 +26,9 @@ QSize HackCalculateFontSize(QFontMetrics fm, QString str )
   int maxWidth = 0;
   int height = 0;
 
-  if (str.isEmpty())
+  if (str.isEmpty()) {
     return QSize( 0, 0 );
+  }
   list = str.split( QString::fromLatin1("\n"), QString::SkipEmptyParts);
 
   for ( QStringList::Iterator it = list.begin(); it != list.end(); ++it ) {

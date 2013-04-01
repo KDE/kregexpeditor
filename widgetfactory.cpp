@@ -93,23 +93,23 @@ RegExpWidget* WidgetFactory::createWidget( RegExp* regexp, RegExpEditorWindow* e
   if ( regexp == 0 ) {
     qFatal("%s:%d Regexp is 0", __FILE__, __LINE__ );
   }
-  else if ( TextRegExp* reg = dynamic_cast<TextRegExp*>( regexp ) )
+  else if ( TextRegExp* reg = dynamic_cast<TextRegExp*>( regexp ) ) {
     return new TextWidget( reg, editorWindow, parent );
-  else if ( TextRangeRegExp* reg = dynamic_cast<TextRangeRegExp*>( regexp ) )
+  } else if ( TextRangeRegExp* reg = dynamic_cast<TextRangeRegExp*>( regexp ) ) {
     return new CharactersWidget( reg, editorWindow, parent );
-  else if ( RepeatRegExp* reg = dynamic_cast<RepeatRegExp*>( regexp ) )
+  } else if ( RepeatRegExp* reg = dynamic_cast<RepeatRegExp*>( regexp ) ) {
     return new RepeatWidget( reg, editorWindow, parent );
-  else if ( LookAheadRegExp* reg = dynamic_cast<LookAheadRegExp*>( regexp ) ) {
-    if ( reg->lookAheadType() == LookAheadRegExp::POSITIVE )
+  } else if ( LookAheadRegExp* reg = dynamic_cast<LookAheadRegExp*>( regexp ) ) {
+    if ( reg->lookAheadType() == LookAheadRegExp::POSITIVE ) {
       return new LookAheadWidget( reg, editorWindow, POSLOOKAHEAD, parent );
-    else
+    } else {
       return new LookAheadWidget( reg, editorWindow, NEGLOOKAHEAD, parent );
-  }
-  else if ( ConcRegExp* reg = dynamic_cast<ConcRegExp*>( regexp ) )
+    }
+  } else if ( ConcRegExp* reg = dynamic_cast<ConcRegExp*>( regexp ) ) {
     return new ConcWidget( reg, editorWindow, parent );
-  else if ( AltnRegExp* reg = dynamic_cast<AltnRegExp*>( regexp ) )
+  } else if ( AltnRegExp* reg = dynamic_cast<AltnRegExp*>( regexp ) ) {
     return new AltnWidget( reg, editorWindow, parent );
-  else if ( PositionRegExp* reg = dynamic_cast<PositionRegExp*>( regexp ) ) {
+  } else if ( PositionRegExp* reg = dynamic_cast<PositionRegExp*>( regexp ) ) {
     switch ( reg->position() ) {
     case PositionRegExp::BEGLINE:
       return new BegLineWidget( editorWindow, parent );
@@ -120,12 +120,11 @@ RegExpWidget* WidgetFactory::createWidget( RegExp* regexp, RegExpEditorWindow* e
     case PositionRegExp::NONWORDBOUNDARY:
       return new NonWordBoundaryWidget( editorWindow, parent );
     }
-  }
-  else if ( dynamic_cast<DotRegExp*>( regexp ) )
+  } else if ( dynamic_cast<DotRegExp*>( regexp ) ) {
     return new AnyCharWidget( editorWindow, parent );
-  else if ( CompoundRegExp* reg = dynamic_cast<CompoundRegExp*>( regexp ) )
+  } else if ( CompoundRegExp* reg = dynamic_cast<CompoundRegExp*>( regexp ) ) {
     return new CompoundWidget( reg, editorWindow, parent );
-  else {
+  } else {
     qFatal("%s:%d Internal Error: Unknown RegExp type", __FILE__, __LINE__);
   }
   return 0;
@@ -135,33 +134,33 @@ RegExp* WidgetFactory::createRegExp( QDomElement node, const QString& version )
 {
   QString tag = node.tagName();
   RegExp* regexp;
-  if ( tag == QString::fromLocal8Bit( "TextRange" ) )
+  if ( tag == QString::fromLocal8Bit( "TextRange" ) ) {
     regexp = new TextRangeRegExp( false );
-  else if ( tag == QString::fromLocal8Bit( "Text" ) )
+  } else if ( tag == QString::fromLocal8Bit( "Text" ) ) {
     regexp = new TextRegExp( false );
-  else if ( tag == QString::fromLocal8Bit( "Concatenation" ) )
+  } else if ( tag == QString::fromLocal8Bit( "Concatenation" ) ) {
     regexp = new ConcRegExp( false );
-  else if ( tag == QString::fromLocal8Bit( "Alternatives" ) )
+  } else if ( tag == QString::fromLocal8Bit( "Alternatives" ) ) {
     regexp = new AltnRegExp( false );
-  else if ( tag == QString::fromLocal8Bit( "BegLine" ) )
+  } else if ( tag == QString::fromLocal8Bit( "BegLine" ) ) {
     regexp = new PositionRegExp( false, PositionRegExp::BEGLINE );
-  else if ( tag == QString::fromLocal8Bit( "EndLine" ) )
+  } else if ( tag == QString::fromLocal8Bit( "EndLine" ) ) {
     regexp = new PositionRegExp( false, PositionRegExp::ENDLINE );
-  else if ( tag == QString::fromLocal8Bit( "WordBoundary" ) )
+  } else if ( tag == QString::fromLocal8Bit( "WordBoundary" ) ) {
     regexp = new PositionRegExp( false, PositionRegExp::WORDBOUNDARY );
-  else if ( tag == QString::fromLocal8Bit( "NonWordBoundary" ) )
+  } else if ( tag == QString::fromLocal8Bit( "NonWordBoundary" ) ) {
     regexp = new PositionRegExp( false, PositionRegExp::NONWORDBOUNDARY );
-  else if ( tag == QString::fromLocal8Bit( "PositiveLookAhead" ) )
+  } else if ( tag == QString::fromLocal8Bit( "PositiveLookAhead" ) ) {
     regexp = new LookAheadRegExp( false, LookAheadRegExp::POSITIVE );
-  else if ( tag == QString::fromLocal8Bit( "NegativeLookAhead" ) )
+  } else if ( tag == QString::fromLocal8Bit( "NegativeLookAhead" ) ) {
     regexp = new LookAheadRegExp( false, LookAheadRegExp::NEGATIVE );
-  else if ( tag == QString::fromLocal8Bit( "Compound" ) )
+  } else if ( tag == QString::fromLocal8Bit( "Compound" ) ) {
     regexp = new CompoundRegExp( false );
-  else if ( tag == QString::fromLocal8Bit( "AnyChar" ) )
+  } else if ( tag == QString::fromLocal8Bit( "AnyChar" ) ) {
     regexp = new DotRegExp( false );
-  else if ( tag == QString::fromLocal8Bit( "Repeat" ) )
+  } else if ( tag == QString::fromLocal8Bit( "Repeat" ) ) {
     regexp = new RepeatRegExp( false );
-  else {
+  } else {
     KMessageBox::sorry( 0, i18n("<p>Unknown tag while reading XML. Tag was <b>%1</b></p>", tag),
                         i18n("Error While Loading From XML File") ) ;
 
@@ -169,9 +168,9 @@ RegExp* WidgetFactory::createRegExp( QDomElement node, const QString& version )
   }
 
   bool ok = regexp->load( node, version );
-  if (ok)
+  if (ok) {
     return regexp;
-  else {
+  } else {
     delete regexp;
     return 0;
   }

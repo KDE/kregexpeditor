@@ -52,20 +52,33 @@ QDomNode TextRangeRegExp::toXml( QDomDocument* doc ) const
 {
     QDomElement top = doc->createElement( QString::fromLocal8Bit( "TextRange" ) );
 
-    if ( _negate )
+    if ( _negate ) {
         top.setAttribute( QString::fromLocal8Bit("negate"), true );
-    if ( _digit )
+    }
+
+    if ( _digit ) {
         top.setAttribute( QString::fromLocal8Bit("digit"), true );
-    if ( _nonDigit )
+    }
+
+    if ( _nonDigit ) {
         top.setAttribute( QString::fromLocal8Bit("nonDigit"), true );
-    if ( _space )
+    }
+
+    if ( _space ) {
         top.setAttribute( QString::fromLocal8Bit("space"), true );
-    if ( _nonSpace )
+    }
+
+    if ( _nonSpace ) {
         top.setAttribute( QString::fromLocal8Bit("nonSpace"), true );
-    if ( _wordChar )
+    }
+
+    if ( _wordChar ) {
         top.setAttribute( QString::fromLocal8Bit("wordChar"), true );
-    if ( _nonWordChar )
+    }
+
+    if ( _nonWordChar ) {
         top.setAttribute( QString::fromLocal8Bit("nonWordChar"), true );
+    }
 
     for ( QStringList::ConstIterator it = _chars.begin(); it != _chars.end(); ++it ) {
         QDomElement elm = doc->createElement( QString::fromLocal8Bit( "Character" ) );
@@ -112,20 +125,19 @@ bool TextRangeRegExp::load( QDomElement top, const QString& /*version*/ )
     _nonWordChar = ( str == one );
 
     for ( QDomNode node = top.firstChild(); !node.isNull(); node = node.nextSibling() ) {
-        if ( !node.isElement() )
+        if ( !node.isElement() ) {
             continue; // Skip comments.
+	}
         QDomElement child = node.toElement();
 
         if ( child.tagName() == QString::fromLocal8Bit( "Character" ) ) {
             QString ch = child.attribute( QString::fromLocal8Bit( "char" ) );
             addCharacter( ch );
-        }
-        else if ( child.tagName() == QString::fromLocal8Bit( "Range" ) ) {
+        } else if ( child.tagName() == QString::fromLocal8Bit( "Range" ) ) {
             QString from = child.attribute( QString::fromLocal8Bit( "from" ) );
             QString to = child.attribute( QString::fromLocal8Bit( "to" ) );
             addRange( from, to );
-        }
-        else {
+        } else {
             KMessageBox::sorry( 0, i18n("<p>Invalid sub element to element <b>TextRange</b>. Tag was <b>%1</b></p>", child.tagName()),
                                 i18n("Error While Loading From XML File") ) ;
             return false;
@@ -139,4 +151,3 @@ bool TextRangeRegExp::operator==( const RegExp& other ) const
     return ( RegExpConverter::current()->toStr( const_cast<TextRangeRegExp*>( this ), false ) ==
              RegExpConverter::current()->toStr( const_cast<RegExp*>( &other ), false ) );
 }
-

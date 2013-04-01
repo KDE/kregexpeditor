@@ -40,8 +40,9 @@ void DragAccepter::paintEvent(QPaintEvent *e)
   QPainter painter(this);
   drawPossibleSelection( painter, size() );
 
-  if ( _drawLine )
+  if ( _drawLine ) {
     painter.drawLine( 0, height()/2, width(), height()/2 );
+  }
 
   RegExpWidget::paintEvent(e);
 }
@@ -50,8 +51,7 @@ void DragAccepter::mousePressEvent ( QMouseEvent* event )
 {
   if ( event->button() == Qt::RightButton ) {
     _editorWindow->showRMBMenu( _editorWindow->hasSelection() );
-  }
-  else {
+  } else {
     RegExpWidget::mousePressEvent( event );
   }
 }
@@ -71,8 +71,9 @@ void DragAccepter::mouseReleaseEvent( QMouseEvent* event )
       Q_ASSERT( elm );
 
       RegExpWidget *w = dynamic_cast<RegExpWidget*>(parent());
-      if (w)
+      if (w) {
         w->addNewConcChild(this, elm);
+      }
       _editorWindow->updateContent( this );
       _editorWindow->clearSelection( true );
     }
@@ -81,15 +82,15 @@ void DragAccepter::mouseReleaseEvent( QMouseEvent* event )
     if ( WidgetFactory::isContainer( _editorWindow->insertType() ) &&
          _editorWindow->pointSelected( mapToGlobal( event->pos() ) ) ) {
       RegExpWidget::mouseReleaseEvent( event );
-    }
-    else {
+    } else {
       RegExpWidget *child = WidgetFactory::createWidget( _editorWindow,
                                                          dynamic_cast<QWidget*>(parent()),
                                                          _editorWindow->insertType() );
       if ( child ) {
         RegExpWidget *w = dynamic_cast<RegExpWidget*>(parent());
-        if (w)
+        if (w) {
           w->addNewChild(this, child);
+	}
         _editorWindow->updateContent( child );
         child->setFocus();
         _editorWindow->clearSelection( true );
@@ -124,17 +125,20 @@ void DragAccepter::dropEvent(QDropEvent *event)
   Q_ASSERT( elm );
 
   RegExpWidget *rew = dynamic_cast<RegExpWidget*>(parent());
-  if (rew)
+  if (rew) {
     rew->addNewConcChild(this, elm);
+  }
+
   QWidget *w = dynamic_cast<QWidget*>(parent());
-  if (w)
+  if (w) {
     w->update();
+  }
   _editorWindow->updateContent( this );
 
   bool selfDrag = (  event->source() && event->source()->topLevelWidget() == topLevelWidget() );
-  if ( ! selfDrag )
+  if ( ! selfDrag ) {
     _editorWindow->clearSelection( true );
-  else {
+  } else {
     // selection should not be cleared here, since we might want to delete it.
   }
   event->setDropAction(Qt::MoveAction);

@@ -113,23 +113,29 @@ QString CharactersWidget::text() const
 {
     QString res = QString::fromLatin1("");
 
-    if (_regexp->wordChar())
+    if (_regexp->wordChar()) {
         res += i18n("- A word character\n");
+    }
 
-    if (_regexp->nonWordChar())
+    if (_regexp->nonWordChar()) {
         res += i18n("- A non-word character\n");
+    }
 
-    if (_regexp->digit())
+    if (_regexp->digit()) {
         res += i18n("- A digit character\n");
+    }
 
-    if (_regexp->nonDigit())
+    if (_regexp->nonDigit()) {
         res += i18n("- A non-digit character\n");
+    }
 
-    if ( _regexp->space() )
+    if ( _regexp->space() ) {
         res += i18n("- A space character\n");
+    }
 
-    if ( _regexp->nonSpace() )
+    if ( _regexp->nonSpace() ) {
         res += i18n("- A non-space character\n");
+    }
 
     // Single characters
     QStringList chars = _regexp->chars();
@@ -156,19 +162,21 @@ QString CharactersWidget::text() const
 
 QString CharactersWidget::title() const
 {
-    if (_regexp->negate())
+    if (_regexp->negate()) {
         return i18n("Any Character Except");
-    else
+    } else {
         return i18n("One of Following Characters");
+    }
 }
 
 
 RegExpWidget* CharactersWidget::findWidgetToEdit( QPoint globalPos )
 {
-    if ( QRect(mapToGlobal(QPoint(0,0)), size()).contains( globalPos ) )
+    if ( QRect(mapToGlobal(QPoint(0,0)), size()).contains( globalPos ) ) {
         return this;
-    else
+    } else {
         return 0;
+    }
 }
 
 int CharactersWidget::edit()
@@ -246,8 +254,9 @@ int CharacterEdits::exec( TextRangeRegExp* regexp )
     KMultiFormListBoxEntryList list1 = _single->elements();
     foreach ( KMultiFormListBoxEntry * e, list1 ) {
         SingleEntry* entry = dynamic_cast<SingleEntry*>( e );
-        if (entry)
+        if (entry) {
             entry->setText( QString::fromLocal8Bit("") );
+	}
     }
     QStringList list2 = regexp->chars();
     for ( QStringList::Iterator it2( list2.begin() ); it2 != list2.end(); ++it2 ) {
@@ -291,7 +300,6 @@ CharacterEdits::CharacterEdits( QWidget *parent)
 
     negate = new QCheckBox(i18n("Do not match the characters specified here"));
     topLayout->addWidget( negate );
-
 
     // The predefined box
     QGroupBox *predefined = new QGroupBox(i18n("Predefined Character Ranges"));

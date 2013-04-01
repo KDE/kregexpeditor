@@ -46,8 +46,9 @@ RepeatWidget::RepeatWidget( RepeatRegExp* regexp, RegExpEditorWindow* editorWind
 {
   init();
   RegExpWidget* child = WidgetFactory::createWidget( regexp->child(), editorWindow, this );
-  if ( ! (_child = dynamic_cast<ConcWidget*>( child ) ) )
+  if ( ! (_child = dynamic_cast<ConcWidget*>( child ) ) ) {
     _child = new ConcWidget( editorWindow, child, this );
+  }
 
   if ( regexp->max() == -1 ) {
     if ( regexp->min() == 0 ) {

@@ -22,8 +22,9 @@
 LookAheadRegExp::LookAheadRegExp( bool selected, TYPE tp, RegExp* child )
     : RegExp( selected ), _child( child ), _tp( tp )
 {
-    if ( child )
+    if ( child ) {
         addChild( child );
+    }
 }
 
 bool LookAheadRegExp::check( ErrorMap& map, bool , bool last )
@@ -38,10 +39,11 @@ bool LookAheadRegExp::check( ErrorMap& map, bool , bool last )
 QDomNode LookAheadRegExp::toXml( QDomDocument* doc ) const
 {
     QDomElement top;
-    if ( _tp == POSITIVE )
+    if ( _tp == POSITIVE ) {
         top = doc->createElement( QString::fromLocal8Bit("PositiveLookAhead") );
-    else
+    } else {
         top = doc->createElement( QString::fromLocal8Bit("NegativeLookAhead") );
+    }
 
     top.appendChild( _child->toXml( doc ) );
     return top;
@@ -53,21 +55,23 @@ bool LookAheadRegExp::load( QDomElement top, const QString& version )
     if ( _child ) {
         addChild( _child );
         return true;
-    }
-    else
+    } else {
         return false;
+    }
 }
 
 
 bool LookAheadRegExp::operator==( const RegExp& other ) const
 {
-    if ( type() != other.type() )
+    if ( type() != other.type() ) {
         return false;
+    }
 
     const LookAheadRegExp& theOther = dynamic_cast<const LookAheadRegExp&>( other );
 
-    if ( lookAheadType() != theOther.lookAheadType() )
+    if ( lookAheadType() != theOther.lookAheadType() ) {
         return false;
+    }
 
     return ( *_child == *(theOther._child) );
 }

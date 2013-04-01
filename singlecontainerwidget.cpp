@@ -30,8 +30,9 @@ bool SingleContainerWidget::updateSelection( bool parentSelected )
 {
   bool changed = RegExpWidget::updateSelection( parentSelected );
   changed = _child->updateSelection( _isSelected ) && changed;
-  if (changed)
+  if (changed) {
     repaint();
+  }
 
   return changed;
 }
@@ -60,10 +61,11 @@ void SingleContainerWidget::applyRegExpToSelection( RegExpType type )
 
 RegExp* SingleContainerWidget::selection() const
 {
-  if ( isSelected() )
+  if ( isSelected() ) {
     return regExp();
-  else
+  } else {
     return _child->selection();
+  }
 }
 
 bool SingleContainerWidget::validateSelection() const
@@ -73,18 +75,19 @@ bool SingleContainerWidget::validateSelection() const
 
 QRect SingleContainerWidget::selectionRect() const
 {
-  if ( _isSelected )
+  if ( _isSelected ) {
     return QRect( mapToGlobal( QPoint(0,0) ), size() );
-  else
+  } else {
     return _child->selectionRect();
+  }
 }
 
 RegExpWidget* SingleContainerWidget::widgetUnderPoint( QPoint globalPos, bool justVisibleWidgets )
 {
   RegExpWidget* wid = _child->widgetUnderPoint( globalPos, justVisibleWidgets );
-  if ( wid )
+  if ( wid ) {
     return wid;
-  else {
+  } else {
     // The child didn't contain the point, then lets see if this widget
     // itself does.
     return RegExpWidget::widgetUnderPoint( globalPos, justVisibleWidgets );
@@ -94,12 +97,13 @@ RegExpWidget* SingleContainerWidget::widgetUnderPoint( QPoint globalPos, bool ju
 RegExpWidget* SingleContainerWidget::findWidgetToEdit( QPoint globalPos )
 {
   RegExpWidget* wid = _child->findWidgetToEdit( globalPos );
-  if ( wid )
+  if ( wid ) {
     return wid;
-  else if ( QRect(mapToGlobal(QPoint(0,0)), size()).contains( globalPos ) )
+  } else if ( QRect(mapToGlobal(QPoint(0,0)), size()).contains( globalPos ) ) {
     return this;
-  else
+  } else {
     return 0;
+  }
 }
 
 void SingleContainerWidget::setConcChild( ConcWidget* conc )

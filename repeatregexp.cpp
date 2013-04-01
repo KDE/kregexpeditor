@@ -26,8 +26,9 @@ RepeatRegExp::RepeatRegExp( bool selected, int lower, int upper, RegExp* child) 
 	_lower = lower;
 	_upper = upper;
 	_child = child;
-    if (child)
-        addChild( child );
+	if (child) {
+		addChild( child );
+	}
 }
 
 bool RepeatRegExp::check( ErrorMap& map, bool first, bool last )
@@ -72,19 +73,21 @@ bool RepeatRegExp::load( QDomElement top, const QString& version )
     if ( _child ) {
         addChild( _child );
         return true;
-    }
-    else
+    } else {
         return false;
+    }
 }
 
 bool RepeatRegExp::operator==( const RegExp& other ) const
 {
-    if ( type() != other.type() )
+    if ( type() != other.type() ) {
         return false;
+    }
 
     const RepeatRegExp& theOther = dynamic_cast<const RepeatRegExp&>( other );
-    if ( _lower != theOther._lower || _upper != theOther._upper )
+    if ( _lower != theOther._lower || _upper != theOther._upper ) {
         return false;
+    }
 
     return (*_child == *(theOther._child) );
 }

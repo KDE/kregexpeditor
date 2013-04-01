@@ -57,8 +57,9 @@ void Verifier::clearRegexp()
 */
 void Verifier::setCaseSensitive( bool b )
 {
-    if ( _highlighter )
+    if ( _highlighter ) {
         _highlighter->setCaseSensitive( b );
+    }
 }
 
 
@@ -67,8 +68,9 @@ void Verifier::setCaseSensitive( bool b )
 */
 void Verifier::setMinimal( bool b )
 {
-    if ( _highlighter )
+    if ( _highlighter ) {
         _highlighter->setMinimal( b );
+    }
 }
 
 // Qt anchors do not work for <pre>...</pre>, thefore scrolling to next/prev match
