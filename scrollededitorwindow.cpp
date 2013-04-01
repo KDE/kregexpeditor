@@ -30,7 +30,7 @@ RegExpScrolledEditorWindow::RegExpScrolledEditorWindow( QWidget* parent)
     _scrollArea = new QScrollArea(this);
     _editorWindow = new RegExpEditorWindow(this);
     _scrollArea->setWidget(_editorWindow);
-    //_scrollArea->setWidgetResizable(true);
+    _scrollArea->setWidgetResizable(true); // Morten Sjøgren: This is for some reason required for pasting to work.
     _scrollArea->ensureWidgetVisible(_editorWindow);
 
     connect( _editorWindow, SIGNAL( contentChanged( QPoint ) ),
@@ -115,7 +115,6 @@ void RegExpScrolledEditorWindow::slotUpdateContentSize( QPoint focusPoint )
         _scrollArea->ensureVisible ( focusPoint.x(), focusPoint.y(), 250,250 );
     }
 }
-
 
 // TODO: add timers, which will make the widget scroll when mouse is located
 // outside the QScrollView.
