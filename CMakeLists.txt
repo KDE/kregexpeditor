@@ -51,7 +51,7 @@ set(kregexpeditorcommon_SRCS
     dcbutton.cpp
     dotregexp.cpp
     dragaccepter.cpp
-    editorwindow.cpp
+    regexpeditorwindow.cpp
     emacsregexpconverter.cpp
     errormap.cpp
     infopage.cpp

@@ -19,7 +19,7 @@
 #ifndef __regexpwidget
 #define __regexpwidget
 
-#include "editorwindow.h"
+#include "regexpeditorwindow.h"
 
 class DragAccepter;
 class RegExp;

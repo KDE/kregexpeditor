@@ -22,7 +22,7 @@
 #include <QtCore/QDebug>
 #include <QtGui/QScrollArea>
 
-#include "editorwindow.h"
+#include "regexpeditorwindow.h"
 
 RegExpScrolledEditorWindow::RegExpScrolledEditorWindow( QWidget* parent)
     : QWidget(parent)

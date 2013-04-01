@@ -16,7 +16,7 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
-#include "editorwindow.h"
+#include "regexpeditorwindow.h"
 
 #include <QMenu>
 #include <QFileInfo>
@@ -453,4 +453,4 @@ QIcon RegExpEditorWindow::getIcon( const QString& name )
     return KIcon( name );
 }
 
-#include "editorwindow.moc"
+#include "regexpeditorwindow.moc"

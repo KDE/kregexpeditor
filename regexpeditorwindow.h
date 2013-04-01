@@ -16,8 +16,8 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
-#ifndef editorwindow_h
-#define editorwindow_h
+#ifndef regexpeditorwindow_h
+#define regexpeditorwindow_h
 
 #include <QtGui/QWidget>
 
@@ -269,4 +269,4 @@ private:
     bool _isDndOperation;
 };
 
-#endif // editorwindow_h
+#endif // regexpeditorwindow_h
