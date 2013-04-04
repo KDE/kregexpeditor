@@ -24,6 +24,7 @@
 K_PLUGIN_FACTORY(KRegExpEditorPluginFactory,
                  registerPlugin<KRegExpEditorGUI>("widget");
                  registerPlugin<KRegExpEditorGUIDialog>("dialog");
+                 registerPlugin<KRegExpEditorGUIDialog>();
 )
 K_EXPORT_PLUGIN(KRegExpEditorPluginFactory("kregexpeditorgui"))
 
