@@ -102,9 +102,7 @@ kde4_add_library(kregexpeditorcommon SHARED ${kregexpeditorcommon_SRCS})
 target_link_libraries(kregexpeditorcommon ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS})
 
 set_target_properties(kregexpeditorcommon PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})
-install(TARGETS kregexpeditorcommon RUNTIME DESTINATION bin
-                       LIBRARY DESTINATION lib
-                       ARCHIVE DESTINATION lib)
+install(TARGETS kregexpeditorcommon ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### next target ###############
 
