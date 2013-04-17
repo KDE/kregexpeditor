@@ -61,7 +61,6 @@ protected slots:
     void updateVerifyButton( bool );
     void loadText();
     void slotChangeSyntax( QAction* action );
-    void configure();
 
 private:
     QToolButton* _verify;

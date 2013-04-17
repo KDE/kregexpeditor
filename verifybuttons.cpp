@@ -49,8 +49,8 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     button = new QToolButton(this);
     button->setIcon( Util::getSystemIconSet( QString::fromLatin1("configure")) );
     addWidget( button );
-    connect(button, SIGNAL(clicked()), this, SLOT(configure()));
     button->setToolTip( i18n("Verification Settings") );
+    button->setPopupMode( QToolButton::InstantPopup );
 
     // It is currently not possible to ask for the paragraph being highlighted, thefore scrolling to next/prev match
     // do not work. Enable this when they work.
@@ -138,6 +138,8 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     connect( grp, SIGNAL( triggered( QAction* ) ), this, SLOT( slotChangeSyntax( QAction* ) ) );
     _languages->setEnabled(false);
 
+    button->setMenu( _configMenu );
+
     // Select the Qt converter by default
     setSyntax( qtConverterName );
 }
@@ -201,11 +203,6 @@ RegExpConverter* VerifyButtons::setSyntax( const QString& which)
     }
     qWarning( "No such converter: '%s'", qPrintable(noAmpersand) );
     return 0;
-}
-
-void VerifyButtons::configure()
-{
-    _configMenu->exec( QCursor::pos() );
 }
 
 void VerifyButtons::setAllowNonQtSyntax( bool b )
