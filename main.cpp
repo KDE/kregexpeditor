@@ -34,16 +34,16 @@ int main( int argc, char* argv[] )
     KCmdLineArgs::init(argc, argv, &aboutData);
     KApplication myapp;
 
-    KDialog* top = new KDialog( 0 );
-    top->setButtons(KDialog::Help | KDialog::Close);
+    KDialog top;
+    top.setButtons(KDialog::Help | KDialog::Close);
 
-    KRegExpEditorGUI* iface = new KRegExpEditorGUI( top );
+    KRegExpEditorGUI* iface = new KRegExpEditorGUI( &top );
     iface->doSomething( QString::fromLatin1("setAllowNonQtSyntax"), (bool*) true );
-    top->setMainWidget(iface);
+    top.setMainWidget(iface);
 
-    QObject::connect( top, SIGNAL( helpClicked() ), iface, SLOT( showHelp() ) );
+    QObject::connect( &top, SIGNAL( helpClicked() ), iface, SLOT( showHelp() ) );
 
-    top->show();
+    top.show();
     QObject::connect( qApp, SIGNAL( lastWindowClosed() ), qApp, SLOT( quit() ) );
     myapp.exec();
 }
