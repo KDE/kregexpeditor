@@ -45,7 +45,7 @@ int main( int argc, char* argv[] )
 
     top.show();
     QObject::connect( qApp, SIGNAL( lastWindowClosed() ), qApp, SLOT( quit() ) );
-    myapp.exec();
+    return myapp.exec();
 }
 
 #include "kregexpeditorgui.moc"
