@@ -26,7 +26,6 @@ class Util
 {
 public:
     static QPixmap getKRegExpEditorIcon( const QString& name );
-    static QPixmap getSystemIcon( const QString& name );
     static QIcon getSystemIconSet( const QString& name );
 };
 

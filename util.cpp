@@ -27,12 +27,6 @@ QPixmap Util::getKRegExpEditorIcon( const QString& name )
   return BarIcon(KStandardDirs::locate("data", QString::fromLatin1("kregexpeditor/pics/") +name ) );
 }
 
-QPixmap Util::getSystemIcon( const QString& name )
-{
-  return BarIcon( name );
-
-}
-
 QIcon Util::getSystemIconSet( const QString& name )
 {
   return KIcon( name );
