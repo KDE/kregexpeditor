@@ -149,7 +149,7 @@ QString CharactersWidget::text() const
         QString fromText = elm.first;
         QString toText = elm.second;
 
-            res += QString::fromLocal8Bit("- ") + i18n("from ") + fromText + i18n(" to ") + toText + QString::fromLocal8Bit("\n");
+        res += i18nc("a range of characters", "- from %1 to %2\n", fromText, toText);
     }
     return res.left(res.length()-1);
 }
