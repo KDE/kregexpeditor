@@ -50,6 +50,7 @@ class KRegExpEditorPrivate : public QMainWindow
 
 public:
     KRegExpEditorPrivate( QWidget *parent );
+    ~KRegExpEditorPrivate();
     QString regexp();
     void setMinimal( bool );
     void setCaseSensitive( bool );

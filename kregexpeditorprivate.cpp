@@ -201,6 +201,11 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
   
 }
 
+KRegExpEditorPrivate::~KRegExpEditorPrivate()
+{
+  qDeleteAll(_redoStack);
+}
+
 QString KRegExpEditorPrivate::regexp()
 {
   RegExp* regexp = _scrolledEditorWindow->regExp();

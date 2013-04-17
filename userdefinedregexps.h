@@ -61,6 +61,7 @@ class WidgetWinItem :public QTreeWidgetItem
 {
 public:
   WidgetWinItem( QString name, RegExp* regexp, bool users, QTreeWidgetItem* parent );
+  ~WidgetWinItem();
   static QString path();
 
   QString fileName() const;

@@ -48,6 +48,7 @@ class RegExpEditorWindow :public QWidget
 
 public:
     RegExpEditorWindow(QWidget *parent);
+    ~RegExpEditorWindow();
 
     /**
        Returns an object which represent the regular expression "drawn" in

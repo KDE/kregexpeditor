@@ -63,6 +63,11 @@ RegExpEditorWindow::RegExpEditorWindow( QWidget *parent)
     connect( this, SIGNAL( change() ), this, SLOT( emitVerifyRegExp() ) );
 }
 
+RegExpEditorWindow::~RegExpEditorWindow()
+{
+    delete _pasteData;
+}
+
 RegExp* RegExpEditorWindow::regExp() const
 {
 	return _top->regExp();

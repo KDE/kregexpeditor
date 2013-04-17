@@ -240,6 +240,11 @@ WidgetWinItem::WidgetWinItem( QString fileName, RegExp* regexp, bool usersRegExp
   setText( 0, _name );
 }
 
+WidgetWinItem::~WidgetWinItem()
+{
+  delete _regexp;
+}
+
 QString WidgetWinItem::fileName() const
 {
   return path() + QLatin1Char('/') +_name + QLatin1String(".regexp");
