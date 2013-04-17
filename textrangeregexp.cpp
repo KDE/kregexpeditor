@@ -40,7 +40,7 @@ void TextRangeRegExp::addCharacter( QString str )
 
 void TextRangeRegExp::addRange(QString from, QString to)
 {
-	_ranges.append( new StringPair( from, to ) );
+	_ranges.append( StringPair( from, to ) );
 }
 
 bool TextRangeRegExp::check( ErrorMap&, bool, bool )
@@ -86,11 +86,10 @@ QDomNode TextRangeRegExp::toXml( QDomDocument* doc ) const
         top.appendChild( elm );
     }
 
-    QList<StringPair *>::const_iterator it2 = _ranges.constBegin();
-    for ( ; it2 != _ranges.constEnd() ; ++it2 ) {
+    foreach ( const StringPair & pair, _ranges ) {
         QDomElement elm = doc->createElement( QString::fromLocal8Bit( "Range" ) );
-        elm.setAttribute( QString::fromLocal8Bit( "from" ), (*it2)->first );
-        elm.setAttribute( QString::fromLocal8Bit( "to" ), (*it2)->second );
+        elm.setAttribute( QString::fromLocal8Bit( "from" ), pair.first );
+        elm.setAttribute( QString::fromLocal8Bit( "to" ), pair.second );
         top.appendChild( elm );
     }
     return top;

@@ -145,16 +145,11 @@ QString CharactersWidget::text() const
     }
 
     // Ranges characters
-    QList<StringPair *> range = _regexp->range();
-    QList<StringPair *>::const_iterator it = range.constBegin();
-    for ( ; it != range.constEnd() ; ++it ) {
-        StringPair* elm = static_cast<StringPair*>(*it);
-        if (elm) {
-            QString fromText = elm->first;
-            QString toText = elm->second;
+    foreach ( const StringPair & elm, _regexp->range() ) {
+        QString fromText = elm.first;
+        QString toText = elm.second;
 
             res += QString::fromLocal8Bit("- ") + i18n("from ") + fromText + i18n(" to ") + toText + QString::fromLocal8Bit("\n");
-        }
     }
     return res.left(res.length()-1);
 }
@@ -273,11 +268,9 @@ int CharacterEdits::exec( TextRangeRegExp* regexp )
         }
     }
 
-    QList<StringPair *> ranges = regexp->range();
-    QList<StringPair *>::const_iterator it4 = ranges.constBegin();
-    for ( ; it4 != ranges.constEnd() ; ++it4 ) {
-        QString from = (*it4)->first;
-        QString to = (*it4)->second;
+    foreach ( const StringPair & elm, _regexp->range() ) {
+        QString from = elm.first;
+        QString to = elm.second;
         addRange(from,to);
     }
 

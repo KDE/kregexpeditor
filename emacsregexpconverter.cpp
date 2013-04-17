@@ -111,10 +111,8 @@ QString EmacsRegExpConverter::toString( TextRangeRegExp* regexp, bool /*markSele
 	}
 
 	// Now insert the ranges.
-    QList<StringPair *> ranges = regexp->range();
-    QList<StringPair *>::const_iterator it = ranges.constBegin();
-    for ( ; it != ranges.constEnd() ; ++it ) {
-		txt.append((*it)->first+ QString::fromLatin1("-")+ (*it)->second);
+    foreach ( const StringPair & elm, regexp->range() ) {
+		txt.append(elm.first+ QString::fromLatin1("-")+ elm.second);
 	}
 
 	// Ok, its time to build each part of the regexp, here comes the rule:
