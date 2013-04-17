@@ -42,6 +42,7 @@ KMultiFormListBox::KMultiFormListBox( KMultiFormListBoxFactory *factory, KMultiF
   QWidget *widget = theWidget->qWidget();
 
   QHBoxLayout *layout = new QHBoxLayout( this );
+  layout->setMargin( 0 );
 	_factory = factory;
   layout->addWidget( widget );
 }
