@@ -67,7 +67,7 @@ AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)
 
 
   QToolButton* button = new QToolButton(this);
-  button->setIcon(static_cast<QIcon> (Util::getSystemIcon( QString::fromLatin1("help-contextual") ) ));
+  button->setIcon( Util::getSystemIconSet( QString::fromLatin1("help-contextual") ));
   addWidget( button );
   connect(button, SIGNAL(clicked()), this, SLOT(slotEnterWhatsThis()));
 

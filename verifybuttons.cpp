@@ -41,13 +41,13 @@ VerifyButtons::VerifyButtons( QWidget* parent, const char* name )
     connect( _verify, SIGNAL( clicked() ), this, SIGNAL( verify() ) );
 
     QToolButton* button = new QToolButton(this);
-    button->setIcon(static_cast<QIcon>( Util::getSystemIcon( QString::fromLatin1("document-open")) ));
+    button->setIcon( Util::getSystemIconSet( QString::fromLatin1("document-open")) );
     addWidget( button );
     connect(button, SIGNAL(clicked()), this, SLOT(loadText()));
     button->setToolTip( i18n("Load text in the verifier window") );
 
     button = new QToolButton(this);
-    button->setIcon(static_cast<QIcon>( Util::getSystemIcon( QString::fromLatin1("configure")) ));
+    button->setIcon( Util::getSystemIconSet( QString::fromLatin1("configure")) );
     addWidget( button );
     connect(button, SIGNAL(clicked()), this, SLOT(configure()));
     button->setToolTip( i18n("Verification Settings") );
