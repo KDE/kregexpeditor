@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=KRegExpEditor
 Name[cs]=KRegExpEditor
+Name[da]=KRegExpEditor
 Name[de]=KRegExpEditor
 Name[es]=KRegExpEditor
 Name[et]=KRegExpEditor
@@ -24,6 +25,7 @@ Exec=kregexpeditor
 X-DocPath=kregexpeditor/index.html
 GenericName=Regular Expression Editor
 GenericName[cs]=Editor regulárních výrazů
+GenericName[da]=Editor til regulære udtryk
 GenericName[de]=Editor für reguläre Ausdrücke
 GenericName[es]=Editor de expresiones regulares
 GenericName[et]=Regulaaravaldiste redaktor
