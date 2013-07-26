@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=RegExp Editor Widget
+Name[bg]=Редактор на регулярни изрази
 Name[cs]=Widget editoru regulárních výrazů
 Name[da]=Widget til reg.udtr-editor
 Name[de]=RegExp-Editorfenster
