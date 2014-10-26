@@ -50,7 +50,6 @@
   int yyerror( yyscan_t scanner, struct parse_context* context, const char * );
   void setParseResult( RegExp*, struct parse_context* );
   RegExp* parseQtRegExp( QString qstr, bool* ok );
-  static int _index;
 %}
 
 %code requires {
@@ -205,7 +204,6 @@ char : TOK_Char {
 %%
 
 RegExp* parseQtRegExp( QString qstr, bool* ok ) {
-  _index = 0;
   struct parse_context context;
   yyscan_t scanner;
   context.result = 0;
