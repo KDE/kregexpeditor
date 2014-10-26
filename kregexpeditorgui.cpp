@@ -43,6 +43,11 @@ KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent,
   connect( _editor, SIGNAL( changes(bool) ), this, SIGNAL( changes(bool) ) );
 }
 
+KRegExpEditorGUI::~KRegExpEditorGUI()
+{
+  delete _editor;
+}
+
 QString KRegExpEditorGUI::regExp() const
 {
   return _editor->regexp();

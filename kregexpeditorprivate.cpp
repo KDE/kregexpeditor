@@ -203,6 +203,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
 
 KRegExpEditorPrivate::~KRegExpEditorPrivate()
 {
+  qDeleteAll(_undoStack);
   qDeleteAll(_redoStack);
 }
 

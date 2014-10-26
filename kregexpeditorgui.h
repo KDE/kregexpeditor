@@ -38,6 +38,7 @@ class KDE_EXPORT KRegExpEditorGUI  :public QWidget, public KRegExpEditorInterfac
 public:
   KRegExpEditorGUI( QWidget *parent, 
                     const QVariantList & = QVariantList() );
+  ~KRegExpEditorGUI();
   virtual QString regExp() const;
 
   static const QString version;
