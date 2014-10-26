@@ -16,6 +16,7 @@
  *  Boston, MA 02110-1301, USA.
  **/
 %option noyywrap
+%option nounput
 
 %{ 
   
@@ -110,8 +111,6 @@ SpecialEsc \\[afnrtv]
 .           { qregexplval.ch = yytext[0]; return TOK_Char; }
 
 %%
-
-void (*jj_junk)(int,char *) = yyunput; /* avoids gcc warning */
 
 void setParseData( QString qstr ) {  
   QByteArray cstr;
