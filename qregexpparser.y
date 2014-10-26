@@ -40,15 +40,26 @@
   #include "positionregexp.h"
   #include "dotregexp.h"
   #include "compoundregexp.h"
+  #include "gen_qregexpparser.hh"
 
-  extern int yylex();
-  extern void setParseData( QString str );
-  int yyerror (const char *);
-  void setParseResult( RegExp* );
+#define YY_EXTRA_TYPE struct parse_context *
+
+  extern int yylex( YYSTYPE* yylval, yyscan_t scanner );
+  extern void scannerInit( yyscan_t* scanner, struct parse_context* context, const QString& qstr );
+  extern void scannerDestroy( yyscan_t scanner );
+  int yyerror( yyscan_t scanner, struct parse_context* context, const char * );
+  void setParseResult( RegExp*, struct parse_context* );
   RegExp* parseQtRegExp( QString qstr, bool* ok );
-  static RegExp* parseResult;
   static int _index;
 %}
+
+%code requires {
+#include "qregexpparsercommon.h"
+#ifndef YY_TYPEDEF_YY_SCANNER_T
+#define YY_TYPEDEF_YY_SCANNER_T
+typedef void *yyscan_t;
+#endif
+}
 
 %union {
   struct {
@@ -79,12 +90,17 @@
 
 %start regexp
 
+%pure-parser
+
+%param { yyscan_t scanner }
+%parse-param { struct parse_context *context }
+
 %%
 
 empty           : /* nothing */ ;
 
-regexp :  expression { setParseResult( $<regexp>1) ; }
-       | empty { setParseResult( new ConcRegExp( false ) ); }
+regexp :  expression { setParseResult( $<regexp>1, context ) ; }
+       | empty { setParseResult( new ConcRegExp( false ), context ); }
        ;
 
 expression : expression TOK_Bar term {
@@ -179,7 +195,7 @@ atom : TOK_LeftParen expression TOK_RightParent {
 
 char : TOK_Char { 
        if ( $<ch>1 == '{' || $<ch>1 == '}' || $<ch>1 == '[' || $<ch>1 == ']' || $<ch>1 == '\\' ) {
-          yyerror( "illigal character - needs escaping" );
+          yyerror( scanner, context, "illigal character - needs escaping" );
        }
        $<regexp>$ = new TextRegExp( false, QString::fromLocal8Bit("%1").arg($<ch>1)); 
      }
@@ -190,18 +206,22 @@ char : TOK_Char {
 
 RegExp* parseQtRegExp( QString qstr, bool* ok ) {
   _index = 0;
-  parseResult = 0;
-  setParseData( qstr );
-  yyparse();
-  *ok = ( yynerrs == 0 );
-  return parseResult;
+  struct parse_context context;
+  yyscan_t scanner;
+  context.result = 0;
+  context.nerrs = 0;
+  scannerInit( &scanner, &context, qstr );
+  (void) yyparse( scanner, &context );
+  scannerDestroy( scanner );
+  *ok = ( context.nerrs == 0 );
+  return context.result;
 }
 
-void setParseResult( RegExp* regexp ) {
-  parseResult = regexp;
+void setParseResult( RegExp* regexp, struct parse_context* context ) {
+  context->result = regexp;
 }
 
-int yyerror(const char *) {
-    yynerrs++;
+int yyerror( yyscan_t, struct parse_context* context, const char * ) {
+  context->nerrs++;
   return 0;
 }

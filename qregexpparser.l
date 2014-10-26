@@ -17,11 +17,14 @@
  **/
 %option noyywrap
 %option nounput
+%option reentrant
+%option bison-bridge
 
 %{ 
   
   #include "textrangeregexp.h"
   #include "gen_qregexpparser.hh"
+  #include "qregexpparsercommon.h"
 
   void parseRange( char* txt, int* min, int* max );  
   RegExp* parseCharClass( char* match );
@@ -40,56 +43,56 @@ SpecialEsc \\[afnrtv]
 "\\d"      { 
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setDigit( true );
-             qregexplval.regexp = regexp;
+             yylval->regexp = regexp;
              return TOK_CharClass;
            }
 "\\D"      { 
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setNonDigit( true );
-             qregexplval.regexp = regexp;
+             yylval->regexp = regexp;
              return TOK_CharClass;
            }
 "\\s"      { 
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setSpace( true );
-             qregexplval.regexp = regexp;
+             yylval->regexp = regexp;
              return TOK_CharClass;
            }
 "\\S"      { 
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setNonSpace( true );
-             qregexplval.regexp = regexp;
+             yylval->regexp = regexp;
              return TOK_CharClass;
            }
 "\\w"      { 
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setWordChar( true );
-             qregexplval.regexp = regexp;
+             yylval->regexp = regexp;
              return TOK_CharClass;
            }
 "\\W"      { 
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->setNonWordChar( true );
-             qregexplval.regexp = regexp;
+             yylval->regexp = regexp;
              return TOK_CharClass;
            }
 {SpecialEsc} {
                TextRangeRegExp* regexp = new TextRangeRegExp( false );
                regexp->addCharacter( QString::fromLocal8Bit( yytext ) );
-               qregexplval.regexp = regexp;
+               yylval->regexp = regexp;
                return TOK_CharClass;
              }
 
 {HexChar}  {
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->addCharacter( QString::fromLocal8Bit(yytext) );
-             qregexplval.regexp = regexp;
+             yylval->regexp = regexp;
              return TOK_CharClass;
            }
 {OctChar}  {
              TextRangeRegExp* regexp = new TextRangeRegExp( false ); 
              regexp->addCharacter( QString::fromLocal8Bit(yytext) );
-             qregexplval.regexp = regexp;
+             yylval->regexp = regexp;
              return TOK_CharClass;
            }
 "."        return TOK_Dot;
@@ -101,22 +104,30 @@ SpecialEsc \\[afnrtv]
 "("        return TOK_LeftParen;
 ")"        return TOK_RightParent;
 "|"        return TOK_Bar;
-"*"        { qregexplval.range.min = 0; qregexplval.range.max=-1; return TOK_Quantifier; }
-"?"        { qregexplval.range.min = 0; qregexplval.range.max=1;  return TOK_Quantifier; }
-"+"        { qregexplval.range.min = 1; qregexplval.range.max=-1; return TOK_Quantifier; }
-{Range}     { parseRange( yytext, &qregexplval.range.min, &qregexplval.range.max ); return TOK_Quantifier; }  
-{CharClass} { qregexplval.regexp = parseCharClass(yytext); return TOK_CharClass; }
-{BackRef}   { qregexplval.backRef = atoi( yytext+1 ); return TOK_BackRef; }
-{Escape}    { qregexplval.ch = yytext[1]; return TOK_EscapeChar; }
-.           { qregexplval.ch = yytext[0]; return TOK_Char; }
+"*"        { yylval->range.min = 0; yylval->range.max=-1; return TOK_Quantifier; }
+"?"        { yylval->range.min = 0; yylval->range.max=1;  return TOK_Quantifier; }
+"+"        { yylval->range.min = 1; yylval->range.max=-1; return TOK_Quantifier; }
+{Range}     { parseRange( yytext, &yylval->range.min, &yylval->range.max ); return TOK_Quantifier; }  
+{CharClass} { yylval->regexp = parseCharClass(yytext); return TOK_CharClass; }
+{BackRef}   { yylval->backRef = atoi( yytext+1 ); return TOK_BackRef; }
+{Escape}    { yylval->ch = yytext[1]; return TOK_EscapeChar; }
+.           { yylval->ch = yytext[0]; return TOK_Char; }
 
 %%
 
-void setParseData( QString qstr ) {  
+void scannerInit( yyscan_t *scanner, struct parse_context *context, const QString& qstr )
+{
+  yylex_init( scanner );
+  yyset_extra( context, *scanner );
   QByteArray cstr;
   if ( !qstr.isNull() )
     cstr = qstr.toLatin1();
-  yy_switch_to_buffer( yy_scan_string( cstr.constData() ) );
+  yy_switch_to_buffer( yy_scan_string( cstr.constData(), *scanner ), *scanner );
+}
+
+void scannerDestroy( yyscan_t scanner )
+{
+  yylex_destroy( scanner );
 }
 
 /**
