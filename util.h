@@ -20,13 +20,11 @@
 #define UTIL_H
 
 #include <QPixmap>
-#include <QIcon>
 
 class Util
 {
 public:
     static QPixmap getKRegExpEditorIcon( const QString& name );
-    static QIcon getSystemIconSet( const QString& name );
 };
 
 #endif // UTIL_H
