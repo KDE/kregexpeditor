@@ -38,6 +38,7 @@ UserDefinedRegExps::UserDefinedRegExps( QWidget *parent, const QString &title )
 {
   QWidget* top = new QWidget( this );
   QVBoxLayout* lay = new QVBoxLayout( top );
+  lay->setMargin( 0 );
 
   //QLabel* label = new QLabel( i18n("Compound regular expression:"), top );
 
