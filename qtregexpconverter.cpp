@@ -31,7 +31,6 @@
 #include "repeatregexp.h"
 
 extern RegExp* parseQtRegExp( const QString &qstr, bool* ok );
-extern RegExp* parseDataQtRegExp();
 
 bool QtRegExpConverter::canParse()
 {
