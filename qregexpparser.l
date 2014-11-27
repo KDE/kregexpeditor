@@ -26,8 +26,8 @@
   #include "gen_qregexpparser.hh"
   #include "qregexpparsercommon.h"
 
-  void parseRange( char* txt, int* min, int* max );  
-  RegExp* parseCharClass( char* match );
+  void parseRange( const char* txt, int* min, int* max );
+  RegExp* parseCharClass( const char* match );
 %}
   
 Escape   \\.
@@ -134,7 +134,7 @@ void scannerDestroy( yyscan_t scanner )
    This function parses a range in a form similar to "{3,4}", "{,7}"
    etc. and returns the value in the integers pointed to by min and max.
 */
-void parseRange( char* txt, int* min, int* max ) 
+void parseRange( const char* txt, int* min, int* max )
 {
 
   /*  
@@ -181,7 +181,7 @@ void parseRange( char* txt, int* min, int* max )
 /** 
     This function parses a character range like "[^ab1-4]".
 */
-RegExp* parseCharClass( char* match )
+RegExp* parseCharClass( const char* match )
 {
   TextRangeRegExp* res = new TextRangeRegExp( false );
   QString txt = QString::fromLocal8Bit( match );

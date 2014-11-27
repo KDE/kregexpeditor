@@ -30,7 +30,7 @@
 #include "positionregexp.h"
 #include "repeatregexp.h"
 
-extern RegExp* parseQtRegExp( QString str, bool *ok );
+extern RegExp* parseQtRegExp( const QString &qstr, bool* ok );
 extern RegExp* parseDataQtRegExp();
 
 bool QtRegExpConverter::canParse()

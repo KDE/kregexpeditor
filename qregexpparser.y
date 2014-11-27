@@ -49,7 +49,7 @@
   extern void scannerDestroy( yyscan_t scanner );
   int yyerror( yyscan_t scanner, struct parse_context* context, const char * );
   void setParseResult( RegExp*, struct parse_context* );
-  RegExp* parseQtRegExp( QString qstr, bool* ok );
+  RegExp* parseQtRegExp( const QString &qstr, bool* ok );
 %}
 
 %code requires {
@@ -193,7 +193,7 @@ char : TOK_Char {
 
 %%
 
-RegExp* parseQtRegExp( QString qstr, bool* ok ) {
+RegExp* parseQtRegExp( const QString &qstr, bool* ok ) {
   struct parse_context context;
   yyscan_t scanner;
   context.result = 0;
