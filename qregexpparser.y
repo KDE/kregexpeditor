@@ -176,17 +176,7 @@ atom : TOK_LeftParen expression TOK_RightParent {
      | TOK_BackRef { 
         QString match = QString::fromLocal8Bit("\\%1").arg( $<backRef>1 );
         $<regexp>$ = new TextRegExp( false, match );
-        KMessageBox::information(0,i18n("<qt>Back reference regular expressions are not supported.<p>"
-                                        "<tt>\\1</tt>, <tt>\\2</tt>, ... are <i>back references</i>, meaning they refer to  "
-                                        "previous matches. "
-                                        "Unfortunately this is not supported in the current version of this editor.<p>"
-                                        "In the graphical area the text <b>%1</b> has been inserted. This is however "
-                                        "just a workaround to ensure that the application handles the regexp at all. "
-                                        "Therefore, as soon as you edit the regular expression in the graphical area, "
-                                        "the back reference will be replaced by matching the text <b>%2</b> literally.")
-                                    .arg( match ).arg( match ),
-                                 i18n("Back reference regular expressions not supported"), 
-                                 QString::fromLocal8Bit("backReferenceNotSupported") );
+        context->backrefs << match;
       }
      | TOK_PosWordChar { $<regexp>$ = new PositionRegExp( false, PositionRegExp::WORDBOUNDARY ); }
      | TOK_PosNonWordChar { $<regexp>$ = new PositionRegExp( false, PositionRegExp::NONWORDBOUNDARY ); }
@@ -211,6 +201,19 @@ RegExp* parseQtRegExp( QString qstr, bool* ok ) {
   scannerInit( &scanner, &context, qstr );
   (void) yyparse( scanner, &context );
   scannerDestroy( scanner );
+  foreach ( const QString &match, context.backrefs ) {
+    KMessageBox::information(0,i18n("<qt>Back reference regular expressions are not supported.<p>"
+                                    "<tt>\\1</tt>, <tt>\\2</tt>, ... are <i>back references</i>, meaning they refer to  "
+                                    "previous matches. "
+                                    "Unfortunately this is not supported in the current version of this editor.<p>"
+                                    "In the graphical area the text <b>%1</b> has been inserted. This is however "
+                                    "just a workaround to ensure that the application handles the regexp at all. "
+                                    "Therefore, as soon as you edit the regular expression in the graphical area, "
+                                    "the back reference will be replaced by matching the text <b>%2</b> literally.",
+                                    match, match ),
+                             i18n("Back reference regular expressions not supported"),
+                             QString::fromLocal8Bit("backReferenceNotSupported") );
+  }
   *ok = ( context.nerrs == 0 );
   return context.result;
 }

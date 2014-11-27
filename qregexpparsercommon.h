@@ -21,9 +21,12 @@
 
 #include "regexp.h"
 
+#include <QtCore/QList>
+
 struct parse_context {
   RegExp* result;
   int nerrs;
+  QList<QString> backrefs;
 };
 
 #endif
