@@ -202,14 +202,14 @@ RegExp* parseQtRegExp( QString qstr, bool* ok ) {
   (void) yyparse( scanner, &context );
   scannerDestroy( scanner );
   foreach ( const QString &match, context.backrefs ) {
-    KMessageBox::information(0,i18n("<qt>Back reference regular expressions are not supported.<p>"
-                                    "<tt>\\1</tt>, <tt>\\2</tt>, ... are <i>back references</i>, meaning they refer to  "
-                                    "previous matches. "
-                                    "Unfortunately this is not supported in the current version of this editor.<p>"
-                                    "In the graphical area the text <b>%1</b> has been inserted. This is however "
+    KMessageBox::information(0,i18n("<p>Back reference regular expressions are not supported.</p>"
+                                    "<p><tt>\\1</tt>, <tt>\\2</tt>, ... are <i>back references</i>, meaning they "
+                                    "refer to previous matches. "
+                                    "Unfortunately this is not supported in the current version of this editor.</p>"
+                                    "<p>In the graphical area the text <b>%1</b> has been inserted. This is however "
                                     "just a workaround to ensure that the application handles the regexp at all. "
                                     "Therefore, as soon as you edit the regular expression in the graphical area, "
-                                    "the back reference will be replaced by matching the text <b>%2</b> literally.",
+                                    "the back reference will be replaced by matching the text <b>%2</b> literally.</p>",
                                     match, match ),
                              i18n("Back reference regular expressions not supported"),
                              QString::fromLocal8Bit("backReferenceNotSupported") );
