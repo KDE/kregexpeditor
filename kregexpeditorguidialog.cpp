@@ -79,4 +79,3 @@ void KRegExpEditorGUIDialog::setMatchText( const QString& txt )
     _editor->setMatchText( txt );
 }
 
-#include "kregexpeditorguidialog.moc"

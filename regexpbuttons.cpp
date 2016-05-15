@@ -196,4 +196,3 @@ void RegExpButtons::setFeatures( int features )
 
 }
 
-#include "regexpbuttons.moc"

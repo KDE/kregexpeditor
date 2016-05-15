@@ -223,4 +223,3 @@ void KMultiFormListBoxWindowed::slotUpdateButtonState()
 	}
 }
 
-#include "kmultiformlistbox-windowed.moc"

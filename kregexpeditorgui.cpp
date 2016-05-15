@@ -99,4 +99,3 @@ void KRegExpEditorGUI::showHelp()
     KToolInvocation::invokeHelp( QString(), QString::fromLocal8Bit( "KRegExpEditor" ) );
 }
 
-#include "kregexpeditorgui.moc"

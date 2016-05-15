@@ -119,4 +119,3 @@ void Verifier::setHighlighter( RegexpHighlighter* highlighter )
     }
 }
 
-#include "verifier.moc"

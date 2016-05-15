@@ -108,4 +108,3 @@ RegExpWidget* LookAheadWidget::findWidgetToEdit( QPoint globalPos )
     return _child->findWidgetToEdit( globalPos );
 }
 
-#include "lookaheadwidget.moc"

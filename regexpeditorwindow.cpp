@@ -468,4 +468,3 @@ QIcon RegExpEditorWindow::getIcon( const QString& name )
     return KIcon( name );
 }
 
-#include "regexpeditorwindow.moc"

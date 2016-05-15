@@ -42,4 +42,3 @@ void KMultiFormListBoxEntry::indexWindowPos(QPoint *start, int *width)
   *width = global_point.x() + indexButton()->width() - start->x();
 }
 
-#include "kmultiformlistboxentry.moc"

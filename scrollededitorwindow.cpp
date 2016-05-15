@@ -123,4 +123,3 @@ void RegExpScrolledEditorWindow::slotScroll( QPoint focusPoint )
     _scrollArea->ensureVisible( focusPoint.x(), focusPoint.y() );
 }
 
-#include "scrollededitorwindow.moc"

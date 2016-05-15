@@ -70,4 +70,3 @@ void SelectableLineEdit::slotKeyPressed()
   }
 }
 
-#include "selectablelineedit.moc"

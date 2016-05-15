@@ -272,4 +272,3 @@ QString WidgetWinItem::path()
     return KStandardDirs::locateLocal("data", QString::fromLocal8Bit("KRegExpEditor/"));
 }
 
-#include "userdefinedregexps.moc"

@@ -180,4 +180,3 @@ QString CharSelector::text() const
   return QString();
 }
 
-#include "charselector.moc"

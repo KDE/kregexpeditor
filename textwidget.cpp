@@ -149,4 +149,3 @@ bool TextWidget::eventFilter( QObject*, QEvent* event)
     return false;
 }
 
-#include "textwidget.moc"

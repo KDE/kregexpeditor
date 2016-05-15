@@ -30,4 +30,3 @@ void DoubleClickButton::mouseDoubleClickEvent( QMouseEvent* )
   emit doubleClicked();
 }
 
-#include "dcbutton.moc"

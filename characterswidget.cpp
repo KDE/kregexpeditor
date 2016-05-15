@@ -457,4 +457,3 @@ bool RangeEntry::isEmpty() const
     return _from->isEmpty() || _to->isEmpty();
 }
 
-#include "characterswidget.moc"

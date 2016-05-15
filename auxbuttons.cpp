@@ -112,4 +112,3 @@ void AuxButtons::slotCanSave( bool b )
   _save->setEnabled( b );
 }
 
-#include "auxbuttons.moc"

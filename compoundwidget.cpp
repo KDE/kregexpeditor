@@ -320,4 +320,3 @@ QPixmap CompoundWidget::getIcon( const QString& name )
     return SmallIcon( name );
 }
 
-#include "compoundwidget.moc"

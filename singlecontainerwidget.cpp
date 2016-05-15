@@ -131,4 +131,3 @@ void SingleContainerWidget::updateCursorRecursively()
   updateCursorShape();
 }
 
-#include "singlecontainerwidget.moc"

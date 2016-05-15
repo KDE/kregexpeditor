@@ -224,4 +224,3 @@ void RegExpWidget::updateAll()
   update();
 }
 
-#include "regexpwidget.moc"

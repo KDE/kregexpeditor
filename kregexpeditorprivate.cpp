@@ -441,4 +441,3 @@ void KRegExpEditorPrivate::setMatchGreedy( bool b )
   doVerify();
 }
 
-#include "kregexpeditorprivate.moc"
