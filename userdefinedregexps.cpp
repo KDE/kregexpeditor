@@ -30,6 +30,7 @@
 #include <KMessageBox>
 #include <KStandardDirs>
 #include <KGlobal>
+#include <QStandardPaths>
 
 #include "widgetfactory.h"
 #include "compoundregexp.h"
@@ -67,7 +68,7 @@ void UserDefinedRegExps::slotPopulateUserRegexps()
 
   createItems( i18n("User Defined"), WidgetWinItem::path(), true );
 
-  QStringList dirs = KGlobal::dirs()->findDirs( "data", QString::fromLocal8Bit("kregexpeditor/predefined/") );
+  QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QString::fromLocal8Bit("kregexpeditor/predefined/") );
 
   for ( QStringList::iterator it1 = dirs.begin(); it1 != dirs.end(); ++it1 ) {
     QDir dir( *it1, QString(), QDir::Name, QDir::Dirs );
@@ -270,6 +271,6 @@ void WidgetWinItem::setName( const QString& nm )
 
 QString WidgetWinItem::path()
 {
-    return KStandardDirs::locateLocal("data", QString::fromLocal8Bit("KRegExpEditor/"));
+    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + QString::fromLocal8Bit("KRegExpEditor/");
 }
 

@@ -21,7 +21,7 @@
 #include <KLocale>
 #include <QIcon>
 #include <KIconLoader>
-#include <KStandardDirs>
+
 #include <KMessageBox>
 #include <KLineEdit>
 
@@ -34,6 +34,7 @@
 #include <QFile>
 #include <QShortcut>
 #include <QLabel>
+#include <QStandardPaths>
 
 #include "auxbuttons.h"
 #include "verifybuttons.h"
@@ -178,7 +179,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
                                       "<p>You may develop your regular expression both by using the graphical "
 				      "editor, and by typing the regular expression in this line edit.</p>") );
   
-  QPixmap pix = KIconLoader::global()->loadIcon(KStandardDirs::locate("data", QString::fromLatin1("kregexpeditor/pics/error.png") ), KIconLoader::Toolbar );
+  QPixmap pix = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString::fromLatin1("kregexpeditor/pics/error.png") ), KIconLoader::Toolbar );
   _error = new QLabel( editDockWidget );
   _error->setPixmap( pix );
   dockLayout->addWidget( _error );

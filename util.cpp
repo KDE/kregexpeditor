@@ -19,9 +19,10 @@
 #include "util.h"
 
 #include <KIconLoader>
-#include <KStandardDirs>
+#include <QStandardPaths>
+
 
 QPixmap Util::getKRegExpEditorIcon( const QString& name )
 {
-  return BarIcon(KStandardDirs::locate("data", QString::fromLatin1("kregexpeditor/pics/") +name ) );
+  return BarIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString::fromLatin1("kregexpeditor/pics/") +name ) );
 }
