@@ -22,6 +22,8 @@
 
 #include "kwidgetstreamer.h"
 
+#include <QWidget>
+
 class KMultiFormListBoxEntry;
 //-------------------------------------------------------------------------
 
