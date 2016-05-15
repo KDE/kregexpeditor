@@ -19,7 +19,7 @@
 #include "infopage.h"
 
 #include <KLocale>
-#include <KToolInvocation>
+#include <KHelpClient>
 
 InfoPage::InfoPage( QWidget* parent )
   :KTextBrowser( parent )
@@ -64,7 +64,7 @@ void InfoPage::setSource ( const QUrl& name )
   QString nm = name.toString();
 
   if ( nm.startsWith( QString::fromLocal8Bit("doc://") ) ) {
-    KToolInvocation::invokeHelp( nm.mid(6, nm.length()-7), QString::fromLocal8Bit("KRegExpEditor") );
+    KHelpClient::invokeHelp( nm.mid(6, nm.length()-7), QString::fromLocal8Bit("KRegExpEditor") );
   }
   else {
     KTextBrowser::setSource( name ); // handle mailto and other links
