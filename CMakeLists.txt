@@ -22,6 +22,8 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED Core Widgets)
 find_package(KF5 REQUIRED
     KIO
+    TextWidgets
+    KDELibs4Support
     DocTools
     )
 
@@ -117,7 +119,7 @@ set(kregexpeditorcommon_SRCS
 
 add_library(kregexpeditorcommon SHARED ${kregexpeditorcommon_SRCS})
 
-target_link_libraries(kregexpeditorcommon  KF5::KIOCore)
+target_link_libraries(kregexpeditorcommon  KF5::KIOCore KF5::TextWidgets KF5::KDELibs4Support Qt5::Widgets )
 
 set_target_properties(kregexpeditorcommon PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})
 install(TARGETS kregexpeditorcommon ${INSTALL_TARGETS_DEFAULT_ARGS})
@@ -128,7 +130,7 @@ set(kregexpeditorgui_PART_SRCS kregexpeditorfactory.cpp)
 
 add_library(kregexpeditorgui MODULE ${kregexpeditorgui_PART_SRCS})
 
-target_link_libraries(kregexpeditorgui  KF5::KIOCore kregexpeditorcommon)
+target_link_libraries(kregexpeditorgui  KF5::KIOCore KF5::KDELibs4Support kregexpeditorcommon)
 
 install(TARGETS kregexpeditorgui DESTINATION ${PLUGIN_INSTALL_DIR})
 
@@ -141,7 +143,7 @@ ecm_add_app_icon(kregexpeditor_SRCS ICONS ${ICONS_SRCS})
 
 add_executable(kregexpeditor ${kregexpeditor_SRCS})
 
-target_link_libraries(kregexpeditor  KF5::KIOCore kregexpeditorcommon)
+target_link_libraries(kregexpeditor  KF5::KIOCore KF5::KDELibs4Support Qt5::Widgets kregexpeditorcommon)
 
 install(TARGETS kregexpeditor ${INSTALL_TARGETS_DEFAULT_ARGS})
 
