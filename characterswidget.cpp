@@ -25,6 +25,8 @@
 #include <QGroupBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <KConfigGroup>
+#include <QDialogButtonBox>
 
 #include "textrangeregexp.h"
 #include "charselector.h"
@@ -274,22 +276,24 @@ int CharacterEdits::exec( TextRangeRegExp* regexp )
         addRange(from,to);
     }
 
-    int res = KDialog::exec();
+    int res = QDialog::exec();
     _regexp = 0;
     return res;
 }
 
 
 CharacterEdits::CharacterEdits( QWidget *parent)
-  : KDialog( parent)
+  : QDialog( parent)
 {
-    setCaption( i18n("Specify Characters") );
-    setButtons( KDialog::Ok | KDialog::Cancel );
+    setWindowTitle( i18n("Specify Characters") );
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+
     setObjectName( "CharacterEdits" );
     QWidget* top = new QWidget( this );
     QVBoxLayout *topLayout = new QVBoxLayout(top);
     topLayout->setMargin(0);
-    setMainWidget( top );
+    mainLayout->addWidget(top);
 
     negate = new QCheckBox(i18n("Do not match the characters specified here"));
     topLayout->addWidget( negate );
@@ -348,8 +352,16 @@ CharacterEdits::CharacterEdits( QWidget *parent)
     moreLay->addStretch( 1 );
     moreLay->setMargin(0);
     connect(more,SIGNAL(clicked()), _range, SLOT(addElement()));
-    // Buttons
-    connect(this, SIGNAL(okClicked()), this, SLOT(slotOK()));
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(okButton, SIGNAL(clicked()), this, SLOT(slotOK()));
+    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
+    mainLayout->addWidget(buttonBox);
 }
 
 void CharacterEdits::slotOK()

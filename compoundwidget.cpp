@@ -25,10 +25,13 @@
 #include <QMouseEvent>
 
 #include <KLocale>
-#include <KDialog>
+#include <QDialog>
 #include <KLineEdit>
 #include <KTextEdit>
 #include <KIconLoader>
+#include <KConfigGroup>
+#include <QDialogButtonBox>
+#include <QPushButton>
 
 #include "concwidget.h"
 #include "kwidgetstreamer.h"
@@ -121,20 +124,31 @@ CompoundWidget::CompoundWidget( CompoundRegExp* regexp, RegExpEditorWindow* edit
 
 void CompoundWidget::init( )
 {
-  _configWindow = new KDialog( this);
-  _configWindow->setCaption( i18n("Configure Compound") );
-  _configWindow->setButtons( KDialog::Ok | KDialog::Cancel );
-  _content = new CompoundDetailWindow( _configWindow );
-  _configWindow->setMainWidget( _content );
+  _configWindow = new QDialog( this);
+  _configWindow->setWindowTitle( i18n("Configure Compound") );
 
-  connect( _configWindow, SIGNAL(cancelClicked()), this, SLOT(slotConfigCanceled())) ;
-  connect(_configWindow, SIGNAL(finished()), this, SLOT(slotConfigWindowClosed()));
+  QVBoxLayout *mainLayout = new QVBoxLayout;
+  _configWindow->setLayout(mainLayout);
+
+  _content = new CompoundDetailWindow( _configWindow );
+  mainLayout->addWidget(_content);
+
+  connect(_configWindow, &QDialog::rejected, this, &CompoundWidget::slotConfigCanceled);
+  connect(_configWindow, &QDialog::finished, this, &CompoundWidget::slotConfigWindowClosed);
 
   _down = getIcon( QString::fromLocal8Bit( "arrow-down" ));
   _up = getIcon( QString::fromLocal8Bit( "arrow-up" ) );
 
   _hidden = false;
   _backRefId = -1;
+
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+  QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+  okButton->setDefault(true);
+  okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+  _configWindow->connect(buttonBox, SIGNAL(accepted()), _configWindow, SLOT(accept()));
+  _configWindow->connect(buttonBox, SIGNAL(rejected()), _configWindow, SLOT(reject()));
+  mainLayout->addWidget(buttonBox);
 }
 
 QSize CompoundWidget::sizeHint() const

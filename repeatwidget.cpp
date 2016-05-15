@@ -27,7 +27,10 @@
 #include <QGroupBox>
 
 #include <KLocale>
-#include <KDialog>
+#include <QDialog>
+#include <KConfigGroup>
+#include <QDialogButtonBox>
+#include <QPushButton>
 
 #include "kwidgetstreamer.h"
 #include "concwidget.h"
@@ -73,13 +76,23 @@ RepeatWidget::RepeatWidget( RepeatRegExp* regexp, RegExpEditorWindow* editorWind
 
 void RepeatWidget::init()
 {
-  _configWindow = new KDialog( this);
-  _configWindow->setCaption( i18n("Number of Times to Repeat Content") );
-  _configWindow->setButtons( KDialog::Ok | KDialog::Cancel);
+  _configWindow = new QDialog( this);
+  _configWindow->setWindowTitle( i18n("Number of Times to Repeat Content") );
+  QVBoxLayout *mainLayout = new QVBoxLayout;
+  _configWindow->setLayout(mainLayout);
+
   _content = new RepeatRangeWindow( _configWindow );
-  _configWindow->setMainWidget( _content );
-  connect( _configWindow, SIGNAL( cancelClicked() ), this, SLOT( slotConfigCanceled() ) );
-  connect(_configWindow, SIGNAL(finished()), this, SLOT(slotConfigWindowClosed()));
+  connect( _configWindow, SIGNAL(rejected() ), this, SLOT( slotConfigCanceled() ) );
+  connect(_configWindow, SIGNAL(finished(int)), this, SLOT(slotConfigWindowClosed()));
+  mainLayout->addWidget(_content);
+
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+  QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+  okButton->setDefault(true);
+  okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+  mainLayout->addWidget(buttonBox);
+  _configWindow->connect(buttonBox, SIGNAL(accepted()), _configWindow, SLOT(accept()));
+  _configWindow->connect(buttonBox, SIGNAL(rejected()), _configWindow, SLOT(reject()));
 }
 
 

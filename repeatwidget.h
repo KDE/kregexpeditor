@@ -23,7 +23,7 @@
 
 class QGroupBox;
 class QButtonGroup;
-class KDialog;
+class QDialog;
 class QSpinBox;
 class RepeatRegExp;
 class QGridLayout;
@@ -93,7 +93,7 @@ protected slots:
   void slotConfigWindowClosed();
 
 private:
-  KDialog* _configWindow;
+  QDialog* _configWindow;
   RepeatRangeWindow* _content;
 
   mutable QSize _textSize;

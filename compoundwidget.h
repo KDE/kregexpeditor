@@ -25,7 +25,7 @@
 
 class KLineEdit;
 class KTextEdit;
-class KDialog;
+class QDialog;
 class QCheckBox;
 class QPaintEvent;
 class CompoundRegExp;
@@ -94,7 +94,7 @@ private:
   mutable QSize _pixmapSize;
   mutable QPoint _pixmapPos;
 
-  KDialog* _configWindow;
+  QDialog* _configWindow;
   CompoundDetailWindow* _content;
 
   mutable QSize _textSize;

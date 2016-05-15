@@ -23,29 +23,39 @@
 
 #include <KLocale>
 #include <KToolInvocation>
+#include <KConfigGroup>
+#include <QDialogButtonBox>
+#include <QPushButton>
 
 #include "kregexpeditorprivate.h"
 
 KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent,
                                                 const QVariantList & )
-  : KDialog( parent )
+  : QDialog( parent )
 {
-    setCaption( i18n("Regular Expression Editor") );
-    setButtons( KDialog::Ok | KDialog::Cancel | KDialog::Help );
-    setDefaultButton( KDialog::Ok );
+    setWindowTitle( i18n("Regular Expression Editor") );
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+
 
   QFrame* frame = new QFrame(this);
-  setMainWidget( frame );
   QVBoxLayout* layout = new QVBoxLayout( frame );
   _editor = new KRegExpEditorGUI( frame );
   layout->addWidget(_editor);
+  mainLayout->addWidget(frame);
 
   connect( _editor, SIGNAL( canUndo(bool) ), this, SIGNAL( canUndo(bool) ) );
   connect( _editor, SIGNAL( canRedo(bool) ), this, SIGNAL( canRedo(bool) ) );
   connect( _editor, SIGNAL( changes(bool) ), this, SIGNAL( changes(bool) ) );
   resize( 640, 400 );
 
-  setHelp( QString(), QString::fromLocal8Bit( "KRegExpEditor" ) );
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Help);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    mainLayout->addWidget(buttonBox);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 }
 
 

@@ -18,7 +18,7 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
-#include <KDialog>
+#include <QDialog>
 
 class KListWidget;
 class KMultiFormListBoxFactory;
@@ -28,7 +28,7 @@ class WindowListboxItem;
 /**
    @internal
 */
-class WidgetWindow :public KDialog
+class WidgetWindow :public QDialog
 {
   friend class KMultiFormListBoxWindowed;
   friend class WindowListboxItem;

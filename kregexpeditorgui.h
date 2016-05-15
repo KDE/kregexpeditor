@@ -19,7 +19,7 @@
 #ifndef kregexpeditorgui_h
 #define kregexpeditorgui_h
 
-#include <kdialog.h>
+#include <QDialog>
 #include <kregexpeditorinterface.h>
 
 class KRegExpEditorPrivate;

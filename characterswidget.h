@@ -19,7 +19,7 @@
 #ifndef characterswidget
 #define characterswidget
 
-#include <KDE/KDialog>
+#include <QtWidgets/QDialog>
 
 #include "kmultiformlistbox.h"
 #include "kmultiformlistboxfactory.h"
@@ -115,7 +115,7 @@ public:
 /**
    @internal
 */
-class CharacterEdits : public KDialog
+class CharacterEdits : public QDialog
 {
     Q_OBJECT
 public:

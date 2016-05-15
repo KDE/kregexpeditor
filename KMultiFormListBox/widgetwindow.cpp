@@ -19,67 +19,71 @@
 #include "widgetwindow.h"
 
 #include <QHBoxLayout>
+#include <QVBoxLayout>
 
 #include <KLocale>
 #include <KListWidget>
+
+#include <QDialogButtonBox>
 
 #include "kmultiformlistboxentry.h"
 #include "kmultiformlistboxfactory.h"
 #include "windowlistboxitem.h"
 
 WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KListWidget *lb)
-  :KDialog(0)
+  : QDialog(0)
 {
-    setCaption( i18n("Widget Configuration") );
-    setButtons( Ok | Cancel );
-    setDefaultButton( Ok );
-  init(factory, lb);
+    init(factory, lb);
 }
 
 WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KMultiFormListBoxEntry *widget, KListWidget *lb)
-  :KDialog(0)
+  : QDialog(0)
 {
-    setCaption( i18n("Widget Configuration") );
-    setButtons( Ok | Cancel );
-    setDefaultButton( Ok );
-  init(factory, lb, widget);
+    init(factory, lb, widget);
 }
 
 void WidgetWindow::init(KMultiFormListBoxFactory *factory, KListWidget *lb, KMultiFormListBoxEntry *widget)
 {
-  listbox = lb;
-  myFact = factory;
+    setWindowTitle( i18n("Widget Configuration") );
+    setLayout(new QVBoxLayout);
 
-  QFrame *frame = new QFrame(this);
-  setMainWidget( frame );
-  QHBoxLayout *lay = new QHBoxLayout(frame);
-  lay->setObjectName("WidgetWindow::init::lay");
-  lay->setSpacing(-1);
-  lay->setMargin(0);
+    listbox = lb;
+    myFact = factory;
 
-  if (widget != 0) {
-    myWidget = widget;
-    widget->setParent( frame );
-  }
-  else {
-    myWidget = factory->create(frame);
-  }
-  QDataStream stream( &_backup, QIODevice::WriteOnly );
+    QFrame *frame = new QFrame;
+    QHBoxLayout *lay = new QHBoxLayout;
+    frame->setLayout(lay);
+    lay->setObjectName("WidgetWindow::init::lay");
+    lay->setSpacing(-1);
+    lay->setMargin(0);
 
-  stream.setVersion(QDataStream::Qt_3_1);
-  myFact->toStream( myWidget, stream );
+    if (widget != 0) {
+        myWidget = widget;
+        widget->setParent( frame );
+    }
+    else {
+        myWidget = factory->create(frame);
+    }
+    QDataStream stream( &_backup, QIODevice::WriteOnly );
 
-  lay->addWidget(myWidget);
+    stream.setVersion(QDataStream::Qt_3_1);
+    myFact->toStream( myWidget, stream );
 
-  if (widget != 0) {
-    initialShow = false;
-    myListboxItem = new WindowListboxItem(listbox,myWidget->idxString(), this);
-  }
-  else {
-    initialShow = true;
-  }
-  connect(this,SIGNAL(okClicked()),this,SLOT(slotOk()));
-  connect(this,SIGNAL(cancelClicked()),this,SLOT(slotCancel()));
+    lay->addWidget(myWidget);
+
+    if (widget != 0) {
+        initialShow = false;
+        myListboxItem = new WindowListboxItem(listbox,myWidget->idxString(), this);
+    }
+    else {
+        initialShow = true;
+    }
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &WidgetWindow::slotOk);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &WidgetWindow::slotCancel);
+    layout()->addWidget( frame );
+    layout()->addWidget(buttonBox);
 }
 
 
@@ -98,7 +102,7 @@ void WidgetWindow::slotOk()
     myListboxItem->setText(myWidget->idxString());
   }
   initialShow = false;
-  KDialog::accept();
+  QDialog::accept();
 }
 
 void WidgetWindow::slotCancel()
@@ -112,7 +116,7 @@ void WidgetWindow::slotCancel()
     stream.setVersion(QDataStream::Qt_3_1);
     myFact->fromStream( stream, myWidget );
   }
-  KDialog::reject();
+  QDialog::reject();
 }
 
 WidgetWindow *WidgetWindow::clone()

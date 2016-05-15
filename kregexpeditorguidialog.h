@@ -19,12 +19,12 @@
 #ifndef kregexpeditorguidialog_h
 #define kregexpeditorguidialog_h
 
-#include <kdialog.h>
+#include <QDialog>
 #include <kregexpeditorgui.h>
 #include <kregexpeditorinterface.h>
 
 
-class Q_DECL_EXPORT KRegExpEditorGUIDialog : public KDialog, public KRegExpEditorInterface
+class Q_DECL_EXPORT KRegExpEditorGUIDialog : public QDialog, public KRegExpEditorInterface
 {
     Q_OBJECT
     Q_INTERFACES(KRegExpEditorInterface)
