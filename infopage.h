@@ -19,9 +19,9 @@
 #ifndef infopage_h
 #define infopage_h
 
-#include <KTextBrowser>
+#include <QTextBrowser>
 
-class InfoPage :public KTextBrowser
+class InfoPage :public QTextBrowser
 {
 public:
   InfoPage( QWidget* parent );

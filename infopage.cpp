@@ -22,7 +22,7 @@
 #include <KHelpClient>
 
 InfoPage::InfoPage( QWidget* parent )
-  :KTextBrowser( parent )
+  :QTextBrowser( parent )
 {
     QString txt =
         QString::fromLatin1( "<qt>" ) +
@@ -67,7 +67,7 @@ void InfoPage::setSource ( const QUrl& name )
     KHelpClient::invokeHelp( nm.mid(6, nm.length()-7), QString::fromLocal8Bit("KRegExpEditor") );
   }
   else {
-    KTextBrowser::setSource( name ); // handle mailto and other links
+    QTextBrowser::setSource( name ); // handle mailto and other links
   }
 
 }
