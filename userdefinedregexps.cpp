@@ -25,7 +25,7 @@
 #include <QAction>
 #include <QHeaderView>
 
-#include <KInputDialog>
+#include <QInputDialog>
 #include <KLocale>
 #include <KMessageBox>
 #include <KStandardDirs>
@@ -198,7 +198,7 @@ void UserDefinedRegExps::slotRenameUserRegexp()
     QString oldName = winItem->name();
 
     QString txt;
-    txt = KInputDialog::getText( i18n("Rename Item"), i18n("New name:"), oldName );
+    txt = QInputDialog::getText(this, i18n("Rename Item"), i18n("New name:"), QLineEdit::Normal, oldName );
     
     if ( !txt.isNull() && oldName != txt ) {
       QString fileName = WidgetWinItem::path() + QString::fromLocal8Bit("/") + txt + QString::fromLocal8Bit(".regexp");
