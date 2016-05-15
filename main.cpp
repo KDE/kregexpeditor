@@ -16,26 +16,35 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
-#include <K4AboutData>
+#include <KAboutData>
 #include <KApplication>
-#include <KCmdLineArgs>
+
 #include <KLocale>
 #include <QVBoxLayout>
 #include <QDialog>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <KConfigGroup>
+#include <QCommandLineParser>
 
 #include "kregexpeditorgui.h"
 
 int main( int argc, char* argv[] )
 {
-    K4AboutData aboutData( "kregexpeditor", 0, ki18n("RegExp Editor"),
-                          "1.0", ki18n("Editor for Regular Expressions"),
-              K4AboutData::License_GPL,
-                          ki18n("(c) 2002-2003 Jesper K. Pedersen"));
-    KCmdLineArgs::init(argc, argv, &aboutData);
-    KApplication myapp;
+    QApplication app(argc, argv);
+
+    KAboutData aboutData( "kregexpeditor", i18n("RegExp Editor"),
+                          "1.0", i18n("Editor for Regular Expressions"),
+              KAboutLicense::GPL,
+                          i18n("(c) 2002-2003 Jesper K. Pedersen"));
+
+    QCommandLineParser parser;
+    KAboutData::setApplicationData(aboutData);
+    parser.addVersionOption();
+    parser.addHelpOption();
+    aboutData.setupCommandLine(&parser);
+    parser.process(app);
+    aboutData.processCommandLine(&parser);
 
     QDialog top;
     top.setLayout(new QVBoxLayout);
@@ -52,5 +61,5 @@ int main( int argc, char* argv[] )
 
     top.show();
     QObject::connect( qApp, SIGNAL( lastWindowClosed() ), qApp, SLOT( quit() ) );
-    return myapp.exec();
+    return app.exec();
 }
