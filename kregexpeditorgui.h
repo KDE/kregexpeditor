@@ -53,7 +53,7 @@ public slots:
   virtual void redo();
   virtual void undo();
   virtual void setRegExp( const QString &regexp );
-  virtual void doSomething( QString method, void* arguments );
+  virtual void doSomething( const QString &method, void* arguments );
   virtual void setMatchText( const QString& );
   void showHelp();
 

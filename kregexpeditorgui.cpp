@@ -69,7 +69,7 @@ void KRegExpEditorGUI::setRegExp( const QString &regexp )
 }
 
 
-void KRegExpEditorGUI::doSomething( QString method, void* arguments )
+void KRegExpEditorGUI::doSomething(const QString &method, void* arguments )
 {
     if ( method == QString::fromLatin1( "setCaseSensitive" ) ) {
         _editor->setCaseSensitive( (bool) arguments );
