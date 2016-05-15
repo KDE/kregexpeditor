@@ -21,7 +21,7 @@
 #include <QVBoxLayout>
 
 #include <KLocale>
-#include <KListWidget>
+#include <QListWidget>
 #include <KMessageBox>
 #include <QPushButton>
 #include <KGuiItem>
@@ -40,7 +40,7 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
 	QHBoxLayout *innerLayout = new QHBoxLayout();
 	_layout->addLayout(innerLayout);
 
-  _listbox = new KListWidget(this/*,"listbox"*/);
+  _listbox = new QListWidget(this/*,"listbox"*/);
   _listbox->setSelectionMode(QAbstractItemView::SingleSelection);
   innerLayout->addWidget(_listbox);
 

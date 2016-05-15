@@ -24,7 +24,7 @@
 
 class QVBoxLayout;
 class QListWidgetItem;
-class KListWidget;
+class QListWidget;
 class WindowListboxItem;
 class KMultiFormListBoxFactory;
 class QPushButton;
@@ -58,7 +58,7 @@ private:
 	QVBoxLayout* _layout;
   KMultiFormListBoxFactory* _factory;
 	QList<QPushButton *> _buttonList;
-  KListWidget* _listbox;
+  QListWidget* _listbox;
 	virtual void delElement(QWidget *); // Deletes the given element
 	virtual void delAnElement();
   void addElement();

@@ -22,7 +22,7 @@
 #include <QVBoxLayout>
 
 #include <KLocale>
-#include <KListWidget>
+#include <QListWidget>
 
 #include <QDialogButtonBox>
 
@@ -30,19 +30,19 @@
 #include "kmultiformlistboxfactory.h"
 #include "windowlistboxitem.h"
 
-WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KListWidget *lb)
+WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, QListWidget *lb)
   : QDialog(0)
 {
     init(factory, lb);
 }
 
-WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KMultiFormListBoxEntry *widget, KListWidget *lb)
+WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KMultiFormListBoxEntry *widget, QListWidget *lb)
   : QDialog(0)
 {
     init(factory, lb, widget);
 }
 
-void WidgetWindow::init(KMultiFormListBoxFactory *factory, KListWidget *lb, KMultiFormListBoxEntry *widget)
+void WidgetWindow::init(KMultiFormListBoxFactory *factory, QListWidget *lb, KMultiFormListBoxEntry *widget)
 {
     setWindowTitle( i18n("Widget Configuration") );
     setLayout(new QVBoxLayout);

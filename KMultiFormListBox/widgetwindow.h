@@ -20,7 +20,7 @@
 
 #include <QDialog>
 
-class KListWidget;
+class QListWidget;
 class KMultiFormListBoxFactory;
 class KMultiFormListBoxEntry;
 class WindowListboxItem;
@@ -33,9 +33,9 @@ class WidgetWindow :public QDialog
   friend class KMultiFormListBoxWindowed;
   friend class WindowListboxItem;
 
-  WidgetWindow(KMultiFormListBoxFactory *, KListWidget *);
-  WidgetWindow(KMultiFormListBoxFactory *, KMultiFormListBoxEntry *widget, KListWidget *);
-  void init(KMultiFormListBoxFactory *, KListWidget *, KMultiFormListBoxEntry *widget = 0);
+  WidgetWindow(KMultiFormListBoxFactory *, QListWidget *);
+  WidgetWindow(KMultiFormListBoxFactory *, KMultiFormListBoxEntry *widget, QListWidget *);
+  void init(KMultiFormListBoxFactory *, QListWidget *, KMultiFormListBoxEntry *widget = 0);
   void display();
   KMultiFormListBoxEntry *entry();
   WidgetWindow *clone();
@@ -49,7 +49,7 @@ private:
   KMultiFormListBoxFactory *myFact;
   KMultiFormListBoxEntry *myWidget;
   QByteArray _backup;
-  KListWidget *listbox;
+  QListWidget *listbox;
   WindowListboxItem *myListboxItem;
   bool initialShow;
 };
