@@ -2,10 +2,28 @@ project(kregexpeditor)
 
 ############### search packages used by KDE ###############
 
-set (QT_MIN_VERSION "4.6.0")
-find_package(KDE4 4.4.1 REQUIRED)
-include(KDE4Defaults)
-include(MacroLibrary)
+cmake_minimum_required (VERSION 2.8.12 FATAL_ERROR)
+
+find_package(ECM 1.3.0 REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+
+include(ECMGenerateHeaders)
+include(ECMInstallIcons)
+include(ECMAddAppIcon)
+include(ECMMarkNonGuiExecutable)
+include(ECMOptionalAddSubdirectory)
+include(ECMSetupVersion)
+include(FeatureSummary)
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDECompilerSettings NO_POLICY_SCOPE)
+
+
+find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED Core Widgets)
+find_package(KF5 REQUIRED
+    KIO
+    DocTools
+    )
 
 find_package(BISON REQUIRED)
 find_package(FLEX REQUIRED)
@@ -20,7 +38,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 ############### Needed commands before building anything ###############
 
 add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
-include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES})
+include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} )
 
 ############### Find the stuff we need ###############
 
@@ -97,9 +115,9 @@ set(kregexpeditorcommon_SRCS
     zerowidgets.cpp
 )
 
-kde4_add_library(kregexpeditorcommon SHARED ${kregexpeditorcommon_SRCS})
+add_library(kregexpeditorcommon SHARED ${kregexpeditorcommon_SRCS})
 
-target_link_libraries(kregexpeditorcommon ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS})
+target_link_libraries(kregexpeditorcommon  KF5::KIOCore)
 
 set_target_properties(kregexpeditorcommon PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})
 install(TARGETS kregexpeditorcommon ${INSTALL_TARGETS_DEFAULT_ARGS})
@@ -108,9 +126,9 @@ install(TARGETS kregexpeditorcommon ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 set(kregexpeditorgui_PART_SRCS kregexpeditorfactory.cpp)
 
-kde4_add_plugin(kregexpeditorgui ${kregexpeditorgui_PART_SRCS})
+add_library(kregexpeditorgui MODULE ${kregexpeditorgui_PART_SRCS})
 
-target_link_libraries(kregexpeditorgui ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS} kregexpeditorcommon)
+target_link_libraries(kregexpeditorgui  KF5::KIOCore kregexpeditorcommon)
 
 install(TARGETS kregexpeditorgui DESTINATION ${PLUGIN_INSTALL_DIR})
 
@@ -118,11 +136,12 @@ install(TARGETS kregexpeditorgui DESTINATION ${PLUGIN_INSTALL_DIR})
 
 set(kregexpeditor_SRCS main.cpp)
 
-kde4_add_app_icon(kregexpeditor_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-kregexpeditor.png")
+file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/*-apps-kregexpeditor.png")
+ecm_add_app_icon(kregexpeditor_SRCS ICONS ${ICONS_SRCS})
 
-kde4_add_executable(kregexpeditor ${kregexpeditor_SRCS})
+add_executable(kregexpeditor ${kregexpeditor_SRCS})
 
-target_link_libraries(kregexpeditor ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS} kregexpeditorcommon)
+target_link_libraries(kregexpeditor  KF5::KIOCore kregexpeditorcommon)
 
 install(TARGETS kregexpeditor ${INSTALL_TARGETS_DEFAULT_ARGS})
 
@@ -140,4 +159,13 @@ install(FILES
 
 install(FILES KWidgetStreamer/kwidgetstreamer.h DESTINATION ${INCLUDE_INSTALL_DIR})
 
-kde4_install_icons(${ICON_INSTALL_DIR})
+ecm_install_icons(ICONS
+    128-apps-kregexpeditor.png
+    16-apps-kregexpeditor.png
+    22-apps-kregexpeditor.png
+    32-apps-kregexpeditor.png
+    48-apps-kregexpeditor.png
+    64-apps-kregexpeditor.png
+    DESTINATION ${ICON_INSTALL_DIR}
+    THEME hicolor
+)
