@@ -29,10 +29,10 @@
 #include <QMouseEvent>
 #include <QDrag>
 #include <QMimeData>
+#include <QInputDialog>
 
 #include <KLocale>
 #include <KMessageBox>
-#include <KInputDialog>
 #include <KDebug>
 #include <QIcon>
 
@@ -390,7 +390,7 @@ void RegExpEditorWindow::slotSave()
     QString dir = WidgetWinItem::path();
     QString txt;
 
-    QString tmp = KInputDialog::getText( i18n("Name for Regular Expression"), i18n("Enter name:"));
+    QString tmp = QInputDialog::getText(this, i18n("Name for Regular Expression"), i18n("Enter name:"));
     if( tmp.isEmpty()) {
       return;
     }
