@@ -42,11 +42,6 @@ InfoPage::InfoPage( QWidget* parent )
               "If you do not know what a regular expression is, then it might be a good idea "
               "to read <a href=\"doc://whatIsARegExp\">the introduction to regular expressions</a>.<br />");
 
-#ifdef HOUSEOFFUSION
-    txt += tr("<h2>House Of Fusion note</h2>"
-              "If you want to donate money to continue development on the KRegExpEditor port for "
-              "house of fusion then please contact Michael Dinowitz (mdinowit@houseoffusion.com).");
-#endif
     txt += i18n( "<h2>Send the author an electronic postcard</h2>"
                  "I don't get any money for working on KRegExpEditor, "
                  "I therefore appreciate it very much when users tell me what they think about my work. "
