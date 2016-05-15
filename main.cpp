@@ -21,7 +21,7 @@
 #include <KCmdLineArgs>
 #include <KLocale>
 #include <KDialog>
-#include <KPushButton>
+#include <QPushButton>
 
 #include "kregexpeditorgui.h"
 

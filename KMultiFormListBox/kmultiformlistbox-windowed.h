@@ -27,7 +27,7 @@ class QListWidgetItem;
 class KListWidget;
 class WindowListboxItem;
 class KMultiFormListBoxFactory;
-class KPushButton;
+class QPushButton;
 
 /**
    This class implements the windowed look for a @ref KMultiFormListBox
@@ -57,7 +57,7 @@ private:
 
 	QVBoxLayout* _layout;
   KMultiFormListBoxFactory* _factory;
-	QList<KPushButton *> _buttonList;
+	QList<QPushButton *> _buttonList;
   KListWidget* _listbox;
 	virtual void delElement(QWidget *); // Deletes the given element
 	virtual void delAnElement();
