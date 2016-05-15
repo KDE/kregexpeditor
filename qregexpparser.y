@@ -24,7 +24,7 @@
 #  define YYLTYPE_IS_TRIVIAL 0
 #endif
 
-  #include <klocale.h>
+  #include <KLocalizedString>
   #include <kmessagebox.h>
 
   

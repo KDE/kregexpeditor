@@ -20,8 +20,8 @@
 
 #include <QHBoxLayout>
 #include <QStackedWidget>
+#include <QComboBox>
 
-#include <KComboBox>
 #include <KLocalizedString>
 
 #include "limitedcharlineedit.h"
@@ -54,7 +54,7 @@ CharSelector::CharSelector( QWidget* parent )
   QHBoxLayout* layout = new QHBoxLayout( this );
   layout->setMargin( 0 );
 
-  _type = new KComboBox( this );
+  _type = new QComboBox( this );
   _type->setObjectName("_type");
   items << i18n("Normal Character")
         << i18n("Unicode Char in Hex.")

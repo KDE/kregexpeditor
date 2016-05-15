@@ -19,13 +19,13 @@
 #ifndef __limitedcharlineedit
 #define __limitedcharlineedit
 
-#include <KLineEdit>
+#include <QLineEdit>
 
 /**
    QLineEdit which only accepts a prespecified number of character.
    @internal
 */
-class LimitedCharLineEdit :public KLineEdit
+class LimitedCharLineEdit :public QLineEdit
 {
 public:
   enum Mode { NORMAL = 0, HEX = 1, OCT = 2 };

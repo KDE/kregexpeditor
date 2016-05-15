@@ -26,7 +26,7 @@
 
 #include <KLocalizedString>
 #include <QDialog>
-#include <KLineEdit>
+#include <QLineEdit>
 #include <KTextEdit>
 #include <KIconLoader>
 #include <KConfigGroup>
@@ -46,7 +46,7 @@ CompoundDetailWindow::CompoundDetailWindow( QWidget* parent )
 
   QLabel* label = new QLabel( i18n("&Title:"), this);
   layout->addWidget(label);
-  _title = new KLineEdit( this );
+  _title = new QLineEdit( this );
   layout->addWidget(_title);
   label->setBuddy( _title );
 

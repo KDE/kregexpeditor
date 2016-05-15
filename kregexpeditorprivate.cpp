@@ -23,7 +23,7 @@
 #include <KIconLoader>
 
 #include <KMessageBox>
-#include <KLineEdit>
+#include <QLineEdit>
 
 #include <QApplication>
 #include <QToolButton>
@@ -170,7 +170,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
   dockLayout->addWidget( clearButton );
   clearButton->setToolTip( i18n("Clear expression") );
   
-  _regexpEdit = new KLineEdit( editDockWidget );
+  _regexpEdit = new QLineEdit( editDockWidget );
   dockLayout->addWidget( _regexpEdit );
   _regexpEdit->setFocus(Qt::OtherFocusReason);
   _regexpEdit->setWhatsThis( i18n( "<p>This is the regular expression in ASCII syntax. You are likely only "

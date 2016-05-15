@@ -23,7 +23,7 @@
 
 #include "singlecontainerwidget.h"
 
-class KLineEdit;
+class QLineEdit;
 class KTextEdit;
 class QDialog;
 class QCheckBox;
@@ -46,7 +46,7 @@ public:
   void setAllowReplace( bool );
 
 private:
-  KLineEdit* _title;
+  QLineEdit* _title;
   KTextEdit* _description;
   QCheckBox* _allowReplace;
 };

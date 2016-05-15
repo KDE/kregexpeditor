@@ -19,7 +19,7 @@
 #include "selectablelineedit.h"
 
 SelectableLineEdit::SelectableLineEdit( RegExpWidget* owner, QWidget* parent, const char* name)
-  : KLineEdit( parent ), _owner(owner)
+  : QLineEdit( parent ), _owner(owner)
 {
   setObjectName( name );
   connect( this, SIGNAL( textChanged( const QString & ) ), this,
@@ -41,11 +41,11 @@ void SelectableLineEdit::setSelected( bool selected )
 
 QSize SelectableLineEdit::sizeHint() const
 {
-  int frameWidth = hasFrame() ? 12 : 6; // from KLineEdit source
+  int frameWidth = hasFrame() ? 12 : 6; // from QLineEdit source
   QFontMetrics metrics = fontMetrics();
   int actualSize = metrics.width( text() );
   int charWidth = metrics.maxWidth();
-  int height = KLineEdit::sizeHint().height();
+  int height = QLineEdit::sizeHint().height();
 
   int width;
   if ( hasFocus() ) {
@@ -59,7 +59,7 @@ QSize SelectableLineEdit::sizeHint() const
 
 void SelectableLineEdit::slotKeyPressed()
 {
-  int frameWidth = hasFrame() ? 8 : 4; // from KLineEdit source
+  int frameWidth = hasFrame() ? 8 : 4; // from QLineEdit source
 
   QFontMetrics metrics = fontMetrics();
   int actualSize = metrics.width( text() );

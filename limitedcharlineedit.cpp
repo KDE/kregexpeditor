@@ -54,14 +54,14 @@ private:
 
 void LimitedCharLineEdit::keyPressEvent ( QKeyEvent *event )
 {
-  KLineEdit::keyPressEvent( event );
+  QLineEdit::keyPressEvent( event );
   if ( text().length() == _count && !event->text().isNull() ) {
     focusNextPrevChild(true);
   }
 }
 
 LimitedCharLineEdit::LimitedCharLineEdit( Mode mode, QWidget* parent, const char* name )
-	:KLineEdit( parent ), _mode(mode)
+	:QLineEdit( parent ), _mode(mode)
 {
   setObjectName( name );
 
