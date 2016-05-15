@@ -27,6 +27,7 @@
 #include <QHBoxLayout>
 #include <QApplication>
 #include <QMouseEvent>
+#include <QDrag>
 
 #include <KLocale>
 #include <KMessageBox>
