@@ -19,7 +19,7 @@
 #include "widgetfactory.h"
 
 #include <KMessageBox>
-#include <KDebug>
+#include <QDebug>
 
 #include "repeatwidget.h"
 #include "textwidget.h"
@@ -184,8 +184,8 @@ RegExp* WidgetFactory::createRegExp( QString str )
   int errorLine, errorCol;
   bool ok = doc.setContent( str, &error, &errorLine, &errorCol );
   if ( !ok ) {
-    kDebug() << error << "at line" << errorLine << "xml was:";
-    kDebug() << str;
+    qDebug() << error << "at line" << errorLine << "xml was:";
+    qDebug() << str;
     KMessageBox::sorry( 0, i18n("Error while loading regular expression from XML.") + "\n" + error,
                         i18n("Error While Loading Regular Expression From XML") ) ;
   }

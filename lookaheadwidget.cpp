@@ -20,7 +20,7 @@
 
 #include <QPainter>
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "lookaheadregexp.h"
 #include "concwidget.h"

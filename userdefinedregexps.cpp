@@ -28,8 +28,6 @@
 #include <QInputDialog>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KStandardDirs>
-#include <KGlobal>
 #include <QStandardPaths>
 
 #include "widgetfactory.h"

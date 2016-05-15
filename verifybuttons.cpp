@@ -18,8 +18,7 @@
 
 #include "verifybuttons.h"
 
-#include <klocale.h>
-#include <KFileDialog>
+#include <KLocalizedString>
 #include <QIcon>
 
 #include <QMenu>

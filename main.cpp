@@ -17,9 +17,9 @@
  **/
 
 #include <KAboutData>
-#include <KApplication>
 
 #include <KLocalizedString>
+#include <QApplication>
 #include <QVBoxLayout>
 #include <QDialog>
 #include <QDialogButtonBox>

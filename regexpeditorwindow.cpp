@@ -33,7 +33,6 @@
 
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KDebug>
 #include <QIcon>
 
 #include "regexp.h"
