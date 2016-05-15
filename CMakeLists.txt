@@ -126,7 +126,7 @@ install(TARGETS kregexpeditorcommon ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### next target ###############
 
-set(kregexpeditorgui_PART_SRCS kregexpeditorfactory.cpp)
+set(kregexpeditorgui_PART_SRCS kregexpeditorfactory.h )
 
 add_library(kregexpeditorgui MODULE ${kregexpeditorgui_PART_SRCS})
 
