@@ -21,7 +21,7 @@
 #include <QtGui/QPainter>
 #include <QtGui/QPaintEvent>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 
 #include "dragaccepter.h"

@@ -26,7 +26,7 @@
 #include <QHeaderView>
 
 #include <QInputDialog>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KStandardDirs>
 #include <KGlobal>

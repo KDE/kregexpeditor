@@ -31,7 +31,7 @@
 #include <QMimeData>
 #include <QInputDialog>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KDebug>
 #include <QIcon>

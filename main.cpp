@@ -19,7 +19,7 @@
 #include <KAboutData>
 #include <KApplication>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <QVBoxLayout>
 #include <QDialog>
 #include <QDialogButtonBox>

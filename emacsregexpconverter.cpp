@@ -19,7 +19,7 @@
 #include "emacsregexpconverter.h"
 
 #include <KMessageBox>
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "regexp.h"
 #include "altnregexp.h"

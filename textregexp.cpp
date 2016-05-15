@@ -19,7 +19,7 @@
 #include "textregexp.h"
 
 #include <KMessageBox>
-#include <KLocale>
+#include <KLocalizedString>
 
 TextRegExp::TextRegExp( bool selected, QString text) :RegExp( selected )
 {

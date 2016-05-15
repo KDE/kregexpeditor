@@ -21,7 +21,7 @@
 #include <QVBoxLayout>
 #include <QFrame>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KHelpClient>
 
 #include "kregexpeditorprivate.h"

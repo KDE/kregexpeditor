@@ -22,7 +22,7 @@
 #include <QSignalMapper>
 
 #include <KIconLoader>
-#include <KLocale>
+#include <KLocalizedString>
 #include <QStandardPaths>
 
 

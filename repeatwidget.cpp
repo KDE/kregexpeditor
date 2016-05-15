@@ -26,7 +26,7 @@
 #include <QButtonGroup>
 #include <QGroupBox>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <QDialog>
 #include <KConfigGroup>
 #include <QDialogButtonBox>

@@ -18,7 +18,7 @@
 
 #include "textrangeregexp.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 
 #include "regexpconverter.h"

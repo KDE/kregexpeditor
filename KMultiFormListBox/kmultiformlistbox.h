@@ -21,7 +21,7 @@
 
 #include "kmultiformlistboxentry.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 
 class QDataStream;
 class KMultiFormListBoxFactory;

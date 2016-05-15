@@ -21,7 +21,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <QListWidget>
 
 #include <QDialogButtonBox>

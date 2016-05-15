@@ -22,7 +22,7 @@
 #include <QStackedWidget>
 
 #include <KComboBox>
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "limitedcharlineedit.h"
 #include "regexpconverter.h"

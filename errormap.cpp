@@ -19,7 +19,7 @@
 #include "errormap.h"
 
 #include <KMessageBox>
-#include <KLocale>
+#include <KLocalizedString>
 
 ErrorMap::ErrorMap() : _prevLineStartError( false ), _prevLineEndError( false ), _prevLookAHeadError( false )
 {

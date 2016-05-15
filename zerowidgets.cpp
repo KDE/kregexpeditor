@@ -20,7 +20,7 @@
 
 #include <QPainter>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "dotregexp.h"
 #include "positionregexp.h"

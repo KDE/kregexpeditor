@@ -24,7 +24,7 @@
 #include <QVBoxLayout>
 #include <QMouseEvent>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <QDialog>
 #include <KLineEdit>
 #include <KTextEdit>

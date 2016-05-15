@@ -23,7 +23,7 @@
 
 #include <QIcon>
 #include <KIconLoader>
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "util.h"
 

@@ -19,7 +19,7 @@
 #include "repeatregexp.h"
 
 #include <KMessageBox>
-#include <KLocale>
+#include <KLocalizedString>
 
 RepeatRegExp::RepeatRegExp( bool selected, int lower, int upper, RegExp* child) : RegExp( selected )
 {

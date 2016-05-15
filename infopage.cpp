@@ -18,7 +18,7 @@
 
 #include "infopage.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KHelpClient>
 
 InfoPage::InfoPage( QWidget* parent )

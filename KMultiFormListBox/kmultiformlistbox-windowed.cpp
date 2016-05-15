@@ -20,7 +20,7 @@
 
 #include <QVBoxLayout>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <QListWidget>
 #include <KMessageBox>
 #include <QPushButton>
