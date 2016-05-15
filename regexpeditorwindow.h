@@ -19,7 +19,7 @@
 #ifndef regexpeditorwindow_h
 #define regexpeditorwindow_h
 
-#include <QtGui/QWidget>
+#include <QtWidgets/QWidget>
 
 #include "widgetfactory.h"
 

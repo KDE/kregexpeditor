@@ -19,7 +19,7 @@
 #ifndef __kmultiformlistboxentry
 #define __kmultiformlistboxentry
 
-#include <QtGui/QWidget>
+#include <QtWidgets/QWidget>
 
 class QPushButton;
 
