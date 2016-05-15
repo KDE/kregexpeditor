@@ -24,7 +24,7 @@
 #include <kregexpeditorinterface.h>
 
 
-class KDE_EXPORT KRegExpEditorGUIDialog : public KDialog, public KRegExpEditorInterface
+class Q_DECL_EXPORT KRegExpEditorGUIDialog : public KDialog, public KRegExpEditorInterface
 {
     Q_OBJECT
     Q_INTERFACES(KRegExpEditorInterface)

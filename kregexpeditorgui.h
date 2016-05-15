@@ -30,7 +30,7 @@ class KRegExpEditorPrivate;
    @author Jesper Kjær Pedersen <blackie@kde.org>
    @version 0.1
  **/
-class KDE_EXPORT KRegExpEditorGUI  :public QWidget, public KRegExpEditorInterface
+class Q_DECL_EXPORT KRegExpEditorGUI  :public QWidget, public KRegExpEditorInterface
 {
   Q_OBJECT
   Q_INTERFACES(KRegExpEditorInterface)
