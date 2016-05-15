@@ -25,6 +25,7 @@
 
 #include <QMenu>
 #include <QToolButton>
+#include <QFileDialog>
 
 #include "util.h"
 #include "qtregexpconverter.h"
@@ -155,7 +156,7 @@ void VerifyButtons::updateVerifyButton( bool b )
 
 void VerifyButtons::loadText()
 {
-    QString fileName = KFileDialog::getOpenFileName(KUrl(), QString(), this);
+    QString fileName = QFileDialog::getOpenFileName(this, QString(), QString(), QString());
     if ( !fileName.isNull() ) {
         emit loadVerifyText( fileName );
     }
