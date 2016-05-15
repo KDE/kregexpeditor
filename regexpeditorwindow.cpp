@@ -34,7 +34,7 @@
 #include <KMessageBox>
 #include <KInputDialog>
 #include <KDebug>
-#include <KIcon>
+#include <QIcon>
 
 #include "regexp.h"
 #include "userdefinedregexps.h"
@@ -468,6 +468,6 @@ void RegExpEditorWindow::editWidget()
 
 QIcon RegExpEditorWindow::getIcon( const QString& name )
 {
-    return KIcon( name );
+    return QIcon::fromTheme( name );
 }
 

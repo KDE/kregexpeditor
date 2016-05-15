@@ -19,7 +19,7 @@
 #include "kregexpeditorprivate.h"
 
 #include <KLocale>
-#include <KIcon>
+#include <QIcon>
 #include <KIconLoader>
 #include <KStandardDirs>
 #include <KMessageBox>
@@ -164,7 +164,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
   
   clearButton = new QToolButton( editDockWidget );
   const QString icon( QString::fromLatin1( QApplication::isRightToLeft() ? "edit-clear-locationbar-rtl" : "edit-clear-locationbar-ltr" ) );
-  KIcon clearIcon( icon );
+  QIcon clearIcon( icon );
   clearButton->setIcon( clearIcon );
   dockLayout->addWidget( clearButton );
   clearButton->setToolTip( i18n("Clear expression") );
