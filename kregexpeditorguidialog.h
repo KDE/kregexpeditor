@@ -15,7 +15,7 @@
  *  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  **/
- 
+
 #ifndef kregexpeditorguidialog_h
 #define kregexpeditorguidialog_h
 
@@ -44,7 +44,7 @@ public slots:
   virtual void redo();
   virtual void undo();
   virtual void setRegExp( const QString &regexp );
-  virtual void doSomething( QString method, void* arguments );
+  virtual void doSomething( const QString &method, void* arguments );
   virtual void setMatchText( const QString& );
 
 private:

@@ -19,6 +19,7 @@
 #include "kregexpeditorprivate.h"
 
 #include <KLocale>
+#include <KIcon>
 #include <KIconLoader>
 #include <KStandardDirs>
 #include <KMessageBox>

@@ -28,6 +28,7 @@
 #include <KDialog>
 #include <KLineEdit>
 #include <KTextEdit>
+#include <KIconLoader>
 
 #include "concwidget.h"
 #include "kwidgetstreamer.h"

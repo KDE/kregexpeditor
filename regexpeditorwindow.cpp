@@ -28,11 +28,13 @@
 #include <QApplication>
 #include <QMouseEvent>
 #include <QDrag>
+#include <QMimeData>
 
 #include <KLocale>
 #include <KMessageBox>
 #include <KInputDialog>
 #include <KDebug>
+#include <KIcon>
 
 #include "regexp.h"
 #include "userdefinedregexps.h"

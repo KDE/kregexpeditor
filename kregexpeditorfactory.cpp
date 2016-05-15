@@ -17,6 +17,7 @@
  **/
 
 #include <KPluginFactory>
+#include <KPluginLoader>
 
 #include "kregexpeditorgui.h"
 #include "kregexpeditorguidialog.h"

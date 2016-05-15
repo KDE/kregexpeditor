@@ -29,6 +29,7 @@
 #include <KLocale>
 #include <KMessageBox>
 #include <KStandardDirs>
+#include <KGlobal>
 
 #include "widgetfactory.h"
 #include "compoundregexp.h"

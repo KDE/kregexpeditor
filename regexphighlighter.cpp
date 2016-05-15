@@ -19,6 +19,7 @@
 // krazy:excludeall=qclasses
 
 #include "regexphighlighter.h"
+#include <QTextEdit>
 
 RegexpHighlighter::RegexpHighlighter( QTextEdit* edit )
     :QSyntaxHighlighter( edit ), _caseSensitive( false ), _minimal( false )

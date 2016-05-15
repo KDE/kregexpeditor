@@ -69,7 +69,7 @@ void KRegExpEditorGUIDialog::undo()
   _editor->undo();
 }
 
-void KRegExpEditorGUIDialog::doSomething( QString method, void* arguments )
+void KRegExpEditorGUIDialog::doSomething(const QString &method, void* arguments )
 {
     _editor->doSomething( method, arguments );
 }

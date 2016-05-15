@@ -20,6 +20,8 @@
 
 #include <klocale.h>
 #include <KFileDialog>
+#include <KIcon>
+#include <KUrl>
 
 #include <QMenu>
 #include <QToolButton>

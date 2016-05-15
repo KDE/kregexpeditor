@@ -22,7 +22,7 @@
 #include <QFrame>
 
 #include <KLocale>
-#include <KToolInvocation>
+#include <KHelpClient>
 
 #include "kregexpeditorprivate.h"
 
@@ -96,6 +96,6 @@ void KRegExpEditorGUI::setMatchText( const QString& txt )
 
 void KRegExpEditorGUI::showHelp()
 {
-    KToolInvocation::invokeHelp( QString(), QString::fromLocal8Bit( "KRegExpEditor" ) );
+    KHelpClient::invokeHelp( QString(), QString::fromLocal8Bit( "KRegExpEditor" ) );
 }
 

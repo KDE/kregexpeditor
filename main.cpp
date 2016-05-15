@@ -16,7 +16,7 @@
  *  Boston, MA 02110-1301, USA.
  **/
 
-#include <KAboutData>
+#include <K4AboutData>
 #include <KApplication>
 #include <KCmdLineArgs>
 #include <KLocale>
@@ -27,9 +27,9 @@
 
 int main( int argc, char* argv[] )
 {
-    KAboutData aboutData( "kregexpeditor", 0, ki18n("RegExp Editor"),
+    K4AboutData aboutData( "kregexpeditor", 0, ki18n("RegExp Editor"),
                           "1.0", ki18n("Editor for Regular Expressions"),
-			  KAboutData::License_GPL,
+              K4AboutData::License_GPL,
                           ki18n("(c) 2002-2003 Jesper K. Pedersen"));
     KCmdLineArgs::init(argc, argv, &aboutData);
     KApplication myapp;
