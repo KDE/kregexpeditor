@@ -20,6 +20,7 @@
 
 #include <QPainter>
 #include <QMouseEvent>
+#include <QMimeData>
 
 #include "concwidget.h"
 
@@ -103,7 +104,7 @@ void DragAccepter::mouseReleaseEvent( QMouseEvent* event )
 
 void DragAccepter::dragEnterEvent(QDragEnterEvent *event)
 {
-  bool selfDrag = (  event->source() && event->source()->topLevelWidget() == topLevelWidget() && _isSelected );
+  bool selfDrag = ( event->source() && _isSelected );
   if(!selfDrag && event->mimeData()->hasFormat("KRegExpEditor/widgetdrag")) {
     event->setDropAction(Qt::MoveAction);
     event->accept();
@@ -135,7 +136,7 @@ void DragAccepter::dropEvent(QDropEvent *event)
   }
   _editorWindow->updateContent( this );
 
-  bool selfDrag = (  event->source() && event->source()->topLevelWidget() == topLevelWidget() );
+  bool selfDrag = ( event->source() );
   if ( ! selfDrag ) {
     _editorWindow->clearSelection( true );
   } else {
