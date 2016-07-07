@@ -36,7 +36,6 @@ protected:
     virtual void keyPressEvent(QKeyEvent *);
 
 private:
-    Mode _mode;
     int _count;
 };
 

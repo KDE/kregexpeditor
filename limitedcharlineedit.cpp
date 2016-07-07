@@ -30,6 +30,7 @@ class Validator : public QValidator
 public:
     Validator(LimitedCharLineEdit::Mode mode, QWidget *parent)
         : QValidator(parent), _mode(mode)
+
     {
         setObjectName("Validator");
     }
@@ -60,7 +61,7 @@ void LimitedCharLineEdit::keyPressEvent(QKeyEvent *event)
 }
 
 LimitedCharLineEdit::LimitedCharLineEdit(Mode mode, QWidget *parent, const char *name)
-    : QLineEdit(parent), _mode(mode)
+    : QLineEdit(parent)
 {
     setObjectName(name);
 

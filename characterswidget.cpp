@@ -184,7 +184,8 @@ int CharactersWidget::edit()
 
     _configWindow->move(QCursor::pos() - QPoint(_configWindow->sizeHint().width() / 2,
                         _configWindow->sizeHint().height() / 2));
-    int ret = _configWindow->exec(_regexp);
+    _configWindow->setRegexp(_regexp);
+    int ret = _configWindow->exec();
     if (ret == QDialog::Accepted) {
         _editorWindow->updateContent(0);
         update();
@@ -226,7 +227,7 @@ void CharacterEdits::addRange(QString from, QString to)
     _range->append(entry);
 }
 
-int CharacterEdits::exec(TextRangeRegExp *regexp)
+void CharacterEdits::setRegexp(TextRangeRegExp *regexp)
 {
     _regexp = regexp;
     negate->setChecked(regexp->negate());
@@ -271,10 +272,6 @@ int CharacterEdits::exec(TextRangeRegExp *regexp)
         QString to = elm.second;
         addRange(from, to);
     }
-
-    int res = QDialog::exec();
-    _regexp = 0;
-    return res;
 }
 
 CharacterEdits::CharacterEdits(QWidget *parent)

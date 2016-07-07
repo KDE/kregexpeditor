@@ -136,7 +136,7 @@ public:
     CharacterEdits(QWidget *parent = 0);
 
 public slots:
-    int exec(TextRangeRegExp *regexp);
+    void setRegexp(TextRangeRegExp *regexp);
 
 protected slots:
     void slotOK();

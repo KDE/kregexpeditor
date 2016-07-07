@@ -62,7 +62,6 @@ private:
     QString _text;
     mutable QSize _textSize;
 
-    mutable int _maxSelectedWidth;
     mutable int _childrenWidth;
     mutable int _childrenHeight;
 };
