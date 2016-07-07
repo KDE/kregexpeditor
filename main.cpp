@@ -21,8 +21,7 @@
 #include <KLocalizedString>
 #include <QApplication>
 #include <QVBoxLayout>
-#include <QDialog>
-#include <QDialogButtonBox>
+#include <QHBoxLayout>
 #include <QPushButton>
 #include <KConfigGroup>
 #include <QCommandLineParser>
@@ -46,20 +45,10 @@ int main( int argc, char* argv[] )
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
-    QDialog top;
-    top.setLayout(new QVBoxLayout);
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Help
-                                     | QDialogButtonBox::Close);
-    QObject::connect(buttonBox->button(QDialogButtonBox::Close), &QPushButton::clicked, &top, &QDialog::accept);
+    KRegExpEditorGUI iface;
 
-    KRegExpEditorGUI* iface = new KRegExpEditorGUI( &top );
-    top.layout()->addWidget(iface);
-    top.layout()->addWidget(buttonBox);
-    iface->doSomething( QString::fromLatin1("setAllowNonQtSyntax"), (bool*) true );
+    iface.show();
 
-    QObject::connect( buttonBox->button(QDialogButtonBox::Help), &QPushButton::clicked, iface, &KRegExpEditorGUI::showHelp );
-
-    top.show();
-    QObject::connect( qApp, SIGNAL( lastWindowClosed() ), qApp, SLOT( quit() ) );
+    app.setQuitOnLastWindowClosed(true);
     return app.exec();
 }

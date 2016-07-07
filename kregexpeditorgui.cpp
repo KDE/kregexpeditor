@@ -18,7 +18,9 @@
 
 #include "kregexpeditorgui.h"
 
+#include <QPushButton>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QFrame>
 
 #include <KLocalizedString>
@@ -31,13 +33,27 @@ const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
 
 KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent,
                                    const QVariantList & )
-  : QWidget( parent)
+  : QWidget( parent),
+    _editor(new KRegExpEditorPrivate(this))
 {
-  QHBoxLayout* layout = new QHBoxLayout( this );
-  layout->setMargin(0);
-  _editor = new KRegExpEditorPrivate( this );
+  setWindowFlags(windowFlags() | Qt::Dialog);
+
+  QVBoxLayout* layout = new QVBoxLayout( this );
+
   layout->addWidget( _editor );
-  _editor->setVisible(true);
+
+  QPushButton *quitButton = new QPushButton(i18n("&Quit"));
+  QPushButton *helpButton = new QPushButton(i18n("&Help"));
+  QHBoxLayout *buttonLayout = new QHBoxLayout;
+  buttonLayout->setMargin(0);
+  buttonLayout->addStretch();
+  buttonLayout->addWidget(quitButton);
+  buttonLayout->addWidget(helpButton);
+  layout->addLayout(buttonLayout);
+
+  connect(helpButton, &QPushButton::clicked, this, &KRegExpEditorGUI::showHelp );
+  connect(quitButton, &QPushButton::clicked, this, &QDialog::close);
+
   connect( _editor, SIGNAL( canUndo(bool) ), this, SIGNAL( canUndo(bool) ) );
   connect( _editor, SIGNAL( canRedo(bool) ), this, SIGNAL( canRedo(bool) ) );
   connect( _editor, SIGNAL( changes(bool) ), this, SIGNAL( changes(bool) ) );
