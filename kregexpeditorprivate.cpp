@@ -162,16 +162,10 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     QHBoxLayout *dockLayout = new QHBoxLayout(editDockWidget);
     dockLayout->setMargin(0);
 
-    clearButton = new QToolButton(editDockWidget);
-    const QString icon(QString::fromLatin1(QApplication::isRightToLeft() ? "edit-clear-locationbar-rtl" : "edit-clear-locationbar-ltr"));
-    QIcon clearIcon(icon);
-    clearButton->setIcon(clearIcon);
-    dockLayout->addWidget(clearButton);
-    clearButton->setToolTip(i18n("Clear expression"));
-
     _regexpEdit = new QLineEdit(editDockWidget);
     dockLayout->addWidget(_regexpEdit);
     _regexpEdit->setFocus(Qt::OtherFocusReason);
+    _regexpEdit->setClearButtonEnabled(true);
     _regexpEdit->setWhatsThis(i18n("<p>This is the regular expression in ASCII syntax. You are likely only "
                                    "to be interested in this if you are a programmer, and need to "
                                    "develop a regular expression using QRegExp.</p>"
@@ -190,7 +184,6 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     connect(_scrolledEditorWindow, SIGNAL(change()), this, SLOT(slotUpdateLineEdit()));
     connect(_regexpEdit, SIGNAL(textChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
     connect(_timer, SIGNAL(timeout()), this, SLOT(slotTimeout()));
-    connect(clearButton, SIGNAL(clicked()), _regexpEdit, SLOT(clear()));
 
     // Push an initial empty element on the stack.
     _undoStack.push(_scrolledEditorWindow->regExp());

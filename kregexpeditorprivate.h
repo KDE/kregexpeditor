@@ -102,7 +102,6 @@ private:
     Verifier *_verifier;
     bool _autoVerify;
     ErrorMap _errorMap;
-    QToolButton *clearButton;
     bool _matchGreedy;
 };
 
