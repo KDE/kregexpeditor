@@ -22,6 +22,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QFrame>
+#include <QSettings>
 
 #include <KLocalizedString>
 #include <KHelpClient>
@@ -38,7 +39,6 @@ KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent,
     setWindowFlags(windowFlags() | Qt::Dialog);
 
     QVBoxLayout *layout = new QVBoxLayout(this);
-
     layout->addWidget(_editor);
 
     QPushButton *quitButton = new QPushButton(i18n("&Quit"));
@@ -56,6 +56,9 @@ KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent,
     connect(_editor, SIGNAL(canUndo(bool)), this, SIGNAL(canUndo(bool)));
     connect(_editor, SIGNAL(canRedo(bool)), this, SIGNAL(canRedo(bool)));
     connect(_editor, SIGNAL(changes(bool)), this, SIGNAL(changes(bool)));
+
+    QSettings settings;
+    restoreGeometry(settings.value("geometry").toByteArray());
 }
 
 KRegExpEditorGUI::~KRegExpEditorGUI()
@@ -66,6 +69,14 @@ KRegExpEditorGUI::~KRegExpEditorGUI()
 QString KRegExpEditorGUI::regExp() const
 {
     return _editor->regexp();
+}
+
+void KRegExpEditorGUI::closeEvent(QCloseEvent *event)
+{
+    QSettings settings;
+    settings.setValue("geometry", saveGeometry());
+
+    QWidget::closeEvent(event);
 }
 
 void KRegExpEditorGUI::redo()

@@ -44,6 +44,9 @@ public:
 
     static const QString version;
 
+protected:
+    void closeEvent(QCloseEvent *event);
+
 signals:
     /** This signal tells whether undo is available. */
     void canRedo(bool);
