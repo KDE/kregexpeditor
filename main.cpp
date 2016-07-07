@@ -23,7 +23,6 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
-#include <KConfigGroup>
 #include <QCommandLineParser>
 
 #include "kregexpeditorgui.h"

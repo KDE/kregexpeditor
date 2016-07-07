@@ -25,7 +25,6 @@
 #include <QGroupBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <KConfigGroup>
 #include <QDialogButtonBox>
 
 #include "textrangeregexp.h"

@@ -28,7 +28,6 @@
 
 #include <KLocalizedString>
 #include <QDialog>
-#include <KConfigGroup>
 #include <QDialogButtonBox>
 #include <QPushButton>
 

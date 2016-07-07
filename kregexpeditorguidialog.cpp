@@ -23,7 +23,6 @@
 
 #include <KLocalizedString>
 #include <KToolInvocation>
-#include <KConfigGroup>
 #include <QDialogButtonBox>
 #include <QPushButton>
 

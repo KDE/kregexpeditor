@@ -29,7 +29,6 @@
 #include <QLineEdit>
 #include <KTextEdit>
 #include <KIconLoader>
-#include <KConfigGroup>
 #include <QDialogButtonBox>
 #include <QPushButton>
 
