@@ -25,8 +25,6 @@
 #include <KIconLoader>
 #include <KLocalizedString>
 
-#include "util.h"
-
 AuxButtons::AuxButtons(QWidget *parent, const char *name = 0)
     : QToolBar(name, parent)
 {

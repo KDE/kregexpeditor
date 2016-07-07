@@ -25,7 +25,6 @@
 #include <QToolButton>
 #include <QFileDialog>
 
-#include "util.h"
 #include "qtregexpconverter.h"
 #include "emacsregexpconverter.h"
 

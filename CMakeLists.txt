@@ -113,7 +113,6 @@ set(kregexpeditorcommon_SRCS
     textregexp.cpp
     textwidget.cpp
     userdefinedregexps.cpp
-    util.cpp
     verifier.cpp
     verifybuttons.cpp
     widgetfactory.cpp
