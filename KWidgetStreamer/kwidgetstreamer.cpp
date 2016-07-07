@@ -68,9 +68,9 @@ void KWidgetStreamer::propertyToStream(const QObject *from, QDataStream &stream)
     for (PropertyMapIt mapIt = _map.constBegin(); mapIt != _map.constEnd(); ++mapIt) {
         QString tp = mapIt.key();
         PropertyList list = mapIt.value();
-        if (from->inherits(tp.toAscii())) {
+        if (from->inherits(tp.toLocal8Bit())) {
             for (PropertyListIt it = list.begin(); it != list.end(); ++it) {
-                QVariant prop = from->property((*it).toAscii());
+                QVariant prop = from->property((*it).toLocal8Bit());
                 if (! prop.isValid()) {
                     qWarning("Invalid property: %s:%s", qPrintable(tp), qPrintable(*it));
                 }
@@ -107,11 +107,11 @@ void KWidgetStreamer::propertyFromStream(QDataStream &stream, QObject *to)
     for (PropertyMapIt mapIt = _map.constBegin(); mapIt != _map.constEnd(); ++mapIt) {
         QString tp = mapIt.key();
         PropertyList list = mapIt.value();
-        if (to->inherits(tp.toAscii())) {
+        if (to->inherits(tp.toLocal8Bit())) {
             for (PropertyListIt it = list.begin(); it != list.end(); ++it) {
                 QVariant value;
                 stream >> value;
-                to->setProperty((*it).toAscii(), value);
+                to->setProperty((*it).toLocal8Bit(), value);
             }
         }
     }

@@ -24,7 +24,6 @@ find_package(KF5 REQUIRED
     ConfigWidgets
     DocTools
     IconThemes
-    KDELibs4Support
     KIO
     TextWidgets
     WidgetsAddons

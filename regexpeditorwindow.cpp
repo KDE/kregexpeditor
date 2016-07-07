@@ -114,7 +114,7 @@ void RegExpEditorWindow::mouseMoveEvent(QMouseEvent *event)
             QMimeData *mimeData = new QMimeData;
 
             mimeData->setText(RegExpConverter::current()->toStr(regexp, false));
-            mimeData->setData("KRegExpEditor/widgetdrag", regexp->toXmlString().toAscii());
+            mimeData->setData("KRegExpEditor/widgetdrag", regexp->toXmlString().toLocal8Bit());
             delete regexp;
 
             drag->setMimeData(mimeData);
@@ -289,7 +289,7 @@ void RegExpEditorWindow::cutCopyAux(QPoint pos)
 
     QMimeData *mimeData = new QMimeData;
     mimeData->setText(RegExpConverter::current()->toStr(regexp, false));
-    mimeData->setData("KRegExpEditor/widgetdrag", regexp->toXmlString().toAscii());
+    mimeData->setData("KRegExpEditor/widgetdrag", regexp->toXmlString().toLocal8Bit());
 
     delete regexp;
 
