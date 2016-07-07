@@ -22,77 +22,76 @@
 #include "kregexpeditorgui.h"
 #include "errormap.h"
 
-RegExp::RegExp( bool selected ) : _parent(0), _destructing( false ), _selected( selected )
+RegExp::RegExp(bool selected) : _parent(0), _destructing(false), _selected(selected)
 {
-  // Nothing to do
+    // Nothing to do
 }
 
 RegExp::~RegExp()
 {
-  _destructing = true;
-  qDeleteAll(_children);
-  if ( _parent ) {
-    _parent->removeChild( this );
-  }
-  _parent = 0;
-}
-
-void RegExp::addChild( RegExp* child )
-{
-  _children.append( child );
-  child->setParent( this );
-}
-
-void RegExp::removeChild( RegExp* child )
-{
-  if ( ! _destructing ) {
-    _children.removeOne( child );
-  }
-}
-
-void RegExp::setParent( RegExp* parent )
-{
-  _parent = parent;
-}
-
-RegExp* RegExp::readRegExp( QDomElement top, const QString& version )
-{
-  for ( QDomNode node = top.firstChild(); !node.isNull(); node = node.nextSibling() ) {
-    if (!node.isElement() ) {
-      continue; // skip past comments
+    _destructing = true;
+    qDeleteAll(_children);
+    if (_parent) {
+        _parent->removeChild(this);
     }
+    _parent = 0;
+}
 
-    RegExp* regexp = WidgetFactory::createRegExp(node.toElement(), version );
-    return regexp;
-  }
-  return 0;
+void RegExp::addChild(RegExp *child)
+{
+    _children.append(child);
+    child->setParent(this);
+}
+
+void RegExp::removeChild(RegExp *child)
+{
+    if (! _destructing) {
+        _children.removeOne(child);
+    }
+}
+
+void RegExp::setParent(RegExp *parent)
+{
+    _parent = parent;
+}
+
+RegExp *RegExp::readRegExp(QDomElement top, const QString &version)
+{
+    for (QDomNode node = top.firstChild(); !node.isNull(); node = node.nextSibling()) {
+        if (!node.isElement()) {
+            continue; // skip past comments
+        }
+
+        RegExp *regexp = WidgetFactory::createRegExp(node.toElement(), version);
+        return regexp;
+    }
+    return 0;
 }
 
 QString RegExp::toXmlString() const
 {
-  QDomDocument doc;
-  doc.setContent( QString::fromLatin1( "<RegularExpression/>" ) );
-  QDomNode top = doc.documentElement();
-  top.toElement().setAttribute(QString::fromLocal8Bit("version"), KRegExpEditorGUI::version);
+    QDomDocument doc;
+    doc.setContent(QString::fromLatin1("<RegularExpression/>"));
+    QDomNode top = doc.documentElement();
+    top.toElement().setAttribute(QString::fromLocal8Bit("version"), KRegExpEditorGUI::version);
 
-  QDomNode elm = toXml( &doc );
+    QDomNode elm = toXml(&doc);
 
-  top.appendChild( elm );
-  QString xmlString = QString::fromLocal8Bit("<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<!DOCTYPE RegularExpression PUBLIC \"-//KDE//KRegexpEditor DTD 1.0//EN\" \"http://www.blackie.dk/kreg.dtd\">\n") + doc.toString();
+    top.appendChild(elm);
+    QString xmlString = QString::fromLocal8Bit("<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<!DOCTYPE RegularExpression PUBLIC \"-//KDE//KRegexpEditor DTD 1.0//EN\" \"http://www.blackie.dk/kreg.dtd\">\n") + doc.toString();
 
-  return xmlString;
+    return xmlString;
 }
 
-RegExp* RegExp::clone() const
+RegExp *RegExp::clone() const
 {
-  return WidgetFactory::createRegExp( toXmlString() );
+    return WidgetFactory::createRegExp(toXmlString());
 }
 
-void RegExp::check( ErrorMap& map )
+void RegExp::check(ErrorMap &map)
 {
     map.start();
-    check( map, true, true );
+    check(map, true, true);
     map.end();
 }
-
 

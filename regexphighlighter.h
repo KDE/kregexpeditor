@@ -25,13 +25,13 @@
 
 class QTextEdit;
 
-class RegexpHighlighter :public QSyntaxHighlighter
+class RegexpHighlighter : public QSyntaxHighlighter
 {
 public:
-    RegexpHighlighter( QTextEdit* edit );
-    void setRegExp( const QString& regexp );
-    void setCaseSensitive( bool );
-    void setMinimal( bool );
+    RegexpHighlighter(QTextEdit *edit);
+    void setRegExp(const QString &regexp);
+    void setCaseSensitive(bool);
+    void setMinimal(bool);
 
 protected:
     QString _regexp;

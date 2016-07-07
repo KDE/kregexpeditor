@@ -21,56 +21,56 @@
 #include <KMessageBox>
 #include <KLocalizedString>
 
-TextRegExp::TextRegExp( bool selected, QString text) :RegExp( selected )
+TextRegExp::TextRegExp(bool selected, QString text) : RegExp(selected)
 {
-	_text = text;
+    _text = text;
 }
 
-bool TextRegExp::check( ErrorMap&, bool, bool )
+bool TextRegExp::check(ErrorMap &, bool, bool)
 {
     return false;
 }
 
-
-void TextRegExp::append( QString str )
+void TextRegExp::append(QString str)
 {
-    _text.append( str );
+    _text.append(str);
 }
 
-QDomNode TextRegExp::toXml( QDomDocument* doc ) const
+QDomNode TextRegExp::toXml(QDomDocument *doc) const
 {
     QDomElement top = doc->createElement(QString::fromLocal8Bit("Text"));
-    QDomText text = doc->createTextNode( _text );
-    top.appendChild( text );
+    QDomText text = doc->createTextNode(_text);
+    top.appendChild(text);
     return top;
 }
 
-bool TextRegExp::load( QDomElement top, const QString& /*version*/)
+bool TextRegExp::load(QDomElement top, const QString & /*version*/)
 {
-    Q_ASSERT( top.tagName() == QString::fromLocal8Bit( "Text" ) );
-    if ( top.hasChildNodes() ) {
+    Q_ASSERT(top.tagName() == QString::fromLocal8Bit("Text"));
+    if (top.hasChildNodes()) {
         QDomNode child = top.firstChild();
-        if ( ! child.isText() ) {
-            KMessageBox::sorry( 0, i18n("<p>Element <b>Text</b> did not contain any textual data.</p>"),
-                                i18n("Error While Loading From XML File") ) ;
+        if (! child.isText()) {
+            KMessageBox::sorry(0, i18n("<p>Element <b>Text</b> did not contain any textual data.</p>"),
+                               i18n("Error While Loading From XML File")) ;
             return false;
         }
         QDomText txtNode = child.toText();
         _text = txtNode.data();
     } else {
-        _text = QString::fromLatin1( "" );
+        _text = QString::fromLatin1("");
     }
 
     return true;
 }
 
-bool TextRegExp::operator==( const RegExp& other ) const {
-    if ( other.type() != type() ) {
+bool TextRegExp::operator==(const RegExp &other) const
+{
+    if (other.type() != type()) {
         return false;
     }
 
-    const TextRegExp& theOther = dynamic_cast<const TextRegExp&>( other );
-    if ( text() == theOther.text() ) {
+    const TextRegExp &theOther = dynamic_cast<const TextRegExp &>(other);
+    if (text() == theOther.text()) {
         return true;
     }
 

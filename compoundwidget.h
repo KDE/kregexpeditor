@@ -34,23 +34,22 @@ class CompoundRegExp;
    Widget containing configuration details for @ref CompoundWidget
    @internal
 */
-class CompoundDetailWindow :public QWidget
+class CompoundDetailWindow : public QWidget
 {
 public:
-  CompoundDetailWindow(QWidget* parent);
-  QString title() const;
-  QString description() const;
-  bool allowReplace() const;
-  void setTitle( QString );
-  void setDescription( QString );
-  void setAllowReplace( bool );
+    CompoundDetailWindow(QWidget *parent);
+    QString title() const;
+    QString description() const;
+    bool allowReplace() const;
+    void setTitle(QString);
+    void setDescription(QString);
+    void setAllowReplace(bool);
 
 private:
-  QLineEdit* _title;
-  KTextEdit* _description;
-  QCheckBox* _allowReplace;
+    QLineEdit *_title;
+    KTextEdit *_description;
+    QCheckBox *_allowReplace;
 };
-
 
 /**
    Comopund RegExp widget.
@@ -62,47 +61,49 @@ private:
 
    @internal
 */
-class CompoundWidget :public SingleContainerWidget
+class CompoundWidget : public SingleContainerWidget
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
-  CompoundWidget( RegExpEditorWindow* editorWindow, QWidget* parent);
-  CompoundWidget( CompoundRegExp* regexp, RegExpEditorWindow* editorWindow,
-                  QWidget* parent);
+    CompoundWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
+    CompoundWidget(CompoundRegExp *regexp, RegExpEditorWindow *editorWindow,
+                   QWidget *parent);
 
-  virtual bool updateSelection( bool parentSelected );
-  virtual QSize sizeHint() const;
-  virtual RegExp* regExp() const;
-  virtual RegExpType type() const { return COMPOUND; }
-  virtual int edit();
+    virtual bool updateSelection(bool parentSelected);
+    virtual QSize sizeHint() const;
+    virtual RegExp *regExp() const;
+    virtual RegExpType type() const
+    {
+        return COMPOUND;
+    }
+    virtual int edit();
 
 protected:
-  virtual void paintEvent( QPaintEvent *e );
-  virtual void mousePressEvent( QMouseEvent* e );
-  virtual void mouseReleaseEvent( QMouseEvent* e);
-  void init();
-  QPixmap getIcon( const QString& name );
+    virtual void paintEvent(QPaintEvent *e);
+    virtual void mousePressEvent(QMouseEvent *e);
+    virtual void mouseReleaseEvent(QMouseEvent *e);
+    void init();
+    QPixmap getIcon(const QString &name);
 
 protected slots:
-  void slotConfigCanceled();
-  void slotConfigWindowClosed();
+    void slotConfigCanceled();
+    void slotConfigWindowClosed();
 
 private:
-  bool _hidden;
-  QPixmap _up, _down;
-  mutable QSize _pixmapSize;
-  mutable QPoint _pixmapPos;
+    bool _hidden;
+    QPixmap _up, _down;
+    mutable QSize _pixmapSize;
+    mutable QPoint _pixmapPos;
 
-  QDialog* _configWindow;
-  CompoundDetailWindow* _content;
+    QDialog *_configWindow;
+    CompoundDetailWindow *_content;
 
-  mutable QSize _textSize;
-  mutable QSize _childSize;
-  QByteArray _backup;
+    mutable QSize _textSize;
+    mutable QSize _childSize;
+    QByteArray _backup;
 
-  int _backRefId;
+    int _backRefId;
 };
-
 
 #endif // compoundwidget

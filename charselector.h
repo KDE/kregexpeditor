@@ -25,28 +25,28 @@ class QComboBox;
 class QStackedWidget;
 class LimitedCharLineEdit;
 
-class CharSelector :public QWidget
+class CharSelector : public QWidget
 {
     Q_OBJECT
 
 public:
-    CharSelector( QWidget* parent );
+    CharSelector(QWidget *parent);
     QString text() const;
-    void setText( QString text );
+    void setText(QString text);
     bool isEmpty() const;
 
 protected:
     void fillComboBox();
 
 private slots:
-    void slotNewItem( int which );
+    void slotNewItem(int which);
 
 private:
-    QComboBox* _type;
-    QStackedWidget* _stack;
-    LimitedCharLineEdit* _normal;
-    LimitedCharLineEdit* _hex;
-    LimitedCharLineEdit* _oct;
+    QComboBox *_type;
+    QStackedWidget *_stack;
+    LimitedCharLineEdit *_normal;
+    LimitedCharLineEdit *_hex;
+    LimitedCharLineEdit *_oct;
     int _oldIndex;
 };
 

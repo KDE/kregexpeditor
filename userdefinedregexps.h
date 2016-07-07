@@ -27,53 +27,56 @@ class CompoundRegExp;
 class QPoint;
 class RegExp;
 
-class UserDefinedRegExps :public QDockWidget
+class UserDefinedRegExps : public QDockWidget
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
-  explicit UserDefinedRegExps( QWidget *parent, const QString &title );
-  const QList<CompoundRegExp *> regExps() const;
+    explicit UserDefinedRegExps(QWidget *parent, const QString &title);
+    const QList<CompoundRegExp *> regExps() const;
 
 public slots:
-  void slotSelectNewAction();
+    void slotSelectNewAction();
 
 protected slots:
-  void slotLoad(QTreeWidgetItem* item);
-  void slotContextMenuTriggered( const QPoint& pos );
-  void slotPopulateUserRegexps();
-  void slotUnSelect();
-  void slotRenameUserRegexp();
-  void slotDeleteUserRegexp();
+    void slotLoad(QTreeWidgetItem *item);
+    void slotContextMenuTriggered(const QPoint &pos);
+    void slotPopulateUserRegexps();
+    void slotUnSelect();
+    void slotRenameUserRegexp();
+    void slotDeleteUserRegexp();
 
 protected:
-  void createItems( const QString& title, const QString& dir, bool usersRegExp );
+    void createItems(const QString &title, const QString &dir, bool usersRegExp);
 
 signals:
-  void load( RegExp* );
+    void load(RegExp *);
 
 private:
-  QTreeWidget* _userDefined;
-  QList<CompoundRegExp *> _regExps;
+    QTreeWidget *_userDefined;
+    QList<CompoundRegExp *> _regExps;
 };
 
-class WidgetWinItem :public QTreeWidgetItem
+class WidgetWinItem : public QTreeWidgetItem
 {
 public:
-  WidgetWinItem( QString name, RegExp* regexp, bool users, QTreeWidgetItem* parent );
-  ~WidgetWinItem();
-  static QString path();
+    WidgetWinItem(QString name, RegExp *regexp, bool users, QTreeWidgetItem *parent);
+    ~WidgetWinItem();
+    static QString path();
 
-  QString fileName() const;
-  RegExp* regExp() const;
-  QString name() const;
-  void setName( const QString& );
-  bool isUsersRegExp() const { return _usersRegExp; }
+    QString fileName() const;
+    RegExp *regExp() const;
+    QString name() const;
+    void setName(const QString &);
+    bool isUsersRegExp() const
+    {
+        return _usersRegExp;
+    }
 
 private:
-  QString _name;
-  RegExp* _regexp;
-  bool _usersRegExp;
+    QString _name;
+    RegExp *_regexp;
+    bool _usersRegExp;
 };
 
 #endif // __USERDEFINEDREGEXPS_H

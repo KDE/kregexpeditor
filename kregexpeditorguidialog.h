@@ -23,29 +23,28 @@
 #include <kregexpeditorgui.h>
 #include <kregexpeditorinterface.h>
 
-
 class Q_DECL_EXPORT KRegExpEditorGUIDialog : public QDialog, public KRegExpEditorInterface
 {
     Q_OBJECT
     Q_INTERFACES(KRegExpEditorInterface)
-    Q_PROPERTY( QString regexp READ regExp WRITE setRegExp )
+    Q_PROPERTY(QString regexp READ regExp WRITE setRegExp)
 public:
-    KRegExpEditorGUIDialog( QWidget *parent, const QVariantList & = QVariantList() );
+    KRegExpEditorGUIDialog(QWidget *parent, const QVariantList & = QVariantList());
 
     virtual QString regExp() const;
 
 signals:
-  /** This signal tells whether undo is available. */
-  void canRedo( bool );
-  void canUndo( bool );
-  void changes( bool );
+    /** This signal tells whether undo is available. */
+    void canRedo(bool);
+    void canUndo(bool);
+    void changes(bool);
 
 public slots:
-  virtual void redo();
-  virtual void undo();
-  virtual void setRegExp( const QString &regexp );
-  virtual void doSomething( const QString &method, void* arguments );
-  virtual void setMatchText( const QString& );
+    virtual void redo();
+    virtual void undo();
+    virtual void setRegExp(const QString &regexp);
+    virtual void doSomething(const QString &method, void *arguments);
+    virtual void setMatchText(const QString &);
 
 private:
     KRegExpEditorGUI *_editor;

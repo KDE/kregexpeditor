@@ -20,21 +20,21 @@
 
 #include <QStringList>
 
-QSize HackCalculateFontSize(QFontMetrics fm, QString str )
+QSize HackCalculateFontSize(QFontMetrics fm, QString str)
 {
-  QStringList list;
-  int maxWidth = 0;
-  int height = 0;
+    QStringList list;
+    int maxWidth = 0;
+    int height = 0;
 
-  if (str.isEmpty()) {
-    return QSize( 0, 0 );
-  }
-  list = str.split( QString::fromLatin1("\n"), QString::SkipEmptyParts);
+    if (str.isEmpty()) {
+        return QSize(0, 0);
+    }
+    list = str.split(QString::fromLatin1("\n"), QString::SkipEmptyParts);
 
-  for ( QStringList::Iterator it = list.begin(); it != list.end(); ++it ) {
-    QSize size = fm.size( 0, *it );
-    maxWidth = qMax( maxWidth, size.width() );
-    height += size.height();
-  }
-  return QSize( maxWidth, height );
+    for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) {
+        QSize size = fm.size(0, *it);
+        maxWidth = qMax(maxWidth, size.width());
+        height += size.height();
+    }
+    return QSize(maxWidth, height);
 }

@@ -25,27 +25,35 @@
    Abstract syntax node for `text' regular expression
    @internal
 */
-class TextRegExp :public RegExp
+class TextRegExp : public RegExp
 {
 public:
-    explicit TextRegExp( bool selected, QString text = QString());
+    explicit TextRegExp(bool selected, QString text = QString());
 
-    virtual bool check( ErrorMap&, bool first, bool last );
-    virtual int precedence() const {
-        if ( _text.length() > 1 )
+    virtual bool check(ErrorMap &, bool first, bool last);
+    virtual int precedence() const
+    {
+        if (_text.length() > 1) {
             return 2;
-        else
+        } else {
             return 4;
+        }
     }
-    QString text() const { return _text; }
-    virtual QDomNode toXml( QDomDocument* doc ) const;
-    virtual bool load( QDomElement, const QString& version );
-    void append( QString str);
-    virtual RegExpType type() const { return TEXT;}
-    virtual bool operator==( const RegExp& other ) const;
+    QString text() const
+    {
+        return _text;
+    }
+    virtual QDomNode toXml(QDomDocument *doc) const;
+    virtual bool load(QDomElement, const QString &version);
+    void append(QString str);
+    virtual RegExpType type() const
+    {
+        return TEXT;
+    }
+    virtual bool operator==(const RegExp &other) const;
 
 private:
-	QString _text;
+    QString _text;
 };
 
 #endif // __textregexp_h

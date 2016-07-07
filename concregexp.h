@@ -21,30 +21,35 @@
 
 #include "regexp.h"
 
-
 /**
    Abstract syntax node for `concatenated' regular expression
    @internal
 */
-class ConcRegExp :public RegExp
+class ConcRegExp : public RegExp
 {
 public:
-	ConcRegExp( bool selected );
+    ConcRegExp(bool selected);
 
-	void addRegExp( RegExp *);
+    void addRegExp(RegExp *);
     RegExpList children();
-    RegExp* lastRegExp();
+    RegExp *lastRegExp();
 
-    virtual bool check( ErrorMap&, bool first, bool last );
-    virtual int precedence() const { return 2;}
-    virtual QDomNode toXml( QDomDocument* doc ) const;
-    virtual bool load( QDomElement, const QString& version );
-    virtual RegExpType type() const {return CONC; }
-    virtual bool operator==( const RegExp& other ) const;
-    virtual void replacePart( CompoundRegExp* replacement );
+    virtual bool check(ErrorMap &, bool first, bool last);
+    virtual int precedence() const
+    {
+        return 2;
+    }
+    virtual QDomNode toXml(QDomDocument *doc) const;
+    virtual bool load(QDomElement, const QString &version);
+    virtual RegExpType type() const
+    {
+        return CONC;
+    }
+    virtual bool operator==(const RegExp &other) const;
+    virtual void replacePart(CompoundRegExp *replacement);
 
 private:
-	RegExpList list;
+    RegExpList list;
 };
 
 #endif // __CONCREGEXP_H

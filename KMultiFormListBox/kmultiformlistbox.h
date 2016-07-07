@@ -52,65 +52,65 @@ typedef QList<QWidget *> WidgetList;
 
  @author Jesper Kjær Pedersen <blackie@kde.org>
  **/
-class KMultiFormListBox : public QWidget {
+class KMultiFormListBox : public QWidget
+{
 
-Q_OBJECT
+    Q_OBJECT
 
 public:
 
-  enum KMultiFormListBoxType {MultiVisible, Windowed};
+    enum KMultiFormListBoxType {MultiVisible, Windowed};
 
-  /**
-		 @param factory A factory used to generate the instances of
-     KMultiFormListBoxEntry class which is repeated in the KMultiFormListBox
-		 @param parent A pointer to the parent widget
-   **/
-  explicit KMultiFormListBox(KMultiFormListBoxFactory *factory,
-                    KMultiFormListBoxType tp=Windowed,
-                    QWidget *parent = 0, bool showUpDownButtons = true,
-                    bool showHelpButton = true, QString addButtonText = i18n("Add") );
+    /**
+       @param factory A factory used to generate the instances of
+       KMultiFormListBoxEntry class which is repeated in the KMultiFormListBox
+       @param parent A pointer to the parent widget
+     **/
+    explicit KMultiFormListBox(KMultiFormListBoxFactory *factory,
+                               KMultiFormListBoxType tp = Windowed,
+                               QWidget *parent = 0, bool showUpDownButtons = true,
+                               bool showHelpButton = true, QString addButtonText = i18n("Add"));
 
-  /**
-		 @return The elements in the KMultiFormListBox.
-   **/
-  KMultiFormListBoxEntryList elements();
-  const KMultiFormListBoxEntryList elements() const;
+    /**
+       @return The elements in the KMultiFormListBox.
+     **/
+    KMultiFormListBoxEntryList elements();
+    const KMultiFormListBoxEntryList elements() const;
 
-	/**
-		 TODO.
-	**/
-  void append(KMultiFormListBoxEntry *);
+    /**
+         TODO.
+    **/
+    void append(KMultiFormListBoxEntry *);
 
-  /** write data out to stream */
-  void toStream( QDataStream& stream ) const;
+    /** write data out to stream */
+    void toStream(QDataStream &stream) const;
 
-  /** reads data in from stream */
-  void fromStream( QDataStream& stream );
+    /** reads data in from stream */
+    void fromStream(QDataStream &stream);
 
 public Q_SLOTS:
 
-  /**
-		 Adds an empty element to the KMultiFormListBox.
+    /**
+       Adds an empty element to the KMultiFormListBox.
 
-		 This slot is only required for the @ref MultiVisible face. It should
-		 be connected to a button which lets the user know that he may get more
-		 elements in this KMultiFormListBox by pressing it.  The button should
-		 be labeled ``More Entries'' or something similar.
-   **/
-  void addElement(); // Adds an empty element to the KMultiFormListBox
+       This slot is only required for the @ref MultiVisible face. It should
+       be connected to a button which lets the user know that he may get more
+       elements in this KMultiFormListBox by pressing it.  The button should
+       be labeled ``More Entries'' or something similar.
+     **/
+    void addElement(); // Adds an empty element to the KMultiFormListBox
 
-	/**
-		 Changes the face of the KMultiFormListBox.
-		 @param face The new face of the KMultiFormListBox
-	**/
-	void slotChangeFace(KMultiFormListBoxType newFace);
+    /**
+         Changes the face of the KMultiFormListBox.
+         @param face The new face of the KMultiFormListBox
+    **/
+    void slotChangeFace(KMultiFormListBoxType newFace);
 
 private:
-  KMultiFormListBoxShower *theWidget;
-	KMultiFormListBoxFactory *_factory;
+    KMultiFormListBoxShower *theWidget;
+    KMultiFormListBoxFactory *_factory;
 
 };
-
 
 #endif /* kmultiformlistbox */
 

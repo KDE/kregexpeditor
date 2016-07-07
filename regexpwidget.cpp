@@ -29,198 +29,194 @@ const int RegExpWidget::pw = 1;
 const int RegExpWidget::bdSize = 5;
 const int RegExpWidget::space = 5;
 
-RegExpWidget::RegExpWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
-  : QWidget(parent),
-    _editorWindow( editorWindow ),  _isSelected( false ), _isToplevel( false )
+RegExpWidget::RegExpWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
+    : QWidget(parent),
+      _editorWindow(editorWindow),  _isSelected(false), _isToplevel(false)
 {
     setAttribute(Qt::WA_NoMousePropagation);
 }
 
-
 void RegExpWidget::addNewChild(DragAccepter *, RegExpWidget *)
 {
-  qFatal("This widget should not expect any children");
+    qFatal("This widget should not expect any children");
 }
 
 void RegExpWidget::addNewConcChild(DragAccepter *, ConcWidget *)
 {
-  qFatal("This widget should not expect any children");
+    qFatal("This widget should not expect any children");
 }
 
 void RegExpWidget::setConcChild(ConcWidget *)
 {
-  qFatal("This widget should not expect any children");
+    qFatal("This widget should not expect any children");
 }
 
 bool RegExpWidget::updateSelection(bool parentSelected)
 {
-  bool selected = ( parentSelected ||
-                    _editorWindow->selectionOverlap( mapToGlobal( QPoint(0,0) ), size() ) )
-    && !_isToplevel;
+    bool selected = (parentSelected ||
+                     _editorWindow->selectionOverlap(mapToGlobal(QPoint(0, 0)), size()))
+                    && !_isToplevel;
 
-  if ( _isSelected != selected ) {
-    // Selection state changed
-    _isSelected = selected;
-    repaint();
-    return true;
-  }
-  return false;
+    if (_isSelected != selected) {
+        // Selection state changed
+        _isSelected = selected;
+        repaint();
+        return true;
+    }
+    return false;
 }
 
-void RegExpWidget::drawPossibleSelection( QPainter& painter, QSize mySize )
+void RegExpWidget::drawPossibleSelection(QPainter &painter, QSize mySize)
 {
-  if ( _isSelected ) {
-    painter.fillRect( 0, 0, mySize.width(), mySize.height(), QBrush( Qt::gray ) );
-  }
+    if (_isSelected) {
+        painter.fillRect(0, 0, mySize.width(), mySize.height(), QBrush(Qt::gray));
+    }
 }
 
 bool RegExpWidget::isSelected() const
 {
-  return _isSelected;
+    return _isSelected;
 }
 
 bool RegExpWidget::hasSelection() const
 {
-  return _isSelected;
+    return _isSelected;
 }
 
 void RegExpWidget::clearSelection()
 {
-  _isSelected = false;
+    _isSelected = false;
 }
 
-void RegExpWidget::applyRegExpToSelection( RegExpType )
+void RegExpWidget::applyRegExpToSelection(RegExpType)
 {
-  qFatal("This method should not be called for this widget");
+    qFatal("This method should not be called for this widget");
 }
 
 void RegExpWidget::deleteSelection()
 {
-  qFatal("This method should be overridden if needed!");
+    qFatal("This method should be overridden if needed!");
 }
 
-RegExp* RegExpWidget::selection() const
+RegExp *RegExpWidget::selection() const
 {
-  return regExp();
+    return regExp();
 }
 
 int RegExpWidget::edit()
 {
-  qFatal("This method should be overridden if needed!");
-  return 0; // Compiler shut up
+    qFatal("This method should be overridden if needed!");
+    return 0; // Compiler shut up
 }
 
-void RegExpWidget::mousePressEvent ( QMouseEvent* event )
+void RegExpWidget::mousePressEvent(QMouseEvent *event)
 {
-  if ( _editorWindow->isPasteing() || _editorWindow->isInserting() ) {
-    return;
-  }
-
-  if ( event->button() == Qt::LeftButton ) {
-    if ( ! _editorWindow->pointSelected( QCursor::pos() ) ) {
-      _editorWindow->clearSelection( true );
-      if ( dynamic_cast<DragAccepter*>(this) == 0 && dynamic_cast<ConcWidget*>(this) == 0 ) {
-        selectWidget( true );
-      }
+    if (_editorWindow->isPasteing() || _editorWindow->isInserting()) {
+        return;
     }
 
-    QMouseEvent ev( event->type(), mapTo(_editorWindow, event->pos()),
-                    event->button(), event->buttons(), event->modifiers());
-    QApplication::sendEvent( _editorWindow, &ev );
-  }
-  else if ( event->button() == Qt::RightButton ) {
-    _editorWindow->showRMBMenu( true );
-  }
+    if (event->button() == Qt::LeftButton) {
+        if (! _editorWindow->pointSelected(QCursor::pos())) {
+            _editorWindow->clearSelection(true);
+            if (dynamic_cast<DragAccepter *>(this) == 0 && dynamic_cast<ConcWidget *>(this) == 0) {
+                selectWidget(true);
+            }
+        }
 
-  // currently (Qt3.0) it seems like qt do not accept that the accept flag is set,
-  // and thus sends the event to the parent - given that the following line is in.
-  // It doesn't make any change to leave it out.
-  // 25 Oct. 2001 19:03 -- Jesper K. Pedersen
-  //  QWidget::mousePressEvent( event );
+        QMouseEvent ev(event->type(), mapTo(_editorWindow, event->pos()),
+                       event->button(), event->buttons(), event->modifiers());
+        QApplication::sendEvent(_editorWindow, &ev);
+    } else if (event->button() == Qt::RightButton) {
+        _editorWindow->showRMBMenu(true);
+    }
+
+    // currently (Qt3.0) it seems like qt do not accept that the accept flag is set,
+    // and thus sends the event to the parent - given that the following line is in.
+    // It doesn't make any change to leave it out.
+    // 25 Oct. 2001 19:03 -- Jesper K. Pedersen
+    //  QWidget::mousePressEvent( event );
 }
 
-void RegExpWidget::mouseReleaseEvent( QMouseEvent* )
+void RegExpWidget::mouseReleaseEvent(QMouseEvent *)
 {
-  if ( _editorWindow->isInserting() && acceptWidgetInsert( _editorWindow->insertType() ) ) {
-    if ( !_editorWindow->hasSelection() ) {
-      _isSelected = true;
-    }
+    if (_editorWindow->isInserting() && acceptWidgetInsert(_editorWindow->insertType())) {
+        if (!_editorWindow->hasSelection()) {
+            _isSelected = true;
+        }
 
-    _editorWindow->applyRegExpToSelection( _editorWindow->insertType() );
-    _editorWindow->clearSelection( true );
-    _editorWindow->updateContent( this );
-    _editorWindow->slotEndActions();
-    _editorWindow->updateCursorUnderPoint();
-  }
+        _editorWindow->applyRegExpToSelection(_editorWindow->insertType());
+        _editorWindow->clearSelection(true);
+        _editorWindow->updateContent(this);
+        _editorWindow->slotEndActions();
+        _editorWindow->updateCursorUnderPoint();
+    }
 }
 
 QRect RegExpWidget::selectionRect() const
 {
-  return QRect( mapToGlobal( QPoint(0,0) ), size() );
+    return QRect(mapToGlobal(QPoint(0, 0)), size());
 }
 
-
-void RegExpWidget::enterEvent( QEvent * )
+void RegExpWidget::enterEvent(QEvent *)
 {
-  updateCursorShape();
+    updateCursorShape();
 }
 
 void RegExpWidget::updateCursorShape()
 {
-  QCursor cursor;
+    QCursor cursor;
 
-  if ( _editorWindow->isPasteing() ) {
-    if ( acceptWidgetPaste() ) {
-      cursor =  Qt::CrossCursor;
+    if (_editorWindow->isPasteing()) {
+        if (acceptWidgetPaste()) {
+            cursor =  Qt::CrossCursor;
+        } else {
+            cursor =  Qt::ForbiddenCursor;
+        }
+    } else if (_editorWindow->isInserting()) {
+        if (acceptWidgetInsert(_editorWindow->insertType())) {
+            cursor = Qt::CrossCursor;
+        } else {
+            cursor = Qt::ForbiddenCursor;
+        }
     } else {
-      cursor =  Qt::ForbiddenCursor;
+        cursor = Qt::ArrowCursor;
     }
-  } else if ( _editorWindow->isInserting() ) {
-    if ( acceptWidgetInsert( _editorWindow->insertType() ) ) {
-      cursor = Qt::CrossCursor;
-    } else {
-      cursor = Qt::ForbiddenCursor;
-    }
-  } else {
-    cursor = Qt::ArrowCursor;
-  }
 
-  setCursor( cursor );
+    setCursor(cursor);
 }
 
 void RegExpWidget::updateCursorRecursively()
 {
-  updateCursorShape();
+    updateCursorShape();
 }
-
 
 bool RegExpWidget::acceptWidgetPaste() const
 {
-  return false;
+    return false;
 }
 
-bool RegExpWidget::acceptWidgetInsert( RegExpType tp ) const
+bool RegExpWidget::acceptWidgetInsert(RegExpType tp) const
 {
-  return WidgetFactory::isContainer( tp );
+    return WidgetFactory::isContainer(tp);
 }
 
-RegExpWidget* RegExpWidget::widgetUnderPoint( QPoint globalPos, bool )
+RegExpWidget *RegExpWidget::widgetUnderPoint(QPoint globalPos, bool)
 {
-  if ( QRect(mapToGlobal( QPoint(0,0) ), size() ).contains( globalPos ) ) {
-    return this;
-  } else {
-    return 0;
-  }
+    if (QRect(mapToGlobal(QPoint(0, 0)), size()).contains(globalPos)) {
+        return this;
+    } else {
+        return 0;
+    }
 }
 
-void RegExpWidget::selectWidget( bool sel)
+void RegExpWidget::selectWidget(bool sel)
 {
-  _isSelected = sel;
-  update();
+    _isSelected = sel;
+    update();
 }
 
 void RegExpWidget::updateAll()
 {
-  update();
+    update();
 }
 

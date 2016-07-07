@@ -19,59 +19,57 @@
 #include "lookaheadregexp.h"
 #include "errormap.h"
 
-LookAheadRegExp::LookAheadRegExp( bool selected, TYPE tp, RegExp* child )
-    : RegExp( selected ), _child( child ), _tp( tp )
+LookAheadRegExp::LookAheadRegExp(bool selected, TYPE tp, RegExp *child)
+    : RegExp(selected), _child(child), _tp(tp)
 {
-    if ( child ) {
-        addChild( child );
+    if (child) {
+        addChild(child);
     }
 }
 
-bool LookAheadRegExp::check( ErrorMap& map, bool , bool last )
+bool LookAheadRegExp::check(ErrorMap &map, bool , bool last)
 {
-    if ( !last ) {
+    if (!last) {
         map.lookAheadError();
     }
     return true;
 }
 
-
-QDomNode LookAheadRegExp::toXml( QDomDocument* doc ) const
+QDomNode LookAheadRegExp::toXml(QDomDocument *doc) const
 {
     QDomElement top;
-    if ( _tp == POSITIVE ) {
-        top = doc->createElement( QString::fromLocal8Bit("PositiveLookAhead") );
+    if (_tp == POSITIVE) {
+        top = doc->createElement(QString::fromLocal8Bit("PositiveLookAhead"));
     } else {
-        top = doc->createElement( QString::fromLocal8Bit("NegativeLookAhead") );
+        top = doc->createElement(QString::fromLocal8Bit("NegativeLookAhead"));
     }
 
-    top.appendChild( _child->toXml( doc ) );
+    top.appendChild(_child->toXml(doc));
     return top;
 }
 
-bool LookAheadRegExp::load( QDomElement top, const QString& version )
+bool LookAheadRegExp::load(QDomElement top, const QString &version)
 {
-    _child = readRegExp( top, version );
-    if ( _child ) {
-        addChild( _child );
+    _child = readRegExp(top, version);
+    if (_child) {
+        addChild(_child);
         return true;
     } else {
         return false;
     }
 }
 
-
-bool LookAheadRegExp::operator==( const RegExp& other ) const
+bool LookAheadRegExp::operator==(const RegExp &other) const
 {
-    if ( type() != other.type() ) {
+    if (type() != other.type()) {
         return false;
     }
 
-    const LookAheadRegExp& theOther = dynamic_cast<const LookAheadRegExp&>( other );
+    const LookAheadRegExp &theOther = dynamic_cast<const LookAheadRegExp &>(other);
 
-    if ( lookAheadType() != theOther.lookAheadType() ) {
+    if (lookAheadType() != theOther.lookAheadType()) {
         return false;
     }
 
-    return ( *_child == *(theOther._child) );
+    return (*_child == *(theOther._child));
 }

@@ -20,27 +20,27 @@
 #include "widgetwindow.h"
 
 WindowListboxItem::WindowListboxItem(QListWidget *lb, QString text, WidgetWindow *windowWidget)
-  :QListWidgetItem(text, lb), myItem(windowWidget)
+    : QListWidgetItem(text, lb), myItem(windowWidget)
 {
 }
 
 WindowListboxItem::~WindowListboxItem()
 {
-  delete myItem;
+    delete myItem;
 }
 
 void WindowListboxItem::displayWidget()
 {
-  myItem->display();
+    myItem->display();
 }
 
 void WindowListboxItem::cloneItem()
 {
-  myItem->clone();
+    myItem->clone();
 }
 
 KMultiFormListBoxEntry *WindowListboxItem::entry()
 {
-  return myItem->entry();
+    return myItem->entry();
 }
 

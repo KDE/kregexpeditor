@@ -28,30 +28,30 @@ class WindowListboxItem;
 /**
    @internal
 */
-class WidgetWindow :public QDialog
+class WidgetWindow : public QDialog
 {
-  friend class KMultiFormListBoxWindowed;
-  friend class WindowListboxItem;
+    friend class KMultiFormListBoxWindowed;
+    friend class WindowListboxItem;
 
-  WidgetWindow(KMultiFormListBoxFactory *, QListWidget *);
-  WidgetWindow(KMultiFormListBoxFactory *, KMultiFormListBoxEntry *widget, QListWidget *);
-  void init(KMultiFormListBoxFactory *, QListWidget *, KMultiFormListBoxEntry *widget = 0);
-  void display();
-  KMultiFormListBoxEntry *entry();
-  WidgetWindow *clone();
-  ~WidgetWindow();
+    WidgetWindow(KMultiFormListBoxFactory *, QListWidget *);
+    WidgetWindow(KMultiFormListBoxFactory *, KMultiFormListBoxEntry *widget, QListWidget *);
+    void init(KMultiFormListBoxFactory *, QListWidget *, KMultiFormListBoxEntry *widget = 0);
+    void display();
+    KMultiFormListBoxEntry *entry();
+    WidgetWindow *clone();
+    ~WidgetWindow();
 
 protected slots:
-  void slotOk();
-  void slotCancel();
+    void slotOk();
+    void slotCancel();
 
 private:
-  KMultiFormListBoxFactory *myFact;
-  KMultiFormListBoxEntry *myWidget;
-  QByteArray _backup;
-  QListWidget *listbox;
-  WindowListboxItem *myListboxItem;
-  bool initialShow;
+    KMultiFormListBoxFactory *myFact;
+    KMultiFormListBoxEntry *myWidget;
+    QByteArray _backup;
+    QListWidget *listbox;
+    WindowListboxItem *myListboxItem;
+    bool initialShow;
 };
 
 #endif // WIDGETWINDOW_H

@@ -29,42 +29,53 @@ class ConcRegExp;
    other RegExp widgets
    @internal
 */
-class ConcWidget :public MultiContainerWidget
+class ConcWidget : public MultiContainerWidget
 {
 public:
-  ConcWidget(RegExpEditorWindow* editorWindow, QWidget *parent);
-  ConcWidget(RegExpEditorWindow* editorWindow, RegExpWidget *child,
-             QWidget *parent);
-  ConcWidget( RegExpEditorWindow* editorWindow, ConcWidget* origConc,
-              unsigned int start, unsigned int end);
-  ConcWidget( ConcRegExp* regexp, RegExpEditorWindow* editorWindow,
-              QWidget* parent);
-  void init();
+    ConcWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
+    ConcWidget(RegExpEditorWindow *editorWindow, RegExpWidget *child,
+               QWidget *parent);
+    ConcWidget(RegExpEditorWindow *editorWindow, ConcWidget *origConc,
+               unsigned int start, unsigned int end);
+    ConcWidget(ConcRegExp *regexp, RegExpEditorWindow *editorWindow,
+               QWidget *parent);
+    void init();
 
-  virtual QSize sizeHint() const;
-	virtual RegExp* regExp() const;
-  virtual bool updateSelection(bool parentSelected);
-  virtual bool isSelected() const;
+    virtual QSize sizeHint() const;
+    virtual RegExp *regExp() const;
+    virtual bool updateSelection(bool parentSelected);
+    virtual bool isSelected() const;
 
-  virtual void applyRegExpToSelection( RegExpType type );
-  virtual RegExpType type() const { return CONC; }
-  virtual RegExp* selection() const;
-  virtual void addNewConcChild(DragAccepter *accepter, ConcWidget *child);
-  virtual bool validateSelection() const;
-  virtual bool acceptWidgetInsert( RegExpType ) const { return false; }
-  virtual bool acceptWidgetPaste() const { return false; }
-  bool hasAnyChildren() { return _children.count() > 1; }
+    virtual void applyRegExpToSelection(RegExpType type);
+    virtual RegExpType type() const
+    {
+        return CONC;
+    }
+    virtual RegExp *selection() const;
+    virtual void addNewConcChild(DragAccepter *accepter, ConcWidget *child);
+    virtual bool validateSelection() const;
+    virtual bool acceptWidgetInsert(RegExpType) const
+    {
+        return false;
+    }
+    virtual bool acceptWidgetPaste() const
+    {
+        return false;
+    }
+    bool hasAnyChildren()
+    {
+        return _children.count() > 1;
+    }
 
 protected:
-  virtual void paintEvent( QPaintEvent *e );
-  virtual void mousePressEvent ( QMouseEvent* event );
-  void sizeAccepter( DragAccepter* accepter, int height, int totHeight );
-  void getSelectionIndexes( int* start, int* end );
-  //virtual void dragEnterEvent(QDragEnterEvent* event) { event->setAccepted( false ); }
+    virtual void paintEvent(QPaintEvent *e);
+    virtual void mousePressEvent(QMouseEvent *event);
+    void sizeAccepter(DragAccepter *accepter, int height, int totHeight);
+    void getSelectionIndexes(int *start, int *end);
+    //virtual void dragEnterEvent(QDragEnterEvent* event) { event->setAccepted( false ); }
 
 private:
-  int _maxSelectedHeight;
+    int _maxSelectedHeight;
 };
-
 
 #endif // __concwidget

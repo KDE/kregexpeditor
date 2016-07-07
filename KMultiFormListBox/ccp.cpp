@@ -29,57 +29,58 @@
 
 #include "kmultiformlistbox-multivisible.h"
 
-CCP::CCP(KMultiFormListBoxMultiVisible *ee_, KMultiFormListBoxEntry *eee_) : QObject() {
-  ee = ee_;
-  eee = eee_;
-  install(eee);
+CCP::CCP(KMultiFormListBoxMultiVisible *ee_, KMultiFormListBoxEntry *eee_) : QObject()
+{
+    ee = ee_;
+    eee = eee_;
+    install(eee);
 }
 
 void CCP::install(QObject *elm)
 {
-  elm->installEventFilter(this);
-  const QList<QObject *> children = elm->children();
-  if (children.count()>0) {
-	for (int i = 0; i < children.size(); ++i) {
-			if (children.at(i)->inherits("KMultiFormListBoxMultiVisible")){
-					// Stop if the widget is an KMultiFormListBox, as this widget has its own cut/copy/paste
-			}
-			else
-					install(children.at(i));
-	}
-  }
+    elm->installEventFilter(this);
+    const QList<QObject *> children = elm->children();
+    if (children.count() > 0) {
+        for (int i = 0; i < children.size(); ++i) {
+            if (children.at(i)->inherits("KMultiFormListBoxMultiVisible")) {
+                // Stop if the widget is an KMultiFormListBox, as this widget has its own cut/copy/paste
+            } else {
+                install(children.at(i));
+            }
+        }
+    }
 }
 
 // This function post the Cut/Copy/Paste menu
 bool CCP::eventFilter(QObject *, QEvent *event)
 {
-  if (event->type() != QEvent::MouseButtonPress ||
-      ((QMouseEvent *) event)->button() != Qt::RightButton ||
-      (((QMouseEvent *) event)->modifiers() & Qt::ControlModifier) == 0) {
-    return false;
-  }
+    if (event->type() != QEvent::MouseButtonPress ||
+            ((QMouseEvent *) event)->button() != Qt::RightButton ||
+            (((QMouseEvent *) event)->modifiers() & Qt::ControlModifier) == 0) {
+        return false;
+    }
 
-  QPoint pos = ((QMouseEvent *) event)->globalPos();
+    QPoint pos = ((QMouseEvent *) event)->globalPos();
 
-  QMenu *menu = new QMenu();
-  QAction *cutAction = menu->addAction(i18n("Cut"));  
-  QAction *copyAction = menu->addAction(i18n("Copy"));
-  QAction *pasteAction = menu->addAction(i18n("Paste"));
-  QAction *blankAction = menu->addAction(i18n("Insert Blank"));
+    QMenu *menu = new QMenu();
+    QAction *cutAction = menu->addAction(i18n("Cut"));
+    QAction *copyAction = menu->addAction(i18n("Copy"));
+    QAction *pasteAction = menu->addAction(i18n("Paste"));
+    QAction *blankAction = menu->addAction(i18n("Insert Blank"));
 
-  QAction *res=menu->exec(pos);
-  if(res)
-  {
-    if(res == cutAction)
-	ee->cut(eee);
-    else if(res == copyAction)
-	ee->copy(eee);
-    else if(res == pasteAction)
-	ee->paste(eee);
-    else if(res == blankAction)
-	ee->addElement(eee);
-  }
-  delete menu;
-  return true;
+    QAction *res = menu->exec(pos);
+    if (res) {
+        if (res == cutAction) {
+            ee->cut(eee);
+        } else if (res == copyAction) {
+            ee->copy(eee);
+        } else if (res == pasteAction) {
+            ee->paste(eee);
+        } else if (res == blankAction) {
+            ee->addElement(eee);
+        }
+    }
+    delete menu;
+    return true;
 }
 

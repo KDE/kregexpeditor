@@ -31,63 +31,62 @@
 #include "textregexp.h"
 #include "regexphighlighter.h"
 
-RegExpConverter* RegExpConverter::_current = 0;
-RegExp* RegExpConverter::parse( const QString&, bool* ok )
+RegExpConverter *RegExpConverter::_current = 0;
+RegExp *RegExpConverter::parse(const QString &, bool *ok)
 {
     *ok = false;
-    return new DotRegExp( false ); // This method should never be called.
+    return new DotRegExp(false);   // This method should never be called.
 }
 
 // This function needs to be called toStr rather than toString, as it is not possible to
 // over load function across inheritance!
-QString RegExpConverter::toStr( RegExp* regexp, bool markSelection )
+QString RegExpConverter::toStr(RegExp *regexp, bool markSelection)
 {
     switch (regexp->type()) {
-    case RegExp::CONC: return toString( static_cast<ConcRegExp*>( regexp ), markSelection);
-    case RegExp::TEXT: return toString( static_cast<TextRegExp*>( regexp ), markSelection );
-    case RegExp::DOT: return toString( static_cast<DotRegExp*>( regexp ), markSelection );
-    case RegExp::POSITION: return toString( static_cast<PositionRegExp*>( regexp ), markSelection );
-    case RegExp::REPEAT: return toString( static_cast<RepeatRegExp*>( regexp ), markSelection );
-    case RegExp::ALTN: return toString( static_cast<AltnRegExp*>( regexp ), markSelection );
-    case RegExp::COMPOUND: return toString( static_cast<CompoundRegExp*>( regexp ), markSelection );
-    case RegExp::LOOKAHEAD: return toString( static_cast<LookAheadRegExp*>( regexp ), markSelection );
-    case RegExp::TEXTRANGE: return toString( static_cast<TextRangeRegExp*>( regexp ), markSelection );
+    case RegExp::CONC: return toString(static_cast<ConcRegExp *>(regexp), markSelection);
+    case RegExp::TEXT: return toString(static_cast<TextRegExp *>(regexp), markSelection);
+    case RegExp::DOT: return toString(static_cast<DotRegExp *>(regexp), markSelection);
+    case RegExp::POSITION: return toString(static_cast<PositionRegExp *>(regexp), markSelection);
+    case RegExp::REPEAT: return toString(static_cast<RepeatRegExp *>(regexp), markSelection);
+    case RegExp::ALTN: return toString(static_cast<AltnRegExp *>(regexp), markSelection);
+    case RegExp::COMPOUND: return toString(static_cast<CompoundRegExp *>(regexp), markSelection);
+    case RegExp::LOOKAHEAD: return toString(static_cast<LookAheadRegExp *>(regexp), markSelection);
+    case RegExp::TEXTRANGE: return toString(static_cast<TextRangeRegExp *>(regexp), markSelection);
     }
     qWarning("We shouldn't get here!");
-    return QString::fromLatin1( "" );
+    return QString::fromLatin1("");
 }
 
-
-QString RegExpConverter::escape( QString text, QList<QChar> chars, QChar escapeChar) const
+QString RegExpConverter::escape(QString text, QList<QChar> chars, QChar escapeChar) const
 {
-	QString res;
-	for (int i=0; i<text.length(); i++) {
-		for (int j=0; j<chars.count(); j++) {
-			if ( text.at(i) == (chars[j]) ) {
-				res.append( escapeChar );
-				break;
-			}
-		}
-		res.append( text.at(i) );
-	}
+    QString res;
+    for (int i = 0; i < text.length(); i++) {
+        for (int j = 0; j < chars.count(); j++) {
+            if (text.at(i) == (chars[j])) {
+                res.append(escapeChar);
+                break;
+            }
+        }
+        res.append(text.at(i));
+    }
 
-	return res;
+    return res;
 }
 
 /**
    Returns a QSyntaxHighlighter to be used in the virifyer widget.
 */
-RegexpHighlighter* RegExpConverter::highlighter( QTextEdit* )
+RegexpHighlighter *RegExpConverter::highlighter(QTextEdit *)
 {
     return NULL;
 }
 
-RegExpConverter* RegExpConverter::current()
+RegExpConverter *RegExpConverter::current()
 {
     return _current;
 }
 
-void RegExpConverter::setCurrent( RegExpConverter* converter)
+void RegExpConverter::setCurrent(RegExpConverter *converter)
 {
     _current = converter;
 }

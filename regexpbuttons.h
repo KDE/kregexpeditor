@@ -32,11 +32,11 @@ class RegExpButtons : public QToolBar
     Q_OBJECT
 
 public:
-    explicit RegExpButtons( QWidget *parent, const char *name = 0 );
-    void setFeatures( int features );
+    explicit RegExpButtons(QWidget *parent, const char *name = 0);
+    void setFeatures(int features);
 
 protected:
-    DoubleClickButton* insert(RegExpType tp, const char* file, QString tooltip, QString whatsthis);
+    DoubleClickButton *insert(RegExpType tp, const char *file, QString tooltip, QString whatsthis);
 
 public slots:
     void slotSelectNewAction();
@@ -47,17 +47,17 @@ protected slots:
     void slotSetNonKeepMode();
 
 signals:
-    void clicked( int );
+    void clicked(int);
     void doSelect();
 
 private:
-    QButtonGroup* _grp;
-    QToolButton* _selectBut;
-    QToolButton* _wordBoundary;
-    QToolButton* _nonWordBoundary;
-    QToolButton* _posLookAhead;
-    QToolButton* _negLookAhead;
-    QSignalMapper* _mapper; // single click Mapper.
+    QButtonGroup *_grp;
+    QToolButton *_selectBut;
+    QToolButton *_wordBoundary;
+    QToolButton *_nonWordBoundary;
+    QToolButton *_posLookAhead;
+    QToolButton *_negLookAhead;
+    QSignalMapper *_mapper; // single click Mapper.
 
     /**
        This variable is true if the use wishes to continue editing in the
@@ -66,6 +66,5 @@ private:
     */
     bool _keepMode;
 };
-
 
 #endif // __REGEXPBUTTON_H

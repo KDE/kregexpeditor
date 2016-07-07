@@ -25,24 +25,30 @@
    Abstract syntax node for `alternative' regular expression
    @internal
 */
-class AltnRegExp :public RegExp
+class AltnRegExp : public RegExp
 {
 public:
-	AltnRegExp( bool selected );
+    AltnRegExp(bool selected);
 
-	void addRegExp( RegExp * );
+    void addRegExp(RegExp *);
     RegExpList children() const;
 
-    virtual bool check( ErrorMap&, bool first, bool last );
-    virtual int precedence() const { return 1;}
-    virtual QDomNode toXml( QDomDocument* doc ) const;
-    virtual bool load( QDomElement, const QString& version );
-    virtual RegExpType type() const { return ALTN;}
-    virtual bool operator==( const RegExp& other ) const;
-    virtual void replacePart( CompoundRegExp* replacement );
+    virtual bool check(ErrorMap &, bool first, bool last);
+    virtual int precedence() const
+    {
+        return 1;
+    }
+    virtual QDomNode toXml(QDomDocument *doc) const;
+    virtual bool load(QDomElement, const QString &version);
+    virtual RegExpType type() const
+    {
+        return ALTN;
+    }
+    virtual bool operator==(const RegExp &other) const;
+    virtual void replacePart(CompoundRegExp *replacement);
 
 private:
-	RegExpList list;
+    RegExpList list;
 };
 
 #endif // ALTNREGEXP_H

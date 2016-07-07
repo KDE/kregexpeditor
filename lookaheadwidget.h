@@ -23,24 +23,25 @@
 
 class LookAheadRegExp;
 
-class LookAheadWidget :public SingleContainerWidget
+class LookAheadWidget : public SingleContainerWidget
 {
     Q_OBJECT
 public:
-    LookAheadWidget( RegExpEditorWindow* editorWindow, RegExpType tp, QWidget* parent );
-    LookAheadWidget( LookAheadRegExp* regexp, RegExpEditorWindow* editorWindow, RegExpType tp,
-                     QWidget* parent);
+    LookAheadWidget(RegExpEditorWindow *editorWindow, RegExpType tp, QWidget *parent);
+    LookAheadWidget(LookAheadRegExp *regexp, RegExpEditorWindow *editorWindow, RegExpType tp,
+                    QWidget *parent);
 
- 	virtual RegExp* regExp() const;
- 	virtual RegExpType type() const { return _tp; }
+    virtual RegExp *regExp() const;
+    virtual RegExpType type() const
+    {
+        return _tp;
+    }
     virtual QSize sizeHint() const;
-    virtual RegExpWidget* findWidgetToEdit( QPoint globalPos );
-
+    virtual RegExpWidget *findWidgetToEdit(QPoint globalPos);
 
 protected:
     void init();
-    virtual void paintEvent( QPaintEvent *e );
-
+    virtual void paintEvent(QPaintEvent *e);
 
 private:
     RegExpType _tp;

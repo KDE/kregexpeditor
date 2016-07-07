@@ -24,38 +24,38 @@
 
 // krazy:excludeall=qclasses
 
-QtRegexpHighlighter::QtRegexpHighlighter( QTextEdit* editor )
-    :RegexpHighlighter( editor ), _editor( editor )
+QtRegexpHighlighter::QtRegexpHighlighter(QTextEdit *editor)
+    : RegexpHighlighter(editor), _editor(editor)
 {
 }
 
-void QtRegexpHighlighter::highlightBlock( const QString& text )
+void QtRegexpHighlighter::highlightBlock(const QString &text)
 {
-    
-    QRegExp regexp( _regexp );
-    regexp.setCaseSensitivity( _caseSensitive ? Qt::CaseSensitive : Qt::CaseInsensitive );
-    regexp.setMinimal( _minimal );
+
+    QRegExp regexp(_regexp);
+    regexp.setCaseSensitivity(_caseSensitive ? Qt::CaseSensitive : Qt::CaseInsensitive);
+    regexp.setMinimal(_minimal);
 
     QTextCharFormat format;
     format.setForeground(Qt::black);
     format.setFont(_editor->font());
-    setFormat( 0, text.length(), format );
+    setFormat(0, text.length(), format);
 
-    if ( !regexp.isValid() || regexp.isEmpty() ) {
+    if (!regexp.isValid() || regexp.isEmpty()) {
         return;
     }
 
     // ------------------------------ Process with the regular expression.
     QColor colors[] = { Qt::red, Qt::blue };
     int color = previousBlockState();
-    if ( color < 0 || color > 1 ) {
+    if (color < 0 || color > 1) {
         color = 0;
     }
 
     int index = 0;
     int start, length;
-    while ( (index = regexp. indexIn( text, index ) ) != -1 && index < (int) text.length()) {
-        if ( regexp.pos(1) != -1 ) {
+    while ((index = regexp. indexIn(text, index)) != -1 && index < (int) text.length()) {
+        if (regexp.pos(1) != -1) {
             start = regexp.pos(1);
             length = regexp.cap(1).length();
         } else {
@@ -63,26 +63,26 @@ void QtRegexpHighlighter::highlightBlock( const QString& text )
             length = regexp.matchedLength();
         }
 
-        if ( start != index ) {
-            setFormat( index, start-index, colors[color] );
-	}
+        if (start != index) {
+            setFormat(index, start - index, colors[color]);
+        }
 
         QFont font = _editor->font();
-        font.setUnderline( true );
-        font.setPointSize( (int) (font.pointSize() * 1.3) );
+        font.setUnderline(true);
+        font.setPointSize((int)(font.pointSize() * 1.3));
         QTextCharFormat format;
         format.setFont(font);
         format.setForeground(colors[color]);
-        setFormat( start, length, format );
+        setFormat(start, length, format);
 
-        if ( length + (start-index) != regexp.matchedLength() ) {
-            setFormat( start+length, regexp.matchedLength()-length-(start-index), colors[color] );
-	}
+        if (length + (start - index) != regexp.matchedLength()) {
+            setFormat(start + length, regexp.matchedLength() - length - (start - index), colors[color]);
+        }
 
-        index +=  qMax( 1, regexp.matchedLength() ); // ensure progress when matching for example ^ or \b
-        color = (color+1)%2;
+        index +=  qMax(1, regexp.matchedLength());   // ensure progress when matching for example ^ or \b
+        color = (color + 1) % 2;
     }
     setCurrentBlockState(color);
-    
+
 }
 

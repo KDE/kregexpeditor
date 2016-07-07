@@ -48,31 +48,31 @@ public:
         CharacterRangeNonItems = 0x40,
         ExtRange = 0x80
     };
-    virtual ~RegExpConverter(){}
+    virtual ~RegExpConverter() {}
     virtual bool canParse() = 0;
     virtual QString name() = 0;
     virtual int features() = 0;
-    virtual RegExp* parse( const QString&, bool* ok );
-    QString toStr( RegExp*, bool markSelection );
-    virtual RegexpHighlighter* highlighter( QTextEdit* );
+    virtual RegExp *parse(const QString &, bool *ok);
+    QString toStr(RegExp *, bool markSelection);
+    virtual RegexpHighlighter *highlighter(QTextEdit *);
 
-    static void setCurrent( RegExpConverter* );
-    static RegExpConverter* current();
+    static void setCurrent(RegExpConverter *);
+    static RegExpConverter *current();
 
 protected:
-    virtual QString toString( AltnRegExp*, bool markSelection ) = 0;
-    virtual QString toString( ConcRegExp*, bool markSelection ) = 0;
-    virtual QString toString( LookAheadRegExp*, bool markSelection ) = 0;
-    virtual QString toString( TextRangeRegExp*, bool markSelection ) = 0;
-    virtual QString toString( CompoundRegExp*, bool markSelection ) = 0;
-    virtual QString toString( DotRegExp*, bool markSelection ) = 0;
-    virtual QString toString( PositionRegExp*, bool markSelection ) = 0;
-    virtual QString toString( RepeatRegExp*, bool markSelection ) = 0;
-    virtual QString toString( TextRegExp*, bool markSelection ) = 0;
-    QString escape( QString text, QList<QChar> chars, QChar escapeChar) const;
+    virtual QString toString(AltnRegExp *, bool markSelection) = 0;
+    virtual QString toString(ConcRegExp *, bool markSelection) = 0;
+    virtual QString toString(LookAheadRegExp *, bool markSelection) = 0;
+    virtual QString toString(TextRangeRegExp *, bool markSelection) = 0;
+    virtual QString toString(CompoundRegExp *, bool markSelection) = 0;
+    virtual QString toString(DotRegExp *, bool markSelection) = 0;
+    virtual QString toString(PositionRegExp *, bool markSelection) = 0;
+    virtual QString toString(RepeatRegExp *, bool markSelection) = 0;
+    virtual QString toString(TextRegExp *, bool markSelection) = 0;
+    QString escape(QString text, QList<QChar> chars, QChar escapeChar) const;
 
 private:
-    static RegExpConverter* _current;
+    static RegExpConverter *_current;
 };
 
 #endif /* REGEXPCONVERTER_H */

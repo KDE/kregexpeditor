@@ -41,44 +41,45 @@ class QListWidget;
 
    @internal
 **/
-class indexWindow : public QWidget{
+class indexWindow : public QWidget
+{
 
-Q_OBJECT
+    Q_OBJECT
 
 public:
-  indexWindow();
+    indexWindow();
 
-  /**
-     This method inserts an element into the listbox which is shown when
-     the @ref exec method is invoked.
-  **/
-  void insertItem(QString txt);
+    /**
+       This method inserts an element into the listbox which is shown when
+       the @ref exec method is invoked.
+    **/
+    void insertItem(QString txt);
 
-  /**
-     This function shows the index window with the elements inserted using
-     the @ref insertItem function. The function will not return before the
-     user has chosen an element in the listbox, or have pressed the right
-     mouse button outside the window. As a result of returning from this
-     function, the listbox is hidden.
+    /**
+       This function shows the index window with the elements inserted using
+       the @ref insertItem function. The function will not return before the
+       user has chosen an element in the listbox, or have pressed the right
+       mouse button outside the window. As a result of returning from this
+       function, the listbox is hidden.
 
-     @param start The upper left corner of the pop-up window.
-     @param width The width of the window
-     @return The index of the element chosen, or -1 if no element has been
-     chosen.
-  **/
-  int exec(const QPoint &start, int width);
+       @param start The upper left corner of the pop-up window.
+       @param width The width of the window
+       @return The index of the element chosen, or -1 if no element has been
+       chosen.
+    **/
+    int exec(const QPoint &start, int width);
 
 protected:
-  void finish(int retVal);
-  virtual void hideEvent(QHideEvent *h);
+    void finish(int retVal);
+    virtual void hideEvent(QHideEvent *h);
 
 protected slots:
-  void lbSelected(int);
+    void lbSelected(int);
 
 private:
-  QListWidget *lb;
-  bool lbFinish;
-  int itemSelected;
+    QListWidget *lb;
+    bool lbFinish;
+    int itemSelected;
 
 };
 

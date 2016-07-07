@@ -31,35 +31,35 @@ class KRegExpEditorPrivate;
    @author Jesper Kjær Pedersen <blackie@kde.org>
    @version 0.1
  **/
-class Q_DECL_EXPORT KRegExpEditorGUI  :public QWidget, public KRegExpEditorInterface
+class Q_DECL_EXPORT KRegExpEditorGUI  : public QWidget, public KRegExpEditorInterface
 {
-  Q_OBJECT
-  Q_INTERFACES(KRegExpEditorInterface)
-  Q_PROPERTY( QString regexp READ regExp WRITE setRegExp )
+    Q_OBJECT
+    Q_INTERFACES(KRegExpEditorInterface)
+    Q_PROPERTY(QString regexp READ regExp WRITE setRegExp)
 public:
-  KRegExpEditorGUI( QWidget *parent = 0,
-                    const QVariantList & = QVariantList() );
-  ~KRegExpEditorGUI();
-  virtual QString regExp() const;
+    KRegExpEditorGUI(QWidget *parent = 0,
+                     const QVariantList & = QVariantList());
+    ~KRegExpEditorGUI();
+    virtual QString regExp() const;
 
-  static const QString version;
+    static const QString version;
 
 signals:
-  /** This signal tells whether undo is available. */
-  void canRedo( bool );
-  void canUndo( bool );
-  void changes( bool );
+    /** This signal tells whether undo is available. */
+    void canRedo(bool);
+    void canUndo(bool);
+    void changes(bool);
 
 public slots:
-  virtual void redo();
-  virtual void undo();
-  virtual void setRegExp( const QString &regexp );
-  virtual void doSomething( const QString &method, void* arguments );
-  virtual void setMatchText( const QString& );
-  void showHelp();
+    virtual void redo();
+    virtual void undo();
+    virtual void setRegExp(const QString &regexp);
+    virtual void doSomething(const QString &method, void *arguments);
+    virtual void setMatchText(const QString &);
+    void showHelp();
 
 private:
-	KRegExpEditorPrivate* _editor;
+    KRegExpEditorPrivate *_editor;
 };
 
 #endif

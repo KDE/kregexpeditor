@@ -28,14 +28,14 @@
 
 #include "kregexpeditorgui.h"
 
-int main( int argc, char* argv[] )
+int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    KAboutData aboutData( "kregexpeditor", i18n("RegExp Editor"),
-                          "1.0", i18n("Editor for Regular Expressions"),
-              KAboutLicense::GPL,
-                          i18n("(c) 2002-2003 Jesper K. Pedersen"));
+    KAboutData aboutData("kregexpeditor", i18n("RegExp Editor"),
+                         "1.0", i18n("Editor for Regular Expressions"),
+                         KAboutLicense::GPL,
+                         i18n("(c) 2002-2003 Jesper K. Pedersen"));
 
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);

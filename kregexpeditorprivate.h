@@ -49,57 +49,57 @@ class KRegExpEditorPrivate : public QMainWindow
     Q_OBJECT
 
 public:
-    KRegExpEditorPrivate( QWidget *parent );
+    KRegExpEditorPrivate(QWidget *parent);
     ~KRegExpEditorPrivate();
     QString regexp();
-    void setMinimal( bool );
-    void setCaseSensitive( bool );
-    void setAllowNonQtSyntax( bool );
+    void setMinimal(bool);
+    void setCaseSensitive(bool);
+    void setAllowNonQtSyntax(bool);
 
 protected slots:
-    void slotUpdateEditor( const QString & );
+    void slotUpdateEditor(const QString &);
     void slotUpdateLineEdit();
     void slotShowEditor();
     void slotTriggerUpdate();
     void slotTimeout();
     void maybeVerify();
     void doVerify();
-    void setAutoVerify( bool );
-    void setVerifyText( const QString& fileName );
-    void setMatchGreedy( bool );
+    void setAutoVerify(bool);
+    void setVerifyText(const QString &fileName);
+    void setMatchGreedy(bool);
 
 public slots:
     void slotUndo();
     void slotRedo();
-    void slotSetRegexp( QString regexp );
-    void setMatchText( const QString& text );
-    void setSyntax( const QString& );
+    void slotSetRegexp(QString regexp);
+    void setMatchText(const QString &text);
+    void setSyntax(const QString &);
     void showHelp();
 
 signals:
-    void canUndo( bool );
-    void canRedo( bool );
-    void changes( bool );
+    void canUndo(bool);
+    void canRedo(bool);
+    void changes(bool);
 
 protected:
     void recordUndoInfo();
     void emitUndoRedoSignals();
 
 private:
-	RegExpScrolledEditorWindow* _scrolledEditorWindow;
-    RegExpButtons* _regExpButtons;
-    VerifyButtons* _verifyButtons;
+    RegExpScrolledEditorWindow *_scrolledEditorWindow;
+    RegExpButtons *_regExpButtons;
+    VerifyButtons *_verifyButtons;
     AuxButtons *_auxButtons;
-    InfoPage* _info;
-    QLineEdit* _regexpEdit;
-    QSplitter* _editor;
+    InfoPage *_info;
+    QLineEdit *_regexpEdit;
+    QSplitter *_editor;
     bool _updating;
-    QLabel* _error;
+    QLabel *_error;
     QStack<RegExp *> _undoStack;
     QStack<RegExp *> _redoStack;
-    UserDefinedRegExps*  _userRegExps;
-    QTimer* _timer;
-    Verifier* _verifier;
+    UserDefinedRegExps  *_userRegExps;
+    QTimer *_timer;
+    Verifier *_verifier;
     bool _autoVerify;
     ErrorMap _errorMap;
     QToolButton *clearButton;

@@ -28,19 +28,19 @@ class KMultiFormListBoxEntry;
 /**
    @internal
 */
-class WindowListboxItem :public QListWidgetItem
+class WindowListboxItem : public QListWidgetItem
 {
-  friend class WidgetWindow;
-  friend class KMultiFormListBoxWindowed;
+    friend class WidgetWindow;
+    friend class KMultiFormListBoxWindowed;
 public:
-  WindowListboxItem(QListWidget *, QString, WidgetWindow *);
-  ~WindowListboxItem();
-  void cloneItem();
-  void displayWidget();
-  KMultiFormListBoxEntry *entry();
+    WindowListboxItem(QListWidget *, QString, WidgetWindow *);
+    ~WindowListboxItem();
+    void cloneItem();
+    void displayWidget();
+    KMultiFormListBoxEntry *entry();
 
 private:
-  WidgetWindow *myItem;
+    WidgetWindow *myItem;
 };
 
 #endif // __windowlistboxitem

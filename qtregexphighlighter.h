@@ -25,14 +25,14 @@ class QTextEdit;
 
 // krazy:excludeall=qclasses
 
-class QtRegexpHighlighter :public RegexpHighlighter
+class QtRegexpHighlighter : public RegexpHighlighter
 {
 public:
-    QtRegexpHighlighter( QTextEdit* verifier );
-    virtual void highlightBlock ( const QString & text );
+    QtRegexpHighlighter(QTextEdit *verifier);
+    virtual void highlightBlock(const QString &text);
 
 private:
-    QTextEdit* _editor;
+    QTextEdit *_editor;
 };
 
 #endif /* QTREGEXPHIGHLIGHTER_H */

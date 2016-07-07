@@ -24,18 +24,18 @@
 class QLabel;
 class RegexpHighlighter;
 
-class Verifier :public KTextEdit
+class Verifier : public KTextEdit
 {
-Q_OBJECT
+    Q_OBJECT
 public:
-    explicit Verifier( QWidget* parent );
-    void setHighlighter( RegexpHighlighter* );
+    explicit Verifier(QWidget *parent);
+    void setHighlighter(RegexpHighlighter *);
 
 public slots:
-    void verify( const QString& regexp );
+    void verify(const QString &regexp);
     void clearRegexp();
-    void setCaseSensitive( bool );
-    void setMinimal( bool );
+    void setCaseSensitive(bool);
+    void setMinimal(bool);
 
     // I have no way of telling the current paragrahp when highlighting - thefore scrolling to next/prev match
     // do not work. Enable this when they work.
@@ -55,7 +55,7 @@ public slots:
 private:
     int _count;
     // int _current;
-    RegexpHighlighter* _highlighter;
+    RegexpHighlighter *_highlighter;
 
 };
 

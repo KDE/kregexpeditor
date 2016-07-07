@@ -21,13 +21,11 @@
 
 #include <QTextBrowser>
 
-class InfoPage :public QTextBrowser
+class InfoPage : public QTextBrowser
 {
 public:
-  InfoPage( QWidget* parent );
-  virtual void setSource ( const QUrl& name );
+    InfoPage(QWidget *parent);
+    virtual void setSource(const QUrl &name);
 };
-
-
 
 #endif

@@ -20,34 +20,33 @@
 
 #include "regexphighlighter.h"
 
-Verifier::Verifier( QWidget* parent ) : KTextEdit( parent )
+Verifier::Verifier(QWidget *parent) : KTextEdit(parent)
     /* QT_ANCHOR_DO_NOT_WORK: ,_current( 0 ) */
 {
-    setCheckSpellingEnabled ( false );
+    setCheckSpellingEnabled(false);
 
     _highlighter = 0;
-    setMinimumSize(1,1);
+    setMinimumSize(1, 1);
 }
 
 /**
    Update text edit to show matches of regular expression
 */
-void Verifier::verify( const QString& reg )
+void Verifier::verify(const QString &reg)
 {
-    if ( _highlighter ) {
-        _highlighter->setRegExp( reg );
+    if (_highlighter) {
+        _highlighter->setRegExp(reg);
         _highlighter->rehighlight();
     }
 }
-
 
 /**
    Make the text edit display the text without any matches.
 */
 void Verifier::clearRegexp()
 {
-    if ( _highlighter ) {
-        _highlighter->setRegExp( QString() );
+    if (_highlighter) {
+        _highlighter->setRegExp(QString());
         _highlighter->rehighlight();
     }
 }
@@ -55,21 +54,20 @@ void Verifier::clearRegexp()
 /**
    Set case sensitive matching
 */
-void Verifier::setCaseSensitive( bool b )
+void Verifier::setCaseSensitive(bool b)
 {
-    if ( _highlighter ) {
-        _highlighter->setCaseSensitive( b );
+    if (_highlighter) {
+        _highlighter->setCaseSensitive(b);
     }
 }
-
 
 /**
    set minimal mathcing
 */
-void Verifier::setMinimal( bool b )
+void Verifier::setMinimal(bool b)
 {
-    if ( _highlighter ) {
-        _highlighter->setMinimal( b );
+    if (_highlighter) {
+        _highlighter->setMinimal(b);
     }
 }
 
@@ -105,17 +103,16 @@ void Verifier::setMinimal( bool b )
 //     emit goForwardPossible( which != _count -1 );
 // }
 
-
-void Verifier::setHighlighter( RegexpHighlighter* highlighter )
+void Verifier::setHighlighter(RegexpHighlighter *highlighter)
 {
-    if ( _highlighter ) {
-       _highlighter->deleteLater();
+    if (_highlighter) {
+        _highlighter->deleteLater();
     }
     _highlighter = highlighter;
-    if ( _highlighter ) {
-       setEnabled( true );
+    if (_highlighter) {
+        setEnabled(true);
     } else {
-       setEnabled( false );
+        setEnabled(false);
     }
 }
 

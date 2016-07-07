@@ -20,34 +20,33 @@
 
 #include "errormap.h"
 
-PositionRegExp::PositionRegExp( bool selected, PositionType tp ) :RegExp( selected )
+PositionRegExp::PositionRegExp(bool selected, PositionType tp) : RegExp(selected)
 {
-	_tp = tp;
+    _tp = tp;
 }
 
-bool PositionRegExp::check( ErrorMap& map, bool first , bool last )
+bool PositionRegExp::check(ErrorMap &map, bool first , bool last)
 {
-    if ( _tp == BEGLINE && !first) {
+    if (_tp == BEGLINE && !first) {
         map.lineStartError();
-    }
-    else if ( _tp == ENDLINE && !last ) {
+    } else if (_tp == ENDLINE && !last) {
         map.lineEndError();
     }
     return true;
 }
 
-QDomNode PositionRegExp::toXml( QDomDocument* doc ) const
+QDomNode PositionRegExp::toXml(QDomDocument *doc) const
 {
     switch (_tp) {
-    case BEGLINE: return doc->createElement(QString::fromLocal8Bit( "BegLine" ) );
-    case ENDLINE: return doc->createElement(QString::fromLocal8Bit( "EndLine" ) );
-    case WORDBOUNDARY: return doc->createElement(QString::fromLocal8Bit( "WordBoundary" ) );
-    case NONWORDBOUNDARY: return doc->createElement(QString::fromLocal8Bit( "NonWordBoundary" ) );
+    case BEGLINE: return doc->createElement(QString::fromLocal8Bit("BegLine"));
+    case ENDLINE: return doc->createElement(QString::fromLocal8Bit("EndLine"));
+    case WORDBOUNDARY: return doc->createElement(QString::fromLocal8Bit("WordBoundary"));
+    case NONWORDBOUNDARY: return doc->createElement(QString::fromLocal8Bit("NonWordBoundary"));
     }
     return QDomNode();
 }
 
-bool PositionRegExp::load( QDomElement /* top */, const QString& /*version*/ )
+bool PositionRegExp::load(QDomElement /* top */, const QString & /*version*/)
 {
     // Nothing to do.
     return true;

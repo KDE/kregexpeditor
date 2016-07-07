@@ -27,88 +27,87 @@
 
 #include "util.h"
 
-AuxButtons::AuxButtons( QWidget* parent, const char* name = 0)
-  : QToolBar(name, parent)
+AuxButtons::AuxButtons(QWidget *parent, const char *name = 0)
+    : QToolBar(name, parent)
 {
-  _undo = new QToolButton( this );
-  _undo->setIcon(  QIcon::fromTheme(QString::fromLatin1("edit-undo") ) );
-  addWidget( _undo );
-  connect( _undo, SIGNAL(clicked()), this, SIGNAL(undo()) );
-  _undo->setToolTip( i18n( "Undo" ) );
+    _undo = new QToolButton(this);
+    _undo->setIcon(QIcon::fromTheme(QString::fromLatin1("edit-undo")));
+    addWidget(_undo);
+    connect(_undo, SIGNAL(clicked()), this, SIGNAL(undo()));
+    _undo->setToolTip(i18n("Undo"));
 
-  _redo = new QToolButton( this );
-  _redo->setIcon(  QIcon::fromTheme(QString::fromLatin1("edit-redo") ) );
-  addWidget( _redo );
-  connect( _redo, SIGNAL(clicked()), this, SIGNAL(redo()) );
-  _redo->setToolTip( i18n( "Redo" ) );
+    _redo = new QToolButton(this);
+    _redo->setIcon(QIcon::fromTheme(QString::fromLatin1("edit-redo")));
+    addWidget(_redo);
+    connect(_redo, SIGNAL(clicked()), this, SIGNAL(redo()));
+    _redo->setToolTip(i18n("Redo"));
 
-  _cut = new QToolButton( this );
-  _cut->setIcon(  QIcon::fromTheme(QString::fromLatin1("edit-cut") ) );
-  addWidget( _cut );
-  connect( _cut, SIGNAL(clicked()), this, SIGNAL(cut()) );
-  _cut->setToolTip( i18n( "Cut" ) );
+    _cut = new QToolButton(this);
+    _cut->setIcon(QIcon::fromTheme(QString::fromLatin1("edit-cut")));
+    addWidget(_cut);
+    connect(_cut, SIGNAL(clicked()), this, SIGNAL(cut()));
+    _cut->setToolTip(i18n("Cut"));
 
-  _copy = new QToolButton( this );
-  _copy->setIcon(  QIcon::fromTheme(QString::fromLatin1("edit-copy") ) );
-  addWidget( _copy );
-  connect( _copy, SIGNAL(clicked()), this, SIGNAL(copy()) );
-  _copy->setToolTip( i18n( "Copy" ) );
+    _copy = new QToolButton(this);
+    _copy->setIcon(QIcon::fromTheme(QString::fromLatin1("edit-copy")));
+    addWidget(_copy);
+    connect(_copy, SIGNAL(clicked()), this, SIGNAL(copy()));
+    _copy->setToolTip(i18n("Copy"));
 
-  _paste = new QToolButton( this );
-  _paste->setIcon( QIcon::fromTheme(QString::fromLatin1("edit-paste")) );
-  addWidget( _paste );
-  connect( _paste, SIGNAL(clicked()), this, SIGNAL(paste()) );
-  _paste->setToolTip( i18n( "Paste" ) );
+    _paste = new QToolButton(this);
+    _paste->setIcon(QIcon::fromTheme(QString::fromLatin1("edit-paste")));
+    addWidget(_paste);
+    connect(_paste, SIGNAL(clicked()), this, SIGNAL(paste()));
+    _paste->setToolTip(i18n("Paste"));
 
-  _save = new QToolButton( this );
-  _save->setIcon( QIcon::fromTheme(QString::fromLatin1("document-save")) );
-  addWidget( _save );
-  connect( _save, SIGNAL(clicked()), this, SIGNAL(save()) );
-  _save->setToolTip( i18n( "Save" ) );
+    _save = new QToolButton(this);
+    _save->setIcon(QIcon::fromTheme(QString::fromLatin1("document-save")));
+    addWidget(_save);
+    connect(_save, SIGNAL(clicked()), this, SIGNAL(save()));
+    _save->setToolTip(i18n("Save"));
 
+    QToolButton *button = new QToolButton(this);
+    button->setIcon(QIcon::fromTheme(QString::fromLatin1("help-contextual")));
+    addWidget(button);
+    connect(button, SIGNAL(clicked()), this, SLOT(slotEnterWhatsThis()));
 
-  QToolButton* button = new QToolButton(this);
-  button->setIcon( QIcon::fromTheme( QString::fromLatin1("help-contextual") ));
-  addWidget( button );
-  connect(button, SIGNAL(clicked()), this, SLOT(slotEnterWhatsThis()));
-
-  _undo->setEnabled( false );
-  _redo->setEnabled( false );
+    _undo->setEnabled(false);
+    _redo->setEnabled(false);
 
 }
 
 void AuxButtons::slotEnterWhatsThis()
 {
-  QWhatsThis::enterWhatsThisMode();
+    QWhatsThis::enterWhatsThisMode();
 }
 
-void AuxButtons::slotCanUndo( bool b )
+void AuxButtons::slotCanUndo(bool b)
 {
-  _undo->setEnabled( b );
+    _undo->setEnabled(b);
 }
 
-void AuxButtons::slotCanRedo( bool b )
+void AuxButtons::slotCanRedo(bool b)
 {
-  _redo->setEnabled( b );
+    _redo->setEnabled(b);
 }
 
-void AuxButtons::slotCanCut( bool b )
+void AuxButtons::slotCanCut(bool b)
 {
-  _cut->setEnabled( b );
+    _cut->setEnabled(b);
 }
 
-void AuxButtons::slotCanCopy( bool b )
+void AuxButtons::slotCanCopy(bool b)
 {
-  _copy->setEnabled( b );
+    _copy->setEnabled(b);
 }
 
-void AuxButtons::slotCanPaste( bool b )
+void AuxButtons::slotCanPaste(bool b)
 {
-  _paste->setEnabled( b );
+    _paste->setEnabled(b);
 }
 
-void AuxButtons::slotCanSave( bool b )
+void AuxButtons::slotCanSave(bool b)
 {
-  _save->setEnabled( b );
+    _save->setEnabled(b);
 }
 

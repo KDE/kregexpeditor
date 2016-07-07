@@ -34,17 +34,20 @@ class QCheckBox;
    RegExp widget for charcter ranges.
    @internal
 */
-class CharactersWidget :public RegExpWidget
+class CharactersWidget : public RegExpWidget
 {
 public:
-    CharactersWidget(RegExpEditorWindow* editorWindow, QWidget *parent);
-    CharactersWidget( TextRangeRegExp* regexp, RegExpEditorWindow* editorWindow,
-                      QWidget* parent );
+    CharactersWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
+    CharactersWidget(TextRangeRegExp *regexp, RegExpEditorWindow *editorWindow,
+                     QWidget *parent);
     ~CharactersWidget();
     virtual QSize sizeHint() const;
-	virtual RegExp* regExp() const;
-    virtual RegExpType type() const { return CHARSET; }
-    virtual RegExpWidget* findWidgetToEdit( QPoint globalPos );
+    virtual RegExp *regExp() const;
+    virtual RegExpType type() const
+    {
+        return CHARSET;
+    }
+    virtual RegExpWidget *findWidgetToEdit(QPoint globalPos);
     virtual int edit();
 
 protected:
@@ -60,33 +63,32 @@ private:
     mutable QSize _contentSize;
 };
 
-
 /**
    @internal
 */
-class SingleEntry :public KMultiFormListBoxEntry
+class SingleEntry : public KMultiFormListBoxEntry
 {
 public:
-    SingleEntry(QWidget* parent );
+    SingleEntry(QWidget *parent);
     QString text() const;
-    void setText( QString text );
+    void setText(QString text);
     bool isEmpty() const;
 
 private:
-    CharSelector* _selector;
+    CharSelector *_selector;
 };
 
 /**
    @internal
 */
-class RangeEntry :public KMultiFormListBoxEntry
+class RangeEntry : public KMultiFormListBoxEntry
 {
 public:
-    RangeEntry(QWidget* parent );
+    RangeEntry(QWidget *parent);
     QString fromText() const;
     QString toText() const;
-    void setFrom( QString text );
-    void setTo( QString text );
+    void setFrom(QString text);
+    void setTo(QString text);
     bool isEmpty() const;
 private:
     CharSelector *_from, *_to;
@@ -95,21 +97,33 @@ private:
 /**
    @internal
 */
-class SingleFactory :public KMultiFormListBoxFactory
+class SingleFactory : public KMultiFormListBoxFactory
 {
 public:
-    KMultiFormListBoxEntry *create(QWidget *parent) { return new SingleEntry( parent ); }
-    QWidget *separator( QWidget* ) { return 0; }
+    KMultiFormListBoxEntry *create(QWidget *parent)
+    {
+        return new SingleEntry(parent);
+    }
+    QWidget *separator(QWidget *)
+    {
+        return 0;
+    }
 };
 
 /**
    @internal
 */
-class RangeFactory :public KMultiFormListBoxFactory
+class RangeFactory : public KMultiFormListBoxFactory
 {
 public:
-    KMultiFormListBoxEntry *create(QWidget *parent) { return new RangeEntry( parent ); }
-    QWidget *separator( QWidget* ) { return 0; }
+    KMultiFormListBoxEntry *create(QWidget *parent)
+    {
+        return new RangeEntry(parent);
+    }
+    QWidget *separator(QWidget *)
+    {
+        return 0;
+    }
 };
 
 /**
@@ -122,7 +136,7 @@ public:
     CharacterEdits(QWidget *parent = 0);
 
 public slots:
-    int exec( TextRangeRegExp* regexp );
+    int exec(TextRangeRegExp *regexp);
 
 protected slots:
     void slotOK();
@@ -131,9 +145,9 @@ private:
     QCheckBox *negate, *wordChar, *_nonWordChar, *digit, *_nonDigit, *space, *_nonSpace;
     KMultiFormListBox *_single, *_range;
 
-    void addCharacter( QString txt );
-    void addRange( QString from, QString to );
-    TextRangeRegExp* _regexp;
+    void addCharacter(QString txt);
+    void addRange(QString from, QString to);
+    TextRangeRegExp *_regexp;
 };
 
 #endif // characterswidget

@@ -32,74 +32,71 @@ class QGridLayout;
    Widget containging the configuration for a @ref RepeatWidget
    @internal
 */
-class RepeatRangeWindow :public QWidget
+class RepeatRangeWindow : public QWidget
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
-  enum REPEATTYPE {ANY, ATLEAST, ATMOST, EXACTLY, MINMAX}; // krazy:exclude=spelling
+    enum REPEATTYPE {ANY, ATLEAST, ATMOST, EXACTLY, MINMAX}; // krazy:exclude=spelling
 
-  RepeatRangeWindow( QWidget* parent );
-  QString text();
-  int min();
-  int max();
-  void set( REPEATTYPE tp, int min, int max );
+    RepeatRangeWindow(QWidget *parent);
+    QString text();
+    int min();
+    int max();
+    void set(REPEATTYPE tp, int min, int max);
 
 protected slots:
-  void slotItemChange( int which );
-  void slotUpdateMinVal( int minVal );
-  void slotUpdateMaxVal( int minVal );
-
+    void slotItemChange(int which);
+    void slotUpdateMinVal(int minVal);
+    void slotUpdateMaxVal(int minVal);
 
 private:
-  void createLine( QGridLayout* layout, QString text, QSpinBox** spin, REPEATTYPE tp );
+    void createLine(QGridLayout *layout, QString text, QSpinBox **spin, REPEATTYPE tp);
 
-  QSpinBox* _leastTimes;
-  QSpinBox* _mostTimes;
-  QSpinBox* _exactlyTimes;
-  QSpinBox* _rangeFrom;
-  QSpinBox* _rangeTo;
-  QGroupBox* _groupWidget;
-  QButtonGroup* _group;
+    QSpinBox *_leastTimes;
+    QSpinBox *_mostTimes;
+    QSpinBox *_exactlyTimes;
+    QSpinBox *_rangeFrom;
+    QSpinBox *_rangeTo;
+    QGroupBox *_groupWidget;
+    QButtonGroup *_group;
 };
-
-
-
-
 
 /**
    RegExp widget for `repeated content'
    @internal
 */
-class RepeatWidget :public SingleContainerWidget
+class RepeatWidget : public SingleContainerWidget
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
-  RepeatWidget( RegExpEditorWindow* editorWindow, QWidget *parent);
-  RepeatWidget( RepeatRegExp* regexp, RegExpEditorWindow* editorWindow,
-              QWidget* parent);
-  void init();
-  virtual QSize sizeHint() const;
-	virtual RegExp* regExp() const;
-  virtual RegExpType type() const { return REPEAT; }
-  virtual int edit();
+    RepeatWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
+    RepeatWidget(RepeatRegExp *regexp, RegExpEditorWindow *editorWindow,
+                 QWidget *parent);
+    void init();
+    virtual QSize sizeHint() const;
+    virtual RegExp *regExp() const;
+    virtual RegExpType type() const
+    {
+        return REPEAT;
+    }
+    virtual int edit();
 
 protected:
-  virtual void paintEvent( QPaintEvent *e );
+    virtual void paintEvent(QPaintEvent *e);
 
 protected slots:
-  void slotConfigCanceled();
-  void slotConfigWindowClosed();
+    void slotConfigCanceled();
+    void slotConfigWindowClosed();
 
 private:
-  QDialog* _configWindow;
-  RepeatRangeWindow* _content;
+    QDialog *_configWindow;
+    RepeatRangeWindow *_content;
 
-  mutable QSize _textSize;
-  mutable QSize _childSize;
-  QByteArray _backup;
+    mutable QSize _textSize;
+    mutable QSize _childSize;
+    QByteArray _backup;
 };
-
 
 #endif // __repeatwidget

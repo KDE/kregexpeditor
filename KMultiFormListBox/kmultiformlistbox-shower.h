@@ -30,28 +30,28 @@ typedef QList<KMultiFormListBoxEntry *> KMultiFormListBoxEntryList ;
 
    @internal
 */
-class KMultiFormListBoxShower {
+class KMultiFormListBoxShower
+{
 
 public:
-  virtual ~KMultiFormListBoxShower(){}
-  virtual KMultiFormListBoxEntryList elements() = 0;
+    virtual ~KMultiFormListBoxShower() {}
+    virtual KMultiFormListBoxEntryList elements() = 0;
 
-  /** Appends the given argument to the list */
-  virtual void append(KMultiFormListBoxEntry *) = 0;
+    /** Appends the given argument to the list */
+    virtual void append(KMultiFormListBoxEntry *) = 0;
 
-  /** Return the element as a QWidget */
-	virtual QWidget* qWidget() = 0;
+    /** Return the element as a QWidget */
+    virtual QWidget *qWidget() = 0;
 
-  /** Adds an empty element. */
-  virtual void addElement() = 0;
+    /** Adds an empty element. */
+    virtual void addElement() = 0;
 
-  /** Deletes an element at the given index. */
-	virtual void delElement(QWidget *) = 0;
+    /** Deletes an element at the given index. */
+    virtual void delElement(QWidget *) = 0;
 
-  /** Deletes any element from the list */
-	virtual void delAnElement() = 0;
+    /** Deletes any element from the list */
+    virtual void delAnElement() = 0;
 };
-
 
 #endif /* kmultiformlistboxshower */
 

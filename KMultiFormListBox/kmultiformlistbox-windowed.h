@@ -34,53 +34,55 @@ class QPushButton;
 
    @internal
 */
-class KMultiFormListBoxWindowed  :public QWidget, KMultiFormListBoxShower {
+class KMultiFormListBoxWindowed  : public QWidget, KMultiFormListBoxShower
+{
 
-Q_OBJECT
+    Q_OBJECT
 
-friend class KMultiFormListBox;
+    friend class KMultiFormListBox;
 
 private:
-  KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent,
-														bool
-                                                                                                                showUpDownButtons,
-                                                                                                                bool
-                                                                                                                showHelpButton,
-                                                                                                                QString
-                                                                                                                addButtonText);
+    KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent,
+                              bool
+                              showUpDownButtons,
+                              bool
+                              showHelpButton,
+                              QString
+                              addButtonText);
 
-  KMultiFormListBoxEntryList elements();
-  const KMultiFormListBoxEntryList elements() const;
-  void append(KMultiFormListBoxEntry *);
-  WindowListboxItem *selected();
-	QWidget* qWidget() { return this; }
+    KMultiFormListBoxEntryList elements();
+    const KMultiFormListBoxEntryList elements() const;
+    void append(KMultiFormListBoxEntry *);
+    WindowListboxItem *selected();
+    QWidget *qWidget()
+    {
+        return this;
+    }
 
-	QVBoxLayout* _layout;
-  KMultiFormListBoxFactory* _factory;
-	QList<QPushButton *> _buttonList;
-  QListWidget* _listbox;
-	virtual void delElement(QWidget *); // Deletes the given element
-	virtual void delAnElement();
-  void addElement();
-
+    QVBoxLayout *_layout;
+    KMultiFormListBoxFactory *_factory;
+    QList<QPushButton *> _buttonList;
+    QListWidget *_listbox;
+    virtual void delElement(QWidget *); // Deletes the given element
+    virtual void delAnElement();
+    void addElement();
 
 public slots:
-  void addNewElement();
+    void addNewElement();
 
 signals:
-	void showHelp();
+    void showHelp();
 
 private slots:
-  void slotEditSelected();
-  void slotEditSelected(QListWidgetItem *item);
-  void slotCopySelected();
-	void slotMoveItemUp();
-	void slotMoveItemDown();
-  void slotDeleteEntry();
-	void slotUpdateButtonState();
+    void slotEditSelected();
+    void slotEditSelected(QListWidgetItem *item);
+    void slotCopySelected();
+    void slotMoveItemUp();
+    void slotMoveItemDown();
+    void slotDeleteEntry();
+    void slotUpdateButtonState();
 
 };
-
 
 #endif /* kmultiformlistboxwindowed */
 

@@ -29,27 +29,26 @@
 
 #include "kregexpeditorprivate.h"
 
-KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent,
-                                                const QVariantList & )
-  : QDialog( parent )
+KRegExpEditorGUIDialog::KRegExpEditorGUIDialog(QWidget *parent,
+        const QVariantList &)
+    : QDialog(parent)
 {
-    setWindowTitle( i18n("Regular Expression Editor") );
+    setWindowTitle(i18n("Regular Expression Editor"));
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
 
+    QFrame *frame = new QFrame(this);
+    QVBoxLayout *layout = new QVBoxLayout(frame);
+    _editor = new KRegExpEditorGUI(frame);
+    layout->addWidget(_editor);
+    mainLayout->addWidget(frame);
 
-  QFrame* frame = new QFrame(this);
-  QVBoxLayout* layout = new QVBoxLayout( frame );
-  _editor = new KRegExpEditorGUI( frame );
-  layout->addWidget(_editor);
-  mainLayout->addWidget(frame);
+    connect(_editor, SIGNAL(canUndo(bool)), this, SIGNAL(canUndo(bool)));
+    connect(_editor, SIGNAL(canRedo(bool)), this, SIGNAL(canRedo(bool)));
+    connect(_editor, SIGNAL(changes(bool)), this, SIGNAL(changes(bool)));
+    resize(640, 400);
 
-  connect( _editor, SIGNAL( canUndo(bool) ), this, SIGNAL( canUndo(bool) ) );
-  connect( _editor, SIGNAL( canRedo(bool) ), this, SIGNAL( canRedo(bool) ) );
-  connect( _editor, SIGNAL( changes(bool) ), this, SIGNAL( changes(bool) ) );
-  resize( 640, 400 );
-
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Help);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Help);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
@@ -58,34 +57,33 @@ KRegExpEditorGUIDialog::KRegExpEditorGUIDialog( QWidget *parent,
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 }
 
-
 QString KRegExpEditorGUIDialog::regExp() const
 {
     return _editor->regExp();
 }
 
-void KRegExpEditorGUIDialog::setRegExp( const QString &regexp )
+void KRegExpEditorGUIDialog::setRegExp(const QString &regexp)
 {
-    _editor->setRegExp( regexp );
+    _editor->setRegExp(regexp);
 }
 
 void KRegExpEditorGUIDialog::redo()
 {
-  _editor->redo();
+    _editor->redo();
 }
 
 void KRegExpEditorGUIDialog::undo()
 {
-  _editor->undo();
+    _editor->undo();
 }
 
-void KRegExpEditorGUIDialog::doSomething(const QString &method, void* arguments )
+void KRegExpEditorGUIDialog::doSomething(const QString &method, void *arguments)
 {
-    _editor->doSomething( method, arguments );
+    _editor->doSomething(method, arguments);
 }
 
-void KRegExpEditorGUIDialog::setMatchText( const QString& txt )
+void KRegExpEditorGUIDialog::setMatchText(const QString &txt)
 {
-    _editor->setMatchText( txt );
+    _editor->setMatchText(txt);
 }
 

@@ -25,18 +25,18 @@
    QToolButton extended to emit a signal on double click.
    @internal
 */
-class DoubleClickButton :public QToolButton
+class DoubleClickButton : public QToolButton
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
-  DoubleClickButton( QPixmap pix, QWidget* parent, const char* name = 0);
+    DoubleClickButton(QPixmap pix, QWidget *parent, const char *name = 0);
 
 protected:
-  virtual void mouseDoubleClickEvent ( QMouseEvent * );
+    virtual void mouseDoubleClickEvent(QMouseEvent *);
 
 signals:
-  void doubleClicked();
+    void doubleClicked();
 };
 
 #endif // dcbutton

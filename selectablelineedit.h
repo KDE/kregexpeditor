@@ -33,23 +33,23 @@ class RegExpWidget;
 
    @internal
 */
-class SelectableLineEdit :public QLineEdit
+class SelectableLineEdit : public QLineEdit
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
-  explicit SelectableLineEdit( RegExpWidget* owner, QWidget* parent = 0, const char* name = 0);
-  void setSelected( bool selected );
-  virtual QSize sizeHint() const;
+    explicit SelectableLineEdit(RegExpWidget *owner, QWidget *parent = 0, const char *name = 0);
+    void setSelected(bool selected);
+    virtual QSize sizeHint() const;
 
 protected slots:
-  void slotKeyPressed();
+    void slotKeyPressed();
 
 signals:
-  void parentPleaseUpdate();
+    void parentPleaseUpdate();
 
 private:
-  RegExpWidget* _owner;
+    RegExpWidget *_owner;
 };
 
 #endif

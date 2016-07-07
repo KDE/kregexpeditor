@@ -48,25 +48,34 @@ class QPushButton;
  **/
 class KMultiFormListBoxEntry : public QWidget
 {
-  Q_OBJECT
+    Q_OBJECT
 
 public:
-  KMultiFormListBoxEntry(QWidget *parent) : QWidget(parent) {}
+    KMultiFormListBoxEntry(QWidget *parent) : QWidget(parent) {}
 
-  virtual QPushButton *indexButton() { return 0; }
-  virtual QWidget *valueWidget() { return 0; }
+    virtual QPushButton *indexButton()
+    {
+        return 0;
+    }
+    virtual QWidget *valueWidget()
+    {
+        return 0;
+    }
 
-  virtual void indexWindowPos(QPoint *start, int *width); // both variables are return values.
+    virtual void indexWindowPos(QPoint *start, int *width); // both variables are return values.
 
-  // This function must return a string representing the KMultiFormListBox. This is
-  // used when showing the fast-search menu available from the `Idx' button.
-  virtual QString idxString() { return QString::fromLatin1(""); }
+    // This function must return a string representing the KMultiFormListBox. This is
+    // used when showing the fast-search menu available from the `Idx' button.
+    virtual QString idxString()
+    {
+        return QString::fromLatin1("");
+    }
 
 public Q_SLOTS:
-  void acceptIndexButton();
+    void acceptIndexButton();
 
 Q_SIGNALS:
-  void gotoIndex(KMultiFormListBoxEntry *);
+    void gotoIndex(KMultiFormListBoxEntry *);
 
 };
 

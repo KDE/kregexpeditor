@@ -29,108 +29,106 @@
 //--------------------------------------------------------------------------------
 //                                ZeroWidget
 //--------------------------------------------------------------------------------
-ZeroWidget::ZeroWidget(QString txt, RegExpEditorWindow* editorWindow,
+ZeroWidget::ZeroWidget(QString txt, RegExpEditorWindow *editorWindow,
                        QWidget *parent)
-  : RegExpWidget(editorWindow, parent )
+    : RegExpWidget(editorWindow, parent)
 {
-  _text = txt;
+    _text = txt;
 }
 
 void ZeroWidget::addNewChild(DragAccepter *, RegExpWidget *)
 {
-  qFatal("No children should be added to this widget!");
+    qFatal("No children should be added to this widget!");
 }
 
 QSize ZeroWidget::sizeHint() const
 {
-  QFontMetrics metrics = fontMetrics();
-  _textSize = HackCalculateFontSize( metrics, _text );
-  //  _textSize = metrics.size(0,_text);
-  _boxSize = QSize(_textSize.width() + 2*space, _textSize.height() + 2 *space);
-  return _boxSize;
+    QFontMetrics metrics = fontMetrics();
+    _textSize = HackCalculateFontSize(metrics, _text);
+    //  _textSize = metrics.size(0,_text);
+    _boxSize = QSize(_textSize.width() + 2 * space, _textSize.height() + 2 * space);
+    return _boxSize;
 }
 
-void ZeroWidget::paintEvent( QPaintEvent *e)
+void ZeroWidget::paintEvent(QPaintEvent *e)
 {
-  // So what is my Size?
-  QSize mySize = sizeHint();
+    // So what is my Size?
+    QSize mySize = sizeHint();
 
-  QPainter painter(this);
-  painter.setRenderHint(QPainter::Antialiasing);
-  drawPossibleSelection( painter, mySize);
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing);
+    drawPossibleSelection(painter, mySize);
 
-  // Write the text and the rectangle
-  painter.drawText(space, space, _textSize.width(), _textSize.height(), 0, _text);
-  painter.drawRoundedRect(0, 0, _boxSize.width()-1, _boxSize.height()-1, 5, 5);
+    // Write the text and the rectangle
+    painter.drawText(space, space, _textSize.width(), _textSize.height(), 0, _text);
+    painter.drawRoundedRect(0, 0, _boxSize.width() - 1, _boxSize.height() - 1, 5, 5);
 
-  RegExpWidget::paintEvent(e);
+    RegExpWidget::paintEvent(e);
 }
-
 
 //--------------------------------------------------------------------------------
 //                                AnyCharWidget
 //--------------------------------------------------------------------------------
-AnyCharWidget::AnyCharWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
-  : ZeroWidget(i18n("Any\nCharacter"), editorWindow, parent)
+AnyCharWidget::AnyCharWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
+    : ZeroWidget(i18n("Any\nCharacter"), editorWindow, parent)
 {
 }
 
-RegExp* AnyCharWidget::regExp() const
+RegExp *AnyCharWidget::regExp() const
 {
-	return new DotRegExp( isSelected() );
+    return new DotRegExp(isSelected());
 }
-
 
 //--------------------------------------------------------------------------------
 //                                BegLineWidget
 //--------------------------------------------------------------------------------
-BegLineWidget::BegLineWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
-  : ZeroWidget(i18n("Line\nStart"), editorWindow, parent)
+BegLineWidget::BegLineWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
+    : ZeroWidget(i18n("Line\nStart"), editorWindow, parent)
 {
 }
 
-RegExp* BegLineWidget::regExp() const
+RegExp *BegLineWidget::regExp() const
 {
-	return new PositionRegExp( isSelected(), PositionRegExp::BEGLINE );
+    return new PositionRegExp(isSelected(), PositionRegExp::BEGLINE);
 
 }
 
 //--------------------------------------------------------------------------------
 //                                EndLineWidget
 //--------------------------------------------------------------------------------
-EndLineWidget::EndLineWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
-  : ZeroWidget(i18n("Line\nEnd"), editorWindow, parent)
+EndLineWidget::EndLineWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
+    : ZeroWidget(i18n("Line\nEnd"), editorWindow, parent)
 {
 }
 
-RegExp* EndLineWidget::regExp() const
+RegExp *EndLineWidget::regExp() const
 {
-	return new PositionRegExp( isSelected(), PositionRegExp::ENDLINE );
+    return new PositionRegExp(isSelected(), PositionRegExp::ENDLINE);
 }
 
 //--------------------------------------------------------------------------------
 //                                WordBoundaryWidget
 //--------------------------------------------------------------------------------
-WordBoundaryWidget::WordBoundaryWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
-  : ZeroWidget(i18n("Word\nBoundary"), editorWindow, parent)
+WordBoundaryWidget::WordBoundaryWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
+    : ZeroWidget(i18n("Word\nBoundary"), editorWindow, parent)
 {
 }
 
-RegExp* WordBoundaryWidget::regExp() const
+RegExp *WordBoundaryWidget::regExp() const
 {
-	return new PositionRegExp( isSelected(), PositionRegExp::WORDBOUNDARY );
+    return new PositionRegExp(isSelected(), PositionRegExp::WORDBOUNDARY);
 }
 
 //--------------------------------------------------------------------------------
 //                                NonWordBoundaryWidget
 //--------------------------------------------------------------------------------
-NonWordBoundaryWidget::NonWordBoundaryWidget(RegExpEditorWindow* editorWindow, QWidget *parent)
-  : ZeroWidget(i18n("Non-word\nBoundary"), editorWindow, parent)
+NonWordBoundaryWidget::NonWordBoundaryWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
+    : ZeroWidget(i18n("Non-word\nBoundary"), editorWindow, parent)
 {
 }
 
-RegExp* NonWordBoundaryWidget::regExp() const
+RegExp *NonWordBoundaryWidget::regExp() const
 {
-	return new PositionRegExp( isSelected(), PositionRegExp::NONWORDBOUNDARY );
+    return new PositionRegExp(isSelected(), PositionRegExp::NONWORDBOUNDARY);
 }
 

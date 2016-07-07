@@ -23,82 +23,84 @@
 
 #include "kmultiformlistboxfactory.h"
 
-KMultiFormListBox::KMultiFormListBox( KMultiFormListBoxFactory *factory, KMultiFormListBoxType tp, QWidget *parent,
-                                      bool showUpDownButtons, bool showHelpButton, QString addButtonText )
-    : QWidget( parent )
+KMultiFormListBox::KMultiFormListBox(KMultiFormListBoxFactory *factory, KMultiFormListBoxType tp, QWidget *parent,
+                                     bool showUpDownButtons, bool showHelpButton, QString addButtonText)
+    : QWidget(parent)
 {
-	switch ( tp ) {
+    switch (tp) {
 
-	case MultiVisible:
-    theWidget = new KMultiFormListBoxMultiVisible( factory, this );
-		break;
+    case MultiVisible:
+        theWidget = new KMultiFormListBoxMultiVisible(factory, this);
+        break;
 
-	case Windowed:
-    theWidget = new KMultiFormListBoxWindowed( factory, this, showUpDownButtons,
-																							 showHelpButton, addButtonText);
-		break;
-	}
+    case Windowed:
+        theWidget = new KMultiFormListBoxWindowed(factory, this, showUpDownButtons,
+                showHelpButton, addButtonText);
+        break;
+    }
 
-  QWidget *widget = theWidget->qWidget();
+    QWidget *widget = theWidget->qWidget();
 
-  QHBoxLayout *layout = new QHBoxLayout( this );
-  layout->setMargin( 0 );
-	_factory = factory;
-  layout->addWidget( widget );
+    QHBoxLayout *layout = new QHBoxLayout(this);
+    layout->setMargin(0);
+    _factory = factory;
+    layout->addWidget(widget);
 }
 
-void KMultiFormListBox::append( KMultiFormListBoxEntry *element )
+void KMultiFormListBox::append(KMultiFormListBoxEntry *element)
 {
-  theWidget->append( element );
+    theWidget->append(element);
 }
 
 void KMultiFormListBox::addElement()
 {
-  theWidget->addElement();
+    theWidget->addElement();
 }
 
 KMultiFormListBoxEntryList KMultiFormListBox::elements()
 {
-  return theWidget->elements();
+    return theWidget->elements();
 }
 
 const KMultiFormListBoxEntryList KMultiFormListBox::elements() const
 {
-  return const_cast<KMultiFormListBox*>(this)->elements();
+    return const_cast<KMultiFormListBox *>(this)->elements();
 }
 
-void KMultiFormListBox::slotChangeFace( KMultiFormListBoxType /*newFace*/ )
+void KMultiFormListBox::slotChangeFace(KMultiFormListBoxType /*newFace*/)
 {
-	// TODO
-	// kDebug() << "It's not possible yet to change the face on the fly." 
-	//					<< "Please let me (blackie@kde.org) know that you need it, and I'll work on it" << endl;
+    // TODO
+    // kDebug() << "It's not possible yet to change the face on the fly."
+    //                  << "Please let me (blackie@kde.org) know that you need it, and I'll work on it" << endl;
 }
 
-void KMultiFormListBox::toStream( QDataStream& stream ) const
+void KMultiFormListBox::toStream(QDataStream &stream) const
 {
-  const KMultiFormListBoxEntryList elms = elements();
-  stream << elms.count();
-  foreach ( KMultiFormListBoxEntry * entry, elms)
-    _factory->toStream( entry, stream );
+    const KMultiFormListBoxEntryList elms = elements();
+    stream << elms.count();
+    foreach (KMultiFormListBoxEntry *entry, elms) {
+        _factory->toStream(entry, stream);
+    }
 }
 
-void KMultiFormListBox::fromStream( QDataStream& stream )
+void KMultiFormListBox::fromStream(QDataStream &stream)
 {
-  unsigned int fromCount, toCount;
-  stream >> fromCount;
+    unsigned int fromCount, toCount;
+    stream >> fromCount;
 
-  toCount = elements().count();
+    toCount = elements().count();
 
-  // adds/remove elements in the to list, to make it have the correct length.
-  for (unsigned int j=toCount; j< fromCount; ++j) {
-    addElement();
-  }
-  for (unsigned int k=fromCount; k < toCount; ++k) {
-    theWidget->delAnElement();
-  }
+    // adds/remove elements in the to list, to make it have the correct length.
+    for (unsigned int j = toCount; j < fromCount; ++j) {
+        addElement();
+    }
+    for (unsigned int k = fromCount; k < toCount; ++k) {
+        theWidget->delAnElement();
+    }
 
-  KMultiFormListBoxEntryList elms = elements();
-  foreach ( KMultiFormListBoxEntry * entry, elms)
-    _factory->fromStream( stream, entry );
+    KMultiFormListBoxEntryList elms = elements();
+    foreach (KMultiFormListBoxEntry *entry, elms) {
+        _factory->fromStream(stream, entry);
+    }
 }
 

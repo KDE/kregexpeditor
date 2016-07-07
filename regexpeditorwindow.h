@@ -42,7 +42,7 @@ class QHBoxLayout;
     RegExpEditorWindow which the widget is a child of. They use this
     pointer to start operations like rubber band selection, cut/paste etc.
 */
-class RegExpEditorWindow :public QWidget
+class RegExpEditorWindow : public QWidget
 {
     Q_OBJECT
 
@@ -56,7 +56,7 @@ public:
        representation of the regexp (see @ref RegExp::emacs, and @ref
        RegExp::perl etc)
     */
-	RegExp* regExp() const;
+    RegExp *regExp() const;
 
     /**
        This method returns true if the rectangle starting at `globalPos' with
@@ -64,12 +64,12 @@ public:
        Note this method is only valid while doing rubber-band
        selection. Afterwards, use @ref pointSelected instead.
     */
-    bool selectionOverlap( QPoint globalPos, QSize size ) const;
+    bool selectionOverlap(QPoint globalPos, QSize size) const;
 
     /**
        returns true if `pos' lays on top of a widget that is selected.
     */
-    bool pointSelected( QPoint pos ) const;
+    bool pointSelected(QPoint pos) const;
 
     /**
        returns true if the editor has a selection.
@@ -80,42 +80,46 @@ public:
        clears the selection, and if `update', invokes update on all the
        widgets
     */
-    void clearSelection( bool update );
+    void clearSelection(bool update);
 
     /**
        invoked update on the top widget, and ensures that `focusChild' is
        visible. It's valid for `focusChild' to be 0.
     */
-    void updateContent(QWidget* focusChild);
+    void updateContent(QWidget *focusChild);
 
-    RegExp* pasteData() {
-      return _pasteData;
+    RegExp *pasteData()
+    {
+        return _pasteData;
     }
-    bool isPasteing() const {
-      return _pasteInAction;
+    bool isPasteing() const
+    {
+        return _pasteInAction;
     }
-    bool isInserting() const {
-      return _insertInAction;
+    bool isInserting() const
+    {
+        return _insertInAction;
     }
 
     /**
        Returns the type currently being inserted.
        This is the type, which was given to @ref slotInsertRegExp
     */
-    RegExpType insertType() const {
-      return _insertTp;
+    RegExpType insertType() const
+    {
+        return _insertTp;
     }
 
     /**
        Create a regexp widget, so that it wraps around the current selected
        regexp.
     */
-    void applyRegExpToSelection( RegExpType tp );
+    void applyRegExpToSelection(RegExpType tp);
 
     /**
        Pops up the RMB menu, which contains cut, copy, past, ...
     */
-    void showRMBMenu( bool enableCutCopy );
+    void showRMBMenu(bool enableCutCopy);
 
     virtual QSize sizeHint() const;
 
@@ -124,7 +128,7 @@ public slots:
     /**
        Set the editor window to the regular expression given as argument
     */
-    void slotSetRegExp( RegExp* regexp );
+    void slotSetRegExp(RegExp *regexp);
 
     /**
        Change editing mode to insertion. This means that the cursor will
@@ -137,7 +141,7 @@ public slots:
        This method is used when the user presses one of the buttons to the
        right of the editor window.
     */
-    void slotInsertRegExp( RegExpType type );
+    void slotInsertRegExp(RegExpType type);
 
     /**
        Change editing state to selection.
@@ -153,7 +157,7 @@ public slots:
        This method is called when the user pastes data (using the RPM menu),
        or when a regular expression is loaded from file.
     */
-    void slotInsertRegExp( RegExp* regexp );
+    void slotInsertRegExp(RegExp *regexp);
 
     /**
        see @ref RegExpWidget::deleteSelection
@@ -173,7 +177,10 @@ public slots:
     */
     void slotEndActions();
 
-    void emitChange() { emit change(); }
+    void emitChange()
+    {
+        emit change();
+    }
 
     void updateCursorUnderPoint();
 
@@ -188,13 +195,13 @@ signals:
 
        If focusPoint is non-null then this point should be made visible
     */
-    void contentChanged( QPoint focusPoint );
+    void contentChanged(QPoint focusPoint);
 
     /**
        This signal is emitted whenever mouse is being dragged in the editor
        window. `focusPoint' is the mouse' current position.
     */
-    void scrolling( QPoint focusPoint );
+    void scrolling(QPoint focusPoint);
 
     /**
        see @ref RegExpScrolledEditorWindow::doneEditing
@@ -216,35 +223,34 @@ signals:
     */
     void verifyRegExp();
 
-    void anythingSelected( bool );
-    void anythingOnClipboard( bool );
-    void canSave( bool );
-
+    void anythingSelected(bool);
+    void anythingOnClipboard(bool);
+    void canSave(bool);
 
 protected:
-    virtual void mousePressEvent ( QMouseEvent* event );
-    virtual void mouseMoveEvent ( QMouseEvent* event );
-    virtual void mouseReleaseEvent( QMouseEvent *event);
-    virtual void paintEvent( QPaintEvent* event );
+    virtual void mousePressEvent(QMouseEvent *event);
+    virtual void mouseMoveEvent(QMouseEvent *event);
+    virtual void mouseReleaseEvent(QMouseEvent *event);
+    virtual void paintEvent(QPaintEvent *event);
 
 protected slots:
     virtual void emitVerifyRegExp();
     void editWidget();
 
 private:
-    void cutCopyAux( QPoint pos );
-    void copy( QPoint pos );
-    void cut( QPoint pos );
+    void cutCopyAux(QPoint pos);
+    void copy(QPoint pos);
+    void cut(QPoint pos);
 
 private:
     /** This points to the top @ref RegExpWidget in the editor window. */
     ConcWidget *_top;
 
     /** This points to the layout manager for the editor window */
-    QHBoxLayout* _layout;
+    QHBoxLayout *_layout;
 
     /** This points to the edit widget */
-    QPoint _PosEdit; 
+    QPoint _PosEdit;
 
     /** Start point and last point draw. Used when doing rubber band selection  */
     QPoint _start, _lastPoint;
@@ -262,18 +268,18 @@ private:
     RegExpType _insertTp;
 
     /** The data being inserted (see @ref pasteData ) */
-    RegExp* _pasteData;
+    RegExp *_pasteData;
 
     /** Popup menu used for RMB */
-    QMenu* _menu;
-    
-    QAction* _cutAction;
-    QAction* _copyAction;
-    QAction* _pasteAction;
-    QAction* _editAction;
-    QAction* _saveAction;
+    QMenu *_menu;
 
-    QIcon getIcon( const QString& name );
+    QAction *_cutAction;
+    QAction *_copyAction;
+    QAction *_pasteAction;
+    QAction *_editAction;
+    QAction *_saveAction;
+
+    QIcon getIcon(const QString &name);
 
     bool _isDndOperation;
 };

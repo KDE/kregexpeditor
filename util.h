@@ -24,7 +24,7 @@
 class Util
 {
 public:
-    static QPixmap getKRegExpEditorIcon( const QString& name );
+    static QPixmap getKRegExpEditorIcon(const QString &name);
 };
 
 #endif // UTIL_H

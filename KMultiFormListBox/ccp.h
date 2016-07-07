@@ -42,23 +42,24 @@ class KMultiFormListBoxEntry;
 
   @internal
 **/
-class CCP :public  QObject {
-  Q_OBJECT
+class CCP : public  QObject
+{
+    Q_OBJECT
 private:
-  friend class KMultiFormListBoxMultiVisible;
-  /**
-   * Constructor is private so only the class @ref KMultiFormListBoxMultiVisible may create an
-   * instance of this widget.
-  **/
-  CCP(KMultiFormListBoxMultiVisible *,KMultiFormListBoxEntry *);
+    friend class KMultiFormListBoxMultiVisible;
+    /**
+     * Constructor is private so only the class @ref KMultiFormListBoxMultiVisible may create an
+     * instance of this widget.
+    **/
+    CCP(KMultiFormListBoxMultiVisible *, KMultiFormListBoxEntry *);
 
-  void install(QObject *);
-  bool eventFilter(QObject *, QEvent *);
+    void install(QObject *);
+    bool eventFilter(QObject *, QEvent *);
 
-  // Instance variables.
+    // Instance variables.
 
-  KMultiFormListBoxMultiVisible *ee;
-  KMultiFormListBoxEntry *eee;
+    KMultiFormListBoxMultiVisible *ee;
+    KMultiFormListBoxEntry *eee;
 };
 
 #endif /* ccp */

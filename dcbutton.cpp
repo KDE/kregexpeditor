@@ -18,15 +18,15 @@
 
 #include "dcbutton.h"
 
-DoubleClickButton::DoubleClickButton( QPixmap pixmap, QWidget* parent, const char* name )
-  : QToolButton( parent )
+DoubleClickButton::DoubleClickButton(QPixmap pixmap, QWidget *parent, const char *name)
+    : QToolButton(parent)
 {
-  setObjectName( name );
-  setIcon(static_cast<QIcon>( pixmap ));
+    setObjectName(name);
+    setIcon(static_cast<QIcon>(pixmap));
 }
 
-void DoubleClickButton::mouseDoubleClickEvent( QMouseEvent* )
+void DoubleClickButton::mouseDoubleClickEvent(QMouseEvent *)
 {
-  emit doubleClicked();
+    emit doubleClicked();
 }
 

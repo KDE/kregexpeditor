@@ -25,22 +25,31 @@
    Abstract syntax node for `positions' regular expression
    @internal
 */
-class PositionRegExp :public RegExp
+class PositionRegExp : public RegExp
 {
 public:
-	enum PositionType { BEGLINE, ENDLINE, WORDBOUNDARY, NONWORDBOUNDARY };
+    enum PositionType { BEGLINE, ENDLINE, WORDBOUNDARY, NONWORDBOUNDARY };
 
-	PositionRegExp( bool selected, PositionType tp );
-    PositionType position() const { return _tp; }
+    PositionRegExp(bool selected, PositionType tp);
+    PositionType position() const
+    {
+        return _tp;
+    }
 
-    virtual bool check( ErrorMap&, bool first, bool last );
-    virtual int precedence() const { return 4;}
-    virtual QDomNode toXml( QDomDocument* doc ) const;
-    virtual bool load( QDomElement, const QString& version );
-    virtual RegExpType type() const { return POSITION ;}
+    virtual bool check(ErrorMap &, bool first, bool last);
+    virtual int precedence() const
+    {
+        return 4;
+    }
+    virtual QDomNode toXml(QDomDocument *doc) const;
+    virtual bool load(QDomElement, const QString &version);
+    virtual RegExpType type() const
+    {
+        return POSITION ;
+    }
 
 private:
-	PositionType _tp;
+    PositionType _tp;
 
 };
 

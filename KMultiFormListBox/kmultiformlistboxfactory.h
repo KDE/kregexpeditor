@@ -27,7 +27,6 @@
 class KMultiFormListBoxEntry;
 //-------------------------------------------------------------------------
 
-
 /**
    Factory use to generate elements for the @ref KMultiFormListBox widget.
 
@@ -43,31 +42,31 @@ class KMultiFormListBoxEntry;
 class KMultiFormListBoxFactory : public KWidgetStreamer
 {
 public:
-  virtual ~KMultiFormListBoxFactory() {}
+    virtual ~KMultiFormListBoxFactory() {}
 
-  /**
-     This method must be overridden in subclasses and must return an
-     ``empty'' instance of the @ref KMultiFormListBoxEntry class, or perhaps rather
-     a subclass of this class. This instance will be owned by the caller of
-     this function.
+    /**
+       This method must be overridden in subclasses and must return an
+       ``empty'' instance of the @ref KMultiFormListBoxEntry class, or perhaps rather
+       a subclass of this class. This instance will be owned by the caller of
+       this function.
 
-     @param parent A pointer to the parent of this KMultiFormListBoxEntry widget
-     returned.
-     @return A fresh @ref KMultiFormListBoxEntry to be used in an instance of the
-     @ref KMultiFormListBox class.
-  **/
-  virtual KMultiFormListBoxEntry *create(QWidget *parent) = 0;
+       @param parent A pointer to the parent of this KMultiFormListBoxEntry widget
+       returned.
+       @return A fresh @ref KMultiFormListBoxEntry to be used in an instance of the
+       @ref KMultiFormListBox class.
+    **/
+    virtual KMultiFormListBoxEntry *create(QWidget *parent) = 0;
 
-  /**
-     This method is used to get a separator between the elements in an @ref
-     KMultiFormListBox. The widget returned from this method will be owned by the
-     caller.
+    /**
+       This method is used to get a separator between the elements in an @ref
+       KMultiFormListBox. The widget returned from this method will be owned by the
+       caller.
 
-     @param parent A pointer to the parent of the QWidget returned.
-     @return A widget which must be used as a separator between the @ref
-     KMultiFormListBoxEntry elements in an @ref KMultiFormListBox.
-  **/
-  virtual QWidget *separator(QWidget *parent);
+       @param parent A pointer to the parent of the QWidget returned.
+       @return A widget which must be used as a separator between the @ref
+       KMultiFormListBoxEntry elements in an @ref KMultiFormListBox.
+    **/
+    virtual QWidget *separator(QWidget *parent);
 };
 
 #endif /* kmultiformlistbox */

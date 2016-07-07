@@ -24,9 +24,9 @@
 #include <QtCore/QList>
 
 struct parse_context {
-  RegExp* result;
-  int nerrs;
-  QList<QString> backrefs;
+    RegExp *result;
+    int nerrs;
+    QList<QString> backrefs;
 };
 
 #endif

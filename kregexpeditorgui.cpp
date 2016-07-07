@@ -30,88 +30,81 @@
 
 const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
 
-
 KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent,
-                                   const QVariantList & )
-  : QWidget( parent),
-    _editor(new KRegExpEditorPrivate(this))
+                                   const QVariantList &)
+    : QWidget(parent),
+      _editor(new KRegExpEditorPrivate(this))
 {
-  setWindowFlags(windowFlags() | Qt::Dialog);
+    setWindowFlags(windowFlags() | Qt::Dialog);
 
-  QVBoxLayout* layout = new QVBoxLayout( this );
+    QVBoxLayout *layout = new QVBoxLayout(this);
 
-  layout->addWidget( _editor );
+    layout->addWidget(_editor);
 
-  QPushButton *quitButton = new QPushButton(i18n("&Quit"));
-  QPushButton *helpButton = new QPushButton(i18n("&Help"));
-  QHBoxLayout *buttonLayout = new QHBoxLayout;
-  buttonLayout->setMargin(0);
-  buttonLayout->addStretch();
-  buttonLayout->addWidget(quitButton);
-  buttonLayout->addWidget(helpButton);
-  layout->addLayout(buttonLayout);
+    QPushButton *quitButton = new QPushButton(i18n("&Quit"));
+    QPushButton *helpButton = new QPushButton(i18n("&Help"));
+    QHBoxLayout *buttonLayout = new QHBoxLayout;
+    buttonLayout->setMargin(0);
+    buttonLayout->addStretch();
+    buttonLayout->addWidget(quitButton);
+    buttonLayout->addWidget(helpButton);
+    layout->addLayout(buttonLayout);
 
-  connect(helpButton, &QPushButton::clicked, this, &KRegExpEditorGUI::showHelp );
-  connect(quitButton, &QPushButton::clicked, this, &QDialog::close);
+    connect(helpButton, &QPushButton::clicked, this, &KRegExpEditorGUI::showHelp);
+    connect(quitButton, &QPushButton::clicked, this, &QDialog::close);
 
-  connect( _editor, SIGNAL( canUndo(bool) ), this, SIGNAL( canUndo(bool) ) );
-  connect( _editor, SIGNAL( canRedo(bool) ), this, SIGNAL( canRedo(bool) ) );
-  connect( _editor, SIGNAL( changes(bool) ), this, SIGNAL( changes(bool) ) );
+    connect(_editor, SIGNAL(canUndo(bool)), this, SIGNAL(canUndo(bool)));
+    connect(_editor, SIGNAL(canRedo(bool)), this, SIGNAL(canRedo(bool)));
+    connect(_editor, SIGNAL(changes(bool)), this, SIGNAL(changes(bool)));
 }
 
 KRegExpEditorGUI::~KRegExpEditorGUI()
 {
-  delete _editor;
+    delete _editor;
 }
 
 QString KRegExpEditorGUI::regExp() const
 {
-  return _editor->regexp();
+    return _editor->regexp();
 }
 
 void KRegExpEditorGUI::redo()
 {
-  _editor->slotRedo();
+    _editor->slotRedo();
 }
 
 void KRegExpEditorGUI::undo()
 {
-  _editor->slotUndo();
+    _editor->slotUndo();
 }
 
-void KRegExpEditorGUI::setRegExp( const QString &regexp )
+void KRegExpEditorGUI::setRegExp(const QString &regexp)
 {
-  _editor->slotSetRegexp( regexp );
+    _editor->slotSetRegexp(regexp);
 }
 
-
-void KRegExpEditorGUI::doSomething(const QString &method, void* arguments )
+void KRegExpEditorGUI::doSomething(const QString &method, void *arguments)
 {
-    if ( method == QString::fromLatin1( "setCaseSensitive" ) ) {
-        _editor->setCaseSensitive( (bool) arguments );
-    }
-    else if ( method == QString::fromLatin1("setMinimal") ) {
-        _editor->setMinimal( (bool) arguments );
-    }
-    else if ( method == QString::fromLatin1("setSyntax") ) {
-        _editor->setSyntax( *((QString*) arguments) );
-    }
-    else if ( method == QString::fromLatin1("setAllowNonQtSyntax") ) {
-        _editor->setAllowNonQtSyntax( (bool) arguments );
-    }
-    else {
-        qFatal( "%s", qPrintable(tr("Method '%1' is not valid!").arg(method)) );
+    if (method == QString::fromLatin1("setCaseSensitive")) {
+        _editor->setCaseSensitive((bool) arguments);
+    } else if (method == QString::fromLatin1("setMinimal")) {
+        _editor->setMinimal((bool) arguments);
+    } else if (method == QString::fromLatin1("setSyntax")) {
+        _editor->setSyntax(*((QString *) arguments));
+    } else if (method == QString::fromLatin1("setAllowNonQtSyntax")) {
+        _editor->setAllowNonQtSyntax((bool) arguments);
+    } else {
+        qFatal("%s", qPrintable(tr("Method '%1' is not valid!").arg(method)));
     }
 }
 
-void KRegExpEditorGUI::setMatchText( const QString& txt )
+void KRegExpEditorGUI::setMatchText(const QString &txt)
 {
-    _editor->setMatchText( txt );
+    _editor->setMatchText(txt);
 }
-
 
 void KRegExpEditorGUI::showHelp()
 {
-    KHelpClient::invokeHelp( QString(), QString::fromLocal8Bit( "KRegExpEditor" ) );
+    KHelpClient::invokeHelp(QString(), QString::fromLocal8Bit("KRegExpEditor"));
 }
 

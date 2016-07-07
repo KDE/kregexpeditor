@@ -21,8 +21,7 @@
 #include <KIconLoader>
 #include <QStandardPaths>
 
-
-QPixmap Util::getKRegExpEditorIcon( const QString& name )
+QPixmap Util::getKRegExpEditorIcon(const QString &name)
 {
-  return BarIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString::fromLatin1("kregexpeditor/pics/") +name ) );
+    return BarIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString::fromLatin1("kregexpeditor/pics/") + name));
 }

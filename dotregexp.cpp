@@ -18,21 +18,21 @@
 
 #include "dotregexp.h"
 
-DotRegExp::DotRegExp( bool selected ) :RegExp( selected )
+DotRegExp::DotRegExp(bool selected) : RegExp(selected)
 {
 }
 
-bool DotRegExp::check( ErrorMap&, bool, bool )
+bool DotRegExp::check(ErrorMap &, bool, bool)
 {
     return false;
 }
 
-QDomNode DotRegExp::toXml( QDomDocument* doc ) const
+QDomNode DotRegExp::toXml(QDomDocument *doc) const
 {
-    return doc->createElement( QString::fromLocal8Bit("AnyChar") );
+    return doc->createElement(QString::fromLocal8Bit("AnyChar"));
 }
 
-bool DotRegExp::load( QDomElement /* top */, const QString& /*version*/ )
+bool DotRegExp::load(QDomElement /* top */, const QString & /*version*/)
 {
     // Nothing to do
     return true;

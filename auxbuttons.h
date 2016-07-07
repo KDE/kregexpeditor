@@ -24,12 +24,12 @@
 class QLabel;
 class QToolButton;
 
-class AuxButtons :public QToolBar
+class AuxButtons : public QToolBar
 {
     Q_OBJECT
 
 public:
-    AuxButtons( QWidget* parent, const char* name );
+    AuxButtons(QWidget *parent, const char *name);
 
 signals:
     void undo();
@@ -41,21 +41,20 @@ signals:
 
 public slots:
     void slotEnterWhatsThis();
-    void slotCanUndo( bool );
-    void slotCanRedo( bool );
-    void slotCanCut( bool );
-    void slotCanCopy( bool );
-    void slotCanPaste( bool );
-    void slotCanSave( bool );
+    void slotCanUndo(bool);
+    void slotCanRedo(bool);
+    void slotCanCut(bool);
+    void slotCanCopy(bool);
+    void slotCanPaste(bool);
+    void slotCanSave(bool);
 
 private:
-    QToolButton* _undo;
-    QToolButton* _redo;
-    QToolButton* _cut;
-    QToolButton* _copy;
-    QToolButton* _paste;
-    QToolButton* _save;
+    QToolButton *_undo;
+    QToolButton *_redo;
+    QToolButton *_cut;
+    QToolButton *_copy;
+    QToolButton *_paste;
+    QToolButton *_save;
 };
-
 
 #endif // AUXBUTTONS_H

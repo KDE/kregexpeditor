@@ -28,24 +28,23 @@ class RegExp;
 /**
    Regular Expression editor window.
 */
-class RegExpScrolledEditorWindow :public QWidget
+class RegExpScrolledEditorWindow : public QWidget
 {
     Q_OBJECT
 public:
-    RegExpScrolledEditorWindow( QWidget *parent );
-    RegExp* regExp();
+    RegExpScrolledEditorWindow(QWidget *parent);
+    RegExp *regExp();
 
 private:
     RegExpScrolledEditorWindow() {} // Do not use!
 
-
 protected:
-    virtual void resizeEvent( QResizeEvent* );
+    virtual void resizeEvent(QResizeEvent *);
 
 public slots:
-    void slotSetRegExp( RegExp* );
-    void slotInsertRegExp( int );
-    void slotInsertRegExp( RegExp* );
+    void slotSetRegExp(RegExp *);
+    void slotInsertRegExp(int);
+    void slotInsertRegExp(RegExp *);
     void slotDeleteSelection();
     void slotDoSelect();
     void slotCut();
@@ -54,10 +53,10 @@ public slots:
     void slotPaste();
 
 protected slots:
-    void slotUpdateContentSize( QPoint focusPoint );
-    void slotScroll( QPoint focusPoint );
+    void slotUpdateContentSize(QPoint focusPoint);
+    void slotScroll(QPoint focusPoint);
 
-    signals:
+signals:
     /**
        This signal is emitted when the user has completed an editing
        action. The application may chose to call @ref slotDoSelect as a
@@ -75,9 +74,9 @@ protected slots:
     */
     void savedRegexp();
 
-    void anythingSelected( bool );
-    void anythingOnClipboard( bool );
-    void canSave( bool );
+    void anythingSelected(bool);
+    void anythingOnClipboard(bool);
+    void canSave(bool);
 
     /**
        This signal is emitted when the regular expression has changed, or
@@ -86,8 +85,8 @@ protected slots:
     void verifyRegExp();
 
 private:
-    RegExpEditorWindow* _editorWindow;
-    QScrollArea* _scrollArea;
+    RegExpEditorWindow *_editorWindow;
+    QScrollArea *_scrollArea;
 };
 
 #endif // __scrolledEditorWindow
