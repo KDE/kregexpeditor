@@ -36,6 +36,8 @@ int main(int argc, char *argv[])
                          "1.0", i18n("Editor for Regular Expressions"),
                          KAboutLicense::GPL,
                          i18n("(c) 2002-2003 Jesper K. Pedersen"));
+    aboutData.setOrganizationDomain(QByteArray("kde.org"));
+    aboutData.setDesktopFileName(QStringLiteral("org.kde.kregexpeditor"));
 
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);

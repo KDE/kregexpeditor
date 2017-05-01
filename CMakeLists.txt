@@ -157,7 +157,7 @@ install(TARGETS kregexpeditor ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install(FILES kregexpeditor.desktop  DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(FILES org.kde.kregexpeditor.desktop  DESTINATION ${XDG_APPS_INSTALL_DIR})
 install(FILES kregexpeditorgui.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
 
 install(FILES
