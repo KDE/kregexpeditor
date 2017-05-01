@@ -30,6 +30,7 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
+    KLocalizedString::setApplicationDomain("kregexpeditor");
 
     KAboutData aboutData("kregexpeditor", i18n("RegExp Editor"),
                          "1.0", i18n("Editor for Regular Expressions"),
