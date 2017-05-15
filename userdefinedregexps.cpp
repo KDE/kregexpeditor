@@ -268,6 +268,8 @@ void WidgetWinItem::setName(const QString &nm)
 
 QString WidgetWinItem::path()
 {
-    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + QString::fromLocal8Bit("KRegExpEditor/");
+    const QString regexppath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + QString::fromLocal8Bit("KRegExpEditor/");
+    QDir().mkpath(regexppath);
+    return regexppath;
 }
 
