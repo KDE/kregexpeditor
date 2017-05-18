@@ -2,10 +2,10 @@ project(kregexpeditor)
 
 ############### search packages used by KDE ###############
 
-cmake_minimum_required (VERSION 3.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 
-find_package(ECM 5.30 REQUIRED NO_MODULE)
-set(QT5_REQUIRED_VERSION "5.6.0")
+find_package(ECM 5.20 REQUIRED NO_MODULE)
+set(QT5_REQUIRED_VERSION "5.5.0")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 include(ECMGenerateHeaders)
