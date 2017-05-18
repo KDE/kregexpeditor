@@ -133,7 +133,7 @@ target_link_libraries(kregexpeditorcommon
     Qt5::Widgets
     )
 
-set_target_properties(kregexpeditorcommon PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})
+set_target_properties(kregexpeditorcommon PROPERTIES VERSION 1.0.0 SOVERSION 1)
 install(TARGETS kregexpeditorcommon ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### next target ###############
