@@ -114,7 +114,7 @@ void RegExpEditorWindow::mouseMoveEvent(QMouseEvent *event)
             QMimeData *mimeData = new QMimeData;
 
             mimeData->setText(RegExpConverter::current()->toStr(regexp, false));
-            mimeData->setData("KRegExpEditor/widgetdrag", regexp->toXmlString().toLocal8Bit());
+            mimeData->setData(QStringLiteral("KRegExpEditor/widgetdrag"), regexp->toXmlString().toLocal8Bit());
             delete regexp;
 
             drag->setMimeData(mimeData);
@@ -289,7 +289,7 @@ void RegExpEditorWindow::cutCopyAux(QPoint pos)
 
     QMimeData *mimeData = new QMimeData;
     mimeData->setText(RegExpConverter::current()->toStr(regexp, false));
-    mimeData->setData("KRegExpEditor/widgetdrag", regexp->toXmlString().toLocal8Bit());
+    mimeData->setData(QStringLiteral("KRegExpEditor/widgetdrag"), regexp->toXmlString().toLocal8Bit());
 
     delete regexp;
 
@@ -301,7 +301,7 @@ void RegExpEditorWindow::cutCopyAux(QPoint pos)
 
 void RegExpEditorWindow::slotStartPasteAction()
 {
-    QString str = qApp->clipboard()->mimeData()->data("KRegExpEditor/widgetdrag");
+    QString str = QString::fromLatin1(qApp->clipboard()->mimeData()->data(QStringLiteral("KRegExpEditor/widgetdrag")));
     if (str.isEmpty()) {
         return;
     }
@@ -352,7 +352,7 @@ void RegExpEditorWindow::showRMBMenu(bool enableCutCopy)
     _cutAction->setEnabled(enableCutCopy);
     _copyAction->setEnabled(enableCutCopy);
 
-    if (! qApp->clipboard()->mimeData()->hasFormat("KRegExpEditor/widgetdrag")) {
+    if (! qApp->clipboard()->mimeData()->hasFormat(QStringLiteral("KRegExpEditor/widgetdrag"))) {
         _pasteAction->setEnabled(false);
     } else {
         _pasteAction->setEnabled(true);

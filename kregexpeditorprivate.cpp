@@ -53,13 +53,13 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     setWindowFlags(Qt::Widget);
 
     // The DockWindows.
-    _regExpButtons = new RegExpButtons(/*area*/this, "KRegExpEditorPrivate::regExpButton");
+    _regExpButtons = new RegExpButtons(/*area*/this, QStringLiteral( "KRegExpEditorPrivate::regExpButton"));
     addToolBar(Qt::TopToolBarArea, _regExpButtons);
 
-    _verifyButtons = new VerifyButtons(/*area*/this, "KRegExpEditorPrivate::VerifyButtons");
+    _verifyButtons = new VerifyButtons(/*area*/this, QStringLiteral("KRegExpEditorPrivate::VerifyButtons"));
     addToolBar(Qt::TopToolBarArea, _verifyButtons);
 
-    _auxButtons = new AuxButtons(/*area*/this, "KRegExpEditorPrivate::AuxButtons");
+    _auxButtons = new AuxButtons(/*area*/this, QStringLiteral("KRegExpEditorPrivate::AuxButtons"));
     addToolBar(Qt::TopToolBarArea, _auxButtons);
 
     _userRegExps = new UserDefinedRegExps(/*verArea1*/this, /*"KRegExpEditorPrivate::userRegExps"*/i18n("Compound regular expression:"));
@@ -69,7 +69,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
 
     // Editor window
     _editor = new QSplitter(Qt::Vertical, this);
-    _editor ->setObjectName("KRegExpEditorPrivate::_editor");
+    _editor ->setObjectName(QStringLiteral("KRegExpEditorPrivate::_editor"));
 
     _scrolledEditorWindow = new RegExpScrolledEditorWindow(_editor);
     _scrolledEditorWindow->setWhatsThis(i18n("In this window you will develop your regular expressions. "
@@ -77,7 +77,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
                                         "window to insert the given action."));
 
     _info = new InfoPage(this);
-    _info->setObjectName("_info");
+    _info->setObjectName(QStringLiteral("_info"));
     _verifier = new Verifier(_editor);
     connect(_verifier, SIGNAL(textChanged()), this, SLOT(maybeVerify()));
     _verifier->setWhatsThis(i18n("<p>Type in some text in this window, and see what the regular expression you have developed matches.</p>"

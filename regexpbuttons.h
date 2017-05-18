@@ -32,7 +32,7 @@ class RegExpButtons : public QToolBar
     Q_OBJECT
 
 public:
-    explicit RegExpButtons(QWidget *parent, const char *name = 0);
+    explicit RegExpButtons(QWidget *parent, const QString &name = QString());
     void setFeatures(int features);
 
 protected:

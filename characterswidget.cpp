@@ -178,7 +178,7 @@ int CharactersWidget::edit()
         QApplication::setOverrideCursor(Qt::WaitCursor);
         // No parent here, as this window should continue to exists.
         _configWindow = new CharacterEdits(0);
-        _configWindow->setObjectName("CharactersWidget::_configWindow");
+        _configWindow->setObjectName(QStringLiteral("CharactersWidget::_configWindow"));
         QApplication::restoreOverrideCursor();
     }
 
@@ -281,7 +281,7 @@ CharacterEdits::CharacterEdits(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
 
-    setObjectName("CharacterEdits");
+    setObjectName(QStringLiteral("CharacterEdits"));
     QWidget *top = new QWidget(this);
     QVBoxLayout *topLayout = new QVBoxLayout(top);
     topLayout->setMargin(0);

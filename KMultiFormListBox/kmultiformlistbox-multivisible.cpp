@@ -58,7 +58,7 @@ KMultiFormListBoxEntryList KMultiFormListBoxMultiVisible::elements()
 {
     KMultiFormListBoxEntryList res;
     foreach (QWidget *child , *elms) {
-        if (child->objectName() != "separator") {
+        if (child->objectName() != QStringLiteral("separator")) {
             res.append((KMultiFormListBoxEntry *) child);
         }
     }
@@ -153,7 +153,7 @@ void KMultiFormListBoxMultiVisible::delElement(QWidget *elm)
 {
     int index = elms->indexOf(elm);
     QWidget *next = elms->at(index + 1);
-    if (next->objectName() != "separator") {
+    if (next->objectName() != QStringLiteral("separator")) {
         elms->removeOne(next);
         layout->removeWidget(next);
     }
@@ -195,7 +195,7 @@ void KMultiFormListBoxMultiVisible::insertElmIntoWidget(KMultiFormListBoxEntry *
 
     QWidget *sep = factory->separator(widget());
     if (sep != 0) {
-        sep->setObjectName("separator");
+        sep->setObjectName(QStringLiteral("separator"));
         sep->show();
         layout->insertWidget(index + 1, sep); // updateClipperContent will place the child correctly.
         elms->insert(index + 1, sep);
@@ -218,7 +218,7 @@ void KMultiFormListBoxMultiVisible::showIndexList(KMultiFormListBoxEntry *elm)
 
     // Insert the elements into the menu item.
     foreach (QWidget *child , *elms) {
-        if (child->objectName() != "separator") {
+        if (child->objectName() != QStringLiteral("separator")) {
             QString txt = ((KMultiFormListBoxEntry *) child)->idxString();
             menu->insertItem(txt);
         }

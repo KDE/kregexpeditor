@@ -96,11 +96,11 @@ QString EmacsRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelec
     // last element of the characters.
     QStringList chars = regexp->chars();
     for (int i = 0; i < chars.count(); i++) {
-        if (chars.at(i).at(0) == QChar(']')) {
+        if (chars.at(i).at(0) == QLatin1Char(']')) {
             foundParenthesis = true;
-        } else if (chars.at(i).at(0) == QChar('-')) {
+        } else if (chars.at(i).at(0) == QLatin1Char('-')) {
             foundDash = true;
-        } else if (chars.at(i).at(0) == QChar('^')) {
+        } else if (chars.at(i).at(0) == QLatin1Char('^')) {
             foundCarrot = true;
         } else {
             txt.append(chars.at(i).at(0));
@@ -144,7 +144,7 @@ QString EmacsRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelec
     }
 
     if (regexp->space()) {
-        res += QString::fromLocal8Bit(" ") + QString(QChar((char) 9));     // Tab char
+        res += QString::fromLocal8Bit(" ") + QString(QLatin1Char((char) 9));     // Tab char
     }
 
     if (regexp->wordChar()) {
@@ -152,7 +152,7 @@ QString EmacsRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelec
     }
 
     if (foundCarrot) {
-        res.append(QChar('^'));
+        res.append(QLatin1Char('^'));
     }
 
     res.append(QString::fromLatin1("]"));
@@ -227,17 +227,17 @@ QString EmacsRegExpConverter::toString(RepeatRegExp *regexp, bool markSelection)
 QString EmacsRegExpConverter::toString(TextRegExp *regexp, bool /*markSelection*/)
 {
     QList<QChar> list;
-    list << QChar('$')
-         << QChar('^')
-         << QChar('.')
-         << QChar('*')
-         << QChar('+')
-         << QChar('?')
-         << QChar('[')
-         << QChar(']')
-         << QChar('\\');
+    list << QLatin1Char('$')
+         << QLatin1Char('^')
+         << QLatin1Char('.')
+         << QLatin1Char('*')
+         << QLatin1Char('+')
+         << QLatin1Char('?')
+         << QLatin1Char('[')
+         << QLatin1Char(']')
+         << QLatin1Char('\\');
 
-    QString res = escape(regexp->text(), list, QChar('\\'));
+    QString res = escape(regexp->text(), list, QLatin1Char('\\'));
     return res;
 }
 

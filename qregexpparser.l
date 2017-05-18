@@ -197,7 +197,7 @@ RegExp* parseCharClass( const char* match )
   bool rangePending = false;
   bool flushPending = false;
   
-  if ( i < txt.length() && ch == QChar('^') ) {
+  if ( i < txt.length() && ch == QLatin1Char('^') ) {
     res->setNegate( true );
     ch = txt.at(i++);
   }
@@ -205,7 +205,7 @@ RegExp* parseCharClass( const char* match )
   do {
     // If a character is pending, and the next char is '-' then we are
     // possible looking at a range.
-    if ( i < txt.length() && ch == QChar('-') && charPending ) {
+    if ( i < txt.length() && ch == QLatin1Char('-') && charPending ) {
       rangePending = true;
       ch = txt.at(i++);
       continue;
@@ -219,62 +219,65 @@ RegExp* parseCharClass( const char* match )
       charPending = false;
     }
 
-    if ( ch == QChar('\\') ) {
+    if ( ch == QLatin1Char('\\') ) {
       // Handle the cases where an escape character is specified.
       ch = txt.at(i++);
       
-      if ( ch == QChar('a') || ch == QChar('f') || ch == QChar('n') || ch == QChar('r') || ch == QChar('t') || ch == QChar('v') ) {
+      if ( ch == QLatin1Char('a') || ch == QLatin1Char('f') || ch == QLatin1Char('n') || ch == QLatin1Char('r') || ch == QLatin1Char('t') || ch == QLatin1Char('v') ) {
         // These are just seen as normal characters.
         thisChar = QString::fromLocal8Bit("\\") + ch;
       }
-      else if ( ch == QChar('d') ) {  
+      else if ( ch == QLatin1Char('d') ) {
         // The following characters represent character groups. If any of
         // these are seen in a range, then the range is ignored, thus [a-\s]
         // matches an 'a', a '-', and a space (\s means space).
         res->setDigit( true );
         flushPending = true;
       }
-      else if ( ch == QChar('D') ) {
+      else if ( ch == QLatin1Char('D') ) {
         res->setNonDigit( true );
         flushPending = true;
       }
-      else if ( ch == QChar('s') ) {
+      else if ( ch == QLatin1Char('s') ) {
         res->setSpace( true );
         flushPending = true;
       }
-      else if ( ch == QChar('S') ) {
+      else if ( ch == QLatin1Char('S') ) {
         res->setNonSpace( true );
         flushPending = true;
       }
-      else if ( ch == QChar('w') ) {
+      else if ( ch == QLatin1Char('w') ) {
         res->setWordChar( true );
         flushPending = true;
       }
-      else if ( ch == QChar('W') ) {
+      else if ( ch == QLatin1Char('W') ) {
         res->setNonWordChar( true );
         flushPending = true;
       }
-      else if ( ch == QChar('x') || ch == QChar('X') ) { 
+      else if ( ch == QLatin1Char('x') || ch == QLatin1Char('X') ) {
         // This is a hexidecimal character: \xHHHH
         QString str;
         for ( int j=0; j<4; j++) {
           ch = txt.at(i++);
-            if ( ch == 'a' || ch == 'A' || ch == 'b' || ch == 'B' || ch == 'c' || ch == 'C' || ch == 'd' || ch == 'D' || 
-                 ch == 'e' || ch == 'E' || ch == 'f' || ch == 'F' ||
-                 ch == '0' || ch == '1' || ch == '2' || ch == '3' || ch == '4' || ch == '5' || ch == '6' || ch == '7' || 
-                 ch == '8' || ch == '9' )
+            if ( ch == QLatin1Char('a') || ch == QLatin1Char('A') || ch == QLatin1Char('b') || ch == QLatin1Char('B') ||
+                 ch == QLatin1Char('c') || ch == QLatin1Char('C') || ch == QLatin1Char('d') || ch == QLatin1Char('D') ||
+                 ch == QLatin1Char('e') || ch == QLatin1Char('E') || ch == QLatin1Char('f') || ch == QLatin1Char('F') ||
+                 ch == QLatin1Char('0') || ch == QLatin1Char('1') || ch == QLatin1Char('2') || ch == QLatin1Char('3') ||
+                 ch == QLatin1Char('4') || ch == QLatin1Char('5') || ch == QLatin1Char('6') || ch == QLatin1Char('7') ||
+                 ch == QLatin1Char('8') || ch == QLatin1Char('9') )
               str += ch;
             else
               i--;
         }
         thisChar = QString::fromLocal8Bit("\\x") + str;
       }
-      else if ( ch == QChar('0') ) {
+      else if ( ch == QLatin1Char('0') ) {
         // This is an octal character
         QString str;
         for ( int j=0; j<4; j++) {
           ch = txt.at(i++);
-          if ( ch == '0' || ch == '1' || ch == '2' || ch == '3' || ch == '4' || ch == '5' || ch == '6' || ch == '7' )
+          if ( ch == QLatin1Char('0') || ch == QLatin1Char('1') || ch == QLatin1Char('2') || ch == QLatin1Char('3')
+               || ch == QLatin1Char('4') || ch == QLatin1Char('5') || ch == QLatin1Char('6') || ch == QLatin1Char('7') )
             str += ch;
           else
             i--;
@@ -320,7 +323,7 @@ RegExp* parseCharClass( const char* match )
         break;
     ch = txt.at(i++);
   }
-  while ( ch != QChar(']') );
+  while ( ch != QLatin1Char(']') );
 
   if ( charPending ) 
     res->addCharacter( pendingChar );

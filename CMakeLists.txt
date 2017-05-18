@@ -46,6 +46,10 @@ include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} )
 ############### Find the stuff we need ###############
 
 add_definitions( -DQT_NO_CAST_ASCII )
+add_definitions( -DQT_DISABLE_DEPRECATED_BEFORE=0x060000 )
+add_definitions( -DQT_NO_CAST_FROM_ASCII )
+add_definitions( -DQT_NO_CAST_TO_ASCII )
+add_definitions( -DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT )
 
 add_subdirectory( predefined )
 add_subdirectory( pics )

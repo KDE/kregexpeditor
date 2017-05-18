@@ -103,7 +103,7 @@ void DragAccepter::mouseReleaseEvent(QMouseEvent *event)
 void DragAccepter::dragEnterEvent(QDragEnterEvent *event)
 {
     bool selfDrag = (event->source() && _isSelected);
-    if (!selfDrag && event->mimeData()->hasFormat("KRegExpEditor/widgetdrag")) {
+    if (!selfDrag && event->mimeData()->hasFormat(QStringLiteral("KRegExpEditor/widgetdrag"))) {
         event->setDropAction(Qt::MoveAction);
         event->accept();
     }
@@ -113,7 +113,7 @@ void DragAccepter::dropEvent(QDropEvent *event)
 {
     // The widget will be reparent afterward or part of it will, so no need to give
     // it a parent here.
-    QString name = event->mimeData()->data("KRegExpEditor/widgetdrag");
+    QString name = QString::fromLatin1(event->mimeData()->data(QStringLiteral("KRegExpEditor/widgetdrag")));
     RegExp *regexp = WidgetFactory::createRegExp(name);
     RegExpWidget *newElm = WidgetFactory::createWidget(regexp, _editorWindow, 0);
     ConcWidget *elm;

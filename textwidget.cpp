@@ -40,7 +40,7 @@ TextWidget::TextWidget(TextRegExp *regexp,  RegExpEditorWindow *editorWindow, QW
 void TextWidget::init(const QString &txt)
 {
     QHBoxLayout *lay = new QHBoxLayout(this);
-    _edit = new SelectableLineEdit(this, this, "TextWidget::edit");
+    _edit = new SelectableLineEdit(this, this, QStringLiteral("TextWidget::edit"));
     _edit->setDragEnabled(false);   //otherwise QLineEdit::mouseMoveEvent will set the cursor over and over again.
     lay->addWidget(_edit);
 

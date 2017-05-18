@@ -18,7 +18,7 @@
 
 #include "selectablelineedit.h"
 
-SelectableLineEdit::SelectableLineEdit(RegExpWidget *owner, QWidget *parent, const char *name)
+SelectableLineEdit::SelectableLineEdit(RegExpWidget *owner, QWidget *parent, const QString &name)
     : QLineEdit(parent), _owner(owner)
 {
     setObjectName(name);

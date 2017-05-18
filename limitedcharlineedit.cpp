@@ -32,7 +32,7 @@ public:
         : QValidator(parent), _mode(mode)
 
     {
-        setObjectName("Validator");
+        setObjectName(QStringLiteral("Validator"));
     }
 
     virtual QValidator::State validate(QString &txt, int & /*pos*/) const
@@ -60,7 +60,7 @@ void LimitedCharLineEdit::keyPressEvent(QKeyEvent *event)
     }
 }
 
-LimitedCharLineEdit::LimitedCharLineEdit(Mode mode, QWidget *parent, const char *name)
+LimitedCharLineEdit::LimitedCharLineEdit(Mode mode, QWidget *parent, const QString &name)
     : QLineEdit(parent)
 {
     setObjectName(name);
@@ -74,7 +74,7 @@ LimitedCharLineEdit::LimitedCharLineEdit(Mode mode, QWidget *parent, const char 
     }
 
     setMaxLength(_count);
-    setFixedSize(fontMetrics().width('A') * 5 + 5, sizeHint().height());
+    setFixedSize(fontMetrics().width(QLatin1Char('A')) * 5 + 5, sizeHint().height());
 
     setValidator(new Validator(mode, this));
 }

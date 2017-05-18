@@ -38,7 +38,7 @@ class SelectableLineEdit : public QLineEdit
     Q_OBJECT
 
 public:
-    explicit SelectableLineEdit(RegExpWidget *owner, QWidget *parent = 0, const char *name = 0);
+    explicit SelectableLineEdit(RegExpWidget *owner, QWidget *parent = nullptr, const QString &name = QString());
     void setSelected(bool selected);
     virtual QSize sizeHint() const;
 

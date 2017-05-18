@@ -28,14 +28,14 @@
 #include "dcbutton.h"
 #include "regexpconverter.h"
 
-RegExpButtons::RegExpButtons(QWidget *parent, const char *name)
+RegExpButtons::RegExpButtons(QWidget *parent, const QString &name)
     : QToolBar(name, parent), _keepMode(false)
 {
     _grp = new QButtonGroup(this);
     _grp->setExclusive(true);
 
     _mapper = new QSignalMapper(this);
-    _mapper->setObjectName("RegExpButtons::_mapper");
+    _mapper->setObjectName(QStringLiteral("RegExpButtons::_mapper"));
     connect(_mapper, SIGNAL(mapped(int)), this, SIGNAL(clicked(int)));
 
     // The "select" button.
@@ -135,7 +135,7 @@ DoubleClickButton *RegExpButtons::insert(RegExpType tp, const char *name, QStrin
 {
     QPixmap pix = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString::fromLatin1("kregexpeditor/pics/") + QString::fromLatin1(name) + QString::fromLatin1(".png")), KIconLoader::Toolbar);
 
-    DoubleClickButton *but = new DoubleClickButton(pix, this, "RegExpButtons::but");
+    DoubleClickButton *but = new DoubleClickButton(pix, this, QStringLiteral("RegExpButtons::but"));
 
     _mapper->setMapping(but, tp);
 

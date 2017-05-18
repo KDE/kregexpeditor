@@ -33,7 +33,7 @@ class VerifyButtons : public QToolBar
     Q_OBJECT
 
 public:
-    VerifyButtons(QWidget *parent, const char *name);
+    VerifyButtons(QWidget *parent, const QString &name = QString());
     RegExpConverter *setSyntax(const QString &);
     void setAllowNonQtSyntax(bool);
 

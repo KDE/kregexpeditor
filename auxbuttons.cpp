@@ -25,7 +25,7 @@
 #include <KIconLoader>
 #include <KLocalizedString>
 
-AuxButtons::AuxButtons(QWidget *parent, const char *name = 0)
+AuxButtons::AuxButtons(QWidget *parent, const QString &name)
     : QToolBar(name, parent)
 {
     _undo = new QToolButton(this);

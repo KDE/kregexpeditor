@@ -55,7 +55,7 @@ CharSelector::CharSelector(QWidget *parent)
     layout->setMargin(0);
 
     _type = new QComboBox(this);
-    _type->setObjectName("_type");
+    _type->setObjectName(QStringLiteral("_type"));
     items << i18n("Normal Character")
           << i18n("Unicode Char in Hex.")
           << i18n("Unicode Char in Oct.")
@@ -72,13 +72,13 @@ CharSelector::CharSelector(QWidget *parent)
     _stack = new QStackedWidget(this/*, "_stack"*/);
     layout->addWidget(_stack);
 
-    _normal = new LimitedCharLineEdit(LimitedCharLineEdit::NORMAL, 0, "_normal");
+    _normal = new LimitedCharLineEdit(LimitedCharLineEdit::NORMAL, 0, QStringLiteral("_normal"));
     _stack->insertWidget(0, new StackContainer(_normal, _stack));
 
-    _hex = new LimitedCharLineEdit(LimitedCharLineEdit::HEX, _stack, "_hex");
+    _hex = new LimitedCharLineEdit(LimitedCharLineEdit::HEX, _stack, QStringLiteral("_hex"));
     _stack->insertWidget(1, new StackContainer(_hex, _stack));
 
-    _oct = new LimitedCharLineEdit(LimitedCharLineEdit::OCT, _stack, "_oct");
+    _oct = new LimitedCharLineEdit(LimitedCharLineEdit::OCT, _stack, QStringLiteral("_oct"));
     _stack->insertWidget(2, new StackContainer(_oct, _stack));
 
     _stack->setCurrentIndex(0);
@@ -116,24 +116,24 @@ void CharSelector::setText(QString text)
     bool enabled = (RegExpConverter::current()->features() & RegExpConverter::ExtRange);
     _type->setEnabled(enabled);
 
-    if (text.mid(0, 1) == QChar('\\')) {
-        if (text.mid(1, 1) == QChar('x')) {
+    if (text.mid(0, 1) == QLatin1Char('\\')) {
+        if (text.mid(1, 1) == QLatin1Char('x')) {
             _hex->setText(text.mid(2, 1));
             slotNewItem(1);
-        } else if (text.mid(1, 1) == QChar('0')) {
+        } else if (text.mid(1, 1) == QLatin1Char('0')) {
             _oct->setText(text.mid(2, 1));
             slotNewItem(2);
-        } else if (text.mid(1, 1) == QChar('a')) {
+        } else if (text.mid(1, 1) == QLatin1Char('a')) {
             slotNewItem(4);
-        } else if (text.mid(1, 1) == QChar('f')) {
+        } else if (text.mid(1, 1) == QLatin1Char('f')) {
             slotNewItem(5);
-        } else if (text.mid(1, 1) == QChar('n')) {
+        } else if (text.mid(1, 1) == QLatin1Char('n')) {
             slotNewItem(6);
-        } else if (text.mid(1, 1) == QChar('r')) {
+        } else if (text.mid(1, 1) == QLatin1Char('r')) {
             slotNewItem(7);
-        } else if (text.mid(1, 1) == QChar('t')) {
+        } else if (text.mid(1, 1) == QLatin1Char('t')) {
             slotNewItem(8);
-        } else if (text.mid(1, 1) == QChar('v')) {
+        } else if (text.mid(1, 1) == QLatin1Char('v')) {
             slotNewItem(9);
         } else {
             qWarning("Warning %s:%d Unknown escape %s", __FILE__, __LINE__, qPrintable(text));

@@ -53,7 +53,7 @@ void WidgetWindow::init(KMultiFormListBoxFactory *factory, QListWidget *lb, KMul
     QFrame *frame = new QFrame;
     QHBoxLayout *lay = new QHBoxLayout;
     frame->setLayout(lay);
-    lay->setObjectName("WidgetWindow::init::lay");
+    lay->setObjectName(QStringLiteral("WidgetWindow::init::lay"));
     lay->setSpacing(-1);
     lay->setMargin(0);
 

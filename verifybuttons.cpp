@@ -28,7 +28,7 @@
 #include "qtregexpconverter.h"
 #include "emacsregexpconverter.h"
 
-VerifyButtons::VerifyButtons(QWidget *parent, const char *name)
+VerifyButtons::VerifyButtons(QWidget *parent, const QString &name)
     : QToolBar(name, parent), _configMenu(0)
 {
     _verify =  new QToolButton(this);
@@ -98,7 +98,7 @@ VerifyButtons::VerifyButtons(QWidget *parent, const char *name)
     QString emacsConverterName = converter->name();
 
     // -------------------------------------------------- Initialize the config menu
-    _configMenu = new QMenu("config menu", this);
+    _configMenu = new QMenu(i18n("config menu"), this);
 
     // Auto Verify
     QAction *autoVerify = new QAction(i18n("Verify on the Fly"), this);
@@ -190,7 +190,7 @@ void VerifyButtons::slotChangeSyntax(QAction *action)
 RegExpConverter *VerifyButtons::setSyntax(const QString &which)
 {
     QString noAmpersand = which;
-    noAmpersand.remove(QChar('&')); // HACK, can probably be done more cleanly
+    noAmpersand.remove(QLatin1Char('&')); // HACK, can probably be done more cleanly
     for (QLinkedList< QPair<RegExpConverter *, QAction *> >::Iterator it = _converters.begin(); it != _converters.end(); ++it) {
         QString name = (*it).first->name();
         if (name == noAmpersand) {

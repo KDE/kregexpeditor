@@ -185,7 +185,7 @@ RegExp *WidgetFactory::createRegExp(QString str)
     if (!ok) {
         qDebug() << error << "at line" << errorLine << "xml was:";
         qDebug() << str;
-        KMessageBox::sorry(0, i18n("Error while loading regular expression from XML.") + "\n" + error,
+        KMessageBox::sorry(0, i18n("Error while loading regular expression from XML.") + QLatin1Char('\n') + error,
                            i18n("Error While Loading Regular Expression From XML")) ;
     }
 

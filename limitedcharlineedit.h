@@ -30,7 +30,7 @@ class LimitedCharLineEdit : public QLineEdit
 public:
     enum Mode { NORMAL = 0, HEX = 1, OCT = 2 };
 
-    LimitedCharLineEdit(Mode mode, QWidget *parent, const char *name = 0);
+    LimitedCharLineEdit(Mode mode, QWidget *parent, const QString &name = QString());
 
 protected:
     virtual void keyPressEvent(QKeyEvent *);

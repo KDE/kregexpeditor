@@ -58,7 +58,7 @@ KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent,
     connect(_editor, SIGNAL(changes(bool)), this, SIGNAL(changes(bool)));
 
     QSettings settings;
-    restoreGeometry(settings.value("geometry").toByteArray());
+    restoreGeometry(settings.value(QStringLiteral("geometry")).toByteArray());
 }
 
 KRegExpEditorGUI::~KRegExpEditorGUI()
@@ -74,7 +74,7 @@ QString KRegExpEditorGUI::regExp() const
 void KRegExpEditorGUI::closeEvent(QCloseEvent *event)
 {
     QSettings settings;
-    settings.setValue("geometry", saveGeometry());
+    settings.setValue(QStringLiteral("geometry"), saveGeometry());
 
     QWidget::closeEvent(event);
 }
