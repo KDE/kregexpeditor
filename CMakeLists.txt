@@ -178,3 +178,5 @@ ecm_install_icons(ICONS
     DESTINATION ${ICON_INSTALL_DIR}
     THEME hicolor
 )
+
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
