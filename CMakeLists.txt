@@ -2,9 +2,9 @@ project(kregexpeditor)
 
 ############### search packages used by KDE ###############
 
-cmake_minimum_required (VERSION 2.8.12 FATAL_ERROR)
+cmake_minimum_required (VERSION 3.0 FATAL_ERROR)
 
-find_package(ECM 1.3.0 REQUIRED NO_MODULE)
+find_package(ECM 5.30 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 include(ECMGenerateHeaders)
@@ -41,7 +41,6 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 ############### Needed commands before building anything ###############
 
-add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
 include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} )
 
 ############### Find the stuff we need ###############
