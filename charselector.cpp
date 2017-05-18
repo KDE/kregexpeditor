@@ -116,24 +116,24 @@ void CharSelector::setText(QString text)
     bool enabled = (RegExpConverter::current()->features() & RegExpConverter::ExtRange);
     _type->setEnabled(enabled);
 
-    if (text.mid(0, 1) == QLatin1Char('\\')) {
-        if (text.mid(1, 1) == QLatin1Char('x')) {
+    if (text.mid(0, 1) == QChar('\\')) {
+        if (text.mid(1, 1) == QChar('x')) {
             _hex->setText(text.mid(2, 1));
             slotNewItem(1);
-        } else if (text.mid(1, 1) == QLatin1Char('0')) {
+        } else if (text.mid(1, 1) == QChar('0')) {
             _oct->setText(text.mid(2, 1));
             slotNewItem(2);
-        } else if (text.mid(1, 1) == QLatin1Char('a')) {
+        } else if (text.mid(1, 1) == QChar('a')) {
             slotNewItem(4);
-        } else if (text.mid(1, 1) == QLatin1Char('f')) {
+        } else if (text.mid(1, 1) == QChar('f')) {
             slotNewItem(5);
-        } else if (text.mid(1, 1) == QLatin1Char('n')) {
+        } else if (text.mid(1, 1) == QChar('n')) {
             slotNewItem(6);
-        } else if (text.mid(1, 1) == QLatin1Char('r')) {
+        } else if (text.mid(1, 1) == QChar('r')) {
             slotNewItem(7);
-        } else if (text.mid(1, 1) == QLatin1Char('t')) {
+        } else if (text.mid(1, 1) == QChar('t')) {
             slotNewItem(8);
-        } else if (text.mid(1, 1) == QLatin1Char('v')) {
+        } else if (text.mid(1, 1) == QChar('v')) {
             slotNewItem(9);
         } else {
             qWarning("Warning %s:%d Unknown escape %s", __FILE__, __LINE__, qPrintable(text));
