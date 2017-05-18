@@ -5,6 +5,7 @@ project(kregexpeditor)
 cmake_minimum_required (VERSION 3.0 FATAL_ERROR)
 
 find_package(ECM 5.30 REQUIRED NO_MODULE)
+set(QT5_REQUIRED_VERSION "5.6.0")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 include(ECMGenerateHeaders)
@@ -18,8 +19,7 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 
-
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED Core Widgets)
+find_package(Qt5 ${QT5_REQUIRED_VERSION} CONFIG REQUIRED Core Widgets)
 find_package(KF5 REQUIRED
     ConfigWidgets
     DocTools
