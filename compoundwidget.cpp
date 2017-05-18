@@ -42,6 +42,7 @@ CompoundDetailWindow::CompoundDetailWindow(QWidget *parent)
     : QWidget(parent)
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
+    layout->setMargin(0);
 
     QLabel *label = new QLabel(i18n("&Title:"), this);
     layout->addWidget(label);
