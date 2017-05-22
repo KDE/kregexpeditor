@@ -134,7 +134,7 @@ target_link_libraries(kregexpeditorcommon
     )
 
 set_target_properties(kregexpeditorcommon PROPERTIES VERSION 1.0.0 SOVERSION 1)
-install(TARGETS kregexpeditorcommon ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kregexpeditorcommon ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### next target ###############
 
@@ -144,7 +144,7 @@ add_library(kregexpeditorgui MODULE ${kregexpeditorgui_PART_SRCS})
 
 target_link_libraries(kregexpeditorgui  KF5::KIOCore kregexpeditorcommon)
 
-install(TARGETS kregexpeditorgui DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kregexpeditorgui DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
 ########### next target ###############
 
@@ -157,21 +157,21 @@ add_executable(kregexpeditor ${kregexpeditor_SRCS})
 
 target_link_libraries(kregexpeditor  KF5::KIOCore Qt5::Widgets kregexpeditorcommon)
 
-install(TARGETS kregexpeditor ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kregexpeditor ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install(FILES org.kde.kregexpeditor.desktop  DESTINATION ${XDG_APPS_INSTALL_DIR})
-install(FILES kregexpeditorgui.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES org.kde.kregexpeditor.desktop  DESTINATION ${KDE_INSTALL_APPDIR})
+install(FILES kregexpeditorgui.desktop  DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 
 install(FILES
     KMultiFormListBox/kmultiformlistboxentry.h
     KMultiFormListBox/kmultiformlistbox.h
     KMultiFormListBox/kmultiformlistboxfactory.h
-    DESTINATION ${INCLUDE_INSTALL_DIR}
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}
 )
 
-install(FILES KWidgetStreamer/kwidgetstreamer.h DESTINATION ${INCLUDE_INSTALL_DIR})
+install(FILES KWidgetStreamer/kwidgetstreamer.h DESTINATION ${KDE_INSTALL_INCLUDEDIR})
 
 ecm_install_icons(ICONS
     128-apps-kregexpeditor.png
@@ -180,7 +180,7 @@ ecm_install_icons(ICONS
     32-apps-kregexpeditor.png
     48-apps-kregexpeditor.png
     64-apps-kregexpeditor.png
-    DESTINATION ${ICON_INSTALL_DIR}
+    DESTINATION ${KDE_INSTALL_ICONDIR}
     THEME hicolor
 )
 
