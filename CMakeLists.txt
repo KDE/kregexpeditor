@@ -4,8 +4,8 @@ project(kregexpeditor)
 
 cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 
-find_package(ECM 5.32 REQUIRED NO_MODULE)
-set(QT5_REQUIRED_VERSION "5.7.0")
+find_package(ECM 5.20 REQUIRED NO_MODULE)
+set(QT5_REQUIRED_VERSION "5.5.0")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 include(ECMGenerateHeaders)
