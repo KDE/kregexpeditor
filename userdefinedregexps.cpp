@@ -66,9 +66,9 @@ void UserDefinedRegExps::slotPopulateUserRegexps()
 
     createItems(i18n("User Defined"), WidgetWinItem::path(), true);
 
-    QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QString::fromLocal8Bit("kregexpeditor/predefined/"));
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kregexpeditor/predefined/"), QStandardPaths::LocateDirectory);
 
-    for (QStringList::iterator it1 = dirs.begin(); it1 != dirs.end(); ++it1) {
+    for (QStringList::ConstIterator it1 = dirs.constBegin(); it1 != dirs.constEnd(); ++it1) {
         QDir dir(*it1, QString(), QDir::Name, QDir::Dirs);
         QStringList subdirs = dir.entryList();
         for (QStringList::iterator it2 = subdirs.begin(); it2 != subdirs.end(); ++it2) {
