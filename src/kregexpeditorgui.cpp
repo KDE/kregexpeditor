@@ -52,9 +52,9 @@ KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent,
     connect(helpButton, &QPushButton::clicked, this, &KRegExpEditorGUI::showHelp);
     connect(quitButton, &QPushButton::clicked, this, &QDialog::close);
 
-    connect(_editor, SIGNAL(canUndo(bool)), this, SIGNAL(canUndo(bool)));
-    connect(_editor, SIGNAL(canRedo(bool)), this, SIGNAL(canRedo(bool)));
-    connect(_editor, SIGNAL(changes(bool)), this, SIGNAL(changes(bool)));
+    connect(_editor, &KRegExpEditorPrivate::canUndo, this, &KRegExpEditorGUI::canUndo);
+    connect(_editor, &KRegExpEditorPrivate::canRedo, this, &KRegExpEditorGUI::canRedo);
+    connect(_editor, &KRegExpEditorPrivate::changes, this, &KRegExpEditorGUI::changes);
 
     QSettings settings;
     restoreGeometry(settings.value(QStringLiteral("geometry")).toByteArray());
