@@ -26,7 +26,6 @@
 
 #include <KLocalizedString>
 #include <KHelpClient>
-
 #include "kregexpeditorprivate.h"
 
 const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
@@ -116,6 +115,6 @@ void KRegExpEditorGUI::setMatchText(const QString &txt)
 
 void KRegExpEditorGUI::showHelp()
 {
-    KHelpClient::invokeHelp(QString(), QString::fromLocal8Bit("KRegExpEditor"));
+    KHelpClient::invokeHelp(QString(), QStringLiteral("kregexpeditor"));
 }
 
