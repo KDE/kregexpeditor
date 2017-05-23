@@ -49,5 +49,6 @@ add_definitions( -DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT )
 add_subdirectory(src)
 add_subdirectory( doc )
 
+add_subdirectory(tests)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
