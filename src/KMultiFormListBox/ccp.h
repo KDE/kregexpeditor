@@ -42,7 +42,7 @@ class KMultiFormListBoxEntry;
 
   @internal
 **/
-class CCP : public  QObject
+class CCP : public QObject
 {
     Q_OBJECT
 private:
@@ -63,4 +63,3 @@ private:
 };
 
 #endif /* ccp */
-

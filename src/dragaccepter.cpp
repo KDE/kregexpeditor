@@ -25,8 +25,8 @@
 #include "concwidget.h"
 
 DragAccepter::DragAccepter(RegExpEditorWindow *editorWindow, RegExpWidget *parent)
-    : RegExpWidget(editorWindow, parent),
-      _drawLine(false)
+    : RegExpWidget(editorWindow, parent)
+    , _drawLine(false)
 {
     setAcceptDrops(true);
 }
@@ -79,13 +79,13 @@ void DragAccepter::mouseReleaseEvent(QMouseEvent *event)
             _editorWindow->clearSelection(true);
         }
     } else if (_editorWindow->isInserting() && event->button() == Qt::LeftButton) {
-        if (WidgetFactory::isContainer(_editorWindow->insertType()) &&
-                _editorWindow->pointSelected(mapToGlobal(event->pos()))) {
+        if (WidgetFactory::isContainer(_editorWindow->insertType())
+            && _editorWindow->pointSelected(mapToGlobal(event->pos()))) {
             RegExpWidget::mouseReleaseEvent(event);
         } else {
             RegExpWidget *child = WidgetFactory::createWidget(_editorWindow,
-                                  dynamic_cast<QWidget *>(parent()),
-                                  _editorWindow->insertType());
+                                                              dynamic_cast<QWidget *>(parent()),
+                                                              _editorWindow->insertType());
             if (child) {
                 RegExpWidget *w = dynamic_cast<RegExpWidget *>(parent());
                 if (w) {
@@ -135,7 +135,7 @@ void DragAccepter::dropEvent(QDropEvent *event)
     _editorWindow->updateContent(this);
 
     bool selfDrag = (event->source());
-    if (! selfDrag) {
+    if (!selfDrag) {
         _editorWindow->clearSelection(true);
     } else {
         // selection should not be cleared here, since we might want to delete it.

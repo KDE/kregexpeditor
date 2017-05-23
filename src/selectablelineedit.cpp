@@ -19,10 +19,11 @@
 #include "selectablelineedit.h"
 
 SelectableLineEdit::SelectableLineEdit(RegExpWidget *owner, QWidget *parent, const QString &name)
-    : QLineEdit(parent), _owner(owner)
+    : QLineEdit(parent)
+    , _owner(owner)
 {
     setObjectName(name);
-    connect(this, SIGNAL(textChanged(const QString &)), this,
+    connect(this, SIGNAL(textChanged(const QString&)), this,
             SLOT(slotKeyPressed()));
     setAcceptDrops(false);
 }
@@ -54,7 +55,7 @@ QSize SelectableLineEdit::sizeHint() const
         width = qMax(actualSize, charWidth) + frameWidth;
     }
 
-    return QSize(width , height);
+    return QSize(width, height);
 }
 
 void SelectableLineEdit::slotKeyPressed()
@@ -69,4 +70,3 @@ void SelectableLineEdit::slotKeyPressed()
         emit parentPleaseUpdate();
     }
 }
-

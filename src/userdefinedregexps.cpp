@@ -46,7 +46,7 @@ UserDefinedRegExps::UserDefinedRegExps(QWidget *parent, const QString &title)
     //label->setMinimumSize(1,0);
     //lay->addWidget(label);
 
-    _userDefined = new QTreeWidget(top/*, "UserDefinedRegExps::_userDefined"*/);
+    _userDefined = new QTreeWidget(top /*, "UserDefinedRegExps::_userDefined"*/);
     //_userDefined->addColumn( QString() );
     _userDefined->header()->hide();
     _userDefined->setRootIsDecorated(true);
@@ -55,8 +55,8 @@ UserDefinedRegExps::UserDefinedRegExps(QWidget *parent, const QString &title)
     setWidget(top);
     slotPopulateUserRegexps();
 
-    connect(_userDefined, SIGNAL(itemClicked(QTreeWidgetItem *, int)), this, SLOT(slotLoad(QTreeWidgetItem *)));
-    connect(_userDefined, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(slotContextMenuTriggered(const QPoint &)));
+    connect(_userDefined, SIGNAL(itemClicked(QTreeWidgetItem *,int)), this, SLOT(slotLoad(QTreeWidgetItem *)));
+    connect(_userDefined, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(slotContextMenuTriggered(const QPoint&)));
 }
 
 void UserDefinedRegExps::slotPopulateUserRegexps()
@@ -78,7 +78,6 @@ void UserDefinedRegExps::slotPopulateUserRegexps()
             createItems(*it2, *it1 + QString::fromLocal8Bit("/") + *it2, false);
         }
     }
-
 }
 
 void UserDefinedRegExps::createItems(const QString &_title, const QString &dir, bool usersRegExp)
@@ -98,7 +97,7 @@ void UserDefinedRegExps::createItems(const QString &_title, const QString &dir, 
         QString fileName = dir + QString::fromLocal8Bit("/") + *it;
 
         QFile file(fileName);
-        if (! file.open(QIODevice::ReadOnly)) {
+        if (!file.open(QIODevice::ReadOnly)) {
             KMessageBox::sorry(this, i18n("Could not open file for reading: %1", fileName));
             continue;
         }
@@ -108,7 +107,7 @@ void UserDefinedRegExps::createItems(const QString &_title, const QString &dir, 
         file.close();
 
         RegExp *regexp = WidgetFactory::createRegExp(data);
-        if (! regexp) {
+        if (!regexp) {
             KMessageBox::sorry(this, i18n("File %1 containing user defined regular expression contained an error", fileName));
             continue;
         }
@@ -137,7 +136,7 @@ void UserDefinedRegExps::slotUnSelect()
 
 void UserDefinedRegExps::slotLoad(QTreeWidgetItem *item)
 {
-    if (!item || ! dynamic_cast<WidgetWinItem *>(item)) {
+    if (!item || !dynamic_cast<WidgetWinItem *>(item)) {
         // Mouse pressed outside a widget.
         return;
     }
@@ -156,7 +155,7 @@ void UserDefinedRegExps::slotContextMenuTriggered(const QPoint &pos)
 
     QTreeWidgetItem *item = _userDefined->itemAt(pos);
 
-    if (!item || ! dynamic_cast<WidgetWinItem *>(item)) {
+    if (!item || !dynamic_cast<WidgetWinItem *>(item)) {
         // menu not selected on an item
         deleteAction->setEnabled(false);
         renameAction->setEnabled(false);
@@ -164,7 +163,7 @@ void UserDefinedRegExps::slotContextMenuTriggered(const QPoint &pos)
         // Only allow rename and delete of users own regexps.
         WidgetWinItem *winItem = dynamic_cast<WidgetWinItem *>(item);
         if (winItem) {
-            if (! winItem->isUsersRegExp()) {
+            if (!winItem->isUsersRegExp()) {
                 deleteAction->setEnabled(false);
                 renameAction->setEnabled(false);
             } else {
@@ -201,7 +200,8 @@ void UserDefinedRegExps::slotRenameUserRegexp()
         QString fileName = WidgetWinItem::path() + QString::fromLocal8Bit("/") + txt + QString::fromLocal8Bit(".regexp");
         QFileInfo finfo(fileName);
         if (finfo.exists()) {
-            int answer = KMessageBox::warningYesNo(this, i18n("<p>Overwrite named regular expression <b>%1</b>?</p>", txt), QString(), KStandardGuiItem::overwrite(), KGuiItem(i18n("Do Not Overwrite")));
+            int answer
+                = KMessageBox::warningYesNo(this, i18n("<p>Overwrite named regular expression <b>%1</b>?</p>", txt), QString(), KStandardGuiItem::overwrite(), KGuiItem(i18n("Do Not Overwrite")));
             if (answer != KMessageBox::Yes) {
                 return;
             }
@@ -232,7 +232,9 @@ void UserDefinedRegExps::slotDeleteUserRegexp()
 }
 
 WidgetWinItem::WidgetWinItem(QString fileName, RegExp *regexp, bool usersRegExp, QTreeWidgetItem *parent)
-    : QTreeWidgetItem(parent), _regexp(regexp), _usersRegExp(usersRegExp)
+    : QTreeWidgetItem(parent)
+    , _regexp(regexp)
+    , _usersRegExp(usersRegExp)
 {
     int index = fileName.lastIndexOf(QLatin1String(".regexp"));
     _name = fileName.left(index);
@@ -272,4 +274,3 @@ QString WidgetWinItem::path()
     QDir().mkpath(regexppath);
     return regexppath;
 }
-

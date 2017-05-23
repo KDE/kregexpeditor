@@ -28,41 +28,46 @@
 class CompoundRegExp : public RegExp
 {
 public:
-    explicit CompoundRegExp(bool selected, const QString &title = QString(),
-                            const QString &description = QString(),
-                            bool hidden = false, bool allowReplace = false, RegExp *child = 0);
+    explicit CompoundRegExp(bool selected, const QString &title = QString(), const QString &description = QString(), bool hidden = false, bool allowReplace = false, RegExp *child = 0);
 
     virtual bool check(ErrorMap &, bool first, bool last);
     virtual int precedence() const
     {
         return _child->precedence();
     }
+
     virtual QDomNode toXml(QDomDocument *doc) const;
     virtual bool load(QDomElement, const QString &version);
     QString title() const
     {
         return _title;
     }
+
     QString description() const
     {
         return _description;
     }
+
     RegExp *child() const
     {
         return _child;
     }
+
     bool hidden() const
     {
         return _hidden;
     }
+
     bool allowReplace() const
     {
         return _allowReplace;
     }
+
     virtual RegExpType type() const
     {
         return COMPOUND;
     }
+
     virtual bool operator==(const RegExp &other) const;
 
 private:

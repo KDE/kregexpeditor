@@ -21,8 +21,7 @@
 
 #include "dragaccepter.h"
 
-MultiContainerWidget::MultiContainerWidget(RegExpEditorWindow *editorWindow,
-        QWidget *parent)
+MultiContainerWidget::MultiContainerWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
     : RegExpWidget(editorWindow, parent)
 {
 }
@@ -42,7 +41,7 @@ bool MultiContainerWidget::hasSelection() const
 
     QList<RegExpWidget *>::const_iterator it = _children.constBegin();
     ++it; // Move past the first dragAccepter
-    for (; it != _children.constEnd() ;  it += 2) {
+    for (; it != _children.constEnd(); it += 2) {
         if ((*it)->hasSelection()) {
             return true;
         }
@@ -62,8 +61,7 @@ void MultiContainerWidget::deleteSelection()
 {
     // run from the back to the front (which we do since we delete items on the run)
     // When deleting children, delete the drag accepter to its right.
-    for (int i = (int) _children.count() - 2; i > 0; i -= 2) {
-
+    for (int i = (int)_children.count() - 2; i > 0; i -= 2) {
         RegExpWidget *child = _children.at(i);
         if (child->isSelected()) {
             delete _children.at(i + 1);
@@ -122,7 +120,7 @@ bool MultiContainerWidget::updateSelection(bool parentSelected)
     int last;
 
     // scan for the first selected item.
-    for (first = 1; first < (int) _children.count(); first += 2) {
+    for (first = 1; first < (int)_children.count(); first += 2) {
         RegExpWidget *child = _children.at(first);
         changed = child->updateSelection(_isSelected) || changed;
         newState[first] = child->isSelected();
@@ -150,7 +148,7 @@ bool MultiContainerWidget::updateSelection(bool parentSelected)
     }
 
     // update drag accepters.
-    for (int k = 0; k < (int) _children.count(); k += 2) {
+    for (int k = 0; k < (int)_children.count(); k += 2) {
         RegExpWidget *child = _children.at(k);
         bool select;
         if (k == 0 || k == (int)_children.count() - 1) {
@@ -189,7 +187,7 @@ QRect MultiContainerWidget::selectionRect() const
         QRect res;
         QList<RegExpWidget *>::const_iterator it = _children.constBegin();
         ++it; // Move past the first dragAccepter
-        for (; it != _children.constEnd() ; it += 2) {
+        for (; it != _children.constEnd(); it += 2) {
             if ((*it)->hasSelection()) {
                 QRect childSel = (*it)->selectionRect();
                 if (res.isNull()) {
@@ -248,7 +246,7 @@ void MultiContainerWidget::selectWidget(bool sel)
 {
     RegExpWidget::selectWidget(sel);
     QList<RegExpWidget *>::const_iterator it = _children.constBegin();
-    for (; it != _children.constEnd() ; ++it) {
+    for (; it != _children.constEnd(); ++it) {
         (*it)->selectWidget(sel);
     }
     update();
@@ -257,7 +255,7 @@ void MultiContainerWidget::selectWidget(bool sel)
 void MultiContainerWidget::updateAll()
 {
     QList<RegExpWidget *>::const_iterator it = _children.constBegin();
-    for (; it != _children.constEnd() ; ++it) {
+    for (; it != _children.constEnd(); ++it) {
         (*it)->updateAll();
     }
     RegExpWidget::updateAll();
@@ -266,7 +264,7 @@ void MultiContainerWidget::updateAll()
 void MultiContainerWidget::updateCursorRecursively()
 {
     QList<RegExpWidget *>::const_iterator it = _children.constBegin();
-    for (; it != _children.constEnd() ; ++it) {
+    for (; it != _children.constEnd(); ++it) {
         (*it)->updateCursorRecursively();
     }
     updateCursorShape();

@@ -26,15 +26,16 @@
 #include "concwidget.h"
 
 LookAheadWidget::LookAheadWidget(RegExpEditorWindow *editorWindow, RegExpType tp, QWidget *parent)
-    : SingleContainerWidget(editorWindow, parent), _tp(tp)
+    : SingleContainerWidget(editorWindow, parent)
+    , _tp(tp)
 {
     _child = new ConcWidget(editorWindow, this);
     init();
 }
 
-LookAheadWidget::LookAheadWidget(LookAheadRegExp *regexp, RegExpEditorWindow *editorWindow, RegExpType tp,
-                                 QWidget *parent)
-    : SingleContainerWidget(editorWindow, parent), _tp(tp)
+LookAheadWidget::LookAheadWidget(LookAheadRegExp *regexp, RegExpEditorWindow *editorWindow, RegExpType tp, QWidget *parent)
+    : SingleContainerWidget(editorWindow, parent)
+    , _tp(tp)
 {
     RegExpWidget *child = WidgetFactory::createWidget(regexp->child(), editorWindow, this);
     if (!(_child = dynamic_cast<ConcWidget *>(child))) {
@@ -68,7 +69,7 @@ QSize LookAheadWidget::sizeHint() const
     _childSize = _child->sizeHint();
 
     int height = _textSize.height() + bdSize + _childSize.height() + bdSize + 2 * pw;
-    int width  = 2 * pw + qMax(_childSize.width(), 4 * bdSize + _textSize.width());
+    int width = 2 * pw + qMax(_childSize.width(), 4 * bdSize + _textSize.width());
     return QSize(width, height);
 }
 
@@ -107,4 +108,3 @@ RegExpWidget *LookAheadWidget::findWidgetToEdit(QPoint globalPos)
 {
     return _child->findWidgetToEdit(globalPos);
 }
-

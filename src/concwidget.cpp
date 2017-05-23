@@ -33,8 +33,7 @@ ConcWidget::ConcWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
     _children.append(accepter);
 }
 
-ConcWidget::ConcWidget(RegExpEditorWindow *editorWindow, RegExpWidget *child,
-                       QWidget *parent)
+ConcWidget::ConcWidget(RegExpEditorWindow *editorWindow, RegExpWidget *child, QWidget *parent)
     : MultiContainerWidget(editorWindow, parent)
 {
     init();
@@ -44,8 +43,7 @@ ConcWidget::ConcWidget(RegExpEditorWindow *editorWindow, RegExpWidget *child,
     addNewChild(accepter, child);
 }
 
-ConcWidget::ConcWidget(RegExpEditorWindow *editorWindow, ConcWidget *origConc,
-                       unsigned int start, unsigned int end)
+ConcWidget::ConcWidget(RegExpEditorWindow *editorWindow, ConcWidget *origConc, unsigned int start, unsigned int end)
     : MultiContainerWidget(editorWindow, 0)
 {
     Q_UNUSED(start);
@@ -63,8 +61,7 @@ ConcWidget::ConcWidget(RegExpEditorWindow *editorWindow, ConcWidget *origConc,
     _children.prepend(new DragAccepter(editorWindow, this));
 }
 
-ConcWidget::ConcWidget(ConcRegExp *regexp, RegExpEditorWindow *editorWindow,
-                       QWidget *parent)
+ConcWidget::ConcWidget(ConcRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent)
     : MultiContainerWidget(editorWindow, parent)
 {
     init();
@@ -101,9 +98,9 @@ void ConcWidget::paintEvent(QPaintEvent *e)
 {
     Q_ASSERT(dynamic_cast<DragAccepter *>(_children.at(0)));
     // if this fails, then I should check the location of the show()
-    Q_ASSERT(_children.count() == 1 ||
-             (_children.count() >= 3 &&
-              dynamic_cast<DragAccepter *>(_children.at(_children.count() - 1))));
+    Q_ASSERT(_children.count() == 1
+             || (_children.count() >= 3
+                 && dynamic_cast<DragAccepter *>(_children.at(_children.count() - 1))));
 
     if (_children.count() == 1) {
         // There is only an accepter, lets give it all the space.
@@ -182,8 +179,8 @@ void ConcWidget::paintEvent(QPaintEvent *e)
         }
 
         //---------------------- Finally place the last accepter.
-        DragAccepter *accepter =
-            static_cast<DragAccepter *>(_children.at(_children.count() - 1));
+        DragAccepter *accepter
+            = static_cast<DragAccepter *>(_children.at(_children.count() - 1));
         // dynamic_cast is ASSERTed at top
         int x = offset;
         int h = lastHeight;
@@ -216,7 +213,7 @@ void ConcWidget::sizeAccepter(DragAccepter *accepter, int height, int totHeight)
 
 RegExp *ConcWidget::regExp() const
 {
-    QList<RegExpWidget *>::const_iterator it =  _children.constBegin();
+    QList<RegExpWidget *>::const_iterator it = _children.constBegin();
     ++it; // start with the second element.
 
     if (_children.count() == 3) {
@@ -225,7 +222,7 @@ RegExp *ConcWidget::regExp() const
     } else {
         ConcRegExp *regexp = new ConcRegExp(isSelected());
 
-        for (; it != _children.constEnd() ; it += 2) {
+        for (; it != _children.constEnd(); it += 2) {
             regexp->addRegExp((*it)->regExp());
         }
         return regexp;
@@ -235,13 +232,13 @@ RegExp *ConcWidget::regExp() const
 bool ConcWidget::updateSelection(bool parentSelected)
 {
     bool isSel = _isSelected;
-    bool changed =  MultiContainerWidget::updateSelection(parentSelected);
+    bool changed = MultiContainerWidget::updateSelection(parentSelected);
 
     _maxSelectedHeight = 0;
 
     QList<RegExpWidget *>::const_iterator it = _children.constBegin();
     ++it; // Skip past the first DragAccepter
-    for (; it != _children.constEnd() ; it += 2) {
+    for (; it != _children.constEnd(); it += 2) {
         if ((*it)->isSelected()) {
             _maxSelectedHeight = qMax(_maxSelectedHeight, (*it)->sizeHint().height());
         }
@@ -292,7 +289,7 @@ void ConcWidget::applyRegExpToSelection(RegExpType type)
 
         QList<RegExpWidget * >::const_iterator it = _children.constBegin();
         ++it; // Skip past the first DragAccepter
-        for (; it != _children.constEnd() ; it += 2) {
+        for (; it != _children.constEnd(); it += 2) {
             if ((*it)->hasSelection()) {
                 (*it)->applyRegExpToSelection(type);
                 break;
@@ -340,7 +337,7 @@ RegExp *ConcWidget::selection() const
 
     QList<RegExpWidget * >::const_iterator it = _children.constBegin();
     ++it; // Skip past the first DragAccepter
-    for (; it != _children.constEnd() ; it += 2) {
+    for (; it != _children.constEnd(); it += 2) {
         if ((*it)->hasSelection()) {
             if (!foundAny) {
                 regexp = (*it)->selection();
@@ -371,7 +368,7 @@ void ConcWidget::addNewConcChild(DragAccepter *accepter, ConcWidget *other)
             // after this drag accepter.
             // We must take them in pairs to avoid breaking the invariant for paintEvent,
             // namely that every second element is a dragAccepter
-            for (unsigned int j = other->_children.count() - 1; j > 0 ; j -= 2) {
+            for (unsigned int j = other->_children.count() - 1; j > 0; j -= 2) {
                 RegExpWidget *newChildA = other->_children.takeAt(j);
                 newChildA->setParent(this);
                 _children.insert(i + 1, newChildA);

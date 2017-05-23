@@ -46,7 +46,7 @@ void KWidgetStreamer::fromStream(QDataStream &stream, QObject *to)
 void KWidgetStreamer::propertyToStream(const QObject *from, QDataStream &stream)
 {
     // Only handle widgets. Alternatives to widgets are layouts, validators, timers, etc.
-    if (! from->inherits("QWidget")) {
+    if (!from->inherits("QWidget")) {
         return;
     }
 
@@ -61,7 +61,7 @@ void KWidgetStreamer::propertyToStream(const QObject *from, QDataStream &stream)
             toStream(children.at(i), stream);
         }
     } else {
-        stream << (unsigned int) 0;
+        stream << (unsigned int)0;
     }
 
     // Now stream out properties
@@ -71,11 +71,11 @@ void KWidgetStreamer::propertyToStream(const QObject *from, QDataStream &stream)
         if (from->inherits(tp.toLocal8Bit())) {
             for (PropertyListIt it = list.begin(); it != list.end(); ++it) {
                 QVariant prop = from->property((*it).toLocal8Bit());
-                if (! prop.isValid()) {
+                if (!prop.isValid()) {
                     qWarning("Invalid property: %s:%s", qPrintable(tp), qPrintable(*it));
                 }
 
-                stream <<  prop ;
+                stream <<  prop;
             }
         }
     }
@@ -84,7 +84,7 @@ void KWidgetStreamer::propertyToStream(const QObject *from, QDataStream &stream)
 void KWidgetStreamer::propertyFromStream(QDataStream &stream, QObject *to)
 {
     // Only handle widgets. Alternatives to widgets are layouts, validators, timers, etc.
-    if (! to->inherits("QWidget")) {
+    if (!to->inherits("QWidget")) {
         return;
     }
 

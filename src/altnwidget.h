@@ -33,8 +33,7 @@ class AltnWidget : public MultiContainerWidget
 {
 public:
     AltnWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
-    AltnWidget(AltnRegExp *regexp, RegExpEditorWindow *editorWindow,
-               QWidget *parent);
+    AltnWidget(AltnRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent);
     virtual void addNewChild(DragAccepter *accepter, RegExpWidget *child);
     virtual QSize sizeHint() const;
     virtual RegExp *regExp() const;
@@ -43,6 +42,7 @@ public:
     {
         return ALTN;
     }
+
     virtual RegExp *selection() const;
     virtual bool validateSelection() const;
     virtual void setConcChild(ConcWidget *child);

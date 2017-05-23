@@ -48,14 +48,11 @@ enum RegExpType {
 class WidgetFactory
 {
 public:
-    static RegExpWidget *createWidget(RegExpEditorWindow *editorWindow, QWidget *parent,
-                                      RegExpType type);
-    static RegExpWidget *createWidget(RegExp *regexp, RegExpEditorWindow *editorWindow,
-                                      QWidget *parent);
+    static RegExpWidget *createWidget(RegExpEditorWindow *editorWindow, QWidget *parent, RegExpType type);
+    static RegExpWidget *createWidget(RegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent);
     static RegExp *createRegExp(QDomElement node, const QString &version);
     static RegExp *createRegExp(QString str);
     static bool isContainer(RegExpType);
 };
 
 #endif // widgetfactory
-

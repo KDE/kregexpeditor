@@ -30,8 +30,10 @@ const int RegExpWidget::bdSize = 5;
 const int RegExpWidget::space = 5;
 
 RegExpWidget::RegExpWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
-    : QWidget(parent),
-      _editorWindow(editorWindow),  _isSelected(false), _isToplevel(false)
+    : QWidget(parent)
+    , _editorWindow(editorWindow)
+    , _isSelected(false)
+    , _isToplevel(false)
 {
     setAttribute(Qt::WA_NoMousePropagation);
 }
@@ -53,8 +55,8 @@ void RegExpWidget::setConcChild(ConcWidget *)
 
 bool RegExpWidget::updateSelection(bool parentSelected)
 {
-    bool selected = (parentSelected ||
-                     _editorWindow->selectionOverlap(mapToGlobal(QPoint(0, 0)), size()))
+    bool selected = (parentSelected
+                     || _editorWindow->selectionOverlap(mapToGlobal(QPoint(0, 0)), size()))
                     && !_isToplevel;
 
     if (_isSelected != selected) {
@@ -116,7 +118,7 @@ void RegExpWidget::mousePressEvent(QMouseEvent *event)
     }
 
     if (event->button() == Qt::LeftButton) {
-        if (! _editorWindow->pointSelected(QCursor::pos())) {
+        if (!_editorWindow->pointSelected(QCursor::pos())) {
             _editorWindow->clearSelection(true);
             if (dynamic_cast<DragAccepter *>(this) == 0 && dynamic_cast<ConcWidget *>(this) == 0) {
                 selectWidget(true);
@@ -168,9 +170,9 @@ void RegExpWidget::updateCursorShape()
 
     if (_editorWindow->isPasteing()) {
         if (acceptWidgetPaste()) {
-            cursor =  Qt::CrossCursor;
+            cursor = Qt::CrossCursor;
         } else {
-            cursor =  Qt::ForbiddenCursor;
+            cursor = Qt::ForbiddenCursor;
         }
     } else if (_editorWindow->isInserting()) {
         if (acceptWidgetInsert(_editorWindow->insertType())) {
@@ -219,4 +221,3 @@ void RegExpWidget::updateAll()
 {
     update();
 }
-

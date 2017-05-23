@@ -25,13 +25,13 @@
 // krazy:excludeall=qclasses
 
 QtRegexpHighlighter::QtRegexpHighlighter(QTextEdit *editor)
-    : RegexpHighlighter(editor), _editor(editor)
+    : RegexpHighlighter(editor)
+    , _editor(editor)
 {
 }
 
 void QtRegexpHighlighter::highlightBlock(const QString &text)
 {
-
     QRegExp regexp(_regexp);
     regexp.setCaseSensitivity(_caseSensitive ? Qt::CaseSensitive : Qt::CaseInsensitive);
     regexp.setMinimal(_minimal);
@@ -54,7 +54,7 @@ void QtRegexpHighlighter::highlightBlock(const QString &text)
 
     int index = 0;
     int start, length;
-    while ((index = regexp. indexIn(text, index)) != -1 && index < (int) text.length()) {
+    while ((index = regexp.indexIn(text, index)) != -1 && index < (int)text.length()) {
         if (regexp.pos(1) != -1) {
             start = regexp.pos(1);
             length = regexp.cap(1).length();
@@ -79,10 +79,8 @@ void QtRegexpHighlighter::highlightBlock(const QString &text)
             setFormat(start + length, regexp.matchedLength() - length - (start - index), colors[color]);
         }
 
-        index +=  qMax(1, regexp.matchedLength());   // ensure progress when matching for example ^ or \b
+        index += qMax(1, regexp.matchedLength());    // ensure progress when matching for example ^ or \b
         color = (color + 1) % 2;
     }
     setCurrentBlockState(color);
-
 }
-

@@ -36,7 +36,6 @@ public:
 protected:
     QString _regexp;
     bool _caseSensitive, _minimal;
-
 };
 
 #endif /* REGEXPHIGHLIGHTER_H */

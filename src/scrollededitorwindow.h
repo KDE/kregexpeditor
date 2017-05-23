@@ -36,7 +36,9 @@ public:
     RegExp *regExp();
 
 private:
-    RegExpScrolledEditorWindow() {} // Do not use!
+    RegExpScrolledEditorWindow()
+    {
+    }                               // Do not use!
 
 protected:
     virtual void resizeEvent(QResizeEvent *);

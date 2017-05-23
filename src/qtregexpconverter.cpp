@@ -201,7 +201,7 @@ QString QtRegExpConverter::toString(CompoundRegExp *regexp, bool markSelection)
     if (markSelection && !regexp->isSelected() && regexp->child()->isSelected()) {
         return QString::fromLatin1("(") + toStr(regexp->child(), markSelection) + QString::fromLatin1(")");
     } else {
-        return  toStr(regexp->child(), markSelection);
+        return toStr(regexp->child(), markSelection);
     }
 }
 
@@ -254,13 +254,13 @@ QString QtRegExpConverter::toString(RepeatRegExp *regexp, bool markSelection)
     } else if (regexp->min() == 1 && regexp->max() == -1) {
         quantity = QString::fromLocal8Bit("+");
     } else if (regexp->max() == -1) {
-        quantity = QString::fromLocal8Bit("{") +
-                   QString::number(regexp->min()) + QString::fromLocal8Bit(",") +
-                   QString::fromLocal8Bit("}");
+        quantity = QString::fromLocal8Bit("{")
+                   +QString::number(regexp->min()) + QString::fromLocal8Bit(",")
+                   +QString::fromLocal8Bit("}");
     } else {
-        quantity = QString::fromLocal8Bit("{") +
-                   QString::number(regexp->min()) + QString::fromLocal8Bit(",") +
-                   QString::number(regexp->max()) + QString::fromLocal8Bit("}");
+        quantity = QString::fromLocal8Bit("{")
+                   +QString::number(regexp->min()) + QString::fromLocal8Bit(",")
+                   +QString::number(regexp->max()) + QString::fromLocal8Bit("}");
     }
 
     return startPar + cText + endPar + quantity;

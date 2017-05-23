@@ -37,8 +37,7 @@ AltnWidget::AltnWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
     _text = i18n("Alternatives");
 }
 
-AltnWidget::AltnWidget(AltnRegExp *regexp, RegExpEditorWindow *editorWindow,
-                       QWidget *parent)
+AltnWidget::AltnWidget(AltnRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent)
     : MultiContainerWidget(editorWindow, parent)
 {
     DragAccepter *accepter = new DragAccepter(editorWindow, this);
@@ -90,7 +89,7 @@ QSize AltnWidget::sizeHint() const
     _childrenWidth = 0;
     _childrenHeight = 0;
 
-    for (; it != _children.constEnd() ; ++it) {
+    for (; it != _children.constEnd(); ++it) {
         QSize thisChildSize = (*it)->sizeHint();
         _childrenWidth = qMax(_childrenWidth, thisChildSize.width());
         _childrenHeight += thisChildSize.height();
@@ -111,9 +110,9 @@ void AltnWidget::paintEvent(QPaintEvent *e)
 {
     Q_ASSERT(dynamic_cast<DragAccepter *>(_children.at(0)));
     // if this fails, then I should check the location of the show()
-    Q_ASSERT(_children.count() == 1 ||
-             (_children.count() >= 3 &&
-              dynamic_cast<DragAccepter *>(_children.at(_children.count() - 1))));
+    Q_ASSERT(_children.count() == 1
+             || (_children.count() >= 3
+                 && dynamic_cast<DragAccepter *>(_children.at(_children.count() - 1))));
 
     int offset = 0;
     QSize mySize = sizeHint();
@@ -139,7 +138,6 @@ void AltnWidget::paintEvent(QPaintEvent *e)
     xOffset = pw;
 
     for (int i = 0; i < _children.count(); i++) {
-
         RegExpWidget *child = _children.at(i);
 
         QSize childSize = child->sizeHint();
@@ -172,7 +170,7 @@ RegExp *AltnWidget::regExp() const
 
     QList<RegExpWidget *>::const_iterator it = _children.constBegin();
     ++it; // start with the second element
-    for (; it != _children.constEnd() ; it += 2) {
+    for (; it != _children.constEnd(); it += 2) {
         regexp->addRegExp((*it)->regExp());
     }
 
@@ -215,7 +213,7 @@ bool AltnWidget::validateSelection() const
     bool foundASelection = false;
     QList<RegExpWidget *>::const_iterator it = _children.constBegin();
     ++it; // Skip past DragAccepter
-    for (; it != _children.constEnd() ; it += 2) {
+    for (; it != _children.constEnd(); it += 2) {
         if ((*it)->hasSelection()) {
             if (foundASelection) {
                 KMessageBox::information(const_cast<AltnWidget *>(this),
@@ -248,4 +246,3 @@ void AltnWidget::deleteSelection()
     MultiContainerWidget::deleteSelection();
     updateDrawLineInfo();
 }
-

@@ -22,9 +22,13 @@
 
 #include "widgetfactory.h"
 
-CompoundRegExp::CompoundRegExp(bool selected, const QString &title, const QString &description, bool hidden,
-                               bool allowReplace, RegExp *child)
-    : RegExp(selected), _title(title), _description(description), _hidden(hidden), _allowReplace(allowReplace), _child(child)
+CompoundRegExp::CompoundRegExp(bool selected, const QString &title, const QString &description, bool hidden, bool allowReplace, RegExp *child)
+    : RegExp(selected)
+    , _title(title)
+    , _description(description)
+    , _hidden(hidden)
+    , _allowReplace(allowReplace)
+    , _child(child)
 {
     if (child) {
         addChild(child);
@@ -114,5 +118,5 @@ bool CompoundRegExp::operator==(const RegExp &other) const
     // Using other as the first argument, means that
     // the following will be evaluated: other.operator== rather than (*child).operator==
     // This means that if other is a CompoundRegExp too, then this level will be striped.
-    return (other == *_child);
+    return other == *_child;
 }

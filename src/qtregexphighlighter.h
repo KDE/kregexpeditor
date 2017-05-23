@@ -36,4 +36,3 @@ private:
 };
 
 #endif /* QTREGEXPHIGHLIGHTER_H */
-

@@ -43,7 +43,6 @@ class QListWidget;
 **/
 class indexWindow : public QWidget
 {
-
     Q_OBJECT
 
 public:
@@ -80,8 +79,6 @@ private:
     QListWidget *lb;
     bool lbFinish;
     int itemSelected;
-
 };
 
 #endif /* indexWindow */
-

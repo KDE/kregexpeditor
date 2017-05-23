@@ -67,8 +67,7 @@ class CompoundWidget : public SingleContainerWidget
 
 public:
     CompoundWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
-    CompoundWidget(CompoundRegExp *regexp, RegExpEditorWindow *editorWindow,
-                   QWidget *parent);
+    CompoundWidget(CompoundRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent);
 
     virtual bool updateSelection(bool parentSelected);
     virtual QSize sizeHint() const;
@@ -77,6 +76,7 @@ public:
     {
         return COMPOUND;
     }
+
     virtual int edit();
 
 protected:

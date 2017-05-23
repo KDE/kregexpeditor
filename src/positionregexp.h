@@ -28,7 +28,9 @@
 class PositionRegExp : public RegExp
 {
 public:
-    enum PositionType { BEGLINE, ENDLINE, WORDBOUNDARY, NONWORDBOUNDARY };
+    enum PositionType {
+        BEGLINE, ENDLINE, WORDBOUNDARY, NONWORDBOUNDARY
+    };
 
     PositionRegExp(bool selected, PositionType tp);
     PositionType position() const
@@ -41,16 +43,16 @@ public:
     {
         return 4;
     }
+
     virtual QDomNode toXml(QDomDocument *doc) const;
     virtual bool load(QDomElement, const QString &version);
     virtual RegExpType type() const
     {
-        return POSITION ;
+        return POSITION;
     }
 
 private:
     PositionType _tp;
-
 };
 
 #endif // __POSITIONREGEXP_H

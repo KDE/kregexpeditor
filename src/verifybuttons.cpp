@@ -29,9 +29,10 @@
 #include "emacsregexpconverter.h"
 
 VerifyButtons::VerifyButtons(QWidget *parent, const QString &name)
-    : QToolBar(name, parent), _configMenu(0)
+    : QToolBar(name, parent)
+    , _configMenu(0)
 {
-    _verify =  new QToolButton(this);
+    _verify = new QToolButton(this);
     QIcon icon = QIcon::fromTheme(QString::fromLatin1("tools-check-spelling"));
     _verify->setIcon(icon);
     _verify->setToolTip(i18n("Verify regular expression"));
@@ -206,4 +207,3 @@ void VerifyButtons::setAllowNonQtSyntax(bool b)
 {
     _languages->setEnabled(b);
 }
-

@@ -57,9 +57,9 @@ KMultiFormListBoxMultiVisible::KMultiFormListBoxMultiVisible(KMultiFormListBoxFa
 KMultiFormListBoxEntryList KMultiFormListBoxMultiVisible::elements()
 {
     KMultiFormListBoxEntryList res;
-    foreach (QWidget *child , *elms) {
+    foreach (QWidget *child, *elms) {
         if (child->objectName() != QStringLiteral("separator")) {
-            res.append((KMultiFormListBoxEntry *) child);
+            res.append((KMultiFormListBoxEntry *)child);
         }
     }
     return res;
@@ -174,7 +174,7 @@ void KMultiFormListBoxMultiVisible::insertElmIntoWidget(KMultiFormListBoxEntry *
     // Bind the index button if it exists.
     if (elm->indexButton()) {
         elm->indexButton()->setIcon(static_cast<QIcon>(QBitmap::fromData(QSize(indexButtonWidth, indexButtonHeight),
-                                    indexButtonBits, QImage::Format_MonoLSB)));
+                                                                         indexButtonBits, QImage::Format_MonoLSB)));
         connect(elm->indexButton(), SIGNAL(clicked()), elm, SLOT(acceptIndexButton()));
         connect(elm, SIGNAL(gotoIndex(KMultiFormListBoxEntry *)),
                 this, SLOT(showIndexList(KMultiFormListBoxEntry *)));
@@ -217,9 +217,9 @@ void KMultiFormListBoxMultiVisible::showIndexList(KMultiFormListBoxEntry *elm)
     indexWindow *menu = new indexWindow();
 
     // Insert the elements into the menu item.
-    foreach (QWidget *child , *elms) {
+    foreach (QWidget *child, *elms) {
         if (child->objectName() != QStringLiteral("separator")) {
-            QString txt = ((KMultiFormListBoxEntry *) child)->idxString();
+            QString txt = ((KMultiFormListBoxEntry *)child)->idxString();
             menu->insertItem(txt);
         }
     }
@@ -233,11 +233,10 @@ void KMultiFormListBoxMultiVisible::showIndexList(KMultiFormListBoxEntry *elm)
     int index = menu->exec(start, width);
 
     if (index != -1) {
-        foreach (QWidget *child , *elms) {
+        foreach (QWidget *child, *elms) {
             if (child->objectName() != QLatin1String("separator")) {
-
                 if (index == 0) {
-                    showWidget((KMultiFormListBoxEntry *) child);
+                    showWidget((KMultiFormListBoxEntry *)child);
                     break;
                 }
                 index--;
@@ -296,7 +295,7 @@ int KMultiFormListBoxMultiVisible::countElements(WidgetList *elms)
 {
     int count = 0;
 
-    foreach (QWidget *child , *elms) {
+    foreach (QWidget *child, *elms) {
         if (dynamic_cast<const KMultiFormListBoxEntry *>(child)) {
             count++;
         }
@@ -304,4 +303,3 @@ int KMultiFormListBoxMultiVisible::countElements(WidgetList *elms)
 
     return count;
 }
-

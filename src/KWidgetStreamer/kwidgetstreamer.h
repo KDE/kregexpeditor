@@ -45,7 +45,6 @@ class QObject;
 **/
 class KWidgetStreamer
 {
-
 public:
     typedef QStringList PropertyList;
     typedef QMap< QString, PropertyList > PropertyMap;
@@ -53,7 +52,9 @@ public:
     typedef QStringList::Iterator PropertyListIt;
 
     KWidgetStreamer();
-    virtual ~KWidgetStreamer() {}
+    virtual ~KWidgetStreamer()
+    {
+    }
 
     virtual void toStream(const QObject *from, QDataStream &stream);
     virtual void fromStream(QDataStream &stream, QObject *to);
@@ -69,8 +70,6 @@ protected:
 
 private:
     PropertyMap _map;
-
 };
 
 #endif /* __kwidgetstreamer */
-

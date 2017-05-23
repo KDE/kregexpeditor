@@ -23,8 +23,14 @@
 
 #include "regexpconverter.h"
 
-TextRangeRegExp::TextRangeRegExp(bool selected) : RegExp(selected),
-    _negate(false), _digit(false), _nonDigit(false), _space(false), _nonSpace(false), _wordChar(false), _nonWordChar(false)
+TextRangeRegExp::TextRangeRegExp(bool selected) : RegExp(selected)
+    , _negate(false)
+    , _digit(false)
+    , _nonDigit(false)
+    , _space(false)
+    , _nonSpace(false)
+    , _wordChar(false)
+    , _nonWordChar(false)
 {
 }
 
@@ -137,7 +143,7 @@ bool TextRangeRegExp::load(QDomElement top, const QString & /*version*/)
             addRange(from, to);
         } else {
             KMessageBox::sorry(0, i18n("<p>Invalid sub element to element <b>TextRange</b>. Tag was <b>%1</b></p>", child.tagName()),
-                               i18n("Error While Loading From XML File")) ;
+                               i18n("Error While Loading From XML File"));
             return false;
         }
     }
@@ -146,6 +152,6 @@ bool TextRangeRegExp::load(QDomElement top, const QString & /*version*/)
 
 bool TextRangeRegExp::operator==(const RegExp &other) const
 {
-    return (RegExpConverter::current()->toStr(const_cast<TextRangeRegExp *>(this), false) ==
-            RegExpConverter::current()->toStr(const_cast<RegExp *>(&other), false));
+    return RegExpConverter::current()->toStr(const_cast<TextRangeRegExp *>(this), false)
+           == RegExpConverter::current()->toStr(const_cast<RegExp *>(&other), false);
 }

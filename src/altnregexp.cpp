@@ -58,7 +58,7 @@ bool AltnRegExp::load(QDomElement top, const QString &version)
     Q_ASSERT(top.tagName() == QString::fromLocal8Bit("Alternatives"));
 
     for (QDomNode child = top.firstChild(); !child.isNull(); child = child.nextSibling()) {
-        if (! child.isElement()) {
+        if (!child.isElement()) {
             continue; // User might have added a comment.
         }
 
@@ -69,7 +69,6 @@ bool AltnRegExp::load(QDomElement top, const QString &version)
         addRegExp(regexp);
     }
     return true;
-
 }
 
 bool AltnRegExp::operator==(const RegExp &other) const
@@ -103,4 +102,3 @@ void AltnRegExp::replacePart(CompoundRegExp *replacement)
         r->replacePart(replacement);
     }
 }
-

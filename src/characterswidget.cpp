@@ -40,8 +40,7 @@ CharactersWidget::CharactersWidget(RegExpEditorWindow *editorWindow, QWidget *pa
     _regexp = new TextRangeRegExp(false /* not used */);
 }
 
-CharactersWidget::CharactersWidget(TextRangeRegExp *regexp, RegExpEditorWindow *editorWindow,
-                                   QWidget *parent)
+CharactersWidget::CharactersWidget(TextRangeRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent)
     : RegExpWidget(editorWindow, parent)
 {
     _regexp = dynamic_cast<TextRangeRegExp *>(regexp->clone());
@@ -183,7 +182,7 @@ int CharactersWidget::edit()
     }
 
     _configWindow->move(QCursor::pos() - QPoint(_configWindow->sizeHint().width() / 2,
-                        _configWindow->sizeHint().height() / 2));
+                                                _configWindow->sizeHint().height() / 2));
     _configWindow->setRegexp(_regexp);
     int ret = _configWindow->exec();
     if (ret == QDialog::Accepted) {
@@ -315,7 +314,9 @@ CharacterEdits::CharacterEdits(QWidget *parent)
     topLayout->addWidget(singleBox);
     _single = new KMultiFormListBox(new SingleFactory(), KMultiFormListBox::MultiVisible);
     groupLayout->addWidget(_single);
-    _single->addElement(); _single->addElement(); _single->addElement();
+    _single->addElement();
+    _single->addElement();
+    _single->addElement();
 
     QWidget *moreW = new QWidget();
     groupLayout->addWidget(moreW);
@@ -334,7 +335,9 @@ CharacterEdits::CharacterEdits(QWidget *parent)
 
     _range = new KMultiFormListBox(new RangeFactory(), KMultiFormListBox::MultiVisible);
     groupLayout->addWidget(_range);
-    _range->addElement(); _range->addElement(); _range->addElement();
+    _range->addElement();
+    _range->addElement();
+    _range->addElement();
 
     moreW = new QWidget();
     groupLayout->addWidget(moreW);
@@ -458,4 +461,3 @@ bool RangeEntry::isEmpty() const
 {
     return _from->isEmpty() || _to->isEmpty();
 }
-

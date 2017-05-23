@@ -49,9 +49,9 @@ bool TextRegExp::load(QDomElement top, const QString & /*version*/)
     Q_ASSERT(top.tagName() == QString::fromLocal8Bit("Text"));
     if (top.hasChildNodes()) {
         QDomNode child = top.firstChild();
-        if (! child.isText()) {
+        if (!child.isText()) {
             KMessageBox::sorry(0, i18n("<p>Element <b>Text</b> did not contain any textual data.</p>"),
-                               i18n("Error While Loading From XML File")) ;
+                               i18n("Error While Loading From XML File"));
             return false;
         }
         QDomText txtNode = child.toText();
@@ -76,4 +76,3 @@ bool TextRegExp::operator==(const RegExp &other) const
 
     return false;
 }
-

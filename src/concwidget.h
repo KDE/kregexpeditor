@@ -33,12 +33,9 @@ class ConcWidget : public MultiContainerWidget
 {
 public:
     ConcWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
-    ConcWidget(RegExpEditorWindow *editorWindow, RegExpWidget *child,
-               QWidget *parent);
-    ConcWidget(RegExpEditorWindow *editorWindow, ConcWidget *origConc,
-               unsigned int start, unsigned int end);
-    ConcWidget(ConcRegExp *regexp, RegExpEditorWindow *editorWindow,
-               QWidget *parent);
+    ConcWidget(RegExpEditorWindow *editorWindow, RegExpWidget *child, QWidget *parent);
+    ConcWidget(RegExpEditorWindow *editorWindow, ConcWidget *origConc, unsigned int start, unsigned int end);
+    ConcWidget(ConcRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent);
     void init();
 
     virtual QSize sizeHint() const;
@@ -51,6 +48,7 @@ public:
     {
         return CONC;
     }
+
     virtual RegExp *selection() const;
     virtual void addNewConcChild(DragAccepter *accepter, ConcWidget *child);
     virtual bool validateSelection() const;
@@ -58,10 +56,12 @@ public:
     {
         return false;
     }
+
     virtual bool acceptWidgetPaste() const
     {
         return false;
     }
+
     bool hasAnyChildren()
     {
         return _children.count() > 1;

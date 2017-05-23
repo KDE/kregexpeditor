@@ -38,8 +38,7 @@ class CharactersWidget : public RegExpWidget
 {
 public:
     CharactersWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
-    CharactersWidget(TextRangeRegExp *regexp, RegExpEditorWindow *editorWindow,
-                     QWidget *parent);
+    CharactersWidget(TextRangeRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent);
     ~CharactersWidget();
     virtual QSize sizeHint() const;
     virtual RegExp *regExp() const;
@@ -47,6 +46,7 @@ public:
     {
         return CHARSET;
     }
+
     virtual RegExpWidget *findWidgetToEdit(QPoint globalPos);
     virtual int edit();
 
@@ -104,6 +104,7 @@ public:
     {
         return new SingleEntry(parent);
     }
+
     QWidget *separator(QWidget *)
     {
         return 0;
@@ -120,6 +121,7 @@ public:
     {
         return new RangeEntry(parent);
     }
+
     QWidget *separator(QWidget *)
     {
         return 0;

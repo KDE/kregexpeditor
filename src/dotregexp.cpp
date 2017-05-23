@@ -37,4 +37,3 @@ bool DotRegExp::load(QDomElement /* top */, const QString & /*version*/)
     // Nothing to do
     return true;
 }
-

@@ -29,7 +29,8 @@
 #include "regexpconverter.h"
 
 RegExpButtons::RegExpButtons(QWidget *parent, const QString &name)
-    : QToolBar(name, parent), _keepMode(false)
+    : QToolBar(name, parent)
+    , _keepMode(false)
 {
     _grp = new QButtonGroup(this);
     _grp->setExclusive(true);
@@ -94,7 +95,7 @@ RegExpButtons::RegExpButtons(QWidget *parent, const QString &name)
                       "each other inside this widget.</p>"));
     addWidget(but);
 
-    but = insert(COMPOUND,  "compound", i18n("Compound regexp"),
+    but = insert(COMPOUND, "compound", i18n("Compound regexp"),
                  i18n("<qt>This <i>regexp item</i> serves two purposes:"
                       "<ul><li>It makes it possible for you to collapse a huge <i>regexp item</i> into "
                       "a small box. This makes it easier for you to get an overview of large "
@@ -102,29 +103,29 @@ RegExpButtons::RegExpButtons(QWidget *parent, const QString &name)
                       "that you perhaps do not care about the inner workings of.</qt>"));
     addWidget(but);
 
-    but = insert(BEGLINE,  "begline", i18n("Beginning of line"),
+    but = insert(BEGLINE, "begline", i18n("Beginning of line"),
                  i18n("<qt>This will match the beginning of a line.</qt>"));
     addWidget(but);
 
-    but = insert(ENDLINE,  "endline", i18n("End of line"),
+    but = insert(ENDLINE, "endline", i18n("End of line"),
                  i18n("<qt>This will match the end of a line.</qt>"));
     addWidget(but);
 
-    _wordBoundary = insert(WORDBOUNDARY,  "wordboundary", i18n("Word boundary"),
+    _wordBoundary = insert(WORDBOUNDARY, "wordboundary", i18n("Word boundary"),
                            i18n("<qt>This asserts a word boundary (This part does not actually match any characters)</qt>"));
     addWidget(_wordBoundary);
 
-    _nonWordBoundary = insert(NONWORDBOUNDARY,  "nonwordboundary", i18n("Non Word boundary"),
+    _nonWordBoundary = insert(NONWORDBOUNDARY, "nonwordboundary", i18n("Non Word boundary"),
                               i18n("<qt>This asserts a non-word boundary "
                                    "(This part does not actually match any characters)</qt>"));
     addWidget(_nonWordBoundary);
 
-    _posLookAhead = insert(POSLOOKAHEAD,  "poslookahead", i18n("Positive Look Ahead"),
+    _posLookAhead = insert(POSLOOKAHEAD, "poslookahead", i18n("Positive Look Ahead"),
                            i18n("<qt>This asserts a regular expression (This part does not actually match any characters). "
                                 "You can only use this at the end of a regular expression.</qt>"));
     addWidget(_posLookAhead);
 
-    _negLookAhead = insert(NEGLOOKAHEAD,  "neglookahead", i18n("Negative Look Ahead"),
+    _negLookAhead = insert(NEGLOOKAHEAD, "neglookahead", i18n("Negative Look Ahead"),
                            i18n("<qt>This asserts a regular expression that must not match "
                                 "(This part does not actually match any characters). "
                                 "You can only use this at the end of a regular expression.</qt>"));
@@ -133,7 +134,9 @@ RegExpButtons::RegExpButtons(QWidget *parent, const QString &name)
 
 DoubleClickButton *RegExpButtons::insert(RegExpType tp, const char *name, QString tooltip, QString whatsthis)
 {
-    QPixmap pix = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString::fromLatin1("kregexpeditor/pics/") + QString::fromLatin1(name) + QString::fromLatin1(".png")), KIconLoader::Toolbar);
+    QPixmap pix
+        = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString::fromLatin1("kregexpeditor/pics/") + QString::fromLatin1(name) + QString::fromLatin1(
+                                                                     ".png")), KIconLoader::Toolbar);
 
     DoubleClickButton *but = new DoubleClickButton(pix, this, QStringLiteral("RegExpButtons::but"));
 
@@ -173,7 +176,7 @@ void RegExpButtons::slotSetNonKeepMode()
 
 void RegExpButtons::slotSelectNewAction()
 {
-    if (! _keepMode) {
+    if (!_keepMode) {
         emit doSelect();
         _selectBut->click();
     }
@@ -185,6 +188,4 @@ void RegExpButtons::setFeatures(int features)
     _nonWordBoundary->setVisible(features & RegExpConverter::NonWordBoundary);
     _posLookAhead->setVisible(features & RegExpConverter::PosLookAhead);
     _negLookAhead->setVisible(features & RegExpConverter::NegLookAhead);
-
 }
-

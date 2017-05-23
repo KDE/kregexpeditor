@@ -50,7 +50,6 @@ QString EmacsRegExpConverter::toString(AltnRegExp *regexp, bool markSelection)
     }
 
     return res;
-
 }
 
 QString EmacsRegExpConverter::toString(ConcRegExp *regexp, bool markSelection)
@@ -70,13 +69,12 @@ QString EmacsRegExpConverter::toString(ConcRegExp *regexp, bool markSelection)
     }
 
     return res;
-
 }
 
 QString EmacsRegExpConverter::toString(LookAheadRegExp * /*regexp*/, bool /*markSelection*/)
 {
     static bool haveWarned = false;
-    if (! haveWarned) {
+    if (!haveWarned) {
         KMessageBox::sorry(0, i18n("Look ahead regular expressions not supported in Emacs style"));
         haveWarned = true;
     }
@@ -144,7 +142,7 @@ QString EmacsRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelec
     }
 
     if (regexp->space()) {
-        res += QString::fromLocal8Bit(" ") + QString(QLatin1Char((char) 9));     // Tab char
+        res += QString::fromLocal8Bit(" ") + QString(QLatin1Char((char)9));      // Tab char
     }
 
     if (regexp->wordChar()) {
@@ -162,7 +160,7 @@ QString EmacsRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelec
 
 QString EmacsRegExpConverter::toString(CompoundRegExp *regexp, bool markSelection)
 {
-    return  toStr(regexp->child(), markSelection);
+    return toStr(regexp->child(), markSelection);
 }
 
 QString EmacsRegExpConverter::toString(DotRegExp * /*regexp*/, bool /*markSelection*/)
@@ -180,7 +178,7 @@ QString EmacsRegExpConverter::toString(PositionRegExp *regexp, bool /*markSelect
         return QString::fromLatin1("$");
     case PositionRegExp::WORDBOUNDARY:
     case PositionRegExp::NONWORDBOUNDARY:
-        if (! haveWarned) {
+        if (!haveWarned) {
             KMessageBox::sorry(0, i18n("Word boundary and non word boundary is not supported in Emacs syntax"));
             haveWarned = true;
             return QString::fromLatin1("");

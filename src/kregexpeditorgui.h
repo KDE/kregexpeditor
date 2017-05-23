@@ -31,14 +31,13 @@ class KRegExpEditorPrivate;
    @author Jesper Kjær Pedersen <blackie@kde.org>
    @version 0.1
  **/
-class Q_DECL_EXPORT KRegExpEditorGUI  : public QWidget, public KRegExpEditorInterface
+class Q_DECL_EXPORT KRegExpEditorGUI : public QWidget, public KRegExpEditorInterface
 {
     Q_OBJECT
     Q_INTERFACES(KRegExpEditorInterface)
     Q_PROPERTY(QString regexp READ regExp WRITE setRegExp)
 public:
-    KRegExpEditorGUI(QWidget *parent = 0,
-                     const QVariantList & = QVariantList());
+    KRegExpEditorGUI(QWidget *parent = 0, const QVariantList & = QVariantList());
     ~KRegExpEditorGUI();
     virtual QString regExp() const;
 
@@ -66,4 +65,3 @@ private:
 };
 
 #endif
-

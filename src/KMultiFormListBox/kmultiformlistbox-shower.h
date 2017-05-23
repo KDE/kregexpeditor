@@ -23,7 +23,7 @@
 // -------------------------------- includes ------------------------------
 class KMultiFormListBoxEntry;
 //-------------------------------------------------------------------------
-typedef QList<KMultiFormListBoxEntry *> KMultiFormListBoxEntryList ;
+typedef QList<KMultiFormListBoxEntry *> KMultiFormListBoxEntryList;
 
 /**
    Abstract class defining the interface for widgets showing a number of @ref KMultiFormListBoxEntry.
@@ -32,9 +32,11 @@ typedef QList<KMultiFormListBoxEntry *> KMultiFormListBoxEntryList ;
 */
 class KMultiFormListBoxShower
 {
-
 public:
-    virtual ~KMultiFormListBoxShower() {}
+    virtual ~KMultiFormListBoxShower()
+    {
+    }
+
     virtual KMultiFormListBoxEntryList elements() = 0;
 
     /** Appends the given argument to the list */
@@ -54,4 +56,3 @@ public:
 };
 
 #endif /* kmultiformlistboxshower */
-

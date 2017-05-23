@@ -34,7 +34,7 @@ RepeatRegExp::RepeatRegExp(bool selected, int lower, int upper, RegExp *child) :
 bool RepeatRegExp::check(ErrorMap &map, bool first, bool last)
 {
     _child->check(map, first, last);
-    return (_lower == 0);
+    return _lower == 0;
 }
 
 QDomNode RepeatRegExp::toXml(QDomDocument *doc) const
@@ -57,7 +57,7 @@ bool RepeatRegExp::load(QDomElement top, const QString &version)
         KMessageBox::sorry(0, i18n("<p>Value for attribute <b>%1</b> was not an integer for element "
                                    "<b>%2</b></p><p>It contained the value <b>%3</b></p>",
                                    QString::fromLatin1("lower"), QString::fromLatin1("Repeat"), lower),
-                           i18n("Error While Loading From XML File")) ;
+                           i18n("Error While Loading From XML File"));
         _lower = 0;
     }
     _upper = upper.toInt(&ok);
@@ -65,7 +65,7 @@ bool RepeatRegExp::load(QDomElement top, const QString &version)
         KMessageBox::sorry(0, i18n("<p>Value for attribute <b>%1</b> was not an integer for element "
                                    "<b>%2</b></p><p>It contained the value <b>%3</b></p>",
                                    QString::fromLatin1("upper"), QString::fromLatin1("Repeat"), upper),
-                           i18n("Error While Loading From XML File")) ;
+                           i18n("Error While Loading From XML File"));
         _upper = -1;
     }
 
@@ -89,6 +89,5 @@ bool RepeatRegExp::operator==(const RegExp &other) const
         return false;
     }
 
-    return (*_child == *(theOther._child));
+    return *_child == *(theOther._child);
 }
-

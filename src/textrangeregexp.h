@@ -43,6 +43,7 @@ public:
     {
         return _chars;
     }
+
     void clearChars()
     {
         _chars.clear();
@@ -53,6 +54,7 @@ public:
     {
         return _ranges;
     }
+
     void clearRange()
     {
         _ranges.clear();
@@ -62,26 +64,32 @@ public:
     {
         _negate = set;
     }
+
     void setDigit(bool set)
     {
         _digit = set;
     }
+
     void setNonDigit(bool set)
     {
         _nonDigit = set;
     }
+
     void setSpace(bool set)
     {
         _space = set;
     }
+
     void setNonSpace(bool set)
     {
         _nonSpace = set;
     }
+
     void setWordChar(bool set)
     {
         _wordChar = set;
     }
+
     void setNonWordChar(bool set)
     {
         _nonWordChar = set;
@@ -91,26 +99,32 @@ public:
     {
         return _negate;
     }
+
     bool digit() const
     {
         return _digit;
     }
+
     bool nonDigit() const
     {
         return _nonDigit;
     }
+
     bool space() const
     {
         return _space;
     }
+
     bool nonSpace() const
     {
         return _nonSpace;
     }
+
     bool wordChar() const
     {
         return _wordChar;
     }
+
     bool nonWordChar() const
     {
         return _nonWordChar;
@@ -121,12 +135,14 @@ public:
     {
         return 4;
     }
+
     virtual QDomNode toXml(QDomDocument *doc) const;
     virtual bool load(QDomElement, const QString &version);
     virtual RegExpType type() const
     {
         return TEXTRANGE;
     }
+
     virtual bool operator==(const RegExp &other) const;
 
 private:

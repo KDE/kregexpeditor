@@ -58,7 +58,7 @@ void RegExpScrolledEditorWindow::slotSetRegExp(RegExp *regexp)
 
 void RegExpScrolledEditorWindow::slotInsertRegExp(int tp)
 {
-    _editorWindow->slotInsertRegExp((RegExpType) tp);
+    _editorWindow->slotInsertRegExp((RegExpType)tp);
 }
 
 void RegExpScrolledEditorWindow::slotInsertRegExp(RegExp *regexp)
@@ -122,4 +122,3 @@ void RegExpScrolledEditorWindow::slotScroll(QPoint focusPoint)
 {
     _scrollArea->ensureVisible(focusPoint.x(), focusPoint.y());
 }
-

@@ -22,7 +22,9 @@
 #include "kregexpeditorgui.h"
 #include "errormap.h"
 
-RegExp::RegExp(bool selected) : _parent(0), _destructing(false), _selected(selected)
+RegExp::RegExp(bool selected) : _parent(0)
+    , _destructing(false)
+    , _selected(selected)
 {
     // Nothing to do
 }
@@ -45,7 +47,7 @@ void RegExp::addChild(RegExp *child)
 
 void RegExp::removeChild(RegExp *child)
 {
-    if (! _destructing) {
+    if (!_destructing) {
         _children.removeOne(child);
     }
 }
@@ -78,7 +80,8 @@ QString RegExp::toXmlString() const
     QDomNode elm = toXml(&doc);
 
     top.appendChild(elm);
-    QString xmlString = QString::fromLocal8Bit("<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<!DOCTYPE RegularExpression PUBLIC \"-//KDE//KRegexpEditor DTD 1.0//EN\" \"http://www.blackie.dk/kreg.dtd\">\n") + doc.toString();
+    QString xmlString = QString::fromLocal8Bit(
+        "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<!DOCTYPE RegularExpression PUBLIC \"-//KDE//KRegexpEditor DTD 1.0//EN\" \"http://www.blackie.dk/kreg.dtd\">\n") + doc.toString();
 
     return xmlString;
 }
@@ -94,4 +97,3 @@ void RegExp::check(ErrorMap &map)
     check(map, true, true);
     map.end();
 }
-

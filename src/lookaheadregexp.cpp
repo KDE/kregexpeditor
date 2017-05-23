@@ -20,14 +20,16 @@
 #include "errormap.h"
 
 LookAheadRegExp::LookAheadRegExp(bool selected, TYPE tp, RegExp *child)
-    : RegExp(selected), _child(child), _tp(tp)
+    : RegExp(selected)
+    , _child(child)
+    , _tp(tp)
 {
     if (child) {
         addChild(child);
     }
 }
 
-bool LookAheadRegExp::check(ErrorMap &map, bool , bool last)
+bool LookAheadRegExp::check(ErrorMap &map, bool, bool last)
 {
     if (!last) {
         map.lookAheadError();
@@ -71,5 +73,5 @@ bool LookAheadRegExp::operator==(const RegExp &other) const
         return false;
     }
 
-    return (*_child == *(theOther._child));
+    return *_child == *(theOther._child);
 }

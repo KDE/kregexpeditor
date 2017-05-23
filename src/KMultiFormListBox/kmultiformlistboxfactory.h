@@ -42,7 +42,9 @@ class KMultiFormListBoxEntry;
 class KMultiFormListBoxFactory : public KWidgetStreamer
 {
 public:
-    virtual ~KMultiFormListBoxFactory() {}
+    virtual ~KMultiFormListBoxFactory()
+    {
+    }
 
     /**
        This method must be overridden in subclasses and must return an
@@ -70,4 +72,3 @@ public:
 };
 
 #endif /* kmultiformlistbox */
-

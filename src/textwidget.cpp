@@ -31,7 +31,7 @@ TextWidget::TextWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
     init(QString::fromLocal8Bit(""));
 }
 
-TextWidget::TextWidget(TextRegExp *regexp,  RegExpEditorWindow *editorWindow, QWidget *parent)
+TextWidget::TextWidget(TextRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent)
     : RegExpWidget(editorWindow, parent)
 {
     init(regexp->text());
@@ -49,7 +49,7 @@ void TextWidget::init(const QString &txt)
     connect(_edit, SIGNAL(parentPleaseUpdate()), this, SLOT(slotUpdate()));
     setFocusProxy(_edit);
     _edit->installEventFilter(this);
-    connect(_edit, SIGNAL(textChanged(const QString &)), _editorWindow, SLOT(emitChange()));
+    connect(_edit, SIGNAL(textChanged(const QString&)), _editorWindow, SLOT(emitChange()));
 }
 
 void TextWidget::slotUpdate()
@@ -84,6 +84,7 @@ bool TextWidget::updateSelection(bool parentSelected)
     _edit->setSelected(_isSelected);
     return changed;
 }
+
 void TextWidget::updateAll()
 {
     _edit->update();
@@ -115,16 +116,14 @@ bool TextWidget::eventFilter(QObject *, QEvent *event)
     } else if (event->type() == QEvent::MouseButtonPress) {
         if (_editorWindow->isInserting()) {
             return true;
-        } else  if (isSelected()) {
+        } else if (isSelected()) {
             QMouseEvent *e = static_cast<QMouseEvent *>(event);
             QMouseEvent ev(event->type(), mapTo(_editorWindow, e->pos()),
                            e->button(), e->buttons(), e->modifiers());
             QApplication::sendEvent(_editorWindow, &ev);
             return true;
         }
-    }
-
-    else if (event->type() == QEvent::Enter) {
+    } else if (event->type() == QEvent::Enter) {
         if (_editorWindow->isInserting()) {
             if (acceptWidgetInsert(_editorWindow->insertType())) {
                 _edit->setCursor(Qt::CrossCursor);
@@ -136,9 +135,8 @@ bool TextWidget::eventFilter(QObject *, QEvent *event)
         } else {
             _edit->setCursor(Qt::IBeamCursor);
         }
-    } else if (event->type() == QEvent::MouseButtonDblClick &&  _editorWindow->isInserting()) {
+    } else if (event->type() == QEvent::MouseButtonDblClick && _editorWindow->isInserting()) {
         return true;
     }
     return false;
 }
-

@@ -35,24 +35,29 @@ public:
     {
         return 3;
     }
+
     virtual QDomNode toXml(QDomDocument *doc) const;
     virtual bool load(QDomElement, const QString &version);
     int min() const
     {
         return _lower;
     }
+
     int max() const
     {
         return _upper;
     }
+
     RegExp *child() const
     {
         return _child;
     }
+
     virtual RegExpType type() const
     {
         return REPEAT;
     }
+
     virtual bool operator==(const RegExp &other) const;
     virtual void replacePart(CompoundRegExp *replacement)
     {

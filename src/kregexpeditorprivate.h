@@ -97,7 +97,7 @@ private:
     QLabel *_error;
     QStack<RegExp *> _undoStack;
     QStack<RegExp *> _redoStack;
-    UserDefinedRegExps  *_userRegExps;
+    UserDefinedRegExps *_userRegExps;
     QTimer *_timer;
     Verifier *_verifier;
     bool _autoVerify;
@@ -106,4 +106,3 @@ private:
 };
 
 #endif
-

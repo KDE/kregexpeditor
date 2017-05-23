@@ -56,7 +56,6 @@ private:
     int _count;
     // int _current;
     RegexpHighlighter *_highlighter;
-
 };
 
 #endif // VERIFIER_H

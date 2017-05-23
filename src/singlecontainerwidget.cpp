@@ -20,8 +20,7 @@
 
 #include "concwidget.h"
 
-SingleContainerWidget::SingleContainerWidget(RegExpEditorWindow *editorWindow,
-        QWidget *parent)
+SingleContainerWidget::SingleContainerWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
     : RegExpWidget(editorWindow, parent)
 {
 }
@@ -130,4 +129,3 @@ void SingleContainerWidget::updateCursorRecursively()
     _child->updateCursorRecursively();
     updateCursorShape();
 }
-

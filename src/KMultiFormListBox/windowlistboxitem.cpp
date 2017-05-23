@@ -20,7 +20,8 @@
 #include "widgetwindow.h"
 
 WindowListboxItem::WindowListboxItem(QListWidget *lb, QString text, WidgetWindow *windowWidget)
-    : QListWidgetItem(text, lb), myItem(windowWidget)
+    : QListWidgetItem(text, lb)
+    , myItem(windowWidget)
 {
 }
 
@@ -43,4 +44,3 @@ KMultiFormListBoxEntry *WindowListboxItem::entry()
 {
     return myItem->entry();
 }
-

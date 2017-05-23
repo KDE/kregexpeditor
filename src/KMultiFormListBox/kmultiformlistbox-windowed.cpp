@@ -30,9 +30,7 @@
 #include "widgetwindow.h"
 #include "windowlistboxitem.h"
 
-KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent,
-        bool showUpDownButtons, bool showHelpButton,
-        QString addButtonText)
+KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent, bool showUpDownButtons, bool showHelpButton, QString addButtonText)
     : QWidget(parent)
 {
     _layout = new QVBoxLayout(this);
@@ -40,7 +38,7 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
     QHBoxLayout *innerLayout = new QHBoxLayout();
     _layout->addLayout(innerLayout);
 
-    _listbox = new QListWidget(this/*,"listbox"*/);
+    _listbox = new QListWidget(this /*,"listbox"*/);
     _listbox->setSelectionMode(QAbstractItemView::SingleSelection);
     innerLayout->addWidget(_listbox);
 
@@ -96,14 +94,13 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
     buttons->addStretch(1);
     _factory = factory;
     slotUpdateButtonState();
-
 }
 
 KMultiFormListBoxEntryList KMultiFormListBoxWindowed::elements()
 {
     KMultiFormListBoxEntryList list;
     for (int i = 0; i < _listbox->count(); ++i) {
-        WindowListboxItem *item = (WindowListboxItem *) _listbox->item(i);
+        WindowListboxItem *item = (WindowListboxItem *)_listbox->item(i);
         list.append(item->entry());
     }
     return list;
@@ -123,7 +120,7 @@ void KMultiFormListBoxWindowed::delAnElement()
 
 void KMultiFormListBoxWindowed::append(KMultiFormListBoxEntry *elm)
 {
-    (void) new WidgetWindow(_factory, elm, _listbox);
+    (void)new WidgetWindow(_factory, elm, _listbox);
     slotUpdateButtonState();
 }
 
@@ -144,7 +141,7 @@ void KMultiFormListBoxWindowed::addElement()
 
 void KMultiFormListBoxWindowed::slotEditSelected(QListWidgetItem *item)
 {
-    ((WindowListboxItem *) item)->displayWidget();
+    ((WindowListboxItem *)item)->displayWidget();
 }
 
 void KMultiFormListBoxWindowed::slotEditSelected()
@@ -159,8 +156,8 @@ void KMultiFormListBoxWindowed::slotDeleteEntry()
 {
     WindowListboxItem *item = selected();
     if (item) {
-        int answer =
-            KMessageBox::warningContinueCancel(0, i18n("Delete item \"%1\"?", item->text()), i18n("Delete Item"), KStandardGuiItem::del());
+        int answer
+            = KMessageBox::warningContinueCancel(0, i18n("Delete item \"%1\"?", item->text()), i18n("Delete Item"), KStandardGuiItem::del());
         if (answer == KMessageBox::Continue) {
             delete item;
             slotUpdateButtonState();
@@ -186,7 +183,7 @@ WindowListboxItem *KMultiFormListBoxWindowed::selected()
     return (WindowListboxItem *) _listbox->item(i);
     }
     */
-    return (WindowListboxItem *) _listbox->currentItem();
+    return (WindowListboxItem *)_listbox->currentItem();
 }
 
 void KMultiFormListBoxWindowed::slotMoveItemUp()
@@ -226,4 +223,3 @@ void KMultiFormListBoxWindowed::slotUpdateButtonState()
         _buttonList.at(i)->setEnabled(on);
     }
 }
-

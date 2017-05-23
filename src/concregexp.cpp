@@ -43,7 +43,7 @@ bool ConcRegExp::check(ErrorMap &map, bool first, bool last)
     RegExpListIt it(list);
     while (it.hasNext()) {
         possibleEmpty = it.next()->check(map, f, last && !it.hasNext()) && possibleEmpty;
-        if (! possibleEmpty) {
+        if (!possibleEmpty) {
             f = false;
         }
     }
@@ -73,7 +73,7 @@ bool ConcRegExp::load(QDomElement top, const QString &version)
     Q_ASSERT(top.tagName() == QString::fromLocal8Bit("Concatenation"));
 
     for (QDomNode child = top.firstChild(); !child.isNull(); child = child.nextSibling()) {
-        if (! child.isElement()) {
+        if (!child.isElement()) {
             continue; // User might have added a comment.
         }
 
@@ -90,7 +90,7 @@ bool ConcRegExp::operator==(const RegExp &other) const
 {
     // TODO: Merge with AltnRegExp::operator==
     if (list.count() == 1) {
-        return (other == *(const_cast< QList<RegExp *>& >(list).at(0)));
+        return other == *(const_cast< QList<RegExp *> & >(list).at(0));
     }
 
     if (other.type() != type()) {
@@ -118,7 +118,7 @@ void ConcRegExp::replacePart(CompoundRegExp *replacement)
 {
     RegExp *otherChild = replacement->child();
     ConcRegExp *otherConc = dynamic_cast<ConcRegExp *>(otherChild);
-    if (! otherConc) {
+    if (!otherConc) {
         // Watch out for garbage here!
         otherConc = new ConcRegExp(false);
         otherConc->addRegExp(otherChild);
@@ -134,7 +134,7 @@ void ConcRegExp::replacePart(CompoundRegExp *replacement)
         int count = 0;
 
         // See if replacement is a sublist of list starting from what it1 points at
-        for (; it2 != list.end() && it3 != otherConc->list.end() && match ;) {
+        for (; it2 != list.end() && it3 != otherConc->list.end() && match;) {
             if (!(**it2 == **it3)) {
                 match = false;
             }

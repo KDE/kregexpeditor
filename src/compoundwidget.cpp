@@ -52,7 +52,7 @@ CompoundDetailWindow::CompoundDetailWindow(QWidget *parent)
 
     label = new QLabel(i18n("&Description:"), this);
     layout->addWidget(label);
-    _description  = new KTextEdit(this);
+    _description = new KTextEdit(this);
     layout->addWidget(_description);
     label->setBuddy(_description);
 
@@ -64,7 +64,6 @@ CompoundDetailWindow::CompoundDetailWindow(QWidget *parent)
     _allowReplace->setChecked(true);
 
     _title->setFocus();
-
 }
 
 QString CompoundDetailWindow::title() const
@@ -106,8 +105,7 @@ CompoundWidget::CompoundWidget(RegExpEditorWindow *editorWindow, QWidget *parent
     init();
 }
 
-CompoundWidget::CompoundWidget(CompoundRegExp *regexp, RegExpEditorWindow *editorWindow,
-                               QWidget *parent)
+CompoundWidget::CompoundWidget(CompoundRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent)
     : SingleContainerWidget(editorWindow, parent)
 {
     init();
@@ -171,11 +169,10 @@ QSize CompoundWidget::sizeHint() const
         }
 
         width = qMax(2 * pw + _childSize.width(), headerLineWidth);
-        height = qMax(_textSize.height(), _pixmapSize.height()) +
-                 2 * bdSize + _childSize.height() + pw;
+        height = qMax(_textSize.height(), _pixmapSize.height())
+                 +2 * bdSize + _childSize.height() + pw;
     }
     return QSize(width, height);
-
 }
 
 void CompoundWidget::paintEvent(QPaintEvent *e)
@@ -274,8 +271,8 @@ RegExp *CompoundWidget::regExp() const
 
 void CompoundWidget::mousePressEvent(QMouseEvent *event)
 {
-    if (event->button() == Qt::LeftButton &&
-            QRect(_pixmapPos, _pixmapSize).contains(event->pos())) {
+    if (event->button() == Qt::LeftButton
+        && QRect(_pixmapPos, _pixmapSize).contains(event->pos())) {
         // Skip otherwise we will never see the mouse release
         // since it is eaten by Editor window.
     } else {
@@ -285,8 +282,8 @@ void CompoundWidget::mousePressEvent(QMouseEvent *event)
 
 void CompoundWidget::mouseReleaseEvent(QMouseEvent *event)
 {
-    if (event->button() == Qt::LeftButton &&
-            QRect(_pixmapPos, _pixmapSize).contains(event->pos())) {
+    if (event->button() == Qt::LeftButton
+        && QRect(_pixmapPos, _pixmapSize).contains(event->pos())) {
         _hidden = !_hidden;
         _editorWindow->updateContent(0);
         repaint(); // is this necesary?
@@ -313,7 +310,7 @@ bool CompoundWidget::updateSelection(bool parentSelected)
 int CompoundWidget::edit()
 {
     _configWindow->move(QCursor::pos() - QPoint(_configWindow->sizeHint().width() / 2,
-                        _configWindow->sizeHint().height() / 2));
+                                                _configWindow->sizeHint().height() / 2));
     QDataStream stream(&_backup, QIODevice::WriteOnly);
 
     stream.setVersion(QDataStream::Qt_3_1);
@@ -332,4 +329,3 @@ QPixmap CompoundWidget::getIcon(const QString &name)
 {
     return SmallIcon(name);
 }
-

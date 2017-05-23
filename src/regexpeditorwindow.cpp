@@ -54,13 +54,13 @@ RegExpEditorWindow::RegExpEditorWindow(QWidget *parent)
 
     _PosEdit = QPoint(0, 0);
 
-    (void) new QShortcut(Qt::CTRL + Qt::Key_C , this, SLOT(slotCopy()));
-    (void) new QShortcut(Qt::CTRL + Qt::Key_X , this, SLOT(slotCut()));
-    (void) new QShortcut(Qt::Key_Delete , this, SLOT(slotCut()));
-    (void) new QShortcut(Qt::Key_Backspace , this, SLOT(slotCut()));
-    (void) new QShortcut(Qt::CTRL + Qt::Key_V , this, SLOT(slotStartPasteAction()));
-    (void) new QShortcut(Qt::Key_Escape , this, SLOT(slotEndActions()));
-    (void) new QShortcut(Qt::CTRL + Qt::Key_S , this, SLOT(slotSave()));
+    (void)new QShortcut(Qt::CTRL + Qt::Key_C, this, SLOT(slotCopy()));
+    (void)new QShortcut(Qt::CTRL + Qt::Key_X, this, SLOT(slotCut()));
+    (void)new QShortcut(Qt::Key_Delete, this, SLOT(slotCut()));
+    (void)new QShortcut(Qt::Key_Backspace, this, SLOT(slotCut()));
+    (void)new QShortcut(Qt::CTRL + Qt::Key_V, this, SLOT(slotStartPasteAction()));
+    (void)new QShortcut(Qt::Key_Escape, this, SLOT(slotEndActions()));
+    (void)new QShortcut(Qt::CTRL + Qt::Key_S, this, SLOT(slotSave()));
 
     connect(this, SIGNAL(change()), this, SLOT(emitVerifyRegExp()));
 }
@@ -75,7 +75,7 @@ RegExp *RegExpEditorWindow::regExp() const
     return _top->regExp();
 }
 
-void  RegExpEditorWindow::mousePressEvent(QMouseEvent *event)
+void RegExpEditorWindow::mousePressEvent(QMouseEvent *event)
 {
     setFocus();
     updateContent(0);
@@ -131,7 +131,6 @@ void RegExpEditorWindow::mouseMoveEvent(QMouseEvent *event)
             emit canSave(_top->hasAnyChildren());
         }
     } else {
-
         _top->updateSelection(false);
 
         emit scrolling(event->pos());
@@ -163,7 +162,7 @@ bool RegExpEditorWindow::selectionOverlap(QPoint pos, QSize size) const
 {
     QRect child(pos, size);
 
-    return (_selection.intersects(child) && ! child.contains(_selection));
+    return _selection.intersects(child) && !child.contains(_selection);
 }
 
 bool RegExpEditorWindow::hasSelection() const
@@ -212,7 +211,7 @@ void RegExpEditorWindow::slotDoSelect()
 
 void RegExpEditorWindow::slotDeleteSelection()
 {
-    if (! hasSelection()) {
+    if (!hasSelection()) {
         KMessageBox::information(this, i18n("There is no selection."), i18n("Missing Selection"));
     } else {
         _top->deleteSelection();
@@ -242,7 +241,7 @@ void RegExpEditorWindow::paintEvent(QPaintEvent *event)
 
     p.setPen(Qt::DotLine);
 
-    if (! _lastPoint.isNull()) {
+    if (!_lastPoint.isNull()) {
         p.drawRect(QRect(_start, _lastPoint));
     }
 
@@ -321,7 +320,9 @@ void RegExpEditorWindow::slotEndActions()
 
 void RegExpEditorWindow::showRMBMenu(bool enableCutCopy)
 {
-    enum CHOICES { CUT, COPY, PASTE, SAVE, EDIT };
+    enum CHOICES {
+        CUT, COPY, PASTE, SAVE, EDIT
+    };
 
     if (!_menu) {
         _menu = new QMenu(0);
@@ -352,7 +353,7 @@ void RegExpEditorWindow::showRMBMenu(bool enableCutCopy)
     _cutAction->setEnabled(enableCutCopy);
     _copyAction->setEnabled(enableCutCopy);
 
-    if (! qApp->clipboard()->mimeData()->hasFormat(QStringLiteral("KRegExpEditor/widgetdrag"))) {
+    if (!qApp->clipboard()->mimeData()->hasFormat(QStringLiteral("KRegExpEditor/widgetdrag"))) {
         _pasteAction->setEnabled(false);
     } else {
         _pasteAction->setEnabled(true);
@@ -400,7 +401,7 @@ void RegExpEditorWindow::slotSave()
     }
 
     QFile file(fileName);
-    if (! file.open(QIODevice::WriteOnly)) {
+    if (!file.open(QIODevice::WriteOnly)) {
         KMessageBox::sorry(this, i18n("Could not open file for writing: %1", fileName));
         return;
     }
@@ -463,4 +464,3 @@ QIcon RegExpEditorWindow::getIcon(const QString &name)
 {
     return QIcon::fromTheme(name);
 }
-

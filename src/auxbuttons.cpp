@@ -71,7 +71,6 @@ AuxButtons::AuxButtons(QWidget *parent, const QString &name)
 
     _undo->setEnabled(false);
     _redo->setEnabled(false);
-
 }
 
 void AuxButtons::slotEnterWhatsThis()
@@ -108,4 +107,3 @@ void AuxButtons::slotCanSave(bool b)
 {
     _save->setEnabled(b);
 }
-

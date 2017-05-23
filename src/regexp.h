@@ -51,16 +51,22 @@ public:
     RegExp *clone() const;
     virtual bool operator==(const RegExp &other) const
     {
-        return (type() == other.type());
+        return type() == other.type();
     }
 
-    enum RegExpType { CONC, TEXT, DOT, POSITION, REPEAT, ALTN, COMPOUND, LOOKAHEAD, TEXTRANGE };
+    enum RegExpType {
+        CONC, TEXT, DOT, POSITION, REPEAT, ALTN, COMPOUND, LOOKAHEAD, TEXTRANGE
+    };
     virtual RegExpType type() const = 0;
-    virtual void replacePart(CompoundRegExp * /* replacement */) {}
+    virtual void replacePart(CompoundRegExp * /* replacement */)
+    {
+    }
+
     bool isSelected() const
     {
         return _selected;
     }
+
     void setSelected(bool b)
     {
         _selected = b;
@@ -70,7 +76,10 @@ protected:
     RegExp *readRegExp(QDomElement top, const QString &version);
 
 private:
-    RegExp() {} // disable
+    RegExp()
+    {
+    }           // disable
+
     QList<RegExp *> _children;
     RegExp *_parent;
     bool _destructing;
@@ -82,4 +91,3 @@ typedef QListIterator<RegExp *> RegExpListIt;
 typedef QList<RegExp *>::iterator RegExpListStlIt;
 
 #endif // REGEXP_H
-

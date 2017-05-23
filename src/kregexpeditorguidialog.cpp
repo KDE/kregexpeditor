@@ -28,8 +28,7 @@
 
 #include "kregexpeditorprivate.h"
 
-KRegExpEditorGUIDialog::KRegExpEditorGUIDialog(QWidget *parent,
-        const QVariantList &)
+KRegExpEditorGUIDialog::KRegExpEditorGUIDialog(QWidget *parent, const QVariantList &)
     : QDialog(parent)
 {
     setWindowTitle(i18n("Regular Expression Editor"));
@@ -85,4 +84,3 @@ void KRegExpEditorGUIDialog::setMatchText(const QString &txt)
 {
     _editor->setMatchText(txt);
 }
-

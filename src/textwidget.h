@@ -35,13 +35,13 @@ class TextWidget : public RegExpWidget
 
 public:
     TextWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
-    TextWidget(TextRegExp *regexp,  RegExpEditorWindow *editorWindow,
-               QWidget *parent);
+    TextWidget(TextRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent);
     virtual RegExp *regExp() const;
     virtual RegExpType type() const
     {
         return TEXT;
     }
+
     virtual void updateAll();
     virtual void selectWidget(bool);
 

@@ -23,19 +23,17 @@
 
 #include "kmultiformlistboxfactory.h"
 
-KMultiFormListBox::KMultiFormListBox(KMultiFormListBoxFactory *factory, KMultiFormListBoxType tp, QWidget *parent,
-                                     bool showUpDownButtons, bool showHelpButton, QString addButtonText)
+KMultiFormListBox::KMultiFormListBox(KMultiFormListBoxFactory *factory, KMultiFormListBoxType tp, QWidget *parent, bool showUpDownButtons, bool showHelpButton, QString addButtonText)
     : QWidget(parent)
 {
     switch (tp) {
-
     case MultiVisible:
         theWidget = new KMultiFormListBoxMultiVisible(factory, this);
         break;
 
     case Windowed:
         theWidget = new KMultiFormListBoxWindowed(factory, this, showUpDownButtons,
-                showHelpButton, addButtonText);
+                                                  showHelpButton, addButtonText);
         break;
     }
 
@@ -103,4 +101,3 @@ void KMultiFormListBox::fromStream(QDataStream &stream)
         _factory->fromStream(stream, entry);
     }
 }
-

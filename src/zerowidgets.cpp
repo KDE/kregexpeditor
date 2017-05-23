@@ -29,8 +29,7 @@
 //--------------------------------------------------------------------------------
 //                                ZeroWidget
 //--------------------------------------------------------------------------------
-ZeroWidget::ZeroWidget(QString txt, RegExpEditorWindow *editorWindow,
-                       QWidget *parent)
+ZeroWidget::ZeroWidget(QString txt, RegExpEditorWindow *editorWindow, QWidget *parent)
     : RegExpWidget(editorWindow, parent)
 {
     _text = txt;
@@ -90,7 +89,6 @@ BegLineWidget::BegLineWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
 RegExp *BegLineWidget::regExp() const
 {
     return new PositionRegExp(isSelected(), PositionRegExp::BEGLINE);
-
 }
 
 //--------------------------------------------------------------------------------
@@ -131,4 +129,3 @@ RegExp *NonWordBoundaryWidget::regExp() const
 {
     return new PositionRegExp(isSelected(), PositionRegExp::NONWORDBOUNDARY);
 }
-

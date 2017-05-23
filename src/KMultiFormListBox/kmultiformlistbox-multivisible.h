@@ -40,7 +40,6 @@ class KMultiFormListBoxFactory;
 */
 class KMultiFormListBoxMultiVisible : public QScrollArea, KMultiFormListBoxShower
 {
-
     Q_OBJECT
 
     friend class KMultiFormListBox;

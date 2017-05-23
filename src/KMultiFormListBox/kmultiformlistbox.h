@@ -27,7 +27,7 @@ class QDataStream;
 class KMultiFormListBoxFactory;
 class KMultiFormListBoxShower;
 
-typedef QList<KMultiFormListBoxEntry *> KMultiFormListBoxEntryList ;
+typedef QList<KMultiFormListBoxEntry *> KMultiFormListBoxEntryList;
 typedef QList<QWidget *> WidgetList;
 
 /**
@@ -54,22 +54,21 @@ typedef QList<QWidget *> WidgetList;
  **/
 class KMultiFormListBox : public QWidget
 {
-
     Q_OBJECT
 
 public:
 
-    enum KMultiFormListBoxType {MultiVisible, Windowed};
+    enum KMultiFormListBoxType {
+        MultiVisible, Windowed
+    };
 
     /**
        @param factory A factory used to generate the instances of
        KMultiFormListBoxEntry class which is repeated in the KMultiFormListBox
        @param parent A pointer to the parent widget
      **/
-    explicit KMultiFormListBox(KMultiFormListBoxFactory *factory,
-                               KMultiFormListBoxType tp = Windowed,
-                               QWidget *parent = 0, bool showUpDownButtons = true,
-                               bool showHelpButton = true, QString addButtonText = i18n("Add"));
+    explicit KMultiFormListBox(KMultiFormListBoxFactory *factory, KMultiFormListBoxType tp = Windowed, QWidget *parent = 0, bool showUpDownButtons = true, bool showHelpButton = true,
+                               QString addButtonText = i18n("Add"));
 
     /**
        @return The elements in the KMultiFormListBox.
@@ -109,8 +108,6 @@ public Q_SLOTS:
 private:
     KMultiFormListBoxShower *theWidget;
     KMultiFormListBoxFactory *_factory;
-
 };
 
 #endif /* kmultiformlistbox */
-

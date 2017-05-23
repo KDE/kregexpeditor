@@ -43,38 +43,48 @@
 
 bool WidgetFactory::isContainer(RegExpType tp)
 {
-    return (tp == REPEAT || tp == ALTN || tp == COMPOUND);
+    return tp == REPEAT || tp == ALTN || tp == COMPOUND;
 }
 
-RegExpWidget *WidgetFactory::createWidget(RegExpEditorWindow *win, QWidget *parent,
-        RegExpType type)
+RegExpWidget *WidgetFactory::createWidget(RegExpEditorWindow *win, QWidget *parent, RegExpType type)
 {
     RegExpWidget *widget = 0;
 
     switch (type) {
     case TEXT:
-        return new TextWidget(win, parent); break;
+        return new TextWidget(win, parent);
+        break;
     case ALTN:
-        return  new AltnWidget(win, parent); break;
+        return new AltnWidget(win, parent);
+        break;
     case DOT:
-        return  new AnyCharWidget(win, parent); break;
+        return new AnyCharWidget(win, parent);
+        break;
     case BEGLINE:
-        return new BegLineWidget(win, parent); break;
+        return new BegLineWidget(win, parent);
+        break;
     case ENDLINE:
-        return new EndLineWidget(win, parent); break;
+        return new EndLineWidget(win, parent);
+        break;
     case WORDBOUNDARY:
-        return new WordBoundaryWidget(win, parent); break;
+        return new WordBoundaryWidget(win, parent);
+        break;
     case NONWORDBOUNDARY:
-        return new NonWordBoundaryWidget(win, parent); break;
+        return new NonWordBoundaryWidget(win, parent);
+        break;
     case POSLOOKAHEAD:
     case NEGLOOKAHEAD:
-        return new LookAheadWidget(win, type, parent); break;
+        return new LookAheadWidget(win, type, parent);
+        break;
     case REPEAT:
-        widget = new RepeatWidget(win, parent); break;
+        widget = new RepeatWidget(win, parent);
+        break;
     case CHARSET:
-        widget = new CharactersWidget(win, parent); break;
+        widget = new CharactersWidget(win, parent);
+        break;
     case COMPOUND:
-        widget = new CompoundWidget(win, parent); break;
+        widget = new CompoundWidget(win, parent);
+        break;
     default:
         qFatal("It should not be possible to get here!");
         return 0;
@@ -87,8 +97,7 @@ RegExpWidget *WidgetFactory::createWidget(RegExpEditorWindow *win, QWidget *pare
     return widget;
 }
 
-RegExpWidget *WidgetFactory::createWidget(RegExp *regexp, RegExpEditorWindow *editorWindow,
-        QWidget *parent)
+RegExpWidget *WidgetFactory::createWidget(RegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent)
 {
     if (regexp == 0) {
         qFatal("%s:%d Regexp is 0", __FILE__, __LINE__);
@@ -161,7 +170,7 @@ RegExp *WidgetFactory::createRegExp(QDomElement node, const QString &version)
         regexp = new RepeatRegExp(false);
     } else {
         KMessageBox::sorry(0, i18n("<p>Unknown tag while reading XML. Tag was <b>%1</b></p>", tag),
-                           i18n("Error While Loading From XML File")) ;
+                           i18n("Error While Loading From XML File"));
 
         return 0;
     }
@@ -186,25 +195,24 @@ RegExp *WidgetFactory::createRegExp(QString str)
         qDebug() << error << "at line" << errorLine << "xml was:";
         qDebug() << str;
         KMessageBox::sorry(0, i18n("Error while loading regular expression from XML.") + QLatin1Char('\n') + error,
-                           i18n("Error While Loading Regular Expression From XML")) ;
+                           i18n("Error While Loading Regular Expression From XML"));
     }
 
     // Read the RegularExpression element, and extract the version.
     QDomElement top = doc.documentElement();
     if (!(top.tagName() == QString::fromLocal8Bit("RegularExpression"))) {
         KMessageBox::sorry(0, i18n("<p>XML file did not contain a <b>%1</b> tag.</p>", QString::fromLatin1("RegularExpression")),
-                           i18n("Error While Loading From XML File")) ;
+                           i18n("Error While Loading From XML File"));
     }
     QString version = top.attribute(QString::fromLocal8Bit("version"), KRegExpEditorGUI::version);
     QDomNode child = top.firstChild();
-    if (! child.isElement()) {
+    if (!child.isElement()) {
         KMessageBox::sorry(0, i18n("<p>Error while reading XML file. The element just below the tag "
                                    "<b>%1</b> was not an element.</p>", QString::fromLatin1("RegularExpression")),
-                           i18n("Error While Loading From XML File")) ;
+                           i18n("Error While Loading From XML File"));
     }
 
     RegExp *regexp = WidgetFactory::createRegExp(child.toElement(), version);
 
     return regexp;
 }
-

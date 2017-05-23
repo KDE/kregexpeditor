@@ -37,7 +37,9 @@ class RepeatRangeWindow : public QWidget
     Q_OBJECT
 
 public:
-    enum REPEATTYPE {ANY, ATLEAST, ATMOST, EXACTLY, MINMAX}; // krazy:exclude=spelling
+    enum REPEATTYPE {
+        ANY, ATLEAST, ATMOST, EXACTLY, MINMAX
+    };                                                       // krazy:exclude=spelling
 
     RepeatRangeWindow(QWidget *parent);
     QString text();
@@ -72,8 +74,7 @@ class RepeatWidget : public SingleContainerWidget
 
 public:
     RepeatWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
-    RepeatWidget(RepeatRegExp *regexp, RegExpEditorWindow *editorWindow,
-                 QWidget *parent);
+    RepeatWidget(RepeatRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent);
     void init();
     virtual QSize sizeHint() const;
     virtual RegExp *regExp() const;
@@ -81,6 +82,7 @@ public:
     {
         return REPEAT;
     }
+
     virtual int edit();
 
 protected:

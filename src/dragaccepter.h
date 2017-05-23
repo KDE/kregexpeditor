@@ -39,6 +39,7 @@ public:
     {
         return DRAGACCEPTER;
     }
+
     void setDrawLine(bool drawLine)
     {
         _drawLine = drawLine;
@@ -54,6 +55,7 @@ protected:
     {
         return true;
     }
+
     virtual bool acceptWidgetPaste() const
     {
         return true;

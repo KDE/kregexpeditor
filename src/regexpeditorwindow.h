@@ -92,10 +92,12 @@ public:
     {
         return _pasteData;
     }
+
     bool isPasteing() const
     {
         return _pasteInAction;
     }
+
     bool isInserting() const
     {
         return _insertInAction;

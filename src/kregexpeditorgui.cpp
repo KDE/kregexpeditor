@@ -30,10 +30,9 @@
 
 const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
 
-KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent,
-                                   const QVariantList &)
-    : QWidget(parent),
-      _editor(new KRegExpEditorPrivate(this))
+KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent, const QVariantList &)
+    : QWidget(parent)
+    , _editor(new KRegExpEditorPrivate(this))
 {
     setWindowFlags(windowFlags() | Qt::Dialog);
 
@@ -96,13 +95,13 @@ void KRegExpEditorGUI::setRegExp(const QString &regexp)
 void KRegExpEditorGUI::doSomething(const QString &method, void *arguments)
 {
     if (method == QString::fromLatin1("setCaseSensitive")) {
-        _editor->setCaseSensitive((bool) arguments);
+        _editor->setCaseSensitive((bool)arguments);
     } else if (method == QString::fromLatin1("setMinimal")) {
-        _editor->setMinimal((bool) arguments);
+        _editor->setMinimal((bool)arguments);
     } else if (method == QString::fromLatin1("setSyntax")) {
-        _editor->setSyntax(*((QString *) arguments));
+        _editor->setSyntax(*((QString *)arguments));
     } else if (method == QString::fromLatin1("setAllowNonQtSyntax")) {
-        _editor->setAllowNonQtSyntax((bool) arguments);
+        _editor->setAllowNonQtSyntax((bool)arguments);
     } else {
         qFatal("%s", qPrintable(tr("Method '%1' is not valid!").arg(method)));
     }
@@ -117,4 +116,3 @@ void KRegExpEditorGUI::showHelp()
 {
     KHelpClient::invokeHelp(QString(), QStringLiteral("kregexpeditor"));
 }
-

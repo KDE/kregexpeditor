@@ -29,4 +29,3 @@ void DoubleClickButton::mouseDoubleClickEvent(QMouseEvent *)
 {
     emit doubleClicked();
 }
-

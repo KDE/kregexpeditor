@@ -42,8 +42,7 @@ RepeatWidget::RepeatWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
     init();
 }
 
-RepeatWidget::RepeatWidget(RepeatRegExp *regexp, RegExpEditorWindow *editorWindow,
-                           QWidget *parent)
+RepeatWidget::RepeatWidget(RepeatRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent)
     : SingleContainerWidget(editorWindow, parent)
 {
     init();
@@ -99,7 +98,7 @@ QSize RepeatWidget::sizeHint() const
     _childSize = _child->sizeHint();
 
     int height = _textSize.height() + bdSize + _childSize.height() + bdSize + 2 * pw;
-    int width  = 2 * pw + qMax(_childSize.width(), 4 * bdSize + _textSize.width());
+    int width = 2 * pw + qMax(_childSize.width(), 4 * bdSize + _textSize.width());
     return QSize(width, height);
 }
 
@@ -165,7 +164,7 @@ void RepeatWidget::slotConfigCanceled()
 int RepeatWidget::edit()
 {
     _configWindow->move(QCursor::pos() - QPoint(_configWindow->sizeHint().width() / 2,
-                        _configWindow->sizeHint().height() / 2));
+                                                _configWindow->sizeHint().height() / 2));
     QDataStream stream(&_backup, QIODevice::WriteOnly);
 
     stream.setVersion(QDataStream::Qt_3_1);
@@ -260,10 +259,17 @@ void RepeatRangeWindow::slotItemChange(int which)
     _rangeTo->setEnabled(false);
 
     switch (which) {
-    case ANY: break;
-    case ATLEAST: _leastTimes->setEnabled(true); break;   // krazy:exclude=spelling
-    case ATMOST: _mostTimes->setEnabled(true); break;
-    case EXACTLY: _exactlyTimes->setEnabled(true); break;
+    case ANY:
+        break;
+    case ATLEAST:
+        _leastTimes->setEnabled(true);
+        break;                                            // krazy:exclude=spelling
+    case ATMOST:
+        _mostTimes->setEnabled(true);
+        break;
+    case EXACTLY:
+        _exactlyTimes->setEnabled(true);
+        break;
     case MINMAX:
         _rangeFrom->setEnabled(true);
         _rangeTo->setEnabled(true);
@@ -288,12 +294,17 @@ void RepeatRangeWindow::slotUpdateMaxVal(int minVal)
 QString RepeatRangeWindow::text()
 {
     switch (_group->checkedId()) {
-    case ANY: return i18n("Repeated Any Number of Times");
-    case ATLEAST: return i18np("Repeated at Least 1 Time", "Repeated at Least %1 Times", _leastTimes->value());  // krazy:exclude=spelling
-    case ATMOST: return i18np("Repeated at Most 1 Time", "Repeated at Most %1 Times", _mostTimes->value());
-    case EXACTLY: return i18np("Repeated Exactly 1 Time", "Repeated Exactly %1 Times", _exactlyTimes->value());
-    case MINMAX: return i18n("Repeated From %1 to %2 Times",
-                                 _rangeFrom->value(), _rangeTo->value());
+    case ANY:
+        return i18n("Repeated Any Number of Times");
+    case ATLEAST:
+        return i18np("Repeated at Least 1 Time", "Repeated at Least %1 Times", _leastTimes->value());            // krazy:exclude=spelling
+    case ATMOST:
+        return i18np("Repeated at Most 1 Time", "Repeated at Most %1 Times", _mostTimes->value());
+    case EXACTLY:
+        return i18np("Repeated Exactly 1 Time", "Repeated Exactly %1 Times", _exactlyTimes->value());
+    case MINMAX:
+        return i18n("Repeated From %1 to %2 Times",
+                    _rangeFrom->value(), _rangeTo->value());
     }
 
     qFatal("Fall through!");
@@ -303,11 +314,16 @@ QString RepeatRangeWindow::text()
 int RepeatRangeWindow::min()
 {
     switch (_group->checkedId()) {
-    case ANY: return 0;
-    case ATLEAST: return _leastTimes->value(); // krazy:exclude=spelling
-    case ATMOST: return 0;
-    case EXACTLY: return _exactlyTimes->value();
-    case MINMAX: return _rangeFrom->value();
+    case ANY:
+        return 0;
+    case ATLEAST:
+        return _leastTimes->value();           // krazy:exclude=spelling
+    case ATMOST:
+        return 0;
+    case EXACTLY:
+        return _exactlyTimes->value();
+    case MINMAX:
+        return _rangeFrom->value();
     }
     qFatal("Fall through!");
     return -1;
@@ -316,11 +332,16 @@ int RepeatRangeWindow::min()
 int RepeatRangeWindow::max()
 {
     switch (_group->checkedId()) {
-    case ANY: return -1;
-    case ATLEAST: return -1; // krazy:exclude=spelling
-    case ATMOST: return _mostTimes->value();
-    case EXACTLY: return _exactlyTimes->value();
-    case MINMAX:  return _rangeTo->value();
+    case ANY:
+        return -1;
+    case ATLEAST:
+        return -1;           // krazy:exclude=spelling
+    case ATMOST:
+        return _mostTimes->value();
+    case EXACTLY:
+        return _exactlyTimes->value();
+    case MINMAX:
+        return _rangeTo->value();
     }
     qFatal("Fall through!");
     return -1;
@@ -347,4 +368,3 @@ void RepeatRangeWindow::set(REPEATTYPE tp, int min, int max)
         break;
     }
 }
-

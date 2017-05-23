@@ -28,14 +28,14 @@ class LookAheadWidget : public SingleContainerWidget
     Q_OBJECT
 public:
     LookAheadWidget(RegExpEditorWindow *editorWindow, RegExpType tp, QWidget *parent);
-    LookAheadWidget(LookAheadRegExp *regexp, RegExpEditorWindow *editorWindow, RegExpType tp,
-                    QWidget *parent);
+    LookAheadWidget(LookAheadRegExp *regexp, RegExpEditorWindow *editorWindow, RegExpType tp, QWidget *parent);
 
     virtual RegExp *regExp() const;
     virtual RegExpType type() const
     {
         return _tp;
     }
+
     virtual QSize sizeHint() const;
     virtual RegExpWidget *findWidgetToEdit(QPoint globalPos);
 

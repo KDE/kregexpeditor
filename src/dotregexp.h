@@ -36,6 +36,7 @@ public:
     {
         return 4;
     }
+
     virtual QDomNode toXml(QDomDocument *doc) const;
     virtual bool load(QDomElement, const QString &version);
     virtual RegExpType type() const
@@ -45,4 +46,3 @@ public:
 };
 
 #endif // DOTREGEXP_H
-

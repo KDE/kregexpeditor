@@ -48,7 +48,8 @@ public:
 };
 
 CharSelector::CharSelector(QWidget *parent)
-    : QWidget(parent), _oldIndex(0)
+    : QWidget(parent)
+    , _oldIndex(0)
 {
     QStringList items;
     QHBoxLayout *layout = new QHBoxLayout(this);
@@ -69,7 +70,7 @@ CharSelector::CharSelector(QWidget *parent)
     _type->addItems(items);
     layout->addWidget(_type);
 
-    _stack = new QStackedWidget(this/*, "_stack"*/);
+    _stack = new QStackedWidget(this /*, "_stack"*/);
     layout->addWidget(_stack);
 
     _normal = new LimitedCharLineEdit(LimitedCharLineEdit::NORMAL, 0, QStringLiteral("_normal"));
@@ -146,9 +147,9 @@ void CharSelector::setText(QString text)
 
 bool CharSelector::isEmpty() const
 {
-    return (_type->currentIndex() == 0 && _normal->text().isEmpty()) ||
-           (_type->currentIndex() == 1 && _hex->text().isEmpty()) ||
-           (_type->currentIndex() == 2 && _oct->text().isEmpty());
+    return (_type->currentIndex() == 0 && _normal->text().isEmpty())
+           || (_type->currentIndex() == 1 && _hex->text().isEmpty())
+           || (_type->currentIndex() == 2 && _oct->text().isEmpty());
 }
 
 QString CharSelector::text() const
@@ -177,4 +178,3 @@ QString CharSelector::text() const
     }
     return QString();
 }
-

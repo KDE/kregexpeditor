@@ -41,4 +41,3 @@ public:
 };
 
 #endif /* QTREGEXPCONVERTER_H */
-

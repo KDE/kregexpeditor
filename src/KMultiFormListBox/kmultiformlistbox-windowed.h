@@ -34,20 +34,16 @@ class QPushButton;
 
    @internal
 */
-class KMultiFormListBoxWindowed  : public QWidget, KMultiFormListBoxShower
+class KMultiFormListBoxWindowed : public QWidget, KMultiFormListBoxShower
 {
-
     Q_OBJECT
 
     friend class KMultiFormListBox;
 
 private:
-    KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent,
-                              bool
-                              showUpDownButtons,
-                              bool
-                              showHelpButton,
-                              QString
+    KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent, bool
+                              showUpDownButtons, bool
+                              showHelpButton, QString
                               addButtonText);
 
     KMultiFormListBoxEntryList elements();
@@ -81,8 +77,6 @@ private slots:
     void slotMoveItemDown();
     void slotDeleteEntry();
     void slotUpdateButtonState();
-
 };
 
 #endif /* kmultiformlistboxwindowed */
-

@@ -51,12 +51,15 @@ class KMultiFormListBoxEntry : public QWidget
     Q_OBJECT
 
 public:
-    KMultiFormListBoxEntry(QWidget *parent) : QWidget(parent) {}
+    KMultiFormListBoxEntry(QWidget *parent) : QWidget(parent)
+    {
+    }
 
     virtual QPushButton *indexButton()
     {
         return 0;
     }
+
     virtual QWidget *valueWidget()
     {
         return 0;
@@ -76,8 +79,6 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void gotoIndex(KMultiFormListBoxEntry *);
-
 };
 
 #endif /* kmultiformlistboxentry */
-

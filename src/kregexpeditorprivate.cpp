@@ -47,34 +47,37 @@
 #include "regexp.h"
 
 KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
-    : QMainWindow(parent), _updating(false), _autoVerify(true), _matchGreedy(false)
+    : QMainWindow(parent)
+    , _updating(false)
+    , _autoVerify(true)
+    , _matchGreedy(false)
 {
     setMinimumSize(730, 300);
     setWindowFlags(Qt::Widget);
 
     // The DockWindows.
-    _regExpButtons = new RegExpButtons(/*area*/this, QStringLiteral( "KRegExpEditorPrivate::regExpButton"));
+    _regExpButtons = new RegExpButtons(/*area*/ this, QStringLiteral("KRegExpEditorPrivate::regExpButton"));
     addToolBar(Qt::TopToolBarArea, _regExpButtons);
 
-    _verifyButtons = new VerifyButtons(/*area*/this, QStringLiteral("KRegExpEditorPrivate::VerifyButtons"));
+    _verifyButtons = new VerifyButtons(/*area*/ this, QStringLiteral("KRegExpEditorPrivate::VerifyButtons"));
     addToolBar(Qt::TopToolBarArea, _verifyButtons);
 
-    _auxButtons = new AuxButtons(/*area*/this, QStringLiteral("KRegExpEditorPrivate::AuxButtons"));
+    _auxButtons = new AuxButtons(/*area*/ this, QStringLiteral("KRegExpEditorPrivate::AuxButtons"));
     addToolBar(Qt::TopToolBarArea, _auxButtons);
 
-    _userRegExps = new UserDefinedRegExps(/*verArea1*/this, /*"KRegExpEditorPrivate::userRegExps"*/i18n("Compound regular expression:"));
+    _userRegExps = new UserDefinedRegExps(/*verArea1*/ this, /*"KRegExpEditorPrivate::userRegExps"*/ i18n("Compound regular expression:"));
     _userRegExps->setWhatsThis(i18n("In this window you will find predefined regular expressions. Both regular expressions "
                                     "you have developed and saved, and regular expressions shipped with the system."));
     addDockWidget(Qt::LeftDockWidgetArea, _userRegExps);
 
     // Editor window
     _editor = new QSplitter(Qt::Vertical, this);
-    _editor ->setObjectName(QStringLiteral("KRegExpEditorPrivate::_editor"));
+    _editor->setObjectName(QStringLiteral("KRegExpEditorPrivate::_editor"));
 
     _scrolledEditorWindow = new RegExpScrolledEditorWindow(_editor);
     _scrolledEditorWindow->setWhatsThis(i18n("In this window you will develop your regular expressions. "
-                                        "Select one of the actions from the action buttons above, and click the mouse in this "
-                                        "window to insert the given action."));
+                                             "Select one of the actions from the action buttons above, and click the mouse in this "
+                                             "window to insert the given action."));
 
     _info = new InfoPage(this);
     _info->setObjectName(QStringLiteral("_info"));
@@ -97,13 +100,13 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     setCentralWidget(centralWidget);
 
     // Connect the buttons
-    connect(_regExpButtons, SIGNAL(clicked(int)),   _scrolledEditorWindow, SLOT(slotInsertRegExp(int)));
+    connect(_regExpButtons, SIGNAL(clicked(int)), _scrolledEditorWindow, SLOT(slotInsertRegExp(int)));
     connect(_regExpButtons, SIGNAL(doSelect()), _scrolledEditorWindow, SLOT(slotDoSelect()));
-    connect(_userRegExps, SIGNAL(load(RegExp *)),    _scrolledEditorWindow, SLOT(slotInsertRegExp(RegExp *)));
+    connect(_userRegExps, SIGNAL(load(RegExp *)), _scrolledEditorWindow, SLOT(slotInsertRegExp(RegExp *)));
 
-    connect(_regExpButtons, SIGNAL(clicked(int)), _userRegExps,   SLOT(slotUnSelect()));
-    connect(_regExpButtons, SIGNAL(doSelect()),     _userRegExps,   SLOT(slotUnSelect()));
-    connect(_userRegExps, SIGNAL(load(RegExp *)),  _regExpButtons, SLOT(slotUnSelect()));
+    connect(_regExpButtons, SIGNAL(clicked(int)), _userRegExps, SLOT(slotUnSelect()));
+    connect(_regExpButtons, SIGNAL(doSelect()), _userRegExps, SLOT(slotUnSelect()));
+    connect(_userRegExps, SIGNAL(load(RegExp *)), _regExpButtons, SLOT(slotUnSelect()));
 
     connect(_scrolledEditorWindow, SIGNAL(doneEditing()), _regExpButtons, SLOT(slotSelectNewAction()));
     connect(_scrolledEditorWindow, SIGNAL(doneEditing()), _userRegExps, SLOT(slotSelectNewAction()));
@@ -122,7 +125,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     connect(_auxButtons, SIGNAL(save()), _scrolledEditorWindow, SLOT(slotSave()));
     connect(_verifyButtons, SIGNAL(autoVerify(bool)), this, SLOT(setAutoVerify(bool)));
     connect(_verifyButtons, SIGNAL(verify()), this, SLOT(doVerify()));
-    connect(_verifyButtons, SIGNAL(changeSyntax(const QString &)), this, SLOT(setSyntax(const QString &)));
+    connect(_verifyButtons, SIGNAL(changeSyntax(const QString&)), this, SLOT(setSyntax(const QString&)));
     connect(_verifyButtons, SIGNAL(matchGreedy(bool)), this, SLOT(setMatchGreedy(bool)));
 
     connect(this, SIGNAL(canUndo(bool)), _auxButtons, SLOT(slotCanUndo(bool)));
@@ -134,7 +137,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
 
     connect(_scrolledEditorWindow, SIGNAL(verifyRegExp()), this, SLOT(maybeVerify()));
 
-    connect(_verifyButtons, SIGNAL(loadVerifyText(const QString &)), this, SLOT(setVerifyText(const QString &)));
+    connect(_verifyButtons, SIGNAL(loadVerifyText(const QString&)), this, SLOT(setVerifyText(const QString&)));
 
     // connect( _verifier, SIGNAL( countChanged( int ) ), _verifyButtons, SLOT( setMatchCount( int ) ) );
 
@@ -182,17 +185,16 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     _timer->setSingleShot(true);
 
     connect(_scrolledEditorWindow, SIGNAL(change()), this, SLOT(slotUpdateLineEdit()));
-    connect(_regexpEdit, SIGNAL(textChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
+    connect(_regexpEdit, SIGNAL(textChanged(const QString&)), this, SLOT(slotTriggerUpdate()));
     connect(_timer, SIGNAL(timeout()), this, SLOT(slotTimeout()));
 
     // Push an initial empty element on the stack.
     _undoStack.push(_scrolledEditorWindow->regExp());
 
-    (void) new QShortcut(Qt::CTRL + Qt::Key_Z , this, SLOT(slotUndo()));
-    (void) new QShortcut(Qt::CTRL + Qt::Key_R , this, SLOT(slotRedo()));
+    (void)new QShortcut(Qt::CTRL + Qt::Key_Z, this, SLOT(slotUndo()));
+    (void)new QShortcut(Qt::CTRL + Qt::Key_R, this, SLOT(slotRedo()));
 
     setSyntax(QString::fromLatin1("Qt"));
-
 }
 
 KRegExpEditorPrivate::~KRegExpEditorPrivate()
@@ -433,4 +435,3 @@ void KRegExpEditorPrivate::setMatchGreedy(bool b)
     _verifier->setMinimal(!b);
     doVerify();
 }
-

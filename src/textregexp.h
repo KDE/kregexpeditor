@@ -39,10 +39,12 @@ public:
             return 4;
         }
     }
+
     QString text() const
     {
         return _text;
     }
+
     virtual QDomNode toXml(QDomDocument *doc) const;
     virtual bool load(QDomElement, const QString &version);
     void append(QString str);
@@ -50,6 +52,7 @@ public:
     {
         return TEXT;
     }
+
     virtual bool operator==(const RegExp &other) const;
 
 private:

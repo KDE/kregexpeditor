@@ -21,7 +21,9 @@
 #include <KMessageBox>
 #include <KLocalizedString>
 
-ErrorMap::ErrorMap() : _prevLineStartError(false), _prevLineEndError(false), _prevLookAHeadError(false)
+ErrorMap::ErrorMap() : _prevLineStartError(false)
+    , _prevLineEndError(false)
+    , _prevLookAHeadError(false)
 {
 }
 
@@ -41,7 +43,7 @@ void ErrorMap::end()
 
 void ErrorMap::lineStartError()
 {
-    if (! _prevLineStartError) {
+    if (!_prevLineStartError) {
         KMessageBox::information(0, i18n("Your regular expression is invalid, due to something preceding a 'line start'."),
                                  i18n("Regular Expression Error"), QString::fromLatin1("KRegExpEditorLineStartError"));
     }
@@ -65,4 +67,3 @@ void ErrorMap::lookAheadError()
     }
     _lookAHeadError = true;
 }
-
