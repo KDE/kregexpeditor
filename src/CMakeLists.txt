@@ -88,11 +88,11 @@ install(TARGETS kregexpeditorcommon ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### next target ###############
 
-set(kregexpeditorgui_PART_SRCS kregexpeditorfactory.h )
+set(kregexpeditorgui_PART_SRCS kregexpeditorfactory.cpp )
 
 add_library(kregexpeditorgui MODULE ${kregexpeditorgui_PART_SRCS})
 
-target_link_libraries(kregexpeditorgui  KF5::KIOCore kregexpeditorcommon)
+target_link_libraries(kregexpeditorgui  KF5::Service kregexpeditorcommon)
 
 install(TARGETS kregexpeditorgui DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
