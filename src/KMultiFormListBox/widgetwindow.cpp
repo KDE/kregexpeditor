@@ -57,7 +57,7 @@ void WidgetWindow::init(KMultiFormListBoxFactory *factory, QListWidget *lb, KMul
     lay->setSpacing(-1);
     lay->setMargin(0);
 
-    if (widget != 0) {
+    if (widget != nullptr) {
         myWidget = widget;
         widget->setParent(frame);
     } else {
@@ -70,7 +70,7 @@ void WidgetWindow::init(KMultiFormListBoxFactory *factory, QListWidget *lb, KMul
 
     lay->addWidget(myWidget);
 
-    if (widget != 0) {
+    if (widget != nullptr) {
         initialShow = false;
         myListboxItem = new WindowListboxItem(listbox, myWidget->idxString(), this);
     } else {

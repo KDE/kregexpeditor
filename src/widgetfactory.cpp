@@ -48,7 +48,7 @@ bool WidgetFactory::isContainer(RegExpType tp)
 
 RegExpWidget *WidgetFactory::createWidget(RegExpEditorWindow *win, QWidget *parent, RegExpType type)
 {
-    RegExpWidget *widget = 0;
+    RegExpWidget *widget = nullptr;
 
     switch (type) {
     case TEXT:

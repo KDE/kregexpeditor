@@ -63,7 +63,7 @@ bool AltnRegExp::load(QDomElement top, const QString &version)
         }
 
         RegExp *regexp = WidgetFactory::createRegExp(child.toElement(), version);
-        if (regexp == 0) {
+        if (regexp == nullptr) {
             return false;
         }
         addRegExp(regexp);

@@ -32,7 +32,7 @@ public:
         POSITIVE, NEGATIVE
     };
 
-    LookAheadRegExp(bool selected, TYPE tp, RegExp *child = 0);
+    LookAheadRegExp(bool selected, TYPE tp, RegExp *child = nullptr);
 
     bool check(ErrorMap &, bool first, bool last) override;
     int precedence() const override
