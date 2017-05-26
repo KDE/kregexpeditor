@@ -135,7 +135,7 @@ class CharacterEdits : public QDialog
 {
     Q_OBJECT
 public:
-    CharacterEdits(QWidget *parent = 0);
+    explicit CharacterEdits(QWidget *parent = nullptr);
 
 public slots:
     void setRegexp(TextRangeRegExp *regexp);
@@ -147,8 +147,8 @@ private:
     QCheckBox *negate, *wordChar, *_nonWordChar, *digit, *_nonDigit, *space, *_nonSpace;
     KMultiFormListBox *_single, *_range;
 
-    void addCharacter(QString txt);
-    void addRange(QString from, QString to);
+    void addCharacter(const QString &txt);
+    void addRange(const QString &from, const QString &to);
     TextRangeRegExp *_regexp;
 };
 

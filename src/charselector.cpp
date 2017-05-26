@@ -108,7 +108,7 @@ void CharSelector::slotNewItem(int which)
     _oldIndex = which;
 }
 
-void CharSelector::setText(QString text)
+void CharSelector::setText(const QString &text)
 {
     // This is the best I can do about missing character range features, unless all of
     // textrangeregexp is to be reworked. The problem is that textrangeregexp only allows to

@@ -37,12 +37,12 @@ class CompoundRegExp;
 class CompoundDetailWindow : public QWidget
 {
 public:
-    CompoundDetailWindow(QWidget *parent);
+    explicit CompoundDetailWindow(QWidget *parent);
     QString title() const;
     QString description() const;
     bool allowReplace() const;
-    void setTitle(QString);
-    void setDescription(QString);
+    void setTitle(const QString& );
+    void setDescription(const QString &);
     void setAllowReplace(bool);
 
 private:

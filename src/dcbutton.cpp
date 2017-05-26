@@ -18,7 +18,7 @@
 
 #include "dcbutton.h"
 
-DoubleClickButton::DoubleClickButton(QPixmap pixmap, QWidget *parent, const QString &name)
+DoubleClickButton::DoubleClickButton(const QPixmap &pixmap, QWidget *parent, const QString &name)
     : QToolButton(parent)
 {
     setObjectName(name);

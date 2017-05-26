@@ -32,7 +32,7 @@
 #include "myfontmetrics.h"
 #include "regexpconverter.h"
 
-CharacterEdits *CharactersWidget::_configWindow = 0;
+CharacterEdits *CharactersWidget::_configWindow = nullptr;
 
 CharactersWidget::CharactersWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
     : RegExpWidget(editorWindow, parent)
@@ -192,7 +192,7 @@ int CharactersWidget::edit()
     return ret;
 }
 
-void CharacterEdits::addCharacter(QString txt)
+void CharacterEdits::addCharacter(const QString &txt)
 {
     KMultiFormListBoxEntryList list = _single->elements();
     foreach (KMultiFormListBoxEntry *e, list) {
@@ -208,7 +208,7 @@ void CharacterEdits::addCharacter(QString txt)
     _single->append(entry);
 }
 
-void CharacterEdits::addRange(QString from, QString to)
+void CharacterEdits::addRange(const QString &from, const QString &to)
 {
     KMultiFormListBoxEntryList list = _range->elements();
     foreach (KMultiFormListBoxEntry *e, list) {

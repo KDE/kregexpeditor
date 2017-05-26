@@ -81,12 +81,12 @@ bool CompoundDetailWindow::allowReplace() const
     return _allowReplace->isChecked();
 }
 
-void CompoundDetailWindow::setTitle(QString txt)
+void CompoundDetailWindow::setTitle(const QString &txt)
 {
     _title->setText(txt);
 }
 
-void CompoundDetailWindow::setDescription(QString txt)
+void CompoundDetailWindow::setDescription(const QString &txt)
 {
     _description->setText(txt);
 }
