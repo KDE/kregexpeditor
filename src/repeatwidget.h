@@ -76,17 +76,17 @@ public:
     RepeatWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
     RepeatWidget(RepeatRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent);
     void init();
-    virtual QSize sizeHint() const;
-    virtual RegExp *regExp() const;
-    virtual RegExpType type() const
+    QSize sizeHint() const override;
+    RegExp *regExp() const override;
+    RegExpType type() const override
     {
         return REPEAT;
     }
 
-    virtual int edit();
+    int edit() override;
 
 protected:
-    virtual void paintEvent(QPaintEvent *e);
+    void paintEvent(QPaintEvent *e) override;
 
 protected slots:
     void slotConfigCanceled();

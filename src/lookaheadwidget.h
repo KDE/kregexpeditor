@@ -30,18 +30,18 @@ public:
     LookAheadWidget(RegExpEditorWindow *editorWindow, RegExpType tp, QWidget *parent);
     LookAheadWidget(LookAheadRegExp *regexp, RegExpEditorWindow *editorWindow, RegExpType tp, QWidget *parent);
 
-    virtual RegExp *regExp() const;
-    virtual RegExpType type() const
+    RegExp *regExp() const override;
+    RegExpType type() const override
     {
         return _tp;
     }
 
-    virtual QSize sizeHint() const;
-    virtual RegExpWidget *findWidgetToEdit(QPoint globalPos);
+    QSize sizeHint() const override;
+    RegExpWidget *findWidgetToEdit(QPoint globalPos) override;
 
 protected:
     void init();
-    virtual void paintEvent(QPaintEvent *e);
+    void paintEvent(QPaintEvent *e) override;
 
 private:
     RegExpType _tp;

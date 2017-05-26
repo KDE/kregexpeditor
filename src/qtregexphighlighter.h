@@ -29,7 +29,7 @@ class QtRegexpHighlighter : public RegexpHighlighter
 {
 public:
     QtRegexpHighlighter(QTextEdit *verifier);
-    virtual void highlightBlock(const QString &text);
+    void highlightBlock(const QString &text) override;
 
 private:
     QTextEdit *_editor;

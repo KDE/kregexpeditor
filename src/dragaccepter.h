@@ -33,9 +33,9 @@ class DragAccepter : public RegExpWidget
 
 public:
     DragAccepter(RegExpEditorWindow *editorWindow, RegExpWidget *parent);
-    QSize sizeHint() const;
-    virtual RegExp *regExp() const;
-    virtual RegExpType type() const
+    QSize sizeHint() const override;
+    RegExp *regExp() const override;
+    RegExpType type() const override
     {
         return DRAGACCEPTER;
     }
@@ -46,17 +46,17 @@ public:
     }
 
 protected:
-    virtual void mousePressEvent(QMouseEvent *event);
-    virtual void mouseReleaseEvent(QMouseEvent *event);
-    virtual void dragEnterEvent(QDragEnterEvent *event);
-    virtual void dropEvent(QDropEvent *event);
-    virtual void paintEvent(QPaintEvent *);
-    virtual bool acceptWidgetInsert(RegExpType) const
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
+    void dragEnterEvent(QDragEnterEvent *event) override;
+    void dropEvent(QDropEvent *event) override;
+    void paintEvent(QPaintEvent *) override;
+    bool acceptWidgetInsert(RegExpType) const override
     {
         return true;
     }
 
-    virtual bool acceptWidgetPaste() const
+    bool acceptWidgetPaste() const override
     {
         return true;
     }

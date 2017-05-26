@@ -40,18 +40,18 @@ public:
     CharactersWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
     CharactersWidget(TextRangeRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent);
     ~CharactersWidget();
-    virtual QSize sizeHint() const;
-    virtual RegExp *regExp() const;
-    virtual RegExpType type() const
+    QSize sizeHint() const override;
+    RegExp *regExp() const override;
+    RegExpType type() const override
     {
         return CHARSET;
     }
 
-    virtual RegExpWidget *findWidgetToEdit(QPoint globalPos);
-    virtual int edit();
+    RegExpWidget *findWidgetToEdit(QPoint globalPos) override;
+    int edit() override;
 
 protected:
-    virtual void paintEvent(QPaintEvent *event);
+    void paintEvent(QPaintEvent *event) override;
     QString text() const;
     QString title() const;
 
@@ -100,12 +100,12 @@ private:
 class SingleFactory : public KMultiFormListBoxFactory
 {
 public:
-    KMultiFormListBoxEntry *create(QWidget *parent)
+    KMultiFormListBoxEntry *create(QWidget *parent) override
     {
         return new SingleEntry(parent);
     }
 
-    QWidget *separator(QWidget *)
+    QWidget *separator(QWidget *) override
     {
         return 0;
     }
@@ -117,12 +117,12 @@ public:
 class RangeFactory : public KMultiFormListBoxFactory
 {
 public:
-    KMultiFormListBoxEntry *create(QWidget *parent)
+    KMultiFormListBoxEntry *create(QWidget *parent) override
     {
         return new RangeEntry(parent);
     }
 
-    QWidget *separator(QWidget *)
+    QWidget *separator(QWidget *) override
     {
         return 0;
     }

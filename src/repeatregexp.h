@@ -30,14 +30,14 @@ class RepeatRegExp : public RegExp
 public:
     explicit RepeatRegExp(bool selected, int lower = 0, int upper = 0, RegExp *child = 0);
 
-    virtual bool check(ErrorMap &, bool first, bool last);
-    virtual int precedence() const
+    bool check(ErrorMap &, bool first, bool last) override;
+    int precedence() const override
     {
         return 3;
     }
 
-    virtual QDomNode toXml(QDomDocument *doc) const;
-    virtual bool load(QDomElement, const QString &version);
+    QDomNode toXml(QDomDocument *doc) const override;
+    bool load(QDomElement, const QString &version) override;
     int min() const
     {
         return _lower;
@@ -53,13 +53,13 @@ public:
         return _child;
     }
 
-    virtual RegExpType type() const
+    RegExpType type() const override
     {
         return REPEAT;
     }
 
-    virtual bool operator==(const RegExp &other) const;
-    virtual void replacePart(CompoundRegExp *replacement)
+    bool operator==(const RegExp &other) const override;
+    void replacePart(CompoundRegExp *replacement) override
     {
         _child->replacePart(replacement);
     }

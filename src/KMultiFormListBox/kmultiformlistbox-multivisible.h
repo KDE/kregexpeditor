@@ -55,10 +55,10 @@ private:
     /**
        @return The elements in the KMultiFormListBox
     */
-    KMultiFormListBoxEntryList elements();
-    void append(KMultiFormListBoxEntry *);
+    KMultiFormListBoxEntryList elements() override;
+    void append(KMultiFormListBoxEntry *) override;
 
-    QWidget *qWidget()
+    QWidget *qWidget() override
     {
         return this;
     }
@@ -116,12 +116,12 @@ protected:
 
     friend class CCP;
 
-    virtual void resizeEvent(QResizeEvent *);
+    void resizeEvent(QResizeEvent *) override;
     void addElemBefore(KMultiFormListBoxEntry *newElm, QWidget *existing);
     void insertElmIntoWidget(KMultiFormListBoxEntry *elm, KMultiFormListBoxEntry *after);
     void showWidget(KMultiFormListBoxEntry *elm);
-    void delElement(QWidget *);
-    void delAnElement();
+    void delElement(QWidget *) override;
+    void delAnElement() override;
     void addElemBefore(KMultiFormListBoxEntry *newElm, KMultiFormListBoxEntry *existing);
     void updateClipperContent();
     int countElements(WidgetList *);

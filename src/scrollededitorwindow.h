@@ -41,7 +41,7 @@ private:
     }                               // Do not use!
 
 protected:
-    virtual void resizeEvent(QResizeEvent *);
+    void resizeEvent(QResizeEvent *) override;
 
 public slots:
     void slotSetRegExp(RegExp *);

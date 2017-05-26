@@ -29,11 +29,11 @@ class ZeroWidget : public RegExpWidget
 {
 public:
     ZeroWidget(QString text, RegExpEditorWindow *editorWindow, QWidget *parent);
-    virtual void addNewChild(DragAccepter *accepter, RegExpWidget *child);
-    virtual QSize sizeHint() const;
+    void addNewChild(DragAccepter *accepter, RegExpWidget *child) override;
+    QSize sizeHint() const override;
 
 protected:
-    virtual void paintEvent(QPaintEvent *e);
+    void paintEvent(QPaintEvent *e) override;
 
 private:
     QString _text;
@@ -51,8 +51,8 @@ class AnyCharWidget : public ZeroWidget
 public:
     AnyCharWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
 
-    virtual RegExp *regExp() const;
-    virtual RegExpType type() const
+    RegExp *regExp() const override;
+    RegExpType type() const override
     {
         return DOT;
     }
@@ -66,8 +66,8 @@ class BegLineWidget : public ZeroWidget
 {
 public:
     BegLineWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
-    virtual RegExp *regExp() const;
-    virtual RegExpType type() const
+    RegExp *regExp() const override;
+    RegExpType type() const override
     {
         return BEGLINE;
     }
@@ -81,8 +81,8 @@ class EndLineWidget : public ZeroWidget
 {
 public:
     EndLineWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
-    virtual RegExp *regExp() const;
-    virtual RegExpType type() const
+    RegExp *regExp() const override;
+    RegExpType type() const override
     {
         return ENDLINE;
     }
@@ -96,8 +96,8 @@ class WordBoundaryWidget : public ZeroWidget
 {
 public:
     WordBoundaryWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
-    virtual RegExp *regExp() const;
-    virtual RegExpType type() const
+    RegExp *regExp() const override;
+    RegExpType type() const override
     {
         return WORDBOUNDARY;
     }
@@ -111,8 +111,8 @@ class NonWordBoundaryWidget : public ZeroWidget
 {
 public:
     NonWordBoundaryWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
-    virtual RegExp *regExp() const;
-    virtual RegExpType type() const
+    RegExp *regExp() const override;
+    RegExpType type() const override
     {
         return NONWORDBOUNDARY;
     }

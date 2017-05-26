@@ -46,11 +46,11 @@ private:
                               showHelpButton, QString
                               addButtonText);
 
-    KMultiFormListBoxEntryList elements();
+    KMultiFormListBoxEntryList elements() override;
     const KMultiFormListBoxEntryList elements() const;
-    void append(KMultiFormListBoxEntry *);
+    void append(KMultiFormListBoxEntry *) override;
     WindowListboxItem *selected();
-    QWidget *qWidget()
+    QWidget *qWidget() override
     {
         return this;
     }
@@ -59,9 +59,9 @@ private:
     KMultiFormListBoxFactory *_factory;
     QList<QPushButton *> _buttonList;
     QListWidget *_listbox;
-    virtual void delElement(QWidget *); // Deletes the given element
-    virtual void delAnElement();
-    void addElement();
+    void delElement(QWidget *); // Deletes the given element
+    virtual void delAnElement() override;
+    void addElement() override;
 
 public slots:
     void addNewElement();

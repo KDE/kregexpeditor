@@ -34,23 +34,23 @@ class AltnWidget : public MultiContainerWidget
 public:
     AltnWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
     AltnWidget(AltnRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent);
-    virtual void addNewChild(DragAccepter *accepter, RegExpWidget *child);
-    virtual QSize sizeHint() const;
-    virtual RegExp *regExp() const;
-    virtual void applyRegExpToSelection(RegExpType type);
-    virtual RegExpType type() const
+    void addNewChild(DragAccepter *accepter, RegExpWidget *child) override;
+    QSize sizeHint() const override;
+    RegExp *regExp() const override;
+    void applyRegExpToSelection(RegExpType type) override;
+    RegExpType type() const override
     {
         return ALTN;
     }
 
-    virtual RegExp *selection() const;
-    virtual bool validateSelection() const;
-    virtual void setConcChild(ConcWidget *child);
-    virtual void addNewConcChild(DragAccepter *accepter, ConcWidget *child);
-    virtual void deleteSelection();
+    RegExp *selection() const override;
+    bool validateSelection() const override;
+    void setConcChild(ConcWidget *child) override;
+    void addNewConcChild(DragAccepter *accepter, ConcWidget *child) override;
+    void deleteSelection() override;
 
 protected:
-    virtual void paintEvent(QPaintEvent *e);
+    void paintEvent(QPaintEvent *e) override;
 
 private:
     /**

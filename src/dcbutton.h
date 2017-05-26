@@ -33,7 +33,7 @@ public:
     DoubleClickButton(const QPixmap &pix, QWidget *parent, const QString &name = QString());
 
 protected:
-    virtual void mouseDoubleClickEvent(QMouseEvent *);
+    void mouseDoubleClickEvent(QMouseEvent *) override;
 
 signals:
     void doubleClicked();

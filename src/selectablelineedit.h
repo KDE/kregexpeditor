@@ -40,7 +40,7 @@ class SelectableLineEdit : public QLineEdit
 public:
     explicit SelectableLineEdit(RegExpWidget *owner, QWidget *parent = nullptr, const QString &name = QString());
     void setSelected(bool selected);
-    virtual QSize sizeHint() const;
+    QSize sizeHint() const override;
 
 protected slots:
     void slotKeyPressed();

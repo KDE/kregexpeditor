@@ -191,10 +191,10 @@ protected:
      */
     virtual bool acceptWidgetInsert(RegExpType) const;
 
-    virtual void mousePressEvent(QMouseEvent *event);
+    void mousePressEvent(QMouseEvent *event) override;
 
-    virtual void mouseReleaseEvent(QMouseEvent *);
-    virtual void enterEvent(QEvent *);
+    void mouseReleaseEvent(QMouseEvent *) override;
+    void enterEvent(QEvent *) override;
 
     RegExpEditorWindow *_editorWindow;
 

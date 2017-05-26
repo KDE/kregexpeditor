@@ -69,20 +69,20 @@ public:
     CompoundWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
     CompoundWidget(CompoundRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent);
 
-    virtual bool updateSelection(bool parentSelected);
-    virtual QSize sizeHint() const;
-    virtual RegExp *regExp() const;
-    virtual RegExpType type() const
+    bool updateSelection(bool parentSelected) override;
+    QSize sizeHint() const override;
+    RegExp *regExp() const override;
+    RegExpType type() const override
     {
         return COMPOUND;
     }
 
-    virtual int edit();
+    int edit() override;
 
 protected:
-    virtual void paintEvent(QPaintEvent *e);
-    virtual void mousePressEvent(QMouseEvent *e);
-    virtual void mouseReleaseEvent(QMouseEvent *e);
+    void paintEvent(QPaintEvent *e) override;
+    void mousePressEvent(QMouseEvent *e) override;
+    void mouseReleaseEvent(QMouseEvent *e) override;
     void init();
     QPixmap getIcon(const QString &name);
 

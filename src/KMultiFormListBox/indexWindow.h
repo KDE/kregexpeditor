@@ -70,7 +70,7 @@ public:
 
 protected:
     void finish(int retVal);
-    virtual void hideEvent(QHideEvent *h);
+    void hideEvent(QHideEvent *h) override;
 
 protected slots:
     void lbSelected(int);

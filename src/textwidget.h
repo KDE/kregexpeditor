@@ -36,21 +36,21 @@ class TextWidget : public RegExpWidget
 public:
     TextWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
     TextWidget(TextRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent);
-    virtual RegExp *regExp() const;
-    virtual RegExpType type() const
+    RegExp *regExp() const override;
+    RegExpType type() const override
     {
         return TEXT;
     }
 
-    virtual void updateAll();
-    virtual void selectWidget(bool);
+    void updateAll() override;
+    void selectWidget(bool) override;
 
 protected:
     void init(const QString &text);
-    virtual void paintEvent(QPaintEvent *e);
-    virtual bool updateSelection(bool parentSelected);
-    virtual void clearSelection();
-    virtual bool eventFilter(QObject *, QEvent *);
+    void paintEvent(QPaintEvent *e) override;
+    bool updateSelection(bool parentSelected) override;
+    void clearSelection() override;
+    bool eventFilter(QObject *, QEvent *) override;
 
 protected slots:
     void slotUpdate();

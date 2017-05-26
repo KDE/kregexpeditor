@@ -34,14 +34,14 @@ public:
 
     LookAheadRegExp(bool selected, TYPE tp, RegExp *child = 0);
 
-    virtual bool check(ErrorMap &, bool first, bool last);
-    virtual int precedence() const
+    bool check(ErrorMap &, bool first, bool last) override;
+    int precedence() const override
     {
         return 4;
     }
 
-    virtual QDomNode toXml(QDomDocument *doc) const;
-    virtual bool load(QDomElement, const QString &version);
+    QDomNode toXml(QDomDocument *doc) const override;
+    bool load(QDomElement, const QString &version) override;
     RegExp *child() const
     {
         return _child;
@@ -52,13 +52,13 @@ public:
         return _tp;
     }
 
-    virtual RegExpType type() const
+    RegExpType type() const override
     {
         return LOOKAHEAD;
     }
 
-    virtual bool operator==(const RegExp &other) const;
-    virtual void replacePart(CompoundRegExp *replacement)
+    bool operator==(const RegExp &other) const override;
+    void replacePart(CompoundRegExp *replacement) override
     {
         _child->replacePart(replacement);
     }

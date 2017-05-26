@@ -39,25 +39,25 @@ class Q_DECL_EXPORT KRegExpEditorGUI : public QWidget, public KRegExpEditorInter
 public:
     KRegExpEditorGUI(QWidget *parent = 0, const QVariantList & = QVariantList());
     ~KRegExpEditorGUI();
-    virtual QString regExp() const;
+    QString regExp() const override;
 
     static const QString version;
 
 protected:
-    void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event) override;
 
 signals:
     /** This signal tells whether undo is available. */
-    void canRedo(bool);
-    void canUndo(bool);
-    void changes(bool);
+    void canRedo(bool) override;
+    void canUndo(bool) override;
+    void changes(bool) override;
 
 public slots:
-    virtual void redo();
-    virtual void undo();
-    virtual void setRegExp(const QString &regexp);
-    virtual void doSomething(const QString &method, void *arguments);
-    virtual void setMatchText(const QString &);
+    void redo() override;
+    void undo() override;
+    void setRegExp(const QString &regexp) override;
+    void doSomething(const QString &method, void *arguments) override;
+    void setMatchText(const QString &) override;
     void showHelp();
 
 private:

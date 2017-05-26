@@ -34,21 +34,21 @@ public:
     RegExpList children();
     RegExp *lastRegExp();
 
-    virtual bool check(ErrorMap &, bool first, bool last);
-    virtual int precedence() const
+    bool check(ErrorMap &, bool first, bool last) override;
+    int precedence() const override
     {
         return 2;
     }
 
-    virtual QDomNode toXml(QDomDocument *doc) const;
-    virtual bool load(QDomElement, const QString &version);
-    virtual RegExpType type() const
+    QDomNode toXml(QDomDocument *doc) const override;
+    bool load(QDomElement, const QString &version) override;
+    RegExpType type() const override
     {
         return CONC;
     }
 
-    virtual bool operator==(const RegExp &other) const;
-    virtual void replacePart(CompoundRegExp *replacement);
+    bool operator==(const RegExp &other) const override;
+    void replacePart(CompoundRegExp *replacement) override;
 
 private:
     RegExpList list;

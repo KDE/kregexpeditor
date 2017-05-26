@@ -35,7 +35,7 @@ public:
     LimitedCharLineEdit(Mode mode, QWidget *parent, const QString &name = QString());
 
 protected:
-    virtual void keyPressEvent(QKeyEvent *);
+    void keyPressEvent(QKeyEvent *) override;
 
 private:
     int _count;

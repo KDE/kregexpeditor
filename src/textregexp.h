@@ -30,8 +30,8 @@ class TextRegExp : public RegExp
 public:
     explicit TextRegExp(bool selected, QString text = QString());
 
-    virtual bool check(ErrorMap &, bool first, bool last);
-    virtual int precedence() const
+    bool check(ErrorMap &, bool first, bool last) override;
+    int precedence() const override
     {
         if (_text.length() > 1) {
             return 2;
@@ -45,15 +45,15 @@ public:
         return _text;
     }
 
-    virtual QDomNode toXml(QDomDocument *doc) const;
-    virtual bool load(QDomElement, const QString &version);
+    QDomNode toXml(QDomDocument *doc) const override;
+    bool load(QDomElement, const QString &version) override;
     void append(QString str);
-    virtual RegExpType type() const
+    RegExpType type() const override
     {
         return TEXT;
     }
 
-    virtual bool operator==(const RegExp &other) const;
+    bool operator==(const RegExp &other) const override;
 
 private:
     QString _text;

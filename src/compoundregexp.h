@@ -30,14 +30,14 @@ class CompoundRegExp : public RegExp
 public:
     explicit CompoundRegExp(bool selected, const QString &title = QString(), const QString &description = QString(), bool hidden = false, bool allowReplace = false, RegExp *child = 0);
 
-    virtual bool check(ErrorMap &, bool first, bool last);
-    virtual int precedence() const
+    bool check(ErrorMap &, bool first, bool last) override;
+    int precedence() const override
     {
         return _child->precedence();
     }
 
-    virtual QDomNode toXml(QDomDocument *doc) const;
-    virtual bool load(QDomElement, const QString &version);
+    QDomNode toXml(QDomDocument *doc) const override;
+    bool load(QDomElement, const QString &version) override;
     QString title() const
     {
         return _title;
@@ -63,12 +63,12 @@ public:
         return _allowReplace;
     }
 
-    virtual RegExpType type() const
+    RegExpType type() const override
     {
         return COMPOUND;
     }
 
-    virtual bool operator==(const RegExp &other) const;
+    bool operator==(const RegExp &other) const override;
 
 private:
     QString _title;

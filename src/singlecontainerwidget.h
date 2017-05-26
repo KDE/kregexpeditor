@@ -31,20 +31,20 @@ class SingleContainerWidget : public RegExpWidget
 public:
     SingleContainerWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
 
-    virtual bool updateSelection(bool parentSelected);
-    virtual bool hasSelection() const;
-    virtual void clearSelection();
-    virtual void deleteSelection();
-    virtual void applyRegExpToSelection(RegExpType type);
-    virtual RegExp *selection() const;
-    virtual bool validateSelection() const;
-    virtual QRect selectionRect() const;
-    virtual RegExpWidget *widgetUnderPoint(QPoint globalPos, bool justVisibleWidgets);
-    virtual RegExpWidget *findWidgetToEdit(QPoint globalPos);
-    virtual void setConcChild(ConcWidget *child);
-    virtual void selectWidget(bool sel);
-    virtual void updateAll();
-    virtual void updateCursorRecursively();
+    bool updateSelection(bool parentSelected) override;
+    bool hasSelection() const override;
+    void clearSelection() override;
+    void deleteSelection() override;
+    void applyRegExpToSelection(RegExpType type) override;
+    RegExp *selection() const override;
+    bool validateSelection() const override;
+    QRect selectionRect() const override;
+    RegExpWidget *widgetUnderPoint(QPoint globalPos, bool justVisibleWidgets) override;
+    RegExpWidget *findWidgetToEdit(QPoint globalPos) override;
+    void setConcChild(ConcWidget *child) override;
+    void selectWidget(bool sel) override;
+    void updateAll() override;
+    void updateCursorRecursively() override;
 
 protected:
     ConcWidget *_child;

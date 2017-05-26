@@ -54,7 +54,7 @@ private:
     CCP(KMultiFormListBoxMultiVisible *, KMultiFormListBoxEntry *);
 
     void install(QObject *);
-    bool eventFilter(QObject *, QEvent *);
+    bool eventFilter(QObject *, QEvent *) override;
 
     // Instance variables.
 

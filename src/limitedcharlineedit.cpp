@@ -35,7 +35,7 @@ public:
         setObjectName(QStringLiteral("Validator"));
     }
 
-    virtual QValidator::State validate(QString &txt, int & /*pos*/) const
+    QValidator::State validate(QString &txt, int & /*pos*/) const override
     {
         if (_mode == LimitedCharLineEdit::NORMAL
             || (_mode == LimitedCharLineEdit::HEX

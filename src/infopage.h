@@ -25,7 +25,7 @@ class InfoPage : public QTextBrowser
 {
 public:
     InfoPage(QWidget *parent);
-    virtual void setSource(const QUrl &name);
+    void setSource(const QUrl &name) override;
 };
 
 #endif

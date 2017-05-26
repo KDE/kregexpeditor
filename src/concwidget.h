@@ -38,26 +38,26 @@ public:
     ConcWidget(ConcRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent);
     void init();
 
-    virtual QSize sizeHint() const;
-    virtual RegExp *regExp() const;
-    virtual bool updateSelection(bool parentSelected);
-    virtual bool isSelected() const;
+    QSize sizeHint() const override;
+    RegExp *regExp() const override;
+    bool updateSelection(bool parentSelected) override;
+    bool isSelected() const override;
 
-    virtual void applyRegExpToSelection(RegExpType type);
-    virtual RegExpType type() const
+    void applyRegExpToSelection(RegExpType type) override;
+    RegExpType type() const override
     {
         return CONC;
     }
 
-    virtual RegExp *selection() const;
-    virtual void addNewConcChild(DragAccepter *accepter, ConcWidget *child);
-    virtual bool validateSelection() const;
-    virtual bool acceptWidgetInsert(RegExpType) const
+    RegExp *selection() const override;
+    void addNewConcChild(DragAccepter *accepter, ConcWidget *child) override;
+    bool validateSelection() const override;
+    bool acceptWidgetInsert(RegExpType) const override
     {
         return false;
     }
 
-    virtual bool acceptWidgetPaste() const
+    bool acceptWidgetPaste() const override
     {
         return false;
     }
@@ -68,8 +68,8 @@ public:
     }
 
 protected:
-    virtual void paintEvent(QPaintEvent *e);
-    virtual void mousePressEvent(QMouseEvent *event);
+    void paintEvent(QPaintEvent *e) override;
+    void mousePressEvent(QMouseEvent *event) override;
     void sizeAccepter(DragAccepter *accepter, int height, int totHeight);
     void getSelectionIndexes(int *start, int *end);
     //virtual void dragEnterEvent(QDragEnterEvent* event) { event->setAccepted( false ); }

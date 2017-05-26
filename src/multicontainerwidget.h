@@ -31,17 +31,17 @@ class MultiContainerWidget : public RegExpWidget
 {
 public:
     explicit MultiContainerWidget(RegExpEditorWindow *editorWindow, QWidget *parent = 0);
-    virtual bool hasSelection() const;
-    virtual void clearSelection();
-    virtual void deleteSelection();
-    virtual void addNewChild(DragAccepter *accepter, RegExpWidget *child);
-    virtual bool updateSelection(bool parentSelected);
-    virtual QRect selectionRect() const;
-    virtual RegExpWidget *widgetUnderPoint(QPoint globalPos, bool justVisibleWidgets);
-    virtual RegExpWidget *findWidgetToEdit(QPoint globalPos);
-    virtual void selectWidget(bool sel);
-    virtual void updateAll();
-    virtual void updateCursorRecursively();
+    bool hasSelection() const override;
+    void clearSelection() override;
+    void deleteSelection() override;
+    void addNewChild(DragAccepter *accepter, RegExpWidget *child) override;
+    bool updateSelection(bool parentSelected) override;
+    QRect selectionRect() const override;
+    RegExpWidget *widgetUnderPoint(QPoint globalPos, bool justVisibleWidgets) override;
+    RegExpWidget *findWidgetToEdit(QPoint globalPos) override;
+    void selectWidget(bool sel) override;
+    void updateAll() override;
+    void updateCursorRecursively() override;
 
 protected:
     void append(RegExpWidget *child);
