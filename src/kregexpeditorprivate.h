@@ -71,7 +71,7 @@ protected slots:
 public slots:
     void slotUndo();
     void slotRedo();
-    void slotSetRegexp(QString regexp);
+    void slotSetRegexp(const QString &regexp);
     void setMatchText(const QString &text);
     void setSyntax(const QString &);
     void showHelp();

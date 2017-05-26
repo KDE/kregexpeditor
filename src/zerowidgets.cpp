@@ -29,7 +29,7 @@
 //--------------------------------------------------------------------------------
 //                                ZeroWidget
 //--------------------------------------------------------------------------------
-ZeroWidget::ZeroWidget(QString txt, RegExpEditorWindow *editorWindow, QWidget *parent)
+ZeroWidget::ZeroWidget(const QString &txt, RegExpEditorWindow *editorWindow, QWidget *parent)
     : RegExpWidget(editorWindow, parent)
 {
     _text = txt;

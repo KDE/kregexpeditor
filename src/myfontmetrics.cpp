@@ -20,7 +20,7 @@
 
 #include <QStringList>
 
-QSize HackCalculateFontSize(QFontMetrics fm, QString str)
+QSize HackCalculateFontSize(const QFontMetrics &fm, const QString &str)
 {
     QStringList list;
     int maxWidth = 0;

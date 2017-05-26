@@ -43,8 +43,7 @@ class KMultiFormListBoxWindowed : public QWidget, KMultiFormListBoxShower
 private:
     KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent, bool
                               showUpDownButtons, bool
-                              showHelpButton, QString
-                              addButtonText);
+                              showHelpButton, const QString &addButtonText);
 
     KMultiFormListBoxEntryList elements() override;
     const KMultiFormListBoxEntryList elements() const;

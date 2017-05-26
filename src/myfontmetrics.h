@@ -23,6 +23,6 @@
 
 // QFontMetrics::size is broken, therefore I need this hack until it works in QT3
 
-QSize HackCalculateFontSize(QFontMetrics fm, QString str);
+QSize HackCalculateFontSize(const QFontMetrics &fm, const QString &str);
 
 #endif

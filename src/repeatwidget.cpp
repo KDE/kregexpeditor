@@ -232,7 +232,7 @@ RepeatRangeWindow::RepeatRangeWindow(QWidget *parent)
     _group->button(ANY)->click();
 }
 
-void RepeatRangeWindow::createLine(QGridLayout *layout, QString text, QSpinBox **spin, REPEATTYPE tp)
+void RepeatRangeWindow::createLine(QGridLayout *layout, const QString &text, QSpinBox **spin, REPEATTYPE tp)
 {
     int row = layout->rowCount();
 

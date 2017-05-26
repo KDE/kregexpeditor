@@ -310,7 +310,7 @@ void KRegExpEditorPrivate::emitUndoRedoSignals()
     emit canRedo(_redoStack.count() > 0);
 }
 
-void KRegExpEditorPrivate::slotSetRegexp(QString regexp)
+void KRegExpEditorPrivate::slotSetRegexp(const QString &regexp)
 {
     _regexpEdit->setText(regexp);
 }

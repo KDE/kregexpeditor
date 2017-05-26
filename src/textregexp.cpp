@@ -21,7 +21,7 @@
 #include <KMessageBox>
 #include <KLocalizedString>
 
-TextRegExp::TextRegExp(bool selected, QString text) : RegExp(selected)
+TextRegExp::TextRegExp(bool selected, const QString &text) : RegExp(selected)
 {
     _text = text;
 }
@@ -31,7 +31,7 @@ bool TextRegExp::check(ErrorMap &, bool, bool)
     return false;
 }
 
-void TextRegExp::append(QString str)
+void TextRegExp::append(const QString &str)
 {
     _text.append(str);
 }

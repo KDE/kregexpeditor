@@ -19,7 +19,7 @@
 #include "windowlistboxitem.h"
 #include "widgetwindow.h"
 
-WindowListboxItem::WindowListboxItem(QListWidget *lb, QString text, WidgetWindow *windowWidget)
+WindowListboxItem::WindowListboxItem(QListWidget *lb, const QString &text, WidgetWindow *windowWidget)
     : QListWidgetItem(text, lb)
     , myItem(windowWidget)
 {

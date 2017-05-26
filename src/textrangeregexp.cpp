@@ -38,12 +38,12 @@ TextRangeRegExp::~TextRangeRegExp()
 {
 }
 
-void TextRangeRegExp::addCharacter(QString str)
+void TextRangeRegExp::addCharacter(const QString &str)
 {
     _chars.append(str);
 }
 
-void TextRangeRegExp::addRange(QString from, QString to)
+void TextRangeRegExp::addRange(const QString &from, const QString &to)
 {
     _ranges.append(StringPair(from, to));
 }

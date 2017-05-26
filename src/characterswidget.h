@@ -71,7 +71,7 @@ class SingleEntry : public KMultiFormListBoxEntry
 public:
     SingleEntry(QWidget *parent);
     QString text() const;
-    void setText(QString text);
+    void setText(const QString &text);
     bool isEmpty() const;
 
 private:
@@ -87,8 +87,8 @@ public:
     RangeEntry(QWidget *parent);
     QString fromText() const;
     QString toText() const;
-    void setFrom(QString text);
-    void setTo(QString text);
+    void setFrom(const QString &text);
+    void setTo(const QString &text);
     bool isEmpty() const;
 private:
     CharSelector *_from, *_to;

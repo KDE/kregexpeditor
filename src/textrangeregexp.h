@@ -38,7 +38,7 @@ public:
     TextRangeRegExp(bool selected);
     virtual ~TextRangeRegExp();
 
-    void addCharacter(QString ch);
+    void addCharacter(const QString &ch);
     QStringList chars() const
     {
         return _chars;
@@ -49,7 +49,7 @@ public:
         _chars.clear();
     }
 
-    void addRange(QString from, QString to);
+    void addRange(const QString &from, const QString &to);
     QList<StringPair> range() const
     {
         return _ranges;

@@ -30,7 +30,7 @@
 #include "widgetwindow.h"
 #include "windowlistboxitem.h"
 
-KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent, bool showUpDownButtons, bool showHelpButton, QString addButtonText)
+KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent, bool showUpDownButtons, bool showHelpButton, const QString &addButtonText)
     : QWidget(parent)
 {
     _layout = new QVBoxLayout(this);

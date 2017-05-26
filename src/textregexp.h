@@ -28,7 +28,7 @@
 class TextRegExp : public RegExp
 {
 public:
-    explicit TextRegExp(bool selected, QString text = QString());
+    explicit TextRegExp(bool selected, const QString &text = QString());
 
     bool check(ErrorMap &, bool first, bool last) override;
     int precedence() const override
@@ -47,7 +47,7 @@ public:
 
     QDomNode toXml(QDomDocument *doc) const override;
     bool load(QDomElement, const QString &version) override;
-    void append(QString str);
+    void append(const QString &str);
     RegExpType type() const override
     {
         return TEXT;

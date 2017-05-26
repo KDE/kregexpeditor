@@ -72,7 +72,7 @@ protected:
     virtual QString toString(PositionRegExp *, bool markSelection) = 0;
     virtual QString toString(RepeatRegExp *, bool markSelection) = 0;
     virtual QString toString(TextRegExp *, bool markSelection) = 0;
-    QString escape(QString text, QList<QChar> chars, QChar escapeChar) const;
+    QString escape(const QString &text, const QList<QChar> &chars, QChar escapeChar) const;
 
 private:
     static RegExpConverter *_current;

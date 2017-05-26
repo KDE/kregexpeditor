@@ -52,7 +52,7 @@ public:
        This method inserts an element into the listbox which is shown when
        the @ref exec method is invoked.
     **/
-    void insertItem(QString txt);
+    void insertItem(const QString &txt);
 
     /**
        This function shows the index window with the elements inserted using

@@ -53,7 +53,7 @@ protected slots:
     void slotUpdateMaxVal(int minVal);
 
 private:
-    void createLine(QGridLayout *layout, QString text, QSpinBox **spin, REPEATTYPE tp);
+    void createLine(QGridLayout *layout, const QString &text, QSpinBox **spin, REPEATTYPE tp);
 
     QSpinBox *_leastTimes;
     QSpinBox *_mostTimes;

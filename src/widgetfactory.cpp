@@ -185,7 +185,7 @@ RegExp *WidgetFactory::createRegExp(QDomElement node, const QString &version)
     return 0;
 }
 
-RegExp *WidgetFactory::createRegExp(QString str)
+RegExp *WidgetFactory::createRegExp(const QString &str)
 {
     QDomDocument doc;
     QString error;

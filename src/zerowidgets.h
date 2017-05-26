@@ -28,7 +28,7 @@
 class ZeroWidget : public RegExpWidget
 {
 public:
-    ZeroWidget(QString text, RegExpEditorWindow *editorWindow, QWidget *parent);
+    ZeroWidget(const QString &text, RegExpEditorWindow *editorWindow, QWidget *parent);
     void addNewChild(DragAccepter *accepter, RegExpWidget *child) override;
     QSize sizeHint() const override;
 

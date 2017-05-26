@@ -33,7 +33,7 @@ class WindowListboxItem : public QListWidgetItem
     friend class WidgetWindow;
     friend class KMultiFormListBoxWindowed;
 public:
-    WindowListboxItem(QListWidget *, QString, WidgetWindow *);
+    WindowListboxItem(QListWidget *, const QString &, WidgetWindow *);
     ~WindowListboxItem();
     void cloneItem();
     void displayWidget();

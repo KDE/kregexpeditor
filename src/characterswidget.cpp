@@ -408,7 +408,7 @@ QString SingleEntry::text() const
     return _selector->text();
 }
 
-void SingleEntry::setText(QString text)
+void SingleEntry::setText(const QString &text)
 {
     _selector->setText(text);
 }
@@ -447,12 +447,12 @@ QString RangeEntry::toText() const
     return _to->text();
 }
 
-void RangeEntry::setFrom(QString text)
+void RangeEntry::setFrom(const QString &text)
 {
     _from->setText(text);
 }
 
-void RangeEntry::setTo(QString text)
+void RangeEntry::setTo(const QString &text)
 {
     _to->setText(text);
 }

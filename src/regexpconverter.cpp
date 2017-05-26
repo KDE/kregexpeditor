@@ -66,7 +66,7 @@ QString RegExpConverter::toStr(RegExp *regexp, bool markSelection)
     return QString::fromLatin1("");
 }
 
-QString RegExpConverter::escape(QString text, QList<QChar> chars, QChar escapeChar) const
+QString RegExpConverter::escape(const QString &text, const QList<QChar> &chars, QChar escapeChar) const
 {
     QString res;
     for (int i = 0; i < text.length(); i++) {

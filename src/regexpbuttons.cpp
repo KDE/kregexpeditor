@@ -132,7 +132,7 @@ RegExpButtons::RegExpButtons(QWidget *parent, const QString &name)
     addWidget(_negLookAhead);
 }
 
-DoubleClickButton *RegExpButtons::insert(RegExpType tp, const char *name, QString tooltip, QString whatsthis)
+DoubleClickButton *RegExpButtons::insert(RegExpType tp, const char *name, const QString &tooltip, const QString &whatsthis)
 {
     QPixmap pix
         = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString::fromLatin1("kregexpeditor/pics/") + QString::fromLatin1(name) + QString::fromLatin1(

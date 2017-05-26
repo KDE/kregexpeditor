@@ -44,7 +44,7 @@ void indexWindow::finish(int index)
     //qApp->exit_loop();
 }
 
-void indexWindow::insertItem(QString txt)
+void indexWindow::insertItem(const QString &txt)
 {
     lb->addItem(txt);
 }
