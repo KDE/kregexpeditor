@@ -52,7 +52,7 @@ bool ConcRegExp::check(ErrorMap &map, bool first, bool last)
 
 RegExp *ConcRegExp::lastRegExp()
 {
-    if (list.count() == 0) {
+    if (list.isEmpty()) {
         return 0;
     } else {
         return list.at(list.count() - 1);

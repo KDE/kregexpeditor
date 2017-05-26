@@ -277,7 +277,7 @@ void KRegExpEditorPrivate::recordUndoInfo()
 
 void KRegExpEditorPrivate::slotRedo()
 {
-    if (_redoStack.count() != 0) {
+    if (!_redoStack.isEmpty()) {
         _undoStack.push(_redoStack.pop());
         _scrolledEditorWindow->slotSetRegExp(_undoStack.top());
         slotUpdateLineEdit();
