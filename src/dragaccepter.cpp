@@ -146,5 +146,5 @@ void DragAccepter::dropEvent(QDropEvent *event)
 
 RegExp *DragAccepter::regExp() const
 {
-    return 0;
+    return nullptr;
 }

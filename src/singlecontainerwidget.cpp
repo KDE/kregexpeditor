@@ -101,7 +101,7 @@ RegExpWidget *SingleContainerWidget::findWidgetToEdit(QPoint globalPos)
     } else if (QRect(mapToGlobal(QPoint(0, 0)), size()).contains(globalPos)) {
         return this;
     } else {
-        return 0;
+        return nullptr;
     }
 }
 

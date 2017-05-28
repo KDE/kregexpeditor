@@ -107,7 +107,7 @@ public:
 
     QWidget *separator(QWidget *) override
     {
-        return 0;
+        return nullptr;
     }
 };
 
@@ -124,7 +124,7 @@ public:
 
     QWidget *separator(QWidget *) override
     {
-        return 0;
+        return nullptr;
     }
 };
 

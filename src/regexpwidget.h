@@ -169,7 +169,7 @@ public:
     */
     virtual RegExpWidget *findWidgetToEdit(QPoint /* globalPos */)
     {
-        return 0;
+        return nullptr;
     }
 
     /**

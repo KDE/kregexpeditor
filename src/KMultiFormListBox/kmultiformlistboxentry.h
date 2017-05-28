@@ -57,12 +57,12 @@ public:
 
     virtual QPushButton *indexButton()
     {
-        return 0;
+        return nullptr;
     }
 
     virtual QWidget *valueWidget()
     {
-        return 0;
+        return nullptr;
     }
 
     virtual void indexWindowPos(QPoint *start, int *width); // both variables are return values.

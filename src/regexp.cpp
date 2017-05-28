@@ -67,7 +67,7 @@ RegExp *RegExp::readRegExp(QDomElement top, const QString &version)
         RegExp *regexp = WidgetFactory::createRegExp(node.toElement(), version);
         return regexp;
     }
-    return 0;
+    return nullptr;
 }
 
 QString RegExp::toXmlString() const

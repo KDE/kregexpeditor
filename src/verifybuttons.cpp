@@ -200,7 +200,7 @@ RegExpConverter *VerifyButtons::setSyntax(const QString &which)
         }
     }
     qWarning("No such converter: '%s'", qPrintable(noAmpersand));
-    return 0;
+    return nullptr;
 }
 
 void VerifyButtons::setAllowNonQtSyntax(bool b)

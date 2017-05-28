@@ -87,12 +87,12 @@ RegExpWidget *WidgetFactory::createWidget(RegExpEditorWindow *win, QWidget *pare
         break;
     default:
         qFatal("It should not be possible to get here!");
-        return 0;
+        return nullptr;
     }
 
     if (widget->edit() == QDialog::Rejected) {
         delete widget;
-        return 0;
+        return nullptr;
     }
     return widget;
 }
@@ -135,7 +135,7 @@ RegExpWidget *WidgetFactory::createWidget(RegExp *regexp, RegExpEditorWindow *ed
     } else {
         qFatal("%s:%d Internal Error: Unknown RegExp type", __FILE__, __LINE__);
     }
-    return 0;
+    return nullptr;
 }
 
 RegExp *WidgetFactory::createRegExp(QDomElement node, const QString &version)
@@ -172,7 +172,7 @@ RegExp *WidgetFactory::createRegExp(QDomElement node, const QString &version)
         KMessageBox::sorry(0, i18n("<p>Unknown tag while reading XML. Tag was <b>%1</b></p>", tag),
                            i18n("Error While Loading From XML File"));
 
-        return 0;
+        return nullptr;
     }
 
     bool ok = regexp->load(node, version);
@@ -180,9 +180,9 @@ RegExp *WidgetFactory::createRegExp(QDomElement node, const QString &version)
         return regexp;
     } else {
         delete regexp;
-        return 0;
+        return nullptr;
     }
-    return 0;
+    return nullptr;
 }
 
 RegExp *WidgetFactory::createRegExp(const QString &str)

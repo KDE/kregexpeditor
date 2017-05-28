@@ -225,7 +225,7 @@ RegExpWidget *MultiContainerWidget::widgetUnderPoint(QPoint globalPos, bool just
     }
 
     if (justVisibleWidgets) {
-        return 0;
+        return nullptr;
     } else {
         return RegExpWidget::widgetUnderPoint(globalPos, justVisibleWidgets);
     }
@@ -239,7 +239,7 @@ RegExpWidget *MultiContainerWidget::findWidgetToEdit(QPoint globalPos)
             return wid;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 void MultiContainerWidget::selectWidget(bool sel)
