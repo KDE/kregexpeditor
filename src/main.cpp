@@ -29,7 +29,10 @@
 
 int main(int argc, char *argv[])
 {
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+
     QApplication app(argc, argv);
+    app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
     KLocalizedString::setApplicationDomain("kregexpeditor");
 
     KAboutData aboutData(QStringLiteral("kregexpeditor"), i18n("RegExp Editor"),
