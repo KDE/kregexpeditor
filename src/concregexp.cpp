@@ -53,7 +53,7 @@ bool ConcRegExp::check(ErrorMap &map, bool first, bool last)
 RegExp *ConcRegExp::lastRegExp()
 {
     if (list.isEmpty()) {
-        return 0;
+        return nullptr;
     } else {
         return list.at(list.count() - 1);
     }
@@ -78,7 +78,7 @@ bool ConcRegExp::load(QDomElement top, const QString &version)
         }
 
         RegExp *regexp = WidgetFactory::createRegExp(child.toElement(), version);
-        if (regexp == 0) {
+        if (regexp == nullptr) {
             return false;
         }
         addRegExp(regexp);

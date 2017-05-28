@@ -326,7 +326,7 @@ CharacterEdits::CharacterEdits(QWidget *parent)
     moreLay->addStretch(1);
     moreLay->setMargin(0);
 
-    connect(more, SIGNAL(clicked()), _single, SLOT(addElement()));
+    connect(more, &QAbstractButton::clicked, _single, &KMultiFormListBox::addElement);
 
     // Ranges
     QGroupBox *rangeBox = new QGroupBox(i18n("Character Ranges"));
@@ -352,10 +352,8 @@ CharacterEdits::CharacterEdits(QWidget *parent)
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
     connect(okButton, SIGNAL(clicked()), this, SLOT(slotOK()));
-    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
     mainLayout->addWidget(buttonBox);
 }
 
@@ -391,6 +389,7 @@ void CharacterEdits::slotOK()
             _regexp->addRange(entry->fromText(), entry->toText());
         }
     }
+    accept();
 }
 
 SingleEntry::SingleEntry(QWidget *parent)
