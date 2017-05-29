@@ -50,7 +50,7 @@ private:
        class which is repeated in the KMultiFormListBox
        @param parent A pointer to the parent widget
     */
-    explicit KMultiFormListBoxMultiVisible(KMultiFormListBoxFactory *factory, QWidget *parent = 0);
+    explicit KMultiFormListBoxMultiVisible(KMultiFormListBoxFactory *factory, QWidget *parent = nullptr);
 
     /**
        @return The elements in the KMultiFormListBox

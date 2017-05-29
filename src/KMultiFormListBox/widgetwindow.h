@@ -35,7 +35,7 @@ class WidgetWindow : public QDialog
 
     WidgetWindow(KMultiFormListBoxFactory *, QListWidget *);
     WidgetWindow(KMultiFormListBoxFactory *, KMultiFormListBoxEntry *widget, QListWidget *);
-    void init(KMultiFormListBoxFactory *, QListWidget *, KMultiFormListBoxEntry *widget = 0);
+    void init(KMultiFormListBoxFactory *, QListWidget *, KMultiFormListBoxEntry *widget = nullptr);
     void display();
     KMultiFormListBoxEntry *entry();
     WidgetWindow *clone();

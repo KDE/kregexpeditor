@@ -28,7 +28,7 @@
 class RepeatRegExp : public RegExp
 {
 public:
-    explicit RepeatRegExp(bool selected, int lower = 0, int upper = 0, RegExp *child = 0);
+    explicit RepeatRegExp(bool selected, int lower = 0, int upper = 0, RegExp *child = nullptr);
 
     bool check(ErrorMap &, bool first, bool last) override;
     int precedence() const override

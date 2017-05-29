@@ -37,7 +37,7 @@ class Q_DECL_EXPORT KRegExpEditorGUI : public QWidget, public KRegExpEditorInter
     Q_INTERFACES(KRegExpEditorInterface)
     Q_PROPERTY(QString regexp READ regExp WRITE setRegExp)
 public:
-    KRegExpEditorGUI(QWidget *parent = 0, const QVariantList & = QVariantList());
+    KRegExpEditorGUI(QWidget *parent = nullptr, const QVariantList & = QVariantList());
     ~KRegExpEditorGUI();
     QString regExp() const override;
 

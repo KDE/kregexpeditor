@@ -30,7 +30,7 @@
 class MultiContainerWidget : public RegExpWidget
 {
 public:
-    explicit MultiContainerWidget(RegExpEditorWindow *editorWindow, QWidget *parent = 0);
+    explicit MultiContainerWidget(RegExpEditorWindow *editorWindow, QWidget *parent = nullptr);
     bool hasSelection() const override;
     void clearSelection() override;
     void deleteSelection() override;

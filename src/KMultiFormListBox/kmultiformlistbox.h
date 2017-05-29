@@ -67,7 +67,7 @@ public:
        KMultiFormListBoxEntry class which is repeated in the KMultiFormListBox
        @param parent A pointer to the parent widget
      **/
-    explicit KMultiFormListBox(KMultiFormListBoxFactory *factory, KMultiFormListBoxType tp = Windowed, QWidget *parent = 0, bool showUpDownButtons = true, bool showHelpButton = true,
+    explicit KMultiFormListBox(KMultiFormListBoxFactory *factory, KMultiFormListBoxType tp = Windowed, QWidget *parent = nullptr, bool showUpDownButtons = true, bool showHelpButton = true,
                                QString addButtonText = i18n("Add"));
 
     /**

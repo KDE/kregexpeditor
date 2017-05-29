@@ -28,7 +28,7 @@
 class CompoundRegExp : public RegExp
 {
 public:
-    explicit CompoundRegExp(bool selected, const QString &title = QString(), const QString &description = QString(), bool hidden = false, bool allowReplace = false, RegExp *child = 0);
+    explicit CompoundRegExp(bool selected, const QString &title = QString(), const QString &description = QString(), bool hidden = false, bool allowReplace = false, RegExp *child = nullptr);
 
     bool check(ErrorMap &, bool first, bool last) override;
     int precedence() const override
