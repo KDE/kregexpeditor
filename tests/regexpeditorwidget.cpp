@@ -29,7 +29,7 @@
 RegExpEditorWidget::RegExpEditorWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QHBoxLayout *layout = new QHBoxLayout(this);
+    QVBoxLayout *layout = new QVBoxLayout(this);
     bool regexEditorInstalled = !KServiceTypeTrader::self()->query(QStringLiteral("KRegExpEditor/KRegExpEditor")).isEmpty();
     if (regexEditorInstalled) {
         QPushButton *button = new QPushButton(QStringLiteral("Show regexpeditor"), this);
