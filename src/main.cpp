@@ -25,7 +25,7 @@
 #include <QPushButton>
 #include <QCommandLineParser>
 
-#include "kregexpeditorgui.h"
+#include "kregexpeditorguidialog.h"
 
 int main(int argc, char *argv[])
 {
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
-    KRegExpEditorGUI iface;
+    KRegExpEditorGUIDialog iface(0);
 
     iface.show();
 
