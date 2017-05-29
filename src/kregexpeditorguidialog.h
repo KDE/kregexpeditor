@@ -47,6 +47,7 @@ public slots:
     void setMatchText(const QString &) override;
 
 private:
+    void showHelp();
     KRegExpEditorGUI *_editor;
 };
 

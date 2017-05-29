@@ -23,6 +23,7 @@
 
 #include <KLocalizedString>
 #include <KToolInvocation>
+#include <KHelpClient>
 #include <QDialogButtonBox>
 #include <QPushButton>
 
@@ -32,27 +33,24 @@ KRegExpEditorGUIDialog::KRegExpEditorGUIDialog(QWidget *parent, const QVariantLi
     : QDialog(parent)
 {
     setWindowTitle(i18n("Regular Expression Editor"));
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    setLayout(mainLayout);
 
-    QFrame *frame = new QFrame(this);
-    QVBoxLayout *layout = new QVBoxLayout(frame);
-    _editor = new KRegExpEditorGUI(frame);
+    QVBoxLayout *layout = new QVBoxLayout(this);
+    _editor = new KRegExpEditorGUI(this);
     layout->addWidget(_editor);
-    mainLayout->addWidget(frame);
 
     connect(_editor, SIGNAL(canUndo(bool)), this, SIGNAL(canUndo(bool)));
     connect(_editor, SIGNAL(canRedo(bool)), this, SIGNAL(canRedo(bool)));
     connect(_editor, SIGNAL(changes(bool)), this, SIGNAL(changes(bool)));
-    resize(640, 400);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Help);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    mainLayout->addWidget(buttonBox);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    layout->addWidget(buttonBox);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
+    connect(buttonBox, &QDialogButtonBox::helpRequested, this, &KRegExpEditorGUIDialog::showHelp);
+    resize(640, 400);
 }
 
 QString KRegExpEditorGUIDialog::regExp() const
@@ -83,4 +81,9 @@ void KRegExpEditorGUIDialog::doSomething(const QString &method, void *arguments)
 void KRegExpEditorGUIDialog::setMatchText(const QString &txt)
 {
     _editor->setMatchText(txt);
+}
+
+void KRegExpEditorGUIDialog::showHelp()
+{
+    KHelpClient::invokeHelp(QString(), QStringLiteral("kregexpeditor"));
 }
