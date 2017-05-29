@@ -58,7 +58,6 @@ public slots:
     void setRegExp(const QString &regexp) override;
     void doSomething(const QString &method, void *arguments) override;
     void setMatchText(const QString &) override;
-    void showHelp();
 
 private:
     KRegExpEditorPrivate *_editor;

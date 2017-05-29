@@ -34,22 +34,9 @@ KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent, const QVariantList &)
     : QWidget(parent)
     , _editor(new KRegExpEditorPrivate(this))
 {
-    setWindowFlags(windowFlags() | Qt::Dialog);
-
     QVBoxLayout *layout = new QVBoxLayout(this);
+    layout->setMargin(0);
     layout->addWidget(_editor);
-
-    QPushButton *quitButton = new QPushButton(i18n("&Quit"));
-    QPushButton *helpButton = new QPushButton(i18n("&Help"));
-    QHBoxLayout *buttonLayout = new QHBoxLayout;
-    buttonLayout->setMargin(0);
-    buttonLayout->addStretch();
-    buttonLayout->addWidget(quitButton);
-    buttonLayout->addWidget(helpButton);
-    layout->addLayout(buttonLayout);
-
-    connect(helpButton, &QPushButton::clicked, this, &KRegExpEditorGUI::showHelp);
-    connect(quitButton, &QPushButton::clicked, this, &QDialog::close);
 
     connect(_editor, &KRegExpEditorPrivate::canUndo, this, &KRegExpEditorGUI::canUndo);
     connect(_editor, &KRegExpEditorPrivate::canRedo, this, &KRegExpEditorGUI::canRedo);
@@ -57,6 +44,7 @@ KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent, const QVariantList &)
 
     QSettings settings;
     restoreGeometry(settings.value(QStringLiteral("geometry")).toByteArray());
+
 }
 
 KRegExpEditorGUI::~KRegExpEditorGUI()
@@ -112,7 +100,3 @@ void KRegExpEditorGUI::setMatchText(const QString &txt)
     _editor->setMatchText(txt);
 }
 
-void KRegExpEditorGUI::showHelp()
-{
-    KHelpClient::invokeHelp(QString(), QStringLiteral("kregexpeditor"));
-}
