@@ -278,7 +278,7 @@ void KMultiFormListBoxMultiVisible::copy(KMultiFormListBoxEntry *elm)
 
 void KMultiFormListBoxMultiVisible::paste(KMultiFormListBoxEntry *oldElm)
 {
-    if (clipboard.size() == 0) {
+    if (clipboard.isEmpty()) {
         KMessageBox::information(this, i18n("There is no element on the clipboard to paste in."));
         return;
     }

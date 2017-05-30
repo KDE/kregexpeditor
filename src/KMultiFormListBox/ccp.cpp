@@ -40,7 +40,7 @@ void CCP::install(QObject *elm)
 {
     elm->installEventFilter(this);
     const QList<QObject *> children = elm->children();
-    if (children.count() > 0) {
+    if (!children.isEmpty()) {
         for (int i = 0; i < children.size(); ++i) {
             if (children.at(i)->inherits("KMultiFormListBoxMultiVisible")) {
                 // Stop if the widget is an KMultiFormListBox, as this widget has its own cut/copy/paste
@@ -62,13 +62,13 @@ bool CCP::eventFilter(QObject *, QEvent *event)
 
     QPoint pos = ((QMouseEvent *)event)->globalPos();
 
-    QMenu *menu = new QMenu();
-    QAction *cutAction = menu->addAction(i18n("Cut"));
-    QAction *copyAction = menu->addAction(i18n("Copy"));
-    QAction *pasteAction = menu->addAction(i18n("Paste"));
-    QAction *blankAction = menu->addAction(i18n("Insert Blank"));
+    QMenu menu;
+    QAction *cutAction = menu.addAction(i18n("Cut"));
+    QAction *copyAction = menu.addAction(i18n("Copy"));
+    QAction *pasteAction = menu.addAction(i18n("Paste"));
+    QAction *blankAction = menu.addAction(i18n("Insert Blank"));
 
-    QAction *res = menu->exec(pos);
+    QAction *res = menu.exec(pos);
     if (res) {
         if (res == cutAction) {
             ee->cut(eee);
@@ -80,6 +80,5 @@ bool CCP::eventFilter(QObject *, QEvent *event)
             ee->addElement(eee);
         }
     }
-    delete menu;
     return true;
 }

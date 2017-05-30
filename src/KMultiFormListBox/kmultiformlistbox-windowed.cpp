@@ -219,7 +219,8 @@ void KMultiFormListBoxWindowed::slotMoveItemDown()
 void KMultiFormListBoxWindowed::slotUpdateButtonState()
 {
     bool on = (_listbox->count() != 0);
-    for (int i = 0; i < _buttonList.count(); i++) {
+    const int nbButton = _buttonList.count();
+    for (int i = 0; i < nbButton; i++) {
         _buttonList.at(i)->setEnabled(on);
     }
 }
