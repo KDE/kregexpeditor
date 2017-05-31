@@ -41,7 +41,7 @@ public:
     QString title() const;
     QString description() const;
     bool allowReplace() const;
-    void setTitle(const QString& );
+    void setTitle(const QString &);
     void setDescription(const QString &);
     void setAllowReplace(bool);
 

@@ -208,7 +208,7 @@ RegExp *WidgetFactory::createRegExp(const QString &str)
     QDomNode child = top.firstChild();
     if (!child.isElement()) {
         KMessageBox::sorry(nullptr, i18n("<p>Error while reading XML file. The element just below the tag "
-                                   "<b>%1</b> was not an element.</p>", QString::fromLatin1("RegularExpression")),
+                                         "<b>%1</b> was not an element.</p>", QString::fromLatin1("RegularExpression")),
                            i18n("Error While Loading From XML File"));
     }
 

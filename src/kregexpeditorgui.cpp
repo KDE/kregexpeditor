@@ -44,7 +44,6 @@ KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent, const QVariantList &)
 
     QSettings settings;
     restoreGeometry(settings.value(QStringLiteral("geometry")).toByteArray());
-
 }
 
 KRegExpEditorGUI::~KRegExpEditorGUI()
@@ -99,4 +98,3 @@ void KRegExpEditorGUI::setMatchText(const QString &txt)
 {
     _editor->setMatchText(txt);
 }
-
