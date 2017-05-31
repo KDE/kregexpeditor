@@ -43,7 +43,7 @@ QString EmacsRegExpConverter::toString(AltnRegExp *regexp, bool markSelection)
     RegExpList list = regexp->children();
     foreach (RegExp *r, list) {
         if (!first) {
-            res += QString::fromLatin1("\\|");
+            res += QLatin1String("\\|");
         }
         first = false;
         res += toStr(r, markSelection);
@@ -61,8 +61,8 @@ QString EmacsRegExpConverter::toString(ConcRegExp *regexp, bool markSelection)
         QString startPar = QString::fromLocal8Bit("");
         QString endPar = QString::fromLocal8Bit("");
         if (r->precedence() < regexp->precedence()) {
-            startPar = QString::fromLatin1("\\(");
-            endPar = QString::fromLatin1("\\)");
+            startPar = QStringLiteral("\\(");
+            endPar = QStringLiteral("\\)");
         }
 
         res += startPar + toStr(r, markSelection) + endPar;
@@ -107,7 +107,7 @@ QString EmacsRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelec
 
     // Now insert the ranges.
     foreach (const StringPair &elm, regexp->range()) {
-        txt.append(elm.first + QString::fromLatin1("-") + elm.second);
+        txt.append(elm.first + QLatin1String("-") + elm.second);
     }
 
     // Ok, its time to build each part of the regexp, here comes the rule:
@@ -117,20 +117,20 @@ QString EmacsRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelec
     // finally if '^' is one of the characters, then it must not be the first
     // one!
 
-    QString res = QString::fromLatin1("[");
+    QString res = QStringLiteral("[");
 
     if (regexp->negate()) {
-        res.append(QString::fromLatin1("^"));
+        res.append(QLatin1String("^"));
     }
 
     // a ']' must be the first character in teh range.
     if (foundParenthesis) {
-        res.append(QString::fromLatin1("]"));
+        res.append(QLatin1String("]"));
     }
 
     // a '-' must be the first character ( only coming after a ']')
     if (foundDash) {
-        res.append(QString::fromLatin1("-"));
+        res.append(QLatin1String("-"));
     }
 
     res += txt;
@@ -153,7 +153,7 @@ QString EmacsRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelec
         res.append(QLatin1Char('^'));
     }
 
-    res.append(QString::fromLatin1("]"));
+    res.append(QLatin1String("]"));
 
     return res;
 }
@@ -165,7 +165,7 @@ QString EmacsRegExpConverter::toString(CompoundRegExp *regexp, bool markSelectio
 
 QString EmacsRegExpConverter::toString(DotRegExp * /*regexp*/, bool /*markSelection*/)
 {
-    return QString::fromLatin1(".");
+    return QStringLiteral(".");
 }
 
 QString EmacsRegExpConverter::toString(PositionRegExp *regexp, bool /*markSelection*/)
@@ -173,18 +173,18 @@ QString EmacsRegExpConverter::toString(PositionRegExp *regexp, bool /*markSelect
     static bool haveWarned = false;
     switch (regexp->position()) {
     case PositionRegExp::BEGLINE:
-        return QString::fromLatin1("^");
+        return QStringLiteral("^");
     case PositionRegExp::ENDLINE:
-        return QString::fromLatin1("$");
+        return QStringLiteral("$");
     case PositionRegExp::WORDBOUNDARY:
     case PositionRegExp::NONWORDBOUNDARY:
         if (!haveWarned) {
             KMessageBox::sorry(nullptr, i18n("Word boundary and non word boundary is not supported in Emacs syntax"));
             haveWarned = true;
-            return QString::fromLatin1("");
+            return QStringLiteral("");
         }
     }
-    return QString::fromLatin1("");
+    return QStringLiteral("");
 }
 
 QString EmacsRegExpConverter::toString(RepeatRegExp *regexp, bool markSelection)
@@ -195,8 +195,8 @@ QString EmacsRegExpConverter::toString(RepeatRegExp *regexp, bool markSelection)
     QString endPar;
 
     if (child->precedence() < regexp->precedence()) {
-        startPar = QString::fromLatin1("\\(");
-        endPar = QString::fromLatin1("\\)");
+        startPar = QStringLiteral("\\(");
+        endPar = QStringLiteral("\\)");
     }
 
     if (regexp->min() == 0 && regexp->max() == -1) {
@@ -206,16 +206,16 @@ QString EmacsRegExpConverter::toString(RepeatRegExp *regexp, bool markSelection)
     } else if (regexp->min() == 1 && regexp->max() == -1) {
         return startPar + cText + endPar + QString::fromLocal8Bit("+");
     } else {
-        QString res = QString::fromLatin1("");
+        QString res = QStringLiteral("");
         for (int i = 0; i < regexp->min(); ++i) {
-            res += QString::fromLatin1("\\(") + cText + QString::fromLatin1("\\)");
+            res += QLatin1String("\\(") + cText + QLatin1String("\\)");
         }
         if (regexp->max() != -1) {
             for (int i = regexp->min(); i < regexp->max(); ++i) {
-                res += QString::fromLatin1("\\(") + cText + QString::fromLatin1("\\)?");
+                res += QLatin1String("\\(") + cText + QLatin1String("\\)?");
             }
         } else {
-            res += QString::fromLatin1("+");
+            res += QLatin1String("+");
         }
 
         return res;
@@ -241,7 +241,7 @@ QString EmacsRegExpConverter::toString(TextRegExp *regexp, bool /*markSelection*
 
 QString EmacsRegExpConverter::name()
 {
-    return QString::fromLatin1("Emacs");
+    return QStringLiteral("Emacs");
 }
 
 int EmacsRegExpConverter::features()

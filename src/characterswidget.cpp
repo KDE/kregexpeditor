@@ -110,7 +110,7 @@ RegExp *CharactersWidget::regExp() const
 
 QString CharactersWidget::text() const
 {
-    QString res = QString::fromLatin1("");
+    QString res = QStringLiteral("");
 
     if (_regexp->wordChar()) {
         res += i18n("- A word character\n");

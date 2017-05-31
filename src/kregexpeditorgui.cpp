@@ -81,13 +81,13 @@ void KRegExpEditorGUI::setRegExp(const QString &regexp)
 
 void KRegExpEditorGUI::doSomething(const QString &method, void *arguments)
 {
-    if (method == QString::fromLatin1("setCaseSensitive")) {
+    if (method == QLatin1String("setCaseSensitive")) {
         _editor->setCaseSensitive((bool)arguments);
-    } else if (method == QString::fromLatin1("setMinimal")) {
+    } else if (method == QLatin1String("setMinimal")) {
         _editor->setMinimal((bool)arguments);
-    } else if (method == QString::fromLatin1("setSyntax")) {
+    } else if (method == QLatin1String("setSyntax")) {
         _editor->setSyntax(*((QString *)arguments));
-    } else if (method == QString::fromLatin1("setAllowNonQtSyntax")) {
+    } else if (method == QLatin1String("setAllowNonQtSyntax")) {
         _editor->setAllowNonQtSyntax((bool)arguments);
     } else {
         qFatal("%s", qPrintable(tr("Method '%1' is not valid!").arg(method)));

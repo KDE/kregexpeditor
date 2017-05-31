@@ -60,7 +60,7 @@ CharSelector::CharSelector(QWidget *parent)
     items << i18n("Normal Character")
           << i18n("Unicode Char in Hex.")
           << i18n("Unicode Char in Oct.")
-          << QString::fromLatin1("----")
+          << QStringLiteral("----")
           << i18n("The Bell Character (\\a)")
           << i18n("The Form Feed Character (\\f)")
           << i18n("The Line Feed Character (\\n)")
@@ -164,17 +164,17 @@ QString CharSelector::text() const
     case 3: // The separator
         break;
     case 4:
-        return QString::fromLatin1("\\a");
+        return QStringLiteral("\\a");
     case 5:
-        return QString::fromLatin1("\\f");
+        return QStringLiteral("\\f");
     case 6:
-        return QString::fromLatin1("\\n");
+        return QStringLiteral("\\n");
     case 7:
-        return QString::fromLatin1("\\r");
+        return QStringLiteral("\\r");
     case 8:
-        return QString::fromLatin1("\\t");
+        return QStringLiteral("\\t");
     case 9:
-        return QString::fromLatin1("\\v");
+        return QStringLiteral("\\v");
     }
     return QString();
 }

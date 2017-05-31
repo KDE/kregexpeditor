@@ -63,7 +63,7 @@ QString RegExpConverter::toStr(RegExp *regexp, bool markSelection)
         return toString(static_cast<TextRangeRegExp *>(regexp), markSelection);
     }
     qWarning("We shouldn't get here!");
-    return QString::fromLatin1("");
+    return QStringLiteral("");
 }
 
 QString RegExpConverter::escape(const QString &text, const QList<QChar> &chars, QChar escapeChar) const

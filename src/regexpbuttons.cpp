@@ -42,7 +42,7 @@ RegExpButtons::RegExpButtons(QWidget *parent, const QString &name)
     // The "select" button.
     _selectBut = new QToolButton(this);
 
-    QPixmap pix = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString::fromLatin1("kregexpeditor/pics/select.png")), KIconLoader::Toolbar);
+    QPixmap pix = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kregexpeditor/pics/select.png")), KIconLoader::Toolbar);
 
     _selectBut->setIcon(static_cast<QIcon>(pix));
     addWidget(_selectBut);
@@ -136,7 +136,7 @@ DoubleClickButton *RegExpButtons::insert(RegExpType tp, const QString &name, con
 {
     QPixmap pix
         = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation,
-                                                                 QString::fromLatin1("kregexpeditor/pics/") + name + QString::fromLatin1(
+                                                                 QLatin1String("kregexpeditor/pics/") + name + QLatin1String(
                                                                      ".png")), KIconLoader::Toolbar);
 
     DoubleClickButton *but = new DoubleClickButton(pix, this, QStringLiteral("RegExpButtons::but"));

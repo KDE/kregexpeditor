@@ -50,12 +50,12 @@ QString QtRegExpConverter::toString(AltnRegExp *regexp, bool markSelection)
     RegExpList list = regexp->children();
     foreach (RegExp *r, list) {
         if (!first) {
-            res += QString::fromLatin1("|");
+            res += QLatin1String("|");
         }
 
         first = false;
         if (markSelection && !regexp->isSelected() && r->isSelected()) {
-            res += QString::fromLatin1("(") + toStr(r, markSelection) + QString::fromLatin1(")");
+            res += QLatin1String("(") + toStr(r, markSelection) + QLatin1String(")");
         } else {
             res += toStr(r, markSelection);
         }
@@ -76,26 +76,26 @@ QString QtRegExpConverter::toString(ConcRegExp *regexp, bool markSelection)
             if (markSelection) {
                 startPar = QString::fromLocal8Bit("(?:");
             } else {
-                startPar = QString::fromLatin1("(");
+                startPar = QStringLiteral("(");
             }
-            endPar = QString::fromLatin1(")");
+            endPar = QStringLiteral(")");
         }
 
         // Note these two have different tests! They are activated in each their iteration of the loop.
         if (markSelection && !childSelected && !regexp->isSelected() && r->isSelected()) {
-            res += QString::fromLatin1("(");
+            res += QLatin1String("(");
             childSelected = true;
         }
 
         if (markSelection && childSelected && !regexp->isSelected() && !r->isSelected()) {
-            res += QString::fromLatin1(")");
+            res += QLatin1String(")");
             childSelected = false;
         }
 
         res += startPar + toStr(r, markSelection) + endPar;
     }
     if (markSelection && childSelected && !regexp->isSelected()) {
-        res += QString::fromLatin1(")");
+        res += QLatin1String(")");
     }
     return res;
 }
@@ -103,9 +103,9 @@ QString QtRegExpConverter::toString(ConcRegExp *regexp, bool markSelection)
 QString QtRegExpConverter::toString(LookAheadRegExp *regexp, bool markSelection)
 {
     if (regexp->lookAheadType() == LookAheadRegExp::POSITIVE) {
-        return QString::fromLatin1("(?=") + toStr(regexp->child(), markSelection) + QString::fromLocal8Bit(")");
+        return QLatin1String("(?=") + toStr(regexp->child(), markSelection) + QString::fromLocal8Bit(")");
     } else {
-        return QString::fromLatin1("(?!") + toStr(regexp->child(), markSelection) + QString::fromLocal8Bit(")");
+        return QLatin1String("(?!") + toStr(regexp->child(), markSelection) + QString::fromLocal8Bit(")");
     }
 }
 
@@ -134,7 +134,7 @@ QString QtRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelectio
 
     // Now insert the ranges.
     foreach (const StringPair &elm, regexp->range()) {
-        txt.append(elm.first + QString::fromLatin1("-") + elm.second);
+        txt.append(elm.first + QLatin1String("-") + elm.second);
     }
 
     // Ok, its time to build each part of the regexp, here comes the rule:
@@ -144,20 +144,20 @@ QString QtRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelectio
     // finally if '^' is one of the characters, then it must not be the first
     // one!
 
-    QString res = QString::fromLatin1("[");
+    QString res = QStringLiteral("[");
 
     if (regexp->negate()) {
-        res.append(QString::fromLatin1("^"));
+        res.append(QLatin1String("^"));
     }
 
     // a ']' must be the first character in teh range.
     if (foundParenthesis) {
-        res.append(QString::fromLatin1("]"));
+        res.append(QLatin1String("]"));
     }
 
     // a '-' must be the first character ( only coming after a ']')
     if (foundDash) {
-        res.append(QString::fromLatin1("-"));
+        res.append(QLatin1String("-"));
     }
 
     res += txt;
@@ -191,7 +191,7 @@ QString QtRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelectio
         res.append(QLatin1Char('^'));
     }
 
-    res.append(QString::fromLatin1("]"));
+    res.append(QLatin1String("]"));
 
     return res;
 }
@@ -199,7 +199,7 @@ QString QtRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelectio
 QString QtRegExpConverter::toString(CompoundRegExp *regexp, bool markSelection)
 {
     if (markSelection && !regexp->isSelected() && regexp->child()->isSelected()) {
-        return QString::fromLatin1("(") + toStr(regexp->child(), markSelection) + QString::fromLatin1(")");
+        return QLatin1String("(") + toStr(regexp->child(), markSelection) + QLatin1String(")");
     } else {
         return toStr(regexp->child(), markSelection);
     }
@@ -207,23 +207,23 @@ QString QtRegExpConverter::toString(CompoundRegExp *regexp, bool markSelection)
 
 QString QtRegExpConverter::toString(DotRegExp * /*regexp*/, bool /*markSelection*/)
 {
-    return QString::fromLatin1(".");
+    return QStringLiteral(".");
 }
 
 QString QtRegExpConverter::toString(PositionRegExp *regexp, bool /*markSelection*/)
 {
     switch (regexp->position()) {
     case PositionRegExp::BEGLINE:
-        return QString::fromLatin1("^");
+        return QStringLiteral("^");
     case PositionRegExp::ENDLINE:
-        return QString::fromLatin1("$");
+        return QStringLiteral("$");
     case PositionRegExp::WORDBOUNDARY:
-        return QString::fromLatin1("\\b");
+        return QStringLiteral("\\b");
     case PositionRegExp::NONWORDBOUNDARY:
-        return QString::fromLatin1("\\B");
+        return QStringLiteral("\\B");
     }
     Q_ASSERT(false);
-    return QString::fromLatin1("");
+    return QStringLiteral("");
 }
 
 QString QtRegExpConverter::toString(RepeatRegExp *regexp, bool markSelection)
@@ -236,15 +236,15 @@ QString QtRegExpConverter::toString(RepeatRegExp *regexp, bool markSelection)
 
     if (markSelection) {
         if (!regexp->isSelected() && child->isSelected()) {
-            startPar = QString::fromLatin1("(");
-            endPar = QString::fromLatin1(")");
+            startPar = QStringLiteral("(");
+            endPar = QStringLiteral(")");
         } else if (child->precedence() < regexp->precedence()) {
-            startPar = QString::fromLatin1("(?:");
-            endPar = QString::fromLatin1(")");
+            startPar = QStringLiteral("(?:");
+            endPar = QStringLiteral(")");
         }
     } else if (child->precedence() < regexp->precedence()) {
-        startPar = QString::fromLatin1("(");
-        endPar = QString::fromLatin1(")");
+        startPar = QStringLiteral("(");
+        endPar = QStringLiteral(")");
     }
 
     if (regexp->min() == 0 && regexp->max() == -1) {
@@ -290,7 +290,7 @@ QString QtRegExpConverter::toString(TextRegExp *regexp, bool /*markSelection*/)
 
 QString QtRegExpConverter::name()
 {
-    return QString::fromLatin1("Qt");
+    return QStringLiteral("Qt");
 }
 
 int QtRegExpConverter::features()

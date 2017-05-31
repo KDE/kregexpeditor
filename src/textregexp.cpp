@@ -57,7 +57,7 @@ bool TextRegExp::load(QDomElement top, const QString & /*version*/)
         QDomText txtNode = child.toText();
         _text = txtNode.data();
     } else {
-        _text = QString::fromLatin1("");
+        _text = QStringLiteral("");
     }
 
     return true;

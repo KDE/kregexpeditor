@@ -175,7 +175,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
                                    "<p>You may develop your regular expression both by using the graphical "
                                    "editor, and by typing the regular expression in this line edit.</p>"));
 
-    QPixmap pix = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString::fromLatin1("kregexpeditor/pics/error.png")), KIconLoader::Toolbar);
+    QPixmap pix = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kregexpeditor/pics/error.png")), KIconLoader::Toolbar);
     _error = new QLabel(editDockWidget);
     _error->setPixmap(pix);
     dockLayout->addWidget(_error);
@@ -194,7 +194,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     (void)new QShortcut(Qt::CTRL + Qt::Key_Z, this, SLOT(slotUndo()));
     (void)new QShortcut(Qt::CTRL + Qt::Key_R, this, SLOT(slotRedo()));
 
-    setSyntax(QString::fromLatin1("Qt"));
+    setSyntax(QStringLiteral("Qt"));
 }
 
 KRegExpEditorPrivate::~KRegExpEditorPrivate()

@@ -73,7 +73,7 @@ RegExp *RegExp::readRegExp(QDomElement top, const QString &version)
 QString RegExp::toXmlString() const
 {
     QDomDocument doc;
-    doc.setContent(QString::fromLatin1("<RegularExpression/>"));
+    doc.setContent(QStringLiteral("<RegularExpression/>"));
     QDomNode top = doc.documentElement();
     top.toElement().setAttribute(QString::fromLocal8Bit("version"), KRegExpEditorGUI::version);
 

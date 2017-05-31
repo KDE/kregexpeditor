@@ -25,7 +25,7 @@ InfoPage::InfoPage(QWidget *parent)
     : QTextBrowser(parent)
 {
     QString txt
-        = QString::fromLatin1("<qt>")
+        = QLatin1String("<qt>")
           +i18nc("Translators, feel free to add yourself in the text below, asking for a postcard ;-), "
                  "also feel free to add a section saying <h2>Translators</h2>. "
                  "Kind regards, and thanks for your work - Jesper.",
@@ -50,7 +50,7 @@ InfoPage::InfoPage(QWidget *parent)
 
                 "<h2>Author</h2>"
                 "<a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;")
-           + QString::fromLatin1("</qt>");
+           + QLatin1String("</qt>");
     setText(txt);
 }
 

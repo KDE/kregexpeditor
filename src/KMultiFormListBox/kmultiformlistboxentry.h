@@ -71,7 +71,7 @@ public:
     // used when showing the fast-search menu available from the `Idx' button.
     virtual QString idxString()
     {
-        return QString::fromLatin1("");
+        return QStringLiteral("");
     }
 
 public Q_SLOTS:

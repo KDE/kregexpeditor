@@ -123,61 +123,61 @@ KWidgetStreamer::KWidgetStreamer()
 
     // QCheckBox
     l.clear();
-    l << QString::fromLatin1("enabled")
-      << QString::fromLatin1("checked") << QString::fromLatin1("tristate");
-    _map.insert(QString::fromLatin1("QCheckBox"), l);
+    l << QStringLiteral("enabled")
+      << QStringLiteral("checked") << QStringLiteral("tristate");
+    _map.insert(QStringLiteral("QCheckBox"), l);
 
     // QComboBox
     l.clear();
-    l << QString::fromLatin1("enabled")
-      << QString::fromLatin1("editable") << QString::fromLatin1("currentItem")
-      << QString::fromLatin1("maxCount") << QString::fromLatin1("insertionPolicy")
-      << QString::fromLatin1("autoCompletion");
-    _map.insert(QString::fromLatin1("QComboBox"), l);
+    l << QStringLiteral("enabled")
+      << QStringLiteral("editable") << QStringLiteral("currentItem")
+      << QStringLiteral("maxCount") << QStringLiteral("insertionPolicy")
+      << QStringLiteral("autoCompletion");
+    _map.insert(QStringLiteral("QComboBox"), l);
 
     // QDial
     l.clear();
-    l << QString::fromLatin1("enabled")
-      << QString::fromLatin1("tracking") << QString::fromLatin1("wrapping")
-      << QString::fromLatin1("value");
-    _map.insert(QString::fromLatin1("QDial"), l);
+    l << QStringLiteral("enabled")
+      << QStringLiteral("tracking") << QStringLiteral("wrapping")
+      << QStringLiteral("value");
+    _map.insert(QStringLiteral("QDial"), l);
 
     // QLCDNumber
     l.clear();
-    l << QString::fromLatin1("enabled")
-      << QString::fromLatin1("numDigits") << QString::fromLatin1("mode")
-      << QString::fromLatin1("segmentStyle") << QString::fromLatin1("value");
-    _map.insert(QString::fromLatin1("QLCDNumber"), l);
+    l << QStringLiteral("enabled")
+      << QStringLiteral("numDigits") << QStringLiteral("mode")
+      << QStringLiteral("segmentStyle") << QStringLiteral("value");
+    _map.insert(QStringLiteral("QLCDNumber"), l);
 
     // QLineEdit
     l.clear();
-    l << QString::fromLatin1("enabled")
-      << QString::fromLatin1("text") << QString::fromLatin1("maxLength")
-      << QString::fromLatin1("echoMode") << QString::fromLatin1("alignment");
-    _map.insert(QString::fromLatin1("QLineEdit"), l);
+    l << QStringLiteral("enabled")
+      << QStringLiteral("text") << QStringLiteral("maxLength")
+      << QStringLiteral("echoMode") << QStringLiteral("alignment");
+    _map.insert(QStringLiteral("QLineEdit"), l);
 
     // QMultiLineEdit
     l.clear();
-    l << QString::fromLatin1("enabled")
-      << QString::fromLatin1("text")
-      << QString::fromLatin1("alignment");
-    _map.insert(QString::fromLatin1("QTextEdit"), l);
+    l << QStringLiteral("enabled")
+      << QStringLiteral("text")
+      << QStringLiteral("alignment");
+    _map.insert(QStringLiteral("QTextEdit"), l);
 
     // QRadioButton
     l.clear();
-    l << QString::fromLatin1("enabled")
-      << QString::fromLatin1("checked");
-    _map.insert(QString::fromLatin1("QRadioButton"), l);
+    l << QStringLiteral("enabled")
+      << QStringLiteral("checked");
+    _map.insert(QStringLiteral("QRadioButton"), l);
 
     // QSlider
     l.clear();
-    l << QString::fromLatin1("enabled")
-      << QString::fromLatin1("value");
-    _map.insert(QString::fromLatin1("QSlider"), l);
+    l << QStringLiteral("enabled")
+      << QStringLiteral("value");
+    _map.insert(QStringLiteral("QSlider"), l);
 
     // QSpinBox
     l.clear();
-    l << QString::fromLatin1("enabled")
-      << QString::fromLatin1("value");
-    _map.insert(QString::fromLatin1("QSpinBox"), l);
+    l << QStringLiteral("enabled")
+      << QStringLiteral("value");
+    _map.insert(QStringLiteral("QSpinBox"), l);
 }
