@@ -22,7 +22,7 @@
 #include "kregexpeditorgui.h"
 #include "errormap.h"
 
-RegExp::RegExp(bool selected) : _parent(0)
+RegExp::RegExp(bool selected) : _parent(nullptr)
     , _destructing(false)
     , _selected(selected)
 {
@@ -36,7 +36,7 @@ RegExp::~RegExp()
     if (_parent) {
         _parent->removeChild(this);
     }
-    _parent = 0;
+    _parent = nullptr;
 }
 
 void RegExp::addChild(RegExp *child)

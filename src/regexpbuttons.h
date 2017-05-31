@@ -36,7 +36,7 @@ public:
     void setFeatures(int features);
 
 protected:
-    DoubleClickButton *insert(RegExpType tp, const char *file, const QString &tooltip, const QString &whatsthis);
+    DoubleClickButton *insert(RegExpType tp, const QString &file, const QString &tooltip, const QString &whatsthis);
 
 public slots:
     void slotSelectNewAction();

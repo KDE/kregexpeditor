@@ -31,7 +31,7 @@
 #include "textregexp.h"
 #include "regexphighlighter.h"
 
-RegExpConverter *RegExpConverter::_current = 0;
+RegExpConverter *RegExpConverter::_current = nullptr;
 RegExp *RegExpConverter::parse(const QString &, bool *ok)
 {
     *ok = false;

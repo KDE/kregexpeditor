@@ -75,7 +75,7 @@ QString EmacsRegExpConverter::toString(LookAheadRegExp * /*regexp*/, bool /*mark
 {
     static bool haveWarned = false;
     if (!haveWarned) {
-        KMessageBox::sorry(0, i18n("Look ahead regular expressions not supported in Emacs style"));
+        KMessageBox::sorry(nullptr, i18n("Look ahead regular expressions not supported in Emacs style"));
         haveWarned = true;
     }
 
@@ -179,7 +179,7 @@ QString EmacsRegExpConverter::toString(PositionRegExp *regexp, bool /*markSelect
     case PositionRegExp::WORDBOUNDARY:
     case PositionRegExp::NONWORDBOUNDARY:
         if (!haveWarned) {
-            KMessageBox::sorry(0, i18n("Word boundary and non word boundary is not supported in Emacs syntax"));
+            KMessageBox::sorry(nullptr, i18n("Word boundary and non word boundary is not supported in Emacs syntax"));
             haveWarned = true;
             return QString::fromLatin1("");
         }
