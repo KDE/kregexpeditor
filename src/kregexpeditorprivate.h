@@ -34,7 +34,6 @@ class Verifier;
 class VerifyButtons;
 class AuxButtons;
 class RegExpButtons;
-class QToolButton;
 class RegExp;
 class QLabel;
 

@@ -24,7 +24,6 @@
 class RegExpWidget;
 class RegExpEditorWindow;
 class QWidget;
-class ConcWidget;
 class RegExp;
 
 /**

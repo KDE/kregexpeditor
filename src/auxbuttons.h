@@ -21,7 +21,6 @@
 
 #include <QtWidgets/QToolBar>
 
-class QLabel;
 class QToolButton;
 
 class AuxButtons : public QToolBar

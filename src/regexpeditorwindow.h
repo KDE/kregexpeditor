@@ -23,6 +23,7 @@
 
 #include "widgetfactory.h"
 
+class ConcWidget;
 class QMenu;
 class QHBoxLayout;
 

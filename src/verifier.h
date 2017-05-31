@@ -21,7 +21,6 @@
 
 #include <KTextEdit>
 
-class QLabel;
 class RegexpHighlighter;
 
 class Verifier : public KTextEdit
