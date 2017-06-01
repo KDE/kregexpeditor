@@ -20,6 +20,7 @@
 
 #include <KLocalizedString>
 #include <KHelpClient>
+#include <QDesktopServices>
 
 InfoPage::InfoPage(QWidget *parent)
     : QTextBrowser(parent)
@@ -54,6 +55,7 @@ InfoPage::InfoPage(QWidget *parent)
     setText(txt);
 }
 
+
 void InfoPage::setSource(const QUrl &name)
 {
     QString nm = name.toString();
@@ -61,6 +63,6 @@ void InfoPage::setSource(const QUrl &name)
     if (nm.startsWith(QString::fromLocal8Bit("doc://"))) {
         KHelpClient::invokeHelp(nm.mid(6, nm.length() - 7), QStringLiteral("kregexpeditor"));
     } else {
-        QTextBrowser::setSource(name);   // handle mailto and other links
+        QDesktopServices::openUrl(name);   // handle mailto and other links
     }
 }
