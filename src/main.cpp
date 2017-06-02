@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
                          QStringLiteral("1.0"), i18n("Editor for Regular Expressions"),
                          KAboutLicense::GPL,
                          i18n("(c) 2002-2003 Jesper K. Pedersen"));
-    aboutData.addAuthor(i18n("Laurent Montel"), i18n("Developper"), QStringLiteral("montel@kde.org"));
+    aboutData.addAuthor(i18n("Laurent Montel"), i18n("Developer"), QStringLiteral("montel@kde.org"));
 
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
