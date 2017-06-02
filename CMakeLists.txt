@@ -27,6 +27,7 @@ find_package(KF5 REQUIRED
     KIO
     TextWidgets
     WidgetsAddons
+    Crash
     )
 
 find_package(BISON REQUIRED)

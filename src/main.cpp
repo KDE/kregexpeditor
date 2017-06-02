@@ -17,6 +17,7 @@
  **/
 
 #include <KAboutData>
+#include <KCrash>
 
 #include <KLocalizedString>
 #include <QApplication>
@@ -33,14 +34,17 @@ int main(int argc, char *argv[])
 
     QApplication app(argc, argv);
     app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+
+    KCrash::initialize();
+
+
     KLocalizedString::setApplicationDomain("kregexpeditor");
 
     KAboutData aboutData(QStringLiteral("kregexpeditor"), i18n("RegExp Editor"),
                          QStringLiteral("1.0"), i18n("Editor for Regular Expressions"),
                          KAboutLicense::GPL,
                          i18n("(c) 2002-2003 Jesper K. Pedersen"));
-    aboutData.setOrganizationDomain(QByteArray("kde.org"));
-    aboutData.setDesktopFileName(QStringLiteral("org.kde.kregexpeditor"));
+    aboutData.addAuthor(i18n("Laurent Montel"), i18n("Developper"), QStringLiteral("montel@kde.org"));
 
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
