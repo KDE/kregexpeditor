@@ -19,9 +19,9 @@
 #ifndef REGEXP_H
 #define REGEXP_H
 
-#include <QtXml/QDomDocument>
-#include <QtXml/QDomElement>
-#include <QtXml/QDomNode>
+#include <QDomDocument>
+#include <QDomElement>
+#include <QDomNode>
 #include <QtCore/QList>
 
 class CompoundRegExp;

@@ -18,8 +18,8 @@
 
 #include "altnwidget.h"
 
-#include <QtGui/QPainter>
-#include <QtGui/QPaintEvent>
+#include <QPainter>
+#include <QPaintEvent>
 
 #include <KLocalizedString>
 #include <KMessageBox>

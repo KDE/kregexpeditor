@@ -18,7 +18,7 @@
 
 #include "scrollededitorwindow.h"
 
-#include <QtGui/QResizeEvent>
+#include <QResizeEvent>
 #include <QtCore/QDebug>
 #include <QtWidgets/QScrollArea>
 
