@@ -66,7 +66,7 @@ QDomNode CompoundRegExp::toXml(QDomDocument *doc) const
     return top;
 }
 
-bool CompoundRegExp::load(QDomElement top, const QString &version)
+bool CompoundRegExp::load(const QDomElement &top, const QString &version)
 {
     Q_ASSERT(top.tagName() == QString::fromLocal8Bit("Compound"));
     QString str = top.attribute(QString::fromLocal8Bit("hidden"), QString::fromLocal8Bit("0"));

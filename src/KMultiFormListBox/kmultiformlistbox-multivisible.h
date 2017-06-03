@@ -70,7 +70,7 @@ public slots:
        he may get more elements in this KMultiFormListBox by pressing it.
        The button should be labeled ``More Entries'' or something similar.
     */
-    void addElement(); // Adds an empty element to the KMultiFormListBox
+    void addElement() override; // Adds an empty element to the KMultiFormListBox
 
 protected slots:
 

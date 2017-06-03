@@ -346,14 +346,14 @@ CharacterEdits::CharacterEdits(QWidget *parent)
     moreLay->addWidget(more);
     moreLay->addStretch(1);
     moreLay->setMargin(0);
-    connect(more, SIGNAL(clicked()), _range, SLOT(addElement()));
+    connect(more, &QAbstractButton::clicked, _range, &KMultiFormListBox::addElement);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
-    connect(okButton, SIGNAL(clicked()), this, SLOT(slotOK()));
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
+    connect(okButton, &QAbstractButton::clicked, this, &CharacterEdits::slotOK);
     mainLayout->addWidget(buttonBox);
 }
 

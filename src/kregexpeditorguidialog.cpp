@@ -38,9 +38,9 @@ KRegExpEditorGUIDialog::KRegExpEditorGUIDialog(QWidget *parent, const QVariantLi
     _editor = new KRegExpEditorGUI(this);
     layout->addWidget(_editor);
 
-    connect(_editor, SIGNAL(canUndo(bool)), this, SIGNAL(canUndo(bool)));
-    connect(_editor, SIGNAL(canRedo(bool)), this, SIGNAL(canRedo(bool)));
-    connect(_editor, SIGNAL(changes(bool)), this, SIGNAL(changes(bool)));
+    connect(_editor, &KRegExpEditorGUI::canUndo, this, &KRegExpEditorGUIDialog::canUndo);
+    connect(_editor, &KRegExpEditorGUI::canRedo, this, &KRegExpEditorGUIDialog::canRedo);
+    connect(_editor, &KRegExpEditorGUI::changes, this, &KRegExpEditorGUIDialog::changes);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Help);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);

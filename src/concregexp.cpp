@@ -68,7 +68,7 @@ QDomNode ConcRegExp::toXml(QDomDocument *doc) const
     return top;
 }
 
-bool ConcRegExp::load(QDomElement top, const QString &version)
+bool ConcRegExp::load(const QDomElement &top, const QString &version)
 {
     Q_ASSERT(top.tagName() == QString::fromLocal8Bit("Concatenation"));
 

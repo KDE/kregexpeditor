@@ -44,7 +44,7 @@ QDomNode TextRegExp::toXml(QDomDocument *doc) const
     return top;
 }
 
-bool TextRegExp::load(QDomElement top, const QString & /*version*/)
+bool TextRegExp::load(const QDomElement &top, const QString & /*version*/)
 {
     Q_ASSERT(top.tagName() == QString::fromLocal8Bit("Text"));
     if (top.hasChildNodes()) {

@@ -57,7 +57,7 @@ void RegExp::setParent(RegExp *parent)
     _parent = parent;
 }
 
-RegExp *RegExp::readRegExp(QDomElement top, const QString &version)
+RegExp *RegExp::readRegExp(const QDomElement &top, const QString &version)
 {
     for (QDomNode node = top.firstChild(); !node.isNull(); node = node.nextSibling()) {
         if (!node.isElement()) {

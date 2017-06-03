@@ -50,7 +50,7 @@ QDomNode LookAheadRegExp::toXml(QDomDocument *doc) const
     return top;
 }
 
-bool LookAheadRegExp::load(QDomElement top, const QString &version)
+bool LookAheadRegExp::load(const QDomElement &top, const QString &version)
 {
     _child = readRegExp(top, version);
     if (_child) {

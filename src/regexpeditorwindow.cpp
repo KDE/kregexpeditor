@@ -62,7 +62,7 @@ RegExpEditorWindow::RegExpEditorWindow(QWidget *parent)
     (void)new QShortcut(Qt::Key_Escape, this, SLOT(slotEndActions()));
     (void)new QShortcut(Qt::CTRL + Qt::Key_S, this, SLOT(slotSave()));
 
-    connect(this, SIGNAL(change()), this, SLOT(emitVerifyRegExp()));
+    connect(this, &RegExpEditorWindow::change, this, &RegExpEditorWindow::emitVerifyRegExp);
 }
 
 RegExpEditorWindow::~RegExpEditorWindow()
@@ -329,25 +329,25 @@ void RegExpEditorWindow::showRMBMenu(bool enableCutCopy)
 
         _cutAction = _menu->addAction(getIcon(QString::fromLocal8Bit("edit-cut")),
                                       i18n("C&ut"));
-        connect(_cutAction, SIGNAL(triggered()), this, SLOT(slotCut()));
+        connect(_cutAction, &QAction::triggered, this, &RegExpEditorWindow::slotCut);
 
         _copyAction = _menu->addAction(getIcon(QString::fromLocal8Bit("edit-copy")),
                                        i18n("&Copy"));
-        connect(_copyAction, SIGNAL(triggered()), this, SLOT(slotCopy()));
+        connect(_copyAction, &QAction::triggered, this, &RegExpEditorWindow::slotCopy);
 
         _pasteAction = _menu->addAction(getIcon(QString::fromLocal8Bit("edit-paste")),
                                         i18n("&Paste"));
-        connect(_pasteAction, SIGNAL(triggered()), this, SLOT(slotStartPasteAction()));
+        connect(_pasteAction, &QAction::triggered, this, &RegExpEditorWindow::slotStartPasteAction);
 
         _menu->addSeparator();
 
         _editAction = _menu->addAction(getIcon(QString::fromLocal8Bit("document-properties")),
                                        i18n("&Edit"));
-        connect(_editAction, SIGNAL(triggered()), this, SLOT(editWidget()));
+        connect(_editAction, &QAction::triggered, this, &RegExpEditorWindow::editWidget);
 
         _saveAction = _menu->addAction(getIcon(QString::fromLocal8Bit("document-save")),
                                        i18n("&Save Regular Expression..."));
-        connect(_saveAction, SIGNAL(triggered()), this, SLOT(slotSave()));
+        connect(_saveAction, &QAction::triggered, this, &RegExpEditorWindow::slotSave);
     }
 
     _cutAction->setEnabled(enableCutCopy);

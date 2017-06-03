@@ -46,7 +46,7 @@ public:
     }
 
     QDomNode toXml(QDomDocument *doc) const override;
-    bool load(QDomElement, const QString &version) override;
+    bool load(const QDomElement &, const QString &version) override;
     void append(const QString &str);
     RegExpType type() const override
     {

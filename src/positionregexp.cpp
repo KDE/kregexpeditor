@@ -50,7 +50,7 @@ QDomNode PositionRegExp::toXml(QDomDocument *doc) const
     return QDomNode();
 }
 
-bool PositionRegExp::load(QDomElement /* top */, const QString & /*version*/)
+bool PositionRegExp::load(const QDomElement &/* top */, const QString & /*version*/)
 {
     // Nothing to do.
     return true;

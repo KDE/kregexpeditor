@@ -58,7 +58,7 @@ private:
     KMultiFormListBoxFactory *_factory;
     QList<QPushButton *> _buttonList;
     QListWidget *_listbox;
-    void delElement(QWidget *); // Deletes the given element
+    void delElement(QWidget *) override; // Deletes the given element
     virtual void delAnElement() override;
     void addElement() override;
 

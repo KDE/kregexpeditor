@@ -175,7 +175,7 @@ void KMultiFormListBoxMultiVisible::insertElmIntoWidget(KMultiFormListBoxEntry *
     if (elm->indexButton()) {
         elm->indexButton()->setIcon(static_cast<QIcon>(QBitmap::fromData(QSize(indexButtonWidth, indexButtonHeight),
                                                                          indexButtonBits, QImage::Format_MonoLSB)));
-        connect(elm->indexButton(), SIGNAL(clicked()), elm, SLOT(acceptIndexButton()));
+        connect(elm->indexButton(), &QAbstractButton::clicked, elm, &KMultiFormListBoxEntry::acceptIndexButton);
         connect(elm, SIGNAL(gotoIndex(KMultiFormListBoxEntry *)),
                 this, SLOT(showIndexList(KMultiFormListBoxEntry *)));
     }

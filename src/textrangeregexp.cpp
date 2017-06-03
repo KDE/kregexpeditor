@@ -100,7 +100,7 @@ QDomNode TextRangeRegExp::toXml(QDomDocument *doc) const
     return top;
 }
 
-bool TextRangeRegExp::load(QDomElement top, const QString & /*version*/)
+bool TextRangeRegExp::load(const QDomElement &top, const QString & /*version*/)
 {
     Q_ASSERT(top.tagName() == QString::fromLocal8Bit("TextRange"));
     QString str;

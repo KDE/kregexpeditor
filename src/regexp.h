@@ -39,7 +39,7 @@ public:
 
     virtual int precedence() const = 0;
     virtual QDomNode toXml(QDomDocument *doc) const = 0;
-    virtual bool load(QDomElement, const QString &version) = 0;
+    virtual bool load(const QDomElement&, const QString &version) = 0;
     QString toXmlString() const;
 
     void check(ErrorMap &);
@@ -73,7 +73,7 @@ public:
     }
 
 protected:
-    RegExp *readRegExp(QDomElement top, const QString &version);
+    RegExp *readRegExp(const QDomElement &top, const QString &version);
 
 private:
     RegExp()
