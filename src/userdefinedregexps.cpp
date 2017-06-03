@@ -231,7 +231,7 @@ void UserDefinedRegExps::slotDeleteUserRegexp()
     delete winItem;
 }
 
-WidgetWinItem::WidgetWinItem(QString fileName, RegExp *regexp, bool usersRegExp, QTreeWidgetItem *parent)
+WidgetWinItem::WidgetWinItem(const QString &fileName, RegExp *regexp, bool usersRegExp, QTreeWidgetItem *parent)
     : QTreeWidgetItem(parent)
     , _regexp(regexp)
     , _usersRegExp(usersRegExp)
