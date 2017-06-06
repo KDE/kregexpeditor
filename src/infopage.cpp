@@ -55,7 +55,6 @@ InfoPage::InfoPage(QWidget *parent)
     setText(txt);
 }
 
-
 void InfoPage::setSource(const QUrl &name)
 {
     QString nm = name.toString();

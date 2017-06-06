@@ -37,7 +37,6 @@ int main(int argc, char *argv[])
 
     KCrash::initialize();
 
-
     KLocalizedString::setApplicationDomain("kregexpeditor");
 
     KAboutData aboutData(QStringLiteral("kregexpeditor"), i18n("RegExp Editor"),
