@@ -31,43 +31,43 @@ AuxButtons::AuxButtons(QWidget *parent, const QString &name)
     _undo = new QToolButton(this);
     _undo->setIcon(QIcon::fromTheme(QStringLiteral("edit-undo")));
     addWidget(_undo);
-    connect(_undo, SIGNAL(clicked()), this, SIGNAL(undo()));
+    connect(_undo, &QAbstractButton::clicked, this, &AuxButtons::undo);
     _undo->setToolTip(i18n("Undo"));
 
     _redo = new QToolButton(this);
     _redo->setIcon(QIcon::fromTheme(QStringLiteral("edit-redo")));
     addWidget(_redo);
-    connect(_redo, SIGNAL(clicked()), this, SIGNAL(redo()));
+    connect(_redo, &QAbstractButton::clicked, this, &AuxButtons::redo);
     _redo->setToolTip(i18n("Redo"));
 
     _cut = new QToolButton(this);
     _cut->setIcon(QIcon::fromTheme(QStringLiteral("edit-cut")));
     addWidget(_cut);
-    connect(_cut, SIGNAL(clicked()), this, SIGNAL(cut()));
+    connect(_cut, &QAbstractButton::clicked, this, &AuxButtons::cut);
     _cut->setToolTip(i18n("Cut"));
 
     _copy = new QToolButton(this);
     _copy->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
     addWidget(_copy);
-    connect(_copy, SIGNAL(clicked()), this, SIGNAL(copy()));
+    connect(_copy, &QAbstractButton::clicked, this, &AuxButtons::copy);
     _copy->setToolTip(i18n("Copy"));
 
     _paste = new QToolButton(this);
     _paste->setIcon(QIcon::fromTheme(QStringLiteral("edit-paste")));
     addWidget(_paste);
-    connect(_paste, SIGNAL(clicked()), this, SIGNAL(paste()));
+    connect(_paste, &QAbstractButton::clicked, this, &AuxButtons::paste);
     _paste->setToolTip(i18n("Paste"));
 
     _save = new QToolButton(this);
     _save->setIcon(QIcon::fromTheme(QStringLiteral("document-save")));
     addWidget(_save);
-    connect(_save, SIGNAL(clicked()), this, SIGNAL(save()));
+    connect(_save, &QAbstractButton::clicked, this, &AuxButtons::save);
     _save->setToolTip(i18n("Save"));
 
     QToolButton *button = new QToolButton(this);
     button->setIcon(QIcon::fromTheme(QStringLiteral("help-contextual")));
     addWidget(button);
-    connect(button, SIGNAL(clicked()), this, SLOT(slotEnterWhatsThis()));
+    connect(button, &QAbstractButton::clicked, this, &AuxButtons::slotEnterWhatsThis);
 
     _undo->setEnabled(false);
     _redo->setEnabled(false);

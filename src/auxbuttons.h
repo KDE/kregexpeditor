@@ -28,7 +28,7 @@ class AuxButtons : public QToolBar
     Q_OBJECT
 
 public:
-    AuxButtons(QWidget *parent, const QString &name = QString());
+    explicit AuxButtons(QWidget *parent, const QString &name = QString());
 
 signals:
     void undo();
