@@ -19,7 +19,7 @@
 #ifndef characterswidget
 #define characterswidget
 
-#include <QtWidgets/QDialog>
+#include <QDialog>
 
 #include "kmultiformlistbox.h"
 #include "kmultiformlistboxfactory.h"

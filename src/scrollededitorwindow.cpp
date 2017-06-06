@@ -19,8 +19,8 @@
 #include "scrollededitorwindow.h"
 
 #include <QResizeEvent>
-#include <QtCore/QDebug>
-#include <QtWidgets/QScrollArea>
+#include <QDebug>
+#include <QScrollArea>
 
 #include "regexpeditorwindow.h"
 

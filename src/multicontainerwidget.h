@@ -21,7 +21,7 @@
 
 #include "regexpwidget.h"
 
-#include <QtCore/QList>
+#include <QList>
 
 /**
    Abstract RegExp widget class representing widgets having multiple children.

@@ -21,7 +21,7 @@
 
 #include "regexp.h"
 
-#include <QtCore/QList>
+#include <QList>
 
 struct parse_context {
     RegExp *result;

@@ -19,7 +19,7 @@
 #include "auxbuttons.h"
 
 #include <QToolButton>
-#include <QtWidgets/QWhatsThis>
+#include <QWhatsThis>
 
 #include <QIcon>
 #include <KIconLoader>

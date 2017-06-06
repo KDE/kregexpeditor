@@ -19,8 +19,8 @@
 #ifndef __kwidgetstreamer
 #define __kwidgetstreamer
 
-#include <QtCore/QMap>
-#include <QtCore/QStringList>
+#include <QMap>
+#include <QStringList>
 
 class QObject;
 

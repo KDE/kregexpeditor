@@ -19,7 +19,7 @@
 #ifndef AUXBUTTONS_H
 #define AUXBUTTONS_H
 
-#include <QtWidgets/QToolBar>
+#include <QToolBar>
 
 class QToolButton;
 

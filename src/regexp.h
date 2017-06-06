@@ -22,7 +22,7 @@
 #include <QDomDocument>
 #include <QDomElement>
 #include <QDomNode>
-#include <QtCore/QList>
+#include <QList>
 
 class CompoundRegExp;
 class ErrorMap;
