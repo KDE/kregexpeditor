@@ -145,7 +145,7 @@ KWidgetStreamer::KWidgetStreamer()
     // QLCDNumber
     l.clear();
     l << QStringLiteral("enabled")
-      << QStringLiteral("numDigits") << QStringLiteral("mode")
+      << QStringLiteral("digitCount") << QStringLiteral("mode")
       << QStringLiteral("segmentStyle") << QStringLiteral("value");
     _map.insert(QStringLiteral("QLCDNumber"), l);
 
@@ -159,8 +159,7 @@ KWidgetStreamer::KWidgetStreamer()
     // QMultiLineEdit
     l.clear();
     l << QStringLiteral("enabled")
-      << QStringLiteral("text")
-      << QStringLiteral("alignment");
+      << QStringLiteral("plainText");
     _map.insert(QStringLiteral("QTextEdit"), l);
 
     // QRadioButton
