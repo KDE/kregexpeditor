@@ -38,7 +38,8 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
     QHBoxLayout *innerLayout = new QHBoxLayout();
     _layout->addLayout(innerLayout);
 
-    _listbox = new QListWidget(this /*,"listbox"*/);
+    _listbox = new QListWidget(this);
+    _listbox->setObjectName(QStringLiteral("listbox"));
     _listbox->setSelectionMode(QAbstractItemView::SingleSelection);
     innerLayout->addWidget(_listbox);
 
@@ -48,7 +49,7 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
     QPushButton *but = new QPushButton(addButtonText, this);
     but->setObjectName(QStringLiteral("Add Button"));
     buttons->addWidget(but, 0);
-    connect(but, SIGNAL(clicked()), this, SLOT(addNewElement()));
+    connect(but, &QAbstractButton::clicked, this, &KMultiFormListBoxWindowed::addNewElement);
 
     but = new QPushButton(i18n("Edit"), this);
     but->setObjectName(QStringLiteral("Edit Button"));
@@ -60,26 +61,26 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
     but = new QPushButton(i18n("Delete"), this);
     but->setObjectName(QStringLiteral("Delete Button"));
     buttons->addWidget(but, 0);
-    connect(but, SIGNAL(clicked()), this, SLOT(slotDeleteEntry()));
+    connect(but, &QAbstractButton::clicked, this, &KMultiFormListBoxWindowed::slotDeleteEntry);
     _buttonList.append(but);
 
     but = new QPushButton(i18n("Copy"), this);
     but->setObjectName(QStringLiteral("Copy Button"));
     buttons->addWidget(but, 0);
-    connect(but, SIGNAL(clicked()), this, SLOT(slotCopySelected()));
+    connect(but, &QAbstractButton::clicked, this, &KMultiFormListBoxWindowed::slotCopySelected);
     _buttonList.append(but);
 
     if (showUpDownButtons) {
         but = new QPushButton(i18n("Up"), this);
         but->setObjectName(QStringLiteral("Up Button"));
         buttons->addWidget(but, 0);
-        connect(but, SIGNAL(clicked()), this, SLOT(slotMoveItemUp()));
+        connect(but, &QAbstractButton::clicked, this, &KMultiFormListBoxWindowed::slotMoveItemUp);
         _buttonList.append(but);
 
         but = new QPushButton(i18n("Down"), this);
         but->setObjectName(QStringLiteral("Down Button"));
         buttons->addWidget(but, 0);
-        connect(but, SIGNAL(clicked()), this, SLOT(slotMoveItemDown()));
+        connect(but, &QAbstractButton::clicked, this, &KMultiFormListBoxWindowed::slotMoveItemDown);
         _buttonList.append(but);
     }
 
@@ -88,7 +89,7 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
         KGuiItem::assign(but, KStandardGuiItem::help());
         but->setObjectName(QStringLiteral("Help Button"));
         buttons->addWidget(but, 0);
-        connect(but, SIGNAL(clicked()), this, SIGNAL(showHelp()));
+        connect(but, &QAbstractButton::clicked, this, &KMultiFormListBoxWindowed::showHelp);
     }
 
     buttons->addStretch(1);
