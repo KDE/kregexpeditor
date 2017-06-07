@@ -46,7 +46,7 @@ bool AltnRegExp::check(ErrorMap &map, bool first, bool last)
 
 QDomNode AltnRegExp::toXml(QDomDocument *doc) const
 {
-    QDomElement top = doc->createElement(QString::fromLocal8Bit("Alternatives"));
+    QDomElement top = doc->createElement(QStringLiteral("Alternatives"));
     foreach (RegExp *r, list) {
         top.appendChild(r->toXml(doc));
     }
@@ -55,7 +55,7 @@ QDomNode AltnRegExp::toXml(QDomDocument *doc) const
 
 bool AltnRegExp::load(const QDomElement &top, const QString &version)
 {
-    Q_ASSERT(top.tagName() == QString::fromLocal8Bit("Alternatives"));
+    Q_ASSERT(top.tagName() == QStringLiteral("Alternatives"));
 
     for (QDomNode child = top.firstChild(); !child.isNull(); child = child.nextSibling()) {
         if (!child.isElement()) {

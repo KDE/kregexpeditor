@@ -41,9 +41,9 @@ QDomNode LookAheadRegExp::toXml(QDomDocument *doc) const
 {
     QDomElement top;
     if (_tp == POSITIVE) {
-        top = doc->createElement(QString::fromLocal8Bit("PositiveLookAhead"));
+        top = doc->createElement(QStringLiteral("PositiveLookAhead"));
     } else {
-        top = doc->createElement(QString::fromLocal8Bit("NegativeLookAhead"));
+        top = doc->createElement(QStringLiteral("NegativeLookAhead"));
     }
 
     top.appendChild(_child->toXml(doc));

@@ -61,7 +61,7 @@ RegExp *ConcRegExp::lastRegExp()
 
 QDomNode ConcRegExp::toXml(QDomDocument *doc) const
 {
-    QDomElement top = doc->createElement(QString::fromLocal8Bit("Concatenation"));
+    QDomElement top = doc->createElement(QStringLiteral("Concatenation"));
     foreach (RegExp *r, list) {
         top.appendChild(r->toXml(doc));
     }
@@ -70,7 +70,7 @@ QDomNode ConcRegExp::toXml(QDomDocument *doc) const
 
 bool ConcRegExp::load(const QDomElement &top, const QString &version)
 {
-    Q_ASSERT(top.tagName() == QString::fromLocal8Bit("Concatenation"));
+    Q_ASSERT(top.tagName() == QStringLiteral("Concatenation"));
 
     for (QDomNode child = top.firstChild(); !child.isNull(); child = child.nextSibling()) {
         if (!child.isElement()) {

@@ -59,7 +59,7 @@ void InfoPage::setSource(const QUrl &name)
 {
     QString nm = name.toString();
 
-    if (nm.startsWith(QString::fromLocal8Bit("doc://"))) {
+    if (nm.startsWith(QStringLiteral("doc://"))) {
         KHelpClient::invokeHelp(nm.mid(6, nm.length() - 7), QStringLiteral("kregexpeditor"));
     } else {
         QDesktopServices::openUrl(name);   // handle mailto and other links

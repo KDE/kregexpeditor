@@ -55,46 +55,46 @@ bool TextRangeRegExp::check(ErrorMap &, bool, bool)
 
 QDomNode TextRangeRegExp::toXml(QDomDocument *doc) const
 {
-    QDomElement top = doc->createElement(QString::fromLocal8Bit("TextRange"));
+    QDomElement top = doc->createElement(QStringLiteral("TextRange"));
 
     if (_negate) {
-        top.setAttribute(QString::fromLocal8Bit("negate"), true);
+        top.setAttribute(QStringLiteral("negate"), true);
     }
 
     if (_digit) {
-        top.setAttribute(QString::fromLocal8Bit("digit"), true);
+        top.setAttribute(QStringLiteral("digit"), true);
     }
 
     if (_nonDigit) {
-        top.setAttribute(QString::fromLocal8Bit("nonDigit"), true);
+        top.setAttribute(QStringLiteral("nonDigit"), true);
     }
 
     if (_space) {
-        top.setAttribute(QString::fromLocal8Bit("space"), true);
+        top.setAttribute(QStringLiteral("space"), true);
     }
 
     if (_nonSpace) {
-        top.setAttribute(QString::fromLocal8Bit("nonSpace"), true);
+        top.setAttribute(QStringLiteral("nonSpace"), true);
     }
 
     if (_wordChar) {
-        top.setAttribute(QString::fromLocal8Bit("wordChar"), true);
+        top.setAttribute(QStringLiteral("wordChar"), true);
     }
 
     if (_nonWordChar) {
-        top.setAttribute(QString::fromLocal8Bit("nonWordChar"), true);
+        top.setAttribute(QStringLiteral("nonWordChar"), true);
     }
 
     for (QStringList::ConstIterator it = _chars.begin(); it != _chars.end(); ++it) {
-        QDomElement elm = doc->createElement(QString::fromLocal8Bit("Character"));
-        elm.setAttribute(QString::fromLocal8Bit("char"), *it);
+        QDomElement elm = doc->createElement(QStringLiteral("Character"));
+        elm.setAttribute(QStringLiteral("char"), *it);
         top.appendChild(elm);
     }
 
     foreach (const StringPair &pair, _ranges) {
-        QDomElement elm = doc->createElement(QString::fromLocal8Bit("Range"));
-        elm.setAttribute(QString::fromLocal8Bit("from"), pair.first);
-        elm.setAttribute(QString::fromLocal8Bit("to"), pair.second);
+        QDomElement elm = doc->createElement(QStringLiteral("Range"));
+        elm.setAttribute(QStringLiteral("from"), pair.first);
+        elm.setAttribute(QStringLiteral("to"), pair.second);
         top.appendChild(elm);
     }
     return top;
@@ -102,30 +102,30 @@ QDomNode TextRangeRegExp::toXml(QDomDocument *doc) const
 
 bool TextRangeRegExp::load(const QDomElement &top, const QString & /*version*/)
 {
-    Q_ASSERT(top.tagName() == QString::fromLocal8Bit("TextRange"));
+    Q_ASSERT(top.tagName() == QStringLiteral("TextRange"));
     QString str;
-    QString one = QString::fromLocal8Bit("1");
-    QString zero = QString::fromLocal8Bit("0");
+    QString one = QStringLiteral("1");
+    QString zero = QStringLiteral("0");
 
-    str = top.attribute(QString::fromLocal8Bit("negate"), zero);
+    str = top.attribute(QStringLiteral("negate"), zero);
     _negate = (str == one);
 
-    str = top.attribute(QString::fromLocal8Bit("digit"), zero);
+    str = top.attribute(QStringLiteral("digit"), zero);
     _digit = (str == one);
 
-    str = top.attribute(QString::fromLocal8Bit("nonDigit"), zero);
+    str = top.attribute(QStringLiteral("nonDigit"), zero);
     _nonDigit = (str == one);
 
-    str = top.attribute(QString::fromLocal8Bit("space"), zero);
+    str = top.attribute(QStringLiteral("space"), zero);
     _space = (str == one);
 
-    str = top.attribute(QString::fromLocal8Bit("nonSpace"), zero);
+    str = top.attribute(QStringLiteral("nonSpace"), zero);
     _nonSpace = (str == one);
 
-    str = top.attribute(QString::fromLocal8Bit("wordChar"), zero);
+    str = top.attribute(QStringLiteral("wordChar"), zero);
     _wordChar = (str == one);
 
-    str = top.attribute(QString::fromLocal8Bit("nonWordChar"), zero);
+    str = top.attribute(QStringLiteral("nonWordChar"), zero);
     _nonWordChar = (str == one);
 
     for (QDomNode node = top.firstChild(); !node.isNull(); node = node.nextSibling()) {
@@ -134,12 +134,12 @@ bool TextRangeRegExp::load(const QDomElement &top, const QString & /*version*/)
         }
         QDomElement child = node.toElement();
 
-        if (child.tagName() == QString::fromLocal8Bit("Character")) {
-            QString ch = child.attribute(QString::fromLocal8Bit("char"));
+        if (child.tagName() == QStringLiteral("Character")) {
+            QString ch = child.attribute(QStringLiteral("char"));
             addCharacter(ch);
-        } else if (child.tagName() == QString::fromLocal8Bit("Range")) {
-            QString from = child.attribute(QString::fromLocal8Bit("from"));
-            QString to = child.attribute(QString::fromLocal8Bit("to"));
+        } else if (child.tagName() == QStringLiteral("Range")) {
+            QString from = child.attribute(QStringLiteral("from"));
+            QString to = child.attribute(QStringLiteral("to"));
             addRange(from, to);
         } else {
             KMessageBox::sorry(nullptr, i18n("<p>Invalid sub element to element <b>TextRange</b>. Tag was <b>%1</b></p>", child.tagName()),

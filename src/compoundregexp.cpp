@@ -42,21 +42,21 @@ bool CompoundRegExp::check(ErrorMap &map, bool first, bool last)
 
 QDomNode CompoundRegExp::toXml(QDomDocument *doc) const
 {
-    QDomElement top = doc->createElement(QString::fromLocal8Bit("Compound"));
+    QDomElement top = doc->createElement(QStringLiteral("Compound"));
     if (_hidden) {
-        top.setAttribute(QString::fromLocal8Bit("hidden"), true);
+        top.setAttribute(QStringLiteral("hidden"), true);
     }
 
     if (_allowReplace) {
-        top.setAttribute(QString::fromLocal8Bit("allowReplace"), true);
+        top.setAttribute(QStringLiteral("allowReplace"), true);
     }
 
-    QDomElement title = doc->createElement(QString::fromLocal8Bit("Title"));
+    QDomElement title = doc->createElement(QStringLiteral("Title"));
     QDomText titleTxt = doc->createTextNode(_title);
     title.appendChild(titleTxt);
     top.appendChild(title);
 
-    QDomElement description = doc->createElement(QString::fromLocal8Bit("Description"));
+    QDomElement description = doc->createElement(QStringLiteral("Description"));
     QDomText descriptionTxt = doc->createTextNode(_description);
     description.appendChild(descriptionTxt);
     top.appendChild(description);
@@ -68,12 +68,12 @@ QDomNode CompoundRegExp::toXml(QDomDocument *doc) const
 
 bool CompoundRegExp::load(const QDomElement &top, const QString &version)
 {
-    Q_ASSERT(top.tagName() == QString::fromLocal8Bit("Compound"));
-    QString str = top.attribute(QString::fromLocal8Bit("hidden"), QString::fromLocal8Bit("0"));
-    _hidden = true; // alway hidden. (str == QString::fromLocal8Bit("1") );
+    Q_ASSERT(top.tagName() == QStringLiteral("Compound"));
+    QString str = top.attribute(QStringLiteral("hidden"), QStringLiteral("0"));
+    _hidden = true; // alway hidden. (str == QStringLiteral("1") );
 
-    str = top.attribute(QString::fromLocal8Bit("allowReplace"), QString::fromLocal8Bit("0"));
-    _allowReplace = (str == QString::fromLocal8Bit("1"));
+    str = top.attribute(QStringLiteral("allowReplace"), QStringLiteral("0"));
+    _allowReplace = (str == QStringLiteral("1"));
 
     for (QDomNode node = top.firstChild(); !node.isNull(); node = node.nextSibling()) {
         if (!node.isElement()) {
@@ -87,13 +87,13 @@ bool CompoundRegExp::load(const QDomElement &top, const QString &version)
             txt = txtNode.toText().data();
         }
 
-        if (child.tagName() == QString::fromLocal8Bit("Title")) {
+        if (child.tagName() == QStringLiteral("Title")) {
             if (txt.isEmpty()) {
                 _title = txt;
             } else {
                 _title = i18n(txt.toUtf8());
             }
-        } else if (child.tagName() == QString::fromLocal8Bit("Description")) {
+        } else if (child.tagName() == QStringLiteral("Description")) {
             if (txt.isEmpty()) {
                 _description = txt;
             } else {

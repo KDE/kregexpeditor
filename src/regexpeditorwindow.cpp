@@ -327,25 +327,25 @@ void RegExpEditorWindow::showRMBMenu(bool enableCutCopy)
     if (!_menu) {
         _menu = new QMenu(0);
 
-        _cutAction = _menu->addAction(getIcon(QString::fromLocal8Bit("edit-cut")),
+        _cutAction = _menu->addAction(getIcon(QStringLiteral("edit-cut")),
                                       i18n("C&ut"));
         connect(_cutAction, &QAction::triggered, this, &RegExpEditorWindow::slotCut);
 
-        _copyAction = _menu->addAction(getIcon(QString::fromLocal8Bit("edit-copy")),
+        _copyAction = _menu->addAction(getIcon(QStringLiteral("edit-copy")),
                                        i18n("&Copy"));
         connect(_copyAction, &QAction::triggered, this, &RegExpEditorWindow::slotCopy);
 
-        _pasteAction = _menu->addAction(getIcon(QString::fromLocal8Bit("edit-paste")),
+        _pasteAction = _menu->addAction(getIcon(QStringLiteral("edit-paste")),
                                         i18n("&Paste"));
         connect(_pasteAction, &QAction::triggered, this, &RegExpEditorWindow::slotStartPasteAction);
 
         _menu->addSeparator();
 
-        _editAction = _menu->addAction(getIcon(QString::fromLocal8Bit("document-properties")),
+        _editAction = _menu->addAction(getIcon(QStringLiteral("document-properties")),
                                        i18n("&Edit"));
         connect(_editAction, &QAction::triggered, this, &RegExpEditorWindow::editWidget);
 
-        _saveAction = _menu->addAction(getIcon(QString::fromLocal8Bit("document-save")),
+        _saveAction = _menu->addAction(getIcon(QStringLiteral("document-save")),
                                        i18n("&Save Regular Expression..."));
         connect(_saveAction, &QAction::triggered, this, &RegExpEditorWindow::slotSave);
     }
@@ -391,7 +391,7 @@ void RegExpEditorWindow::slotSave()
     }
     txt = tmp;
 
-    QString fileName = dir + QString::fromLocal8Bit("/") + txt + QString::fromLocal8Bit(".regexp");
+    QString fileName = dir + QStringLiteral("/") + txt + QStringLiteral(".regexp");
     QFileInfo finfo(fileName);
     if (finfo.exists()) {
         int answer = KMessageBox::warningContinueCancel(this, i18n("<p>Overwrite named regular expression <b>%1</b></p>", txt), QString(), KStandardGuiItem::overwrite());

@@ -39,18 +39,18 @@ bool RepeatRegExp::check(ErrorMap &map, bool first, bool last)
 
 QDomNode RepeatRegExp::toXml(QDomDocument *doc) const
 {
-    QDomElement top = doc->createElement(QString::fromLocal8Bit("Repeat"));
-    top.setAttribute(QString::fromLocal8Bit("lower"), _lower);
-    top.setAttribute(QString::fromLocal8Bit("upper"), _upper);
+    QDomElement top = doc->createElement(QStringLiteral("Repeat"));
+    top.setAttribute(QStringLiteral("lower"), _lower);
+    top.setAttribute(QStringLiteral("upper"), _upper);
     top.appendChild(_child->toXml(doc));
     return top;
 }
 
 bool RepeatRegExp::load(const QDomElement &top, const QString &version)
 {
-    Q_ASSERT(top.tagName() == QString::fromLocal8Bit("Repeat"));
-    QString lower = top.attribute(QString::fromLocal8Bit("lower"), QString::fromLocal8Bit("0"));
-    QString upper = top.attribute(QString::fromLocal8Bit("upper"), QString::fromLocal8Bit("0"));
+    Q_ASSERT(top.tagName() == QStringLiteral("Repeat"));
+    QString lower = top.attribute(QStringLiteral("lower"), QStringLiteral("0"));
+    QString upper = top.attribute(QStringLiteral("upper"), QStringLiteral("0"));
     bool ok;
     _lower = lower.toInt(&ok);
     if (!ok) {

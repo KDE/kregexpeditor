@@ -75,12 +75,12 @@ QString RegExp::toXmlString() const
     QDomDocument doc;
     doc.setContent(QStringLiteral("<RegularExpression/>"));
     QDomNode top = doc.documentElement();
-    top.toElement().setAttribute(QString::fromLocal8Bit("version"), KRegExpEditorGUI::version);
+    top.toElement().setAttribute(QStringLiteral("version"), KRegExpEditorGUI::version);
 
     QDomNode elm = toXml(&doc);
 
     top.appendChild(elm);
-    QString xmlString = QString::fromLocal8Bit(
+    QString xmlString = QStringLiteral(
         "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<!DOCTYPE RegularExpression PUBLIC \"-//KDE//KRegexpEditor DTD 1.0//EN\" \"http://www.blackie.dk/kreg.dtd\">\n") + doc.toString();
 
     return xmlString;

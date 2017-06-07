@@ -38,7 +38,7 @@ void TextRegExp::append(const QString &str)
 
 QDomNode TextRegExp::toXml(QDomDocument *doc) const
 {
-    QDomElement top = doc->createElement(QString::fromLocal8Bit("Text"));
+    QDomElement top = doc->createElement(QStringLiteral("Text"));
     QDomText text = doc->createTextNode(_text);
     top.appendChild(text);
     return top;
@@ -46,7 +46,7 @@ QDomNode TextRegExp::toXml(QDomDocument *doc) const
 
 bool TextRegExp::load(const QDomElement &top, const QString & /*version*/)
 {
-    Q_ASSERT(top.tagName() == QString::fromLocal8Bit("Text"));
+    Q_ASSERT(top.tagName() == QStringLiteral("Text"));
     if (top.hasChildNodes()) {
         QDomNode child = top.firstChild();
         if (!child.isText()) {

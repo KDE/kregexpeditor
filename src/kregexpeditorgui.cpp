@@ -28,7 +28,7 @@
 #include <KHelpClient>
 #include "kregexpeditorprivate.h"
 
-const QString KRegExpEditorGUI::version = QString::fromLocal8Bit("1.0");
+const QString KRegExpEditorGUI::version = QStringLiteral("1.0");
 
 KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent, const QVariantList &)
     : QWidget(parent)

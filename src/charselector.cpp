@@ -158,9 +158,9 @@ QString CharSelector::text() const
     case 0: // Normal Character
         return _normal->text();
     case 1: // Hex
-        return QString::fromLocal8Bit("\\x") + _hex->text();
+        return QStringLiteral("\\x") + _hex->text();
     case 2: // Oct
-        return QString::fromLocal8Bit("\\0") + _oct->text();
+        return QStringLiteral("\\0") + _oct->text();
     case 3: // The separator
         break;
     case 4:

@@ -29,7 +29,7 @@ bool DotRegExp::check(ErrorMap &, bool, bool)
 
 QDomNode DotRegExp::toXml(QDomDocument *doc) const
 {
-    return doc->createElement(QString::fromLocal8Bit("AnyChar"));
+    return doc->createElement(QStringLiteral("AnyChar"));
 }
 
 bool DotRegExp::load(const QDomElement & /* top */, const QString & /*version*/)

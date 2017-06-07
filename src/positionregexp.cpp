@@ -39,13 +39,13 @@ QDomNode PositionRegExp::toXml(QDomDocument *doc) const
 {
     switch (_tp) {
     case BEGLINE:
-        return doc->createElement(QString::fromLocal8Bit("BegLine"));
+        return doc->createElement(QStringLiteral("BegLine"));
     case ENDLINE:
-        return doc->createElement(QString::fromLocal8Bit("EndLine"));
+        return doc->createElement(QStringLiteral("EndLine"));
     case WORDBOUNDARY:
-        return doc->createElement(QString::fromLocal8Bit("WordBoundary"));
+        return doc->createElement(QStringLiteral("WordBoundary"));
     case NONWORDBOUNDARY:
-        return doc->createElement(QString::fromLocal8Bit("NonWordBoundary"));
+        return doc->createElement(QStringLiteral("NonWordBoundary"));
     }
     return QDomNode();
 }

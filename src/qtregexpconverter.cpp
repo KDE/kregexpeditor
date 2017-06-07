@@ -70,11 +70,11 @@ QString QtRegExpConverter::toString(ConcRegExp *regexp, bool markSelection)
 
     RegExpList list = regexp->children();
     foreach (RegExp *r, list) {
-        QString startPar = QString::fromLocal8Bit("");
-        QString endPar = QString::fromLocal8Bit("");
+        QString startPar = QStringLiteral("");
+        QString endPar = QStringLiteral("");
         if (r->precedence() < regexp->precedence()) {
             if (markSelection) {
-                startPar = QString::fromLocal8Bit("(?:");
+                startPar = QStringLiteral("(?:");
             } else {
                 startPar = QStringLiteral("(");
             }
@@ -103,9 +103,9 @@ QString QtRegExpConverter::toString(ConcRegExp *regexp, bool markSelection)
 QString QtRegExpConverter::toString(LookAheadRegExp *regexp, bool markSelection)
 {
     if (regexp->lookAheadType() == LookAheadRegExp::POSITIVE) {
-        return QLatin1String("(?=") + toStr(regexp->child(), markSelection) + QString::fromLocal8Bit(")");
+        return QLatin1String("(?=") + toStr(regexp->child(), markSelection) + QStringLiteral(")");
     } else {
-        return QLatin1String("(?!") + toStr(regexp->child(), markSelection) + QString::fromLocal8Bit(")");
+        return QLatin1String("(?!") + toStr(regexp->child(), markSelection) + QStringLiteral(")");
     }
 }
 
@@ -164,27 +164,27 @@ QString QtRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelectio
 
     // Insert \s,\S,\d,\D,\w, and \W
     if (regexp->digit()) {
-        res += QString::fromLocal8Bit("\\d");
+        res += QStringLiteral("\\d");
     }
 
     if (regexp->nonDigit()) {
-        res += QString::fromLocal8Bit("\\D");
+        res += QStringLiteral("\\D");
     }
 
     if (regexp->space()) {
-        res += QString::fromLocal8Bit("\\s");
+        res += QStringLiteral("\\s");
     }
 
     if (regexp->nonSpace()) {
-        res += QString::fromLocal8Bit("\\S");
+        res += QStringLiteral("\\S");
     }
 
     if (regexp->wordChar()) {
-        res += QString::fromLocal8Bit("\\w");
+        res += QStringLiteral("\\w");
     }
 
     if (regexp->nonWordChar()) {
-        res += QString::fromLocal8Bit("\\W");
+        res += QStringLiteral("\\W");
     }
 
     if (foundCarrot) {
@@ -248,19 +248,19 @@ QString QtRegExpConverter::toString(RepeatRegExp *regexp, bool markSelection)
     }
 
     if (regexp->min() == 0 && regexp->max() == -1) {
-        quantity = QString::fromLocal8Bit("*");
+        quantity = QStringLiteral("*");
     } else if (regexp->min() == 0 && regexp->max() == 1) {
-        quantity = QString::fromLocal8Bit("?");
+        quantity = QStringLiteral("?");
     } else if (regexp->min() == 1 && regexp->max() == -1) {
-        quantity = QString::fromLocal8Bit("+");
+        quantity = QStringLiteral("+");
     } else if (regexp->max() == -1) {
-        quantity = QString::fromLocal8Bit("{")
-                   +QString::number(regexp->min()) + QString::fromLocal8Bit(",")
-                   +QString::fromLocal8Bit("}");
+        quantity = QStringLiteral("{")
+                   +QString::number(regexp->min()) + QStringLiteral(",")
+                   +QStringLiteral("}");
     } else {
-        quantity = QString::fromLocal8Bit("{")
-                   +QString::number(regexp->min()) + QString::fromLocal8Bit(",")
-                   +QString::number(regexp->max()) + QString::fromLocal8Bit("}");
+        quantity = QStringLiteral("{")
+                   +QString::number(regexp->min()) + QStringLiteral(",")
+                   +QString::number(regexp->max()) + QStringLiteral("}");
     }
 
     return startPar + cText + endPar + quantity;

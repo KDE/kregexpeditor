@@ -134,8 +134,8 @@ void CompoundWidget::init()
     connect(_configWindow, &QDialog::rejected, this, &CompoundWidget::slotConfigCanceled);
     connect(_configWindow, &QDialog::finished, this, &CompoundWidget::slotConfigWindowClosed);
 
-    _down = getIcon(QString::fromLocal8Bit("arrow-down"));
-    _up = getIcon(QString::fromLocal8Bit("arrow-up"));
+    _down = getIcon(QStringLiteral("arrow-down"));
+    _up = getIcon(QStringLiteral("arrow-up"));
 
     _hidden = false;
     _backRefId = -1;

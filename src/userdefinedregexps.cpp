@@ -72,10 +72,10 @@ void UserDefinedRegExps::slotPopulateUserRegexps()
         QDir dir(*it1, QString(), QDir::Name, QDir::Dirs);
         QStringList subdirs = dir.entryList();
         for (QStringList::iterator it2 = subdirs.begin(); it2 != subdirs.end(); ++it2) {
-            if (*it2 == QString::fromLocal8Bit(".") || *it2 == QString::fromLocal8Bit("..")) {
+            if (*it2 == QStringLiteral(".") || *it2 == QStringLiteral("..")) {
                 continue;
             }
-            createItems(*it2, *it1 + QString::fromLocal8Bit("/") + *it2, false);
+            createItems(*it2, *it1 + QStringLiteral("/") + *it2, false);
         }
     }
 }
@@ -92,9 +92,9 @@ void UserDefinedRegExps::createItems(const QString &_title, const QString &dir, 
     _userDefined->addTopLevelItem(lvItem);
 
     QDir directory(dir);
-    QStringList files = directory.entryList(QStringList(QString::fromLocal8Bit("*.regexp")));
+    QStringList files = directory.entryList(QStringList(QStringLiteral("*.regexp")));
     for (QStringList::Iterator it = files.begin(); it != files.end(); ++it) {
-        QString fileName = dir + QString::fromLocal8Bit("/") + *it;
+        QString fileName = dir + QStringLiteral("/") + *it;
 
         QFile file(fileName);
         if (!file.open(QIODevice::ReadOnly)) {
@@ -197,7 +197,7 @@ void UserDefinedRegExps::slotRenameUserRegexp()
     txt = QInputDialog::getText(this, i18n("Rename Item"), i18n("New name:"), QLineEdit::Normal, oldName);
 
     if (!txt.isNull() && oldName != txt) {
-        QString fileName = WidgetWinItem::path() + QString::fromLocal8Bit("/") + txt + QString::fromLocal8Bit(".regexp");
+        QString fileName = WidgetWinItem::path() + QStringLiteral("/") + txt + QStringLiteral(".regexp");
         QFileInfo finfo(fileName);
         if (finfo.exists()) {
             int answer
@@ -270,7 +270,7 @@ void WidgetWinItem::setName(const QString &nm)
 
 QString WidgetWinItem::path()
 {
-    const QString regexppath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + QString::fromLocal8Bit("KRegExpEditor/");
+    const QString regexppath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + QStringLiteral("KRegExpEditor/");
     QDir().mkpath(regexppath);
     return regexppath;
 }

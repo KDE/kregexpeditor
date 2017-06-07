@@ -31,7 +31,8 @@ QSize HackCalculateFontSize(const QFontMetrics &fm, const QString &str)
     }
     list = str.split(QStringLiteral("\n"), QString::SkipEmptyParts);
 
-    for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) {
+    const QStringList::const_iterator end(list.constEnd());
+    for (QStringList::const_iterator it = list.constBegin(); it != end; ++it) {
         QSize size = fm.size(0, *it);
         maxWidth = qMax(maxWidth, size.width());
         height += size.height();

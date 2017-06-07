@@ -139,8 +139,8 @@ QString CharactersWidget::text() const
     // Single characters
     QStringList chars = _regexp->chars();
     if (!chars.isEmpty()) {
-        QString str = chars.join(QString::fromLocal8Bit(", "));
-        res += QString::fromLocal8Bit("- ") + str + QString::fromLocal8Bit("\n");
+        QString str = chars.join(QStringLiteral(", "));
+        res += QStringLiteral("- ") + str + QStringLiteral("\n");
     }
 
     // Ranges characters
@@ -248,7 +248,7 @@ void CharacterEdits::setRegexp(TextRangeRegExp *regexp)
     foreach (KMultiFormListBoxEntry *e, list1) {
         SingleEntry *entry = dynamic_cast<SingleEntry *>(e);
         if (entry) {
-            entry->setText(QString::fromLocal8Bit(""));
+            entry->setText(QStringLiteral(""));
         }
     }
     QStringList list2 = regexp->chars();
@@ -261,8 +261,8 @@ void CharacterEdits::setRegexp(TextRangeRegExp *regexp)
     foreach (KMultiFormListBoxEntry *e, list3) {
         RangeEntry *entry = dynamic_cast<RangeEntry *>(e);
         if (entry) {
-            entry->setFrom(QString::fromLocal8Bit(""));
-            entry->setTo(QString::fromLocal8Bit(""));
+            entry->setFrom(QStringLiteral(""));
+            entry->setTo(QStringLiteral(""));
         }
     }
 

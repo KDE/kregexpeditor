@@ -39,9 +39,9 @@ public:
     {
         if (_mode == LimitedCharLineEdit::NORMAL
             || (_mode == LimitedCharLineEdit::HEX
-                && QRegExp(QString::fromLocal8Bit("^[0-9A-Fa-f]*$")).indexIn(txt) != -1)
+                && QRegExp(QStringLiteral("^[0-9A-Fa-f]*$")).indexIn(txt) != -1)
             || (_mode == LimitedCharLineEdit::OCT
-                && QRegExp(QString::fromLocal8Bit("^[0-7]*$")).indexIn(txt) != -1)) {
+                && QRegExp(QStringLiteral("^[0-7]*$")).indexIn(txt) != -1)) {
             return QValidator::Acceptable;
         } else {
             return QValidator::Invalid;

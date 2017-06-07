@@ -142,31 +142,31 @@ RegExp *WidgetFactory::createRegExp(QDomElement node, const QString &version)
 {
     QString tag = node.tagName();
     RegExp *regexp;
-    if (tag == QString::fromLocal8Bit("TextRange")) {
+    if (tag == QStringLiteral("TextRange")) {
         regexp = new TextRangeRegExp(false);
-    } else if (tag == QString::fromLocal8Bit("Text")) {
+    } else if (tag == QStringLiteral("Text")) {
         regexp = new TextRegExp(false);
-    } else if (tag == QString::fromLocal8Bit("Concatenation")) {
+    } else if (tag == QStringLiteral("Concatenation")) {
         regexp = new ConcRegExp(false);
-    } else if (tag == QString::fromLocal8Bit("Alternatives")) {
+    } else if (tag == QStringLiteral("Alternatives")) {
         regexp = new AltnRegExp(false);
-    } else if (tag == QString::fromLocal8Bit("BegLine")) {
+    } else if (tag == QStringLiteral("BegLine")) {
         regexp = new PositionRegExp(false, PositionRegExp::BEGLINE);
-    } else if (tag == QString::fromLocal8Bit("EndLine")) {
+    } else if (tag == QStringLiteral("EndLine")) {
         regexp = new PositionRegExp(false, PositionRegExp::ENDLINE);
-    } else if (tag == QString::fromLocal8Bit("WordBoundary")) {
+    } else if (tag == QStringLiteral("WordBoundary")) {
         regexp = new PositionRegExp(false, PositionRegExp::WORDBOUNDARY);
-    } else if (tag == QString::fromLocal8Bit("NonWordBoundary")) {
+    } else if (tag == QStringLiteral("NonWordBoundary")) {
         regexp = new PositionRegExp(false, PositionRegExp::NONWORDBOUNDARY);
-    } else if (tag == QString::fromLocal8Bit("PositiveLookAhead")) {
+    } else if (tag == QStringLiteral("PositiveLookAhead")) {
         regexp = new LookAheadRegExp(false, LookAheadRegExp::POSITIVE);
-    } else if (tag == QString::fromLocal8Bit("NegativeLookAhead")) {
+    } else if (tag == QStringLiteral("NegativeLookAhead")) {
         regexp = new LookAheadRegExp(false, LookAheadRegExp::NEGATIVE);
-    } else if (tag == QString::fromLocal8Bit("Compound")) {
+    } else if (tag == QStringLiteral("Compound")) {
         regexp = new CompoundRegExp(false);
-    } else if (tag == QString::fromLocal8Bit("AnyChar")) {
+    } else if (tag == QStringLiteral("AnyChar")) {
         regexp = new DotRegExp(false);
-    } else if (tag == QString::fromLocal8Bit("Repeat")) {
+    } else if (tag == QStringLiteral("Repeat")) {
         regexp = new RepeatRegExp(false);
     } else {
         KMessageBox::sorry(nullptr, i18n("<p>Unknown tag while reading XML. Tag was <b>%1</b></p>", tag),
@@ -200,11 +200,11 @@ RegExp *WidgetFactory::createRegExp(const QString &str)
 
     // Read the RegularExpression element, and extract the version.
     QDomElement top = doc.documentElement();
-    if (!(top.tagName() == QString::fromLocal8Bit("RegularExpression"))) {
+    if (!(top.tagName() == QStringLiteral("RegularExpression"))) {
         KMessageBox::sorry(nullptr, i18n("<p>XML file did not contain a <b>%1</b> tag.</p>", QStringLiteral("RegularExpression")),
                            i18n("Error While Loading From XML File"));
     }
-    QString version = top.attribute(QString::fromLocal8Bit("version"), KRegExpEditorGUI::version);
+    QString version = top.attribute(QStringLiteral("version"), KRegExpEditorGUI::version);
     QDomNode child = top.firstChild();
     if (!child.isElement()) {
         KMessageBox::sorry(nullptr, i18n("<p>Error while reading XML file. The element just below the tag "

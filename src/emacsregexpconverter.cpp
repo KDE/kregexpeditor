@@ -58,8 +58,8 @@ QString EmacsRegExpConverter::toString(ConcRegExp *regexp, bool markSelection)
 
     RegExpList list = regexp->children();
     foreach (RegExp *r, list) {
-        QString startPar = QString::fromLocal8Bit("");
-        QString endPar = QString::fromLocal8Bit("");
+        QString startPar = QStringLiteral("");
+        QString endPar = QStringLiteral("");
         if (r->precedence() < regexp->precedence()) {
             startPar = QStringLiteral("\\(");
             endPar = QStringLiteral("\\)");
@@ -138,15 +138,15 @@ QString EmacsRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelec
     // Insert equivalents to \s,\S,\d,\D,\w, and \W
     // non-digit, non-space, and non-word is not supported in Emacs style
     if (regexp->digit()) {
-        res += QString::fromLocal8Bit("0-9");
+        res += QStringLiteral("0-9");
     }
 
     if (regexp->space()) {
-        res += QString::fromLocal8Bit(" ") + QString(QLatin1Char((char)9));      // Tab char
+        res += QStringLiteral(" ") + QString(QLatin1Char((char)9));      // Tab char
     }
 
     if (regexp->wordChar()) {
-        res += QString::fromLocal8Bit("a-zA-Z");
+        res += QStringLiteral("a-zA-Z");
     }
 
     if (foundCarrot) {
@@ -200,11 +200,11 @@ QString EmacsRegExpConverter::toString(RepeatRegExp *regexp, bool markSelection)
     }
 
     if (regexp->min() == 0 && regexp->max() == -1) {
-        return startPar + cText + endPar + QString::fromLocal8Bit("*");
+        return startPar + cText + endPar + QStringLiteral("*");
     } else if (regexp->min() == 0 && regexp->max() == 1) {
-        return startPar + cText + endPar + QString::fromLocal8Bit("?");
+        return startPar + cText + endPar + QStringLiteral("?");
     } else if (regexp->min() == 1 && regexp->max() == -1) {
-        return startPar + cText + endPar + QString::fromLocal8Bit("+");
+        return startPar + cText + endPar + QStringLiteral("+");
     } else {
         QString res = QStringLiteral("");
         for (int i = 0; i < regexp->min(); ++i) {
