@@ -26,12 +26,14 @@
 #include <KHelpClient>
 #include <QDialogButtonBox>
 #include <QPushButton>
+#include <QDebug>
 
 #include "kregexpeditorprivate.h"
 
 KRegExpEditorGUIDialog::KRegExpEditorGUIDialog(QWidget *parent, const QVariantList &)
     : QDialog(parent)
 {
+    //qDebug() << "KRegExpEditorGUIDialog::KRegExpEditorGUIDialog(QWidget *parent, const QVariantList &) "<<this;
     setWindowTitle(i18n("Regular Expression Editor"));
 
     QVBoxLayout *layout = new QVBoxLayout(this);
@@ -51,6 +53,11 @@ KRegExpEditorGUIDialog::KRegExpEditorGUIDialog(QWidget *parent, const QVariantLi
     connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     connect(buttonBox, &QDialogButtonBox::helpRequested, this, &KRegExpEditorGUIDialog::showHelp);
     resize(640, 400);
+}
+
+KRegExpEditorGUIDialog::~KRegExpEditorGUIDialog()
+{
+    //qDebug() << "KRegExpEditorGUIDialog::~KRegExpEditorGUIDialog(QWidget *parent, const QVariantList &) "<<this;
 }
 
 QString KRegExpEditorGUIDialog::regExp() const

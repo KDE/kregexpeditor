@@ -29,7 +29,8 @@ class Q_DECL_EXPORT KRegExpEditorGUIDialog : public QDialog, public KRegExpEdito
     Q_INTERFACES(KRegExpEditorInterface)
     Q_PROPERTY(QString regexp READ regExp WRITE setRegExp)
 public:
-    KRegExpEditorGUIDialog(QWidget *parent, const QVariantList & = QVariantList());
+    explicit KRegExpEditorGUIDialog(QWidget *parent, const QVariantList & = QVariantList());
+    ~KRegExpEditorGUIDialog();
 
     QString regExp() const override;
 
