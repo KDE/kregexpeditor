@@ -137,10 +137,10 @@ class CharacterEdits : public QDialog
 public:
     explicit CharacterEdits(QWidget *parent = nullptr);
 
-public slots:
+public Q_SLOTS:
     void setRegexp(TextRangeRegExp *regexp);
 
-protected slots:
+protected Q_SLOTS:
     void slotOK();
 
 private:

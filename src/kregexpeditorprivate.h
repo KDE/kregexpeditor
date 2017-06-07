@@ -55,7 +55,7 @@ public:
     void setCaseSensitive(bool);
     void setAllowNonQtSyntax(bool);
 
-protected slots:
+protected Q_SLOTS:
     void slotUpdateEditor(const QString &);
     void slotUpdateLineEdit();
     void slotShowEditor();
@@ -67,7 +67,7 @@ protected slots:
     void setVerifyText(const QString &fileName);
     void setMatchGreedy(bool);
 
-public slots:
+public Q_SLOTS:
     void slotUndo();
     void slotRedo();
     void slotSetRegexp(const QString &regexp);
@@ -75,7 +75,7 @@ public slots:
     void setSyntax(const QString &);
     void showHelp();
 
-signals:
+Q_SIGNALS:
     void canUndo(bool);
     void canRedo(bool);
     void changes(bool);

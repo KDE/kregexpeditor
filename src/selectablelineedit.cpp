@@ -23,8 +23,8 @@ SelectableLineEdit::SelectableLineEdit(RegExpWidget *owner, QWidget *parent, con
     , _owner(owner)
 {
     setObjectName(name);
-    connect(this, SIGNAL(textChanged(const QString&)), this,
-            SLOT(slotKeyPressed()));
+    connect(this, &QLineEdit::textChanged, this,
+            &SelectableLineEdit::slotKeyPressed);
     setAcceptDrops(false);
 }
 

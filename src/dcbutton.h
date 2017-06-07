@@ -35,7 +35,7 @@ public:
 protected:
     void mouseDoubleClickEvent(QMouseEvent *) override;
 
-signals:
+Q_SIGNALS:
     void doubleClicked();
 };
 

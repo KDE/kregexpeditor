@@ -30,7 +30,7 @@ class AuxButtons : public QToolBar
 public:
     explicit AuxButtons(QWidget *parent, const QString &name = QString());
 
-signals:
+Q_SIGNALS:
     void undo();
     void redo();
     void cut();
@@ -38,7 +38,7 @@ signals:
     void paste();
     void save();
 
-public slots:
+public Q_SLOTS:
     void slotEnterWhatsThis();
     void slotCanUndo(bool);
     void slotCanRedo(bool);

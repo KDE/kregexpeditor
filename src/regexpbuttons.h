@@ -38,15 +38,15 @@ public:
 protected:
     DoubleClickButton *insert(RegExpType tp, const QString &file, const QString &tooltip, const QString &whatsthis);
 
-public slots:
+public Q_SLOTS:
     void slotSelectNewAction();
     void slotUnSelect();
 
-protected slots:
+protected Q_SLOTS:
     void slotSetKeepMode();
     void slotSetNonKeepMode();
 
-signals:
+Q_SIGNALS:
     void clicked(int);
     void doSelect();
 

@@ -30,7 +30,7 @@ public:
     explicit Verifier(QWidget *parent);
     void setHighlighter(RegexpHighlighter *);
 
-public slots:
+public Q_SLOTS:
     void verify(const QString &regexp);
     void clearRegexp();
     void setCaseSensitive(bool);
@@ -42,7 +42,7 @@ public slots:
     // void gotoPrev();
     // void gotoNext();
     // void gotoLast();
-    //signals:
+    //Q_SIGNALS:
     //    void countChanged( int );
     // void currentChanged( int );
     // void goBackwardPossible( bool );

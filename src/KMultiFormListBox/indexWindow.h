@@ -72,7 +72,7 @@ protected:
     void finish(int retVal);
     void hideEvent(QHideEvent *h) override;
 
-protected slots:
+protected Q_SLOTS:
     void lbSelected(int);
 
 private:

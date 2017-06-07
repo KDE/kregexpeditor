@@ -35,10 +35,10 @@ public:
     explicit UserDefinedRegExps(QWidget *parent, const QString &title);
     const QList<CompoundRegExp *> regExps() const;
 
-public slots:
+public Q_SLOTS:
     void slotSelectNewAction();
 
-protected slots:
+protected Q_SLOTS:
     void slotLoad(QTreeWidgetItem *item);
     void slotContextMenuTriggered(const QPoint &pos);
     void slotPopulateUserRegexps();
@@ -49,7 +49,7 @@ protected slots:
 protected:
     void createItems(const QString &title, const QString &dir, bool usersRegExp);
 
-signals:
+Q_SIGNALS:
     void load(RegExp *);
 
 private:

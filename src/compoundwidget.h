@@ -86,7 +86,7 @@ protected:
     void init();
     QPixmap getIcon(const QString &name);
 
-protected slots:
+protected Q_SLOTS:
     void slotConfigCanceled();
     void slotConfigWindowClosed();
 

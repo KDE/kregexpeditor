@@ -43,7 +43,7 @@ private:
 protected:
     void resizeEvent(QResizeEvent *) override;
 
-public slots:
+public Q_SLOTS:
     void slotSetRegExp(RegExp *);
     void slotInsertRegExp(int);
     void slotInsertRegExp(RegExp *);
@@ -54,11 +54,11 @@ public slots:
     void slotSave();
     void slotPaste();
 
-protected slots:
+protected Q_SLOTS:
     void slotUpdateContentSize(QPoint focusPoint);
     void slotScroll(QPoint focusPoint);
 
-signals:
+Q_SIGNALS:
     /**
        This signal is emitted when the user has completed an editing
        action. The application may chose to call @ref slotDoSelect as a

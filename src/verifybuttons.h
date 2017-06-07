@@ -33,11 +33,11 @@ class VerifyButtons : public QToolBar
     Q_OBJECT
 
 public:
-    VerifyButtons(QWidget *parent, const QString &name = QString());
+    explicit VerifyButtons(QWidget *parent, const QString &name = QString());
     RegExpConverter *setSyntax(const QString &);
     void setAllowNonQtSyntax(bool);
 
-signals:
+Q_SIGNALS:
     void verify();
     void autoVerify(bool);
     void loadVerifyText(const QString &);
@@ -52,12 +52,12 @@ signals:
 
     void changeSyntax(const QString &);
 
-public slots:
+public Q_SLOTS:
     //     void enableForwardButtons( bool );
     //     void enableBackwardButtons( bool );
     void setMatchCount(int);
 
-protected slots:
+protected Q_SLOTS:
     void updateVerifyButton(bool);
     void loadText();
     void slotChangeSyntax(QAction *action);

@@ -42,10 +42,10 @@ public:
     void setSelected(bool selected);
     QSize sizeHint() const override;
 
-protected slots:
+protected Q_SLOTS:
     void slotKeyPressed();
 
-signals:
+Q_SIGNALS:
     void parentPleaseUpdate();
 
 private:

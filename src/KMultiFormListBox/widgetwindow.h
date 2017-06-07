@@ -41,7 +41,7 @@ class WidgetWindow : public QDialog
     WidgetWindow *clone();
     ~WidgetWindow();
 
-protected slots:
+protected Q_SLOTS:
     void slotOk();
     void slotCancel();
 

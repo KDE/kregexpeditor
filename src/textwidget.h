@@ -52,7 +52,7 @@ protected:
     void clearSelection() override;
     bool eventFilter(QObject *, QEvent *) override;
 
-protected slots:
+protected Q_SLOTS:
     void slotUpdate();
 
 private:

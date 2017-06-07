@@ -34,13 +34,13 @@ public:
 
     QString regExp() const override;
 
-signals:
+Q_SIGNALS:
     /** This signal tells whether undo is available. */
     void canRedo(bool) override;
     void canUndo(bool) override;
     void changes(bool) override;
 
-public slots:
+public Q_SLOTS:
     void redo() override;
     void undo() override;
     void setRegExp(const QString &regexp) override;

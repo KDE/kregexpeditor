@@ -126,7 +126,7 @@ public:
 
     QSize sizeHint() const override;
 
-public slots:
+public Q_SLOTS:
 
     /**
        Set the editor window to the regular expression given as argument
@@ -191,7 +191,7 @@ public slots:
     void slotCopy();
     void slotSave();
 
-signals:
+Q_SIGNALS:
     /**
        This signal is emitted whenever the content of the editor window is
        changed.
@@ -236,7 +236,7 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event) override;
     void paintEvent(QPaintEvent *event) override;
 
-protected slots:
+protected Q_SLOTS:
     virtual void emitVerifyRegExp();
     void editWidget();
 

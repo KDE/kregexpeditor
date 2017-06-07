@@ -38,7 +38,7 @@ public:
 protected:
     void fillComboBox();
 
-private slots:
+private Q_SLOTS:
     void slotNewItem(int which);
 
 private:

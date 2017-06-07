@@ -62,13 +62,13 @@ private:
     virtual void delAnElement() override;
     void addElement() override;
 
-public slots:
+public Q_SLOTS:
     void addNewElement();
 
-signals:
+Q_SIGNALS:
     void showHelp();
 
-private slots:
+private Q_SLOTS:
     void slotEditSelected();
     void slotEditSelected(QListWidgetItem *item);
     void slotCopySelected();

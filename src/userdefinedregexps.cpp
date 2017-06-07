@@ -190,11 +190,9 @@ void UserDefinedRegExps::slotRenameUserRegexp()
     WidgetWinItem *winItem = static_cast<WidgetWinItem *>(action->data().value<void *>());
     Q_ASSERT(winItem);
 
-    QString oldFile = winItem->fileName();
     QString oldName = winItem->name();
 
-    QString txt;
-    txt = QInputDialog::getText(this, i18n("Rename Item"), i18n("New name:"), QLineEdit::Normal, oldName);
+    QString txt = QInputDialog::getText(this, i18n("Rename Item"), i18n("New name:"), QLineEdit::Normal, oldName);
 
     if (!txt.isNull() && oldName != txt) {
         QString fileName = WidgetWinItem::path() + QStringLiteral("/") + txt + QStringLiteral(".regexp");

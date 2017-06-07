@@ -151,7 +151,7 @@ void VerifyButtons::updateVerifyButton(bool b)
 
 void VerifyButtons::loadText()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, QString(), QString(), QString());
+    const QString fileName = QFileDialog::getOpenFileName(this, QString(), QString(), QString());
     if (!fileName.isNull()) {
         emit loadVerifyText(fileName);
     }

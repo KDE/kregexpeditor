@@ -63,7 +63,7 @@ private:
         return this;
     }
 
-public slots:
+public Q_SLOTS:
 
     /**
        This slot should be connected to a button which lets the user know that
@@ -72,7 +72,7 @@ public slots:
     */
     void addElement() override; // Adds an empty element to the KMultiFormListBox
 
-protected slots:
+protected Q_SLOTS:
 
     /**
        When this slot is invoked then the Idx menu will be shown.

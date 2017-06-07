@@ -47,7 +47,7 @@ public:
     int max();
     void set(REPEATTYPE tp, int min, int max);
 
-protected slots:
+protected Q_SLOTS:
     void slotItemChange(int which);
     void slotUpdateMinVal(int minVal);
     void slotUpdateMaxVal(int minVal);
@@ -88,7 +88,7 @@ public:
 protected:
     void paintEvent(QPaintEvent *e) override;
 
-protected slots:
+protected Q_SLOTS:
     void slotConfigCanceled();
     void slotConfigWindowClosed();
 
