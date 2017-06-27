@@ -83,7 +83,7 @@ QString RegExpConverter::escape(const QString &text, const QList<QChar> &chars, 
 }
 
 /**
-   Returns a QSyntaxHighlighter to be used in the virifyer widget.
+   Returns a QSyntaxHighlighter to be used in the verifyer widget.
 */
 RegexpHighlighter *RegExpConverter::highlighter(QTextEdit *)
 {
