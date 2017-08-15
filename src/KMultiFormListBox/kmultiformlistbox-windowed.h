@@ -59,7 +59,7 @@ private:
     QList<QPushButton *> _buttonList;
     QListWidget *_listbox;
     void delElement(QWidget *) override; // Deletes the given element
-    virtual void delAnElement() override;
+    void delAnElement() override;
     void addElement() override;
 
 public Q_SLOTS:
