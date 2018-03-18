@@ -21,7 +21,7 @@
 #include <QHBoxLayout>
 #include <QListWidget>
 
-indexWindow::indexWindow() : QWidget(0, Qt::Popup)
+indexWindow::indexWindow() : QWidget(nullptr, Qt::Popup)
 {
     lb = new QListWidget(this);
     connect(lb, SIGNAL(selected(int)), this, SLOT(lbSelected(int)));

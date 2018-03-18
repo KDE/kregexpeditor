@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
-    KRegExpEditorGUIDialog iface(0);
+    KRegExpEditorGUIDialog iface(nullptr);
 
     iface.show();
 

@@ -30,7 +30,7 @@
 
 VerifyButtons::VerifyButtons(QWidget *parent, const QString &name)
     : QToolBar(name, parent)
-    , _configMenu(0)
+    , _configMenu(nullptr)
 {
     _verify = new QToolButton(this);
     QIcon icon = QIcon::fromTheme(QStringLiteral("tools-check-spelling"));
@@ -90,12 +90,12 @@ VerifyButtons::VerifyButtons(QWidget *parent, const QString &name)
 
     // Qt
     RegExpConverter *converter = new QtRegExpConverter();
-    _converters.append(qMakePair(converter, static_cast<QAction *>(0)));
+    _converters.append(qMakePair(converter, static_cast<QAction *>(nullptr)));
     QString qtConverterName = converter->name();
 
     // Emacs
     converter = new EmacsRegExpConverter();
-    _converters.append(qMakePair(converter, static_cast<QAction *>(0)));
+    _converters.append(qMakePair(converter, static_cast<QAction *>(nullptr)));
     QString emacsConverterName = converter->name();
 
     // -------------------------------------------------- Initialize the config menu

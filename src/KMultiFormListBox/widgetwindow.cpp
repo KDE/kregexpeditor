@@ -31,13 +31,13 @@
 #include "windowlistboxitem.h"
 
 WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, QListWidget *lb)
-    : QDialog(0)
+    : QDialog(nullptr)
 {
     init(factory, lb);
 }
 
 WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KMultiFormListBoxEntry *widget, QListWidget *lb)
-    : QDialog(0)
+    : QDialog(nullptr)
 {
     init(factory, lb, widget);
 }

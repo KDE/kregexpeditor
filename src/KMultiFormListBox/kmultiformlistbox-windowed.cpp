@@ -190,7 +190,7 @@ WindowListboxItem *KMultiFormListBoxWindowed::selected()
 void KMultiFormListBoxWindowed::slotMoveItemUp()
 {
     WindowListboxItem *item = selected();
-    if (item == 0) {
+    if (item == nullptr) {
         return;
     }
 
@@ -205,7 +205,7 @@ void KMultiFormListBoxWindowed::slotMoveItemUp()
 void KMultiFormListBoxWindowed::slotMoveItemDown()
 {
     WindowListboxItem *item = selected();
-    if (item == 0) {
+    if (item == nullptr) {
         return;
     }
 

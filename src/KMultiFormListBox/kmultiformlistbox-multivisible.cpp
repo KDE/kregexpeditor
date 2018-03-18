@@ -134,7 +134,7 @@ void KMultiFormListBoxMultiVisible::updateClipperContent()
 
 void KMultiFormListBoxMultiVisible::addElement()
 {
-    addElement(0);
+    addElement(nullptr);
 }
 
 void KMultiFormListBoxMultiVisible::addElement(KMultiFormListBoxEntry *after)
@@ -146,7 +146,7 @@ void KMultiFormListBoxMultiVisible::addElement(KMultiFormListBoxEntry *after)
 void KMultiFormListBoxMultiVisible::append(KMultiFormListBoxEntry *elm)
 {
     elm->setParent(widget());
-    insertElmIntoWidget(elm, 0);
+    insertElmIntoWidget(elm, nullptr);
 }
 
 void KMultiFormListBoxMultiVisible::delElement(QWidget *elm)
@@ -194,7 +194,7 @@ void KMultiFormListBoxMultiVisible::insertElmIntoWidget(KMultiFormListBoxEntry *
     //addChild(elm,0,0); // updateClipperContent will place the child correctly.
 
     QWidget *sep = factory->separator(widget());
-    if (sep != 0) {
+    if (sep != nullptr) {
         sep->setObjectName(QStringLiteral("separator"));
         sep->show();
         layout->insertWidget(index + 1, sep); // updateClipperContent will place the child correctly.
