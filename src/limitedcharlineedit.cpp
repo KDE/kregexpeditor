@@ -74,7 +74,7 @@ LimitedCharLineEdit::LimitedCharLineEdit(Mode mode, QWidget *parent, const QStri
     }
 
     setMaxLength(_count);
-    setFixedSize(fontMetrics().width(QLatin1Char('A')) * 5 + 5, sizeHint().height());
+    setFixedSize(fontMetrics().boundingRect(QLatin1Char('A')).width() * 5 + 5, sizeHint().height());
 
     setValidator(new Validator(mode, this));
 }

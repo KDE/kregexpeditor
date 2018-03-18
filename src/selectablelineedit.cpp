@@ -44,7 +44,7 @@ QSize SelectableLineEdit::sizeHint() const
 {
     int frameWidth = hasFrame() ? 12 : 6; // from QLineEdit source
     QFontMetrics metrics = fontMetrics();
-    int actualSize = metrics.width(text());
+    int actualSize = metrics.boundingRect(text()).width();
     int charWidth = metrics.maxWidth();
     int height = QLineEdit::sizeHint().height();
 
@@ -63,7 +63,7 @@ void SelectableLineEdit::slotKeyPressed()
     int frameWidth = hasFrame() ? 8 : 4; // from QLineEdit source
 
     QFontMetrics metrics = fontMetrics();
-    int actualSize = metrics.width(text());
+    int actualSize = metrics.boundingRect(text()).width();
 
     if (actualSize > size().width() - frameWidth) {
         updateGeometry();
