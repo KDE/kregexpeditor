@@ -54,13 +54,17 @@ void CCP::install(QObject *elm)
 // This function post the Cut/Copy/Paste menu
 bool CCP::eventFilter(QObject *, QEvent *event)
 {
-    if (event->type() != QEvent::MouseButtonPress
-        || ((QMouseEvent *)event)->button() != Qt::RightButton
-        || (((QMouseEvent *)event)->modifiers() & Qt::ControlModifier) == 0) {
+    if (event->type() != QEvent::MouseButtonPress) {
         return false;
     }
 
-    QPoint pos = ((QMouseEvent *)event)->globalPos();
+    auto mouseEvent = static_cast<QMouseEvent *>(event);
+    if (mouseEvent->button() != Qt::RightButton ||
+           (mouseEvent->modifiers() & Qt::ControlModifier) == 0) {
+        return false;
+    }
+
+    QPoint pos = mouseEvent->globalPos();
 
     QMenu menu;
     QAction *cutAction = menu.addAction(i18n("Cut"));
