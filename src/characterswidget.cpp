@@ -110,7 +110,7 @@ RegExp *CharactersWidget::regExp() const
 
 QString CharactersWidget::text() const
 {
-    QString res = QStringLiteral("");
+    QString res = QString();
 
     if (_regexp->wordChar()) {
         res += i18n("- A word character\n");
@@ -248,7 +248,7 @@ void CharacterEdits::setRegexp(TextRangeRegExp *regexp)
     foreach (KMultiFormListBoxEntry *e, list1) {
         SingleEntry *entry = dynamic_cast<SingleEntry *>(e);
         if (entry) {
-            entry->setText(QStringLiteral(""));
+            entry->setText(QString());
         }
     }
     QStringList list2 = regexp->chars();
@@ -261,8 +261,8 @@ void CharacterEdits::setRegexp(TextRangeRegExp *regexp)
     foreach (KMultiFormListBoxEntry *e, list3) {
         RangeEntry *entry = dynamic_cast<RangeEntry *>(e);
         if (entry) {
-            entry->setFrom(QStringLiteral(""));
-            entry->setTo(QStringLiteral(""));
+            entry->setFrom(QString());
+            entry->setTo(QString());
         }
     }
 

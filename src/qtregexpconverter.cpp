@@ -70,8 +70,8 @@ QString QtRegExpConverter::toString(ConcRegExp *regexp, bool markSelection)
 
     RegExpList list = regexp->children();
     foreach (RegExp *r, list) {
-        QString startPar = QStringLiteral("");
-        QString endPar = QStringLiteral("");
+        QString startPar = QString();
+        QString endPar = QString();
         if (r->precedence() < regexp->precedence()) {
             if (markSelection) {
                 startPar = QStringLiteral("(?:");
@@ -223,7 +223,7 @@ QString QtRegExpConverter::toString(PositionRegExp *regexp, bool /*markSelection
         return QStringLiteral("\\B");
     }
     Q_ASSERT(false);
-    return QStringLiteral("");
+    return QString();
 }
 
 QString QtRegExpConverter::toString(RepeatRegExp *regexp, bool markSelection)

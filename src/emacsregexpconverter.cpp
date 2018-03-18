@@ -58,8 +58,8 @@ QString EmacsRegExpConverter::toString(ConcRegExp *regexp, bool markSelection)
 
     RegExpList list = regexp->children();
     foreach (RegExp *r, list) {
-        QString startPar = QStringLiteral("");
-        QString endPar = QStringLiteral("");
+        QString startPar = QString();
+        QString endPar = QString();
         if (r->precedence() < regexp->precedence()) {
             startPar = QStringLiteral("\\(");
             endPar = QStringLiteral("\\)");
@@ -181,10 +181,10 @@ QString EmacsRegExpConverter::toString(PositionRegExp *regexp, bool /*markSelect
         if (!haveWarned) {
             KMessageBox::sorry(nullptr, i18n("Word boundary and non word boundary is not supported in Emacs syntax"));
             haveWarned = true;
-            return QStringLiteral("");
+            return QString();
         }
     }
-    return QStringLiteral("");
+    return QString();
 }
 
 QString EmacsRegExpConverter::toString(RepeatRegExp *regexp, bool markSelection)
@@ -206,7 +206,7 @@ QString EmacsRegExpConverter::toString(RepeatRegExp *regexp, bool markSelection)
     } else if (regexp->min() == 1 && regexp->max() == -1) {
         return startPar + cText + endPar + QStringLiteral("+");
     } else {
-        QString res = QStringLiteral("");
+        QString res = QString();
         for (int i = 0; i < regexp->min(); ++i) {
             res += QLatin1String("\\(") + cText + QLatin1String("\\)");
         }

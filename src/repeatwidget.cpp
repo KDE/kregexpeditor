@@ -309,7 +309,7 @@ QString RepeatRangeWindow::text()
     }
 
     qFatal("Fall through!");
-    return QStringLiteral("");
+    return QString();
 }
 
 int RepeatRangeWindow::min()

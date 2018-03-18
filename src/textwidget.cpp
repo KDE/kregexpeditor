@@ -28,7 +28,7 @@
 TextWidget::TextWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
     : RegExpWidget(editorWindow, parent)
 {
-    init(QStringLiteral(""));
+    init(QString());
 }
 
 TextWidget::TextWidget(TextRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent)
