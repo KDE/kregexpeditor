@@ -53,29 +53,21 @@ RegExpWidget *WidgetFactory::createWidget(RegExpEditorWindow *win, QWidget *pare
     switch (type) {
     case TEXT:
         return new TextWidget(win, parent);
-        break;
     case ALTN:
         return new AltnWidget(win, parent);
-        break;
     case DOT:
         return new AnyCharWidget(win, parent);
-        break;
     case BEGLINE:
         return new BegLineWidget(win, parent);
-        break;
     case ENDLINE:
         return new EndLineWidget(win, parent);
-        break;
     case WORDBOUNDARY:
         return new WordBoundaryWidget(win, parent);
-        break;
     case NONWORDBOUNDARY:
         return new NonWordBoundaryWidget(win, parent);
-        break;
     case POSLOOKAHEAD:
     case NEGLOOKAHEAD:
         return new LookAheadWidget(win, type, parent);
-        break;
     case REPEAT:
         widget = new RepeatWidget(win, parent);
         break;
@@ -178,10 +170,9 @@ RegExp *WidgetFactory::createRegExp(QDomElement node, const QString &version)
     bool ok = regexp->load(node, version);
     if (ok) {
         return regexp;
-    } else {
-        delete regexp;
-        return nullptr;
     }
+
+    delete regexp;
     return nullptr;
 }
 
