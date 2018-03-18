@@ -99,7 +99,7 @@ RegExpWidget *WidgetFactory::createWidget(RegExpEditorWindow *win, QWidget *pare
 
 RegExpWidget *WidgetFactory::createWidget(RegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent)
 {
-    if (regexp == 0) {
+    if (regexp == nullptr) {
         qFatal("%s:%d Regexp is 0", __FILE__, __LINE__);
     } else if (TextRegExp *reg = dynamic_cast<TextRegExp *>(regexp)) {
         return new TextWidget(reg, editorWindow, parent);

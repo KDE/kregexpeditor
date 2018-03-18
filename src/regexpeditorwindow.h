@@ -49,7 +49,7 @@ class RegExpEditorWindow : public QWidget
 
 public:
     RegExpEditorWindow(QWidget *parent);
-    ~RegExpEditorWindow();
+    ~RegExpEditorWindow() override;
 
     /**
        Returns an object which represent the regular expression "drawn" in

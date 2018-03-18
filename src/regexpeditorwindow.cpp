@@ -47,10 +47,10 @@ RegExpEditorWindow::RegExpEditorWindow(QWidget *parent)
     _layout = new QHBoxLayout(this);
     _layout->addWidget(_top);
     _top->setToplevel();
-    _menu = 0;
+    _menu = nullptr;
     _insertInAction = false;
     _pasteInAction = false;
-    _pasteData = 0;
+    _pasteData = nullptr;
 
     _PosEdit = QPoint(0, 0);
 
@@ -78,7 +78,7 @@ RegExp *RegExpEditorWindow::regExp() const
 void RegExpEditorWindow::mousePressEvent(QMouseEvent *event)
 {
     setFocus();
-    updateContent(0);
+    updateContent(nullptr);
 
     _start = event->pos();
     _lastPoint = QPoint(0, 0);
@@ -216,7 +216,7 @@ void RegExpEditorWindow::slotDeleteSelection()
     } else {
         _top->deleteSelection();
     }
-    updateContent(0);
+    updateContent(nullptr);
 }
 
 void RegExpEditorWindow::updateContent(QWidget *focusChild)
@@ -325,7 +325,7 @@ void RegExpEditorWindow::showRMBMenu(bool enableCutCopy)
     };
 
     if (!_menu) {
-        _menu = new QMenu(0);
+        _menu = new QMenu(nullptr);
 
         _cutAction = _menu->addAction(getIcon(QStringLiteral("edit-cut")),
                                       i18n("C&ut"));
