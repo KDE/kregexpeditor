@@ -57,7 +57,6 @@ private:
     QToolButton *_nonWordBoundary;
     QToolButton *_posLookAhead;
     QToolButton *_negLookAhead;
-    QSignalMapper *_mapper; // single click Mapper.
 
     /**
        This variable is true if the use wishes to continue editing in the

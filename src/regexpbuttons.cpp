@@ -35,10 +35,6 @@ RegExpButtons::RegExpButtons(QWidget *parent, const QString &name)
     _grp = new QButtonGroup(this);
     _grp->setExclusive(true);
 
-    _mapper = new QSignalMapper(this);
-    _mapper->setObjectName(QStringLiteral("RegExpButtons::_mapper"));
-    connect(_mapper, SIGNAL(mapped(int)), this, SIGNAL(clicked(int)));
-
     // The "select" button.
     _selectBut = new QToolButton(this);
 
@@ -141,9 +137,7 @@ DoubleClickButton *RegExpButtons::insert(RegExpType tp, const QString &name, con
 
     DoubleClickButton *but = new DoubleClickButton(pix, this, QStringLiteral("RegExpButtons::but"));
 
-    _mapper->setMapping(but, tp);
-
-    connect(but, SIGNAL(clicked()), _mapper, SLOT(map()));
+    connect(but, &DoubleClickButton::clicked, [this, tp](){ emit clicked(tp); });
     connect(but, SIGNAL(clicked()), this, SLOT(slotSetNonKeepMode()));
     connect(but, SIGNAL(doubleClicked()), this, SLOT(slotSetKeepMode()));
 
