@@ -36,6 +36,7 @@ Name[x-test]=xxKRegExpEditorxx
 Exec=kregexpeditor
 X-DocPath=kregexpeditor/index.html
 GenericName=Regular Expression Editor
+GenericName[ast]=Editor d'espresiones regulares
 GenericName[bg]=Редактор на регулярни изрази
 GenericName[bs]=Uređivač regularnih izraza
 GenericName[ca]=Editor d'expressions regulars
