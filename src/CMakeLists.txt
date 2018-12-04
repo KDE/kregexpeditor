@@ -77,10 +77,11 @@ set(kregexpeditorcommon_SRCS
 add_library(kregexpeditorcommon SHARED ${kregexpeditorcommon_SRCS})
 
 target_link_libraries(kregexpeditorcommon
-    KF5::ConfigWidgets
     KF5::TextWidgets
+    KF5::CoreAddons
     KF5::WidgetsAddons
     Qt5::Widgets
+    Qt5::Xml
     )
 
 set_target_properties(kregexpeditorcommon PROPERTIES VERSION 1.0.0 SOVERSION 1)

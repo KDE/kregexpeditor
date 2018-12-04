@@ -19,14 +19,14 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 
-find_package(Qt5 ${QT5_REQUIRED_VERSION} CONFIG REQUIRED Core Widgets)
+find_package(Qt5 ${QT5_REQUIRED_VERSION} CONFIG REQUIRED Core Widgets Xml)
 find_package(KF5 REQUIRED
-    ConfigWidgets
     DocTools
     IconThemes
     TextWidgets
     WidgetsAddons
     Crash
+    CoreAddons
     )
 
 find_package(BISON REQUIRED)

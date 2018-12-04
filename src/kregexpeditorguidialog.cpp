@@ -22,10 +22,11 @@
 #include <QFrame>
 
 #include <KLocalizedString>
-#include <KHelpClient>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QDebug>
+#include <QDesktopServices>
+#include <QUrl>
 
 #include "kregexpeditorprivate.h"
 
@@ -91,5 +92,5 @@ void KRegExpEditorGUIDialog::setMatchText(const QString &txt)
 
 void KRegExpEditorGUIDialog::showHelp()
 {
-    KHelpClient::invokeHelp(QString(), QStringLiteral("kregexpeditor"));
+    QDesktopServices::openUrl(QUrl("help:/kregexpeditor/index.html"));
 }

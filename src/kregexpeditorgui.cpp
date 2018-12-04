@@ -25,7 +25,6 @@
 #include <QSettings>
 
 #include <KLocalizedString>
-#include <KHelpClient>
 #include "kregexpeditorprivate.h"
 
 const QString KRegExpEditorGUI::version = QStringLiteral("1.0");

@@ -19,7 +19,6 @@
 #include "infopage.h"
 
 #include <KLocalizedString>
-#include <KHelpClient>
 #include <QDesktopServices>
 
 InfoPage::InfoPage(QWidget *parent)
@@ -37,11 +36,11 @@ InfoPage::InfoPage(QWidget *parent)
                  "This is actually very similar to common drawing programs. Select an editing tool to start "
                  "editing your regular expression, and press the mouse button in the editing area where you want "
                  "this item inserted.</p>"
-                 "<p>For a more detailed description of this editor see the <a href=\"doc://\">info pages</a></p>"
+                 "<p>For a more detailed description of this editor see the <a href=\"help:/kregexpeditor/index.html\">info pages</a></p>"
 
                  "<h2>What is a regular expression?</h2>"
                  "If you do not know what a regular expression is, then it might be a good idea "
-                 "to read <a href=\"doc://whatIsARegExp\">the introduction to regular expressions</a>.<br />");
+                 "to read <a href=\"help:/kregexpeditor/whatIsARegExp/index.html\">the introduction to regular expressions</a>.<br />");
 
     txt += i18n("<h2>Send the author an electronic postcard</h2>"
                 "I don't get any money for working on KRegExpEditor, "
@@ -57,11 +56,5 @@ InfoPage::InfoPage(QWidget *parent)
 
 void InfoPage::setSource(const QUrl &name)
 {
-    QString nm = name.toString();
-
-    if (nm.startsWith(QStringLiteral("doc://"))) {
-        KHelpClient::invokeHelp(nm.mid(6, nm.length() - 7), QStringLiteral("kregexpeditor"));
-    } else {
-        QDesktopServices::openUrl(name);   // handle mailto and other links
-    }
+    QDesktopServices::openUrl(name);
 }
