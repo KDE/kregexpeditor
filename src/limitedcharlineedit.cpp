@@ -20,6 +20,7 @@
 
 #include <QValidator>
 #include <QKeyEvent>
+#include <QRegularExpression>
 
 /**
    @internal
@@ -39,9 +40,9 @@ public:
     {
         if (_mode == LimitedCharLineEdit::NORMAL
             || (_mode == LimitedCharLineEdit::HEX
-                && QRegExp(QStringLiteral("^[0-9A-Fa-f]*$")).indexIn(txt) != -1)
+                && txt.contains(QRegularExpression(QStringLiteral("^[0-9A-Fa-f]*$"))))
             || (_mode == LimitedCharLineEdit::OCT
-                && QRegExp(QStringLiteral("^[0-7]*$")).indexIn(txt) != -1)) {
+                && txt.contains(QRegularExpression(QStringLiteral("^[0-7]*$"))))) {
             return QValidator::Acceptable;
         } else {
             return QValidator::Invalid;
