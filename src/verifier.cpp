@@ -20,11 +20,9 @@
 
 #include "regexphighlighter.h"
 
-Verifier::Verifier(QWidget *parent) : KTextEdit(parent)
+Verifier::Verifier(QWidget *parent) : QTextEdit(parent)
     /* QT_ANCHOR_DO_NOT_WORK: ,_current( 0 ) */
 {
-    setCheckSpellingEnabled(false);
-
     _highlighter = 0;
     setMinimumSize(1, 1);
 }

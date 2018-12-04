@@ -8,6 +8,9 @@ find_package(ECM 5.20 REQUIRED NO_MODULE)
 set(QT5_REQUIRED_VERSION "5.5.0")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
+option(ENABLE_KTEXTWIDGETS "Build KTextWidgets integration" OFF)
+option(BUILD_TEST "Build test widget" OFF)
+
 include(ECMGenerateHeaders)
 include(ECMInstallIcons)
 include(ECMAddAppIcon)
@@ -21,9 +24,8 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 
 find_package(Qt5 ${QT5_REQUIRED_VERSION} CONFIG REQUIRED Core Widgets Xml)
 find_package(KF5 REQUIRED
+    I18n
     DocTools
-    IconThemes
-    TextWidgets
     WidgetsAddons
     Crash
     CoreAddons
@@ -49,7 +51,13 @@ add_definitions( -DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT )
 add_subdirectory(src)
 add_subdirectory( doc )
 
-option(BUILD_TEST "Build test widget" OFF)
+if (ENABLE_KTEXTWIDGETS)
+    add_definitions( -DENABLE_KTEXTWIDGETS )
+    find_package(KF5 REQUIRED
+        TextWidgets
+    )
+endif()
+
 if (BUILD_TEST)
     find_package(KF5 REQUIRED
         KIO

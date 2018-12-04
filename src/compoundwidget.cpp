@@ -27,10 +27,10 @@
 #include <KLocalizedString>
 #include <QDialog>
 #include <QLineEdit>
-#include <KTextEdit>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QStyle>
+#include <QTextEdit>
 
 #include "concwidget.h"
 #include "kwidgetstreamer.h"
@@ -52,7 +52,7 @@ CompoundDetailWindow::CompoundDetailWindow(QWidget *parent)
 
     label = new QLabel(i18n("&Description:"), this);
     layout->addWidget(label);
-    _description = new KTextEdit(this);
+    _description = new QTextEdit(this);
     layout->addWidget(_description);
     label->setBuddy(_description);
 

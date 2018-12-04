@@ -19,11 +19,11 @@
 #ifndef VERIFIER_H
 #define VERIFIER_H
 
-#include <KTextEdit>
+#include <QTextEdit>
 
 class RegexpHighlighter;
 
-class Verifier : public KTextEdit
+class Verifier : public QTextEdit
 {
     Q_OBJECT
 public:

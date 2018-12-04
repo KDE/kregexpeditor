@@ -21,7 +21,10 @@
 
 #include <QDialog>
 #include <QVariant>
+
+#ifdef ENABLE_KTEXTWIDGETS
 #include <kregexpeditorinterface.h>
+#endif
 
 class KRegExpEditorPrivate;
 
@@ -31,33 +34,38 @@ class KRegExpEditorPrivate;
    @author Jesper Kjær Pedersen <blackie@kde.org>
    @version 0.1
  **/
-class Q_DECL_EXPORT KRegExpEditorGUI : public QWidget, public KRegExpEditorInterface
+class Q_DECL_EXPORT KRegExpEditorGUI : public QWidget
+#ifdef ENABLE_KTEXTWIDGETS
+                                       , public KRegExpEditorInterface
+#endif
 {
     Q_OBJECT
+#ifdef ENABLE_KTEXTWIDGETS
     Q_INTERFACES(KRegExpEditorInterface)
+#endif
     Q_PROPERTY(QString regexp READ regExp WRITE setRegExp)
 public:
     KRegExpEditorGUI(QWidget *parent = nullptr, const QVariantList & = QVariantList());
     ~KRegExpEditorGUI();
-    QString regExp() const override;
+    QString regExp() const;
 
     static const QString version;
 
 protected:
-    void closeEvent(QCloseEvent *event) override;
+    void closeEvent(QCloseEvent *event);
 
 Q_SIGNALS:
     /** This signal tells whether undo is available. */
-    void canRedo(bool) override;
-    void canUndo(bool) override;
-    void changes(bool) override;
+    void canRedo(bool);
+    void canUndo(bool);
+    void changes(bool);
 
 public Q_SLOTS:
-    void redo() override;
-    void undo() override;
-    void setRegExp(const QString &regexp) override;
-    void doSomething(const QString &method, void *arguments) override;
-    void setMatchText(const QString &) override;
+    void redo();
+    void undo();
+    void setRegExp(const QString &regexp);
+    void doSomething(const QString &method, void *arguments);
+    void setMatchText(const QString &);
 
 private:
     KRegExpEditorPrivate *_editor;

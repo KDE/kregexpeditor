@@ -24,7 +24,7 @@
 #include "singlecontainerwidget.h"
 
 class QLineEdit;
-class KTextEdit;
+class QTextEdit;
 class QDialog;
 class QCheckBox;
 class QPaintEvent;
@@ -47,7 +47,7 @@ public:
 
 private:
     QLineEdit *_title;
-    KTextEdit *_description;
+    QTextEdit *_description;
     QCheckBox *_allowReplace;
 };
 
