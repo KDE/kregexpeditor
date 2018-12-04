@@ -28,9 +28,9 @@
 #include <QDialog>
 #include <QLineEdit>
 #include <KTextEdit>
-#include <KIconLoader>
 #include <QDialogButtonBox>
 #include <QPushButton>
+#include <QStyle>
 
 #include "concwidget.h"
 #include "kwidgetstreamer.h"
@@ -327,5 +327,6 @@ int nextId()
 
 QPixmap CompoundWidget::getIcon(const QString &name)
 {
-    return SmallIcon(name);
+    const int styleSizeHint = style()->pixelMetric(QStyle::PM_ToolBarIconSize);
+    return QIcon(name).pixmap(styleSizeHint);
 }

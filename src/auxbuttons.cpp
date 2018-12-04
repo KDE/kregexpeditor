@@ -22,7 +22,6 @@
 #include <QWhatsThis>
 
 #include <QIcon>
-#include <KIconLoader>
 #include <KLocalizedString>
 
 AuxButtons::AuxButtons(QWidget *parent, const QString &name)

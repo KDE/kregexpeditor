@@ -24,7 +24,6 @@ find_package(KF5 REQUIRED
     ConfigWidgets
     DocTools
     IconThemes
-    KIO
     TextWidgets
     WidgetsAddons
     Crash
@@ -50,6 +49,12 @@ add_definitions( -DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT )
 add_subdirectory(src)
 add_subdirectory( doc )
 
-add_subdirectory(tests)
+option(BUILD_TEST "Build test widget" OFF)
+if (BUILD_TEST)
+    find_package(KF5 REQUIRED
+        KIO
+    )
+    add_subdirectory(tests)
+endif()
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

@@ -20,7 +20,6 @@
 
 #include <KLocalizedString>
 #include <QIcon>
-#include <KIconLoader>
 
 #include <KMessageBox>
 #include <QLineEdit>
@@ -175,7 +174,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
                                    "<p>You may develop your regular expression both by using the graphical "
                                    "editor, and by typing the regular expression in this line edit.</p>"));
 
-    QPixmap pix = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kregexpeditor/pics/error.png")), KIconLoader::Toolbar);
+    QPixmap pix(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kregexpeditor/pics/error.png")));
     _error = new QLabel(editDockWidget);
     _error->setPixmap(pix);
     dockLayout->addWidget(_error);

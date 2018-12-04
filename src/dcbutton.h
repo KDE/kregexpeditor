@@ -30,7 +30,7 @@ class DoubleClickButton : public QToolButton
     Q_OBJECT
 
 public:
-    DoubleClickButton(const QPixmap &pix, QWidget *parent, const QString &name = QString());
+    DoubleClickButton(const QIcon &pix, QWidget *parent, const QString &name = QString());
 
 protected:
     void mouseDoubleClickEvent(QMouseEvent *) override;
