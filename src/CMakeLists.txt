@@ -2,6 +2,8 @@ BISON_TARGET(qregexpparser qregexpparser.y ${CMAKE_CURRENT_BINARY_DIR}/gen_qrege
 FLEX_TARGET(qregexplexer qregexpparser.l  ${CMAKE_CURRENT_BINARY_DIR}/gen_qregexplexer.cpp COMPILE_FLAGS "-Pqregexp")
 ADD_FLEX_BISON_DEPENDENCY( qregexplexer qregexpparser )
 
+set_property(SOURCE ${BISON_qregexpparser_OUTPUTS} PROPERTY SKIP_AUTOMOC ON)
+set_property(SOURCE ${FLEX_qregexplexer_OUTPUTS} PROPERTY SKIP_AUTOMOC ON)
 
 add_subdirectory( predefined )
 add_subdirectory( pics )

@@ -36,6 +36,8 @@ class QCheckBox;
 */
 class CharactersWidget : public RegExpWidget
 {
+    Q_OBJECT
+
 public:
     CharactersWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
     CharactersWidget(TextRangeRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent);
@@ -68,6 +70,8 @@ private:
 */
 class SingleEntry : public KMultiFormListBoxEntry
 {
+    Q_OBJECT
+
 public:
     SingleEntry(QWidget *parent);
     QString text() const;
@@ -83,6 +87,8 @@ private:
 */
 class RangeEntry : public KMultiFormListBoxEntry
 {
+    Q_OBJECT
+
 public:
     RangeEntry(QWidget *parent);
     QString fromText() const;

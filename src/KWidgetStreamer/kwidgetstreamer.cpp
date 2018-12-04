@@ -25,9 +25,10 @@
 
 void KWidgetStreamer::toStream(const QObject *from, QDataStream &stream)
 {
-    if (from->inherits("KMultiFormListBox")) {
-        // Hmm, we'll trust Qt that this dynamic_cast won't fail!
-        dynamic_cast<const KMultiFormListBox *>(from)->toStream(stream);
+    const KMultiFormListBox *listBox = qobject_cast<const KMultiFormListBox*>(from);
+    if (listBox) {
+        listBox->toStream(stream);
+        return;
     }
 
     propertyToStream(from, stream);
@@ -35,9 +36,10 @@ void KWidgetStreamer::toStream(const QObject *from, QDataStream &stream)
 
 void KWidgetStreamer::fromStream(QDataStream &stream, QObject *to)
 {
-    if (to->inherits("KMultiFormListBox")) {
-        // Hmm, we'll trust Qt that this dynamic_cast won't fail!
-        dynamic_cast<KMultiFormListBox *>(to)->fromStream(stream);
+    KMultiFormListBox *listBox = qobject_cast<KMultiFormListBox*>(to);
+    if (listBox) {
+        listBox->toStream(stream);
+        return;
     }
 
     propertyFromStream(stream, to);
@@ -46,15 +48,13 @@ void KWidgetStreamer::fromStream(QDataStream &stream, QObject *to)
 void KWidgetStreamer::propertyToStream(const QObject *from, QDataStream &stream)
 {
     // Only handle widgets. Alternatives to widgets are layouts, validators, timers, etc.
-    if (!from->inherits("QWidget")) {
+    if (!qobject_cast<const QWidget*>(from)) {
         return;
     }
 
     // Stream in all the children (if any)
     const QList<QObject *> children = from->children();
-    //unsigned int count;
 
-    //stream >> count;
     if (children.count() > 0) {
         stream <<  children.count();
         for (int i = 0; i < children.size(); ++i) {
@@ -84,20 +84,12 @@ void KWidgetStreamer::propertyToStream(const QObject *from, QDataStream &stream)
 void KWidgetStreamer::propertyFromStream(QDataStream &stream, QObject *to)
 {
     // Only handle widgets. Alternatives to widgets are layouts, validators, timers, etc.
-    if (!to->inherits("QWidget")) {
+    if (!qobject_cast<QWidget*>(to)) {
         return;
     }
 
     // Stream in all the children (if any)
     const QList<QObject *> children = to->children();
-    //const QObjectList* children = to->children();
-
-    /*  unsigned int count;
-
-      stream >> count;
-
-      Q_ASSERT( count == 0 );
-    */
 
     for (int i = 0; i < children.size(); ++i) {
         fromStream(stream, children.at(i));
@@ -119,64 +111,56 @@ void KWidgetStreamer::propertyFromStream(QDataStream &stream, QObject *to)
 
 KWidgetStreamer::KWidgetStreamer()
 {
-    QStringList l;
-
     // QCheckBox
-    l.clear();
-    l << QStringLiteral("enabled")
-      << QStringLiteral("checked") << QStringLiteral("tristate");
-    _map.insert(QStringLiteral("QCheckBox"), l);
+    _map.insert(QStringLiteral("QCheckBox"), {
+        QStringLiteral("enabled"), QStringLiteral("checked"),
+        QStringLiteral("tristate"),
+    });
 
     // QComboBox
-    l.clear();
-    l << QStringLiteral("enabled")
-      << QStringLiteral("editable") << QStringLiteral("currentItem")
-      << QStringLiteral("maxCount") << QStringLiteral("insertionPolicy")
-      << QStringLiteral("autoCompletion");
-    _map.insert(QStringLiteral("QComboBox"), l);
+    _map.insert(QStringLiteral("QComboBox"), {
+        QStringLiteral("enabled"), QStringLiteral("editable"),
+        QStringLiteral("currentItem"), QStringLiteral("maxCount"),
+        QStringLiteral("insertionPolicy"), QStringLiteral("autoCompletion"),
+    });
 
     // QDial
-    l.clear();
-    l << QStringLiteral("enabled")
-      << QStringLiteral("tracking") << QStringLiteral("wrapping")
-      << QStringLiteral("value");
-    _map.insert(QStringLiteral("QDial"), l);
+    _map.insert(QStringLiteral("QDial"), {
+        QStringLiteral("enabled"), QStringLiteral("tracking"),
+        QStringLiteral("wrapping"), QStringLiteral("value"),
+    });
 
     // QLCDNumber
-    l.clear();
-    l << QStringLiteral("enabled")
-      << QStringLiteral("digitCount") << QStringLiteral("mode")
-      << QStringLiteral("segmentStyle") << QStringLiteral("value");
-    _map.insert(QStringLiteral("QLCDNumber"), l);
+    _map.insert(QStringLiteral("QLCDNumber"), {
+        QStringLiteral("enabled"), QStringLiteral("digitCount"),
+        QStringLiteral("mode"), QStringLiteral("segmentStyle"),
+        QStringLiteral("value"),
+    });
 
     // QLineEdit
-    l.clear();
-    l << QStringLiteral("enabled")
-      << QStringLiteral("text") << QStringLiteral("maxLength")
-      << QStringLiteral("echoMode") << QStringLiteral("alignment");
-    _map.insert(QStringLiteral("QLineEdit"), l);
+    _map.insert(QStringLiteral("QLineEdit"), {
+        QStringLiteral("enabled"), QStringLiteral("text"),
+        QStringLiteral("maxLength"), QStringLiteral("echoMode"),
+        QStringLiteral("alignment"),
+    });
 
     // QMultiLineEdit
-    l.clear();
-    l << QStringLiteral("enabled")
-      << QStringLiteral("plainText");
-    _map.insert(QStringLiteral("QTextEdit"), l);
+    _map.insert(QStringLiteral("QTextEdit"), {
+        QStringLiteral("enabled"), QStringLiteral("plainText")
+    });
 
     // QRadioButton
-    l.clear();
-    l << QStringLiteral("enabled")
-      << QStringLiteral("checked");
-    _map.insert(QStringLiteral("QRadioButton"), l);
+    _map.insert(QStringLiteral("QRadioButton"), {
+        QStringLiteral("enabled"), QStringLiteral("checked")
+    });
 
     // QSlider
-    l.clear();
-    l << QStringLiteral("enabled")
-      << QStringLiteral("value");
-    _map.insert(QStringLiteral("QSlider"), l);
+    _map.insert(QStringLiteral("QSlider"), {
+        QStringLiteral("enabled"), QStringLiteral("value"),
+    });
 
     // QSpinBox
-    l.clear();
-    l << QStringLiteral("enabled")
-      << QStringLiteral("value");
-    _map.insert(QStringLiteral("QSpinBox"), l);
+    _map.insert(QStringLiteral("QSpinBox"), {
+        QStringLiteral("enabled"), QStringLiteral("value"),
+    });
 }
