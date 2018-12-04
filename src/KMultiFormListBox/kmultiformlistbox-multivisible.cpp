@@ -22,7 +22,7 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 
-#include <KMessageBox>
+#include <QMessageBox>
 
 #include "kmultiformlistboxfactory.h"
 #include "indexWindow.h"
@@ -257,7 +257,10 @@ void KMultiFormListBoxMultiVisible::showWidget(KMultiFormListBoxEntry *elm)
 void KMultiFormListBoxMultiVisible::cut(KMultiFormListBoxEntry *elm)
 {
     if (countElements(elms) == 1) {
-        KMessageBox::information(this, i18n("Due to a bug, it is not possible to remove the last element."), i18n("Internal Error"));
+        QMessageBox::information(this,
+                i18n("Internal Error"),
+                i18n("Due to a bug, it is not possible to remove the last element.")
+                );
         return;
     }
 
@@ -279,7 +282,7 @@ void KMultiFormListBoxMultiVisible::copy(KMultiFormListBoxEntry *elm)
 void KMultiFormListBoxMultiVisible::paste(KMultiFormListBoxEntry *oldElm)
 {
     if (clipboard.isEmpty()) {
-        KMessageBox::information(this, i18n("There is no element on the clipboard to paste in."));
+        QMessageBox::information(this, QString(), i18n("There is no element on the clipboard to paste in."));
         return;
     }
 

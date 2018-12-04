@@ -21,7 +21,7 @@
 #include <KLocalizedString>
 #include <QIcon>
 
-#include <KMessageBox>
+#include <QMessageBox>
 #include <QLineEdit>
 
 #include <QApplication>
@@ -378,7 +378,7 @@ void KRegExpEditorPrivate::setVerifyText(const QString &fileName)
     _autoVerify = false;
     QFile file(fileName);
     if (!file.open(QIODevice::ReadOnly)) {
-        KMessageBox::sorry(nullptr, i18n("Could not open file '%1' for reading", fileName));
+        QMessageBox::warning(nullptr, QString(), i18n("Could not open file '%1' for reading", fileName));
     } else {
         QTextStream s(&file);
         QString txt = s.readAll();

@@ -18,7 +18,7 @@
 
 #include "widgetfactory.h"
 
-#include <KMessageBox>
+#include <QMessageBox>
 #include <QDebug>
 
 #include "repeatwidget.h"
@@ -161,8 +161,10 @@ RegExp *WidgetFactory::createRegExp(QDomElement node, const QString &version)
     } else if (tag == QStringLiteral("Repeat")) {
         regexp = new RepeatRegExp(false);
     } else {
-        KMessageBox::sorry(nullptr, i18n("<p>Unknown tag while reading XML. Tag was <b>%1</b></p>", tag),
-                           i18n("Error While Loading From XML File"));
+        QMessageBox::warning(nullptr,
+                i18n("Error While Loading From XML File"),
+                i18n("<p>Unknown tag while reading XML. Tag was <b>%1</b></p>", tag)
+        );
 
         return nullptr;
     }
@@ -185,22 +187,28 @@ RegExp *WidgetFactory::createRegExp(const QString &str)
     if (!ok) {
         qDebug() << error << "at line" << errorLine << "xml was:";
         qDebug() << str;
-        KMessageBox::sorry(nullptr, i18n("Error while loading regular expression from XML.") + QLatin1Char('\n') + error,
-                           i18n("Error While Loading Regular Expression From XML"));
+        QMessageBox::warning(nullptr,
+                i18n("Error While Loading Regular Expression From XML"),
+                i18n("Error while loading regular expression from XML.") + QLatin1Char('\n') + error
+        );
     }
 
     // Read the RegularExpression element, and extract the version.
     QDomElement top = doc.documentElement();
     if (!(top.tagName() == QStringLiteral("RegularExpression"))) {
-        KMessageBox::sorry(nullptr, i18n("<p>XML file did not contain a <b>%1</b> tag.</p>", QStringLiteral("RegularExpression")),
-                           i18n("Error While Loading From XML File"));
+        QMessageBox::warning(nullptr,
+                i18n("Error While Loading From XML File"),
+                i18n("<p>XML file did not contain a <b>%1</b> tag.</p>", QStringLiteral("RegularExpression"))
+        );
     }
     QString version = top.attribute(QStringLiteral("version"), KRegExpEditorGUI::version);
     QDomNode child = top.firstChild();
     if (!child.isElement()) {
-        KMessageBox::sorry(nullptr, i18n("<p>Error while reading XML file. The element just below the tag "
-                                         "<b>%1</b> was not an element.</p>", QStringLiteral("RegularExpression")),
-                           i18n("Error While Loading From XML File"));
+        QMessageBox::warning(nullptr,
+                i18n("Error While Loading From XML File"),
+                i18n("<p>Error while reading XML file. The element just below the tag "
+                                         "<b>%1</b> was not an element.</p>", QStringLiteral("RegularExpression"))
+        );
     }
 
     RegExp *regexp = WidgetFactory::createRegExp(child.toElement(), version);

@@ -26,7 +26,6 @@ find_package(Qt5 ${QT5_REQUIRED_VERSION} CONFIG REQUIRED Core Widgets Xml)
 find_package(KF5 REQUIRED
     I18n
     DocTools
-    WidgetsAddons
     Crash
     CoreAddons
     )

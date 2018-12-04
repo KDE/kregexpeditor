@@ -22,10 +22,8 @@
 
 #include <KLocalizedString>
 #include <QListWidget>
-#include <KMessageBox>
+#include <QMessageBox>
 #include <QPushButton>
-#include <KGuiItem>
-#include <KStandardGuiItem>
 
 #include "widgetwindow.h"
 #include "windowlistboxitem.h"
@@ -85,8 +83,7 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
     }
 
     if (showHelpButton) {
-        but = new QPushButton(this);
-        KGuiItem::assign(but, KStandardGuiItem::help());
+        but = new QPushButton(i18n("Help"), this);
         but->setObjectName(QStringLiteral("Help Button"));
         buttons->addWidget(but, 0);
         connect(but, &QAbstractButton::clicked, this, &KMultiFormListBoxWindowed::showHelp);
@@ -158,8 +155,8 @@ void KMultiFormListBoxWindowed::slotDeleteEntry()
     WindowListboxItem *item = selected();
     if (item) {
         int answer
-            = KMessageBox::warningContinueCancel(nullptr, i18n("Delete item \"%1\"?", item->text()), i18n("Delete Item"), KStandardGuiItem::del());
-        if (answer == KMessageBox::Continue) {
+            = QMessageBox::question(nullptr, i18n("Delete Item"), i18n("Delete item \"%1\"?", item->text()));
+        if (answer == QMessageBox::Yes) {
             delete item;
             slotUpdateButtonState();
         }

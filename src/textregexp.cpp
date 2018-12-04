@@ -18,7 +18,7 @@
 
 #include "textregexp.h"
 
-#include <KMessageBox>
+#include <QMessageBox>
 #include <KLocalizedString>
 
 TextRegExp::TextRegExp(bool selected, const QString &text) : RegExp(selected)
@@ -50,8 +50,10 @@ bool TextRegExp::load(const QDomElement &top, const QString & /*version*/)
     if (top.hasChildNodes()) {
         QDomNode child = top.firstChild();
         if (!child.isText()) {
-            KMessageBox::sorry(nullptr, i18n("<p>Element <b>Text</b> did not contain any textual data.</p>"),
-                               i18n("Error While Loading From XML File"));
+            QMessageBox::warning(nullptr,
+                    i18n("Error While Loading From XML File"),
+                    i18n("<p>Element <b>Text</b> did not contain any textual data.</p>")
+            );
             return false;
         }
         QDomText txtNode = child.toText();

@@ -18,7 +18,7 @@
 
 #include "errormap.h"
 
-#include <KMessageBox>
+#include <QMessageBox>
 #include <KLocalizedString>
 
 ErrorMap::ErrorMap() : _prevLineStartError(false)
@@ -44,8 +44,10 @@ void ErrorMap::end()
 void ErrorMap::lineStartError()
 {
     if (!_prevLineStartError) {
-        KMessageBox::information(nullptr, i18n("Your regular expression is invalid, due to something preceding a 'line start'."),
-                                 i18n("Regular Expression Error"), QStringLiteral("KRegExpEditorLineStartError"));
+        QMessageBox::information(nullptr,
+                i18n("Regular Expression Error"),
+                i18n("Your regular expression is invalid, due to something preceding a 'line start'.")
+        );
     }
     _lineStartError = true;
 }
@@ -53,8 +55,10 @@ void ErrorMap::lineStartError()
 void ErrorMap::lineEndError()
 {
     if (!_prevLineEndError) {
-        KMessageBox::information(nullptr, i18n("Your regular expression is invalid, due to something following a 'line end'."),
-                                 i18n("Regular Expression Error"), QStringLiteral("KRegExpEditorLineEndError"));
+        QMessageBox::information(nullptr,
+                i18n("Regular Expression Error"),
+                i18n("Your regular expression is invalid, due to something following a 'line end'.")
+        );
     }
     _lineEndError = true;
 }
@@ -62,8 +66,10 @@ void ErrorMap::lineEndError()
 void ErrorMap::lookAheadError()
 {
     if (!_prevLookAHeadError) {
-        KMessageBox::information(nullptr, i18n("Your regular expression is invalid. 'Look Ahead' regular expression must be the last sub expression."),
-                                 i18n("Regular Expression Error"), QStringLiteral("KRegExpEditorLookAHeadError"));
+        QMessageBox::information(nullptr,
+                i18n("Your regular expression is invalid. 'Look Ahead' regular expression must be the last sub expression."),
+                i18n("Regular Expression Error")
+        );
     }
     _lookAHeadError = true;
 }

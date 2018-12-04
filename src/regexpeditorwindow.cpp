@@ -32,7 +32,7 @@
 #include <QInputDialog>
 
 #include <KLocalizedString>
-#include <KMessageBox>
+#include <QMessageBox>
 #include <QIcon>
 
 #include "regexp.h"
@@ -212,7 +212,7 @@ void RegExpEditorWindow::slotDoSelect()
 void RegExpEditorWindow::slotDeleteSelection()
 {
     if (!hasSelection()) {
-        KMessageBox::information(this, i18n("There is no selection."), i18n("Missing Selection"));
+        QMessageBox::information(this, i18n("There is no selection."), i18n("Missing Selection"));
     } else {
         _top->deleteSelection();
     }
@@ -277,7 +277,10 @@ void RegExpEditorWindow::cutCopyAux(QPoint pos)
     if (!hasSelection()) {
         RegExpWidget *widget = _top->widgetUnderPoint(pos, true);
         if (!widget) {
-            KMessageBox::information(this, i18n("There is no widget under cursor."), i18n("Invalid Operation"));
+            QMessageBox::information(this,
+                    i18n("Invalid Operation"),
+                    i18n("There is no widget under cursor.")
+                    );
             return;
         } else {
             widget->updateSelection(true);   // HACK!
@@ -387,7 +390,10 @@ void RegExpEditorWindow::slotSave()
 
     const QString tmp = QInputDialog::getText(this, i18n("Name for Regular Expression"), i18n("Enter name:"));
     if (tmp.trimmed().isEmpty()) {
-        KMessageBox::error(this, i18n("Empty name is not supported"), i18n("Save Regular Expression"));
+        QMessageBox::warning(this,
+                i18n("Save Regular Expression"),
+                i18n("Empty name is not supported")
+                );
         return;
     }
     txt = tmp;
@@ -395,15 +401,17 @@ void RegExpEditorWindow::slotSave()
     QString fileName = dir + QStringLiteral("/") + txt + QStringLiteral(".regexp");
     QFileInfo finfo(fileName);
     if (finfo.exists()) {
-        int answer = KMessageBox::warningContinueCancel(this, i18n("<p>Overwrite named regular expression <b>%1</b></p>", txt), QString(), KStandardGuiItem::overwrite());
-        if (answer != KMessageBox::Continue) {
+        int answer = QMessageBox::question(this,
+                QString(),
+                i18n("Overwrite named regular expression <b>%1</b>", txt));
+        if (answer != QMessageBox::Yes) {
             return;
         }
     }
 
     QFile file(fileName);
     if (!file.open(QIODevice::WriteOnly)) {
-        KMessageBox::sorry(this, i18n("Could not open file for writing: %1", fileName));
+        QMessageBox::critical(this, QString(), i18n("Could not open file for writing: %1", fileName));
         return;
     }
 

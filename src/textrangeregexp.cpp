@@ -19,7 +19,7 @@
 #include "textrangeregexp.h"
 
 #include <KLocalizedString>
-#include <KMessageBox>
+#include <QMessageBox>
 
 #include "regexpconverter.h"
 
@@ -142,8 +142,10 @@ bool TextRangeRegExp::load(const QDomElement &top, const QString & /*version*/)
             QString to = child.attribute(QStringLiteral("to"));
             addRange(from, to);
         } else {
-            KMessageBox::sorry(nullptr, i18n("<p>Invalid sub element to element <b>TextRange</b>. Tag was <b>%1</b></p>", child.tagName()),
-                               i18n("Error While Loading From XML File"));
+            QMessageBox::warning(nullptr,
+                    i18n("Error While Loading From XML File"),
+                    i18n("<p>Invalid sub element to element <b>TextRange</b>. Tag was <b>%1</b></p>", child.tagName())
+            );
             return false;
         }
     }

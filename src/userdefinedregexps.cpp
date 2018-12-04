@@ -27,7 +27,7 @@
 
 #include <QInputDialog>
 #include <KLocalizedString>
-#include <KMessageBox>
+#include <QMessageBox>
 #include <QStandardPaths>
 
 #include "widgetfactory.h"
@@ -98,7 +98,7 @@ void UserDefinedRegExps::createItems(const QString &_title, const QString &dir, 
 
         QFile file(fileName);
         if (!file.open(QIODevice::ReadOnly)) {
-            KMessageBox::sorry(this, i18n("Could not open file for reading: %1", fileName));
+            QMessageBox::warning(this, QString(), i18n("Could not open file for reading: %1", fileName));
             continue;
         }
 
@@ -108,7 +108,7 @@ void UserDefinedRegExps::createItems(const QString &_title, const QString &dir, 
 
         RegExp *regexp = WidgetFactory::createRegExp(data);
         if (!regexp) {
-            KMessageBox::sorry(this, i18n("File %1 containing user defined regular expression contained an error", fileName));
+            QMessageBox::warning(this, QString(), i18n("File %1 containing user defined regular expression contained an error", fileName));
             continue;
         }
 
@@ -199,8 +199,8 @@ void UserDefinedRegExps::slotRenameUserRegexp()
         QFileInfo finfo(fileName);
         if (finfo.exists()) {
             int answer
-                = KMessageBox::warningYesNo(this, i18n("<p>Overwrite named regular expression <b>%1</b>?</p>", txt), QString(), KStandardGuiItem::overwrite(), KGuiItem(i18n("Do Not Overwrite")));
-            if (answer != KMessageBox::Yes) {
+                = QMessageBox::question(this, QString(), i18n("<p>Overwrite named regular expression <b>%1</b>?</p>", txt));
+            if (answer != QMessageBox::Yes) {
                 return;
             }
 

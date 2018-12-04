@@ -18,7 +18,7 @@
 
 #include "repeatregexp.h"
 
-#include <KMessageBox>
+#include <QMessageBox>
 #include <KLocalizedString>
 
 RepeatRegExp::RepeatRegExp(bool selected, int lower, int upper, RegExp *child) : RegExp(selected)
@@ -54,18 +54,22 @@ bool RepeatRegExp::load(const QDomElement &top, const QString &version)
     bool ok;
     _lower = lower.toInt(&ok);
     if (!ok) {
-        KMessageBox::sorry(nullptr, i18n("<p>Value for attribute <b>%1</b> was not an integer for element "
+        QMessageBox::warning(nullptr,
+                i18n("Error While Loading From XML File"),
+                i18n("<p>Value for attribute <b>%1</b> was not an integer for element "
                                          "<b>%2</b></p><p>It contained the value <b>%3</b></p>",
-                                         QStringLiteral("lower"), QStringLiteral("Repeat"), lower),
-                           i18n("Error While Loading From XML File"));
+                                         QStringLiteral("lower"), QStringLiteral("Repeat"), lower)
+        );
         _lower = 0;
     }
     _upper = upper.toInt(&ok);
     if (!ok) {
-        KMessageBox::sorry(nullptr, i18n("<p>Value for attribute <b>%1</b> was not an integer for element "
+        QMessageBox::warning(nullptr,
+                i18n("Error While Loading From XML File"),
+                i18n("<p>Value for attribute <b>%1</b> was not an integer for element "
                                          "<b>%2</b></p><p>It contained the value <b>%3</b></p>",
-                                         QStringLiteral("upper"), QStringLiteral("Repeat"), upper),
-                           i18n("Error While Loading From XML File"));
+                                         QStringLiteral("upper"), QStringLiteral("Repeat"), upper)
+        );
         _upper = -1;
     }
 

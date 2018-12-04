@@ -22,7 +22,7 @@
 #include <QPaintEvent>
 
 #include <KLocalizedString>
-#include <KMessageBox>
+#include <QMessageBox>
 
 #include "dragaccepter.h"
 #include "concwidget.h"
@@ -216,10 +216,10 @@ bool AltnWidget::validateSelection() const
     for (; it != _children.constEnd(); it += 2) {
         if ((*it)->hasSelection()) {
             if (foundASelection) {
-                KMessageBox::information(const_cast<AltnWidget *>(this),
+                QMessageBox::information(const_cast<AltnWidget *>(this),
+                                         i18n("Selection Invalid"),
                                          i18n("Selecting several alternatives is "
-                                              "currently not supported."),
-                                         i18n("Selection Invalid"));
+                                              "currently not supported."));
                 _editorWindow->clearSelection(true);
                 return false;
             } else {
