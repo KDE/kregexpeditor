@@ -20,7 +20,7 @@
 #include "qtregexphighlighter.h"
 
 #include <QTextEdit>
-#include <QRegExp>
+#include <QRegularExpression>
 
 // krazy:excludeall=qclasses
 
@@ -32,16 +32,20 @@ QtRegexpHighlighter::QtRegexpHighlighter(QTextEdit *editor)
 
 void QtRegexpHighlighter::highlightBlock(const QString &text)
 {
-    QRegExp regexp(_regexp);
-    regexp.setCaseSensitivity(_caseSensitive ? Qt::CaseSensitive : Qt::CaseInsensitive);
-    regexp.setMinimal(_minimal);
+    QRegularExpression regexp(_regexp);
+    if (!_caseSensitive) {
+        regexp.setPatternOptions(regexp.patternOptions() | QRegularExpression::CaseInsensitiveOption);
+    }
+    if (_minimal) {
+        regexp.setPatternOptions(regexp.patternOptions() | QRegularExpression::InvertedGreedinessOption);
+    }
 
     QTextCharFormat format;
     format.setForeground(Qt::black);
     format.setFont(_editor->font());
     setFormat(0, text.length(), format);
 
-    if (!regexp.isValid() || regexp.isEmpty()) {
+    if (!regexp.isValid()) {
         return;
     }
 
@@ -52,15 +56,19 @@ void QtRegexpHighlighter::highlightBlock(const QString &text)
         color = 0;
     }
 
+    QRegularExpressionMatchIterator matches = regexp.globalMatch(text);
+
     int index = 0;
     int start, length;
-    while ((index = regexp.indexIn(text, index)) != -1 && index < (int)text.length()) {
-        if (regexp.pos(1) != -1) {
-            start = regexp.pos(1);
-            length = regexp.cap(1).length();
+    //while ((index = regexp.indexIn(text, index)) != -1 && index < (int)text.length()) {
+    while(matches.hasNext()) {
+        QRegularExpressionMatch match = matches.next();
+        if (match.capturedStart(1) != -1) {
+            start = match.capturedStart(1);
+            length = match.capturedLength(1);
         } else {
-            start = index;
-            length = regexp.matchedLength();
+            start = match.capturedStart();
+            length = match.capturedLength();
         }
 
         if (start != index) {
@@ -75,11 +83,11 @@ void QtRegexpHighlighter::highlightBlock(const QString &text)
         format.setForeground(colors[color]);
         setFormat(start, length, format);
 
-        if (length + (start - index) != regexp.matchedLength()) {
-            setFormat(start + length, regexp.matchedLength() - length - (start - index), colors[color]);
+        if (length + (start - index) != match.capturedLength()) {
+            setFormat(start + length, match.capturedLength() - length - (start - index), colors[color]);
         }
 
-        index += qMax(1, regexp.matchedLength());    // ensure progress when matching for example ^ or \b
+        index += qMax(1, match.capturedLength());    // ensure progress when matching for example ^ or \b
         color = (color + 1) % 2;
     }
     setCurrentBlockState(color);
