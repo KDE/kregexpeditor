@@ -411,7 +411,7 @@ void KRegExpEditorPrivate::setSyntax(const QString &syntax)
         _regexpEdit->setBackgroundRole(QPalette::Base);
     } else {
         _regexpEdit->setReadOnly(true);
-        _regexpEdit->setBackgroundRole(QPalette::Background);
+        _regexpEdit->setBackgroundRole(QPalette::Window);
     }
     _regExpButtons->setFeatures(converter->features());
     _verifier->setHighlighter(converter->highlighter(_verifier));
