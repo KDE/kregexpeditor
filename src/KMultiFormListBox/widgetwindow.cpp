@@ -55,7 +55,7 @@ void WidgetWindow::init(KMultiFormListBoxFactory *factory, QListWidget *lb, KMul
     frame->setLayout(lay);
     lay->setObjectName(QStringLiteral("WidgetWindow::init::lay"));
     lay->setSpacing(-1);
-    lay->setMargin(0);
+    lay->setContentsMargins(0, 0, 0, 0);
 
     if (widget != nullptr) {
         myWidget = widget;

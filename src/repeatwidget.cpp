@@ -179,7 +179,7 @@ RepeatRangeWindow::RepeatRangeWindow(QWidget *parent)
     : QWidget(parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->setMargin(0);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 
     _groupWidget = new QGroupBox(i18n("Times to Match"));
     mainLayout->addWidget(_groupWidget);

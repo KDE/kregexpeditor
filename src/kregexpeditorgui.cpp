@@ -35,7 +35,7 @@ KRegExpEditorGUI::KRegExpEditorGUI(QWidget *parent, const QVariantList &)
     , _editor(new KRegExpEditorPrivate(this))
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->addWidget(_editor);
 
     connect(_editor, &KRegExpEditorPrivate::canUndo, this, &KRegExpEditorGUI::canUndo);

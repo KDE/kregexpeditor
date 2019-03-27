@@ -46,7 +46,7 @@ KMultiFormListBoxMultiVisible::KMultiFormListBoxMultiVisible(KMultiFormListBoxFa
     QWidget *widget = new QWidget();
     layout = new QVBoxLayout(widget);
     layout->setSpacing(0);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     setWidget(widget);
     setWidgetResizable(true);
 }

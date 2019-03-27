@@ -94,7 +94,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
 
     QWidget *centralWidget = new QWidget(this);
     QHBoxLayout *layout = new QHBoxLayout(centralWidget);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->addWidget(_editor);
     layout->addWidget(_info);
     setCentralWidget(centralWidget);
@@ -163,7 +163,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     QWidget *editDockWidget = new QWidget(editDock);
     editDock->setWidget(editDockWidget);
     QHBoxLayout *dockLayout = new QHBoxLayout(editDockWidget);
-    dockLayout->setMargin(0);
+    dockLayout->setContentsMargins(0, 0, 0, 0);
 
     _regexpEdit = new QLineEdit(editDockWidget);
     dockLayout->addWidget(_regexpEdit);

@@ -53,7 +53,7 @@ CharSelector::CharSelector(QWidget *parent)
 {
     QStringList items;
     QHBoxLayout *layout = new QHBoxLayout(this);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
 
     _type = new QComboBox(this);
     _type->setObjectName(QStringLiteral("_type"));

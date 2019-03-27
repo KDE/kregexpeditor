@@ -283,7 +283,7 @@ CharacterEdits::CharacterEdits(QWidget *parent)
     setObjectName(QStringLiteral("CharacterEdits"));
     QWidget *top = new QWidget(this);
     QVBoxLayout *topLayout = new QVBoxLayout(top);
-    topLayout->setMargin(0);
+    topLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->addWidget(top);
 
     negate = new QCheckBox(i18n("Do not match the characters specified here"));
@@ -324,7 +324,7 @@ CharacterEdits::CharacterEdits(QWidget *parent)
     QPushButton *more = new QPushButton(i18n("More Entries"));
     moreLay->addWidget(more);
     moreLay->addStretch(1);
-    moreLay->setMargin(0);
+    moreLay->setContentsMargins(0, 0, 0, 0);
 
     connect(more, &QAbstractButton::clicked, _single, &KMultiFormListBox::addElement);
 
@@ -345,7 +345,7 @@ CharacterEdits::CharacterEdits(QWidget *parent)
     more = new QPushButton(i18n("More Entries"));
     moreLay->addWidget(more);
     moreLay->addStretch(1);
-    moreLay->setMargin(0);
+    moreLay->setContentsMargins(0, 0, 0, 0);
     connect(more, &QAbstractButton::clicked, _range, &KMultiFormListBox::addElement);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
@@ -396,7 +396,7 @@ SingleEntry::SingleEntry(QWidget *parent)
     : KMultiFormListBoxEntry(parent)
 {
     QHBoxLayout *layout = new QHBoxLayout(this);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     _selector = new CharSelector(this);
     layout->addWidget(_selector);
     layout->addStretch(1);
@@ -421,7 +421,7 @@ RangeEntry::RangeEntry(QWidget *parent)
     : KMultiFormListBoxEntry(parent)
 {
     QHBoxLayout *layout = new QHBoxLayout(this);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
 
     QLabel *label = new QLabel(i18n("From:"), this);
     _from = new CharSelector(this);
