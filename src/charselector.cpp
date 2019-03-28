@@ -37,8 +37,9 @@
 */
 class StackContainer : public QWidget
 {
+    Q_OBJECT
 public:
-    StackContainer(QWidget *child, QWidget *parent) : QWidget(parent)
+    explicit StackContainer(QWidget *child, QWidget *parent) : QWidget(parent)
     {
         QHBoxLayout *layout = new QHBoxLayout(this);
         child->setParent(this);
@@ -49,7 +50,6 @@ public:
 
 CharSelector::CharSelector(QWidget *parent)
     : QWidget(parent)
-    , _oldIndex(0)
 {
     QStringList items;
     QHBoxLayout *layout = new QHBoxLayout(this);
@@ -178,3 +178,5 @@ QString CharSelector::text() const
     }
     return QString();
 }
+
+#include "charselector.moc"

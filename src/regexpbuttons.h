@@ -51,12 +51,12 @@ Q_SIGNALS:
     void doSelect();
 
 private:
-    QButtonGroup *_grp;
-    QToolButton *_selectBut;
-    QToolButton *_wordBoundary;
-    QToolButton *_nonWordBoundary;
-    QToolButton *_posLookAhead;
-    QToolButton *_negLookAhead;
+    QButtonGroup *_grp = nullptr;
+    QToolButton *_selectBut = nullptr;
+    QToolButton *_wordBoundary = nullptr;
+    QToolButton *_nonWordBoundary = nullptr;
+    QToolButton *_posLookAhead = nullptr;
+    QToolButton *_negLookAhead = nullptr;
 
     /**
        This variable is true if the use wishes to continue editing in the

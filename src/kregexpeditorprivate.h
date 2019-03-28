@@ -48,7 +48,7 @@ class KRegExpEditorPrivate : public QMainWindow
     Q_OBJECT
 
 public:
-    KRegExpEditorPrivate(QWidget *parent);
+    explicit KRegExpEditorPrivate(QWidget *parent);
     ~KRegExpEditorPrivate();
     QString regexp();
     void setMinimal(bool);
@@ -85,20 +85,20 @@ protected:
     void emitUndoRedoSignals();
 
 private:
-    RegExpScrolledEditorWindow *_scrolledEditorWindow;
-    RegExpButtons *_regExpButtons;
-    VerifyButtons *_verifyButtons;
-    AuxButtons *_auxButtons;
-    InfoPage *_info;
-    QLineEdit *_regexpEdit;
-    QSplitter *_editor;
+    RegExpScrolledEditorWindow *_scrolledEditorWindow = nullptr;
+    RegExpButtons *_regExpButtons = nullptr;
+    VerifyButtons *_verifyButtons = nullptr;
+    AuxButtons *_auxButtons = nullptr;
+    InfoPage *_info = nullptr;
+    QLineEdit *_regexpEdit = nullptr;
+    QSplitter *_editor = nullptr;
     bool _updating;
     QLabel *_error;
     QStack<RegExp *> _undoStack;
     QStack<RegExp *> _redoStack;
     UserDefinedRegExps *_userRegExps;
-    QTimer *_timer;
-    Verifier *_verifier;
+    QTimer *_timer = nullptr;
+    Verifier *_verifier = nullptr;
     bool _autoVerify;
     ErrorMap _errorMap;
     bool _matchGreedy;

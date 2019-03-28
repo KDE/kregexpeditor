@@ -49,7 +49,7 @@ public Q_SLOTS:
 
 private:
     void showHelp();
-    KRegExpEditorGUI *_editor;
+    KRegExpEditorGUI *_editor = nullptr;
 };
 
 #endif

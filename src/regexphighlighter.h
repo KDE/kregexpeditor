@@ -28,7 +28,7 @@ class QTextEdit;
 class RegexpHighlighter : public QSyntaxHighlighter
 {
 public:
-    RegexpHighlighter(QTextEdit *edit);
+    explicit RegexpHighlighter(QTextEdit *edit);
     void setRegExp(const QString &regexp);
     void setCaseSensitive(bool);
     void setMinimal(bool);

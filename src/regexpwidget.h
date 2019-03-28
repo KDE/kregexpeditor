@@ -196,7 +196,7 @@ protected:
     void mouseReleaseEvent(QMouseEvent *) override;
     void enterEvent(QEvent *) override;
 
-    RegExpEditorWindow *_editorWindow;
+    RegExpEditorWindow *_editorWindow = nullptr;
 
     /** True if the widget is selected. */
     bool _isSelected;

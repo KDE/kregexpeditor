@@ -64,7 +64,7 @@ public:
     }
 
 private:
-    RegExp *_child;
+    RegExp *_child = nullptr;
     TYPE _tp;
 };
 

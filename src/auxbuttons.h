@@ -48,12 +48,12 @@ public Q_SLOTS:
     void slotCanSave(bool);
 
 private:
-    QToolButton *_undo;
-    QToolButton *_redo;
-    QToolButton *_cut;
-    QToolButton *_copy;
-    QToolButton *_paste;
-    QToolButton *_save;
+    QToolButton *_undo = nullptr;
+    QToolButton *_redo = nullptr;
+    QToolButton *_cut = nullptr;
+    QToolButton *_copy = nullptr;
+    QToolButton *_paste = nullptr;
+    QToolButton *_save = nullptr;
 };
 
 #endif // AUXBUTTONS_H

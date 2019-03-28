@@ -42,12 +42,12 @@ private Q_SLOTS:
     void slotNewItem(int which);
 
 private:
-    QComboBox *_type;
-    QStackedWidget *_stack;
-    LimitedCharLineEdit *_normal;
-    LimitedCharLineEdit *_hex;
-    LimitedCharLineEdit *_oct;
-    int _oldIndex;
+    QComboBox *_type = nullptr;
+    QStackedWidget *_stack = nullptr;
+    LimitedCharLineEdit *_normal = nullptr;
+    LimitedCharLineEdit *_hex = nullptr;
+    LimitedCharLineEdit *_oct = nullptr;
+    int _oldIndex = 0;
 };
 
 #endif // CHARSELECTOR_H

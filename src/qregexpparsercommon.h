@@ -24,7 +24,7 @@
 #include <QList>
 
 struct parse_context {
-    RegExp *result;
+    RegExp *result = nullptr;
     int nerrs;
     QList<QString> backrefs;
 };

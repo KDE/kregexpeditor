@@ -48,7 +48,7 @@ class RegExpEditorWindow : public QWidget
     Q_OBJECT
 
 public:
-    RegExpEditorWindow(QWidget *parent);
+    explicit RegExpEditorWindow(QWidget *parent);
     ~RegExpEditorWindow() override;
 
     /**

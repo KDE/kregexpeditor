@@ -37,8 +37,8 @@ class Q_DECL_EXPORT KRegExpEditorGUI : public QWidget, public KRegExpEditorInter
     Q_INTERFACES(KRegExpEditorInterface)
     Q_PROPERTY(QString regexp READ regExp WRITE setRegExp)
 public:
-    KRegExpEditorGUI(QWidget *parent = nullptr, const QVariantList & = QVariantList());
-    ~KRegExpEditorGUI();
+    explicit KRegExpEditorGUI(QWidget *parent = nullptr, const QVariantList & = QVariantList());
+    ~KRegExpEditorGUI() override;
     QString regExp() const override;
 
     static const QString version;
@@ -60,7 +60,7 @@ public Q_SLOTS:
     void setMatchText(const QString &) override;
 
 private:
-    KRegExpEditorPrivate *_editor;
+    KRegExpEditorPrivate *_editor = nullptr;
 };
 
 #endif

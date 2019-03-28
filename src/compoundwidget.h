@@ -46,9 +46,9 @@ public:
     void setAllowReplace(bool);
 
 private:
-    QLineEdit *_title;
-    KTextEdit *_description;
-    QCheckBox *_allowReplace;
+    QLineEdit *_title = nullptr;
+    KTextEdit *_description = nullptr;
+    QCheckBox *_allowReplace = nullptr;
 };
 
 /**
@@ -96,8 +96,8 @@ private:
     mutable QSize _pixmapSize;
     mutable QPoint _pixmapPos;
 
-    QDialog *_configWindow;
-    CompoundDetailWindow *_content;
+    QDialog *_configWindow = nullptr;
+    CompoundDetailWindow *_content = nullptr;
 
     mutable QSize _textSize;
     mutable QSize _childSize;

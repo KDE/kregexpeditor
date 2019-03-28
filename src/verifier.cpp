@@ -25,7 +25,7 @@ Verifier::Verifier(QWidget *parent) : KTextEdit(parent)
 {
     setCheckSpellingEnabled(false);
 
-    _highlighter = 0;
+    _highlighter = nullptr;
     setMinimumSize(1, 1);
 }
 

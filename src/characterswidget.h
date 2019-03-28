@@ -39,7 +39,7 @@ class CharactersWidget : public RegExpWidget
 public:
     CharactersWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
     CharactersWidget(TextRangeRegExp *regexp, RegExpEditorWindow *editorWindow, QWidget *parent);
-    ~CharactersWidget();
+    ~CharactersWidget() override;
     QSize sizeHint() const override;
     RegExp *regExp() const override;
     RegExpType type() const override
@@ -56,7 +56,7 @@ protected:
     QString title() const;
 
 private:
-    TextRangeRegExp *_regexp;
+    TextRangeRegExp *_regexp = nullptr;
     static CharacterEdits *_configWindow;
 
     mutable QSize _textSize;
@@ -69,7 +69,7 @@ private:
 class SingleEntry : public KMultiFormListBoxEntry
 {
 public:
-    SingleEntry(QWidget *parent);
+    explicit SingleEntry(QWidget *parent);
     QString text() const;
     void setText(const QString &text);
     bool isEmpty() const;
@@ -84,14 +84,15 @@ private:
 class RangeEntry : public KMultiFormListBoxEntry
 {
 public:
-    RangeEntry(QWidget *parent);
+    explicit RangeEntry(QWidget *parent);
     QString fromText() const;
     QString toText() const;
     void setFrom(const QString &text);
     void setTo(const QString &text);
     bool isEmpty() const;
 private:
-    CharSelector *_from, *_to;
+    CharSelector *_from = nullptr;
+    CharSelector *_to = nullptr;
 };
 
 /**

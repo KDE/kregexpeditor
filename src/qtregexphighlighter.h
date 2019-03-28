@@ -32,7 +32,7 @@ public:
     void highlightBlock(const QString &text) override;
 
 private:
-    QTextEdit *_editor;
+    QTextEdit *_editor = nullptr;
 };
 
 #endif /* QTREGEXPHIGHLIGHTER_H */
