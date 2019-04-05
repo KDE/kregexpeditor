@@ -75,7 +75,7 @@ void UserDefinedRegExps::slotPopulateUserRegexps()
             if (*it2 == QStringLiteral(".") || *it2 == QStringLiteral("..")) {
                 continue;
             }
-            createItems(*it2, *it1 + QStringLiteral("/") + *it2, false);
+            createItems(*it2, *it1 + QLatin1Char('/') + *it2, false);
         }
     }
 }
@@ -87,14 +87,14 @@ void UserDefinedRegExps::createItems(const QString &_title, const QString &dir, 
         title = i18n("general");
     }
 
-    QTreeWidgetItem *lvItem = new QTreeWidgetItem((QTreeWidget *)0, QStringList(title));
+    QTreeWidgetItem *lvItem = new QTreeWidgetItem((QTreeWidget *)nullptr, QStringList(title));
     lvItem->setExpanded(true);
     _userDefined->addTopLevelItem(lvItem);
 
     QDir directory(dir);
     QStringList files = directory.entryList(QStringList(QStringLiteral("*.regexp")));
-    for (QStringList::Iterator it = files.begin(); it != files.end(); ++it) {
-        QString fileName = dir + QStringLiteral("/") + *it;
+    for (QStringList::Iterator it = files.begin(), total = files.end(); it != total; ++it) {
+        const QString fileName = dir + QLatin1Char('/') + *it;
 
         QFile file(fileName);
         if (!file.open(QIODevice::ReadOnly)) {
@@ -195,7 +195,7 @@ void UserDefinedRegExps::slotRenameUserRegexp()
     QString txt = QInputDialog::getText(this, i18n("Rename Item"), i18n("New name:"), QLineEdit::Normal, oldName);
 
     if (!txt.isNull() && oldName != txt) {
-        QString fileName = WidgetWinItem::path() + QStringLiteral("/") + txt + QStringLiteral(".regexp");
+        const QString fileName = WidgetWinItem::path() + QLatin1Char('/') + txt + QStringLiteral(".regexp");
         QFileInfo finfo(fileName);
         if (finfo.exists()) {
             int answer

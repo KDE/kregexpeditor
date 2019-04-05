@@ -392,7 +392,7 @@ void RegExpEditorWindow::slotSave()
     }
     txt = tmp;
 
-    QString fileName = dir + QStringLiteral("/") + txt + QStringLiteral(".regexp");
+    QString fileName = dir + QLatin1Char('/') + txt + QStringLiteral(".regexp");
     QFileInfo finfo(fileName);
     if (finfo.exists()) {
         int answer = KMessageBox::warningContinueCancel(this, i18n("<p>Overwrite named regular expression <b>%1</b></p>", txt), QString(), KStandardGuiItem::overwrite());
