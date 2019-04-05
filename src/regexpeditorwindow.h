@@ -182,7 +182,7 @@ public Q_SLOTS:
 
     void emitChange()
     {
-        emit change();
+        Q_EMIT change();
     }
 
     void updateCursorUnderPoint();

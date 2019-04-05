@@ -98,9 +98,9 @@ void Verifier::setMinimal(bool b)
 //     QString anchor = QString::fromLatin1("match%1").arg(which);
 //     scrollToAnchor( anchor );
 //     _current = which;
-//     emit currentChanged( _current );
-//     emit goBackwardPossible( which != 0 );
-//     emit goForwardPossible( which != _count -1 );
+//     Q_EMIT currentChanged( _current );
+//     Q_EMIT goBackwardPossible( which != 0 );
+//     Q_EMIT goForwardPossible( which != _count -1 );
 // }
 
 void Verifier::setHighlighter(RegexpHighlighter *highlighter)

@@ -27,5 +27,5 @@ DoubleClickButton::DoubleClickButton(const QPixmap &pixmap, QWidget *parent, con
 
 void DoubleClickButton::mouseDoubleClickEvent(QMouseEvent *)
 {
-    emit doubleClicked();
+    Q_EMIT doubleClicked();
 }

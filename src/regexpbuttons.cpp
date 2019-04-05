@@ -137,7 +137,7 @@ DoubleClickButton *RegExpButtons::insert(RegExpType tp, const QString &name, con
 
     DoubleClickButton *but = new DoubleClickButton(pix, this, QStringLiteral("RegExpButtons::but"));
 
-    connect(but, &DoubleClickButton::clicked, [this, tp](){ emit clicked(tp); });
+    connect(but, &DoubleClickButton::clicked, [this, tp](){ Q_EMIT clicked(tp); });
     connect(but, SIGNAL(clicked()), this, SLOT(slotSetNonKeepMode()));
     connect(but, SIGNAL(doubleClicked()), this, SLOT(slotSetKeepMode()));
 
@@ -172,7 +172,7 @@ void RegExpButtons::slotSetNonKeepMode()
 void RegExpButtons::slotSelectNewAction()
 {
     if (!_keepMode) {
-        emit doSelect();
+        Q_EMIT doSelect();
         _selectBut->click();
     }
 }

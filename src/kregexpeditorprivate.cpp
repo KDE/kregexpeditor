@@ -305,9 +305,9 @@ void KRegExpEditorPrivate::slotShowEditor()
 
 void KRegExpEditorPrivate::emitUndoRedoSignals()
 {
-    emit canUndo(_undoStack.count() > 1);
-    emit changes(_undoStack.count() > 1);
-    emit canRedo(_redoStack.count() > 0);
+    Q_EMIT canUndo(_undoStack.count() > 1);
+    Q_EMIT changes(_undoStack.count() > 1);
+    Q_EMIT canRedo(_redoStack.count() > 0);
 }
 
 void KRegExpEditorPrivate::slotSetRegexp(const QString &regexp)

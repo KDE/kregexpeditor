@@ -143,7 +143,7 @@ void UserDefinedRegExps::slotLoad(QTreeWidgetItem *item)
 
     WidgetWinItem *wwi = dynamic_cast<WidgetWinItem *>(item);
     if (wwi) {
-        emit load(wwi->regExp());
+        Q_EMIT load(wwi->regExp());
     }
 }
 

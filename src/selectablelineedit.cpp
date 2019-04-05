@@ -67,6 +67,6 @@ void SelectableLineEdit::slotKeyPressed()
 
     if (actualSize > size().width() - frameWidth) {
         updateGeometry();
-        emit parentPleaseUpdate();
+        Q_EMIT parentPleaseUpdate();
     }
 }

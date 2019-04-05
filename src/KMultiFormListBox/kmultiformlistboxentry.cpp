@@ -26,7 +26,7 @@
 //----------------------------------------------------------------------
 void KMultiFormListBoxEntry::acceptIndexButton()
 {
-    emit gotoIndex(this);
+    Q_EMIT gotoIndex(this);
 }
 
 void KMultiFormListBoxEntry::indexWindowPos(QPoint *start, int *width)

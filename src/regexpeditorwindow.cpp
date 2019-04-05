@@ -127,13 +127,13 @@ void RegExpEditorWindow::mouseMoveEvent(QMouseEvent *event)
             }
 
             releaseMouse();
-            emit change();
-            emit canSave(_top->hasAnyChildren());
+            Q_EMIT change();
+            Q_EMIT canSave(_top->hasAnyChildren());
         }
     } else {
         _top->updateSelection(false);
 
-        emit scrolling(event->pos());
+        Q_EMIT scrolling(event->pos());
 
         _lastPoint = event->pos();
 
@@ -152,9 +152,9 @@ void RegExpEditorWindow::mouseReleaseEvent(QMouseEvent *event)
 
     _top->validateSelection();
     _top->updateAll();
-    emit anythingSelected(hasSelection());
+    Q_EMIT anythingSelected(hasSelection());
     if (hasSelection()) {
-        emit verifyRegExp();
+        Q_EMIT verifyRegExp();
     }
 }
 
@@ -176,7 +176,7 @@ void RegExpEditorWindow::clearSelection(bool update)
     if (update) {
         _top->updateAll();
     }
-    emit anythingSelected(false);
+    Q_EMIT anythingSelected(false);
 }
 
 void RegExpEditorWindow::slotInsertRegExp(RegExpType type)
@@ -227,7 +227,7 @@ void RegExpEditorWindow::updateContent(QWidget *focusChild)
     }
 
     _top->update();
-    emit contentChanged(p);
+    Q_EMIT contentChanged(p);
 }
 
 QSize RegExpEditorWindow::sizeHint() const
@@ -251,8 +251,8 @@ void RegExpEditorWindow::paintEvent(QPaintEvent *event)
 void RegExpEditorWindow::slotCut()
 {
     cut(QCursor::pos());
-    emit change();
-    emit canSave(_top->hasAnyChildren());
+    Q_EMIT change();
+    Q_EMIT canSave(_top->hasAnyChildren());
 }
 
 void RegExpEditorWindow::cut(QPoint pos)
@@ -294,8 +294,8 @@ void RegExpEditorWindow::cutCopyAux(QPoint pos)
 
     QClipboard *clipboard = qApp->clipboard();
     clipboard->setMimeData(mimeData);
-    emit anythingOnClipboard(true);
-    emit canSave(_top->hasAnyChildren());
+    Q_EMIT anythingOnClipboard(true);
+    Q_EMIT canSave(_top->hasAnyChildren());
 }
 
 void RegExpEditorWindow::slotStartPasteAction()
@@ -313,9 +313,9 @@ void RegExpEditorWindow::slotStartPasteAction()
 
 void RegExpEditorWindow::slotEndActions()
 {
-    emit doneEditing();
-    emit change();
-    emit canSave(_top->hasAnyChildren());
+    Q_EMIT doneEditing();
+    Q_EMIT change();
+    Q_EMIT canSave(_top->hasAnyChildren());
 }
 
 void RegExpEditorWindow::showRMBMenu(bool enableCutCopy)
@@ -371,8 +371,8 @@ void RegExpEditorWindow::showRMBMenu(bool enableCutCopy)
 
     _PosEdit = QPoint(0, 0);
 
-    emit change();
-    emit canSave(_top->hasAnyChildren());
+    Q_EMIT change();
+    Q_EMIT canSave(_top->hasAnyChildren());
 }
 
 void RegExpEditorWindow::applyRegExpToSelection(RegExpType tp)
@@ -416,7 +416,7 @@ void RegExpEditorWindow::slotSave()
     stream << xml;
 
     file.close();
-    emit savedRegexp();
+    Q_EMIT savedRegexp();
 }
 
 void RegExpEditorWindow::slotSetRegExp(RegExp *regexp)
@@ -436,7 +436,7 @@ void RegExpEditorWindow::slotSetRegExp(RegExp *regexp)
     _top->show();
     _layout->addWidget(_top);
     clearSelection(true);   // HACK?
-    emit canSave(_top->hasAnyChildren());
+    Q_EMIT canSave(_top->hasAnyChildren());
 }
 
 void RegExpEditorWindow::updateCursorUnderPoint()
@@ -449,7 +449,7 @@ void RegExpEditorWindow::updateCursorUnderPoint()
 
 void RegExpEditorWindow::emitVerifyRegExp()
 {
-    emit verifyRegExp();
+    Q_EMIT verifyRegExp();
 }
 
 void RegExpEditorWindow::editWidget()

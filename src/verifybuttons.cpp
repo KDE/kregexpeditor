@@ -153,7 +153,7 @@ void VerifyButtons::loadText()
 {
     const QString fileName = QFileDialog::getOpenFileName(this, QString(), QString(), QString());
     if (!fileName.isNull()) {
-        emit loadVerifyText(fileName);
+        Q_EMIT loadVerifyText(fileName);
     }
 }
 
@@ -185,7 +185,7 @@ void VerifyButtons::setMatchCount(int /*count*/)
 
 void VerifyButtons::slotChangeSyntax(QAction *action)
 {
-    emit changeSyntax(action->text());
+    Q_EMIT changeSyntax(action->text());
 }
 
 RegExpConverter *VerifyButtons::setSyntax(const QString &which)
