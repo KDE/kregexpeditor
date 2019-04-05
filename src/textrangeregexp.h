@@ -36,7 +36,7 @@ class TextRangeRegExp : public RegExp
 {
 public:
     TextRangeRegExp(bool selected);
-    virtual ~TextRangeRegExp();
+    ~TextRangeRegExp() override;
 
     void addCharacter(const QString &ch);
     QStringList chars() const

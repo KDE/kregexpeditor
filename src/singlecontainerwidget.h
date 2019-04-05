@@ -29,7 +29,7 @@ class SingleContainerWidget : public RegExpWidget
     Q_OBJECT
 
 public:
-    SingleContainerWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
+    explicit SingleContainerWidget(RegExpEditorWindow *editorWindow, QWidget *parent);
 
     bool updateSelection(bool parentSelected) override;
     bool hasSelection() const override;
@@ -47,7 +47,7 @@ public:
     void updateCursorRecursively() override;
 
 protected:
-    ConcWidget *_child;
+    ConcWidget *_child = nullptr;
 };
 
 #endif // __singlecontainer

@@ -49,7 +49,7 @@ Q_SIGNALS:
     void parentPleaseUpdate();
 
 private:
-    RegExpWidget *_owner;
+    RegExpWidget *_owner = nullptr;
 };
 
 #endif

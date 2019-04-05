@@ -40,7 +40,7 @@ public:
     KMultiFormListBoxEntry *entry();
 
 private:
-    WidgetWindow *myItem;
+    WidgetWindow *myItem = nullptr;
 };
 
 #endif // __windowlistboxitem

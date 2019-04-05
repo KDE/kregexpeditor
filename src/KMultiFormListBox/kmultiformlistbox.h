@@ -106,8 +106,8 @@ public Q_SLOTS:
     void slotChangeFace(KMultiFormListBoxType newFace);
 
 private:
-    KMultiFormListBoxShower *theWidget;
-    KMultiFormListBoxFactory *_factory;
+    KMultiFormListBoxShower *theWidget = nullptr;
+    KMultiFormListBoxFactory *_factory = nullptr;
 };
 
 #endif /* kmultiformlistbox */

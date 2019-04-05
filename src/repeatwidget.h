@@ -55,13 +55,13 @@ protected Q_SLOTS:
 private:
     void createLine(QGridLayout *layout, const QString &text, QSpinBox **spin, REPEATTYPE tp);
 
-    QSpinBox *_leastTimes;
-    QSpinBox *_mostTimes;
-    QSpinBox *_exactlyTimes;
-    QSpinBox *_rangeFrom;
-    QSpinBox *_rangeTo;
-    QGroupBox *_groupWidget;
-    QButtonGroup *_group;
+    QSpinBox *_leastTimes = nullptr;
+    QSpinBox *_mostTimes = nullptr;
+    QSpinBox *_exactlyTimes = nullptr;
+    QSpinBox *_rangeFrom = nullptr;
+    QSpinBox *_rangeTo = nullptr;
+    QGroupBox *_groupWidget = nullptr;
+    QButtonGroup *_group = nullptr;
 };
 
 /**
@@ -93,8 +93,8 @@ protected Q_SLOTS:
     void slotConfigWindowClosed();
 
 private:
-    QDialog *_configWindow;
-    RepeatRangeWindow *_content;
+    QDialog *_configWindow = nullptr;
+    RepeatRangeWindow *_content = nullptr;
 
     mutable QSize _textSize;
     mutable QSize _childSize;

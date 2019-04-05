@@ -271,16 +271,16 @@ private:
     RegExpType _insertTp;
 
     /** The data being inserted (see @ref pasteData ) */
-    RegExp *_pasteData;
+    RegExp *_pasteData = nullptr;
 
     /** Popup menu used for RMB */
-    QMenu *_menu;
+    QMenu *_menu = nullptr;
 
-    QAction *_cutAction;
-    QAction *_copyAction;
-    QAction *_pasteAction;
-    QAction *_editAction;
-    QAction *_saveAction;
+    QAction *_cutAction = nullptr;
+    QAction *_copyAction = nullptr;
+    QAction *_pasteAction = nullptr;
+    QAction *_editAction = nullptr;
+    QAction *_saveAction = nullptr;
 
     QIcon getIcon(const QString &name);
 

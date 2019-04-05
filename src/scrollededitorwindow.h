@@ -87,8 +87,8 @@ Q_SIGNALS:
     void verifyRegExp();
 
 private:
-    RegExpEditorWindow *_editorWindow;
-    QScrollArea *_scrollArea;
+    RegExpEditorWindow *_editorWindow = nullptr;
+    QScrollArea *_scrollArea = nullptr;
 };
 
 #endif // __scrolledEditorWindow

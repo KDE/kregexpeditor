@@ -75,7 +75,7 @@ public:
     bool isEmpty() const;
 
 private:
-    CharSelector *_selector;
+    CharSelector *_selector = nullptr;
 };
 
 /**
@@ -145,12 +145,19 @@ protected Q_SLOTS:
     void slotOK();
 
 private:
-    QCheckBox *negate, *wordChar, *_nonWordChar, *digit, *_nonDigit, *space, *_nonSpace;
-    KMultiFormListBox *_single, *_range;
+    QCheckBox *negate = nullptr;
+    QCheckBox *wordChar = nullptr;
+    QCheckBox *_nonWordChar = nullptr;
+    QCheckBox *digit = nullptr;
+    QCheckBox *_nonDigit = nullptr;
+    QCheckBox *space = nullptr;
+    QCheckBox *_nonSpace = nullptr;
+    KMultiFormListBox *_single = nullptr;
+    KMultiFormListBox *_range = nullptr;
 
     void addCharacter(const QString &txt);
     void addRange(const QString &from, const QString &to);
-    TextRangeRegExp *_regexp;
+    TextRangeRegExp *_regexp = nullptr;
 };
 
 #endif // characterswidget

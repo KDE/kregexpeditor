@@ -54,10 +54,10 @@ private:
         return this;
     }
 
-    QVBoxLayout *_layout;
-    KMultiFormListBoxFactory *_factory;
+    QVBoxLayout *_layout = nullptr;
+    KMultiFormListBoxFactory *_factory = nullptr;
     QList<QPushButton *> _buttonList;
-    QListWidget *_listbox;
+    QListWidget *_listbox = nullptr;
     void delElement(QWidget *) override; // Deletes the given element
     void delAnElement() override;
     void addElement() override;

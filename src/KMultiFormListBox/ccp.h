@@ -58,8 +58,8 @@ private:
 
     // Instance variables.
 
-    KMultiFormListBoxMultiVisible *ee;
-    KMultiFormListBoxEntry *eee;
+    KMultiFormListBoxMultiVisible *ee = nullptr;
+    KMultiFormListBoxEntry *eee = nullptr;
 };
 
 #endif /* ccp */

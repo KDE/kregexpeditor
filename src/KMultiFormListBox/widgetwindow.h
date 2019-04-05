@@ -46,11 +46,11 @@ protected Q_SLOTS:
     void slotCancel();
 
 private:
-    KMultiFormListBoxFactory *myFact;
-    KMultiFormListBoxEntry *myWidget;
+    KMultiFormListBoxFactory *myFact = nullptr;
+    KMultiFormListBoxEntry *myWidget = nullptr;
     QByteArray _backup;
-    QListWidget *listbox;
-    WindowListboxItem *myListboxItem;
+    QListWidget *listbox = nullptr;
+    WindowListboxItem *myListboxItem = nullptr;
     bool initialShow;
 };
 

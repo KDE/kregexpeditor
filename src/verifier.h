@@ -54,7 +54,7 @@ public Q_SLOTS:
 private:
     int _count;
     // int _current;
-    RegexpHighlighter *_highlighter;
+    RegexpHighlighter *_highlighter = nullptr;
 };
 
 #endif // VERIFIER_H

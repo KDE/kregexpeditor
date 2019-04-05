@@ -81,7 +81,7 @@ private:
     }           // disable
 
     QList<RegExp *> _children;
-    RegExp *_parent;
+    RegExp *_parent = nullptr;
     bool _destructing;
     bool _selected;
 };

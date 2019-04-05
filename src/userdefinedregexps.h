@@ -53,7 +53,7 @@ Q_SIGNALS:
     void load(RegExp *);
 
 private:
-    QTreeWidget *_userDefined;
+    QTreeWidget *_userDefined = nullptr;
     QList<CompoundRegExp *> _regExps;
 };
 
@@ -75,7 +75,7 @@ public:
 
 private:
     QString _name;
-    RegExp *_regexp;
+    RegExp *_regexp = nullptr;
     bool _usersRegExp;
 };
 

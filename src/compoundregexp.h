@@ -75,7 +75,7 @@ private:
     QString _description;
     bool _hidden;
     bool _allowReplace;
-    RegExp *_child;
+    RegExp *_child = nullptr;
 };
 
 #endif // COMPOUNDREGEXP_H

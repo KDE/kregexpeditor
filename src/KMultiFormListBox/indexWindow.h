@@ -76,7 +76,7 @@ protected Q_SLOTS:
     void lbSelected(int);
 
 private:
-    QListWidget *lb;
+    QListWidget *lb = nullptr;
     bool lbFinish;
     int itemSelected;
 };

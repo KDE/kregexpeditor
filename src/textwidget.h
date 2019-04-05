@@ -57,7 +57,7 @@ protected Q_SLOTS:
 
 private:
     QString text;
-    SelectableLineEdit *_edit;
+    SelectableLineEdit *_edit = nullptr;
     QSize textSize, boxSize, editSize;
 };
 

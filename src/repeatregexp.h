@@ -67,7 +67,7 @@ public:
 private:
     int _lower;
     int _upper;
-    RegExp *_child;
+    RegExp *_child = nullptr;
 };
 
 #endif // __REPEATREGEXP_H

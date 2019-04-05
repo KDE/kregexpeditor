@@ -63,10 +63,10 @@ protected Q_SLOTS:
     void slotChangeSyntax(QAction *action);
 
 private:
-    QToolButton *_verify;
-    QLabel *_matches;
-    QMenu *_configMenu;
-    QMenu *_languages;
+    QToolButton *_verify = nullptr;
+    QLabel *_matches = nullptr;
+    QMenu *_configMenu = nullptr;
+    QMenu *_languages = nullptr;
 
     // Qt anchors do not work for <pre>...</pre>, thefore scrolling to next/prev match
     // do not work. Enable this when they work.
