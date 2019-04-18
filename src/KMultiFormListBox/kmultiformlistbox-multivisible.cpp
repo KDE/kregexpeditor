@@ -176,8 +176,8 @@ void KMultiFormListBoxMultiVisible::insertElmIntoWidget(KMultiFormListBoxEntry *
         elm->indexButton()->setIcon(static_cast<QIcon>(QBitmap::fromData(QSize(indexButtonWidth, indexButtonHeight),
                                                                          indexButtonBits, QImage::Format_MonoLSB)));
         connect(elm->indexButton(), &QAbstractButton::clicked, elm, &KMultiFormListBoxEntry::acceptIndexButton);
-        connect(elm, SIGNAL(gotoIndex(KMultiFormListBoxEntry *)),
-                this, SLOT(showIndexList(KMultiFormListBoxEntry *)));
+        connect(elm, SIGNAL(gotoIndex(KMultiFormListBoxEntry*)),
+                this, SLOT(showIndexList(KMultiFormListBoxEntry*)));
     }
 
     // Find the location to insert the new element.

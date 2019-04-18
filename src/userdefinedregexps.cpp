@@ -55,8 +55,8 @@ UserDefinedRegExps::UserDefinedRegExps(QWidget *parent, const QString &title)
     setWidget(top);
     slotPopulateUserRegexps();
 
-    connect(_userDefined, SIGNAL(itemClicked(QTreeWidgetItem *,int)), this, SLOT(slotLoad(QTreeWidgetItem *)));
-    connect(_userDefined, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(slotContextMenuTriggered(const QPoint&)));
+    connect(_userDefined, SIGNAL(itemClicked(QTreeWidgetItem*,int)), this, SLOT(slotLoad(QTreeWidgetItem*)));
+    connect(_userDefined, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenuTriggered(QPoint)));
 }
 
 void UserDefinedRegExps::slotPopulateUserRegexps()

@@ -57,22 +57,22 @@ VerifyButtons::VerifyButtons(QWidget *parent, const QString &name)
     // do not work. Enable this when they work.
     // _first = new QToolButton( QString::fromLatin1("<<"), this);
     // layout->addWidget( _first );
-    // connect(_first, SIGNAL(clicked()), this, SIGNAL( gotoFirst()));
+    // connect(_first, SIGNAL(clicked()), this, SIGNAL(gotoFirst()));
     // _first->setFixedWidth( 25 );
     //
     // _prev = new QToolButton(QString::fromLatin1("<"), this);
     // layout->addWidget( _prev );
-    // connect(_prev, SIGNAL(clicked()), this, SIGNAL( gotoPrev()));
+    // connect(_prev, SIGNAL(clicked()), this, SIGNAL(gotoPrev()));
     // _prev->setFixedWidth( 20 );
     //
     // _next = new QToolButton(QString::fromLatin1(">"), this);
     // layout->addWidget( _next );
-    // connect(_next, SIGNAL(clicked()), this, SIGNAL( gotoNext()));
+    // connect(_next, SIGNAL(clicked()), this, SIGNAL(gotoNext()));
     // _next->setFixedWidth( 20 );
     //
     // _last = new QToolButton(QString::fromLatin1(">>"), this);
     // layout->addWidget( _last );
-    // connect(_last, SIGNAL(clicked()), this, SIGNAL( gotoLast()));
+    // connect(_last, SIGNAL(clicked()), this, SIGNAL(gotoLast()));
     // _last->setFixedWidth( 25 );
 
     // Same as above
@@ -135,7 +135,7 @@ VerifyButtons::VerifyButtons(QWidget *parent, const QString &name)
     }
 
     _languages->addActions(grp->actions());
-    connect(grp, SIGNAL(triggered(QAction *)), this, SLOT(slotChangeSyntax(QAction *)));
+    connect(grp, SIGNAL(triggered(QAction*)), this, SLOT(slotChangeSyntax(QAction*)));
     _languages->setEnabled(false);
 
     button->setMenu(_configMenu);

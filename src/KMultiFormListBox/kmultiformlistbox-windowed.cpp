@@ -55,7 +55,7 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
     but->setObjectName(QStringLiteral("Edit Button"));
     buttons->addWidget(but, 0);
     connect(but, SIGNAL(clicked()), this, SLOT(slotEditSelected()));
-    connect(_listbox, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this, SLOT(slotEditSelected(QListWidgetItem *)));
+    connect(_listbox, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(slotEditSelected(QListWidgetItem*)));
     _buttonList.append(but);
 
     but = new QPushButton(i18n("Delete"), this);

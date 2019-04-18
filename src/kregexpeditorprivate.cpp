@@ -56,13 +56,13 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     setWindowFlags(Qt::Widget);
 
     // The DockWindows.
-    _regExpButtons = new RegExpButtons(/*area*/ this, QStringLiteral("KRegExpEditorPrivate::regExpButton"));
+    _regExpButtons = new RegExpButtons(this, QStringLiteral("RegExpButton"));
     addToolBar(Qt::TopToolBarArea, _regExpButtons);
 
-    _verifyButtons = new VerifyButtons(/*area*/ this, QStringLiteral("KRegExpEditorPrivate::VerifyButtons"));
+    _verifyButtons = new VerifyButtons(this, QStringLiteral("VerifyButtons"));
     addToolBar(Qt::TopToolBarArea, _verifyButtons);
 
-    _auxButtons = new AuxButtons(/*area*/ this, QStringLiteral("KRegExpEditorPrivate::AuxButtons"));
+    _auxButtons = new AuxButtons(this, QStringLiteral("AuxButtons"));
     addToolBar(Qt::TopToolBarArea, _auxButtons);
 
     _userRegExps = new UserDefinedRegExps(/*verArea1*/ this, /*"KRegExpEditorPrivate::userRegExps"*/ i18n("Compound regular expression:"));
@@ -102,17 +102,17 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     // Connect the buttons
     connect(_regExpButtons, SIGNAL(clicked(int)), _scrolledEditorWindow, SLOT(slotInsertRegExp(int)));
     connect(_regExpButtons, SIGNAL(doSelect()), _scrolledEditorWindow, SLOT(slotDoSelect()));
-    connect(_userRegExps, SIGNAL(load(RegExp *)), _scrolledEditorWindow, SLOT(slotInsertRegExp(RegExp *)));
+    connect(_userRegExps, SIGNAL(load(RegExp*)), _scrolledEditorWindow, SLOT(slotInsertRegExp(RegExp*)));
 
     connect(_regExpButtons, SIGNAL(clicked(int)), _userRegExps, SLOT(slotUnSelect()));
     connect(_regExpButtons, SIGNAL(doSelect()), _userRegExps, SLOT(slotUnSelect()));
-    connect(_userRegExps, SIGNAL(load(RegExp *)), _regExpButtons, SLOT(slotUnSelect()));
+    connect(_userRegExps, SIGNAL(load(RegExp*)), _regExpButtons, SLOT(slotUnSelect()));
 
     connect(_scrolledEditorWindow, SIGNAL(doneEditing()), _regExpButtons, SLOT(slotSelectNewAction()));
     connect(_scrolledEditorWindow, SIGNAL(doneEditing()), _userRegExps, SLOT(slotSelectNewAction()));
 
     connect(_regExpButtons, SIGNAL(clicked(int)), this, SLOT(slotShowEditor()));
-    connect(_userRegExps, SIGNAL(load(RegExp *)), this, SLOT(slotShowEditor()));
+    connect(_userRegExps, SIGNAL(load(RegExp*)), this, SLOT(slotShowEditor()));
     connect(_regExpButtons, SIGNAL(doSelect()), this, SLOT(slotShowEditor()));
 
     connect(_scrolledEditorWindow, SIGNAL(savedRegexp()), _userRegExps, SLOT(slotPopulateUserRegexps()));
@@ -125,7 +125,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     connect(_auxButtons, SIGNAL(save()), _scrolledEditorWindow, SLOT(slotSave()));
     connect(_verifyButtons, SIGNAL(autoVerify(bool)), this, SLOT(setAutoVerify(bool)));
     connect(_verifyButtons, SIGNAL(verify()), this, SLOT(doVerify()));
-    connect(_verifyButtons, SIGNAL(changeSyntax(const QString&)), this, SLOT(setSyntax(const QString&)));
+    connect(_verifyButtons, SIGNAL(changeSyntax(QString)), this, SLOT(setSyntax(QString)));
     connect(_verifyButtons, SIGNAL(matchGreedy(bool)), this, SLOT(setMatchGreedy(bool)));
 
     connect(this, SIGNAL(canUndo(bool)), _auxButtons, SLOT(slotCanUndo(bool)));
@@ -137,18 +137,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
 
     connect(_scrolledEditorWindow, SIGNAL(verifyRegExp()), this, SLOT(maybeVerify()));
 
-    connect(_verifyButtons, SIGNAL(loadVerifyText(const QString&)), this, SLOT(setVerifyText(const QString&)));
-
-    // connect( _verifier, SIGNAL( countChanged( int ) ), _verifyButtons, SLOT( setMatchCount( int ) ) );
-
-    // Qt anchors do not work for <pre>...</pre>, thefore scrolling to next/prev match
-    // do not work. Enable this when they work.
-    // connect( _verifyButtons, SIGNAL( gotoFirst() ), _verifier, SLOT( gotoFirst() ) );
-    // connect( _verifyButtons, SIGNAL( gotoPrev() ), _verifier, SLOT( gotoPrev() ) );
-    // connect( _verifyButtons, SIGNAL( gotoNext() ), _verifier, SLOT( gotoNext() ) );
-    // connect( _verifyButtons, SIGNAL( gotoLast() ), _verifier, SLOT( gotoLast() ) );
-    // connect( _verifier, SIGNAL( goForwardPossible( bool ) ), _verifyButtons, SLOT( enableForwardButtons( bool ) ) );
-    // connect( _verifier, SIGNAL( goBackwardPossible( bool ) ), _verifyButtons, SLOT( enableBackwardButtons( bool ) ) );
+    connect(_verifyButtons, SIGNAL(loadVerifyText(QString)), this, SLOT(setVerifyText(QString)));
 
     _auxButtons->slotCanPaste(false);
     _auxButtons->slotCanCut(false);
@@ -185,7 +174,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     _timer->setSingleShot(true);
 
     connect(_scrolledEditorWindow, SIGNAL(change()), this, SLOT(slotUpdateLineEdit()));
-    connect(_regexpEdit, SIGNAL(textChanged(const QString&)), this, SLOT(slotTriggerUpdate()));
+    connect(_regexpEdit, SIGNAL(textChanged(QString)), this, SLOT(slotTriggerUpdate()));
     connect(_timer, SIGNAL(timeout()), this, SLOT(slotTimeout()));
 
     // Push an initial empty element on the stack.

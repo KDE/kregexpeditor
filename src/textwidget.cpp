@@ -49,7 +49,7 @@ void TextWidget::init(const QString &txt)
     connect(_edit, SIGNAL(parentPleaseUpdate()), this, SLOT(slotUpdate()));
     setFocusProxy(_edit);
     _edit->installEventFilter(this);
-    connect(_edit, SIGNAL(textChanged(const QString&)), _editorWindow, SLOT(emitChange()));
+    connect(_edit, SIGNAL(textChanged(QString)), _editorWindow, SLOT(emitChange()));
 }
 
 void TextWidget::slotUpdate()
