@@ -82,7 +82,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     _info = new InfoPage(this);
     _info->setObjectName(QStringLiteral("_info"));
     _verifier = new Verifier(_editor);
-    connect(_verifier, SIGNAL(textChanged()), this, SLOT(maybeVerify()));
+    connect(_verifier, &QTextEdit::textChanged, this, &KRegExpEditorPrivate::maybeVerify);
     _verifier->setWhatsThis(i18n("<p>Type in some text in this window, and see what the regular expression you have developed matches.</p>"
                                  "<p>Each second match will be colored in red and each other match will be colored blue, simply so you "
                                  "can distinguish them from each other.</p>"
@@ -101,43 +101,43 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
 
     // Connect the buttons
     connect(_regExpButtons, SIGNAL(clicked(int)), _scrolledEditorWindow, SLOT(slotInsertRegExp(int)));
-    connect(_regExpButtons, SIGNAL(doSelect()), _scrolledEditorWindow, SLOT(slotDoSelect()));
+    connect(_regExpButtons, &RegExpButtons::doSelect, _scrolledEditorWindow, &RegExpScrolledEditorWindow::slotDoSelect);
     connect(_userRegExps, SIGNAL(load(RegExp*)), _scrolledEditorWindow, SLOT(slotInsertRegExp(RegExp*)));
 
     connect(_regExpButtons, SIGNAL(clicked(int)), _userRegExps, SLOT(slotUnSelect()));
     connect(_regExpButtons, SIGNAL(doSelect()), _userRegExps, SLOT(slotUnSelect()));
-    connect(_userRegExps, SIGNAL(load(RegExp*)), _regExpButtons, SLOT(slotUnSelect()));
+    connect(_userRegExps, &UserDefinedRegExps::load, _regExpButtons, &RegExpButtons::slotUnSelect);
 
-    connect(_scrolledEditorWindow, SIGNAL(doneEditing()), _regExpButtons, SLOT(slotSelectNewAction()));
-    connect(_scrolledEditorWindow, SIGNAL(doneEditing()), _userRegExps, SLOT(slotSelectNewAction()));
+    connect(_scrolledEditorWindow, &RegExpScrolledEditorWindow::doneEditing, _regExpButtons, &RegExpButtons::slotSelectNewAction);
+    connect(_scrolledEditorWindow, &RegExpScrolledEditorWindow::doneEditing, _userRegExps, &UserDefinedRegExps::slotSelectNewAction);
 
-    connect(_regExpButtons, SIGNAL(clicked(int)), this, SLOT(slotShowEditor()));
-    connect(_userRegExps, SIGNAL(load(RegExp*)), this, SLOT(slotShowEditor()));
-    connect(_regExpButtons, SIGNAL(doSelect()), this, SLOT(slotShowEditor()));
+    connect(_regExpButtons, &RegExpButtons::clicked, this, &KRegExpEditorPrivate::slotShowEditor);
+    connect(_userRegExps, &UserDefinedRegExps::load, this, &KRegExpEditorPrivate::slotShowEditor);
+    connect(_regExpButtons, &RegExpButtons::doSelect, this, &KRegExpEditorPrivate::slotShowEditor);
 
     connect(_scrolledEditorWindow, SIGNAL(savedRegexp()), _userRegExps, SLOT(slotPopulateUserRegexps()));
 
-    connect(_auxButtons, SIGNAL(undo()), this, SLOT(slotUndo()));
-    connect(_auxButtons, SIGNAL(redo()), this, SLOT(slotRedo()));
-    connect(_auxButtons, SIGNAL(cut()), _scrolledEditorWindow, SLOT(slotCut()));
-    connect(_auxButtons, SIGNAL(copy()), _scrolledEditorWindow, SLOT(slotCopy()));
-    connect(_auxButtons, SIGNAL(paste()), _scrolledEditorWindow, SLOT(slotPaste()));
-    connect(_auxButtons, SIGNAL(save()), _scrolledEditorWindow, SLOT(slotSave()));
-    connect(_verifyButtons, SIGNAL(autoVerify(bool)), this, SLOT(setAutoVerify(bool)));
-    connect(_verifyButtons, SIGNAL(verify()), this, SLOT(doVerify()));
-    connect(_verifyButtons, SIGNAL(changeSyntax(QString)), this, SLOT(setSyntax(QString)));
-    connect(_verifyButtons, SIGNAL(matchGreedy(bool)), this, SLOT(setMatchGreedy(bool)));
+    connect(_auxButtons, &AuxButtons::undo, this, &KRegExpEditorPrivate::slotUndo);
+    connect(_auxButtons, &AuxButtons::redo, this, &KRegExpEditorPrivate::slotRedo);
+    connect(_auxButtons, &AuxButtons::cut, _scrolledEditorWindow, &RegExpScrolledEditorWindow::slotCut);
+    connect(_auxButtons, &AuxButtons::copy, _scrolledEditorWindow, &RegExpScrolledEditorWindow::slotCopy);
+    connect(_auxButtons, &AuxButtons::paste, _scrolledEditorWindow, &RegExpScrolledEditorWindow::slotPaste);
+    connect(_auxButtons, &AuxButtons::save, _scrolledEditorWindow, &RegExpScrolledEditorWindow::slotSave);
+    connect(_verifyButtons, &VerifyButtons::autoVerify, this, &KRegExpEditorPrivate::setAutoVerify);
+    connect(_verifyButtons, &VerifyButtons::verify, this, &KRegExpEditorPrivate::doVerify);
+    connect(_verifyButtons, &VerifyButtons::changeSyntax, this, &KRegExpEditorPrivate::setSyntax);
+    connect(_verifyButtons, &VerifyButtons::matchGreedy, this, &KRegExpEditorPrivate::setMatchGreedy);
 
-    connect(this, SIGNAL(canUndo(bool)), _auxButtons, SLOT(slotCanUndo(bool)));
-    connect(this, SIGNAL(canRedo(bool)), _auxButtons, SLOT(slotCanRedo(bool)));
-    connect(_scrolledEditorWindow, SIGNAL(anythingSelected(bool)), _auxButtons, SLOT(slotCanCut(bool)));
-    connect(_scrolledEditorWindow, SIGNAL(anythingSelected(bool)), _auxButtons, SLOT(slotCanCopy(bool)));
-    connect(_scrolledEditorWindow, SIGNAL(anythingOnClipboard(bool)), _auxButtons, SLOT(slotCanPaste(bool)));
-    connect(_scrolledEditorWindow, SIGNAL(canSave(bool)), _auxButtons, SLOT(slotCanSave(bool)));
+    connect(this, &KRegExpEditorPrivate::canUndo, _auxButtons, &AuxButtons::slotCanUndo);
+    connect(this, &KRegExpEditorPrivate::canRedo, _auxButtons, &AuxButtons::slotCanRedo);
+    connect(_scrolledEditorWindow, &RegExpScrolledEditorWindow::anythingSelected, _auxButtons, &AuxButtons::slotCanCut);
+    connect(_scrolledEditorWindow, &RegExpScrolledEditorWindow::anythingSelected, _auxButtons, &AuxButtons::slotCanCopy);
+    connect(_scrolledEditorWindow, &RegExpScrolledEditorWindow::anythingOnClipboard, _auxButtons, &AuxButtons::slotCanPaste);
+    connect(_scrolledEditorWindow, &RegExpScrolledEditorWindow::canSave, _auxButtons, &AuxButtons::slotCanSave);
 
-    connect(_scrolledEditorWindow, SIGNAL(verifyRegExp()), this, SLOT(maybeVerify()));
+    connect(_scrolledEditorWindow, &RegExpScrolledEditorWindow::verifyRegExp, this, &KRegExpEditorPrivate::maybeVerify);
 
-    connect(_verifyButtons, SIGNAL(loadVerifyText(QString)), this, SLOT(setVerifyText(QString)));
+    connect(_verifyButtons, &VerifyButtons::loadVerifyText, this, &KRegExpEditorPrivate::setVerifyText);
 
     _auxButtons->slotCanPaste(false);
     _auxButtons->slotCanCut(false);
@@ -173,9 +173,9 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     _timer = new QTimer(this);
     _timer->setSingleShot(true);
 
-    connect(_scrolledEditorWindow, SIGNAL(change()), this, SLOT(slotUpdateLineEdit()));
-    connect(_regexpEdit, SIGNAL(textChanged(QString)), this, SLOT(slotTriggerUpdate()));
-    connect(_timer, SIGNAL(timeout()), this, SLOT(slotTimeout()));
+    connect(_scrolledEditorWindow, &RegExpScrolledEditorWindow::change, this, &KRegExpEditorPrivate::slotUpdateLineEdit);
+    connect(_regexpEdit, &QLineEdit::textChanged, this, &KRegExpEditorPrivate::slotTriggerUpdate);
+    connect(_timer, &QTimer::timeout, this, &KRegExpEditorPrivate::slotTimeout);
 
     // Push an initial empty element on the stack.
     _undoStack.push(_scrolledEditorWindow->regExp());

@@ -44,8 +44,8 @@ RegExpButtons::RegExpButtons(QWidget *parent, const QString &name)
     addWidget(_selectBut);
     _grp->addButton(_selectBut);
     _selectBut->setCheckable(true);
-    connect(_selectBut, SIGNAL(clicked()), SIGNAL(doSelect()));
-    connect(_selectBut, SIGNAL(clicked()), this, SLOT(slotSetNonKeepMode()));
+    connect(_selectBut, &QAbstractButton::clicked, this, &RegExpButtons::doSelect);
+    connect(_selectBut, &QAbstractButton::clicked, this, &RegExpButtons::slotSetNonKeepMode);
 
     _selectBut->setToolTip(i18n("Selection tool"));
     _selectBut->setWhatsThis(i18n("<p>This will change the state of the editor to <i>selection state</i>.</p>"
@@ -132,14 +132,14 @@ DoubleClickButton *RegExpButtons::insert(RegExpType tp, const QString &name, con
 {
     QPixmap pix
         = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation,
-                                                                 QLatin1String("kregexpeditor/pics/") + name + QLatin1String(
+                                                                 QStringLiteral("kregexpeditor/pics/") + name + QStringLiteral(
                                                                      ".png")), KIconLoader::Toolbar);
 
     DoubleClickButton *but = new DoubleClickButton(pix, this, QStringLiteral("RegExpButtons::but"));
 
     connect(but, &DoubleClickButton::clicked, [this, tp](){ Q_EMIT clicked(tp); });
-    connect(but, SIGNAL(clicked()), this, SLOT(slotSetNonKeepMode()));
-    connect(but, SIGNAL(doubleClicked()), this, SLOT(slotSetKeepMode()));
+    connect(but, &QAbstractButton::clicked, this, &RegExpButtons::slotSetNonKeepMode);
+    connect(but, &DoubleClickButton::doubleClicked, this, &RegExpButtons::slotSetKeepMode);
 
     _grp->addButton(but);
     but->setCheckable(true);

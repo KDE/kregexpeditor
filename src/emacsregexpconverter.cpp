@@ -107,7 +107,7 @@ QString EmacsRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelec
 
     // Now insert the ranges.
     foreach (const StringPair &elm, regexp->range()) {
-        txt.append(elm.first + QLatin1String("-") + elm.second);
+        txt.append(elm.first + QStringLiteral("-") + elm.second);
     }
 
     // Ok, its time to build each part of the regexp, here comes the rule:
@@ -208,11 +208,11 @@ QString EmacsRegExpConverter::toString(RepeatRegExp *regexp, bool markSelection)
     } else {
         QString res = QString();
         for (int i = 0; i < regexp->min(); ++i) {
-            res += QLatin1String("\\(") + cText + QLatin1String("\\)");
+            res += QStringLiteral("\\(") + cText + QStringLiteral("\\)");
         }
         if (regexp->max() != -1) {
             for (int i = regexp->min(); i < regexp->max(); ++i) {
-                res += QLatin1String("\\(") + cText + QLatin1String("\\)?");
+                res += QStringLiteral("\\(") + cText + QStringLiteral("\\)?");
             }
         } else {
             res += QLatin1String("+");

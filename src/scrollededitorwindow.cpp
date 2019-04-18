@@ -33,21 +33,21 @@ RegExpScrolledEditorWindow::RegExpScrolledEditorWindow(QWidget *parent)
     _scrollArea->setWidgetResizable(true); // Morten Sjøgren: This is for some reason required for pasting to work.
     _scrollArea->ensureWidgetVisible(_editorWindow);
 
-    connect(_editorWindow, SIGNAL(contentChanged(QPoint)),
-            this, SLOT(slotUpdateContentSize(QPoint)));
+    connect(_editorWindow, &RegExpEditorWindow::contentChanged,
+            this, &RegExpScrolledEditorWindow::slotUpdateContentSize);
 
-    connect(_editorWindow, SIGNAL(scrolling(QPoint)),
-            this, SLOT(slotScroll(QPoint)));
+    connect(_editorWindow, &RegExpEditorWindow::scrolling,
+            this, &RegExpScrolledEditorWindow::slotScroll);
 
-    connect(_editorWindow, SIGNAL(doneEditing()), this, SIGNAL(doneEditing()));
+    connect(_editorWindow, &RegExpEditorWindow::doneEditing, this, &RegExpScrolledEditorWindow::doneEditing);
 
-    connect(_editorWindow, SIGNAL(change()), this, SIGNAL(change()));
-    connect(_editorWindow, SIGNAL(savedRegexp()), this, SIGNAL(savedRegexp()));
+    connect(_editorWindow, &RegExpEditorWindow::change, this, &RegExpScrolledEditorWindow::change);
+    connect(_editorWindow, &RegExpEditorWindow::savedRegexp, this, &RegExpScrolledEditorWindow::savedRegexp);
 
-    connect(_editorWindow, SIGNAL(anythingSelected(bool)), this, SIGNAL(anythingSelected(bool)));
-    connect(_editorWindow, SIGNAL(anythingOnClipboard(bool)), this, SIGNAL(anythingOnClipboard(bool)));
-    connect(_editorWindow, SIGNAL(canSave(bool)), this, SIGNAL(canSave(bool)));
-    connect(_editorWindow, SIGNAL(verifyRegExp()), this, SIGNAL(verifyRegExp()));
+    connect(_editorWindow, &RegExpEditorWindow::anythingSelected, this, &RegExpScrolledEditorWindow::anythingSelected);
+    connect(_editorWindow, &RegExpEditorWindow::anythingOnClipboard, this, &RegExpScrolledEditorWindow::anythingOnClipboard);
+    connect(_editorWindow, &RegExpEditorWindow::canSave, this, &RegExpScrolledEditorWindow::canSave);
+    connect(_editorWindow, &RegExpEditorWindow::verifyRegExp, this, &RegExpScrolledEditorWindow::verifyRegExp);
 }
 
 void RegExpScrolledEditorWindow::slotSetRegExp(RegExp *regexp)

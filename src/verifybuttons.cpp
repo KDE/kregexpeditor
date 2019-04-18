@@ -39,12 +39,12 @@ VerifyButtons::VerifyButtons(QWidget *parent, const QString &name)
     _verify->setWhatsThis(i18n("Shows what part of the regular expression is being matched in the <i>verifier window</i>."
                                "(The window below the graphical editor window)."));
     addWidget(_verify);
-    connect(_verify, SIGNAL(clicked()), this, SIGNAL(verify()));
+    connect(_verify, &QAbstractButton::clicked, this, &VerifyButtons::verify);
 
     QToolButton *button = new QToolButton(this);
     button->setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
     addWidget(button);
-    connect(button, SIGNAL(clicked()), this, SLOT(loadText()));
+    connect(button, &QAbstractButton::clicked, this, &VerifyButtons::loadText);
     button->setToolTip(i18n("Load text in the verifier window"));
 
     button = new QToolButton(this);
@@ -96,7 +96,6 @@ VerifyButtons::VerifyButtons(QWidget *parent, const QString &name)
     // Emacs
     converter = new EmacsRegExpConverter();
     _converters.append(qMakePair(converter, static_cast<QAction *>(nullptr)));
-    QString emacsConverterName = converter->name();
 
     // -------------------------------------------------- Initialize the config menu
     _configMenu = new QMenu(i18n("config menu"), this);
@@ -105,8 +104,8 @@ VerifyButtons::VerifyButtons(QWidget *parent, const QString &name)
     QAction *autoVerify = new QAction(i18n("Verify on the Fly"), this);
     autoVerify->setCheckable(true);
     autoVerify->setChecked(true);
-    connect(autoVerify, SIGNAL(toggled(bool)), this, SLOT(updateVerifyButton(bool)));
-    connect(autoVerify, SIGNAL(toggled(bool)), this, SIGNAL(autoVerify(bool)));
+    connect(autoVerify, &QAction::toggled, this, &VerifyButtons::updateVerifyButton);
+    connect(autoVerify, &QAction::toggled, this, &VerifyButtons::autoVerify);
     _configMenu->addAction(autoVerify);
     autoVerify->setToolTip(i18n("Toggle on-the-fly verification of regular expression"));
     autoVerify->setWhatsThis(i18n("Enabling this option will make the verifier update for each edit. "
@@ -116,7 +115,7 @@ VerifyButtons::VerifyButtons(QWidget *parent, const QString &name)
     QAction *matchGreedy = new QAction(i18n("Match Greedy"), this);
     matchGreedy->setCheckable(true);
     matchGreedy->setChecked(false);
-    connect(matchGreedy, SIGNAL(toggled(bool)), this, SIGNAL(matchGreedy(bool)));
+    connect(matchGreedy, &QAction::toggled, this, &VerifyButtons::matchGreedy);
     _configMenu->addAction(matchGreedy);
     matchGreedy->setToolTip(i18n("Toggle greedy matching when verifying the regular expression."));
     matchGreedy->setWhatsThis(i18n("When this option is enabled, the regular expression will be evaluated on a so-called greedy way."));
@@ -135,7 +134,7 @@ VerifyButtons::VerifyButtons(QWidget *parent, const QString &name)
     }
 
     _languages->addActions(grp->actions());
-    connect(grp, SIGNAL(triggered(QAction*)), this, SLOT(slotChangeSyntax(QAction*)));
+    connect(grp, &QActionGroup::triggered, this, &VerifyButtons::slotChangeSyntax);
     _languages->setEnabled(false);
 
     button->setMenu(_configMenu);

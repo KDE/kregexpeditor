@@ -46,10 +46,10 @@ void TextWidget::init(const QString &txt)
 
     _edit->setText(txt);
 
-    connect(_edit, SIGNAL(parentPleaseUpdate()), this, SLOT(slotUpdate()));
+    connect(_edit, &SelectableLineEdit::parentPleaseUpdate, this, &TextWidget::slotUpdate);
     setFocusProxy(_edit);
     _edit->installEventFilter(this);
-    connect(_edit, SIGNAL(textChanged(QString)), _editorWindow, SLOT(emitChange()));
+    connect(_edit, &QLineEdit::textChanged, _editorWindow, &RegExpEditorWindow::emitChange);
 }
 
 void TextWidget::slotUpdate()

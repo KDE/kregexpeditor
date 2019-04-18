@@ -55,8 +55,8 @@ UserDefinedRegExps::UserDefinedRegExps(QWidget *parent, const QString &title)
     setWidget(top);
     slotPopulateUserRegexps();
 
-    connect(_userDefined, SIGNAL(itemClicked(QTreeWidgetItem*,int)), this, SLOT(slotLoad(QTreeWidgetItem*)));
-    connect(_userDefined, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenuTriggered(QPoint)));
+    connect(_userDefined, &QTreeWidget::itemClicked, this, &UserDefinedRegExps::slotLoad);
+    connect(_userDefined, &QWidget::customContextMenuRequested, this, &UserDefinedRegExps::slotContextMenuTriggered);
 }
 
 void UserDefinedRegExps::slotPopulateUserRegexps()
@@ -150,8 +150,8 @@ void UserDefinedRegExps::slotLoad(QTreeWidgetItem *item)
 void UserDefinedRegExps::slotContextMenuTriggered(const QPoint &pos)
 {
     QMenu menu;
-    QAction *deleteAction = menu.addAction(i18n("Delete"), this, SLOT(slotDeleteUserRegexp()));
-    QAction *renameAction = menu.addAction(i18n("Rename"), this, SLOT(slotRenameUserRegexp()));
+    QAction *deleteAction = menu.addAction(i18n("Delete"), this, &UserDefinedRegExps::slotDeleteUserRegexp);
+    QAction *renameAction = menu.addAction(i18n("Rename"), this, &UserDefinedRegExps::slotRenameUserRegexp);
 
     QTreeWidgetItem *item = _userDefined->itemAt(pos);
 

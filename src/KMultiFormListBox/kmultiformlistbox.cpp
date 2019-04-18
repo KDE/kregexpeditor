@@ -23,7 +23,7 @@
 
 #include "kmultiformlistboxfactory.h"
 
-KMultiFormListBox::KMultiFormListBox(KMultiFormListBoxFactory *factory, KMultiFormListBoxType tp, QWidget *parent, bool showUpDownButtons, bool showHelpButton, QString addButtonText)
+KMultiFormListBox::KMultiFormListBox(KMultiFormListBoxFactory *factory, KMultiFormListBoxType tp, QWidget *parent, bool showUpDownButtons, bool showHelpButton, const QString &addButtonText)
     : QWidget(parent)
 {
     switch (tp) {

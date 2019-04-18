@@ -144,8 +144,8 @@ void CompoundWidget::init()
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    _configWindow->connect(buttonBox, SIGNAL(accepted()), _configWindow, SLOT(accept()));
-    _configWindow->connect(buttonBox, SIGNAL(rejected()), _configWindow, SLOT(reject()));
+    _configWindow->connect(buttonBox, &QDialogButtonBox::accepted, _configWindow, &QDialog::accept);
+    _configWindow->connect(buttonBox, &QDialogButtonBox::rejected, _configWindow, &QDialog::reject);
     mainLayout->addWidget(buttonBox);
 }
 

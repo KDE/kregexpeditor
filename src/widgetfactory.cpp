@@ -130,7 +130,7 @@ RegExpWidget *WidgetFactory::createWidget(RegExp *regexp, RegExpEditorWindow *ed
     return nullptr;
 }
 
-RegExp *WidgetFactory::createRegExp(QDomElement node, const QString &version)
+RegExp *WidgetFactory::createRegExp(const QDomElement &node, const QString &version)
 {
     QString tag = node.tagName();
     RegExp *regexp;

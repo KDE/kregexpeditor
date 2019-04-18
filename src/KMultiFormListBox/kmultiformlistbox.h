@@ -68,7 +68,7 @@ public:
        @param parent A pointer to the parent widget
      **/
     explicit KMultiFormListBox(KMultiFormListBoxFactory *factory, KMultiFormListBoxType tp = Windowed, QWidget *parent = nullptr, bool showUpDownButtons = true, bool showHelpButton = true,
-                               QString addButtonText = i18n("Add"));
+                               const QString &addButtonText = i18n("Add"));
 
     /**
        @return The elements in the KMultiFormListBox.

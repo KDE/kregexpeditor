@@ -76,8 +76,8 @@ void RepeatWidget::init()
     _configWindow->setLayout(mainLayout);
 
     _content = new RepeatRangeWindow(_configWindow);
-    connect(_configWindow, SIGNAL(rejected()), this, SLOT(slotConfigCanceled()));
-    connect(_configWindow, SIGNAL(finished(int)), this, SLOT(slotConfigWindowClosed()));
+    connect(_configWindow, &QDialog::rejected, this, &RepeatWidget::slotConfigCanceled);
+    connect(_configWindow, &QDialog::finished, this, &RepeatWidget::slotConfigWindowClosed);
     mainLayout->addWidget(_content);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
@@ -85,8 +85,8 @@ void RepeatWidget::init()
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
     mainLayout->addWidget(buttonBox);
-    _configWindow->connect(buttonBox, SIGNAL(accepted()), _configWindow, SLOT(accept()));
-    _configWindow->connect(buttonBox, SIGNAL(rejected()), _configWindow, SLOT(reject()));
+    _configWindow->connect(buttonBox, &QDialogButtonBox::accepted, _configWindow, &QDialog::accept);
+    _configWindow->connect(buttonBox, &QDialogButtonBox::rejected, _configWindow, &QDialog::reject);
 }
 
 QSize RepeatWidget::sizeHint() const

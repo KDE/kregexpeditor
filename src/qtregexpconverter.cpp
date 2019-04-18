@@ -55,7 +55,7 @@ QString QtRegExpConverter::toString(AltnRegExp *regexp, bool markSelection)
 
         first = false;
         if (markSelection && !regexp->isSelected() && r->isSelected()) {
-            res += QLatin1String("(") + toStr(r, markSelection) + QLatin1String(")");
+            res += QStringLiteral("(") + toStr(r, markSelection) + QStringLiteral(")");
         } else {
             res += toStr(r, markSelection);
         }
@@ -103,9 +103,9 @@ QString QtRegExpConverter::toString(ConcRegExp *regexp, bool markSelection)
 QString QtRegExpConverter::toString(LookAheadRegExp *regexp, bool markSelection)
 {
     if (regexp->lookAheadType() == LookAheadRegExp::POSITIVE) {
-        return QLatin1String("(?=") + toStr(regexp->child(), markSelection) + QStringLiteral(")");
+        return QStringLiteral("(?=") + toStr(regexp->child(), markSelection) + QStringLiteral(")");
     } else {
-        return QLatin1String("(?!") + toStr(regexp->child(), markSelection) + QStringLiteral(")");
+        return QStringLiteral("(?!") + toStr(regexp->child(), markSelection) + QStringLiteral(")");
     }
 }
 
@@ -134,7 +134,7 @@ QString QtRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelectio
 
     // Now insert the ranges.
     foreach (const StringPair &elm, regexp->range()) {
-        txt.append(elm.first + QLatin1String("-") + elm.second);
+        txt.append(elm.first + QStringLiteral("-") + elm.second);
     }
 
     // Ok, its time to build each part of the regexp, here comes the rule:
@@ -199,7 +199,7 @@ QString QtRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelectio
 QString QtRegExpConverter::toString(CompoundRegExp *regexp, bool markSelection)
 {
     if (markSelection && !regexp->isSelected() && regexp->child()->isSelected()) {
-        return QLatin1String("(") + toStr(regexp->child(), markSelection) + QLatin1String(")");
+        return QStringLiteral("(") + toStr(regexp->child(), markSelection) + QStringLiteral(")");
     } else {
         return toStr(regexp->child(), markSelection);
     }
