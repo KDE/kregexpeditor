@@ -1,5 +1,7 @@
 BISON_TARGET(qregexpparser qregexpparser.y ${CMAKE_CURRENT_BINARY_DIR}/gen_qregexpparser.cc COMPILE_FLAGS "-d -p qregexp")
 FLEX_TARGET(qregexplexer qregexpparser.l  ${CMAKE_CURRENT_BINARY_DIR}/gen_qregexplexer.cpp COMPILE_FLAGS "-Pqregexp")
+
+set_property(SOURCE ${CMAKE_CURRENT_BINARY_DIR}/gen_qregexplexer.cpp ${CMAKE_CURRENT_BINARY_DIR}/gen_qregexpparser.cc PROPERTY SKIP_AUTOMOC ON)
 ADD_FLEX_BISON_DEPENDENCY( qregexplexer qregexpparser )
 
 
