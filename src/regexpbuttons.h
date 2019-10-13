@@ -25,7 +25,6 @@
 class DoubleClickButton;
 class QButtonGroup;
 class QToolButton;
-class QSignalMapper;
 
 class RegExpButtons : public QToolBar
 {

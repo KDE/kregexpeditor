@@ -19,7 +19,6 @@
 #include "regexpbuttons.h"
 
 #include <QButtonGroup>
-#include <QSignalMapper>
 
 #include <KIconLoader>
 #include <KLocalizedString>
