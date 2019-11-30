@@ -83,6 +83,7 @@ target_link_libraries(kregexpeditorcommon
     KF5::TextWidgets
     KF5::WidgetsAddons
     Qt5::Widgets
+    Qt5::Xml
     )
 
 set_target_properties(kregexpeditorcommon PROPERTIES VERSION 1.0.0 SOVERSION 1)
