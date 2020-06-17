@@ -33,7 +33,6 @@ Name[sv]=Grafisk komponent för att redigera reguljära uttryck
 Name[tr]=RegExp Düzenleyici Gereci
 Name[ug]=RegExp تەھرىرلىگۈچ كىچىك ئېپى()
 Name[uk]=Віджет редактора формальних виразів
-Name[x-test]=xxRegExp Editor Widgetxx
 Name[zh_TW]=正則表達式編輯器元件
 X-KDE-Library=kregexpeditorgui
 InitialPreference=2
