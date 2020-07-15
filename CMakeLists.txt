@@ -41,7 +41,7 @@ include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} )
 ############### Find the stuff we need ###############
 
 add_definitions( -DQT_NO_CAST_ASCII )
-add_definitions( -DQT_DISABLE_DEPRECATED_BEFORE=0x060000 )
+add_definitions( -DQT_DISABLE_DEPRECATED_BEFORE=0x050e00 )
 # not for now, the code is not fully ready for it
 #add_definitions( -DQT_NO_CAST_FROM_ASCII )
 add_definitions( -DQT_NO_CAST_TO_ASCII )
