@@ -89,7 +89,7 @@ typedef void *yyscan_t;
 
 %start regexp
 
-%pure-parser
+%define api.pure
 
 %param { yyscan_t scanner }
 %parse-param { struct parse_context *context }
