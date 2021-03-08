@@ -327,5 +327,5 @@ int nextId()
 
 QPixmap CompoundWidget::getIcon(const QString &name)
 {
-    return SmallIcon(name);
+    return QIcon::fromTheme(name).pixmap(KIconLoader::SizeSmall);
 }
