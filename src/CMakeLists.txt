@@ -85,7 +85,6 @@ add_library(kregexpeditorcommon SHARED ${kregexpeditorcommon_SRCS})
 target_link_libraries(kregexpeditorcommon
     KF5::ConfigWidgets
     KF5::IconThemes
-    KF5::KIOCore
     KF5::TextWidgets
     KF5::WidgetsAddons
     Qt5::Widgets
@@ -114,7 +113,7 @@ ecm_add_app_icon(kregexpeditor_SRCS ICONS ${ICONS_SRCS})
 
 add_executable(kregexpeditor ${kregexpeditor_SRCS})
 
-target_link_libraries(kregexpeditor  KF5::KIOCore Qt5::Widgets kregexpeditorcommon KF5::Crash)
+target_link_libraries(kregexpeditor Qt5::Widgets kregexpeditorcommon KF5::Crash)
 
 install(TARGETS kregexpeditor ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 

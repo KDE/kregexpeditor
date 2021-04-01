@@ -22,7 +22,6 @@
 #include <QFrame>
 
 #include <KLocalizedString>
-#include <KToolInvocation>
 #include <KHelpClient>
 #include <QDialogButtonBox>
 #include <QPushButton>

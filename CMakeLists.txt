@@ -24,7 +24,7 @@ find_package(KF5 REQUIRED
     ConfigWidgets
     DocTools
     IconThemes
-    KIO
+    Service
     TextWidgets
     WidgetsAddons
     Crash
