@@ -173,10 +173,10 @@ RegExpWidget *CharactersWidget::findWidgetToEdit(QPoint globalPos)
 
 int CharactersWidget::edit()
 {
-    if (_configWindow == 0) {
+    if (_configWindow == nullptr) {
         QApplication::setOverrideCursor(Qt::WaitCursor);
         // No parent here, as this window should continue to exists.
-        _configWindow = new CharacterEdits(0);
+        _configWindow = new CharacterEdits(nullptr);
         _configWindow->setObjectName(QStringLiteral("CharactersWidget::_configWindow"));
         QApplication::restoreOverrideCursor();
     }
@@ -186,7 +186,7 @@ int CharactersWidget::edit()
     _configWindow->setRegexp(_regexp);
     int ret = _configWindow->exec();
     if (ret == QDialog::Accepted) {
-        _editorWindow->updateContent(0);
+        _editorWindow->updateContent(nullptr);
         update();
     }
     return ret;

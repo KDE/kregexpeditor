@@ -62,11 +62,11 @@ void DragAccepter::mouseReleaseEvent(QMouseEvent *event)
     if (_editorWindow->isPasteing() && event->button() == Qt::LeftButton) {
         RegExp *regexp = _editorWindow->pasteData();
 
-        RegExpWidget *newElm = WidgetFactory::createWidget(regexp, _editorWindow, 0);
+        RegExpWidget *newElm = WidgetFactory::createWidget(regexp, _editorWindow, nullptr);
         if (newElm) {
             ConcWidget *elm;
             if (!(elm = dynamic_cast<ConcWidget *>(newElm))) {
-                elm = new ConcWidget(_editorWindow, newElm, 0);
+                elm = new ConcWidget(_editorWindow, newElm, nullptr);
             }
 
             Q_ASSERT(elm);
@@ -115,10 +115,10 @@ void DragAccepter::dropEvent(QDropEvent *event)
     // it a parent here.
     QString name = QString::fromLatin1(event->mimeData()->data(QStringLiteral("KRegExpEditor/widgetdrag")));
     RegExp *regexp = WidgetFactory::createRegExp(name);
-    RegExpWidget *newElm = WidgetFactory::createWidget(regexp, _editorWindow, 0);
+    RegExpWidget *newElm = WidgetFactory::createWidget(regexp, _editorWindow, nullptr);
     ConcWidget *elm;
     if (!(elm = dynamic_cast<ConcWidget *>(newElm))) {
-        elm = new ConcWidget(_editorWindow, newElm, 0);
+        elm = new ConcWidget(_editorWindow, newElm, nullptr);
     }
 
     Q_ASSERT(elm);

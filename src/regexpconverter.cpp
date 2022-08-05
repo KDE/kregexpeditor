@@ -87,7 +87,7 @@ QString RegExpConverter::escape(const QString &text, const QList<QChar> &chars, 
 */
 RegexpHighlighter *RegExpConverter::highlighter(QTextEdit *)
 {
-    return NULL;
+    return nullptr;
 }
 
 RegExpConverter *RegExpConverter::current()

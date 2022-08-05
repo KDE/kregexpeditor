@@ -73,7 +73,7 @@ CharSelector::CharSelector(QWidget *parent)
     _stack = new QStackedWidget(this /*, "_stack"*/);
     layout->addWidget(_stack);
 
-    _normal = new LimitedCharLineEdit(LimitedCharLineEdit::NORMAL, 0, QStringLiteral("_normal"));
+    _normal = new LimitedCharLineEdit(LimitedCharLineEdit::NORMAL, nullptr, QStringLiteral("_normal"));
     _stack->insertWidget(0, new StackContainer(_normal, _stack));
 
     _hex = new LimitedCharLineEdit(LimitedCharLineEdit::HEX, _stack, QStringLiteral("_hex"));

@@ -249,7 +249,7 @@ void CompoundWidget::paintEvent(QPaintEvent *e)
 
 void CompoundWidget::slotConfigWindowClosed()
 {
-    _editorWindow->updateContent(0);
+    _editorWindow->updateContent(nullptr);
     update();
 }
 
@@ -285,7 +285,7 @@ void CompoundWidget::mouseReleaseEvent(QMouseEvent *event)
     if (event->button() == Qt::LeftButton
         && QRect(_pixmapPos, _pixmapSize).contains(event->pos())) {
         _hidden = !_hidden;
-        _editorWindow->updateContent(0);
+        _editorWindow->updateContent(nullptr);
         repaint(); // is this necesary?
         _editorWindow->emitChange();
     } else {

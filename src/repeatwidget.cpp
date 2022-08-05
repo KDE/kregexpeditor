@@ -147,7 +147,7 @@ RegExp *RepeatWidget::regExp() const
 
 void RepeatWidget::slotConfigWindowClosed()
 {
-    _editorWindow->updateContent(0);
+    _editorWindow->updateContent(nullptr);
     update();
 }
 

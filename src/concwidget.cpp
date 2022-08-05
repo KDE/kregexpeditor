@@ -44,7 +44,7 @@ ConcWidget::ConcWidget(RegExpEditorWindow *editorWindow, RegExpWidget *child, QW
 }
 
 ConcWidget::ConcWidget(RegExpEditorWindow *editorWindow, ConcWidget *origConc, unsigned int start, unsigned int end)
-    : MultiContainerWidget(editorWindow, 0)
+    : MultiContainerWidget(editorWindow, nullptr)
 {
     Q_UNUSED(start);
     Q_UNUSED(end);
@@ -333,7 +333,7 @@ RegExp *ConcWidget::selection() const
 
     bool foundAny = false;
     bool foundMoreThanOne = false;
-    RegExp *regexp = 0;
+    RegExp *regexp = nullptr;
 
     QList<RegExpWidget * >::const_iterator it = _children.constBegin();
     ++it; // Skip past the first DragAccepter
