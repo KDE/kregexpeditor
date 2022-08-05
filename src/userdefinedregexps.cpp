@@ -98,7 +98,7 @@ void UserDefinedRegExps::createItems(const QString &_title, const QString &dir, 
 
         QFile file(fileName);
         if (!file.open(QIODevice::ReadOnly)) {
-            KMessageBox::sorry(this, i18n("Could not open file for reading: %1", fileName));
+            KMessageBox::error(this, i18n("Could not open file for reading: %1", fileName));
             continue;
         }
 
@@ -108,7 +108,7 @@ void UserDefinedRegExps::createItems(const QString &_title, const QString &dir, 
 
         RegExp *regexp = WidgetFactory::createRegExp(data);
         if (!regexp) {
-            KMessageBox::sorry(this, i18n("File %1 containing user defined regular expression contained an error", fileName));
+            KMessageBox::error(this, i18n("File %1 containing user defined regular expression contained an error", fileName));
             continue;
         }
 

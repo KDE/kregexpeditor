@@ -403,7 +403,7 @@ void RegExpEditorWindow::slotSave()
 
     QFile file(fileName);
     if (!file.open(QIODevice::WriteOnly)) {
-        KMessageBox::sorry(this, i18n("Could not open file for writing: %1", fileName));
+        KMessageBox::error(this, i18n("Could not open file for writing: %1", fileName));
         return;
     }
 
