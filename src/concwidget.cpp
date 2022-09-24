@@ -319,7 +319,7 @@ bool ConcWidget::isSelected() const
     QList<RegExpWidget *>::const_iterator it = _children.constBegin();
     ++it; // Skip past first DragAccepter.
     for (; (it != _children.constEnd()) && allSelected; it += 2) {
-        allSelected = allSelected && (*it)->isSelected();
+        allSelected = (*it)->isSelected();
     }
 
     return allSelected;
