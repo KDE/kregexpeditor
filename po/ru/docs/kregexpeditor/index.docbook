@@ -1,0 +1,906 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % Russian "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kregexpeditor" lang="&language;">
+
+  <bookinfo>
+    <title
+>Редактор регулярных выражений</title>
+
+    <authorgroup>
+      <author
+><firstname
+>Jesper K.</firstname
+> <surname
+>Pedersen</surname
+> <affiliation
+><address
+>&Jesper.Pedersen.mail;</address
+></affiliation>
+      </author>
+<othercredit role="translator"
+><firstname
+>Николай</firstname
+><surname
+>Шафоростов</surname
+><affiliation
+><address
+><email
+>shafff@ukr.net</email
+></address
+></affiliation
+><contrib
+>Перевод на русский</contrib
+></othercredit
+> 
+    </authorgroup>
+
+    <date
+>3 июля 2001 г.</date>
+    <releaseinfo
+>0.1</releaseinfo>
+
+    <legalnotice
+>&underFDL;</legalnotice>
+
+    <copyright>
+      <year
+>2001</year>
+      <holder
+>Jesper K. Pedersen</holder>
+    </copyright>
+
+    <abstract>
+      <para
+>Это руководство описывает редактор регулярных выражений, встраиваемый в приложения KDE.</para>
+    </abstract>
+
+    <keywordset>
+      <keyword
+>KDE</keyword>
+      <keyword
+>регулярное выражение</keyword>
+    </keywordset>
+  </bookinfo>
+
+  <!-- ====================================================================== -->
+  <!--                               Introduction                             -->
+  <!-- ====================================================================== -->
+  <chapter id="introduction">
+    <title
+>Введение</title>
+
+
+    <para
+>Редактор регулярных выражений предназначен для редактирования регулярных выражений в графическом виде (в отличие от текстовых строк). Традиционно, регулярные выражения имеют ASCII-синтаксис, к примеру: <literal
+>^.*kde\b</literal
+>. Основными недостатками данного стиля являются: <itemizedlist>
+        <listitem
+><para
+>Сложность применения для людей, не занимающихся программированием.</para
+></listitem>
+
+        <listitem
+><para
+>Необходимость <emphasis
+>экранировать</emphasis
+> определённые символы (например, для указания звёздочки придётся набрать <literal
+>\*</literal
+>). </para
+></listitem>
+
+        <listitem
+><para
+>Необходимость постоянно помнить и соблюдать правила приоритетов выполнения - что делает операция <literal
+>x|y*</literal
+>? Значение <literal
+>x</literal
+> или множество <literal
+>y</literal
+>, <emphasis
+>ИЛИ</emphasis
+> множества <literal
+>x</literal
+> и <literal
+>y</literal
+> смешаны?</para
+></listitem>
+      </itemizedlist>
+    </para>
+
+    <para
+>Редактор регулярных выражений позволяет <emphasis
+>рисовать</emphasis
+>  регулярные выражения. Он позволяет решить проблемы, изложенные в пунктах два и три выше. Делает ли редактор простым и доступным использование регулярных выражений для всех - покажет практика. Если вы не программист, который мастерски манипулирует всей мощью регулярных выражений - <ulink url="mailto:blackie@kde.org"
+>сообщите нам своё мнение</ulink
+>. </para>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                       What is a Regular Expression                     -->
+  <!-- ====================================================================== -->
+  <chapter id="whatIsARegExp">
+    <title
+>Что такое регулярное выражение?</title>
+
+    <para
+>Регулярные выражения являются способом записи <emphasis
+>условий</emphasis
+>, которыми мы обычно мысленно описываем ситуацию. Обычно в текстовом редакторе для поиска вы используете какие-то <emphasis
+>конкретные</emphasis
+> строки, однако использование регулярных выражений позволяет описать: на что должен быть похожим искомый текст. К примеру, <emphasis
+>Я ищу слово KDE, стоящее только в начале строки</emphasis
+>, или <emphasis
+>Я ищу слово <literal
+>под</literal
+>, но только как слово целиком</emphasis
+>, или <emphasis
+>Я ищу файлы, начинающиеся со слова <literal
+>test</literal
+> и последующих цифр, к примеру <literal
+>test12</literal
+>, <literal
+>test107</literal
+> и <literal
+>test007</literal
+></emphasis
+></para>
+
+    <para
+>Регулярные выражения можно составлять из более мелких регулярных выражений, подобно тому как строятся большие дома из маленьких кирпичей. Так как в строительстве существует множество материалов, то далее мы постараемся на примерах рассказать об основных «кирпичах», тем самым заложив фундамент для построения регулярных выражений.</para>
+
+    <example>
+      <title
+>Поиск обычного текста</title>
+      <para
+>Оговоримся сразу, что регулярные выражения не являются наилучшим способом поиска конкретных строк в тексте. Причина кроется в том, что в регулярных выражениях некоторым символам присвоены специальные значения. Среди них следующие: <literal
+>.*|$</literal
+>. Таким образом, если вы хотите найти в тексте <literal
+>kde.</literal
+> (то есть слово <literal
+>kde</literal
+> с точкой), то придётся набрать  <literal
+>kde\.</literal
+> <footnote
+><para
+>Редактор регулярных выражений выполнит все необходимые формальности за вас</para
+></footnote
+>, записав <literal
+>\.</literal
+> вместо <literal
+>.</literal
+>, то есть подставив <emphasis
+>управляющую последовательность</emphasis
+> (escape sequence, также это было названо экранированием выше) вместо символа. </para>
+    </example>
+
+    <example id="positionregexp">
+      <title
+>Поиск интернет-адресов</title>
+      <para
+>При выделении текста похожего на URL в KDE то программа <command
+>klipper</command
+>, если она настроена соответствующим образом, предложить вам открыть этот URL при помощи <command
+>konqueror</command
+>.</para>
+
+      <para
+><command
+>Klipper</command
+> осуществляет свой выбор, руководствуясь результатами сопоставления нескольких регулярных выражений, и когда одно из регулярных выражений совпадает с искомым, тогда и будет предложен подходящий вариант.</para>
+      
+      <para
+>Регулярное выражение для &URL; содержит (помимо всего прочего) условие, что текст должен начинаться с <literal
+>http://</literal
+>. С помощью регулярного выражения это условие можно описать следующим образом: <literal
+>http://</literal
+> со шляпой (с символом <literal
+>^</literal
+>).</para>
+
+      <para
+>Предыдущий пример показывает, как с помощью регулярных выражений можно указать расположение искомого фрагмента в тексте (совпадение позиции). Аналогично можно указать на то, что искомый фрагмент находится <emphasis
+>в конце строки </emphasis
+>, для этого используется символ <literal
+>$</literal
+> (символ доллара).</para>
+    </example>
+
+    <example id="boundaryregexp">
+      <title
+>Поиск слова <literal
+>the</literal
+>, но не <emphasis
+>the</emphasis
+><literal
+>re</literal
+>, <literal
+>brea</literal
+><emphasis
+>the</emphasis
+> или <literal
+>ano</literal
+><emphasis
+>the</emphasis
+><literal
+>r</literal
+></title>
+      <para
+>По образу и подобию вышеизложенного могут быть указаны ещё два дополнительных условия при поиске, а именно: позиция <emphasis
+>на границе слова</emphasis
+> (в начале, либо конце) и <emphasis
+>не на границе слова</emphasis
+>. Для обозначения этих условий применяются обозначения <literal
+>\b</literal
+> (указание на границу слова) и <literal
+>\B</literal
+> (не на границе слова). <emphasis
+></emphasis
+></para>
+
+      <para
+>Таким образом слово <literal
+>the</literal
+> можно найти, воспользовавшись регулярным выражением <literal
+>\bthe\b</literal
+>. Этим мы указываем, что ищем просто слово <literal
+>the</literal
+> без каких-бы то ни было довесков перед и после слова (т.е с границами по каждой из сторон слова) </para>
+
+      <para
+>Все четыре типа указания на расположение, использующиеся в регулярных выражениях, включены в редактор, см. <link linkend="positiontool"
+> четыре различных типа расположения</link
+></para>
+    </example>
+
+    <example id="altnregexp">
+      <title
+>Поиск всех <literal
+>this</literal
+> или <literal
+>that</literal
+></title>
+      <para
+>Представьте себе, что вы хотите найти в документе слово <literal
+>this</literal
+> или слово <literal
+>that</literal
+>. При обычном поиске вам необходимо сделать два прохода: в первый произвести поиск слова <literal
+>this</literal
+>, во второй - <literal
+>that</literal
+>.</para>
+
+      <para
+>Используя регулярные выражения, сделать всё это можно за один приём. Для этого запишите выражение следующим образом: <literal
+>this|that</literal
+>, т.е. разделите оба искомых слова вертикальной чертой. <footnote
+><para
+>Обратите внимание, что по обе стороны от вертикальной черты могут находиться не только искомые слова, но и два регулярных выражения.</para
+></footnote
+></para>
+
+      <para
+>В редакторе регулярных выражений вы не вводите вручную вертикальную черту, а активируете <link linkend="altntool"
+>инструмент альтернатива</link
+> и вводите  регулярные выражения в отдельные поля.</para>
+    </example>
+
+    <example id="repeatregexp">
+      <title
+>Поиск произвольных символов</title>
+      <para
+>Регулярные выражения часто сравнивают с шаблоном, использующемся в командном интерпретаторе (оболочке), где можно выбрать несколько файлов, используя звёздочку. Вы без всякого сомнения узнаете шаблон в следующих примерах: <itemizedlist>
+          <listitem
+><para
+><literal
+>ls *.txt</literal
+> - здесь <literal
+>*.txt</literal
+>является шаблоном, указывающим на то, что необходимо выбрать (и удалить) все файлы, заканчивающиеся на <literal
+>~</literal
+></para
+></listitem>
+          <listitem
+><para
+><literal
+>cat test??.res</literal
+> - вывод всех файлов, начинающихся с <literal
+>test</literal
+>, за которым следуют два любых символа, и заканчивающихся на <literal
+>.res</literal
+>.</para
+></listitem>
+        </itemizedlist>
+      </para>
+
+      <para
+>В оболочке звёздочка указывает, что любой символ может встретиться в названии любое количество раз, другими словами, звёздочка означает <emphasis
+>всё, что угодно</emphasis
+>. В регулярном выражении подобное условие задаётся при помощи записи  <literal
+>.*</literal
+>. Точка указывает, что может быть <emphasis
+> один</emphasis
+> произвольный символ, в свою очередь звёздочка сообщает, что предыдущее регулярное выражение может соответствовать любое количество раз. Вместе они задают условие поиска: любой единичный символ может быть встречен произвольное количество раз.</para>
+
+      <para
+>Это может на первый взгляд показаться чрезмерно сложным, но когда вы увидите всю картину работы регулярных выражений, то сможете по достоинству оценить всё их изящество. Позвольте продемонстрировать ещё одно основное выражение: <literal
+>a</literal
+>. Эта запись указывает, что регулярное выражение ищет соответствие одиночному символу <literal
+>a</literal
+>. Если объединить эту запись со звёздочкой, т.е. <literal
+>a*</literal
+>, то получится регулярное выражение допускающее любое количество символов «a» подряд.</para>
+
+      <para
+>Можно объединять несколько регулярных выражений последовательно, например <literal
+>ba(na)*</literal
+>. Запись <footnote
+><para
+><literal
+>(na)*</literal
+> указывает, что строка в скобках может повторяться любое количество раз</para
+></footnote
+>. Представьте себе, что работая в текстовом редакторе, вы должны найти следующие слова: <literal
+>ba</literal
+>, <literal
+>bana</literal
+>, <literal
+>banana</literal
+>, <literal
+>bananananananana</literal
+> </para>
+
+      <para
+>Как сказано выше, не составляет труда записать шаблон оболочки: <literal
+>test??.res</literal
+> через регулярное выражение: <literal
+>test..\.res</literal
+>. Точка означает любой символ. Для того чтобы указать, что нужна именно точка, вы должны записать <literal
+>\.</literal
+><footnote
+><para
+>  Здесь использована управляющая последовательность</para
+></footnote
+>. Во всех словах регулярное выражение <literal
+>\.</literal
+> означает собственно точку, а просто точка - соответствие любому символу в данной позиции. </para>
+
+      <para
+>В редакторе регулярных выражений повторяющиеся выражения могут быть вставлены с использованием инструмента <link linkend="repeattool"
+>повторить</link
+> </para>
+    </example>
+
+    <example id="lookaheadregexp">
+      <title
+>Замена <literal
+>&amp;</literal
+> на <literal
+>&amp;amp;</literal
+> в документе &HTML;.</title
+> <para
+>Для полуения в браузере специального символа <literal
+>&amp;</literal
+>, его необходимо записывать как <literal
+>&amp;amp;</literal
+> - по аналогии с тем, как происходит замена служебных символов на управляющие последовательности в регулярных выражениях.</para>
+
+      <para
+>Представьте себе, что вы набрали документ &HTML; в обычном текстовом редакторе (XEmacs, Kate или Notepad), и полностью забыли про эти правила. Для того чтобы устранить ошибку, необходимо заменить все записи <literal
+>&amp;</literal
+> на <literal
+>&amp;amp;</literal
+>.</para>
+
+      <para
+>Эта операция может быть достаточно просто реализована с использованием традиционных средств поиска и замены, однако возможны некоторые осложнения. Представьте себе, что что вы периодически вспоминали об этих правилах, т.е. <emphasis
+>местами </emphasis
+> у вас записано правильно. В этом случае все ошибочные варианты будут заменены на правильные <literal
+>&amp;amp;</literal
+>, а в тех местах, где было записано правильно, возникнет новая ошибка: <literal
+>&amp;amp;amp;</literal
+></para>
+
+      <para
+>На самом деле вы хотите произвести замену записи <literal
+>&amp;</literal
+> только в том случае, если за ней <emphasis
+>не</emphasis
+> стоит <literal
+>amp;</literal
+>. Для этого нужно задать ограничение на <emphasis
+>контекст</emphasis
+> (т.е. то, что будет непосредственно после найденного текста). </para>
+
+      <para
+>Для того чтобы указать, при котором за искомым текстом не должно стоять <literal
+>amp;</literal
+>, необходимо записать следующее выражение: <literal
+>&amp;(?!amp;)</literal
+>. Гораздо проще всё будет выглядеть в редакторе регулярных выражений, если вы воспользуетесь <link linkend="lookaheadtools"
+> инструментами ограничения по контексту</link
+>.</para>
+    </example>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                    Using the Regular Expression Editor                 -->
+  <!-- ====================================================================== -->
+  <chapter id="theEditor">
+    <title
+>Работа с редактором регулярных выражений</title>
+
+    <para
+>В этой главе рассказывается о работе непосредственно с редактором регулярных выражений </para>
+
+    <!-- ====================================================================== -->
+    <!--                   The organization of the screen                       -->
+    <!-- ====================================================================== -->
+    <sect1 id="screenorganization">
+      <title
+>Организация рабочего окна</title>
+
+      <mediaobject>
+        <imageobject
+><imagedata format="PNG" fileref="theEditor.png"/></imageobject>
+      </mediaobject>
+      
+      <para
+>Наиболее важной частью редактора является область редактирования, это область, в который вы рисуете регулярные выражения. Область имеет серый цвет и расположена в центре рабочего окна.</para>
+
+      <para
+>Выше области редактирования расположены две панели инструментов. Первая панель содержит <link linkend="editingtools"
+>средства редактирования</link
+> и очень похожа на инструменты для рисования в графических программах. Вторая панель содержит кнопку <emphasis
+>Что это?</emphasis
+> и кнопки отмены и повтора.</para>
+
+      <para
+>Ниже области редактирования находится строка регулярного выражения в текстовом (ASCII) виде. Все изменения, вносимые в графическом редакторе переносятся в текстовую форму. Если вы захотите поправить регулярное выражение в текстовом виде, то все изменения также будут внесены в графическое представление.</para>
+
+      <para
+>Наконец, слева от области редактирования есть много заготовок регулярных выражений. Они служат для достижения двух целей: (1) Когда вы используете редактор, эти выражения являются более <emphasis
+>качественными</emphasis
+> или, если хотите, более исчерпывающими, заменяя общие регулярные выражения. На рисунке выше вы можете увидеть, как текстовое представление ".*" заменяется на шаблонное "всё что угодно".(2) Вы можете использовать эти заготовки в качестве строительного материала для построения своих регулярных выражений. За более исчерпывающей информацией обратитесь к разделу <link linkend="userdefinedregexps"
+>регулярные выражения, определяемые пользователями</link
+>, где содержится подробная информация о том, как сохранить ваши собственные регулярные выражения.</para
+>      
+    </sect1>
+
+    <!-- ====================================================================== -->
+    <!--                         Editing Tools                                  -->
+    <!-- ====================================================================== -->
+    <sect1 id="editingtools">
+      <title
+>Средства редактирования</title>
+      <para
+>В этой главе предполагается, что вы изучили главу <link linkend="whatIsARegExp"
+>что такое регулярные выражения</link
+> и имеете представление, о чём идёт речь.</para>
+      
+      <para
+>Все инструменты расположены на панели инструментов, выше области редактирования. Далее будет описан каждый из инструментов.</para>
+      
+      
+
+      <simplesect id="selecttool">
+        <title
+>Выделение</title>
+	<mediaobject>
+            <imageobject
+><imagedata format="PNG" fileref="select.png"/>
+        </imageobject
+></mediaobject>
+        <para
+>Выделение предназначено для обозначения элементов, подлежащих вырезке - вставке или перетаскиванию. Выделение работает также как и в обычных программах для работы с графикой.</para>
+      </simplesect>
+        
+      
+
+      <simplesect id="texttool"
+><title
+>Текст</title>
+      <mediaobject>
+      <imageobject>
+	    <imagedata format="PNG" fileref="text.png"/>
+	</imageobject
+></mediaobject>
+		        
+        <para
+><inlinemediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="texttool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Используя этот инструмент вы можете вставить обычный текст, при этом не заботясь о наличии и необходимости замены специальных символов. Далее в примере будет создано регулярное выражение:  <literal
+>abc\*\\\)</literal
+></para>
+      </simplesect>
+
+      
+
+      <simplesect id="characterstool"
+><title
+>Символ</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="characters.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="charactertool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Используя этот инструмент, вы определяете области значений символьных величин. К примеру, что в тексте содержатся символы <literal
+>[0-9]</literal
+>, <literal
+>[^a-zA-Z,_]</literal
+>. Если вы воспользовались данным инструментом, то должен появиться диалог, в котором определяются области значений символьных величин.</para>
+        
+        <para
+>См. также <link linkend="repeatregexp"
+>повторение регулярных выражений</link
+>.</para>
+      </simplesect>
+
+      
+      
+      <simplesect id="anychartool"
+><title
+>Любой символ</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="anychar.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="anychartool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Регулярное выражение «точка» (.). Точка соответствует любому одиночному символу.</para
+> 
+        
+       
+        
+        </simplesect>
+
+
+
+      <simplesect id="repeattool"
+><title
+>Повторение</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeat.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeattool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Повторяющиеся элементы. Включают в себя звёздочку (*), плюс (+), знак вопроса (?) и интервал ({3,5}). Если вы используете этот инструмент, то появится диалог, в котором вы должны указать необходимое количество повторов.</para>
+          
+          <para
+>Вы определяете, что требуется повторять, рисуя его внутри квадратика, который появляется при использовании данного инструмента.</para>
+
+          <para
+>Повторяемые элементы выражения можно взять извне, затем поместить в квадрат. Также вы можете сперва нарисовать то что потом должно будет быть повторено, а затем выбрать инструмент повторения. И наоборот: вы можете сперва вставить повторитель, а затем нарисовать внутри него повторяемое. </para>
+
+        <para
+>См. <link linkend="repeatregexp"
+>повторяемые регулярные выражения</link
+>.</para>
+        </simplesect>
+
+
+
+
+      <simplesect id="altntool"
+><title
+>Варианты</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="altn.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="altntool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Задание альтернативы - это использование оператора(|). Вы рисуете другой вариант поверх имеющегося, после того как в редакторе появится новый квадратик для ввода.</para>
+
+        <para
+>См. раздел <link linkend="altnregexp"
+>альтернативные регулярные выражения</link
+></para>
+      </simplesect>
+      
+
+
+
+      <simplesect id="compoundtool"
+><title
+>Составное выражение</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="compound.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="compoundtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Это - не регулярное выражение. Оно позволяет группировать составляющие для того, чтобы вы могли их легко использовать, руководствуясь только названиями. Это видно в правой части рисунка.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="positiontool"
+><title
+>«Начало строки», «Конец строки»</title>
+        <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="begline.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="endline.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="linestartendtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Инструменты начала и конца строк указывают на соответствие условиям начала и конца строки. Регулярное выражение в приведённом выше примере рабочего окна редактора не содержит символов соответствия начала/конца строк.</para>
+        
+        <para
+>См. <link linkend="positionregexp"
+>сопоставление позиций в регулярных выражениях</link
+>.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect
+><title
+>«Граница слова»</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="wordboundary.png"/>
+            </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+><imagedata format="PNG" fileref="nonwordboundary.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="boundarytools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Позволяет указывать что текст должен или не должен быть на границе слова. Регулярное выражение, изображённое на рисунке, совпадает с любыми словами, начинающимися с <literal
+>the</literal
+>. Само слово <literal
+>the</literal
+> не совпадает с этим условием.</para>
+
+        <para
+>См. описание в разделе <link linkend="boundaryregexp"
+>границы слов в регулярных выражениях</link
+>.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="lookaheadtools"
+><title
+>Ограничение по контексту</title>
+	  <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="poslookahead.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="neglookahead.png"/>
+        </imageobject
+></mediaobject>
+
+        <para
+><inlinemediaobject
+><imageobject
+> <imagedata format="PNG" fileref="lookaheadtools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Запрет/разрешение того чтобы после найденного текста шёл текст, отвечающий указанному шаблону. Этот текст, тем не менее, не будет являться частью результата.</para>
+
+        <para
+>Примечание: разрешается устанавливать такие условия только в конце регулярного выражения. Редактор регулярных выражений же не следит за этим.</para>
+
+        <para
+>См. описание в разделе <link linkend="lookaheadregexp"
+>Ограничение по контексту</link
+>.</para>
+      </simplesect>
+    </sect1>
+
+  <!-- ====================================================================== -->
+  <!--                  User Defined Regular Expressions                      -->
+  <!-- ====================================================================== -->
+    <sect1 id="userdefinedregexps">
+      <title
+>Регулярные выражения, определяемые пользователем</title>
+      <para
+>Слева от области редактирования расположена зона для регулярных выражений, определяемых пользователем. Несколько регулярных выражений занесено в этот список непосредственно после установки &kde;, тогда как другие вы можете внести и сохранить самостоятельно.</para
+> 
+
+      <para
+>Данные регулярные выражения обеспечивают достижение двух целей: (см. <link linkend="screenorganization"
+>более подробное описание</link
+>), а именно: 1) Обеспечивают блоки для компоновки регулярных выражений 2) делают регулярные выражения более понятными.</para>
+
+      <para
+>Вы можете сохранить ваши собственные регулярные выражения, щёлкнув правой кнопкой мыши в области редактирования и выбрав пункт <literal
+>Сохранить регулярное выражение</literal
+> в появившемся меню.</para>
+
+      <para
+>Если регулярное выражение сохраняется в составе <link linkend="compoundtool"
+>контейнера</link
+>, то оно может участвовать в создании последующих регулярных выражений.</para>
+
+      <para
+>Регулярные выражения, определяемые пользователем, могут быть переименованы или удалены щелчком правой кнопки мыши на их названии в списке и выбором соотв. пункта в появившемся меню.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                  Reporting a bug and Suggesting Features               -->
+  <!-- ====================================================================== -->
+  <chapter id="bugreport">
+    <title
+>Как сообщить о пожеланиях и замеченных ошибках?</title>
+    <para
+>Замеченные ошибки и пожелания направляйте в <ulink url="http://bugs.kde.org/"
+>систему отслеживания ошибок</ulink
+>, но <emphasis role="strong"
+> сначала</emphasis
+> убедитесь в том, что подобная ошибка ещё не была <ulink url="http://bugs.kde.org/buglist.cgi?quicksearch=kregexpeditor"
+>зафиксирована</ulink
+>.</para>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                                 FAQ                                    -->
+  <!-- ====================================================================== -->
+  <chapter id="faq">
+    <title
+>Вопросы и ответы</title>
+    <sect1 id="question1">
+      <title
+>Поддерживает ли редактор регулярных выражений обратные ссылки?</title>
+      <para
+>В настоящий момент нет, но планируется к реализации в следующей версии.</para>
+    </sect1>
+
+    <sect1 id="question2">
+      <title
+>Будет ли в редакторе регулярных выражений предусмотрена возможность отображения совпадений?</title>
+      <para
+>Нет, но будем надеяться, что это будет реализовано в будущем.</para>
+    </sect1>
+
+    <sect1 id="question3">
+      <title
+>Я являюсь автором программы &kde;, как я могу использовать ваш редактор в своём приложении?</title>
+      <para
+>См. ссылку <ulink url="http://developer.kde.org/documentation/library/cvs-api/classref/interfaces/KRegExpEditorInterface.html"
+>Документация для класса KRegExpEditorInterface</ulink
+></para>
+    </sect1>
+
+    <sect1 id="question4">
+      <title
+>Я не могу найти кнопку <emphasis
+>редактировать регулярные выражения</emphasis
+>, допустим, в konqueror, после переустановки KDE3, почему?</title>
+      <para
+>Виджет для работы с регулярными выражениями содержится в пакете kdeutils. Если вы не установили этот пакет, то кнопка <emphasis
+>редактировать регулярные выражения </emphasis
+>не появится в соответствующих программах.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                           Credits and Licenses                         -->
+  <!-- ====================================================================== -->
+  <chapter id="credits-and-license">
+    <title
+>Авторские права и лицензия</title>
+
+    <para
+>Документация (С) 2001, Jesper K. Pedersen &Jesper.Pedersen.mail;  </para>
+
+
+<para
+>Перевод (С) 2002 Клютченя А.Л. <email
+>asoneofus@kde.ru</email
+>. Редактирование перевода (С) 2004,2007 Н. Шафоростов, <email
+>shaforostoff@kde.ru</email
+>.</para
+> &underFDL; &underGPL; </chapter>
+
+
+</book>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

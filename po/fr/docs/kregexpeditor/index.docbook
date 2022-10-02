@@ -1,0 +1,914 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % French "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kregexpeditor" lang="&language;">
+
+  <bookinfo>
+    <title
+>Manuel de l'éditeur d'expressions rationnelles</title>
+
+    <authorgroup>
+      <author
+><firstname
+>Jesper K.</firstname
+> <surname
+>Pedersen</surname
+> <affiliation
+><address
+>&Jesper.Pedersen.mail;</address
+></affiliation>
+      </author>
+<othercredit role="translator"
+><firstname
+>Simon</firstname
+><surname
+>Depiets</surname
+><affiliation
+><address
+><email
+>2df@tuxfamily.org</email
+></address
+></affiliation
+><contrib
+>Traduction française&nbsp;</contrib
+></othercredit
+> 
+    </authorgroup>
+
+    <date
+>03/07/2001</date>
+    <releaseinfo
+>0.1</releaseinfo>
+
+    <legalnotice
+>&underFDL;</legalnotice>
+
+    <copyright>
+      <year
+>2001</year>
+      <holder
+>Jesper K. Pedersen</holder>
+    </copyright>
+
+    <abstract>
+      <para
+>Ce manuel décrit le composant graphique pour l'édition d'expression rationnelle.</para>
+    </abstract>
+
+    <keywordset>
+      <keyword
+>KDE</keyword>
+      <keyword
+>expression rationnelle</keyword>
+    </keywordset>
+  </bookinfo>
+
+  <!-- ====================================================================== -->
+  <!--                               Introduction                             -->
+  <!-- ====================================================================== -->
+  <chapter id="introduction">
+    <title
+>Introduction</title>
+
+
+    <para
+>L'éditeur d'expressions rationnelles est un éditeur pour modifier des expressions rationnelles de manière graphique (à l'inverse de la syntaxe <acronym
+>ASCII</acronym
+>). Traditionnellement, les expressions rationnelles sont écrites avec une syntaxe <acronym
+>ASCII</acronym
+>, ressemblant par exemple à <literal
+>^.*kde\b</literal
+>. Les inconvénients majeurs de ce style sont : <itemizedlist>
+        <listitem
+><para
+>il est difficilement compréhensible pour les non informaticiens ;</para
+></listitem>
+
+        <listitem
+><para
+>il est nécessaire que vous <emphasis
+>échappiez</emphasis
+> certains symboles (pour trouver une étoile, par exemple, il vous faut écrire <literal
+>\*</literal
+>) ; </para
+></listitem>
+
+        <listitem
+><para
+>il est nécessite que vous vous souveniez des règles de <emphasis
+>précédence</emphasis
+> (à quoi correspond <literal
+>x|y*</literal
+> ? Un seul <literal
+>x</literal
+> ou un certain nombre de <literal
+>y</literal
+>, <emphasis
+>OU</emphasis
+> un certain nombre de <literal
+>x</literal
+> et de <literal
+>y</literal
+> mélangés ?).</para
+></listitem>
+      </itemizedlist>
+    </para>
+
+    <para
+>L'éditeur d'expressions rationnelles, d'un autre côté, vous permet de <emphasis
+>dessiner</emphasis
+> vos expressions rationnelles d'une manière non ambiguë. L'éditeur résoud au moins les éléments deux et trois ci-dessus. Il ne permet pas aux non programmeurs d'accéder aux expressions rationnelles, bien que seuls des tests par des utilisateurs peuvent le dire. Donc, si vous n'êtes pas un programmeur, et que vous avez terrassé la puissance des expressions rationnelles par l'intermédiaire de cet éditeur, alors <ulink url="mailto:blackie@kde.org"
+>faites-le moi savoir</ulink
+> s'il vous plaît. </para>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                       What is a Regular Expression                     -->
+  <!-- ====================================================================== -->
+  <chapter id="whatIsARegExp">
+    <title
+>Qu'est-ce qu'une expression rationnelle ?</title>
+
+    <para
+>Les expressions rationnelles sont une manière de spécifier des <emphasis
+>conditions</emphasis
+> devant être remplies en pensant à une situation. Normalement, lorsque vous faites une recherche dans un éditeur de texte, vous spécifiez le texte à rechercher <emphasis
+>littéralement</emphasis
+>, à l'opposé, en utilisant les expressions rationnelles, vous décrivez à quoi ressemble un élément donnée. Les exemples illustrant cela incluent <emphasis
+>je recherche le mot &kde;, mais uniquement en début de ligne</emphasis
+>, ou <emphasis
+>je recherche le mot <literal
+>le</literal
+>, mais entouré d'espace</emphasis
+>, ou bien encore <emphasis
+>je cherche les fichiers commençant par le mot <literal
+>test</literal
+>, suivi par des numéros, par exemple <literal
+>test12</literal
+>, <literal
+>test107</literal
+> et <literal
+>test007</literal
+></emphasis
+>.</para>
+
+    <para
+>Vous construisez des expressions rationnelles à partir d'expressions rationnelles plus petites, exactement comme vous construirez un immense jouet en lego à partir de sous-parties plus petites. De même que dans le monde des legos, il existe un certain nombre de blocs de construction de base. Dans les chapitres suivants, je décrirai chacun de ces blocs de construction de base en illustrant par un certain nombre d'exemples.</para>
+
+    <example>
+      <title
+>Recherche d'un texte normal</title>
+      <para
+>Si vous désirez rechercher un texte donné, les expressions rationnelles ne sont vraiment pas un bon choix. La raison à cela est que les expressions rationnelles associent des significations particulières à certains caractères. Ce qui comprend les caractères suivants : <literal
+>.*|$</literal
+>. Ainsi, si vous désirez chercher le texte <literal
+>kde.</literal
+> (c'est-à-dire les caractères <literal
+>kde</literal
+> suivi d'un point), alors vous devrez spécifier cela de cette manière <literal
+>kde\.</literal
+><footnote
+><para
+>L'éditeur d'expressions rationnelles résout ce problème en prenant en compte les règles d'échappement à votre place.</para
+></footnote
+> Écrire <literal
+>\.</literal
+> au lieu d'un simple <literal
+>.</literal
+> est appelé <emphasis
+>échappement</emphasis
+>. </para>
+    </example>
+
+    <example id="positionregexp">
+      <title
+>Faire correspondre des &URL;</title>
+      <para
+>Lorsque vous sélectionnez quelque chose ressemblant à une &URL; dans &kde;, alors le programme <command
+>klipper</command
+> proposera de lancer <command
+>konqueror</command
+> avec l'&URL; sélectionnée.</para>
+
+      <para
+><command
+>Klipper</command
+> arrive à faire cela en associant la sélection à plusieurs expressions rationnelles différentes, lorsqu'une des expressions rationnelles correspond, la commande adaptée est proposée.</para>
+      
+      <para
+>L'expression rationnelle pour les &URL; spécifie (entre autres choses), que la sélection doit commencer par le texte <literal
+>http://</literal
+>. Cela est spécifié dans les expressions rationnelles en préfixant le texte <literal
+>http://</literal
+> par un chapeau (le caractère <literal
+>^</literal
+>).</para>
+
+      <para
+>La paragraphe ci-dessus est un exemple pour faire des reconnaissances par rapport à la position en utilisant des expressions rationnelles. De façon identique, la position <emphasis
+>fin-de-ligne</emphasis
+> peut être associée en utilisant le caractère <literal
+>$</literal
+> (&cad; le signe du dollar).</para>
+    </example>
+
+    <example id="boundaryregexp">
+      <title
+>Rechercher le mot <literal
+>le</literal
+>, mais pas <emphasis
+>le</emphasis
+><literal
+>ur</literal
+>, <literal
+>souff</literal
+><emphasis
+>le</emphasis
+> ou <literal
+>ra</literal
+><emphasis
+>le</emphasis
+><literal
+>ur</literal
+>.</title>
+      <para
+>Deux types de positions supplémentaires peuvent être utilisés dans le paragraphe ci-dessus, nommé <emphasis
+>placé en limite de mot</emphasis
+> et <emphasis
+><emphasis
+>non</emphasis
+> placé en limite de mot</emphasis
+>. Les positions sont spécifiées en utilisant le texte <literal
+>\b</literal
+> (pour word-boundary, limite de mot) et <literal
+>\B</literal
+> (pour non-word boundary, non-limite de mot)</para>
+
+      <para
+>Ainsi, la recherche du mot <literal
+>le</literal
+> peut être faite en utilisant l'expression rationnelle <literal
+>\ble\b</literal
+>. Ce qui spécifie que nous recherchons <literal
+>le</literal
+> sans lettres de chaque côté (&cad; avec une limite de mot de chaque côté).</para>
+
+      <para
+>La quatrième expression rationnelle pour des mises en correspondances en fonction de la position sont insérées dans l'éditeur d'expressions rationnelles en utilisant l'<link linkend="positiontool"
+>outil des quatre positions différentes</link
+>.</para>
+    </example>
+
+    <example id="altnregexp">
+      <title
+>Rechercher soit <literal
+>ceci</literal
+> soit <literal
+>cela</literal
+>.</title>
+      <para
+>Imaginez que vous désiriez parcourir votre document pour rechercher soit le mot <literal
+>ceci</literal
+> soit le mot <literal
+>cela</literal
+>. Avec une méthode de recherche normale, vous pouvez faire cela en deux passes : lors du premier parcours, vous rechercheriez <literal
+>ceci</literal
+>, et la seconde fois vous rechercheriez <literal
+>cela</literal
+>.</para>
+
+      <para
+>En utilisant la recherche avec les expressions rationnelles, vous rechercherez les deux dans la même passe. Vous pouvez réaliser cela en cherchant <literal
+>ceci|cela</literal
+>, c'est-à-dire en séparant les deux mots par une barre verticale.<footnote
+><para
+>Notez que de chaque côté de la barre verticale, il y a une expression rationnelle, donc cette fonctionnalité ne sert pas uniquement à chercher deux zones de texte différentes, mais sert aussi à chercher deux expressions rationnelles différentes.</para
+></footnote
+></para>
+
+      <para
+>Dans l'éditeur d'expressions rationnelles, vous ne devez pas écrire la barre verticale vous-même, mais vous devez sélectionner plutôt <link linkend="altntool"
+>l'outil alternatif</link
+>, et insérer les expressions rationnelles plus petites de chaque côté.</para>
+    </example>
+
+    <example id="repeatregexp">
+      <title
+>Reconnaître n'importe quel caractère</title>
+      <para
+>Les expressions rationnelles sont souvent comparées à la recherche par joker des consoles - c'est la possibilité de spécifier un certain nombre de fichiers par un astérisque. Vous reconnaîtrez encore plus la recherche par jokers avec les exemples suivants : <itemizedlist>
+          <listitem
+><para
+><literal
+>ls *.txt</literal
+> - ici <literal
+>*.txt</literal
+> est le joker de la console pour trouver chaque fichier finissant par l'extension <literal
+>.txt</literal
+>.</para
+></listitem>
+          <listitem
+><para
+><literal
+>cat test??.res</literal
+> - trouve chaque fichier commençant par <literal
+>test</literal
+> suivi de deux caractères quelconques, et enfin suivi par <literal
+>.res</literal
+></para
+></listitem>
+        </itemizedlist>
+      </para>
+
+      <para
+>Dans une console, les astérisques correspondent à n'importe quel caractère répété plusieurs fois. En d'autres termes, les astérisques correspondent à <emphasis
+>n'importe quel caractère</emphasis
+>. Cela s'écrit ainsi <literal
+>.*</literal
+> avec la syntaxe des expressions rationnelles. Le point correspond à un seul caractère quelconque, c'est-à-dire à <emphasis
+>un</emphasis
+> caractère, et l'astérisque spécifie que l'expression rationnelle le précédant devra être présente de multiples fois. Réunis ensemble, cela signifie un unique caractère quelconque répété un certain nombre de fois.</para>
+
+      <para
+>Cela peut sembler énormément compliqué, mais en ayant une vue plus globale, vous découvrirez toute sa puissance. Laissez-moi vous montrer une autre expression rationnelle de base : <literal
+>a</literal
+>. La lettre <literal
+>a</literal
+> isolée est une expression rationnelle qui correspond à une lettre unique, pour ne pas la nommer, la lettre <literal
+>a</literal
+>. Si nous combinons cela avec l'astérisque, c'est-à-dire <literal
+>a*</literal
+>, alors nous avons une expression rationnelle correspondant à plusieurs a.</para>
+
+      <para
+>Nous pouvons combiner plusieurs expressions rationnelles l'une après l'autre, par exemple <literal
+>ba(na)*</literal
+>. <footnote
+><para
+><literal
+>(na)*</literal
+> affirme simplement que ce qui est à l'intérieur des parenthèses est répété un certain nombre de fois.</para
+></footnote
+> Imaginons que vous ayez écrit cette expression rationnelle dans la zone de recherche d'un éditeur de texte, alors vous pourrez trouver les mots suivants (parmi tant d'autres) : <literal
+>ba</literal
+>, <literal
+>bana</literal
+>, <literal
+>banana</literal
+>, <literal
+>bananananananana</literal
+> </para>
+
+      <para
+>Après vous avoir donné l'information ci-dessus, il ne devrait plus être difficile pour vous de trouver le joker de la console <literal
+>test??.res</literal
+> dans une expression rationnelle. Réponse : <literal
+>test..\.res</literal
+>. Le point seul correspond à un seul caractère. Pour trouver un seul point, vous devez écrire <literal
+>\.</literal
+><footnote
+><para
+>On appelle cela échappement</para
+></footnote
+>. En d'autres mots, l'expression rationnelle <literal
+>\.</literal
+> correspond à un point, alors qu'un point seul correspond à n'importe quel caractère. </para>
+
+      <para
+>Dans l'éditeur d'expressions rationnelles, la répétition d'une expression rationnelle est créée en utilisant l'<link linkend="repeattool"
+>outil de répétition</link
+>. </para>
+    </example>
+
+    <example id="lookaheadregexp">
+      <title
+>Remplacer <literal
+>&amp;</literal
+> par <literal
+>&amp;amp ; </literal
+> dans un document &HTML;</title
+> <para
+>En &HTML;, le caractère spécial <literal
+>&amp;</literal
+> doit être écrit <literal
+>&amp;amp ; </literal
+> - c'est la même chose que l'échappement dans les expressions rationnelles.</para>
+
+      <para
+>Imaginez que vous ayez écrit un document &HTML; dans un éditeur normal (&pex; &XEmacs; ou &kate;), et que vous ayez totalement oublié cette règle. Ce qu'il vous faudra faire lorsque vous réaliserez votre erreur sera de remplacer chaque occurrence de <literal
+>&amp;</literal
+> par <literal
+>&amp;amp ; </literal
+>.</para>
+
+      <para
+>Cela est fait facilement en utilisant une recherche normale et le remplacer, mais, cependant, il y a un pépin. Imaginez que vous vous êtes souvenu de cette règle - <emphasis
+>juste un peu</emphasis
+> - et que vous en avez corrigés quelques uns. Les remplacer tous sans conditions aura pour conséquence de remplacer <literal
+>&amp;amp ; </literal
+> par <literal
+>&amp;amp;amp;</literal
+>.</para>
+
+      <para
+>Ce que vous désirez vraiment faire c'est que les <literal
+>&amp;</literal
+> soient uniquement remplacés s'ils <emphasis
+>ne</emphasis
+> sont <emphasis
+>pas</emphasis
+> suivis des lettres <literal
+>amp ; </literal
+>. Vous pouvez faire cela en utilisant les expressions rationnelles avec <emphasis
+>la pré-analyse positive</emphasis
+>. </para>
+
+      <para
+>L'expression rationnelle, qui ne cherche qu'un et commercial s'il n'est pas suivi des lettres <literal
+>amp;</literal
+> ressemble à : <literal
+>&amp;(?!amp ; )</literal
+>. Ce qui est, évidemment, plus facile à lire en utilisant l'éditeur d'expressions rationnelles, où vous utiliserez les <link linkend="lookaheadtools"
+>outils de pré-analyse</link
+>.</para>
+    </example>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                    Using the Regular Expression Editor                 -->
+  <!-- ====================================================================== -->
+  <chapter id="theEditor">
+    <title
+>Utilisation de l'éditeur d'expressions rationnelles</title>
+
+    <para
+>Ce chapitre vous décrira comment l'éditeur d'expressions rationnelles fonctionne. </para>
+
+    <!-- ====================================================================== -->
+    <!--                   The organization of the screen                       -->
+    <!-- ====================================================================== -->
+    <sect1 id="screenorganization">
+      <title
+>L'organisation de l'écran</title>
+
+      <mediaobject>
+        <imageobject
+><imagedata format="PNG" fileref="theEditor.png"/></imageobject>
+      </mediaobject>
+      
+      <para
+>La partie la plus importante de l'éditeur est évidemment la zone d'édition, qui est la zone où vous dessinerez l'expression rationnelle. Cette zone est la zone grise la plus large au milieu.</para>
+
+      <para
+>Au-dessus de la zone d'édition, vous pouvez voir deux barres d'outils. La première contient les <link linkend="editingtools"
+>actions d'édition </link
+> (comme les outils de dessin dans un programme de dessin). La seconde barre d'outils contient les boutons <emphasis
+>Qu'est-ce que c'est</emphasis
+> et les boutons pour annuler et refaire les actions précédentes.</para>
+
+      <para
+>En dessous de la zone d'édition, vous trouverez les expressions rationnelles en cours de construction, dans la syntaxe dite ASCII. La syntaxe ASCII est mise à jour pendant l'édition de l'expression rationnelle dans l'éditeur graphique. Si vous désirez plutôt mettre à jour la syntaxe ASCII alors faites-le, l'éditeur graphique sera mis à jour à la volé pour refléter les changements.</para>
+
+      <para
+>Enfin, à gauche de la zone d'édition, vous trouverez un certain nombre d'expressions rationnelles prédéfinies. Elles ont deux buts : (1) Lorsque vous chargez l'éditeur avec une expression rationnelle alors cette expression rationnelle est affichée de façon <emphasis
+>plus belle</emphasis
+> ou plus compréhensible en remplaçant les expressions rationnelles classiques. Dans la copie d'écran ci-dessus, vous pouvez voir comment la syntaxe ascii « .* » a été remplacé par une zone affichant « quelque chose ». (2) Lorsque vous insérez une expression rationnelle vous trouverez des blocs fabriqués pour vos propres expressions rationnelles dans l'ensemble des expressions rationnelles préfabriquées. Consultez le chapitre sur <link linkend="userdefinedregexps"
+>les expressions rationnelles définies par l'utilisateur</link
+> pour apprendre comment enregistrer vos propres expressions rationnelles.</para
+>      
+    </sect1>
+
+    <!-- ====================================================================== -->
+    <!--                         Editing Tools                                  -->
+    <!-- ====================================================================== -->
+    <sect1 id="editingtools">
+      <title
+>L'outil d'édition</title>
+      <para
+>Le contenu de ce chapitre nécessite que vous ayez lu le chapitre <link linkend="whatIsARegExp"
+>Qu'est-ce qu'une expression rationnelle</link
+>, ou que vous ayez déjà des connaissances sur ce sujet.</para>
+      
+      <para
+>Tous les outils d'édition sont situés dans la barre d'outils au-dessus de la zone d'édition. Chacun d'entre eux sera décrit dans ce qui suit.</para>
+      
+      
+
+      <simplesect id="selecttool">
+        <title
+>L'outil de sélection</title>
+	<mediaobject>
+            <imageobject
+><imagedata format="PNG" fileref="select.png"/>
+        </imageobject
+></mediaobject>
+        <para
+>L'outil de sélection est utilisé pour marquer des éléments pour les couper-coller et pour les glisser-déposer. C'est un outil très similaire à un outil de sélection dans tout programme de dessin.</para>
+      </simplesect>
+        
+      
+
+      <simplesect id="texttool"
+><title
+>L'outil de texte</title>
+      <mediaobject>
+      <imageobject>
+	    <imagedata format="PNG" fileref="text.png"/>
+	</imageobject
+></mediaobject>
+		        
+        <para
+><inlinemediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="texttool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>En utilisant cet outil, vous insérerez du texte normal à rechercher. Le texte est recherché littéralement, c'est-à-dire que vous n'avez pas à vous préoccuper d'échapper les caractères spéciaux. Dans l'exemple ci-dessous, l'expression rationnelle suivante sera construite : <literal
+>abc\*\\\)</literal
+></para>
+      </simplesect>
+
+      
+
+      <simplesect id="characterstool"
+><title
+>L'outil des caractères</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="characters.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="charactertool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>En utilisant cet outil, vous insérerez des domaines de caractères. On peut citer comme exemple en texte ASCII <literal
+>[0-9]</literal
+>, <literal
+>[^a-zA-Z, _]</literal
+>. Lorsque vous insérez un élément avec cet outil, une boîte de dialogue apparaîtra, dans laquelle vous spécifierez les domaines de caractères.</para>
+        
+        <para
+>Consultez la description faite dans le chapitre <link linkend="repeatregexp"
+>expressions rationnelles répétées</link
+>.</para>
+      </simplesect>
+
+      
+      
+      <simplesect id="anychartool"
+><title
+>L'outil n'importe quel caractère</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="anychar.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="anychartool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Il correspond à l'expression rationnelle « point » (.). Il correspond à un unique caractère quelconque.</para
+> 
+        
+       
+        
+        </simplesect>
+
+
+
+      <simplesect id="repeattool"
+><title
+>L'outil de répétition</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeat.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeattool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>C'est l'élément de répétition. Cela inclut ce qui, en syntaxe ASCII, est représenté par l'astérisque (*), un plus (+), un point d'interrogation (?) et par des domaines ([3,5]). Lorsque vous insérez un élément en utilisant cet outil, une boîte de dialogue apparaît vous demandant le nombre de répétitions.</para>
+          
+          <para
+>Vous spécifiez alors ce qu'il faut répéter en dessinant le contenu répété dans le rectangle que cet outil insère.</para>
+
+          <para
+>Des éléments répétés peuvent être à la fois construits à l'intérieur et à l'extérieur. C'est-à-dire que vous pouvez d'abord dessiner ce que vous voulez répéter, le sélectionner et utiliser l'outil de répétition pour spécifier la répétition. Ou bien, vous pouvez d'abord insérer l'élément de répétition, puis dessiner ce qui doit être répété à l'intérieur.</para>
+
+        <para
+>Consultez la description faite dans le chapitre <link linkend="repeatregexp"
+>expressions rationnelle répétées</link
+>.</para>
+        </simplesect>
+
+
+
+
+      <simplesect id="altntool"
+><title
+>L'outil alternatif</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="altn.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="altntool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Il correspond à l'expression rationnelle (|). Vous spécifiez les possibilités en dessinant chaque possibilité l'une au-dessus de l'autre à l'intérieur du rectangle que l'outil a inséré.</para>
+
+        <para
+>Consultez la description faite dans le chapitre <link linkend="altnregexp"
+>expressions rationnelles alternatives</link
+>.</para>
+      </simplesect>
+      
+
+
+
+      <simplesect id="compoundtool"
+><title
+>L'outil de composition</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="compound.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="compoundtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>L'outil de composition ne représente aucune expression rationnelle. Il est utilisé pour regrouper plusieurs composants dans une boîte, qui peut être facilement réduite à son titre. Cela peut se voir dans la partie droite de la copie d'écran ci-dessus.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="positiontool"
+><title
+>Outils de début et de fin de lignes</title>
+        <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="begline.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="endline.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="linestartendtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Les outils de début et de fin de lignes correspondent respectivement au début de ligne et à la fin de ligne. L'expression rationnelle dans la copie d'écran ci-dessous recherche donc les lignes composées d'espaces uniquement.</para>
+        
+        <para
+>Consultez la description faite dans le chapitre <link linkend="positionregexp"
+>expressions rationnelle de positionnement</link
+></para>
+      </simplesect>
+
+
+
+
+
+      <simplesect
+><title
+>Outils de limite</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="wordboundary.png"/>
+            </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+><imagedata format="PNG" fileref="nonwordboundary.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="boundarytools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Les outils de limite correspondent à une limite de mot, respectivement à un contenu de mot. L'expression rationnelle dans la copie d'écran recherche donc des mots démarrant par <literal
+>le</literal
+>. Le mot <literal
+>le</literal
+> n'est, cependant, pas accepté.</para>
+
+        <para
+>Consultez la description faite dans le chapitre <link linkend="boundaryregexp"
+>expressions rationnelles de limite</link
+>.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="lookaheadtools"
+><title
+>Outils de recherche d'expression rationnelle positive / négative</title>
+	  <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="poslookahead.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="neglookahead.png"/>
+        </imageobject
+></mediaobject>
+
+        <para
+><inlinemediaobject
+><imageobject
+> <imagedata format="PNG" fileref="lookaheadtools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Les outils de recherche spécifient une expression rationnelle soit positive soit négative à rechercher. </para>
+
+        <para
+>Remarque : il vous est uniquement permis de placer la recherche à la fin d'une expression rationnelle. Le composant graphique pour l'édition d'expressions rationnelles ne l'impose pas.</para>
+
+        <para
+>Consultez la description faite dans le chapitre <link linkend="lookaheadregexp"
+>expressions rationnelles de recherche arrière</link
+>.</para>
+      </simplesect>
+    </sect1>
+
+  <!-- ====================================================================== -->
+  <!--                  User Defined Regular Expressions                      -->
+  <!-- ====================================================================== -->
+    <sect1 id="userdefinedregexps">
+      <title
+>Expressions rationnelles définies par l'utilisateur</title>
+      <para
+>À gauche de la zone d'édition se situe une liste contenant les expressions rationnelles définies par l'utilisateur. Certaines expressions rationnelles sont pré-installées avec votre installation de &kde;, alors que d'autre sont enregistrée par vous-même.</para
+> 
+
+      <para
+>Ces expressions rationnelles ont deux buts (<link linkend="screenorganization"
+>consultez la description détaillée</link
+>), qui sont (1) de vous offrir un ensemble de blocs préfabriqués et (2) vous faciliter la création d'expressions rationnelles.</para>
+
+      <para
+>Il vous est possible d'enregistrer vos propres expressions rationnelles en cliquant avec le bouton droit de la souris dans la zone d'édition, et de choisir <literal
+>Enregistrer l'expression rationnelle</literal
+>.</para>
+
+      <para
+>Si l'expression rationnelle que vous enregistrez est à l'intérieur d'un <link linkend="compoundtool"
+>composant conteneur</link
+> alors elle prendra part plus facilement dans la création d'expressions rationnelles à venir.</para>
+
+      <para
+>Les expressions rationnelles définies par l'utilisateur peuvent être effacées ou renommées en cliquant avec le bouton droit de la souris au-dessus de l'expression rationnelle en question dans la zone contenant la liste.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                  Reporting a bug and Suggesting Features               -->
+  <!-- ====================================================================== -->
+  <chapter id="bugreport">
+    <title
+>Rapport de bogues et suggestions de fonctionnalités</title>
+    <para
+>Les rapports de bogues et de fonctionnalités sont rapportés par le <ulink url="http://bugs.kde.org/"
+>système de suivi de bogue de &kde;</ulink
+>. <emphasis role="strong"
+>Avant</emphasis
+> de faire un rapport de bogues ou de suggérer une nouvelle fonctionnalité, veuillez vérifier qu'il / elle n'a pas été déjà <ulink url="http://bugs.kde.org/simple_search.cgi?id=kregexpeditor"
+>rapporté / suggéré</ulink
+>.</para>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                                 FAQ                                    -->
+  <!-- ====================================================================== -->
+  <chapter id="faq">
+    <title
+>Foire aux questions</title>
+    <sect1 id="question1">
+      <title
+>Est-ce que l'éditeur d'expressions rationnelles gère les références arrières ?</title>
+      <para
+>Non, ce n'est pas encore géré. Mais c'est planifié pour une prochaine version.</para>
+    </sect1>
+
+    <sect1 id="question2">
+      <title
+>Est-ce que l'éditeur d'expressions rationnelles gère les opérations de reconnaissance d'affichage ?</title>
+      <para
+>Non, mais heureusement cela sera disponible dans la prochaine version.</para>
+    </sect1>
+
+    <sect1 id="question3">
+      <title
+>Je suis l'auteur d'un programme &kde;. Comment puis-je utiliser ce composant graphiquedans mon application ?</title>
+      <para
+>Consultez <ulink url="http://developer.kde.org/documentation/library/cvs-api/classref/interfaces/KRegExpEditorInterface.html"
+>la documentation de la classe KRegExpEditorInterface</ulink
+>.</para>
+    </sect1>
+
+    <sect1 id="question4">
+      <title
+>Je n'arrive pas à trouver le bouton <emphasis
+>éditeur d'expressions rationnelles</emphasis
+> dans konqueror sur une autre installation de KDE3 par exemple, pourquoi ?</title>
+      <para
+>Le composant d'expressions rationnelles est situé dans le paquet « utils » de &kde;. Si vous n'avez pas installé ce paquet, alors les boutons de l'<emphasis
+>éditeur d'expressions rationnelles</emphasis
+> n'apparaîtront pas dans les programmes.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                           Credits and Licenses                         -->
+  <!-- ====================================================================== -->
+  <chapter id="credits-and-license">
+    <title
+>Remerciements et licence</title>
+
+    <para
+>La documentation est sous copyright 2001, Jesper K. Pedersen &Jesper.Pedersen.mail; </para>
+
+
+<para
+>Traduction française par Simon Depiets <email
+>2df@tuxfamily.org</email
+>.</para
+> &underFDL; &underGPL; </chapter>
+
+
+</book>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

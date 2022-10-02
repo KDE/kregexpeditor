@@ -1,0 +1,890 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % Catalan  "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kregexpeditor" lang="&language;">
+
+  <bookinfo>
+    <title
+>El manual per a l'editor d'expressions regulars</title>
+
+    <authorgroup>
+      <author
+><firstname
+>Jesper K.</firstname
+> <surname
+>Pedersen</surname
+> <affiliation
+><address
+>&Jesper.Pedersen.mail;</address
+></affiliation>
+      </author>
+&traductor.Antoni.Bella; 
+    </authorgroup>
+
+    <date
+>3 de juliol de 2001</date>
+    <releaseinfo
+>0.1</releaseinfo>
+
+    <legalnotice
+>&underFDL;</legalnotice>
+
+    <copyright>
+      <year
+>2001</year>
+      <holder
+>Jesper K. Pedersen</holder>
+    </copyright>
+
+    <abstract>
+      <para
+>Aquest manual descriu el giny de l'editor d'expressions regulars</para>
+    </abstract>
+
+    <keywordset>
+      <keyword
+>KDE</keyword>
+      <keyword
+>expressió regular</keyword>
+    </keywordset>
+  </bookinfo>
+
+  <!-- ====================================================================== -->
+  <!--                               Introduction                             -->
+  <!-- ====================================================================== -->
+  <chapter id="introduction">
+    <title
+>Introducció</title>
+
+
+    <para
+>L'editor d'expressions regulars és un editor per editar una expressió regular amb un estil gràfic (en contrast amb la sintaxi <acronym
+>ASCII</acronym
+>). Tradicionalment, les expressions regulars s'han escrit en la sintaxi <acronym
+>ASCII</acronym
+>, la qual per exemple és com <literal
+>^.*kde\b</literal
+>. Els principals inconvenients d'aquest estil són: <itemizedlist>
+        <listitem
+><para
+>És difícil d'entendre per a qui no sigui programador.</para
+></listitem>
+
+        <listitem
+><para
+>Requereix que <emphasis
+>escapeu</emphasis
+> certs símbols (perquè coincideixi una estrella, per exemple, haureu d'escriure <literal
+>\*</literal
+>). </para
+></listitem>
+
+        <listitem
+><para
+>Requereix que recordeu les regles de <emphasis
+>precedència</emphasis
+> (Què fa coincidir <literal
+>x|y*</literal
+>? Una sola <literal
+>x</literal
+> o un nombre de <literal
+>y</literal
+>, <emphasis
+>O</emphasis
+> un nombre de <literal
+>x</literal
+> i <literal
+>y</literal
+> barrejades?)</para
+></listitem>
+      </itemizedlist>
+    </para>
+
+    <para
+>L'editor d'expressions regulars, d'altra banda, permet que <emphasis
+>dibuixeu</emphasis
+> la vostra expressió regular de manera inequívoca. L'editor resol, com a mínim, el segon i tercer element anterior. Pot ser que no hi hagi expressions regulars disponibles per als no programadors, tot i que només poden dir-ho les proves dels usuaris. Per tant, si sou un no programador, que ha obtingut el poder de les expressions regulars amb aquest editor, <ulink url="mailto:blackie@kde.org"
+>feu-nos-ho saber</ulink
+>. </para>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                       What is a Regular Expression                     -->
+  <!-- ====================================================================== -->
+  <chapter id="whatIsARegExp">
+    <title
+>Què és una expressió regular</title>
+
+    <para
+>Una expressió regular és una forma d'especificar les <emphasis
+>condicions</emphasis
+> que s'han de complir per a la situació en què penseu. Normalment, quan feu una cerca en un editor de text, especifiqueu <emphasis
+>literalment</emphasis
+> el text que voleu cercar, utilitzant una expressió regular, d'altra banda, us indicarem quina coincidència tindrà. Exemples d'això inclouen <emphasis
+>estic cercant la paraula &kde;</emphasis
+>, però només al començament de la línia, o <emphasis
+>estic cercant la paraula <literal
+>the</literal
+>, però ha d'estar sola</emphasis
+> o <emphasis
+>estic cercant fitxers que comencin per la paraula <literal
+>test</literal
+>, seguida d'un nombre de dígits, per exemple; <literal
+>test12</literal
+>, <literal
+>test107</literal
+> i <literal
+>test007</literal
+></emphasis
+>.</para>
+
+    <para
+>Construireu expressions regulars a partir d'expressions regulars més petites, com si construíssiu jocs grans de Lego a partir de subparts més petites. Com en el món de Lego, hi ha una sèrie de blocs de construcció bàsics. A continuació, descriuré cadascun d'aquests blocs de construcció bàsics utilitzant diversos exemples.</para>
+
+    <example>
+      <title
+>Cerca de text normal.</title>
+      <para
+>Si només voleu cercar un cert text, l'expressió regular definitivament no és una bona opció. El motiu d'això és que les expressions regulars assignen un significat especial a alguns caràcters. Això inclou els següents caràcters: <literal
+>.*|$</literal
+>. Per tant, si voleu cercar el text <literal
+>kde.</literal
+> (és a dir, els caràcters <literal
+>kde</literal
+> seguit d'un punt), llavors haureu d'especificar-ho com <literal
+>kde\.</literal
+><footnote
+><para
+>L'editor d'expressions regulars resoldrà aquest problema tenint cura de les regles d'escapament.</para
+></footnote
+> Escriure <literal
+>\.</literal
+> en lloc de simplement <literal
+>.</literal
+> s'anomena <emphasis
+>escapar</emphasis
+>. </para>
+    </example>
+
+    <example id="positionregexp">
+      <title
+>Fer coincidir els &URL;</title>
+      <para
+>Quan seleccioneu una cosa semblant a un &URL; al &kde;, el programa <command
+>klipper</command
+> us oferirà iniciar el <command
+>konqueror</command
+> amb l'&URL; seleccionat.</para>
+
+      <para
+>El <command
+>klipper</command
+> ho fa fent coincidir la selecció contra diverses expressions regulars diferents, i quan una coincideix passa a oferir l'acció.</para>
+      
+      <para
+>L'expressió regular dels &URL; indica (entre altres coses), que la selecció ha de començar pel text <literal
+>http://</literal
+>. Això es descriu mitjançant expressions regulars que prefixen el text <literal
+>http://</literal
+> amb un barret (el caràcter <literal
+>^</literal
+>).</para>
+
+      <para
+>L'anterior és un exemple de posicions coincidents utilitzant expressions regulars. De manera semblant, la posició <emphasis
+>final de línia</emphasis
+> es pot fer coincidir amb el caràcter <literal
+>$</literal
+> (&ead;, un signe de dòlar).</para>
+    </example>
+
+    <example id="boundaryregexp">
+      <title
+>Cercar la paraula <literal
+>the</literal
+>, però no <emphasis
+>the</emphasis
+><literal
+>re</literal
+>, <literal
+>brea</literal
+><emphasis
+>the</emphasis
+> o <literal
+>ano</literal
+><emphasis
+>the</emphasis
+><literal
+>r</literal
+></title>
+      <para
+>Dos tipus de posicions extres poden ser coincidències en la manera anterior, &ead;, <emphasis
+>la posició en un límit de paraula</emphasis
+> i <emphasis
+>la posició en un límit que <emphasis
+>no</emphasis
+> és una paraula</emphasis
+>. Les posicions s'especifiquen utilitzant el text <literal
+>\b</literal
+> (per a límit de paraula) i <literal
+>\B</literal
+> (per a límits no de paraula).</para>
+
+      <para
+>Per tant, la cerca de la paraula <literal
+>the</literal
+> es pot fer utilitzant l'expressió regular <literal
+>\bthe\b</literal
+>. Això especifica que estem cercant <literal
+>the</literal
+> sense lletres a cada costat (&ead;, amb un límit de paraula a cada costat).</para>
+
+      <para
+>Les quatre posicions que coincideixen amb les expressions regulars s'insereixen a l'editor d'expressions regulars amb <link linkend="positiontool"
+>quatre eines de posicions diferents</link
+>.</para>
+    </example>
+
+    <example id="altnregexp">
+      <title
+>Cercar <literal
+>this</literal
+> o <literal
+>that</literal
+></title>
+      <para
+>Imagineu que voleu mirar el vostre document cercant la paraula <literal
+>this</literal
+> o la paraula <literal
+>that</literal
+>. Amb un mètode de cerca normal, podeu fer-ho en dues passades, la primera vegada cercareu <literal
+>this</literal
+> i la segona cercareu <literal
+>that</literal
+>.</para>
+
+      <para
+>Utilitzant cerques amb expressions regulars, cercaríeu ambdues en la mateixa passada. Ho fareu cercant <literal
+>this|that</literal
+>, &ead;, separant les dues paraules per una barra vertical.<footnote
+><para
+>La nota a cada costat de la barra vertical és una expressió regular, de manera que aquesta característica no és només per a la cerca de dos textos diferents, sinó per a la cerca de dues expressions regulars diferents.</para
+></footnote
+></para>
+
+      <para
+>A l'editor d'expressions regulars, no cal que escriviu la barra vertical, sinó que la podreu seleccionar amb una <link linkend="altntool"
+>eina alternativa</link
+> i inserir expressions més petites sobre les altres.</para>
+    </example>
+
+    <example id="repeatregexp">
+      <title
+>Fer coincidir amb qualsevol cosa</title>
+      <para
+>Les expressions regulars sovint es comparen amb la concordança de comodins a l'intèrpret d'ordres: aquesta és la capacitat d'especificar diversos fitxers utilitzant l'asterisc. És probable que reconegueu la concordança de caràcters comodí a partir dels següents exemples: <itemizedlist>
+          <listitem
+><para
+><literal
+>ls *.txt</literal
+>: aquí <literal
+>*.txt</literal
+> és el comodí que s'usa perquè coincideixi amb tots els fitxers que acaben amb l'extensió <literal
+>.txt</literal
+>.</para
+></listitem>
+          <listitem
+><para
+><literal
+>cat test??.res</literal
+>: coincideix amb cada fitxer que comenci per <literal
+>test</literal
+> seguit de dos caràcters arbitraris i, finalment, seguit de la prova <literal
+>.res</literal
+>.</para
+></listitem>
+        </itemizedlist>
+      </para>
+
+      <para
+>A l'intèrpret d'ordres, l'asterisc coincideix amb qualsevol caràcter qualsevol nombre de vegades. Dit d'una altra manera, l'asterisc coincideix amb <emphasis
+>qualsevol cosa</emphasis
+>. Això s'escriu com <literal
+>.*</literal
+> amb la sintaxi d'expressió regular. El punt coincideix amb qualsevol caràcter únic, &ead;, només <emphasis
+>un</emphasis
+> caràcter, i l'asterisc, indica que l'expressió regular anterior ha de coincidir qualsevol nombre de vegades. Junts, això indica qualsevol caràcter qualsevol nombre de vegades.</para>
+
+      <para
+>Això pot semblar massa complicat, però quan obtingueu una visió més gran, observareu el seu poder. Permeteu-me que us mostri una altra expressió regular bàsica: <literal
+>a</literal
+>. La lletra <literal
+>a</literal
+> per si sola és una expressió regular que coincideix amb una sola lletra, la lletra <literal
+>a</literal
+>. Si la combinem amb l'asterisc, &ead;, <literal
+>a*</literal
+>, llavors tindrem una expressió regular que coincidirà amb qualsevol nombre de lletres a.</para>
+
+      <para
+>Podem combinar diverses expressions regulars una després de l'altra, per exemple, <literal
+>ba(na)*</literal
+>. <footnote
+><para
+><literal
+>(na)*</literal
+> només indica que el que hi ha dins del parèntesi es repeteix qualsevol nombre de vegades.</para
+></footnote
+> Imagineu que heu escrit aquesta expressió regular al camp de cerca d'un editor de text, llavors trobaríeu les següents paraules (entre d'altres): <literal
+>ba</literal
+>, <literal
+>bana</literal
+>, <literal
+>banana</literal
+>, <literal
+>bananananananana</literal
+>. </para>
+
+      <para
+>Donada la informació anterior, és d'esperar que no serà difícil escriure el comodí <literal
+>test??.res</literal
+> com una expressió regular. Resposta: <literal
+>test..\.res</literal
+>. El punt per si mateix és qualsevol caràcter. Per a fer coincidir un únic punt, haureu d'escriure <literal
+>\.</literal
+><footnote
+><para
+>Això s'anomena escapament.</para
+></footnote
+>. En altres paraules, l'expressió regular <literal
+>\.</literal
+> coincidirà amb un punt, mentre que un punt per si mateix coincidirà amb qualsevol caràcter. </para>
+
+      <para
+>A l'editor d'expressions regulars, es crea una expressió regular repetida utilitzant l'<link linkend="repeattool"
+>eina de repetició</link
+>. </para>
+    </example>
+
+    <example id="lookaheadregexp">
+      <title
+>Substituir <literal
+>&amp;</literal
+> per <literal
+>&amp;amp;</literal
+> en un document &HTML;</title
+> <para
+>En &HTML;, el caràcter especial <literal
+>&amp;</literal
+> s'ha d'escriure com <literal
+>&amp;amp;</literal
+> -això és similar a l'escapament en les expressions regulars-.</para>
+
+      <para
+>Imagineu que heu escrit un document &HTML; en un editor normal (&pex;, &XEmacs; o &kate;), i us heu oblidat totalment d'aquesta regla. El que faríeu quan us adoneu del vostre error, seria substituir totes les ocurrències de <literal
+>&amp;</literal
+> per <literal
+>&amp;amp;</literal
+>.</para>
+
+      <para
+>Això es pot fer amb facilitat utilitzant el cerca i substitueix normal, però, hi ha un problema. Imagineu que recordàveu aquesta regla -<emphasis
+>només una mica</emphasis
+>- i ho heu fet bé en alguns llocs. Si substituïu incondicionalment, se substituiria <literal
+>&amp;</literal
+> per <literal
+>&amp;amp;</literal
+>.</para>
+
+      <para
+>El que en realitat volem dir és que <literal
+>&amp;</literal
+> només s'ha de substituir si <emphasis
+>no</emphasis
+> se segueix amb les lletres <literal
+>amp;</literal
+>. Podeu fer-ho utilitzant expressions regulars amb una <emphasis
+>cerca endavant positiva</emphasis
+>. </para>
+
+      <para
+>L'expressió regular, que només coincideix amb un ampersand si no és seguit per les lletres <literal
+>amp;</literal
+>, es veu de la següent manera: <literal
+>&amp;(?!amp;)</literal
+>. Això és, per descomptat, més fàcil de llegir emprant l'editor d'expressions regulars, on utilitzareu les <link linkend="lookaheadtools"
+>eines de cerca endavant</link
+>.</para>
+    </example>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                    Using the Regular Expression Editor                 -->
+  <!-- ====================================================================== -->
+  <chapter id="theEditor">
+    <title
+>Usar l'editor d'expressions regulars</title>
+
+    <para
+>Aquest capítol us dirà com funciona l'editor d'expressions regulars. </para>
+
+    <!-- ====================================================================== -->
+    <!--                   The organization of the screen                       -->
+    <!-- ====================================================================== -->
+    <sect1 id="screenorganization">
+      <title
+>L'organització de la pantalla</title>
+
+      <mediaobject>
+        <imageobject
+><imagedata format="PNG" fileref="theEditor.png"/></imageobject>
+      </mediaobject>
+      
+      <para
+>La part més important de l'editor és, per descomptat, l'àrea d'edició, aquesta és l'àrea on dibuixareu la vostra expressió regular. Aquesta àrea és la part grisa més gran del centre.</para>
+
+      <para
+>A sobre de l'àrea d'edició teniu dues barres d'eines, la primera conté les <link linkend="editingtools"
+>accions d'edició</link
+>, igual que les eines de dibuix en un programa de dibuix. La segona barra d'eines conté el botó <emphasis
+>Què és això?</emphasis
+> i els botons per desfer i refer.</para>
+
+      <para
+>A sota de l'àrea d'edició trobareu l'expressió regular que esteu creant, amb la sintaxi anomenada ASCII. La sintaxi ASCII s'actualitzarà mentre editeu l'expressió regular a l'editor gràfic. Si preferiu actualitzar la sintaxi en ASCII, feu-ho, l'editor gràfic s'actualitzarà al vol per a reflectir els vostres canvis.</para>
+
+      <para
+>Finalment, a l'esquerra de l'àrea de l'editor trobareu una sèrie d'expressions regulars predefinides. Serveixen per a dues finalitats: (1) Quan carregueu l'editor amb una expressió regular, aquesta serà més <emphasis
+>senzilla</emphasis
+> o més completa, substituint les expressions regulars comunes. En el bolcat de la pantalla superior, podeu veure com s'ha substituït la sintaxi «.*» en ASCII amb un quadre que diu «qualsevol cosa». (2) Quan inseriu expressions regulars, podeu trobar blocs de construcció per a la vostra pròpia expressió regular a partir del conjunt d'expressions regulars compilats prèviament. Vegeu la secció sobre <link linkend="userdefinedregexps"
+>expressions regulars definides per l'usuari</link
+> per aprendre a desar les vostres pròpies expressions regulars.</para
+>      
+    </sect1>
+
+    <!-- ====================================================================== -->
+    <!--                         Editing Tools                                  -->
+    <!-- ====================================================================== -->
+    <sect1 id="editingtools">
+      <title
+>Les eines d'edició</title>
+      <para
+>El text d'aquesta secció preveu que hàgiu llegit el capítol sobre <link linkend="whatIsARegExp"
+>què és una expressió regular</link
+> o que teniu coneixements previs sobre aquest tema.</para>
+      
+      <para
+>Totes les eines d'edició es troben a la barra d'eines a sobre de l'àrea d'edició. Cadascuna serà descrita tot seguit.</para>
+      
+      
+
+      <simplesect id="selecttool">
+        <title
+>L'eina de selecció</title>
+	<mediaobject>
+            <imageobject
+><imagedata format="PNG" fileref="select.png"/>
+        </imageobject
+></mediaobject>
+        <para
+>L'eina de selecció s'utilitza per a marcar els elements per retallar i enganxar i arrossegar i deixar anar. Això és molt similar a una eina de selecció en qualsevol programa de dibuix.</para>
+      </simplesect>
+        
+      
+
+      <simplesect id="texttool"
+><title
+>L'eina de text</title>
+      <mediaobject>
+      <imageobject>
+	    <imagedata format="PNG" fileref="text.png"/>
+	</imageobject
+></mediaobject>
+		        
+        <para
+><inlinemediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="texttool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Amb aquesta eina inserireu text normal per a fer-lo coincidir. El text coincidirà literalment, &ead;, no us haureu de preocupar d'escapar caràcters especials. En l'exemple anterior es construeix la següent expressió regular: <literal
+>abc\*\\\)</literal
+></para>
+      </simplesect>
+
+      
+
+      <simplesect id="characterstool"
+><title
+>L'eina de caràcters</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="characters.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="charactertool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Amb aquesta eina inserireu intervals de caràcters. Exemples inclouen el que en text ASCII es diu <literal
+>[0-9]</literal
+>, <literal
+>[^a-zA-Z,_]</literal
+>. Quan inseriu un element amb aquesta eina apareixerà un diàleg en el qual especificareu els intervals dels caràcters.</para>
+        
+        <para
+>Vegeu la descripció de les <link linkend="repeatregexp"
+>expressions regulars repetides</link
+>.</para>
+      </simplesect>
+
+      
+      
+      <simplesect id="anychartool"
+><title
+>L'eina qualsevol caràcter</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="anychar.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="anychartool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Aquesta és l'expressió regular «punt» (.). Coincideix amb qualsevol caràcter únic.</para
+> 
+        
+       
+        
+        </simplesect>
+
+
+
+      <simplesect id="repeattool"
+><title
+>L'eina de repetició</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeat.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeattool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Aquests són els elements repetits. Això inclou el que en la sintaxi ASCII es representa utilitzant un asterix (*), un signe de més (+), un signe d'interrogació (?) i els intervals ({3,5}). Quan inseriu un element amb aquesta eina, apareixerà un diàleg demanant les vegades que es repetirà.</para>
+          
+          <para
+>Especifiqueu què es repetirà dibuixant el contingut a repetir dins del quadre que insereix aquesta eina.</para>
+
+          <para
+>Els elements repetits es poden construir des de l'exterior i cap endins. És a dir, primer podeu dibuixar el que es repeteix, seleccionar-lo i utilitzar l'eina de repetició per a repetir-ho. De manera alternativa, primer podeu inserir l'element a repetir i dibuixar el que s'ha de repetir dins seu.</para>
+
+        <para
+>Vegeu la descripció de les <link linkend="repeatregexp"
+>expressions regulars repetides</link
+>.</para>
+        </simplesect>
+
+
+
+
+      <simplesect id="altntool"
+><title
+>L'eina per a les alternatives</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="altn.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="altntool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Aquesta és l'expressió regular alternativa (|). Especifiqueu les alternatives dibuixant cada alternativa una sobre l'altra dins del quadre que insereix aquesta eina.</para>
+
+        <para
+>Vegeu la descripció de les <link linkend="altnregexp"
+>expressions regulars amb alternatives</link
+>.</para>
+      </simplesect>
+      
+
+
+
+      <simplesect id="compoundtool"
+><title
+>L'eina per a les compostes</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="compound.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="compoundtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>L'eina per a les compostes no representa cap expressió regular. S'utilitza per agrupar altres subparts juntes en un quadre, que es pot col·lapsar amb facilitat només pel seu títol. Això es pot veure a la part dreta del bolcat de la pantalla superior.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="positiontool"
+><title
+>Les eines començament/final de línia</title>
+        <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="begline.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="endline.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="linestartendtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Les eines per al començament i final de línia coincideixen amb el començament de la línia i el final de la línia, respectivament. L'expressió regular en el bolcat de la pantalla superior, per tant, les línies coincidents, només coincideixen amb els espais.</para>
+        
+        <para
+>Vegeu la descripció de les <link linkend="positionregexp"
+>expressions regulars amb posició</link
+>.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect
+><title
+>Les eines de (no) límit de paraula</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="wordboundary.png"/>
+            </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+><imagedata format="PNG" fileref="nonwordboundary.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="boundarytools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Les eines de límit coincideixen amb un límit de paraula, i respectivament, un límit que no és una paraula. L'expressió regular en el bolcat de la pantalla coincidirà amb qualsevol paraula que comenci per <literal
+>the</literal
+>. Tanmateix, la paraula <literal
+>the</literal
+>, no obstant això, no coincideix.</para>
+
+        <para
+>Vegeu la descripció de les <link linkend="boundaryregexp"
+>expressions regulars amb límit</link
+>.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="lookaheadtools"
+><title
+>Les eines de cerca endavant positiva/negativa</title>
+	  <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="poslookahead.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="neglookahead.png"/>
+        </imageobject
+></mediaobject>
+
+        <para
+><inlinemediaobject
+><imageobject
+> <imagedata format="PNG" fileref="lookaheadtools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Les eines de cerca endavant, indiquen una expressió regular positiva o negativa per coincidir. La coincidència, però, no forma part de la coincidència total.</para>
+
+        <para
+>Nota: Només es permet col·locar cerques endavant al final de les expressions regulars. El giny Editor de l'expressió regular no ho aplica.</para>
+
+        <para
+>Vegeu la descripció de les <link linkend="lookaheadregexp"
+>expressions regulars amb cerca endavant</link
+>.</para>
+      </simplesect>
+    </sect1>
+
+  <!-- ====================================================================== -->
+  <!--                  User Defined Regular Expressions                      -->
+  <!-- ====================================================================== -->
+    <sect1 id="userdefinedregexps">
+      <title
+>Expressions regulars definides per l'usuari</title>
+      <para
+>Ubicades a l'esquerra de l'àrea d'edició hi ha un quadre de llista que conté les expressions regulars definides per l'usuari. Algunes expressions regulars estan preinstal·lades amb la vostra instal·lació del &kde;, mentre que les altres es poden desar.</para
+> 
+
+      <para
+>Aquesta expressió regular té dues finalitats (vegeu la <link linkend="screenorganization"
+>descripció detallada</link
+>), a saber: (1) per oferir-vos un conjunt de blocs de construcció i (2) per a crear expressions regulars més boniques.</para>
+
+      <para
+>Podeu desar les vostres pròpies expressions regulars fent clic amb el &BDR; a l'àrea d'edició i escollint <literal
+>Desa l'expressió regular</literal
+>.</para>
+
+      <para
+>Si l'expressió regular que deseu es troba dins d'un <link linkend="compoundtool"
+>contenidor compost</link
+>, l'expressió regular participarà a fer que les expressions regulars siguin més boniques.</para>
+
+      <para
+>Les expressions regulars definides per l'usuari es poden suprimir o reanomenar prement el &BDR; sobre l'expressió regular en qüestió al quadre de llista.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                  Reporting a bug and Suggesting Features               -->
+  <!-- ====================================================================== -->
+  <chapter id="bugreport">
+    <title
+>Informar dels errors i suggerir característiques</title>
+    <para
+>Els informes d'error i les sol·licituds de característiques s'han de presentar a través del <ulink url="http://bugs.kde.org/"
+>Sistema de seguiment d'errors del &kde;</ulink
+>. Abans d'informar un error o suggerir una característica, comproveu que encara no se n'ha informat.</para>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                                 FAQ                                    -->
+  <!-- ====================================================================== -->
+  <chapter id="faq">
+    <title
+>Preguntes més freqüents</title>
+    <sect1 id="question1">
+      <title
+>L'editor d'expressions regulars admet referències enrere?</title>
+      <para
+>Actualment no està implementat. Està previst per a la pròxima versió.</para>
+    </sect1>
+
+    <sect1 id="question2">
+      <title
+>L'editor d'expressions regulars permet mostrar les coincidències?</title>
+      <para
+>No, esperem que estigui disponible amb la següent versió.</para>
+    </sect1>
+
+    <sect1 id="question3">
+      <title
+>Soc l'autor d'un programa &kde;, com puc utilitzar aquest giny a la meva aplicació?</title>
+      <para
+>Vegeu <ulink url="http://developer.kde.org/documentation/library/cvs-api/classref/interfaces/KRegExpEditorInterface.html"
+>la documentació per a la classe KRegExpEditorInterface</ulink
+>.</para>
+    </sect1>
+
+    <sect1 id="question4">
+      <title
+>No puc trobar el botó <emphasis
+>Edita l'expressió regular</emphasis
+>, per exemple al Konqueror en una altra instal·lació del KDE 3, per què?</title>
+      <para
+>El giny per a expressions regulars es troba al paquet &kde;-utils. Si no el teniu instal·lat, els botons per a l'edició d'una expressió regular no apareixerà als programes.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                           Credits and Licenses                         -->
+  <!-- ====================================================================== -->
+  <chapter id="credits-and-license">
+    <title
+>Crèdits i llicència</title>
+
+    <para
+>Copyright de la documentació: 2001, Jesper K. Pedersen &Jesper.Pedersen.mail; </para>
+
+
+<para
+>Traductor de la documentació: &credits.Antoni.Bella;</para
+> &underFDL; &underGPL; </chapter>
+
+
+</book>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

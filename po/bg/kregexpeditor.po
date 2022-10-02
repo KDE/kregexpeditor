@@ -1,0 +1,1155 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006, 2007.
+# Yasen Pramatarov <yasen@lindeas.com>, 2009, 2010, 2012, 2013, 2019.
+# Mincho Kondarev <mkondarev@yahoo.de>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kregexpeditor\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-04-02 00:20+0000\n"
+"PO-Revision-Date: 2022-06-19 15:06+0200\n"
+"Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
+"Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 22.04.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Златко Попов"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "zlatkopopov@fsa-bg.org"
+
+#: altnwidget.cpp:37 altnwidget.cpp:46 regexpbuttons.cpp:87
+#, kde-format
+msgid "Alternatives"
+msgstr "Алтернативи"
+
+#: altnwidget.cpp:220
+#, kde-format
+msgid "Selecting several alternatives is currently not supported."
+msgstr "Избирането на няколко алтернативи не се поддържа за момента."
+
+#: altnwidget.cpp:222
+#, kde-format
+msgid "Selection Invalid"
+msgstr "Невалиден избор"
+
+#: auxbuttons.cpp:35
+#, kde-format
+msgid "Undo"
+msgstr "Отмяна"
+
+#: auxbuttons.cpp:41
+#, kde-format
+msgid "Redo"
+msgstr "Повторение"
+
+#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:70
+#, kde-format
+msgid "Cut"
+msgstr "Изрязване"
+
+#: auxbuttons.cpp:53 KMultiFormListBox/ccp.cpp:71
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:67
+#, kde-format
+msgid "Copy"
+msgstr "Копиране"
+
+#: auxbuttons.cpp:59 KMultiFormListBox/ccp.cpp:72
+#, kde-format
+msgid "Paste"
+msgstr "Вмъкване"
+
+#: auxbuttons.cpp:65
+#, kde-format
+msgid "Save"
+msgstr "Записване"
+
+#: characterswidget.cpp:116
+#, kde-format
+msgid "- A word character\n"
+msgstr "- Буква\n"
+
+#: characterswidget.cpp:120
+#, kde-format
+msgid "- A non-word character\n"
+msgstr "- Знак различен от буква\n"
+
+#: characterswidget.cpp:124
+#, kde-format
+msgid "- A digit character\n"
+msgstr "- Цифра\n"
+
+#: characterswidget.cpp:128
+#, kde-format
+msgid "- A non-digit character\n"
+msgstr "- Знак различен от цифра\n"
+
+#: characterswidget.cpp:132
+#, kde-format
+msgid "- A space character\n"
+msgstr "- Интервал\n"
+
+#: characterswidget.cpp:136
+#, kde-format
+msgid "- A non-space character\n"
+msgstr "- Знак различен от интервал\n"
+
+#: characterswidget.cpp:151
+#, kde-format
+msgctxt "a range of characters"
+msgid "- from %1 to %2\n"
+msgstr "- от %1 до %2\n"
+
+#: characterswidget.cpp:159
+#, kde-format
+msgid "Any Character Except"
+msgstr "Всеки знак освен"
+
+#: characterswidget.cpp:161
+#, kde-format
+msgid "One of Following Characters"
+msgstr "Един от следните знаци"
+
+#: characterswidget.cpp:279
+#, kde-format
+msgid "Specify Characters"
+msgstr "Задаване на знаци"
+
+#: characterswidget.cpp:289
+#, kde-format
+msgid "Do not match the characters specified here"
+msgstr "Несъвпадение на зададените знаци"
+
+#: characterswidget.cpp:293
+#, kde-format
+msgid "Predefined Character Ranges"
+msgstr "Предефинирани знаци"
+
+#: characterswidget.cpp:297
+#, kde-format
+msgid "A word character"
+msgstr "Буква"
+
+#: characterswidget.cpp:299
+#, kde-format
+msgid "A digit character"
+msgstr "Цифра"
+
+#: characterswidget.cpp:301
+#, kde-format
+msgid "A space character"
+msgstr "Интервал"
+
+#: characterswidget.cpp:304
+#, kde-format
+msgid "A non-word character"
+msgstr "Знак различен от буква"
+
+#: characterswidget.cpp:306
+#, kde-format
+msgid "A non-digit character"
+msgstr "Знак различен от цифра"
+
+#: characterswidget.cpp:308
+#, kde-format
+msgid "A non-space character"
+msgstr "Знак различен от интервал"
+
+#: characterswidget.cpp:312
+#, kde-format
+msgid "Single Characters"
+msgstr "Единични знаци"
+
+#: characterswidget.cpp:324 characterswidget.cpp:345
+#, kde-format
+msgid "More Entries"
+msgstr "Добавяне"
+
+#: characterswidget.cpp:332
+#, kde-format
+msgid "Character Ranges"
+msgstr "Диапазон от знаци"
+
+#: characterswidget.cpp:426
+#, kde-format
+msgid "From:"
+msgstr "От:"
+
+#: characterswidget.cpp:433
+#, kde-format
+msgctxt "end of range"
+msgid "To:"
+msgstr "До:"
+
+#: charselector.cpp:60
+#, kde-format
+msgid "Normal Character"
+msgstr "Обикновен знак"
+
+#: charselector.cpp:61
+#, kde-format
+msgid "Unicode Char in Hex."
+msgstr "Шестнадесетичен Уникод"
+
+#: charselector.cpp:62
+#, kde-format
+msgid "Unicode Char in Oct."
+msgstr "Осмичен Уникод"
+
+#: charselector.cpp:64
+#, kde-format
+msgid "The Bell Character (\\a)"
+msgstr "Системен звук (\\a)"
+
+#: charselector.cpp:65
+#, kde-format
+msgid "The Form Feed Character (\\f)"
+msgstr "Край на страница (\\f)"
+
+#: charselector.cpp:66
+#, kde-format
+msgid "The Line Feed Character (\\n)"
+msgstr "Край на ред (\\n)"
+
+#: charselector.cpp:67
+#, kde-format
+msgid "The Carriage Return Character (\\r)"
+msgstr "Край на ред (\\r)"
+
+#: charselector.cpp:68
+#, kde-format
+msgid "The Horizontal Tab Character (\\t)"
+msgstr "Хоризонтална табулация (\\t)"
+
+#: charselector.cpp:69
+#, kde-format
+msgid "The Vertical Tab Character (\\v)"
+msgstr "Вертикална табулация (\\v)"
+
+#: compoundwidget.cpp:47
+#, kde-format
+msgid "&Title:"
+msgstr "&Заглавие:"
+
+#: compoundwidget.cpp:53
+#, kde-format
+msgid "&Description:"
+msgstr "О&писание:"
+
+#: compoundwidget.cpp:59
+#, kde-format
+msgid "&Automatically replace using this item"
+msgstr "&Автоматична замяна с избрания елемент"
+
+#: compoundwidget.cpp:61
+#, kde-format
+msgid ""
+"When the content of this box is typed in to the ASCII line,<br />this box "
+"will automatically be added around it,<br />if this check box is selected."
+msgstr ""
+"Ако отметката е включена, автоматично ще се добавя <br />рамка около "
+"съдържанието, когато пишете текст."
+
+#: compoundwidget.cpp:126
+#, kde-format
+msgid "Configure Compound"
+msgstr "Задаване на съставен израз"
+
+#: emacsregexpconverter.cpp:78
+#, kde-format
+msgid "Look ahead regular expressions not supported in Emacs style"
+msgstr ""
+"Регулярният израз от типа \"Търсене напред\" (Look ahead) не се поддържа в "
+"стила Emacs."
+
+#: emacsregexpconverter.cpp:182
+#, kde-format
+msgid "Word boundary and non word boundary is not supported in Emacs syntax"
+msgstr ""
+"Границата на дума и не на границата на дума не се поддържат в стила Emacs."
+
+#: errormap.cpp:47
+#, kde-format
+msgid ""
+"Your regular expression is invalid, due to something preceding a 'line "
+"start'."
+msgstr "Регулярният израз е невалиден поради грешка в началото на реда."
+
+#: errormap.cpp:48 errormap.cpp:57 errormap.cpp:66
+#, kde-format
+msgid "Regular Expression Error"
+msgstr "Грешка в регулярния израз"
+
+#: errormap.cpp:56
+#, kde-format
+msgid ""
+"Your regular expression is invalid, due to something following a 'line end'."
+msgstr "Регулярният израз е невалиден поради грешка в края на реда."
+
+#: errormap.cpp:65
+#, kde-format
+msgid ""
+"Your regular expression is invalid. 'Look Ahead' regular expression must be "
+"the last sub expression."
+msgstr ""
+"Регулярният израз е невалиден, поради грешка в подизраза, който трябва да "
+"бъде последен."
+
+#: infopage.cpp:33
+#, kde-format
+msgctxt ""
+"Translators, feel free to add yourself in the text below, asking for a "
+"postcard ;-), also feel free to add a section saying <h2>Translators</h2>. "
+"Kind regards, and thanks for your work - Jesper."
+msgid ""
+"<h1>Regular Expression Editor</h1><p>What you are currently looking at is an "
+"editor for <i>Regular Expressions</i>.</p><p>The upper part in the middle is "
+"the editing area, the lower part is a verification window where you can try "
+"your regular expressions right away. The row of buttons is the editing "
+"actions. This is actually very similar to common drawing programs. Select an "
+"editing tool to start editing your regular expression, and press the mouse "
+"button in the editing area where you want this item inserted.</p><p>For a "
+"more detailed description of this editor see the <a href=\"doc://\">info "
+"pages</a></p><h2>What is a regular expression?</h2>If you do not know what a "
+"regular expression is, then it might be a good idea to read <a href=\"doc://"
+"whatIsARegExp\">the introduction to regular expressions</a>.<br />"
+msgstr ""
+"<h1>Редактор на регулярни изрази</h1><p>Това, което виждате, е редактор на "
+"<i>регулярни изрази</i>.</p><p>Голямо поле по-средата, където се намира този "
+"текст, всъщност е областта, в която се създават и редактират регулярните "
+"изрази. Редакторът е подобен на повечето програми за създаване на графични "
+"изображения. Изберете елемент за добавяне от лентата с инструменти и след "
+"това натиснете бутона на мишката там, където искате да го приложите.</"
+"p><p>За по-подробно описание на редактора вижте <a href=\"doc://"
+"\">страниците на info-документацията</a></p><h2>Какво е регулярен израз?</"
+"h2>Ако не знаете какво е регулярни изрази, трябва да прочетете необходимите "
+"книжки и документация. Като началото може да започнете с <a href=\"doc://"
+"whatIsARegExp\">Въведение в регулярните изрази</a>.<br />"
+
+#: infopage.cpp:46
+#, kde-format
+msgid ""
+"<h2>Send the author an electronic postcard</h2>I don't get any money for "
+"working on KRegExpEditor, I therefore appreciate it very much when users "
+"tell me what they think about my work. I would therefore be very happy if "
+"you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a short "
+"mail</a>, telling me that you use my regular expression editor.<h2>Author</"
+"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
+"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+msgstr ""
+"<qt><h2>Изпратете електронна картичка на автора</h2><p>Авторът, както и "
+"другите програмисти, не получават пари за работата си в проекта. Авторът ще "
+"се радва, ако му изпратите електронна картичка или мнения и идеи за "
+"редактора на регулярни изрази. Може да пишете на <a href=\"mailto:"
+"blackie@kde.org?subject=KRegExpEditor\">този адрес</a>.</p><h2>Автор</h2> "
+"<p><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
+"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;</p></qt>"
+
+#: KMultiFormListBox/ccp.cpp:73
+#, kde-format
+msgid "Insert Blank"
+msgstr "Вмъкване на празно"
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#, kde-format
+msgid "Due to a bug, it is not possible to remove the last element."
+msgstr "Последният елемент не може да бъде изтрит поради грешка в програмата."
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#, kde-format
+msgid "Internal Error"
+msgstr "Вътрешна грешка"
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:282
+#, kde-format
+msgid "There is no element on the clipboard to paste in."
+msgstr "Няма елемент в системния буфер за поставяне."
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:54
+#, kde-format
+msgid "Edit"
+msgstr "Редактиране"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:61
+#: userdefinedregexps.cpp:153
+#, kde-format
+msgid "Delete"
+msgstr "Изтриване"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:74
+#, kde-format
+msgid "Up"
+msgstr "Горе"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:80
+#, kde-format
+msgid "Down"
+msgstr "Долу"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#, kde-format
+msgid "Delete item \"%1\"?"
+msgstr "Изтриване на елемент \"%1\"?"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#, kde-format
+msgid "Delete Item"
+msgstr "Изтриване на елемент"
+
+#: KMultiFormListBox/kmultiformlistbox.h:71
+#, kde-format
+msgid "Add"
+msgstr "Добавяне"
+
+#: KMultiFormListBox/widgetwindow.cpp:47
+#, kde-format
+msgid "Widget Configuration"
+msgstr "Настройване на графичен елемент"
+
+#: kregexpeditorguidialog.cpp:36
+#, kde-format
+msgid "Regular Expression Editor"
+msgstr "Редактор на регулярни изрази"
+
+#: kregexpeditorprivate.cpp:68
+#, kde-format
+msgid "Compound regular expression:"
+msgstr "Съставен регулярен израз:"
+
+#: kregexpeditorprivate.cpp:69
+#, kde-format
+msgid ""
+"In this window you will find predefined regular expressions. Both regular "
+"expressions you have developed and saved, and regular expressions shipped "
+"with the system."
+msgstr ""
+"В този прозорец съдържа предефинирани регулярни изрази. Изразите, които сте "
+"разработвали и записвали, се пазят тук. Също така, тук са записани и "
+"стандартните регулярни изрази, с които идва редакторът."
+
+#: kregexpeditorprivate.cpp:78
+#, kde-format
+msgid ""
+"In this window you will develop your regular expressions. Select one of the "
+"actions from the action buttons above, and click the mouse in this window to "
+"insert the given action."
+msgstr ""
+"Този прозорец служи за разработване и редактиране на регулярни изрази. Той "
+"съдържа текущия израз. Изберете операция от лентата с инструментите и "
+"щракнете в прозореца, за да я вмъкнете."
+
+#: kregexpeditorprivate.cpp:86
+#, kde-format
+msgid ""
+"<p>Type in some text in this window, and see what the regular expression you "
+"have developed matches.</p><p>Each second match will be colored in red and "
+"each other match will be colored blue, simply so you can distinguish them "
+"from each other.</p><p>If you select part of the regular expression in the "
+"editor window, then this part will be highlighted - This allows you to "
+"<i>debug</i> your regular expressions</p>"
+msgstr ""
+"<p>Въведеният текст в това поле ще се тества за съвпадения спрямо регулярния "
+"израз, който разработвате в момента.</p><p>Съвпаденията ще бъдат оцветени в "
+"синьо и червено през едно. Целта е да може да ги различавате по-лесно.</"
+"p><p>Ако изберете част от регулярния израз в редактора, то избраната част ще "
+"бъде оцветена. По този начин може да тествате откривате грешки в регулярните "
+"изрази.</p>"
+
+#: kregexpeditorprivate.cpp:148
+#, kde-format
+msgid "ASCII syntax:"
+msgstr "ASCII синтаксис:"
+
+#: kregexpeditorprivate.cpp:161
+#, kde-format
+msgid ""
+"<p>This is the regular expression in ASCII syntax. You are likely only to be "
+"interested in this if you are a programmer, and need to develop a regular "
+"expression using QRegExp.</p><p>You may develop your regular expression both "
+"by using the graphical editor, and by typing the regular expression in this "
+"line edit.</p>"
+msgstr ""
+"<p>Това поле съдържа регулярния израз в текстов вид. Ако сте програмист, "
+"може да използвате резултата в друга програма. </p><p>Регулярният израз може "
+"да бъде създаван и от тук. Всички промени в това поле ще се отразят и в "
+"редактора.</p>"
+
+#: kregexpeditorprivate.cpp:371
+#, kde-format
+msgid "Could not open file '%1' for reading"
+msgstr "Грешка при отваряне на файла \"%1\" за четене"
+
+#: lookaheadwidget.cpp:51
+#, kde-format
+msgid "Pos. Look Ahead"
+msgstr "Положително търсене напред"
+
+#: lookaheadwidget.cpp:53
+#, kde-format
+msgid "Neg. Look Ahead"
+msgstr "Отрицателно търсене напред"
+
+#: main.cpp:42
+#, kde-format
+msgid "RegExp Editor"
+msgstr "Редактор на регулярни изрази"
+
+#: main.cpp:43
+#, kde-format
+msgid "Editor for Regular Expressions"
+msgstr "Редактор на регулярни изрази"
+
+#: main.cpp:45
+#, kde-format
+msgid "(c) 2002-2003 Jesper K. Pedersen"
+msgstr "(c) 2002-2003 Jesper K. Pedersen"
+
+#: main.cpp:46
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: main.cpp:46
+#, kde-format
+msgid "Developer"
+msgstr "Разработка"
+
+#: predefined/General/anything.regexp:5
+#, kde-format
+msgid "anything"
+msgstr "нещо"
+
+#: predefined/General/anything.regexp:6
+#, kde-format
+msgid "This regular expression matches anything."
+msgstr "Този израз съвпада с всичко."
+
+#: predefined/General/spaces.regexp:5
+#, kde-format
+msgid "spaces"
+msgstr "интервали"
+
+#: predefined/General/spaces.regexp:6
+#, kde-format
+msgid "Matches an arbitrary amount of whitespace."
+msgstr "Съвпада с произволен брой интервали."
+
+#: qregexpparser.y:205
+#, kde-format
+msgid ""
+"<p>Back reference regular expressions are not supported.</p><p><tt>\\1</tt>, "
+"<tt>\\2</tt>, ... are <i>back references</i>, meaning they refer to previous "
+"matches. Unfortunately this is not supported in the current version of this "
+"editor.</p><p>In the graphical area the text <b>%1</b> has been inserted. "
+"This is however just a workaround to ensure that the application handles the "
+"regexp at all. Therefore, as soon as you edit the regular expression in the "
+"graphical area, the back reference will be replaced by matching the text <b>"
+"%2</b> literally.</p>"
+msgstr ""
+"<p>Регулярните изрази за обратна препратка не се поддържат.</p><p><tt>\\1</"
+"tt>, <tt>\\2</tt>, ... са <i>обратни препратки</i>, което означава, че те се "
+"отнасят до предишни съвпадения. За съжаление това не се поддържа в "
+"настоящата версия на този редактор.</p><p>В графичната област е вмъкнат "
+"текстът <b>%1</b>. Това обаче е само заобиколно решение, за да се гарантира, "
+"че приложението като цяло обработва рег. изрази. Следователно, веднага щом "
+"редактирате регулярния израз в графичната област, обратната препратка ще "
+"бъде заменена със съвпадението на текста <b>%2</b> буквално.</p>"
+
+#: qregexpparser.y:214
+#, kde-format
+msgid "Back reference regular expressions not supported"
+msgstr "Регулярните изрази за обратна препратка не се поддържат"
+
+#: regexpbuttons.cpp:49
+#, kde-format
+msgid "Selection tool"
+msgstr "Избор"
+
+#: regexpbuttons.cpp:50
+#, kde-format
+msgid ""
+"<p>This will change the state of the editor to <i>selection state</i>.</"
+"p><p>In this state you will not be inserting <i>regexp items</i>, but "
+"instead select them. To select a number of items, press down the left mouse "
+"button and drag it over the items.</p><p>When you have selected a number of "
+"items, you may use cut/copy/paste. These functions are found in the right "
+"mouse button menu.</p>"
+msgstr ""
+"<p>Това сменя състоянието на редактора в <i>режим на избор</i>.</p><p>В този "
+"режим ще може да избирате <i>елементи на регулярния израз</i>, вместо да ги "
+"редактирате. За да изберете няколко елемента, задръжте левия бутон на "
+"мишката и е я влачете над елементите, които искате да изберете.</"
+"p><p>Избраните елементи могат да бъдат изрязвани, копирани и поставяни чрез "
+"съответните операции в менюто на десния бутон на мишката.</p>"
+
+#: regexpbuttons.cpp:59
+#, kde-format
+msgid "Text"
+msgstr "Текст"
+
+#: regexpbuttons.cpp:60
+#, kde-format
+msgid ""
+"<qt>This will insert a text field, where you may write text. The text you "
+"write will be matched literally. (i.e. you do not need to escape any "
+"characters)</qt>"
+msgstr ""
+"<qt>Вмъкване на текст. При тази операция ще се вмъкне текстово поле, където "
+"ще може да зададете текст, който да да бъде използван за съвпадение. В "
+"текстовото поле всички знаци се разглеждат като обикновени знаци и "
+"специалните знаци няма нужда да бъдат предшествани от наклонена черта.</qt>"
+
+#: regexpbuttons.cpp:64
+#, kde-format
+msgid "A single character specified in a range"
+msgstr "Знак в зададен обхват"
+
+#: regexpbuttons.cpp:65
+#, kde-format
+msgid ""
+"<p>This will match a single character from a predefined range.</p><p>When "
+"you insert this widget a dialog box will appear, which lets you specify "
+"which characters this <i>regexp item</i> will match.</p>"
+msgstr ""
+"<p>Задаване на знак, който трябва да съвпада в зададен обхват.</p><p>Когато "
+"добавите графичния елемент ще се появи диалогов прозорец, в който може да "
+"зададете знака.</p>"
+
+#: regexpbuttons.cpp:70
+#, kde-format
+msgid "Any character"
+msgstr "Всеки знак"
+
+#: regexpbuttons.cpp:71
+#, kde-format
+msgid "<qt>This will match any single character</qt>"
+msgstr "<qt>Задаване на знак, който съвпада с всеки знак.</qt>"
+
+#: regexpbuttons.cpp:74
+#, kde-format
+msgid "Repeated content"
+msgstr "Повторение"
+
+#: regexpbuttons.cpp:75
+#, kde-format
+msgid ""
+"<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
+"a specified number of times.<br />The number of times to repeat may be "
+"specified using ranges; e.g. it could be specified that it should match from "
+"2 to 4 times, that it should match exactly 5 times, or that it should match "
+"at least one time.<br />Examples:<br />If you specify that it should match "
+"<i>any</i> time, and the content it surrounds is <tt>abc</tt>, then this "
+"<i>regexp item</i> will match the empty string, the string <tt>abc</tt>, the "
+"string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, etc.</qt>"
+msgstr ""
+"<Qt> Този <i>елемент на рег.израз </i> ще повтори <i>елементите  на рег. "
+"израз</i>, които заобикаляопределен брой пъти. <br /> Броят пъти за "
+"повторение може да бъдепосочени с помощта на диапазони; напр. може да се "
+"определи, че трябва да съвпада от2 до 4 пъти, че трябва да съвпада точно 5 "
+"пъти, или че трябва да съвпадапоне един път. <br /> Примери:<br /> Ако "
+"посочите, че трябва да съвпада<i> ВСЕКИ </i>път и съдържанието, което "
+"заобикаля, е <tt>abc</tt>, тогава този<i> елемент на рег. израз </i> ще "
+"съответства на празен низ,  на низа <tt>abc</tt>,  <tt>abcabc</tt>,  "
+"<Tt>abcabcabc</tt> и т.н.</qt>"
+
+#: regexpbuttons.cpp:88
+#, kde-format
+msgid ""
+"<p>This <i>regexp item</i> will match any of its alternatives.</"
+"p><p>Alternatives are specified by placing <i>regexp items</i> on top of "
+"each other inside this widget.</p>"
+msgstr ""
+"<p> Този <i> елемент на рег. израз </i> ще съответства на някоя от неговите "
+"алтернативи.</p><p>Алтернативите се определят чрез поставяне на "
+"<i>елементите на рег. израз</i> най-отгоре в тази приставка.</p>"
+
+#: regexpbuttons.cpp:93
+#, kde-format
+msgid "Compound regexp"
+msgstr "Комбиниране на регулярни изрази"
+
+#: regexpbuttons.cpp:94
+#, kde-format
+msgid ""
+"<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
+"for you to collapse a huge <i>regexp item</i> into a small box. This makes "
+"it easier for you to get an overview of large <i>regexp items</i>. This is "
+"especially useful if you load a predefined <i>regexp item</i> that you "
+"perhaps do not care about the inner workings of.</qt>"
+msgstr ""
+"<qt> Този <i>елемент на рег. израз</i> служи за две цели: <ul><li>Прави "
+"възможносвиването на много <i>елементи на рег.израз</i> в малко поле. Това "
+"улеснява прегледа на големи данни от <i>елементи на рег. изрази</i>. Това "
+"еособено полезно, ако зареждате предварително определен <i>елемент на рег. "
+"израз</i>, безда се интересувате от вътрешния процес на работа му.</qt>"
+
+#: regexpbuttons.cpp:101
+#, kde-format
+msgid "Beginning of line"
+msgstr "Начало на ред"
+
+#: regexpbuttons.cpp:102
+#, kde-format
+msgid "<qt>This will match the beginning of a line.</qt>"
+msgstr "<qt>Вмъкване на съвпадение в началото на реда.</qt>"
+
+#: regexpbuttons.cpp:105
+#, kde-format
+msgid "End of line"
+msgstr "Край на ред"
+
+#: regexpbuttons.cpp:106
+#, kde-format
+msgid "<qt>This will match the end of a line.</qt>"
+msgstr "<qt>Вмъкване на съвпадение в края на реда.</qt>"
+
+#: regexpbuttons.cpp:109
+#, kde-format
+msgid "Word boundary"
+msgstr "Граница на дума"
+
+#: regexpbuttons.cpp:110
+#, kde-format
+msgid ""
+"<qt>This asserts a word boundary (This part does not actually match any "
+"characters)</qt>"
+msgstr ""
+"<qt>Вмъкване на съвпадение на граница на дума. При тази операция не се "
+"вмъква знак.</qt>"
+
+#: regexpbuttons.cpp:113
+#, kde-format
+msgid "Non Word boundary"
+msgstr "Не граница на дума"
+
+#: regexpbuttons.cpp:114
+#, kde-format
+msgid ""
+"<qt>This asserts a non-word boundary (This part does not actually match any "
+"characters)</qt>"
+msgstr ""
+"<qt>Вмъкване на съвпадение не на граница на дума. При тази операция не се "
+"вмъква знак.</qt>"
+
+#: regexpbuttons.cpp:118
+#, kde-format
+msgid "Positive Look Ahead"
+msgstr "Положително търсене напред"
+
+#: regexpbuttons.cpp:119
+#, kde-format
+msgid ""
+"<qt>This asserts a regular expression (This part does not actually match any "
+"characters). You can only use this at the end of a regular expression.</qt>"
+msgstr ""
+"<qt>Вмъкване на регулярен израз. Тази част не съвпада с нищо и при тази "
+"операция не се вмъква знак. Тази операция може да бъде използвана само в "
+"края на регулярния израз.</qt>"
+
+#: regexpbuttons.cpp:123
+#, kde-format
+msgid "Negative Look Ahead"
+msgstr "Отрицателно търсене напред"
+
+#: regexpbuttons.cpp:124
+#, kde-format
+msgid ""
+"<qt>This asserts a regular expression that must not match (This part does "
+"not actually match any characters). You can only use this at the end of a "
+"regular expression.</qt>"
+msgstr ""
+"<qt>Вмъкване на регулярен израз, който не трябва да съвпада. Тази част не "
+"съвпада с нищо и при тази операция не се вмъква знак. Тази операция може да "
+"бъде използвана само в края на регулярния израз.</qt>"
+
+#: regexpeditorwindow.cpp:215
+#, kde-format
+msgid "There is no selection."
+msgstr "Няма нищо избрано."
+
+#: regexpeditorwindow.cpp:215
+#, kde-format
+msgid "Missing Selection"
+msgstr "Няма нищо избрано"
+
+#: regexpeditorwindow.cpp:280
+#, kde-format
+msgid "There is no widget under cursor."
+msgstr "Няма графичен обект под показалеца."
+
+#: regexpeditorwindow.cpp:280
+#, kde-format
+msgid "Invalid Operation"
+msgstr "Невалидна операция"
+
+#: regexpeditorwindow.cpp:331
+#, kde-format
+msgid "C&ut"
+msgstr "&Изрязване"
+
+#: regexpeditorwindow.cpp:335
+#, kde-format
+msgid "&Copy"
+msgstr "&Копиране"
+
+#: regexpeditorwindow.cpp:339
+#, kde-format
+msgid "&Paste"
+msgstr "&Вмъкване"
+
+#: regexpeditorwindow.cpp:345
+#, kde-format
+msgid "&Edit"
+msgstr "&Редактиране"
+
+#: regexpeditorwindow.cpp:349
+#, kde-format
+msgid "&Save Regular Expression..."
+msgstr "&Записване на регулярния израз..."
+
+#: regexpeditorwindow.cpp:388
+#, kde-format
+msgid "Name for Regular Expression"
+msgstr "Име на регулярен израз"
+
+#: regexpeditorwindow.cpp:388
+#, kde-format
+msgid "Enter name:"
+msgstr "Въведете име:"
+
+#: regexpeditorwindow.cpp:390
+#, kde-format
+msgid "Empty name is not supported"
+msgstr "Не се поддържа празно име"
+
+#: regexpeditorwindow.cpp:390
+#, kde-format
+msgid "Save Regular Expression"
+msgstr "Записване на регулярния израз"
+
+#: regexpeditorwindow.cpp:398
+#, kde-format
+msgid "<p>Overwrite named regular expression <b>%1</b></p>"
+msgstr ""
+"<p>Сигурни ли сте, че искате именувания регулярен израз <b>%1</b> да бъде "
+"презаписан?</p>"
+
+#: regexpeditorwindow.cpp:406
+#, kde-format
+msgid "Could not open file for writing: %1"
+msgstr "Грешка при отваряне на файл за запис: %1"
+
+#: repeatregexp.cpp:57 repeatregexp.cpp:65
+#, kde-format
+msgid ""
+"<p>Value for attribute <b>%1</b> was not an integer for element <b>%2</b></"
+"p><p>It contained the value <b>%3</b></p>"
+msgstr ""
+"<p>Стойността на атрибута <b>%1</b> на елемента <b>%2</b> не е цяло число.</"
+"p><p>Намерената стойност е <b>%3</b>.</p>"
+
+#: repeatregexp.cpp:60 repeatregexp.cpp:68 textrangeregexp.cpp:146
+#: textregexp.cpp:54 widgetfactory.cpp:165 widgetfactory.cpp:196
+#: widgetfactory.cpp:203
+#, kde-format
+msgid "Error While Loading From XML File"
+msgstr "Грешка при зареждане на файла с дефиницията"
+
+#: repeatwidget.cpp:74
+#, kde-format
+msgid "Number of Times to Repeat Content"
+msgstr "Повторение"
+
+#: repeatwidget.cpp:184
+#, kde-format
+msgid "Times to Match"
+msgstr "Брой съвпадения"
+
+#: repeatwidget.cpp:191
+#, kde-format
+msgid "Any number of times (including zero times)"
+msgstr "Няколко пъти (включително нула пъти)"
+
+#: repeatwidget.cpp:198
+#, kde-format
+msgid "At least"
+msgstr "Поне"
+
+#: repeatwidget.cpp:199
+#, kde-format
+msgid "At most"
+msgstr "Не повече от"
+
+#: repeatwidget.cpp:200
+#, kde-format
+msgid "Exactly"
+msgstr "Точно"
+
+#: repeatwidget.cpp:203
+#, kde-format
+msgid "From"
+msgstr "От"
+
+#: repeatwidget.cpp:215
+#, kde-format
+msgid "to"
+msgstr "до"
+
+#: repeatwidget.cpp:223 repeatwidget.cpp:249
+#, kde-format
+msgid "time(s)"
+msgstr "път(и)"
+
+#: repeatwidget.cpp:299
+#, kde-format
+msgid "Repeated Any Number of Times"
+msgstr "Повторение няколко пъти"
+
+#: repeatwidget.cpp:301
+#, kde-format
+msgid "Repeated at Least 1 Time"
+msgid_plural "Repeated at Least %1 Times"
+msgstr[0] "Повторение поне веднъж"
+msgstr[1] "Повторение поне %1 пъти"
+
+#: repeatwidget.cpp:303
+#, kde-format
+msgid "Repeated at Most 1 Time"
+msgid_plural "Repeated at Most %1 Times"
+msgstr[0] "Повторение най-много веднъж"
+msgstr[1] "Повторение най-много %1 пъти"
+
+#: repeatwidget.cpp:305
+#, kde-format
+msgid "Repeated Exactly 1 Time"
+msgid_plural "Repeated Exactly %1 Times"
+msgstr[0] "Повторение точно веднъж"
+msgstr[1] "Повторение точно %1 пъти"
+
+#: repeatwidget.cpp:307
+#, kde-format
+msgid "Repeated From %1 to %2 Times"
+msgstr "Повторение от %1 до %2 пъти"
+
+#: textrangeregexp.cpp:145
+#, kde-format
+msgid ""
+"<p>Invalid sub element to element <b>TextRange</b>. Tag was <b>%1</b></p>"
+msgstr ""
+"<p>Невалиден поделемент на елемента <b>TextRange</b>. Невалидният таг е <b>"
+"%1</b>.</p>"
+
+#: textregexp.cpp:53
+#, kde-format
+msgid "<p>Element <b>Text</b> did not contain any textual data.</p>"
+msgstr "<p>Елементът <b>Text</b> не съдържа данни.</p>"
+
+#: userdefinedregexps.cpp:67
+#, kde-format
+msgid "User Defined"
+msgstr "Потребителска дефиниция"
+
+#: userdefinedregexps.cpp:87
+#, kde-format
+msgid "general"
+msgstr "общо"
+
+#: userdefinedregexps.cpp:101
+#, kde-format
+msgid "Could not open file for reading: %1"
+msgstr "Грешка при отваряне на файл за четене: %1"
+
+#: userdefinedregexps.cpp:111
+#, kde-format
+msgid "File %1 containing user defined regular expression contained an error"
+msgstr ""
+"Файлът \"%1\", който съдържа потребителската дефиниция на регулярен израз "
+"има грешка."
+
+#: userdefinedregexps.cpp:154
+#, kde-format
+msgid "Rename"
+msgstr "Преименуване"
+
+#: userdefinedregexps.cpp:195
+#, kde-format
+msgid "Rename Item"
+msgstr "Преименуване на елемент"
+
+#: userdefinedregexps.cpp:195
+#, kde-format
+msgid "New name:"
+msgstr "Ново име:"
+
+#: userdefinedregexps.cpp:202
+#, kde-format
+msgid "<p>Overwrite named regular expression <b>%1</b>?</p>"
+msgstr ""
+"<p>Сигурни ли сте, че искате именувания регулярен израз <b>%1</b> да бъде "
+"презаписан?</p>"
+
+#: userdefinedregexps.cpp:202
+#, kde-format
+msgid "Do Not Overwrite"
+msgstr "Без презапис"
+
+#: verifybuttons.cpp:38
+#, kde-format
+msgid "Verify regular expression"
+msgstr "Проверка на регулярния израз"
+
+#: verifybuttons.cpp:39
+#, kde-format
+msgid ""
+"Shows what part of the regular expression is being matched in the "
+"<i>verifier window</i>.(The window below the graphical editor window)."
+msgstr ""
+"Проверка на регулярния израз. Служи за показване, коя част от регулярния "
+"израз съвпада с текста за проверка. Става въпрос за прозореца под графичния "
+"редактор."
+
+#: verifybuttons.cpp:48
+#, kde-format
+msgid "Load text in the verifier window"
+msgstr "Зареждане на текст в прозореца за проверка"
+
+#: verifybuttons.cpp:53
+#, kde-format
+msgid "Verification Settings"
+msgstr "Настройки на проверка"
+
+#: verifybuttons.cpp:101
+#, kde-format
+msgid "config menu"
+msgstr "меню config"
+
+#: verifybuttons.cpp:104
+#, kde-format
+msgid "Verify on the Fly"
+msgstr "Проверка по време на въвеждане"
+
+#: verifybuttons.cpp:110
+#, kde-format
+msgid "Toggle on-the-fly verification of regular expression"
+msgstr "Автоматична проверка на регулярния израз по време на въвеждане"
+
+#: verifybuttons.cpp:111
+#, kde-format
+msgid ""
+"Enabling this option will make the verifier update for each edit. If the "
+"verify window contains much text, or if the regular expression is either "
+"complex or matches a lot of time, this may be very slow."
+msgstr ""
+"Автоматична проверка на регулярния израз по време на въвеждане. Ако "
+"регулярния израз е много сложен, тази опция може да забави работата на "
+"програмата."
+
+#: verifybuttons.cpp:115
+#, kde-format
+msgid "Match Greedy"
+msgstr "\"Лакомо\" съвпадение"
+
+#: verifybuttons.cpp:120
+#, kde-format
+msgid "Toggle greedy matching when verifying the regular expression."
+msgstr ""
+"Превключване на \"лакомо\" съвпадение при проверка на регулярния израз."
+
+#: verifybuttons.cpp:121
+#, kde-format
+msgid ""
+"When this option is enabled, the regular expression will be evaluated on a "
+"so-called greedy way."
+msgstr ""
+"Ако тази настройка е включена, регулярният израз ще се оценява по т.нар. "
+"\"лаком\" начин."
+
+#: verifybuttons.cpp:124
+#, kde-format
+msgid "RegExp Language"
+msgstr "Език"
+
+#: widgetfactory.cpp:164
+#, kde-format
+msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
+msgstr "<p>Файлът с дефиницията съдържа непознат таг <b>%1</b>.</p>"
+
+#: widgetfactory.cpp:188
+#, kde-format
+msgid "Error while loading regular expression from XML."
+msgstr "Грешка при зареждане на регулярен израз от XML."
+
+#: widgetfactory.cpp:189
+#, kde-format
+msgid "Error While Loading Regular Expression From XML"
+msgstr "Грешка при зареждане на регулярен израз от файла с дефиницията"
+
+#: widgetfactory.cpp:195
+#, kde-format
+msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
+msgstr "<p>Файлът XML не съдържа таг <b>%1</b>.</p>"
+
+#: widgetfactory.cpp:201
+#, kde-format
+msgid ""
+"<p>Error while reading XML file. The element just below the tag <b>%1</b> "
+"was not an element.</p>"
+msgstr ""
+"<p>Грешка при четене на файла с дефиницията. Елементът под тага <b>%1</b> е "
+"грешен.</p>"
+
+#: zerowidgets.cpp:72
+#, kde-format
+msgid ""
+"Any\n"
+"Character"
+msgstr ""
+"Всеки\n"
+"знак"
+
+#: zerowidgets.cpp:85
+#, kde-format
+msgid ""
+"Line\n"
+"Start"
+msgstr ""
+"Начало\n"
+"на ред"
+
+#: zerowidgets.cpp:98
+#, kde-format
+msgid ""
+"Line\n"
+"End"
+msgstr ""
+"Край\n"
+"на ред"
+
+#: zerowidgets.cpp:111
+#, kde-format
+msgid ""
+"Word\n"
+"Boundary"
+msgstr ""
+"Граница\n"
+"на дума"
+
+#: zerowidgets.cpp:124
+#, kde-format
+msgid ""
+"Non-word\n"
+"Boundary"
+msgstr ""
+"Не граница\n"
+"на дума"

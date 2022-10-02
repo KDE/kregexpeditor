@@ -1,0 +1,894 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % Dutch "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kregexpeditor" lang="&language;">
+
+  <bookinfo>
+    <title
+>Het handboek voor de editor voor reguliere expressie</title>
+
+    <authorgroup>
+      <author
+><firstname
+>Jesper K.</firstname
+> <surname
+>Pedersen</surname
+> <affiliation
+><address
+>&Jesper.Pedersen.mail;</address
+></affiliation>
+      </author>
+&Freek.de.Kruijf; 
+    </authorgroup>
+
+    <date
+>2001-07-03</date>
+    <releaseinfo
+>0.1</releaseinfo>
+
+    <legalnotice
+>&underFDL;</legalnotice>
+
+    <copyright>
+      <year
+>2001</year>
+      <holder
+>Jesper K. Pedersen</holder>
+    </copyright>
+
+    <abstract>
+      <para
+>Dit handboek beschrijft de editor voor reguliere expressies</para>
+    </abstract>
+
+    <keywordset>
+      <keyword
+>KDE</keyword>
+      <keyword
+>reguliere expressie</keyword>
+    </keywordset>
+  </bookinfo>
+
+  <!-- ====================================================================== -->
+  <!--                               Introduction                             -->
+  <!-- ====================================================================== -->
+  <chapter id="introduction">
+    <title
+>Inleiding</title>
+
+
+    <para
+>De editor voor reguliere expressies is een editor voor het grafisch bewerken van reguliere expressies (in plaats van via de <acronym
+>ASCII</acronym
+>-syntaxis). Traditioneel werden reguliere expressie getypt in <acronym
+>ASCII</acronym
+>-syntaxis, die er bijvoorbeeld uitzag als <literal
+>^.*kde\b</literal
+>. Grote nadelen van deze stijl zijn: <itemizedlist>
+        <listitem
+><para
+>Hij is lastig te begrijpen voor niet-programmeurs.</para
+></listitem>
+
+        <listitem
+><para
+>U dient voor bepaalde symbolen een <emphasis
+>stuurcode</emphasis
+> te gebruiken. Om een ster te vinden, dient u bijvoorbeeld <literal
+>\*</literal
+>te typen. </para
+></listitem>
+
+        <listitem
+><para
+>U dient regels te onthouden voor de <emphasis
+>evaluatievolgorde</emphasis
+> (Waarmee komt <emphasis
+>x|y*</emphasis
+> overeen? Een enkele <literal
+>x</literal
+> of een aantal keer <literal
+>y</literal
+>, <emphasis
+>OF</emphasis
+> een aantal keer <literal
+>x</literal
+> en <literal
+>y</literal
+> door elkaar?</para
+></listitem>
+      </itemizedlist>
+    </para>
+
+    <para
+>De editor voor reguliere expressies, echter, laat u uw reguliere expressie op eenduidige wijze <emphasis
+>tekenen</emphasis
+>. de editor lost item twee en drie uit bovengenoemde opsomming op. Dit zorgt er misschien niet voor dat reguliere expressies beschikbaar worden voor niet-programmeurs, maar dat kunnen alleen tests door gebruikers uitwijzen. Dus, als u een niet-programmeur bent die de kracht van de reguliere expressies hebt bemachtigd met deze editor, <ulink url="mailto:blackie@kde.org"
+>laat het mij dan alstublieft weten</ulink
+>. </para>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                       What is a Regular Expression                     -->
+  <!-- ====================================================================== -->
+  <chapter id="whatIsARegExp">
+    <title
+>Wat is een reguliere expressie?</title>
+
+    <para
+>Een reguliere expressie is een manier om <emphasis
+>condities</emphasis
+> te specificeren waaraan voldaan dient te worden voor een beoogde situatie. Wanneer u normaal gesproken in een teksteditor zoekt, specificeert u <emphasis
+>letterlijk</emphasis
+> de tekst waarnaar gezocht moet worden. Wanneer u daarentegen gebruik maakt van reguliere expressies, geeft u aan hoe een gegeven zoekresultaat eruit dient te zien. Voorbeelden hiervan zijn onder andere <emphasis
+>ik zoek naar het woord &kde;, maar alleen aan het begin van de regel</emphasis
+>, of <emphasis
+>ik zoek naar het woord <literal
+>de</literal
+>, maar het moet een losstaand woord zijn</emphasis
+>, of <emphasis
+>ik ben opzoek naar bestanden die beginnen met het woord <literal
+>test</literal
+>, gevolgd door een aantal getallen, bijvoorbeeld <literal
+>test12</literal
+>, <literal
+>test107</literal
+> en <literal
+>test007</literal
+></emphasis
+></para>
+
+    <para
+>U construeert een reguliere expressie op basis van sub-expressies, zoals groot Lego speelgoed van kleinere onderdelen gemaakt worden. Evenals in de Lego-wereld, is er een aantal basisbouwstenen. In het volgende beschrijf ik elk van deze basisbouwstenen aan de hand van een aantal voorbeelden.</para>
+
+    <example>
+      <title
+>Zoeken naar normale tekst.</title>
+      <para
+>Als u op zoek bent naar een gegeven tekst, dan is een reguliere expressie zeker geen goede keuze. De reden hiervoor is dat reguliere expressies een speciale betekenis toekennen aan sommige karakters. Hiertoe behoren onder ander de volgende karakters: <literal
+>*|$</literal
+>. Dus als u wilt zoeken naar de tekst <literal
+>kde.</literal
+> (m.a.w. de karakters <literal
+>kde</literal
+> gevolgd door een punt), dan zou u dit als <literal
+>kde\.</literal
+>dienen te specificeren. <footnote
+><para
+>De editor voor reguliere expressies lost dit probleem voor u op door te zorgen voor de stuurcode regels te zorgen.</para
+></footnote
+>. Het schrijven van <literal
+>\.</literal
+> in plaats van gewoon <literal
+>.</literal
+> wordt <emphasis
+>escaping</emphasis
+> genoemd. </para>
+    </example>
+
+    <example id="positionregexp">
+      <title
+>&URL;'s zoeken</title>
+      <para
+>Wanneer u iets dat op een &URL; lijkt selecteert in &kde;, dan biedt het programma <command
+>klipper</command
+> aan <command
+>konqueror</command
+> te starten met de geselecteerde &URL;.</para>
+
+      <para
+><command
+>Klipper</command
+> doet dit door de selectie te vergelijken met een aantal reguliere expressies, en wanneer één van de reguliere expressies ermee overeenkomt. wordt het bijbehorende commando uitgevoerd.</para>
+      
+      <para
+>De reguliere expressie voor &URL;'s zegt (onder andere), dat de selectie moet beginnen met de tekst <literal
+>http://</literal
+>. Dit wordt beschreven met reguliere expressies door <literal
+>http://</literal
+> voor de tekst te plaatsen met een dakje (het teken <literal
+>^</literal
+>).</para>
+
+      <para
+>Het bovenstaande is een voorbeeld van posities zoeken met behulp van reguliere expressies. Op overeenkomstige wijze kan naar de positie <emphasis
+>regeleinde</emphasis
+> gezocht worden met het teken <literal
+>$</literal
+> (m.a.w. het dollarteken).</para>
+    </example>
+
+    <example id="boundaryregexp">
+      <title
+>Zoeken naar het woord <literal
+>the</literal
+>, maar niet naar <emphasis
+>the</emphasis
+><literal
+>re</literal
+>,<literal
+>brea</literal
+><emphasis
+>the</emphasis
+> of <literal
+>ano</literal
+><emphasis
+>the</emphasis
+><literal
+>r</literal
+></title>
+      <para
+>Twee extra types positie kunnen op bovenstaande wijze gezocht worden, namelijk <emphasis
+>de positie op een woordgrens</emphasis
+>, en <emphasis
+>de positie op een <emphasis
+>niet</emphasis
+>-woordgrens</emphasis
+>. De posities worden gespecificeerd met de tekst <literal
+>\b</literal
+> (voor woordgrens) en <literal
+>\B</literal
+> (voor niet-woordgrens)</para>
+
+      <para
+>Dus, zoeken naar het woord<literal
+>the</literal
+> kan gedaan worden met de reguliere expressie <literal
+>\bthe\b</literal
+>. Dit geeft aan dat we zoeken naar <literal
+>the</literal
+> zonder letters aan elke kant ervan (m.a.w. met een woordgrens aan elke kant)</para>
+
+      <para
+>De vier reguliere expressies om op positie te zoeken worden in de reguliere expressie editor toegevoegd met <link linkend="positiontool"
+>vier verschillende positiehulpmiddelen</link
+></para>
+    </example>
+
+    <example id="altnregexp">
+      <title
+>Zoeken naar ofwel <literal
+>dit</literal
+> of <literal
+>dat</literal
+></title>
+      <para
+>Stelt u zich voor dat u een document wilt doorzoeken voor ofwel het woord <literal
+>dit</literal
+> of het woord <literal
+>dat</literal
+>. Met een normale zoekmethode kunt u dit in twee zoekacties, de eerste keer, zou u naar <literal
+>dit</literal
+> zoeken, en de tweede maal zou u zoeken naar <literal
+>dat</literal
+>.</para>
+
+      <para
+>Met behulp van reguliere expressies zou u naar beide zoeken in dezelfde zoekactie. Dit doet u door te zoeken naar <literal
+>dit|dat</literal
+>. &ie; door de twee woorden van elkaar te scheiden met een verticale balk.<footnote
+><para
+>Merk op dat aan elke zijde van de verticale balk een reguliere expressie staat, dus deze functie is niet alleen voor het zoeken naar twee verschillende stukken tekst, maar voor het zoeken naar twee verschillende reguliere expressies.</para
+></footnote
+></para>
+
+      <para
+>In de reguliere expressie editor schrijft u de verticale balk niet zelf, maar in plaats daarvan selecteert u <link linkend="altntool"
+>hulpmiddel alternatieven</link
+>, en voegt u sub-reguliere expressies in boven elkaar.</para>
+    </example>
+
+    <example id="repeatregexp">
+      <title
+>Iets zoeken</title>
+      <para
+>Reguliere expressies worden vaak vergeleken met het zoeken met wildcards in de shell - dat is de mogelijkheid een aantal bestanden te specificeren met een asterisk. U kent zoeken met wildcard waarschijnlijk van de volgende voorbeelden: <itemizedlist>
+          <listitem
+><para
+><literal
+>rm *~</literal
+> - hier is <literal
+>*~</literal
+> de shell wildcard die overeenkomt met ieder bestand dat eindigt met <literal
+>~</literal
+></para
+></listitem>
+          <listitem
+><para
+><literal
+>cat test??.res</literal
+> - komt overeen met elk bestand dat begint met <literal
+>test</literal
+> gevolgd door twee willekeurige tekens, gevolgd door extensie <literal
+>.res</literal
+></para
+></listitem>
+        </itemizedlist>
+      </para>
+
+      <para
+>In de shell komt de asterisk overeen met een willekeurig teken en een willekeurig aantal malen. Met andere woorden, de asterisk komt overeen met <emphasis
+>alles</emphasis
+>. Dit wordt geschreven als <literal
+>.*</literal
+> met de syntaxis voor reguliere expressies.De punt komt overeen met een willekeurig afzonderlijk teken, m.a.w. slechts <emphasis
+>één</emphasis
+> teken, en de asterisk zegt dat de regulier expressie die eraan voorafgaat een willekeurig aantal malen gezocht dient te worden. Samen betekent het een willekeurig afzonderlijk teken een willekeurig aantal malen.</para>
+
+      <para
+>Dit ziet er misschien onnodig ingewikkeld uit, maar u zult de kracht ervan zien wanneer u het overzicht van het geheel krijgt . Hier is een andere eenvoudige reguliere expressie: <literal
+>a</literal
+>. De letter<literal
+>a</literal
+> op zichzelf is een reguliere expressie die overeenkomt met een enkele letter, namelijk de letter <literal
+>a</literal
+>. Als u deze combineert met de asterisk, &ie; <literal
+>a*</literal
+>, dan hebben we een reguliere expressie die een willekeurig aantal keren de letter a zoekt.</para>
+
+      <para
+>We kunnen verscheidene reguliere expressies opeenvolgend met elkaar combineren, bijvoorbeeld <literal
+>ba(na)*</literal
+>. <footnote
+><para
+><literal
+>(na)*</literal
+> betekent dat hetgeen zich binnen de haakjes bevindt een willekeurig aantal malen herhaald wordt. </para
+></footnote
+>Stelt u zich voor dat u deze reguliere expressie in het zoekveld van een teksteditor getypt had, dan had u (onder andere) de volgende woorden gevonden: <literal
+>ba</literal
+>, <literal
+>bana</literal
+>, <literal
+>banana</literal
+>, <literal
+>bananananananana</literal
+> </para>
+
+      <para
+>Gegeven bovenstaande informatie, is het hopelijk niet moeilijk voor u de shell wildcard <literal
+>test??.res</literal
+> als een reguliere expressie te schrijven. Antwoord: <literal
+>test..\.res</literal
+>. De punt alleen is een willekeurig teken. Om alleen een punt te zoeken dient u <literal
+>\.</literal
+> te schrijven.<footnote
+><para
+>Dit wordt stuurcodes gebruiken genoemd.</para
+></footnote
+>. Met andere woorden, de reguliere expressie <literal
+>\.</literal
+> komt overeen met een punt, terwijl een punt op zichzelf overeenkomt met een willekeurig teken. </para>
+
+      <para
+>In de reguliere expressie editor wordt de herhaalde reguliere expressie gemaakt met het <link linkend="repeattool"
+>hulpmiddel herhaalde inhoud</link
+> </para>
+    </example>
+
+    <example id="lookaheadregexp">
+      <title
+>Het vervangen van <literal
+>&amp;</literal
+> door <literal
+>&amp;amp;</literal
+> in een &HTML;-document</title
+> <para
+>In &HTML; dient het speciale teken <literal
+>&amp;</literal
+> geschreven te worden als <literal
+>&amp;amp;</literal
+> - dit is vergelijkbaar met gebruik van stuurcodes  in reguliere expressies.</para>
+
+      <para
+>Stelt u zich voor dat u een &HTML;-document heeft geschreven in een normale editor (bijvoorbeeld &XEmacs; of &kate;), en u hebt deze regel helemaal vergeten. Wat u zou doen wanneer u zich uw vergissing realiseerde, is elke <literal
+>&amp;</literal
+> vervangen door <literal
+>&amp;amp;</literal
+>.</para>
+
+      <para
+>Dit kunt u eenvoudig doen met het normale zoeken en vervangen, er ligt echter een adder onder het gras. Stelt u zich voor dat u zich deze regel wel <emphasis
+>een beetje</emphasis
+> hebt herinnerd - en het op een aantal plaatsen goed gedaan hebt. Onvoorwaardelijk vervangen zou resulteren in dat <literal
+>&amp;amp;</literal
+> vervangen wordt door <literal
+>&amp;amp;amp;</literal
+></para>
+
+      <para
+>Wat u eigenlijk wilt is dat <literal
+>&amp;</literal
+> alleen vervangen dient te worden als het <emphasis
+>niet</emphasis
+> gevolgd wordt door de letters <literal
+>amp;</literal
+>. U kunt dit doen door gebruik te maken van reguliere expressies met <emphasis
+>positief vooruitkijken</emphasis
+>. </para>
+
+      <para
+>De reguliere expressie, die alleen overeenkomt met een en-teken als die niet gevolgd wordt door de letters <literal
+>amp;</literal
+> ziet er als volgt uit: <literal
+>&amp;(?!amp;)</literal
+>. Dit is natuurlijk eenvoudiger te lezen door de reguliere expressie editor te gebruiken, waar u de <link linkend="lookaheadtools"
+>hulpmiddelen voor vooruitkijken</link
+> zou gebruiken.</para>
+    </example>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                    Using the Regular Expression Editor                 -->
+  <!-- ====================================================================== -->
+  <chapter id="theEditor">
+    <title
+>De reguliere expressie editor gebruiken</title>
+
+    <para
+>Dit hoofdstuk vertelt hoe de reguliere expressie editor werkt. </para>
+
+    <!-- ====================================================================== -->
+    <!--                   The organization of the screen                       -->
+    <!-- ====================================================================== -->
+    <sect1 id="screenorganization">
+      <title
+>De organisatie van het scherm</title>
+
+      <mediaobject>
+        <imageobject
+><imagedata format="PNG" fileref="theEditor.png"/></imageobject>
+      </mediaobject>
+      
+      <para
+>Het belangrijkste onderdeel van de editor is natuurlijk de ruimte voor bewerkingen; dit is de ruimte waar u uw reguliere expressies kunt tekenen. Dit gebied is het grote grijze middendeel.</para>
+
+      <para
+>Boven de bewerkingsruimte hebt u twee werkbalken, de eerste bevat <link linkend="editingtools"
+>bewerkingsacties</link
+> - deze lijken erg op tekenhulpmiddelen in een tekenprogramma. De tweede werkbalk bevat de knop <emphasis
+>Wat is dit?</emphasis
+>, en knoppen om bewerkingen ongedaan te maken en opnieuw uit te voeren.</para>
+
+      <para
+>Onder de bewerkingsruimte vindt u de huidige reguliere expressie, in de zogenoemde ascii syntaxis. De ascii syntaxis wordt bijgewerkt terwijl u de reguliere expressie in de grafische editor bewerkt. Indien u liever de ascii-syntaxis bijwerkt dan kan dit, de grafische editor wordt direct bijgewerkt om uw wijzigingen weer te geven.</para>
+
+      <para
+>Ten slotte vindt u links van de bewerkingsruimte een aantal voorgebouwde reguliere expressies. Deze hebben twee doelen: (1) Wanneer u de editor laadt met een reguliere expressie, dan wordt deze reguliere expresse <emphasis
+>opgeschoond</emphasis
+> of begrijpelijker door veelvoorkomende reguliere expressies te vervangen. In de schermafbeelding boven, kunt u zien hoe de ascii-syntaxis ".*" vervangen is door een veld "iets". (2) Wanneer u reguliere expressies invoegt, kunt u bouwstenen voor uw eigen reguliere expressies vinden in de verzameling voorgebouwde reguliere expressies. Zie de paragraaf over <link linkend="userdefinedregexps"
+>gebruikergedefinieerde reguliere expressies</link
+> om te leren hoe u uw eigen reguliere expressies kunt opslaan.</para
+>      
+    </sect1>
+
+    <!-- ====================================================================== -->
+    <!--                         Editing Tools                                  -->
+    <!-- ====================================================================== -->
+    <sect1 id="editingtools">
+      <title
+>Hulpmiddelen voor bewerkingen</title>
+      <para
+>De tekst in deze paragraaf verwacht dat u het hoofdstuk over <link linkend="whatIsARegExp"
+>wat een reguliere expressie is</link
+> heeft gelezen, of voorgaande kennis over dit onderwerp heeft.</para>
+      
+      <para
+>Al de hulpmiddelen voor bewerkingen bevinden zich in de menubalk boven het bewerkingsgebied. Elk van hen zal beschreven worden in het volgende.</para>
+      
+      
+
+      <simplesect id="selecttool">
+        <title
+>Selectiehulpmiddel</title>
+	<mediaobject>
+            <imageobject
+><imagedata format="PNG" fileref="select.png"/>
+        </imageobject
+></mediaobject>
+        <para
+>Het selectiegereedschap wordt gebruikt om elementen te marken voor knippen-en-plakken en drag-and-drop. Dit is vergelijkbaar met het selectiegereedschap in elk tekenprogramma.</para>
+      </simplesect>
+        
+      
+
+      <simplesect id="texttool"
+><title
+>Tekstgereedschap</title>
+      <mediaobject>
+      <imageobject>
+	    <imagedata format="PNG" fileref="text.png"/>
+	</imageobject
+></mediaobject>
+		        
+        <para
+><inlinemediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="texttool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Met dit hulpmiddel kunt u normale tekst invoeren die gezocht dient te worden. Er wordt naar de letterlijke tekst gezocht, &ie; dat u zich niet hoeft te bekommeren om gebruik van stuurcodes voor speciale tekens. In het voorbeeld boven wordt de volgende reguliere expressie gebouwd: <literal
+>abc\*\\\)</literal
+></para>
+      </simplesect>
+
+      
+
+      <simplesect id="characterstool"
+><title
+>Lettertekengereedschap</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="characters.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="charactertool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Met dit gereedschap kunt u speciale bereiken voor lettertekens invoeren. Voorbeelden zijn onder andere ascii-teksten <literal
+>[0-9]</literal
+>, <literal
+>[^a-zA-Z,_]</literal
+>. Wanneer u een item toevoegt met met dit hulpmiddel, verschijnt een dialoog, waarin u de tekenbereiken kunt specificeren.</para>
+        
+        <para
+>Zie de beschrijving van <link linkend="repeatregexp"
+>herhaalde reguliere expressies</link
+>.</para>
+      </simplesect>
+
+      
+      
+      <simplesect id="anychartool"
+><title
+>Gereedschap voor willekeurig teken</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="anychar.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="anychartool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Dit is een reguliere expressie "dot" (.). Deze komt overeen met een willekeurig enkel letterteken.</para
+> 
+        
+       
+        
+        </simplesect>
+
+
+
+      <simplesect id="repeattool"
+><title
+>Herhaalgereedschap</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeat.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeattool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Dit is het gereedschap voor herhaalde elementen. Het bevat wat in ascii syntaxis gerepresenteerd wordt door een asterisk (*), een plusteken (+), een vraagteken (?), en bereiken ({3,5}). Wanneer u een item invoegt met dit gereedschap, verschijnt een dialoogvenster waarin u gevraagd wordt naar het aantal malen om het element te herhalen.</para>
+          
+          <para
+>U geeft aan wat herhaald dient te worden door de herhaalde inhoud te tekenen in een veld dat dit hulpmiddel invoegt.</para>
+
+          <para
+>Herhaalde elementen kunnen zowel van buiten naar binnen als van binnen naar buiten gebouwd worden. Dat betekent dat u eerst datgene kunt tekenen dat u wilt herhalen, het selecteert en het herhaalgereedschap gebruikt. Of eerst het herhaalelement kunt invoegen, en datgene dat herhaald dient te worden erin plaatst.</para>
+
+        <para
+>Zie de beschrijving van <link linkend="repeatregexp"
+>herhaalde reguliere expressies</link
+>.</para>
+        </simplesect>
+
+
+
+
+      <simplesect id="altntool"
+><title
+>Alternatievengereedschap</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="altn.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="altntool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Dit is het gereedschap voor alternatieve reguliere expressies (|). U kunt de alternatieven specificeren door ze boven elkaar te tekenen in het kader dat dit hulpmiddel invoegt.</para>
+
+        <para
+>Zie de beschrijving van <link linkend="altnregexp"
+>alternatieve reguliere expressies</link
+></para>
+      </simplesect>
+      
+
+
+
+      <simplesect id="compoundtool"
+><title
+>Samenstellingengereedschap</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="compound.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="compoundtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Het samenstellingengereedschap representeert geen reguliere expressies. Het wordt gebruikt om andere onderdelen te groeperen in een kader, dat eenvoudig ingeklapt kan worden zodat alleen de titel getoond wordt. Deze is te zien in het rechterdeel van bovenstaande schermafdruk.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="positiontool"
+><title
+>Gereedschappen voor regelbegin en regeleinde</title>
+        <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="begline.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="endline.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="linestartendtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>De gereedschappen voor regelbegin en regeleinde zoeken respectievelijk naar overeenkomsten van het begin van de regel, en het eind van de regel. De reguliere expressies in de schermafdruk boven komen dus overeen met regels die alleen spaties bevatten.</para>
+        
+        <para
+>Zie de beschrijven van <link linkend="positionregexp"
+>reguliere expressies voor posities</link
+></para>
+      </simplesect>
+
+
+
+
+
+      <simplesect
+><title
+>Gereedschappen voor (niet-)woordgrenzen</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="wordboundary.png"/>
+            </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+><imagedata format="PNG" fileref="nonwordboundary.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="boundarytools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>De grensgereedschappen zoeken naar overeenkomsten van respectievelijk woordgrens en niet-woordgrens. De reguliere expressie in de schermafdruk zoekt dus naar woorden die beginnen die beginnen met <literal
+>the</literal
+>. Het woord <literal
+>the</literal
+> zelf, echter, wordt niet gezocht.</para>
+
+        <para
+>Zie de beschrijving van <link linkend="boundaryregexp"
+>reguliere expressies voor grenzen</link
+></para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="lookaheadtools"
+><title
+>Gereedschappen voor positief en negatief vooruitkijken</title>
+	  <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="poslookahead.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="neglookahead.png"/>
+        </imageobject
+></mediaobject>
+
+        <para
+><inlinemediaobject
+><imageobject
+> <imagedata format="PNG" fileref="lookaheadtools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>De vooruitkijkgereedschappen specificeren een positieve of negatieve reguliere expressie waarnaar gezocht dient te worden. De overeenkomst maakt echter geen deel uit van de totale gezochte overeenkomst.</para>
+
+        <para
+>N.B.: U kunt vooruitkijkgereedschappen alleen aan het einde van een reguliere expressie plaatsen. De grafische Reguliere expressie editor controleert dit echter niet.</para>
+
+        <para
+>Zie de beschrijving van <link linkend="lookaheadregexp"
+>reguliere expressies voor vooruitkijken</link
+></para>
+      </simplesect>
+    </sect1>
+
+  <!-- ====================================================================== -->
+  <!--                  User Defined Regular Expressions                      -->
+  <!-- ====================================================================== -->
+    <sect1 id="userdefinedregexps">
+      <title
+>Gebruikergedefinieerde reguliere expressies</title>
+      <para
+>Links van het bewerkingsgebied bevindt zich een lijst die gebruikergedefinieerde reguliere expressies bevat. Sommige reguliere expressies worden van tevoren geïnstalleerd met uw &kde;-installatie, terwijl u andere zelf kunt opslaan.</para
+> 
+
+      <para
+>Deze reguliere expressies hebben twee doelen (<link linkend="screenorganization"
+>zie de gedetailleerde beschrijving</link
+>, namelijk (1) u een verzameling bouwstenen bieden en (2) reguliere expressier er mooier uit te laten zien.</para>
+
+      <para
+>U kunt uw eigen reguliere expressies opslaan door in het bewerkingsgebied op de rechtermuisknop te drukken, en te kiezen voor <literal
+>Reguliere expressie opslaan</literal
+>.</para>
+
+      <para
+>Als de reguliere expressie die u opslaat zich binnen een <link linkend="compoundtool"
+>container voor samenstellingen</link
+> bevindt, dan wordt de reguliere expressie gebruikt worden om volgende reguliere expressies mooier te maken.</para>
+
+      <para
+>Gebruikergedefinieerde reguliere expressies kunnen verwijderd worden of hernoemd worden door boven de desbetreffende reguliere expressie in de lijst de rechtermuisknop in te drukken.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                  Reporting a bug and Suggesting Features               -->
+  <!-- ====================================================================== -->
+  <chapter id="bugreport">
+    <title
+>Fouten melden en suggesties voor functies</title>
+    <para
+>Fouten en gewenste functies kunnen gemeld worden via het<ulink url="http://bugs.kde.org/"
+>&kde; Bug Tracking Systeem. Controleer </ulink
+><emphasis role="strong"
+> voordat</emphasis
+> u een fout meldt of een suggestie doet, of deze nog niet is <ulink url="http://bugs.kde.org/buglist.cgi?quicksearch=kregexpeditor"
+>gemeld/gesuggereerd</ulink
+>.</para>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                                 FAQ                                    -->
+  <!-- ====================================================================== -->
+  <chapter id="faq">
+    <title
+>Veel voorkomende vragen</title>
+    <sect1 id="question1">
+      <title
+>Ondersteunt de editor voor reguliere expressies achterwaartse referenties?</title>
+      <para
+>Nee, momenteel wordt dit nog niet ondersteund. Dit is gepland voor de volgende versie.</para>
+    </sect1>
+
+    <sect1 id="question2">
+      <title
+>Ondersteunt de editor voor reguliere expressies het tonen van gevonden overeenkomsten?</title>
+      <para
+>Nee, hopelijk zal dit in de volgende versie beschikbaar zijn.</para>
+    </sect1>
+
+    <sect1 id="question3">
+      <title
+>Ik ben de auteur van een &kde;-programma; hoe kan ik dit grafische element in mijn applicatie gebruiken?</title>
+      <para
+>Zie <ulink url="http://developer.kde.org/documentation/library/cvs-api/classref/interfaces/KRegExpEditorInterface.html"
+>De documentatie voor de klasse KRegExpEditorInterface</ulink
+>.</para>
+    </sect1>
+
+    <sect1 id="question4">
+      <title
+>Ik kan de knop <emphasis
+>Editor voor reguliere expressies</emphasis
+> niet vinden in bijvoorbeeld konqueror in een andere KDE3 installatie, waarom?</title>
+      <para
+>De grafische component voor reguliere expressies bevindt zich in het pakket &kde;-utils. Indien u dit pakket niet geïnstalleerd heeft,dan verschijnen de knoppen <emphasis
+>reguliere expressie bewerken</emphasis
+> niet in het programma.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                           Credits and Licenses                         -->
+  <!-- ====================================================================== -->
+  <chapter id="credits-and-license">
+    <title
+>Dankbetuigingen en licentie</title>
+
+    <para
+>Documentatie is copyright 2001, Jesper K. Pedersen &Jesper.Pedersen.mail; </para>
+
+
+&meld.fouten;&vertaling.freek; &underFDL; &underGPL; </chapter>
+
+
+</book>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

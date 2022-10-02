@@ -1,0 +1,1143 @@
+# KDE Hebrew Localization Project
+# Translation of kregexpeditor.po into Hebrew
+#
+# In addition to the copyright owners of the program
+# which this translation accompanies, this translation is
+# Copyright (C) 2002 Meni Livne <livne@kde.org>
+#
+# This translation is subject to the same Open Source
+# license as the program which it accompanies.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kregexpeditor-3.1-12\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-04-02 00:20+0000\n"
+"PO-Revision-Date: 2002-11-08 14:45+0200\n"
+"Last-Translator: Meni Livne <livne@kde.org>\n"
+"Language-Team: Hebrew <kde-l10n-he@kde.org>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: altnwidget.cpp:37 altnwidget.cpp:46 regexpbuttons.cpp:87
+#, kde-format
+msgid "Alternatives"
+msgstr "חלופות"
+
+#: altnwidget.cpp:220
+#, kde-format
+msgid "Selecting several alternatives is currently not supported."
+msgstr "בחירה של מספר חלופות אינה נתמכת כרגע."
+
+#: altnwidget.cpp:222
+#, fuzzy, kde-format
+msgid "Selection Invalid"
+msgstr "כלי בחירה"
+
+#: auxbuttons.cpp:35
+#, kde-format
+msgid "Undo"
+msgstr ""
+
+#: auxbuttons.cpp:41
+#, kde-format
+msgid "Redo"
+msgstr ""
+
+#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:70
+#, kde-format
+msgid "Cut"
+msgstr ""
+
+#: auxbuttons.cpp:53 KMultiFormListBox/ccp.cpp:71
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:67
+#, kde-format
+msgid "Copy"
+msgstr ""
+
+#: auxbuttons.cpp:59 KMultiFormListBox/ccp.cpp:72
+#, kde-format
+msgid "Paste"
+msgstr ""
+
+#: auxbuttons.cpp:65
+#, kde-format
+msgid "Save"
+msgstr ""
+
+#: characterswidget.cpp:116
+#, kde-format
+msgid "- A word character\n"
+msgstr "- תו מילה\n"
+
+#: characterswidget.cpp:120
+#, kde-format
+msgid "- A non-word character\n"
+msgstr "- תו שאינו של מילה\n"
+
+#: characterswidget.cpp:124
+#, kde-format
+msgid "- A digit character\n"
+msgstr "- תו ספרה\n"
+
+#: characterswidget.cpp:128
+#, kde-format
+msgid "- A non-digit character\n"
+msgstr "- תו שאינו ספרה\n"
+
+#: characterswidget.cpp:132
+#, kde-format
+msgid "- A space character\n"
+msgstr "- תו רווח\n"
+
+#: characterswidget.cpp:136
+#, kde-format
+msgid "- A non-space character\n"
+msgstr "- תו שאינו רווח\n"
+
+#: characterswidget.cpp:151
+#, kde-format
+msgctxt "a range of characters"
+msgid "- from %1 to %2\n"
+msgstr ""
+
+#: characterswidget.cpp:159
+#, fuzzy, kde-format
+msgid "Any Character Except"
+msgstr "כל תו מלבד"
+
+#: characterswidget.cpp:161
+#, fuzzy, kde-format
+msgid "One of Following Characters"
+msgstr "אחד מהתווים הבאים"
+
+#: characterswidget.cpp:279
+#, kde-format
+msgid "Specify Characters"
+msgstr "ציון תווים"
+
+#: characterswidget.cpp:289
+#, kde-format
+msgid "Do not match the characters specified here"
+msgstr "אל תתאים לתווים המצויינים כאן"
+
+#: characterswidget.cpp:293
+#, kde-format
+msgid "Predefined Character Ranges"
+msgstr "תחומי תווים מוגדרים מראש"
+
+#: characterswidget.cpp:297
+#, kde-format
+msgid "A word character"
+msgstr "תו מילה"
+
+#: characterswidget.cpp:299
+#, kde-format
+msgid "A digit character"
+msgstr "תו ספרה"
+
+#: characterswidget.cpp:301
+#, kde-format
+msgid "A space character"
+msgstr "תו רווח"
+
+#: characterswidget.cpp:304
+#, kde-format
+msgid "A non-word character"
+msgstr "תו שאינו של מילה"
+
+#: characterswidget.cpp:306
+#, kde-format
+msgid "A non-digit character"
+msgstr "תו שאינו ספרה"
+
+#: characterswidget.cpp:308
+#, kde-format
+msgid "A non-space character"
+msgstr "תו שאינו רווח"
+
+#: characterswidget.cpp:312
+#, kde-format
+msgid "Single Characters"
+msgstr "תווים בודדים"
+
+#: characterswidget.cpp:324 characterswidget.cpp:345
+#, kde-format
+msgid "More Entries"
+msgstr "עוד ערכים"
+
+#: characterswidget.cpp:332
+#, kde-format
+msgid "Character Ranges"
+msgstr "תחומי תווים"
+
+#: characterswidget.cpp:426
+#, kde-format
+msgid "From:"
+msgstr "מ:"
+
+#: characterswidget.cpp:433
+#, kde-format
+msgctxt "end of range"
+msgid "To:"
+msgstr ""
+
+#: charselector.cpp:60
+#, kde-format
+msgid "Normal Character"
+msgstr "תו רגיל"
+
+#: charselector.cpp:61
+#, kde-format
+msgid "Unicode Char in Hex."
+msgstr "תו יוניקוד בהצגה הקסדצימלית"
+
+#: charselector.cpp:62
+#, kde-format
+msgid "Unicode Char in Oct."
+msgstr "תו יוניקוד בהצגה אוקטלית"
+
+#: charselector.cpp:64
+#, kde-format
+msgid "The Bell Character (\\a)"
+msgstr "תו פעמון (a\\)"
+
+#: charselector.cpp:65
+#, kde-format
+msgid "The Form Feed Character (\\f)"
+msgstr "תו הזנת דף (f\\)"
+
+#: charselector.cpp:66
+#, kde-format
+msgid "The Line Feed Character (\\n)"
+msgstr "תו הזנת שורה (n\\)"
+
+#: charselector.cpp:67
+#, kde-format
+msgid "The Carriage Return Character (\\r)"
+msgstr "תו החזרת גרר (r\\)"
+
+#: charselector.cpp:68
+#, kde-format
+msgid "The Horizontal Tab Character (\\t)"
+msgstr "תו טאב אופקי (t\\)"
+
+#: charselector.cpp:69
+#, kde-format
+msgid "The Vertical Tab Character (\\v)"
+msgstr "תו טאב אנכי (v\\)"
+
+#: compoundwidget.cpp:47
+#, kde-format
+msgid "&Title:"
+msgstr "&כותרת:"
+
+#: compoundwidget.cpp:53
+#, kde-format
+msgid "&Description:"
+msgstr "&תיאור:"
+
+#: compoundwidget.cpp:59
+#, kde-format
+msgid "&Automatically replace using this item"
+msgstr "&החלף באופן אוטומטי באמצעות פריט זה"
+
+#: compoundwidget.cpp:61
+#, fuzzy, kde-format
+#| msgid ""
+#| "When the content of this box is typed in to the ASCII line,<br>this box "
+#| "will automatically be added around it,<br>if this check box is selected."
+msgid ""
+"When the content of this box is typed in to the ASCII line,<br />this box "
+"will automatically be added around it,<br />if this check box is selected."
+msgstr ""
+"כאשר תוכן תיבה זו מוקלד בשורת ה-ASCII,<br>תיבה זו תתווסף מסביבו באופן "
+"אוטומטי,<br>וזאת אם אפשרות זו נבחרת."
+
+#: compoundwidget.cpp:126
+#, kde-format
+msgid "Configure Compound"
+msgstr "הגדרות ביטוי רגולרי מורכב"
+
+#: emacsregexpconverter.cpp:78
+#, kde-format
+msgid "Look ahead regular expressions not supported in Emacs style"
+msgstr ""
+
+#: emacsregexpconverter.cpp:182
+#, kde-format
+msgid "Word boundary and non word boundary is not supported in Emacs syntax"
+msgstr ""
+
+#: errormap.cpp:47
+#, kde-format
+msgid ""
+"Your regular expression is invalid, due to something preceding a 'line "
+"start'."
+msgstr ""
+
+#: errormap.cpp:48 errormap.cpp:57 errormap.cpp:66
+#, fuzzy, kde-format
+msgid "Regular Expression Error"
+msgstr "עורך הביטויים הסדירים"
+
+#: errormap.cpp:56
+#, kde-format
+msgid ""
+"Your regular expression is invalid, due to something following a 'line end'."
+msgstr ""
+
+#: errormap.cpp:65
+#, kde-format
+msgid ""
+"Your regular expression is invalid. 'Look Ahead' regular expression must be "
+"the last sub expression."
+msgstr ""
+
+#: infopage.cpp:33
+#, fuzzy, kde-format
+msgctxt ""
+"Translators, feel free to add yourself in the text below, asking for a "
+"postcard ;-), also feel free to add a section saying <h2>Translators</h2>. "
+"Kind regards, and thanks for your work - Jesper."
+msgid ""
+"<h1>Regular Expression Editor</h1><p>What you are currently looking at is an "
+"editor for <i>Regular Expressions</i>.</p><p>The upper part in the middle is "
+"the editing area, the lower part is a verification window where you can try "
+"your regular expressions right away. The row of buttons is the editing "
+"actions. This is actually very similar to common drawing programs. Select an "
+"editing tool to start editing your regular expression, and press the mouse "
+"button in the editing area where you want this item inserted.</p><p>For a "
+"more detailed description of this editor see the <a href=\"doc://\">info "
+"pages</a></p><h2>What is a regular expression?</h2>If you do not know what a "
+"regular expression is, then it might be a good idea to read <a href=\"doc://"
+"whatIsARegExp\">the introduction to regular expressions</a>.<br />"
+msgstr ""
+"<h2></h2><qt><h1>עורך הביטויים הסדירים</h1><p>מה שאתה מתבונן בו כרגע הינו "
+"עורך ל<i>ביטויים סדירים</i>.</p><p>החלון הגדול שבאמצע הינו שטח העריכה. שורת "
+"הכפתורים כוללת את פעולות העריכה. למעשה, עורך זה דומה מאוד לתוכניות ציור "
+"נפוצות. בחר כלי עריכה כדי להתחיל לערוך את הביטוי הרגולרי שלך, ולחץ עם הלחצן "
+"של העכבר בתוך שטח העריכה, במקום שבו ברצונך להוסיף את הפריט.</p><p>לתיאור "
+"מפורט של עורך זה, עיין ב<a href=\"doc://\">דפי המידע</a>.</p><h2>מה זה ביטוי "
+"רגולרי?</h2>אם אינך יודע מה זה ביטוי רגולרי, מומלץ לקרוא את ה<a href=\"doc://"
+"whatIsARegExp\">מבוא לביטויים סדירים</a>.<p><h2>שלח גלויה אלקטרונית לכותב</"
+"h2>אני לא מקבל שום כסף עבור העבודה שלי ב-KDE, ולכן אני מעריך זאת רבות כאשר "
+"משתמשים אומרים לי מה הם חושבים על העבודה שלי. לפיכך, אשמח מאוד אם תשלח לי <a "
+"href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">מכתב קצר</a> ותספר לי "
+"שאתה משתמש בעורך הביטויים הסדירים שלי.<h2>הכותב</h2><a href=\"http://www."
+"blackie.dk/\">ג'ספר ק. פדרסן</a> &lt;<a href=\"mailto:blackie@kde.org"
+"\">blackie@kde.org</a>&gt;</qt>"
+
+#: infopage.cpp:46
+#, kde-format
+msgid ""
+"<h2>Send the author an electronic postcard</h2>I don't get any money for "
+"working on KRegExpEditor, I therefore appreciate it very much when users "
+"tell me what they think about my work. I would therefore be very happy if "
+"you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a short "
+"mail</a>, telling me that you use my regular expression editor.<h2>Author</"
+"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
+"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+msgstr ""
+
+#: KMultiFormListBox/ccp.cpp:73
+#, kde-format
+msgid "Insert Blank"
+msgstr "הוסף ריק"
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#, kde-format
+msgid "Due to a bug, it is not possible to remove the last element."
+msgstr "עקב באג, אין אפשרות להסיר את המרכיב האחרון."
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#, kde-format
+msgid "Internal Error"
+msgstr ""
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:282
+#, kde-format
+msgid "There is no element on the clipboard to paste in."
+msgstr "אין מרכיב בלוח העריכה שניתן להדביק."
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:54
+#, kde-format
+msgid "Edit"
+msgstr ""
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:61
+#: userdefinedregexps.cpp:153
+#, fuzzy, kde-format
+msgid "Delete"
+msgstr "מחיקת פריט"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:74
+#, kde-format
+msgid "Up"
+msgstr "למעלה"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:80
+#, kde-format
+msgid "Down"
+msgstr "למטה"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#, kde-format
+msgid "Delete item \"%1\"?"
+msgstr "האם למחוק את הפריט \"%1\"?"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#, kde-format
+msgid "Delete Item"
+msgstr "מחיקת פריט"
+
+#: KMultiFormListBox/kmultiformlistbox.h:71
+#, kde-format
+msgid "Add"
+msgstr ""
+
+#: KMultiFormListBox/widgetwindow.cpp:47
+#, kde-format
+msgid "Widget Configuration"
+msgstr "הגדרות פריטים"
+
+#: kregexpeditorguidialog.cpp:36
+#, kde-format
+msgid "Regular Expression Editor"
+msgstr "עורך הביטויים הסדירים"
+
+#: kregexpeditorprivate.cpp:68
+#, fuzzy, kde-format
+msgid "Compound regular expression:"
+msgstr "ביטוי רגולרי מורכב:"
+
+#: kregexpeditorprivate.cpp:69
+#, kde-format
+msgid ""
+"In this window you will find predefined regular expressions. Both regular "
+"expressions you have developed and saved, and regular expressions shipped "
+"with the system."
+msgstr ""
+
+#: kregexpeditorprivate.cpp:78
+#, kde-format
+msgid ""
+"In this window you will develop your regular expressions. Select one of the "
+"actions from the action buttons above, and click the mouse in this window to "
+"insert the given action."
+msgstr ""
+
+#: kregexpeditorprivate.cpp:86
+#, kde-format
+msgid ""
+"<p>Type in some text in this window, and see what the regular expression you "
+"have developed matches.</p><p>Each second match will be colored in red and "
+"each other match will be colored blue, simply so you can distinguish them "
+"from each other.</p><p>If you select part of the regular expression in the "
+"editor window, then this part will be highlighted - This allows you to "
+"<i>debug</i> your regular expressions</p>"
+msgstr ""
+
+#: kregexpeditorprivate.cpp:148
+#, fuzzy, kde-format
+msgid "ASCII syntax:"
+msgstr "תחביר ASCII:"
+
+#: kregexpeditorprivate.cpp:161
+#, kde-format
+msgid ""
+"<p>This is the regular expression in ASCII syntax. You are likely only to be "
+"interested in this if you are a programmer, and need to develop a regular "
+"expression using QRegExp.</p><p>You may develop your regular expression both "
+"by using the graphical editor, and by typing the regular expression in this "
+"line edit.</p>"
+msgstr ""
+
+#: kregexpeditorprivate.cpp:371
+#, fuzzy, kde-format
+msgid "Could not open file '%1' for reading"
+msgstr "אין אפשרות לפתוח את הקובץ לקריאה: %1"
+
+#: lookaheadwidget.cpp:51
+#, kde-format
+msgid "Pos. Look Ahead"
+msgstr ""
+
+#: lookaheadwidget.cpp:53
+#, kde-format
+msgid "Neg. Look Ahead"
+msgstr ""
+
+#: main.cpp:42
+#, fuzzy, kde-format
+msgid "RegExp Editor"
+msgstr "עורך הביטויים הסדירים"
+
+#: main.cpp:43
+#, fuzzy, kde-format
+msgid "Editor for Regular Expressions"
+msgstr "ביטוי רגולרי מורכב:"
+
+#: main.cpp:45
+#, kde-format
+msgid "(c) 2002-2003 Jesper K. Pedersen"
+msgstr ""
+
+#: main.cpp:46
+#, kde-format
+msgid "Laurent Montel"
+msgstr ""
+
+#: main.cpp:46
+#, kde-format
+msgid "Developer"
+msgstr ""
+
+#: predefined/General/anything.regexp:5
+#, kde-format
+msgid "anything"
+msgstr "כל דבר"
+
+#: predefined/General/anything.regexp:6
+#, fuzzy, kde-format
+msgid "This regular expression matches anything."
+msgstr "ביטוי רגולרי מורכב:"
+
+#: predefined/General/spaces.regexp:5
+#, kde-format
+msgid "spaces"
+msgstr "רווחים"
+
+#: predefined/General/spaces.regexp:6
+#, kde-format
+msgid "Matches an arbitrary amount of whitespace."
+msgstr ""
+
+#: qregexpparser.y:205
+#, kde-format
+msgid ""
+"<p>Back reference regular expressions are not supported.</p><p><tt>\\1</tt>, "
+"<tt>\\2</tt>, ... are <i>back references</i>, meaning they refer to previous "
+"matches. Unfortunately this is not supported in the current version of this "
+"editor.</p><p>In the graphical area the text <b>%1</b> has been inserted. "
+"This is however just a workaround to ensure that the application handles the "
+"regexp at all. Therefore, as soon as you edit the regular expression in the "
+"graphical area, the back reference will be replaced by matching the text <b>"
+"%2</b> literally.</p>"
+msgstr ""
+
+#: qregexpparser.y:214
+#, kde-format
+msgid "Back reference regular expressions not supported"
+msgstr ""
+
+#: regexpbuttons.cpp:49
+#, kde-format
+msgid "Selection tool"
+msgstr "כלי בחירה"
+
+#: regexpbuttons.cpp:50
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This will change the state of the editor to <i>selection state</i>."
+#| "<p>In this state you will not be inserting <i>regexp items</i>, but "
+#| "instead select them. To select a number of items, press down the left "
+#| "mouse button and drag it over the items.<p>When you have selected a "
+#| "number of items, you may use cut/copy/paste. These functions are found in "
+#| "the right mouse button menu.</qt>"
+msgid ""
+"<p>This will change the state of the editor to <i>selection state</i>.</"
+"p><p>In this state you will not be inserting <i>regexp items</i>, but "
+"instead select them. To select a number of items, press down the left mouse "
+"button and drag it over the items.</p><p>When you have selected a number of "
+"items, you may use cut/copy/paste. These functions are found in the right "
+"mouse button menu.</p>"
+msgstr ""
+"<qt>שינוי המצב של העורך ל<i>מצב בחירה</i>.<p>במצב זה לא מוסיפים <i>פריטי "
+"ביטוי רגולרי</i>, אלא בוחרים אותם. כדי לבחור מספר פריטים, החזק את הלחצן "
+"השמאלי של העכבר לחוץ וגרור אותו מעל לפריטים.<p>כאשר בחרת במספר פריטים, "
+"באפשרותך להשתמש בגזירה\\העתקה\\הדבקה. פעולות אלה נמצאות בתפריט המוקפץ על ידי "
+"הלחצן הימני של העכבר.</qt>"
+
+#: regexpbuttons.cpp:59
+#, kde-format
+msgid "Text"
+msgstr "טקסט"
+
+#: regexpbuttons.cpp:60
+#, kde-format
+msgid ""
+"<qt>This will insert a text field, where you may write text. The text you "
+"write will be matched literally. (i.e. you do not need to escape any "
+"characters)</qt>"
+msgstr ""
+"<qt>הוספת שדה טקסט בו באפשרותך לכתוב טקסט. הטקסט שתכתוב יותאם באופן ליטרלי "
+"(כלומר, אין צורך לפרש שום תווים).</qt>"
+
+#: regexpbuttons.cpp:64
+#, kde-format
+msgid "A single character specified in a range"
+msgstr "תו בודד המצויין בתחום"
+
+#: regexpbuttons.cpp:65
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This will match a single character from a predefined range.<p>When "
+#| "you insert this widget a dialog box will appear, which lets you specify "
+#| "which characters this <i>regexp item</i> will match.</qt>"
+msgid ""
+"<p>This will match a single character from a predefined range.</p><p>When "
+"you insert this widget a dialog box will appear, which lets you specify "
+"which characters this <i>regexp item</i> will match.</p>"
+msgstr ""
+"<qt>התאמת תו בודד מתוך תחום מוגדר מראש.<p>אם תוסיף פריט זה, תופיע תיבת דו-"
+"שיח שתאפשר לך לציין את התווים אותם יתאים <i>פריט ביטוי רגולרי</i> זה.</qt>"
+
+#: regexpbuttons.cpp:70
+#, kde-format
+msgid "Any character"
+msgstr "כל תו שהוא"
+
+#: regexpbuttons.cpp:71
+#, kde-format
+msgid "<qt>This will match any single character</qt>"
+msgstr "<qt>התאמת כל תו בודד</qt>"
+
+#: regexpbuttons.cpp:74
+#, kde-format
+msgid "Repeated content"
+msgstr "תוכן חוזר"
+
+#: regexpbuttons.cpp:75
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it "
+#| "surrounds a specified number of times.<p>The number of times to repeat "
+#| "may be specified using ranges. e.g. You may specify that it should match "
+#| "from 2 to 4 times, that it should match exactly 5 times, or that it "
+#| "should match at least one time.<p>Examples:<br>If you specify that it "
+#| "should match <i>any</i> time, and the content it surrounds is <tt>abc</"
+#| "tt>, then this <i>regexp item</i> will match the empty string, the string "
+#| "<tt>abc</tt>, the string <tt>abcabc</tt>, the string <tt>abcabcabcabc</"
+#| "tt>, etc.</qt>"
+msgid ""
+"<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
+"a specified number of times.<br />The number of times to repeat may be "
+"specified using ranges; e.g. it could be specified that it should match from "
+"2 to 4 times, that it should match exactly 5 times, or that it should match "
+"at least one time.<br />Examples:<br />If you specify that it should match "
+"<i>any</i> time, and the content it surrounds is <tt>abc</tt>, then this "
+"<i>regexp item</i> will match the empty string, the string <tt>abc</tt>, the "
+"string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, etc.</qt>"
+msgstr ""
+"<qt><i>פריט ביטוי רגולרי</i> זה יחזור על <i>פריטי הביטוי הרגולרי</i> אותם "
+"הוא מקיף בהתאם למספר הפעמים המצויין.<p>מספר הפעמים לחזרה מצויין באמצעות "
+"תחומים. כך למשל באפשרותך לציין שעליו להתאים בין 2 ל4- פעמים, שעליו להתאים "
+"בדיוק 5 פעמים, או שעליו להתאים לפחות פעם אחת.<p>דוגמאות:<br>אם תציין שעליו "
+"להתאים <i>כל</i> פעם, אם התוכן אותו הוא מקיף הוא <tt>abc</tt>, אז <i>פריט "
+"ביטוי סדיר</i> זה יתאים מחרוזת ריקה, את המחרוזת <tt>abc</tt>, את המחרוזת "
+"<tt>abcabc</tt>, את המחרוזת <tt>abcabcabcabc</tt>, וכן הלאה.</qt>"
+
+#: regexpbuttons.cpp:88
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This <i>regexp item</i> will match any of its alternatives.</p>You "
+#| "specify alternatives by placing <i>regexp items</i> on top of each other "
+#| "inside this widget.</qt>"
+msgid ""
+"<p>This <i>regexp item</i> will match any of its alternatives.</"
+"p><p>Alternatives are specified by placing <i>regexp items</i> on top of "
+"each other inside this widget.</p>"
+msgstr ""
+"<qt><i>פריט ביטוי רגולרי</i> זה יתאים לכל אחד מהחלופות שלו.</p>ציון חלופות "
+"מתבצע על ידי מיקום <i>פריטי ביטוי רגולרי</i> זה מעל זה בתוך פריט זה.</qt>"
+
+#: regexpbuttons.cpp:93
+#, kde-format
+msgid "Compound regexp"
+msgstr "ביטוי רגולרי מורכב"
+
+#: regexpbuttons.cpp:94
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it "
+#| "possible for you to collapse a huge <i>regexp item</i> into a small box. "
+#| "This makes it easier for you to get an overview of large <i>regexp items</"
+#| "i>. This is especially useful if you load a predefined <i>regexp item</i> "
+#| "you perhaps don't care about the inner workings of."
+msgid ""
+"<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
+"for you to collapse a huge <i>regexp item</i> into a small box. This makes "
+"it easier for you to get an overview of large <i>regexp items</i>. This is "
+"especially useful if you load a predefined <i>regexp item</i> that you "
+"perhaps do not care about the inner workings of.</qt>"
+msgstr ""
+"<qt><i>פריט ביטוי רגולרי</i> זה משרת שתי מטרות:<ul><li>הוא מאפשר לך לצמצם "
+"<i>פריט ביטוי רגולרי</i> ענק לתיבה קטנה. דבר זה מקל עליך לסקור <i>פריטי "
+"ביטוי סדיר</i> גדולים, והוא שימושי במיוחד אם אתה טוען <i>פריט ביטוי רגולרי</"
+"i> מוגדר מראש שאולי לא מעניין אותך המבנה הפנימי שלו."
+
+#: regexpbuttons.cpp:101
+#, kde-format
+msgid "Beginning of line"
+msgstr "תחילת שורה"
+
+#: regexpbuttons.cpp:102
+#, kde-format
+msgid "<qt>This will match the beginning of a line.</qt>"
+msgstr "<qt>התאמת תחילת שורה.</qt>"
+
+#: regexpbuttons.cpp:105
+#, kde-format
+msgid "End of line"
+msgstr "סוף שורה"
+
+#: regexpbuttons.cpp:106
+#, kde-format
+msgid "<qt>This will match the end of a line.</qt>"
+msgstr "<qt>התאמת סוף שורה.</qt>"
+
+#: regexpbuttons.cpp:109
+#, kde-format
+msgid "Word boundary"
+msgstr "גבול מילה"
+
+#: regexpbuttons.cpp:110
+#, kde-format
+msgid ""
+"<qt>This asserts a word boundary (This part does not actually match any "
+"characters)</qt>"
+msgstr "<qt>קביעת גבול מילה (חלק זה לא באמת מתאים תווים כלשהם)</qt>"
+
+#: regexpbuttons.cpp:113
+#, kde-format
+msgid "Non Word boundary"
+msgstr "גבול שאינו של מילה"
+
+#: regexpbuttons.cpp:114
+#, kde-format
+msgid ""
+"<qt>This asserts a non-word boundary (This part does not actually match any "
+"characters)</qt>"
+msgstr "<qt>קביעת גבול שאינו של מילה (חלק זה לא באמת מתאים תווים כלשהם)</qt>"
+
+#: regexpbuttons.cpp:118
+#, kde-format
+msgid "Positive Look Ahead"
+msgstr ""
+
+#: regexpbuttons.cpp:119
+#, fuzzy, kde-format
+msgid ""
+"<qt>This asserts a regular expression (This part does not actually match any "
+"characters). You can only use this at the end of a regular expression.</qt>"
+msgstr "<qt>קביעת ביטוי רגולרי (חלק זה לא באמת מתאים תווים כלשהם)</qt>"
+
+#: regexpbuttons.cpp:123
+#, kde-format
+msgid "Negative Look Ahead"
+msgstr ""
+
+#: regexpbuttons.cpp:124
+#, fuzzy, kde-format
+msgid ""
+"<qt>This asserts a regular expression that must not match (This part does "
+"not actually match any characters). You can only use this at the end of a "
+"regular expression.</qt>"
+msgstr ""
+"<qt>קביעת ביטוי רגולרי שחייב לא להתאים (חלק זה לא באמת מתאים תווים כלשהם)</"
+"qt>"
+
+#: regexpeditorwindow.cpp:215
+#, fuzzy, kde-format
+msgid "There is no selection."
+msgstr "אין בחירה"
+
+#: regexpeditorwindow.cpp:215
+#, fuzzy, kde-format
+msgid "Missing Selection"
+msgstr "אין בחירה"
+
+#: regexpeditorwindow.cpp:280
+#, fuzzy, kde-format
+msgid "There is no widget under cursor."
+msgstr "אין פריט מתחת למצביע"
+
+#: regexpeditorwindow.cpp:280
+#, kde-format
+msgid "Invalid Operation"
+msgstr ""
+
+#: regexpeditorwindow.cpp:331
+#, kde-format
+msgid "C&ut"
+msgstr ""
+
+#: regexpeditorwindow.cpp:335
+#, kde-format
+msgid "&Copy"
+msgstr ""
+
+#: regexpeditorwindow.cpp:339
+#, kde-format
+msgid "&Paste"
+msgstr ""
+
+#: regexpeditorwindow.cpp:345
+#, kde-format
+msgid "&Edit"
+msgstr ""
+
+#: regexpeditorwindow.cpp:349
+#, kde-format
+msgid "&Save Regular Expression..."
+msgstr "&שמירת ביטוי רגולרי..."
+
+#: regexpeditorwindow.cpp:388
+#, fuzzy, kde-format
+msgid "Name for Regular Expression"
+msgstr "ביטוי רגולרי מורכב:"
+
+#: regexpeditorwindow.cpp:388
+#, kde-format
+msgid "Enter name:"
+msgstr "הזן שם:"
+
+#: regexpeditorwindow.cpp:390
+#, kde-format
+msgid "Empty name is not supported"
+msgstr ""
+
+#: regexpeditorwindow.cpp:390
+#, fuzzy, kde-format
+#| msgid "&Save Regular Expression..."
+msgid "Save Regular Expression"
+msgstr "&שמירת ביטוי רגולרי..."
+
+#: regexpeditorwindow.cpp:398
+#, kde-format
+msgid "<p>Overwrite named regular expression <b>%1</b></p>"
+msgstr "<p>האם לכתוב על הביטוי הרגולרי ששמו <b>%1</b>?</p>"
+
+#: regexpeditorwindow.cpp:406
+#, kde-format
+msgid "Could not open file for writing: %1"
+msgstr "אין אפשרות לפתוח את הקובץ לכתיבה: %1"
+
+#: repeatregexp.cpp:57 repeatregexp.cpp:65
+#, kde-format
+msgid ""
+"<p>Value for attribute <b>%1</b> was not an integer for element <b>%2</b></"
+"p><p>It contained the value <b>%3</b></p>"
+msgstr ""
+"<p>הערך של המאפיין <b>%1</b> אינו מספר שלם עבור המרכיב <b>%2</b></p><p>הוא "
+"מכיל את הערך <b>%3</b></p>"
+
+#: repeatregexp.cpp:60 repeatregexp.cpp:68 textrangeregexp.cpp:146
+#: textregexp.cpp:54 widgetfactory.cpp:165 widgetfactory.cpp:196
+#: widgetfactory.cpp:203
+#, kde-format
+msgid "Error While Loading From XML File"
+msgstr "שגיאה במהלך טעינה מתוך קובץ XML"
+
+#: repeatwidget.cpp:74
+#, kde-format
+msgid "Number of Times to Repeat Content"
+msgstr "מספר הפעמים שיש לחזור על התוכן"
+
+#: repeatwidget.cpp:184
+#, kde-format
+msgid "Times to Match"
+msgstr "מספר הפעמים שיש להתאים"
+
+#: repeatwidget.cpp:191
+#, kde-format
+msgid "Any number of times (including zero times)"
+msgstr "כל מספר שהוא של פעמים (כולל אפס)"
+
+#: repeatwidget.cpp:198
+#, kde-format
+msgid "At least"
+msgstr "לכל הפחות"
+
+#: repeatwidget.cpp:199
+#, kde-format
+msgid "At most"
+msgstr "לכל היותר"
+
+#: repeatwidget.cpp:200
+#, kde-format
+msgid "Exactly"
+msgstr "בדיוק"
+
+#: repeatwidget.cpp:203
+#, kde-format
+msgid "From"
+msgstr "בין"
+
+#: repeatwidget.cpp:215
+#, kde-format
+msgid "to"
+msgstr "ל:"
+
+#: repeatwidget.cpp:223 repeatwidget.cpp:249
+#, kde-format
+msgid "time(s)"
+msgstr "פעמים"
+
+#: repeatwidget.cpp:299
+#, fuzzy, kde-format
+msgid "Repeated Any Number of Times"
+msgstr "חוזר כל מספר שהוא של פעמים"
+
+#: repeatwidget.cpp:301
+#, fuzzy, kde-format
+msgid "Repeated at Least 1 Time"
+msgid_plural "Repeated at Least %1 Times"
+msgstr[0] "חוזר לפחות %2 פעמים"
+
+#: repeatwidget.cpp:303
+#, fuzzy, kde-format
+msgid "Repeated at Most 1 Time"
+msgid_plural "Repeated at Most %1 Times"
+msgstr[0] "חוזר לכל היותר %2 פעמים"
+
+#: repeatwidget.cpp:305
+#, fuzzy, kde-format
+msgid "Repeated Exactly 1 Time"
+msgid_plural "Repeated Exactly %1 Times"
+msgstr[0] "חוזר בדיוק %2 פעמים"
+
+#: repeatwidget.cpp:307
+#, fuzzy, kde-format
+msgid "Repeated From %1 to %2 Times"
+msgstr "חוזר בין %1 ל%2- פעמים"
+
+#: textrangeregexp.cpp:145
+#, kde-format
+msgid ""
+"<p>Invalid sub element to element <b>TextRange</b>. Tag was <b>%1</b></p>"
+msgstr "<p>מרכיב משנה לא תקף במרכיב <b>TextRange</b>. התגית היא <b>%1</b></p>"
+
+#: textregexp.cpp:53
+#, kde-format
+msgid "<p>Element <b>Text</b> did not contain any textual data.</p>"
+msgstr ""
+
+#: userdefinedregexps.cpp:67
+#, kde-format
+msgid "User Defined"
+msgstr "מוגדר על ידי המשתמש"
+
+#: userdefinedregexps.cpp:87
+#, fuzzy, kde-format
+msgid "general"
+msgstr "כללי"
+
+#: userdefinedregexps.cpp:101
+#, kde-format
+msgid "Could not open file for reading: %1"
+msgstr "אין אפשרות לפתוח את הקובץ לקריאה: %1"
+
+#: userdefinedregexps.cpp:111
+#, kde-format
+msgid "File %1 containing user defined regular expression contained an error"
+msgstr "הקובץ %1, המכיל ביטוי רגולרי המוגדר על ידי המשתמש, מכיל שגיאה"
+
+#: userdefinedregexps.cpp:154
+#, fuzzy, kde-format
+msgid "Rename"
+msgstr "שנה שם"
+
+#: userdefinedregexps.cpp:195
+#, kde-format
+msgid "Rename Item"
+msgstr "שינוי שם פריט"
+
+#: userdefinedregexps.cpp:195
+#, kde-format
+msgid "New name:"
+msgstr "שם חדש:"
+
+#: userdefinedregexps.cpp:202
+#, kde-format
+msgid "<p>Overwrite named regular expression <b>%1</b>?</p>"
+msgstr "<p>האם לכתוב על הביטוי הרגולרי ששמו <b>%1</b>?</p>"
+
+#: userdefinedregexps.cpp:202
+#, kde-format
+msgid "Do Not Overwrite"
+msgstr ""
+
+#: verifybuttons.cpp:38
+#, fuzzy, kde-format
+msgid "Verify regular expression"
+msgstr "ביטוי רגולרי מורכב:"
+
+#: verifybuttons.cpp:39
+#, kde-format
+msgid ""
+"Shows what part of the regular expression is being matched in the "
+"<i>verifier window</i>.(The window below the graphical editor window)."
+msgstr ""
+
+#: verifybuttons.cpp:48
+#, kde-format
+msgid "Load text in the verifier window"
+msgstr ""
+
+#: verifybuttons.cpp:53
+#, kde-format
+msgid "Verification Settings"
+msgstr ""
+
+#: verifybuttons.cpp:101
+#, kde-format
+msgid "config menu"
+msgstr ""
+
+#: verifybuttons.cpp:104
+#, kde-format
+msgid "Verify on the Fly"
+msgstr ""
+
+#: verifybuttons.cpp:110
+#, kde-format
+msgid "Toggle on-the-fly verification of regular expression"
+msgstr ""
+
+#: verifybuttons.cpp:111
+#, kde-format
+msgid ""
+"Enabling this option will make the verifier update for each edit. If the "
+"verify window contains much text, or if the regular expression is either "
+"complex or matches a lot of time, this may be very slow."
+msgstr ""
+
+#: verifybuttons.cpp:115
+#, kde-format
+msgid "Match Greedy"
+msgstr ""
+
+#: verifybuttons.cpp:120
+#, kde-format
+msgid "Toggle greedy matching when verifying the regular expression."
+msgstr ""
+
+#: verifybuttons.cpp:121
+#, kde-format
+msgid ""
+"When this option is enabled, the regular expression will be evaluated on a "
+"so-called greedy way."
+msgstr ""
+
+#: verifybuttons.cpp:124
+#, kde-format
+msgid "RegExp Language"
+msgstr ""
+
+#: widgetfactory.cpp:164
+#, kde-format
+msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
+msgstr "<p>תגית לא מוכרת במהלך קריאת ה-XML. התגית היא <b>%1</b></p>"
+
+#: widgetfactory.cpp:188
+#, fuzzy, kde-format
+#| msgid "Error While Loading Regular Expression From XML"
+msgid "Error while loading regular expression from XML."
+msgstr "שגיאה במהלך טעינת ביטוי רגולרי מתוך XML"
+
+#: widgetfactory.cpp:189
+#, kde-format
+msgid "Error While Loading Regular Expression From XML"
+msgstr "שגיאה במהלך טעינת ביטוי רגולרי מתוך XML"
+
+#: widgetfactory.cpp:195
+#, fuzzy, kde-format
+msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
+msgstr "<p>קובץ ה-XML לא מכיל תגית <b>%1</b>.</p>"
+
+#: widgetfactory.cpp:201
+#, kde-format
+msgid ""
+"<p>Error while reading XML file. The element just below the tag <b>%1</b> "
+"was not an element.</p>"
+msgstr ""
+"<p>שגיאה במהלך קריאת קובץ ה-XML. המרכיב שבדיוק מתחת לתגית <b>%1</b> אינו "
+"מרכיב.</p>"
+
+#: zerowidgets.cpp:72
+#, kde-format
+msgid ""
+"Any\n"
+"Character"
+msgstr ""
+"כל\n"
+"תו שהוא"
+
+#: zerowidgets.cpp:85
+#, kde-format
+msgid ""
+"Line\n"
+"Start"
+msgstr ""
+"תחילת\n"
+"שורה"
+
+#: zerowidgets.cpp:98
+#, kde-format
+msgid ""
+"Line\n"
+"End"
+msgstr ""
+"סוף\n"
+"שורה"
+
+#: zerowidgets.cpp:111
+#, kde-format
+msgid ""
+"Word\n"
+"Boundary"
+msgstr ""
+"גבול\n"
+"מילה"
+
+#: zerowidgets.cpp:124
+#, kde-format
+msgid ""
+"Non-word\n"
+"Boundary"
+msgstr ""
+"גבול שאינו\n"
+"של מילה"
+
+#, fuzzy
+#~ msgid "Clear expression"
+#~ msgstr "ביטוי רגולרי מורכב:"
+
+#~ msgid "from "
+#~ msgstr "מ-"
+
+#~ msgid " to "
+#~ msgstr " עד "
+
+#~ msgid ""
+#~ "Error while loading regular expression from XML. Most probably the "
+#~ "regular expression had unmatched tags."
+#~ msgstr ""
+#~ "שגיאה במהלך טעינת ביטוי רגולרי מתוך XML. כנראה שהביטוי הרגולרי הכיל תגיות "
+#~ "שלא הותאמו."

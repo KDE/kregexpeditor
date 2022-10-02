@@ -1,0 +1,1178 @@
+# translation of kregexpeditor.po to finnish
+# Copyright (C) 2002, 2003, 2006 Free Software Foundation, Inc.
+# Tapio Kautto <eleknader@phnet.fi>, 2002.
+# Teemu Rytilahti <teemu.rytilahti@d5k.net>, 2003.
+# Kim Enkovaara <kim.enkovaara@iki.fi>, 2003, 2004.
+# Ilpo Kantonen <ilpo@iki.fi>, 2006.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2011, 2012, 2013, 2015.
+# Tommi Nieminen <translator@legisign.org>, 2020.
+#
+# KDE Finnish translation sprint participants:
+# Author: Artnay
+# Author: Lliehu
+msgid ""
+msgstr ""
+"Project-Id-Version: kregexpeditor\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-04-02 00:20+0000\n"
+"PO-Revision-Date: 2020-07-29 14:27+0300\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-POT-Import-Date: 2012-12-01 22:27:36+0000\n"
+"X-Generator: Lokalize 20.04.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Teemu Rytilahti,Ilpo Kantonen,Tommi Nieminen"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "teemu.rytilahti@kde-fi.org,ilpo@iki.fi,translator@legisign.org"
+
+#: altnwidget.cpp:37 altnwidget.cpp:46 regexpbuttons.cpp:87
+#, kde-format
+msgid "Alternatives"
+msgstr "Vaihtoehdot"
+
+#: altnwidget.cpp:220
+#, kde-format
+msgid "Selecting several alternatives is currently not supported."
+msgstr "Monivalinta ei ole vielä mahdollista."
+
+#: altnwidget.cpp:222
+#, kde-format
+msgid "Selection Invalid"
+msgstr "Virheellinen valinta"
+
+#: auxbuttons.cpp:35
+#, kde-format
+msgid "Undo"
+msgstr "Kumoa"
+
+#: auxbuttons.cpp:41
+#, kde-format
+msgid "Redo"
+msgstr "Tee uudelleen"
+
+#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:70
+#, kde-format
+msgid "Cut"
+msgstr "Leikkaa"
+
+#: auxbuttons.cpp:53 KMultiFormListBox/ccp.cpp:71
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:67
+#, kde-format
+msgid "Copy"
+msgstr "Kopioi"
+
+#: auxbuttons.cpp:59 KMultiFormListBox/ccp.cpp:72
+#, kde-format
+msgid "Paste"
+msgstr "Liitä"
+
+#: auxbuttons.cpp:65
+#, kde-format
+msgid "Save"
+msgstr "Tallenna"
+
+#: characterswidget.cpp:116
+#, kde-format
+msgid "- A word character\n"
+msgstr "Kirjainmerkki\n"
+
+#: characterswidget.cpp:120
+#, kde-format
+msgid "- A non-word character\n"
+msgstr "Muu kuin kirjainmerkki\n"
+
+#: characterswidget.cpp:124
+#, kde-format
+msgid "- A digit character\n"
+msgstr "– numero\n"
+
+#: characterswidget.cpp:128
+#, kde-format
+msgid "- A non-digit character\n"
+msgstr "– ei numero\n"
+
+#: characterswidget.cpp:132
+#, kde-format
+msgid "- A space character\n"
+msgstr "– tyhjemerkki\n"
+
+#: characterswidget.cpp:136
+#, kde-format
+msgid "- A non-space character\n"
+msgstr "– ei tyhjemerkki\n"
+
+#: characterswidget.cpp:151
+#, kde-format
+msgctxt "a range of characters"
+msgid "- from %1 to %2\n"
+msgstr "– merkistä %1 merkkiin %2\n"
+
+#: characterswidget.cpp:159
+#, kde-format
+msgid "Any Character Except"
+msgstr "Mikä tahansa merkki paitsi"
+
+#: characterswidget.cpp:161
+#, kde-format
+msgid "One of Following Characters"
+msgstr "Yksi seuraavista merkeistä"
+
+#: characterswidget.cpp:279
+#, kde-format
+msgid "Specify Characters"
+msgstr "Anna merkit"
+
+#: characterswidget.cpp:289
+#, kde-format
+msgid "Do not match the characters specified here"
+msgstr "Älä sovita tässä annettuihin merkkeihin"
+
+#: characterswidget.cpp:293
+#, kde-format
+msgid "Predefined Character Ranges"
+msgstr "Ennalta asetetut merkkialueet"
+
+#: characterswidget.cpp:297
+#, kde-format
+msgid "A word character"
+msgstr "Kirjainmerkki"
+
+#: characterswidget.cpp:299
+#, kde-format
+msgid "A digit character"
+msgstr "Numero"
+
+#: characterswidget.cpp:301
+#, kde-format
+msgid "A space character"
+msgstr "Tyhjemerkki"
+
+#: characterswidget.cpp:304
+#, kde-format
+msgid "A non-word character"
+msgstr "Ei kirjainmerkki"
+
+#: characterswidget.cpp:306
+#, kde-format
+msgid "A non-digit character"
+msgstr "Ei numero"
+
+#: characterswidget.cpp:308
+#, kde-format
+msgid "A non-space character"
+msgstr "Ei tyhjemerkki"
+
+#: characterswidget.cpp:312
+#, kde-format
+msgid "Single Characters"
+msgstr "Yksittäiset merkit"
+
+#: characterswidget.cpp:324 characterswidget.cpp:345
+#, kde-format
+msgid "More Entries"
+msgstr "Lisää tietueita"
+
+#: characterswidget.cpp:332
+#, kde-format
+msgid "Character Ranges"
+msgstr "Merkkialueet"
+
+#: characterswidget.cpp:426
+#, kde-format
+msgid "From:"
+msgstr "Mistä:"
+
+#: characterswidget.cpp:433
+#, kde-format
+msgctxt "end of range"
+msgid "To:"
+msgstr "Mihin:"
+
+#: charselector.cpp:60
+#, kde-format
+msgid "Normal Character"
+msgstr "Tavallinen kirjainmerkki"
+
+#: charselector.cpp:61
+#, kde-format
+msgid "Unicode Char in Hex."
+msgstr "Unicode-merkki heksadesimaalisena."
+
+#: charselector.cpp:62
+#, kde-format
+msgid "Unicode Char in Oct."
+msgstr "Unicode-merkki oktaalisena."
+
+#: charselector.cpp:64
+#, kde-format
+msgid "The Bell Character (\\a)"
+msgstr "Varoitusmerkki (\\a)"
+
+#: charselector.cpp:65
+#, kde-format
+msgid "The Form Feed Character (\\f)"
+msgstr "Lomakkeen syöttö -merkki (\\f)"
+
+#: charselector.cpp:66
+#, kde-format
+msgid "The Line Feed Character (\\n)"
+msgstr "Rivinvaihtomerkki (\\n)"
+
+#: charselector.cpp:67
+#, kde-format
+msgid "The Carriage Return Character (\\r)"
+msgstr "Vaununpalautusmerkki (\\r)"
+
+#: charselector.cpp:68
+#, kde-format
+msgid "The Horizontal Tab Character (\\t)"
+msgstr "Sarkainmerkki (\\t)"
+
+#: charselector.cpp:69
+#, kde-format
+msgid "The Vertical Tab Character (\\v)"
+msgstr "Rivisarkain (\\v)"
+
+#: compoundwidget.cpp:47
+#, kde-format
+msgid "&Title:"
+msgstr "&Otsikko:"
+
+#: compoundwidget.cpp:53
+#, kde-format
+msgid "&Description:"
+msgstr "&Kuvaus:"
+
+#: compoundwidget.cpp:59
+#, kde-format
+msgid "&Automatically replace using this item"
+msgstr "Korvaa &automaattisesti tällä"
+
+#: compoundwidget.cpp:61
+#, kde-format
+msgid ""
+"When the content of this box is typed in to the ASCII line,<br />this box "
+"will automatically be added around it,<br />if this check box is selected."
+msgstr ""
+"Kun tämän kentän sisältö kirjoitetaan ASCII-riville,<br />sen ympärille "
+"lisätään automaattisesti tämä kenttä,<br />jos tämä ruutu on valittu."
+
+#: compoundwidget.cpp:126
+#, kde-format
+msgid "Configure Compound"
+msgstr "Kehyksen asetukset"
+
+#: emacsregexpconverter.cpp:78
+#, kde-format
+msgid "Look ahead regular expressions not supported in Emacs style"
+msgstr "Emacs-tyylistä etukäteislauseketta ei tueta"
+
+#: emacsregexpconverter.cpp:182
+#, kde-format
+msgid "Word boundary and non word boundary is not supported in Emacs syntax"
+msgstr "Emacsin kielioppi ei tue sana- ja ei-sanarajojen erottelua"
+
+#: errormap.cpp:47
+#, kde-format
+msgid ""
+"Your regular expression is invalid, due to something preceding a 'line "
+"start'."
+msgstr ""
+"Säännöllinen lauseke on virheellinen, koska ”rivin alkua” edeltää jokin."
+
+#: errormap.cpp:48 errormap.cpp:57 errormap.cpp:66
+#, kde-format
+msgid "Regular Expression Error"
+msgstr "Virhe säännöllisessä lausekkeessa"
+
+#: errormap.cpp:56
+#, kde-format
+msgid ""
+"Your regular expression is invalid, due to something following a 'line end'."
+msgstr ""
+"Säännöllinen lauseke on virheellinen, koska ”rivin loppua” seuraa jokin."
+
+#: errormap.cpp:65
+#, kde-format
+msgid ""
+"Your regular expression is invalid. 'Look Ahead' regular expression must be "
+"the last sub expression."
+msgstr ""
+"Säännönmukainen lauseke on virheellinen, koska etukäteislausekkeen tulee "
+"olla viimeinen alilauseke."
+
+#: infopage.cpp:33
+#, kde-format
+msgctxt ""
+"Translators, feel free to add yourself in the text below, asking for a "
+"postcard ;-), also feel free to add a section saying <h2>Translators</h2>. "
+"Kind regards, and thanks for your work - Jesper."
+msgid ""
+"<h1>Regular Expression Editor</h1><p>What you are currently looking at is an "
+"editor for <i>Regular Expressions</i>.</p><p>The upper part in the middle is "
+"the editing area, the lower part is a verification window where you can try "
+"your regular expressions right away. The row of buttons is the editing "
+"actions. This is actually very similar to common drawing programs. Select an "
+"editing tool to start editing your regular expression, and press the mouse "
+"button in the editing area where you want this item inserted.</p><p>For a "
+"more detailed description of this editor see the <a href=\"doc://\">info "
+"pages</a></p><h2>What is a regular expression?</h2>If you do not know what a "
+"regular expression is, then it might be a good idea to read <a href=\"doc://"
+"whatIsARegExp\">the introduction to regular expressions</a>.<br />"
+msgstr ""
+"<h1>Säännöllisen lausekkeen muokkain</h1><p>Edessäsi on parhaillaan muokkain "
+"<i>säännöllisille lausekkeille</i>.</p><p>Keskialueen ylempi osa on "
+"muokkausalue, ja alempi osa on tarkistusikkuna, johon voit yrittää "
+"säännöllistä lausekettasi heti. Painikerivi on muokkaustoimintoja. Tämä on "
+"itse asiassa hyvin samanlainen yleiseen piirto-ohjelmaan. Valitse "
+"muokkaustyökalu aloittaaksesi säännöllisen lausekkeen muokkauksen, ja "
+"napsauta hiiren painiketta muokkausalueella, johon haluat tämän lisätyksi.</"
+"p><p>Saadaksesi yksityiskohtaisemman kuvauksn tästä muokkaimesta katso <a "
+"href=\"doc://\">info-sivuja</a></p><h2>Mikä on säännöllinen lauseke?</h2>Jos "
+"et tiedä, mikä on säännöllinen lauseke, on hyvä idea lukea <a href=\"doc://"
+"whatIsARegExp\">Johdatus säännöllisiin lausekkeisiin</a>.<br />"
+
+#: infopage.cpp:46
+#, kde-format
+msgid ""
+"<h2>Send the author an electronic postcard</h2>I don't get any money for "
+"working on KRegExpEditor, I therefore appreciate it very much when users "
+"tell me what they think about my work. I would therefore be very happy if "
+"you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a short "
+"mail</a>, telling me that you use my regular expression editor.<h2>Author</"
+"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
+"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+msgstr ""
+"<h2>Lähetä tekijälle sähköinen postikortti</h2>En saa tuloja KRegExpEditorin "
+"kehittämisestä. Siksi minusta on mukavaa, että käyttäjät kertovat, mitä "
+"mieltä he ovat ohjelmasta. Ilahtuisin, jos <a href=\"mailto:blackie@kde.org?"
+"subject=KRegExpEditor\">lähettäisit minulle lyhyen sähköpostin</a>, jossa "
+"kertoisit käyttäväsi säännöllisten lausekkeiden muokkainta.<h2>Tekijä</h2><a "
+"href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:"
+"blackie@kde.org\">blackie@kde.org</a>&gt;"
+
+#: KMultiFormListBox/ccp.cpp:73
+#, kde-format
+msgid "Insert Blank"
+msgstr "Lisää tyhjä"
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#, kde-format
+msgid "Due to a bug, it is not possible to remove the last element."
+msgstr "Virhe estää viimeisen osan poiston."
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#, kde-format
+msgid "Internal Error"
+msgstr "Sisäinen virhe"
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:282
+#, kde-format
+msgid "There is no element on the clipboard to paste in."
+msgstr "Leikepöytä on tyhjä."
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:54
+#, kde-format
+msgid "Edit"
+msgstr "Muokkaa"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:61
+#: userdefinedregexps.cpp:153
+#, kde-format
+msgid "Delete"
+msgstr "Poista"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:74
+#, kde-format
+msgid "Up"
+msgstr "Ylemmäs"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:80
+#, kde-format
+msgid "Down"
+msgstr "Alemmas"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#, kde-format
+msgid "Delete item \"%1\"?"
+msgstr "Poistetaanko tietue ”%1”?"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#, kde-format
+msgid "Delete Item"
+msgstr "Poista tietue"
+
+#: KMultiFormListBox/kmultiformlistbox.h:71
+#, kde-format
+msgid "Add"
+msgstr "Lisää"
+
+#: KMultiFormListBox/widgetwindow.cpp:47
+#, kde-format
+msgid "Widget Configuration"
+msgstr "Sovelma-asetukset"
+
+#: kregexpeditorguidialog.cpp:36
+#, kde-format
+msgid "Regular Expression Editor"
+msgstr "Säännöllisten lausekkeiden muokkain"
+
+#: kregexpeditorprivate.cpp:68
+#, kde-format
+msgid "Compound regular expression:"
+msgstr "Yhdistävät säännölliset lausekkeet:"
+
+#: kregexpeditorprivate.cpp:69
+#, kde-format
+msgid ""
+"In this window you will find predefined regular expressions. Both regular "
+"expressions you have developed and saved, and regular expressions shipped "
+"with the system."
+msgstr ""
+"Tässä ikkunassa on säännönmukaisia lausekkeita. Sekä sinun tekemiäsi "
+"säännönmukaisia  lausekkeita että järjestelmän mukana tulleita."
+
+#: kregexpeditorprivate.cpp:78
+#, kde-format
+msgid ""
+"In this window you will develop your regular expressions. Select one of the "
+"actions from the action buttons above, and click the mouse in this window to "
+"insert the given action."
+msgstr ""
+"Voit kehittää tässä ikkunassa säännöllisiä lausekkeita. Valitse yksi "
+"toiminto toimintopainikkeista yllä, ja napsauta hiirtä tässä ikkunassa "
+"lisätäksesi kyseisen toiminnon."
+
+#: kregexpeditorprivate.cpp:86
+#, kde-format
+msgid ""
+"<p>Type in some text in this window, and see what the regular expression you "
+"have developed matches.</p><p>Each second match will be colored in red and "
+"each other match will be colored blue, simply so you can distinguish them "
+"from each other.</p><p>If you select part of the regular expression in the "
+"editor window, then this part will be highlighted - This allows you to "
+"<i>debug</i> your regular expressions</p>"
+msgstr ""
+"<p>Kirjoita jotain tekstiä tähän ikkunaan, ja katso kuinka kehittämäsi "
+"säännöllinen lauseke täsmää.</p><p>Joka toinen osuma väritetään punaiseksi "
+"ja joka toinen väritetään siniseksi, jotta erotat ne toisistaan.</p><p>Jos "
+"valitset osan säännöllisestä lausekkeesta muokkaimessa, silloin tämä osa "
+"korostetaan – Tämä mahdollistaa säännöllisen lausekkeesi <i>virheiden "
+"jäljittämisen</i></p>"
+
+#: kregexpeditorprivate.cpp:148
+#, kde-format
+msgid "ASCII syntax:"
+msgstr "ASCII-syntaksi:"
+
+#: kregexpeditorprivate.cpp:161
+#, kde-format
+msgid ""
+"<p>This is the regular expression in ASCII syntax. You are likely only to be "
+"interested in this if you are a programmer, and need to develop a regular "
+"expression using QRegExp.</p><p>You may develop your regular expression both "
+"by using the graphical editor, and by typing the regular expression in this "
+"line edit.</p>"
+msgstr ""
+"<p>Tämä on säännöllinen lauseke ASCII-muodossa. Tämä todennäköisesti "
+"kiinnostaa sinua vain, jos olet ohjelmoija ja haluat kehittää säännöllisiä "
+"lausekkeita QRegExp-luokalla.</p><p>Haluat ehkä kehittää säännölliset "
+"lausekkeesi näyttömuokkaimella ja kirjoittamalla säännölliset lausekkeet "
+"tähän rivimuokkaimeen.</p>"
+
+#: kregexpeditorprivate.cpp:371
+#, kde-format
+msgid "Could not open file '%1' for reading"
+msgstr "Tiedostoa ”%1” ei voitu avata luettavaksi"
+
+#: lookaheadwidget.cpp:51
+#, kde-format
+msgid "Pos. Look Ahead"
+msgstr "Pos. etukäteislauseke"
+
+#: lookaheadwidget.cpp:53
+#, kde-format
+msgid "Neg. Look Ahead"
+msgstr "Neg. etukäteislauseke"
+
+#: main.cpp:42
+#, kde-format
+msgid "RegExp Editor"
+msgstr "Säännöllisten lausekkeiden muokkain"
+
+#: main.cpp:43
+#, kde-format
+msgid "Editor for Regular Expressions"
+msgstr "Säännöllisten lausekkeiden muokkain"
+
+#: main.cpp:45
+#, kde-format
+msgid "(c) 2002-2003 Jesper K. Pedersen"
+msgstr "© 2002–2003 Jesper K. Pedersen"
+
+#: main.cpp:46
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: main.cpp:46
+#, kde-format
+msgid "Developer"
+msgstr "Kehittäjä"
+
+#: predefined/General/anything.regexp:5
+#, kde-format
+msgid "anything"
+msgstr "mitä tahansa"
+
+#: predefined/General/anything.regexp:6
+#, kde-format
+msgid "This regular expression matches anything."
+msgstr "Tämä säännönmukainen lauseke täsmää kaikkeen."
+
+#: predefined/General/spaces.regexp:5
+#, kde-format
+msgid "spaces"
+msgstr "tyhjemerkit"
+
+#: predefined/General/spaces.regexp:6
+#, kde-format
+msgid "Matches an arbitrary amount of whitespace."
+msgstr "Täsmää mielivaltaiseen määrään tyhjemerkkejä."
+
+#: qregexpparser.y:205
+#, kde-format
+msgid ""
+"<p>Back reference regular expressions are not supported.</p><p><tt>\\1</tt>, "
+"<tt>\\2</tt>, ... are <i>back references</i>, meaning they refer to previous "
+"matches. Unfortunately this is not supported in the current version of this "
+"editor.</p><p>In the graphical area the text <b>%1</b> has been inserted. "
+"This is however just a workaround to ensure that the application handles the "
+"regexp at all. Therefore, as soon as you edit the regular expression in the "
+"graphical area, the back reference will be replaced by matching the text <b>"
+"%2</b> literally.</p>"
+msgstr ""
+"<p>Säännöllisten lausekkeiden takaisinviittauksia ei tueta.</p><p><tt>\\1</"
+"tt>, <tt>\\2</tt> jne. ovat <i>takaisinviittauksia</i> eli viittaavat "
+"aiempiin osumiin. Muokkaimen nykyinen versio ei valitettavasti tue niitä.</"
+"p><p>Näyttöalueelle on liitetty teksti <b>%1</b>. Tämä on kuitenkin vain "
+"kiertotie, jolla varmistetaan, että sovellus ollenkaan käsittelee "
+"lausekkeen. Heti muokattuasi säännöllisen lausekkeen näyttöalueella "
+"takaisinviittaus korvataan nimenomaisella tekstillä <b>%2</b>.</p>"
+
+#: qregexpparser.y:214
+#, kde-format
+msgid "Back reference regular expressions not supported"
+msgstr "Lausekkeiden takaisinviittauksia ei tueta"
+
+#: regexpbuttons.cpp:49
+#, kde-format
+msgid "Selection tool"
+msgstr "Valintatyökalu"
+
+#: regexpbuttons.cpp:50
+#, kde-format
+msgid ""
+"<p>This will change the state of the editor to <i>selection state</i>.</"
+"p><p>In this state you will not be inserting <i>regexp items</i>, but "
+"instead select them. To select a number of items, press down the left mouse "
+"button and drag it over the items.</p><p>When you have selected a number of "
+"items, you may use cut/copy/paste. These functions are found in the right "
+"mouse button menu.</p>"
+msgstr ""
+"<p>Tämä muuttaa muokkaimen tilaksi <i>valintatila</i>.</p><p>Tässä tilassa "
+"et voi lisätä <i>säännöllisiä elementtejä</i>, mutta sen sijaan voit valita "
+"niitä. Valitaksesi useamman elementin, paina hiiren vasenta painiketta ja "
+"vedä hiiri elementtien yli.</p><p>Kun olet valinnut useamman elementin, voit "
+"leikata/kopioida/liittää niitä. Löydät nämä toiminnot hiiren oikealla "
+"painikkeella avautuvasta valikosta.</p>"
+
+#: regexpbuttons.cpp:59
+#, kde-format
+msgid "Text"
+msgstr "Teksti"
+
+#: regexpbuttons.cpp:60
+#, kde-format
+msgid ""
+"<qt>This will insert a text field, where you may write text. The text you "
+"write will be matched literally. (i.e. you do not need to escape any "
+"characters)</qt>"
+msgstr ""
+"<qt>Tämä lisää tekstikentän, jonne voit kirjoittaa tekstiä. Kirjoittamasi "
+"teksti täsmätään sanatarkasti. (s.o. sinun ei tarvitse päästää yhtään "
+"kirjainta karkuun)</qt>"
+
+#: regexpbuttons.cpp:64
+#, kde-format
+msgid "A single character specified in a range"
+msgstr "Alueella on valittuna vain yksittäinen merkki"
+
+#: regexpbuttons.cpp:65
+#, kde-format
+msgid ""
+"<p>This will match a single character from a predefined range.</p><p>When "
+"you insert this widget a dialog box will appear, which lets you specify "
+"which characters this <i>regexp item</i> will match.</p>"
+msgstr ""
+"<p>Tämä täsmää yksittäiseen merkkiin aiemmin määritellyllä välillä.</"
+"p><p>Kun lisäät tämän elementin, keskusteluikkunan ruutu ilmestyy ja sen "
+"avulla voit määritellä, mitä merkkejä tämän <i>säännöllinen elementin</i> "
+"tulisi täsmätä.</p>"
+
+#: regexpbuttons.cpp:70
+#, kde-format
+msgid "Any character"
+msgstr "Mikä tahansa merkki"
+
+#: regexpbuttons.cpp:71
+#, kde-format
+msgid "<qt>This will match any single character</qt>"
+msgstr "<qt>Tämä täsmäytyy mihin tahansa yksittäiseen merkkiin</qt>"
+
+#: regexpbuttons.cpp:74
+#, kde-format
+msgid "Repeated content"
+msgstr "Toistettu sisältö"
+
+#: regexpbuttons.cpp:75
+#, kde-format
+msgid ""
+"<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
+"a specified number of times.<br />The number of times to repeat may be "
+"specified using ranges; e.g. it could be specified that it should match from "
+"2 to 4 times, that it should match exactly 5 times, or that it should match "
+"at least one time.<br />Examples:<br />If you specify that it should match "
+"<i>any</i> time, and the content it surrounds is <tt>abc</tt>, then this "
+"<i>regexp item</i> will match the empty string, the string <tt>abc</tt>, the "
+"string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, etc.</qt>"
+msgstr ""
+"<qt>Tämä <i>säännöllinen elementti</i> toistaa määritellyn määrän kertoja "
+"niitä <i>säännöllisiä elementtejä</i>, joita se ympäröi.<br />Toistokertojen "
+"lukumäärä määritellään käyttäen välejä t.s. tulee määritellä, että se täsmää "
+"2:sta 4:ään kertaa, tai että sen tulee täsmätä tasan 5 kertaa, tai että sen "
+"tulee täsmätä ainakin yhden kerran.<br />Esimerkkejä:<br />Jos määrittelet, "
+"että sen tulee täsmätä <i>aina</i>, ja sisältö jota se ympäröi, on  <tt>abc</"
+"tt>, tämä <i>säännöllinen elementti</i> täsmää tyhjään tekstiin, tekstiin "
+"<tt>abc</tt>, tekstiin <tt>abcabc</tt>, tekstiin <tt>abcabcabcabc</tt>, jne."
+"</qt>"
+
+#: regexpbuttons.cpp:88
+#, kde-format
+msgid ""
+"<p>This <i>regexp item</i> will match any of its alternatives.</"
+"p><p>Alternatives are specified by placing <i>regexp items</i> on top of "
+"each other inside this widget.</p>"
+msgstr ""
+"<p>Tämä <i>säännöllinen elementti</i> täsmää sen kaikkiin vaihtoehtoihin.</"
+"p><p>Voit määritellä vaihtoehtoja sijoittamalla <i>säännöllisiä elementtejä</"
+"i> kunkin päälle tämän alueen sisällä.</p>"
+
+#: regexpbuttons.cpp:93
+#, kde-format
+msgid "Compound regexp"
+msgstr "yhdyslauseke"
+
+#: regexpbuttons.cpp:94
+#, kde-format
+msgid ""
+"<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
+"for you to collapse a huge <i>regexp item</i> into a small box. This makes "
+"it easier for you to get an overview of large <i>regexp items</i>. This is "
+"especially useful if you load a predefined <i>regexp item</i> that you "
+"perhaps do not care about the inner workings of.</qt>"
+msgstr ""
+"<qt>Tämä <i>säännöllinen elementti</i> palvelee kahta tarkoitusta:<ul><li>Se "
+"tekee mahdolliseksi romauttaa suunnattoman <i>säännöllisen elementin</i> "
+"pieneen laatikkoon. Tällä saat yleisnäkymän laajoihin <i>säännöllisiin "
+"elementeihin</i>. Tämä on käyttökelpoinen erityisesti, jos lataat "
+"esimääriteltyä <i>säännöllistä elementtiä</i>. Sinun ei ehkä tarvitse "
+"huolehtia sen sisäisestä toiminnasta.</qt>"
+
+#: regexpbuttons.cpp:101
+#, kde-format
+msgid "Beginning of line"
+msgstr "Rivin alku"
+
+#: regexpbuttons.cpp:102
+#, kde-format
+msgid "<qt>This will match the beginning of a line.</qt>"
+msgstr "<qt>Tämä täsmää rivin alkuun.</qt>"
+
+#: regexpbuttons.cpp:105
+#, kde-format
+msgid "End of line"
+msgstr "Rivin loppu"
+
+#: regexpbuttons.cpp:106
+#, kde-format
+msgid "<qt>This will match the end of a line.</qt>"
+msgstr "<qt>Tämä täsmää rivin loppuun.</qt>"
+
+#: regexpbuttons.cpp:109
+#, kde-format
+msgid "Word boundary"
+msgstr "Sanaraja"
+
+#: regexpbuttons.cpp:110
+#, kde-format
+msgid ""
+"<qt>This asserts a word boundary (This part does not actually match any "
+"characters)</qt>"
+msgstr ""
+"<qt>Tämä asettaa sanarajan (Tämä osa ei itseasiassa täsmää mihinkään "
+"merkkiin)</qt>"
+
+#: regexpbuttons.cpp:113
+#, kde-format
+msgid "Non Word boundary"
+msgstr "Muu raja kuin sanaraja"
+
+#: regexpbuttons.cpp:114
+#, kde-format
+msgid ""
+"<qt>This asserts a non-word boundary (This part does not actually match any "
+"characters)</qt>"
+msgstr ""
+"<qt>Tämä vakiinnuttaa sanarajan (Tämä osa ei parita mitään merkkiä).</qt>"
+
+#: regexpbuttons.cpp:118
+#, kde-format
+msgid "Positive Look Ahead"
+msgstr "Positiivinen kurkistus"
+
+#: regexpbuttons.cpp:119
+#, kde-format
+msgid ""
+"<qt>This asserts a regular expression (This part does not actually match any "
+"characters). You can only use this at the end of a regular expression.</qt>"
+msgstr ""
+"<qt>Tämä asettaa säännöllisen lausekkeen (Tämä osa ei ei itseasiassa täsmää "
+"mihinkään merkkiin). Voit käyttää tätä vain säännöllisten lausekkeiden "
+"lopussa.</qt>"
+
+#: regexpbuttons.cpp:123
+#, kde-format
+msgid "Negative Look Ahead"
+msgstr "Negatiivinen kurkistus"
+
+#: regexpbuttons.cpp:124
+#, kde-format
+msgid ""
+"<qt>This asserts a regular expression that must not match (This part does "
+"not actually match any characters). You can only use this at the end of a "
+"regular expression.</qt>"
+msgstr ""
+"<qt>Tämä asettaa säännöllisen lausekkeen, joka ei saa täsmätä (Tämä osa ei "
+"itseasiassa täsmää mihinkään merkkiin). Voit käyttää tätä vain säännöllisten "
+"lausekkeiden lopussa.</qt>"
+
+#: regexpeditorwindow.cpp:215
+#, kde-format
+msgid "There is no selection."
+msgstr "Valintaa ei ole."
+
+#: regexpeditorwindow.cpp:215
+#, kde-format
+msgid "Missing Selection"
+msgstr "Ei valintaa"
+
+#: regexpeditorwindow.cpp:280
+#, kde-format
+msgid "There is no widget under cursor."
+msgstr "Kohdistimen alla ei ole käyttöliittymäalkiota."
+
+#: regexpeditorwindow.cpp:280
+#, kde-format
+msgid "Invalid Operation"
+msgstr "Virheellinen toiminto"
+
+#: regexpeditorwindow.cpp:331
+#, kde-format
+msgid "C&ut"
+msgstr "&Leikkaa"
+
+#: regexpeditorwindow.cpp:335
+#, kde-format
+msgid "&Copy"
+msgstr "K&opioi"
+
+#: regexpeditorwindow.cpp:339
+#, kde-format
+msgid "&Paste"
+msgstr "L&iitä"
+
+#: regexpeditorwindow.cpp:345
+#, kde-format
+msgid "&Edit"
+msgstr "&Muokkaa"
+
+#: regexpeditorwindow.cpp:349
+#, kde-format
+msgid "&Save Regular Expression..."
+msgstr "&Tallenna säännöllinen lauseke…"
+
+#: regexpeditorwindow.cpp:388
+#, kde-format
+msgid "Name for Regular Expression"
+msgstr "Säännöllisen lausekkeen nimi"
+
+#: regexpeditorwindow.cpp:388
+#, kde-format
+msgid "Enter name:"
+msgstr "Anna nimi:"
+
+#: regexpeditorwindow.cpp:390
+#, kde-format
+msgid "Empty name is not supported"
+msgstr "Tyhjää nimeä ei tueta"
+
+#: regexpeditorwindow.cpp:390
+#, kde-format
+msgid "Save Regular Expression"
+msgstr "Tallenna säännöllinen lauseke"
+
+#: regexpeditorwindow.cpp:398
+#, kde-format
+msgid "<p>Overwrite named regular expression <b>%1</b></p>"
+msgstr "<p>Ylikirjoita nimetty säännöllinen lauseke<b>%1</b></p>"
+
+#: regexpeditorwindow.cpp:406
+#, kde-format
+msgid "Could not open file for writing: %1"
+msgstr "Ei voitu avata tiedostoa kirjoitettavaksi: %1"
+
+#: repeatregexp.cpp:57 repeatregexp.cpp:65
+#, kde-format
+msgid ""
+"<p>Value for attribute <b>%1</b> was not an integer for element <b>%2</b></"
+"p><p>It contained the value <b>%3</b></p>"
+msgstr ""
+"<p>Määritteen <b>%1</b> arvo ei ollut kokonaisluku alkiolle <b>%2</b></"
+"p><p>Se sisälsi arvon <b>%3</b></p>"
+
+#: repeatregexp.cpp:60 repeatregexp.cpp:68 textrangeregexp.cpp:146
+#: textregexp.cpp:54 widgetfactory.cpp:165 widgetfactory.cpp:196
+#: widgetfactory.cpp:203
+#, kde-format
+msgid "Error While Loading From XML File"
+msgstr "Virhe XML-tiedostoa ladattaessa"
+
+#: repeatwidget.cpp:74
+#, kde-format
+msgid "Number of Times to Repeat Content"
+msgstr "Sisällön toistojen määrä"
+
+#: repeatwidget.cpp:184
+#, kde-format
+msgid "Times to Match"
+msgstr "Osumakertojen määrä"
+
+#: repeatwidget.cpp:191
+#, kde-format
+msgid "Any number of times (including zero times)"
+msgstr "Mikä tahansa määrä (nolla mukaan lukien)"
+
+#: repeatwidget.cpp:198
+#, kde-format
+msgid "At least"
+msgstr "Vähintään"
+
+#: repeatwidget.cpp:199
+#, kde-format
+msgid "At most"
+msgstr "Enintään"
+
+#: repeatwidget.cpp:200
+#, kde-format
+msgid "Exactly"
+msgstr "Täsmälleen"
+
+#: repeatwidget.cpp:203
+#, kde-format
+msgid "From"
+msgstr "Mistä"
+
+#: repeatwidget.cpp:215
+#, kde-format
+msgid "to"
+msgstr "mihin"
+
+#: repeatwidget.cpp:223 repeatwidget.cpp:249
+#, kde-format
+msgid "time(s)"
+msgstr "kertaa"
+
+#: repeatwidget.cpp:299
+#, kde-format
+msgid "Repeated Any Number of Times"
+msgstr "Toistuu rajattomasti"
+
+#: repeatwidget.cpp:301
+#, kde-format
+msgid "Repeated at Least 1 Time"
+msgid_plural "Repeated at Least %1 Times"
+msgstr[0] "Toistuu vähintään kerran"
+msgstr[1] "Toistuu vähintään %1 kertaa"
+
+#: repeatwidget.cpp:303
+#, kde-format
+msgid "Repeated at Most 1 Time"
+msgid_plural "Repeated at Most %1 Times"
+msgstr[0] "Toistuu enintään kerran"
+msgstr[1] "Toistuu enintään %1 kertaa"
+
+#: repeatwidget.cpp:305
+#, kde-format
+msgid "Repeated Exactly 1 Time"
+msgid_plural "Repeated Exactly %1 Times"
+msgstr[0] "Toistuu täsmälleen kerran"
+msgstr[1] "Toistuu täsmälleen %1 kertaa"
+
+#: repeatwidget.cpp:307
+#, kde-format
+msgid "Repeated From %1 to %2 Times"
+msgstr "Toistuu %1–%2 kertaa"
+
+#: textrangeregexp.cpp:145
+#, kde-format
+msgid ""
+"<p>Invalid sub element to element <b>TextRange</b>. Tag was <b>%1</b></p>"
+msgstr ""
+"<p>Virheellinen lapsialkio alkiolle <b>Tekstialue</b>. Tunniste oli <b>%1</"
+"b></p>"
+
+#: textregexp.cpp:53
+#, kde-format
+msgid "<p>Element <b>Text</b> did not contain any textual data.</p>"
+msgstr "<p>Alkio <b>Teksti</b> ei sisältänyt tekstitietoa.</p>"
+
+#: userdefinedregexps.cpp:67
+#, kde-format
+msgid "User Defined"
+msgstr "Käyttäjän määrittämä"
+
+#: userdefinedregexps.cpp:87
+#, kde-format
+msgid "general"
+msgstr "yleiset"
+
+#: userdefinedregexps.cpp:101
+#, kde-format
+msgid "Could not open file for reading: %1"
+msgstr "Tiedostoa ei voitu avata luettavaksi: %1"
+
+#: userdefinedregexps.cpp:111
+#, kde-format
+msgid "File %1 containing user defined regular expression contained an error"
+msgstr ""
+"Käyttäjän säännöllisten lausekkeiden määrityksiä sisältävässä tiedostossa %1 "
+"oli virhe"
+
+#: userdefinedregexps.cpp:154
+#, kde-format
+msgid "Rename"
+msgstr "Muuta nimeä"
+
+#: userdefinedregexps.cpp:195
+#, kde-format
+msgid "Rename Item"
+msgstr "Muuta nimeä"
+
+#: userdefinedregexps.cpp:195
+#, kde-format
+msgid "New name:"
+msgstr "Uusi nimi:"
+
+#: userdefinedregexps.cpp:202
+#, kde-format
+msgid "<p>Overwrite named regular expression <b>%1</b>?</p>"
+msgstr "<p>Korvaa nimetyn säännönmukaisen lausekkeen <b>%1</b>?</p>"
+
+#: userdefinedregexps.cpp:202
+#, kde-format
+msgid "Do Not Overwrite"
+msgstr "Älä korvaa"
+
+#: verifybuttons.cpp:38
+#, kde-format
+msgid "Verify regular expression"
+msgstr "Tarkista säännöllinen lauseke"
+
+#: verifybuttons.cpp:39
+#, kde-format
+msgid ""
+"Shows what part of the regular expression is being matched in the "
+"<i>verifier window</i>.(The window below the graphical editor window)."
+msgstr ""
+"Näyttää mitä osaa säännöllisestä lausekkeesta täsmätään "
+"<i>tarkistusikkunassa</i>.(Ikkuna graafisen muokkaimen ikkunan alla)."
+
+#: verifybuttons.cpp:48
+#, kde-format
+msgid "Load text in the verifier window"
+msgstr "Lataa teksti tarkistusikkunassa"
+
+#: verifybuttons.cpp:53
+#, kde-format
+msgid "Verification Settings"
+msgstr "Tarkistusasetukset"
+
+#: verifybuttons.cpp:101
+#, kde-format
+msgid "config menu"
+msgstr "asetusvalikko"
+
+#: verifybuttons.cpp:104
+#, kde-format
+msgid "Verify on the Fly"
+msgstr "Tarkista lennossa"
+
+#: verifybuttons.cpp:110
+#, kde-format
+msgid "Toggle on-the-fly verification of regular expression"
+msgstr ""
+"Ota säännöllisen lausekkeen tarkistus lennossa käyttöön tai poista se "
+"käytöstä"
+
+#: verifybuttons.cpp:111
+#, kde-format
+msgid ""
+"Enabling this option will make the verifier update for each edit. If the "
+"verify window contains much text, or if the regular expression is either "
+"complex or matches a lot of time, this may be very slow."
+msgstr ""
+"Tällä valinnalla tarkistus tehdään joka muokkauksen jälkeen. Tämä on "
+"erittäin hidasta, jos tarkistusikkunassa on paljon tekstiä tai säännöllinen "
+"lauseke on monimutkainen tai se vastaa tekstiä usein."
+
+#: verifybuttons.cpp:115
+#, kde-format
+msgid "Match Greedy"
+msgstr "Täsmää ahneesti"
+
+#: verifybuttons.cpp:120
+#, kde-format
+msgid "Toggle greedy matching when verifying the regular expression."
+msgstr ""
+"Ota ahne täsmääminen säännöllistä lauseketta tarkistettaessa käyttöön tai "
+"poista se käytöstä."
+
+#: verifybuttons.cpp:121
+#, kde-format
+msgid ""
+"When this option is enabled, the regular expression will be evaluated on a "
+"so-called greedy way."
+msgstr "Kun tämä on valittu, säännöllinen lauseke suoritetaan ns. ahneesti."
+
+#: verifybuttons.cpp:124
+#, kde-format
+msgid "RegExp Language"
+msgstr "Säännöllisen lauseen kieli"
+
+#: widgetfactory.cpp:164
+#, kde-format
+msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
+msgstr "<p>Tuntematon tunniste XML:n lukemisessa. Tunniste oli <b>%1</b></p>"
+
+#: widgetfactory.cpp:188
+#, kde-format
+msgid "Error while loading regular expression from XML."
+msgstr "Säännöllisen lausekkeen lataus XML:stä epäonnistui."
+
+#: widgetfactory.cpp:189
+#, kde-format
+msgid "Error While Loading Regular Expression From XML"
+msgstr "Virhe ladattaessa säännöllistä lauseketta XML:stä"
+
+#: widgetfactory.cpp:195
+#, kde-format
+msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
+msgstr "<p>XML-tiedosto ei sisältänyt <b>%1</b>-tunnistetta.</p>"
+
+#: widgetfactory.cpp:201
+#, kde-format
+msgid ""
+"<p>Error while reading XML file. The element just below the tag <b>%1</b> "
+"was not an element.</p>"
+msgstr ""
+"<p>Virhe luettaessa XML-tiedostoa. Alkio juuri tunnisteen <b>%1</b> alla ei "
+"ole alkio.</p>"
+
+#: zerowidgets.cpp:72
+#, kde-format
+msgid ""
+"Any\n"
+"Character"
+msgstr ""
+"Mikä tahansa\n"
+"merkki"
+
+#: zerowidgets.cpp:85
+#, kde-format
+msgid ""
+"Line\n"
+"Start"
+msgstr ""
+"Rivin\n"
+"alku"
+
+#: zerowidgets.cpp:98
+#, kde-format
+msgid ""
+"Line\n"
+"End"
+msgstr ""
+"Rivin\n"
+"loppu"
+
+#: zerowidgets.cpp:111
+#, kde-format
+msgid ""
+"Word\n"
+"Boundary"
+msgstr ""
+"Sanan-\n"
+"raja"
+
+#: zerowidgets.cpp:124
+#, kde-format
+msgid ""
+"Non-word\n"
+"Boundary"
+msgstr ""
+"Ei sanan-\n"
+"raja"
+
+#~ msgid "Clear expression"
+#~ msgstr "Tyhjennä lauseke"
+
+#~ msgid "from "
+#~ msgstr "mistä "
+
+#~ msgid " to "
+#~ msgstr " minne "
+
+#~ msgid ""
+#~ "Error while loading regular expression from XML. Most probably the "
+#~ "regular expression had unmatched tags."
+#~ msgstr ""
+#~ "Virhe säännöllisen lausekkeen latauksessa XML:stä. Todennäköisimmin "
+#~ "säännöllinen lauseke sisälsi täsmäämättömiä tunnisteita."
+
+#~ msgid "Overwrite"
+#~ msgstr "Korvaa"
+
+#~ msgid "Settings"
+#~ msgstr "Asetukset"

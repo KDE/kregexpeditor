@@ -1,0 +1,1173 @@
+# Translation of kregexpeditor.po to Low Saxon
+# Heiko Evermann <heiko@evermann.de>, 2004.
+# Sönke Dibbern <s_dibbern@web.de>, 2006, 2007, 2008.
+# Manfred Wiese <m.j.wiese@web.de>, 2009, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kregexpeditor\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-04-02 00:20+0000\n"
+"PO-Revision-Date: 2010-10-10 08:39+0200\n"
+"Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
+"Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
+"Language: nds\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sönke Dibbern"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "s_dibbern@web.de"
+
+#: altnwidget.cpp:37 altnwidget.cpp:46 regexpbuttons.cpp:87
+#, kde-format
+msgid "Alternatives"
+msgstr "Alternativen"
+
+#: altnwidget.cpp:220
+#, kde-format
+msgid "Selecting several alternatives is currently not supported."
+msgstr "Utsöken vun mehr Alternativen warrt opstunns nich ünnerstütt."
+
+#: altnwidget.cpp:222
+#, kde-format
+msgid "Selection Invalid"
+msgstr "Leeg Köör"
+
+#: auxbuttons.cpp:35
+#, kde-format
+msgid "Undo"
+msgstr "Torüchnehmen"
+
+#: auxbuttons.cpp:41
+#, kde-format
+msgid "Redo"
+msgstr "Wedderhalen"
+
+#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:70
+#, kde-format
+msgid "Cut"
+msgstr "Knippen"
+
+#: auxbuttons.cpp:53 KMultiFormListBox/ccp.cpp:71
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:67
+#, kde-format
+msgid "Copy"
+msgstr "Koperen"
+
+#: auxbuttons.cpp:59 KMultiFormListBox/ccp.cpp:72
+#, kde-format
+msgid "Paste"
+msgstr "Infögen"
+
+#: auxbuttons.cpp:65
+#, kde-format
+msgid "Save"
+msgstr "Sekern"
+
+#: characterswidget.cpp:116
+#, kde-format
+msgid "- A word character\n"
+msgstr " - En Teken\n"
+
+#: characterswidget.cpp:120
+#, kde-format
+msgid "- A non-word character\n"
+msgstr "- Keen Teken\n"
+
+#: characterswidget.cpp:124
+#, kde-format
+msgid "- A digit character\n"
+msgstr " - En Tall (0-9)\n"
+
+#: characterswidget.cpp:128
+#, kde-format
+msgid "- A non-digit character\n"
+msgstr "- Keen Tall\n"
+
+#: characterswidget.cpp:132
+#, kde-format
+msgid "- A space character\n"
+msgstr "- En Twischenruum\n"
+
+#: characterswidget.cpp:136
+#, kde-format
+msgid "- A non-space character\n"
+msgstr "- Keen Twischenruum\n"
+
+#: characterswidget.cpp:151
+#, kde-format
+msgctxt "a range of characters"
+msgid "- from %1 to %2\n"
+msgstr ""
+
+#: characterswidget.cpp:159
+#, kde-format
+msgid "Any Character Except"
+msgstr "all Tekens, man nich"
+
+#: characterswidget.cpp:161
+#, kde-format
+msgid "One of Following Characters"
+msgstr "een vun disse Tekens"
+
+#: characterswidget.cpp:279
+#, kde-format
+msgid "Specify Characters"
+msgstr "Tekens angeven"
+
+#: characterswidget.cpp:289
+#, kde-format
+msgid "Do not match the characters specified here"
+msgstr "Hier angeven Tekens dörvt nich op Text passen"
+
+#: characterswidget.cpp:293
+#, kde-format
+msgid "Predefined Character Ranges"
+msgstr "Vörinstellt Tekenrebeden"
+
+#: characterswidget.cpp:297
+#, kde-format
+msgid "A word character"
+msgstr "en Teken"
+
+#: characterswidget.cpp:299
+#, kde-format
+msgid "A digit character"
+msgstr "en Tall (0-9)"
+
+#: characterswidget.cpp:301
+#, kde-format
+msgid "A space character"
+msgstr "en Twischenruum"
+
+#: characterswidget.cpp:304
+#, kde-format
+msgid "A non-word character"
+msgstr "keen Teken"
+
+#: characterswidget.cpp:306
+#, kde-format
+msgid "A non-digit character"
+msgstr "keen Tall"
+
+#: characterswidget.cpp:308
+#, kde-format
+msgid "A non-space character"
+msgstr "keen Twischenruum"
+
+#: characterswidget.cpp:312
+#, kde-format
+msgid "Single Characters"
+msgstr "Enkel Tekens"
+
+#: characterswidget.cpp:324 characterswidget.cpp:345
+#, kde-format
+msgid "More Entries"
+msgstr "Indrag tofögen"
+
+#: characterswidget.cpp:332
+#, kde-format
+msgid "Character Ranges"
+msgstr "Tekenrebeden"
+
+#: characterswidget.cpp:426
+#, kde-format
+msgid "From:"
+msgstr "Vun:"
+
+#: characterswidget.cpp:433
+#, kde-format
+msgctxt "end of range"
+msgid "To:"
+msgstr "bet:"
+
+#: charselector.cpp:60
+#, kde-format
+msgid "Normal Character"
+msgstr "Normaal Teken"
+
+#: charselector.cpp:61
+#, kde-format
+msgid "Unicode Char in Hex."
+msgstr "Unicode-Teken (Hextall)"
+
+#: charselector.cpp:62
+#, kde-format
+msgid "Unicode Char in Oct."
+msgstr "Unicode-Teken (Oktaal)"
+
+#: charselector.cpp:64
+#, kde-format
+msgid "The Bell Character (\\a)"
+msgstr "Pingel-Teken (\\a)"
+
+#: charselector.cpp:65
+#, kde-format
+msgid "The Form Feed Character (\\f)"
+msgstr "Sietdaal-Teken (\\f)"
+
+#: charselector.cpp:66
+#, kde-format
+msgid "The Line Feed Character (\\n)"
+msgstr "Reegdaal-Teken (\\n)"
+
+#: charselector.cpp:67
+#, kde-format
+msgid "The Carriage Return Character (\\r)"
+msgstr "Wagenretuur-Teken (\\r)"
+
+#: charselector.cpp:68
+#, kde-format
+msgid "The Horizontal Tab Character (\\t)"
+msgstr "Tabulator-Teken (\\t)"
+
+#: charselector.cpp:69
+#, kde-format
+msgid "The Vertical Tab Character (\\v)"
+msgstr "Pielrecht Tabulator (\\v)"
+
+#: compoundwidget.cpp:47
+#, kde-format
+msgid "&Title:"
+msgstr "&Titel:"
+
+#: compoundwidget.cpp:53
+#, kde-format
+msgid "&Description:"
+msgstr "&Beschrieven:"
+
+#: compoundwidget.cpp:59
+#, kde-format
+msgid "&Automatically replace using this item"
+msgstr "&Automaatsch mit dit Element utwesseln"
+
+#: compoundwidget.cpp:61
+#, kde-format
+msgid ""
+"When the content of this box is typed in to the ASCII line,<br />this box "
+"will automatically be added around it,<br />if this check box is selected."
+msgstr ""
+"Wenn Du den Inholt vun dissen Kasten na de ASCII-Reeg ingiffst,<br />warrt "
+"disse Kasten dor automaatsch ümto toföögt,<br />wenn dit anmaakt is."
+
+#: compoundwidget.cpp:126
+#, kde-format
+msgid "Configure Compound"
+msgstr "Tosamensett Utdruck inrichten"
+
+#: emacsregexpconverter.cpp:78
+#, kde-format
+msgid "Look ahead regular expressions not supported in Emacs style"
+msgstr "De Emacs-Syntax ünnerstütt keen bedingte reguleer Utdrück."
+
+#: emacsregexpconverter.cpp:182
+#, kde-format
+msgid "Word boundary and non word boundary is not supported in Emacs syntax"
+msgstr "De Emacs-Syntax ünnerstütt keen Woort- un Nich-Woortgrenzen."
+
+#: errormap.cpp:47
+#, kde-format
+msgid ""
+"Your regular expression is invalid, due to something preceding a 'line "
+"start'."
+msgstr "De regulere Utdruck is leeg: Dor steiht wat vör \"Reeganfang\"."
+
+#: errormap.cpp:48 errormap.cpp:57 errormap.cpp:66
+#, kde-format
+msgid "Regular Expression Error"
+msgstr "Fehler binnen reguleer Utdruck"
+
+#: errormap.cpp:56
+#, kde-format
+msgid ""
+"Your regular expression is invalid, due to something following a 'line end'."
+msgstr "De regulere Utdruck is leeg: Dor steiht wat achter \"Reegenn\"."
+
+#: errormap.cpp:65
+#, kde-format
+msgid ""
+"Your regular expression is invalid. 'Look Ahead' regular expression must be "
+"the last sub expression."
+msgstr ""
+"De regulere Utdruck is leeg: En Utdruck-Bedingen mutt de lest Deelutdruck "
+"wesen."
+
+#: infopage.cpp:33
+#, kde-format
+msgctxt ""
+"Translators, feel free to add yourself in the text below, asking for a "
+"postcard ;-), also feel free to add a section saying <h2>Translators</h2>. "
+"Kind regards, and thanks for your work - Jesper."
+msgid ""
+"<h1>Regular Expression Editor</h1><p>What you are currently looking at is an "
+"editor for <i>Regular Expressions</i>.</p><p>The upper part in the middle is "
+"the editing area, the lower part is a verification window where you can try "
+"your regular expressions right away. The row of buttons is the editing "
+"actions. This is actually very similar to common drawing programs. Select an "
+"editing tool to start editing your regular expression, and press the mouse "
+"button in the editing area where you want this item inserted.</p><p>For a "
+"more detailed description of this editor see the <a href=\"doc://\">info "
+"pages</a></p><h2>What is a regular expression?</h2>If you do not know what a "
+"regular expression is, then it might be a good idea to read <a href=\"doc://"
+"whatIsARegExp\">the introduction to regular expressions</a>.<br />"
+msgstr ""
+"<h1>Editor för reguleer Utdrück</h1><p>Dit is en Editor för <i>Reguleer "
+"Utdrück</i>.</p><p>De bövere Deel in de Merrn is dat Arbeitrebeet, de Deel "
+"nerrn en Pröövfeld, binnen dat Du Dien regulere Utdrück direktemang "
+"utproberen kannst. Mit de Knööp baven kannst Du de Bewerk-Akschonen opropen, "
+"se funkscheneert heel liek as Knööp in en Tekenprogramm. Wenn Du nu anfangen "
+"wullt, klick op een vun de Warktüüch; dat warrt denn dor na dat Arbeitrebeet "
+"inföögt, woneem Du mit de Muus klickst.</p><p>De <a href=\"doc://\">Info-"
+"Sieden</a> bargt en ümfaten Beschrieven vun dissen Editor sien Funkschonen.</"
+"p><h2>Wat is denn en reguleer Utdruck?</h2>Wenn Du nich weetst, wat regulere "
+"Utdrück sünd, leest Du op't Best eerstmaal de <a href=\"doc://whatIsARegExp"
+"\">Inföhren för Regulere Utdrück</a>.<br />"
+
+#: infopage.cpp:46
+#, kde-format
+msgid ""
+"<h2>Send the author an electronic postcard</h2>I don't get any money for "
+"working on KRegExpEditor, I therefore appreciate it very much when users "
+"tell me what they think about my work. I would therefore be very happy if "
+"you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a short "
+"mail</a>, telling me that you use my regular expression editor.<h2>Author</"
+"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
+"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+msgstr ""
+"<h2>Senn den Autor en lütt Nettbreef</h2>Ik krieg för mien Arbeid an "
+"KRegExpEditor keen Geld, dorüm much ik geern vun Brukers hören, wat se över "
+"mien Arbeit denkt. Senn mi doch bitte en <a href=\"mailto:blackie@kde.org?"
+"subject=KRegExpEditor\">kort Nettbreef</a> un vertell, wat Du mien Editor "
+"för regulere Utdrück bruukst.<h2>Autor</h2><a href=\"http://www.blackie.dk/"
+"\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:blackie@kde.org\">blackie@kde."
+"org</a>&gt;"
+
+#: KMultiFormListBox/ccp.cpp:73
+#, kde-format
+msgid "Insert Blank"
+msgstr "Freeteken infögen"
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#, kde-format
+msgid "Due to a bug, it is not possible to remove the last element."
+msgstr "Dat leste Element lett sik nich wegmaken (Programmfehler)."
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#, kde-format
+msgid "Internal Error"
+msgstr "Intern Fehler"
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:282
+#, kde-format
+msgid "There is no element on the clipboard to paste in."
+msgstr "Binnen de Twischenaflaag gifft dat keen Element för't Infögen."
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:54
+#, kde-format
+msgid "Edit"
+msgstr "Bewerken"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:61
+#: userdefinedregexps.cpp:153
+#, kde-format
+msgid "Delete"
+msgstr "Wegdoon"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:74
+#, kde-format
+msgid "Up"
+msgstr "Na baven"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:80
+#, kde-format
+msgid "Down"
+msgstr "Na nerrn"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#, kde-format
+msgid "Delete item \"%1\"?"
+msgstr "Element \"%1\" wegdoon?"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#, kde-format
+msgid "Delete Item"
+msgstr "Element wegdoon"
+
+#: KMultiFormListBox/kmultiformlistbox.h:71
+#, kde-format
+msgid "Add"
+msgstr "Tofögen"
+
+#: KMultiFormListBox/widgetwindow.cpp:47
+#, kde-format
+msgid "Widget Configuration"
+msgstr "Bedeenelementen instellen"
+
+#: kregexpeditorguidialog.cpp:36
+#, kde-format
+msgid "Regular Expression Editor"
+msgstr "Editor för regulere Utdrück"
+
+#: kregexpeditorprivate.cpp:68
+#, kde-format
+msgid "Compound regular expression:"
+msgstr "Tosamensett reguleer Utdrück:"
+
+#: kregexpeditorprivate.cpp:69
+#, kde-format
+msgid ""
+"In this window you will find predefined regular expressions. Both regular "
+"expressions you have developed and saved, and regular expressions shipped "
+"with the system."
+msgstr ""
+"Binnen dit Paneel findst Du fardige regulere Utdrück: Welke, de Du sülven "
+"opstellt un sekert hest, un ok welke, de mit dat Programm utlevert wöörn."
+
+#: kregexpeditorprivate.cpp:78
+#, kde-format
+msgid ""
+"In this window you will develop your regular expressions. Select one of the "
+"actions from the action buttons above, and click the mouse in this window to "
+"insert the given action."
+msgstr ""
+"Binnen dit Rebeet kannst Du Dien regulere Utdrück opstellen. Söök Di baven "
+"op den Knoopbalken en Warktüüch ut, un klick hier binnen, wenn Du de "
+"Akschoon infögen wullt."
+
+#: kregexpeditorprivate.cpp:86
+#, kde-format
+msgid ""
+"<p>Type in some text in this window, and see what the regular expression you "
+"have developed matches.</p><p>Each second match will be colored in red and "
+"each other match will be colored blue, simply so you can distinguish them "
+"from each other.</p><p>If you select part of the regular expression in the "
+"editor window, then this part will be highlighted - This allows you to "
+"<i>debug</i> your regular expressions</p>"
+msgstr ""
+"<p>Hier kannst Du wat Text ingeven un Di ankieken, op wat dorvun Dien "
+"reguleer Utdruck passt.</p><p>De passen Steden warrt wesselwies root un "
+"blaag infarvt, so dat Du se eenfacher uteneenhollen kannst.</p><p>Wenn Du en "
+"Deelutdruck binnen dat Arbeitrebeet markeerst, warrt hier de tohören Deel "
+"rutheevt - so kannst Du binnen Dien Utdrück na <i>Fehlers söken</i>.</p>"
+
+#: kregexpeditorprivate.cpp:148
+#, fuzzy, kde-format
+#| msgid "ASCII syntax:"
+msgid "ASCII syntax:"
+msgstr "ASCII-Schriefwies:"
+
+#: kregexpeditorprivate.cpp:161
+#, kde-format
+msgid ""
+"<p>This is the regular expression in ASCII syntax. You are likely only to be "
+"interested in this if you are a programmer, and need to develop a regular "
+"expression using QRegExp.</p><p>You may develop your regular expression both "
+"by using the graphical editor, and by typing the regular expression in this "
+"line edit.</p>"
+msgstr ""
+"<p>Dit is de regulere Utdruck in ASCII-Syntax. Wohrschienlich intresseert Di "
+"dit bloots, wenn Du Programmen schriffst un en reguleren Utdruck mit QRegExp "
+"a.B. opstellen muttst.</p><p>Du kannst regulere Utdrück mit den graafschen "
+"Editor opstellen, man du kannst se ok hier ingeven.</p>"
+
+#: kregexpeditorprivate.cpp:371
+#, kde-format
+msgid "Could not open file '%1' for reading"
+msgstr "\"%1\" lett sik nich för't Lesen opmaken"
+
+#: lookaheadwidget.cpp:51
+#, kde-format
+msgid "Pos. Look Ahead"
+msgstr "Wenn-Bedingen"
+
+#: lookaheadwidget.cpp:53
+#, kde-format
+msgid "Neg. Look Ahead"
+msgstr "Wenn-Nich-Bedingen"
+
+#: main.cpp:42
+#, kde-format
+msgid "RegExp Editor"
+msgstr "RegUtd-Editor"
+
+#: main.cpp:43
+#, kde-format
+msgid "Editor for Regular Expressions"
+msgstr "Editor för regulere Utdrück"
+
+#: main.cpp:45
+#, kde-format
+msgid "(c) 2002-2003 Jesper K. Pedersen"
+msgstr "(c) 2002-2003 Jesper K. Pedersen"
+
+#: main.cpp:46
+#, kde-format
+msgid "Laurent Montel"
+msgstr ""
+
+#: main.cpp:46
+#, kde-format
+msgid "Developer"
+msgstr ""
+
+#: predefined/General/anything.regexp:5
+#, kde-format
+msgid "anything"
+msgstr "jichtenswat"
+
+#: predefined/General/anything.regexp:6
+#, kde-format
+msgid "This regular expression matches anything."
+msgstr "Disse regulere Utdruck passt op allens."
+
+#: predefined/General/spaces.regexp:5
+#, kde-format
+msgid "spaces"
+msgstr "Twischenrüüm"
+
+#: predefined/General/spaces.regexp:6
+#, kde-format
+msgid "Matches an arbitrary amount of whitespace."
+msgstr "Passt op jichtenseen Tall vun Twischenrüüm-Tekens"
+
+#: qregexpparser.y:205
+#, kde-format
+msgid ""
+"<p>Back reference regular expressions are not supported.</p><p><tt>\\1</tt>, "
+"<tt>\\2</tt>, ... are <i>back references</i>, meaning they refer to previous "
+"matches. Unfortunately this is not supported in the current version of this "
+"editor.</p><p>In the graphical area the text <b>%1</b> has been inserted. "
+"This is however just a workaround to ensure that the application handles the "
+"regexp at all. Therefore, as soon as you edit the regular expression in the "
+"graphical area, the back reference will be replaced by matching the text <b>"
+"%2</b> literally.</p>"
+msgstr ""
+
+#: qregexpparser.y:214
+#, fuzzy, kde-format
+#| msgid "Look ahead regular expressions not supported in Emacs style"
+msgid "Back reference regular expressions not supported"
+msgstr "De Emacs-Syntax ünnerstütt keen bedingte reguleer Utdrück."
+
+#: regexpbuttons.cpp:49
+#, kde-format
+msgid "Selection tool"
+msgstr "Utsöök-Warktüüch"
+
+#: regexpbuttons.cpp:50
+#, kde-format
+msgid ""
+"<p>This will change the state of the editor to <i>selection state</i>.</"
+"p><p>In this state you will not be inserting <i>regexp items</i>, but "
+"instead select them. To select a number of items, press down the left mouse "
+"button and drag it over the items.</p><p>When you have selected a number of "
+"items, you may use cut/copy/paste. These functions are found in the right "
+"mouse button menu.</p>"
+msgstr ""
+"<p>Disse Knoop versett den Editor na den <i>Utsöök-Bedrief</i>.</p><p>In "
+"disse Bedriefoort föögst Du keen <i>Deelutdrück</i> in, man söchst se ut. "
+"Wenn Du mehr Elementen utsöken wullt, holl den linken Muusknoop daal un fohr "
+"mit de Muus över de Elementen.</p><p>Wenn Du Elementen utsöcht hest, kannst "
+"Du de Funkschonen Knippen, Koperen un Infögen bruken, de Du in't "
+"Rechtsklickmenü finnst.</p>"
+
+#: regexpbuttons.cpp:59
+#, kde-format
+msgid "Text"
+msgstr "Text"
+
+#: regexpbuttons.cpp:60
+#, kde-format
+msgid ""
+"<qt>This will insert a text field, where you may write text. The text you "
+"write will be matched literally. (i.e. you do not need to escape any "
+"characters)</qt>"
+msgstr ""
+"<qt>Mit dissen Knoop kannst Du en Textfeld infögen, na dat Du Text ingeven "
+"kannst. Disse Deelutdruck warrt denn op Text anwendt, as he is, d.h. du "
+"bruukst keen Tekens (mit Torüchstreken \"\\\") schulen.</qt>"
+
+#: regexpbuttons.cpp:64
+#, kde-format
+msgid "A single character specified in a range"
+msgstr "Een enkel Teken ut en angeven Rebeet"
+
+#: regexpbuttons.cpp:65
+#, kde-format
+msgid ""
+"<p>This will match a single character from a predefined range.</p><p>When "
+"you insert this widget a dialog box will appear, which lets you specify "
+"which characters this <i>regexp item</i> will match.</p>"
+msgstr ""
+"<p>Dit passt op en enkel Teken ut en angeven Rebeet.</p><p>Wenn Du dit "
+"Element inföögst, dukt en Dialoog op, mit den Du de Tekens angeven kannst, "
+"op de de <i>Deelutdruck</i> passt.</p>"
+
+#: regexpbuttons.cpp:70
+#, kde-format
+msgid "Any character"
+msgstr "Jichtenseen Teken"
+
+#: regexpbuttons.cpp:71
+#, kde-format
+msgid "<qt>This will match any single character</qt>"
+msgstr "<qt>Dit passt op all enkelte Tekens.</qt>"
+
+#: regexpbuttons.cpp:74
+#, kde-format
+msgid "Repeated content"
+msgstr "Wedderhaalt Inholt"
+
+#: regexpbuttons.cpp:75
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it "
+#| "surrounds a specified number of times.<br />The number of times to repeat "
+#| "may be specified using ranges; e.g. it could be specified that it should "
+#| "match from 2 to 4 times, that it should match exactly 5 times, or that it "
+#| "should match at least one time.<br />Examples:<br />If you specify that "
+#| "it should match <i>any</i> time, and the content it surrounds is <tt>abc</"
+#| "tt>, then this <i>regexp item</i> will match the empty string, the string "
+#| "<tt>abc</tt>, the string <tt>abcabc</tt>, the string <tt>abcabcabcabc</"
+#| "tt>, etc.</qt>"
+msgid ""
+"<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
+"a specified number of times.<br />The number of times to repeat may be "
+"specified using ranges; e.g. it could be specified that it should match from "
+"2 to 4 times, that it should match exactly 5 times, or that it should match "
+"at least one time.<br />Examples:<br />If you specify that it should match "
+"<i>any</i> time, and the content it surrounds is <tt>abc</tt>, then this "
+"<i>regexp item</i> will match the empty string, the string <tt>abc</tt>, the "
+"string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, etc.</qt>"
+msgstr ""
+"<qt>Disse <i>Deelutdruck</i> passt, wenn de Deelutdrück <i>dor binnen</i> "
+"sik so vele Maal wedderhaalt, as Du dat angiffst.<br />Du kannst de Tall vun "
+"Wedderhalen ok över Rebeden angeven: Du kannst fastleggen, dat de "
+"Deelutdruck op 2 bet 4 Wedderhalen, op nau 5 oder tominnst een Vörkamen "
+"passen schall.<br />Bispillen:<br />Wenn Du angiffst, dat he op "
+"<i>jichtenseen</i> Wedderhalen passen schall un dor binnen <tt>abc</tt> "
+"steiht, passt de Deelutdruck op de <i>leddige</i> Tekenkeed (0 maal "
+"wedderhaalt), de Keed <tt>abc</tt>, de Keed <tt>abcabc</tt>, de Keed "
+"<tt>abcabcabcabc</tt>, usw.</qt>"
+
+#: regexpbuttons.cpp:88
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>This <i>regexp item</i> will match any of its alternatives.</"
+#| "p><p>Alternatives are specified by placing <i>regexp items</i> on top of "
+#| "each other inside this widget.</p>"
+msgid ""
+"<p>This <i>regexp item</i> will match any of its alternatives.</"
+"p><p>Alternatives are specified by placing <i>regexp items</i> on top of "
+"each other inside this widget.</p>"
+msgstr ""
+"<p>Disse <i>Deelutdruck</i> passt op jichtenseen vun sien Alternativen.</"
+"p><p>Alternativen giffst Du an, wenn Du binnen dit Element Deelutdrück "
+"<i>överenanner</i> afleggst.</p>"
+
+#: regexpbuttons.cpp:93
+#, kde-format
+msgid "Compound regexp"
+msgstr "Tosamensett Utdruck"
+
+#: regexpbuttons.cpp:94
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it "
+#| "possible for you to collapse a huge <i>regexp item</i> into a small box. "
+#| "This makes it easier for you to get an overview of large <i>regexp items</"
+#| "i>. This is especially useful if you load a predefined <i>regexp item</i> "
+#| "that you perhaps do not care about the inner workings of.</qt>"
+msgid ""
+"<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
+"for you to collapse a huge <i>regexp item</i> into a small box. This makes "
+"it easier for you to get an overview of large <i>regexp items</i>. This is "
+"especially useful if you load a predefined <i>regexp item</i> that you "
+"perhaps do not care about the inner workings of.</qt>"
+msgstr ""
+"<qt>Disse <i>Deelutdruck</i> hett twee Telen:<ul><li>Du kannst grötter "
+"Deelutdrück <i>tosamenfoolden</i>, so dat grote Utdrück wat eenfacher to "
+"hanteren sünd. Dat is ok denn goot, wenn Du vöropstellte Deelutdrück laadst "
+"un an ehr Binnenleven keen Vermaak hest.</qt>."
+
+#: regexpbuttons.cpp:101
+#, kde-format
+msgid "Beginning of line"
+msgstr "Reeganfang"
+
+#: regexpbuttons.cpp:102
+#, kde-format
+msgid "<qt>This will match the beginning of a line.</qt>"
+msgstr "<qt>Dit passt op den Anfang vun en Reeg.</qt>"
+
+#: regexpbuttons.cpp:105
+#, kde-format
+msgid "End of line"
+msgstr "Reegenn"
+
+#: regexpbuttons.cpp:106
+#, kde-format
+msgid "<qt>This will match the end of a line.</qt>"
+msgstr "<qt>Dit passt op dat Enn vun en Reeg.</qt>"
+
+#: regexpbuttons.cpp:109
+#, kde-format
+msgid "Word boundary"
+msgstr "Woortgrenz"
+
+#: regexpbuttons.cpp:110
+#, kde-format
+msgid ""
+"<qt>This asserts a word boundary (This part does not actually match any "
+"characters)</qt>"
+msgstr ""
+"<qt>Dit passt op de Grenz twischen twee Tekens, wenn se de Kant vun en Woort "
+"is (is keen redig vörhannen Teken).</qt>"
+
+#: regexpbuttons.cpp:113
+#, kde-format
+msgid "Non Word boundary"
+msgstr "Nich-Woortgrenz"
+
+#: regexpbuttons.cpp:114
+#, kde-format
+msgid ""
+"<qt>This asserts a non-word boundary (This part does not actually match any "
+"characters)</qt>"
+msgstr ""
+"<qt>Dit passt op de Grenz twischen twee Tekens, wenn dat keen Woortgrenz is "
+"(is keen redig vörhannen Teken).</qt>"
+
+#: regexpbuttons.cpp:118
+#, kde-format
+msgid "Positive Look Ahead"
+msgstr "Positiv Bedingen"
+
+#: regexpbuttons.cpp:119
+#, kde-format
+msgid ""
+"<qt>This asserts a regular expression (This part does not actually match any "
+"characters). You can only use this at the end of a regular expression.</qt>"
+msgstr ""
+"<qt>De vörutgahn Deelutdruck passt bloots, wenn disse Deelutdruck passt (de "
+"Tekens, op de disse Utdruck passt, warrt nich Deel vun de passen Tekenkeed). "
+"Lett sik bloots an't Enn vun en reguleren Utdruck bruken.</qt>"
+
+#: regexpbuttons.cpp:123
+#, kde-format
+msgid "Negative Look Ahead"
+msgstr "Negativ Bedingen"
+
+#: regexpbuttons.cpp:124
+#, kde-format
+msgid ""
+"<qt>This asserts a regular expression that must not match (This part does "
+"not actually match any characters). You can only use this at the end of a "
+"regular expression.</qt>"
+msgstr ""
+"<qt>De vörutgahn Deelutdruck passt bloots, wenn disse Deelutdruck <b>nich</"
+"b> passt (de Tekens, op de disse Utdruck passt, warrt nich Deel vun de "
+"passen Tekenkeed). Lett sik bloots an't Enn vun en reguleren Utdruck bruken."
+"</qt>"
+
+#: regexpeditorwindow.cpp:215
+#, kde-format
+msgid "There is no selection."
+msgstr "Dat gifft keen Köör."
+
+#: regexpeditorwindow.cpp:215
+#, kde-format
+msgid "Missing Selection"
+msgstr "Köör fehlt"
+
+#: regexpeditorwindow.cpp:280
+#, kde-format
+msgid "There is no widget under cursor."
+msgstr "Dor is keen Element ünner den Wieser."
+
+#: regexpeditorwindow.cpp:280
+#, kde-format
+msgid "Invalid Operation"
+msgstr "Leeg Akschoon"
+
+#: regexpeditorwindow.cpp:331
+#, kde-format
+msgid "C&ut"
+msgstr "K&nippen"
+
+#: regexpeditorwindow.cpp:335
+#, kde-format
+msgid "&Copy"
+msgstr "&Koperen"
+
+#: regexpeditorwindow.cpp:339
+#, kde-format
+msgid "&Paste"
+msgstr "&Infögen"
+
+#: regexpeditorwindow.cpp:345
+#, kde-format
+msgid "&Edit"
+msgstr "&Bewerken"
+
+#: regexpeditorwindow.cpp:349
+#, kde-format
+msgid "&Save Regular Expression..."
+msgstr "Reguleer Utdruck &sekern..."
+
+#: regexpeditorwindow.cpp:388
+#, kde-format
+msgid "Name for Regular Expression"
+msgstr "Naam för den reguleren Utdruck"
+
+#: regexpeditorwindow.cpp:388
+#, kde-format
+msgid "Enter name:"
+msgstr "Naam ingeven:"
+
+#: regexpeditorwindow.cpp:390
+#, kde-format
+msgid "Empty name is not supported"
+msgstr ""
+
+#: regexpeditorwindow.cpp:390
+#, fuzzy, kde-format
+#| msgid "&Save Regular Expression..."
+msgid "Save Regular Expression"
+msgstr "Reguleer Utdruck &sekern..."
+
+#: regexpeditorwindow.cpp:398
+#, kde-format
+msgid "<p>Overwrite named regular expression <b>%1</b></p>"
+msgstr "<p>Reguleer Utdruck mit Naam <b>%1</b> överschrieven?</p>"
+
+#: regexpeditorwindow.cpp:406
+#, kde-format
+msgid "Could not open file for writing: %1"
+msgstr "Datei \"%1\" lett sik nich för't Schrieven opmaken."
+
+#: repeatregexp.cpp:57 repeatregexp.cpp:65
+#, kde-format
+msgid ""
+"<p>Value for attribute <b>%1</b> was not an integer for element <b>%2</b></"
+"p><p>It contained the value <b>%3</b></p>"
+msgstr ""
+"<p>Weert för Attribut <b>%1</b> weer keen Heeltall för't Element <b>%2</b></"
+"p><p>Dat bargt den Weert <b>%3</b></p>"
+
+#: repeatregexp.cpp:60 repeatregexp.cpp:68 textrangeregexp.cpp:146
+#: textregexp.cpp:54 widgetfactory.cpp:165 widgetfactory.cpp:196
+#: widgetfactory.cpp:203
+#, kde-format
+msgid "Error While Loading From XML File"
+msgstr "Fehler bi't Lesen ut XML-Datei"
+
+#: repeatwidget.cpp:74
+#, kde-format
+msgid "Number of Times to Repeat Content"
+msgstr "Wedderhaaltall"
+
+#: repeatwidget.cpp:184
+#, kde-format
+msgid "Times to Match"
+msgstr "Tall vun Övereenstimmen"
+
+#: repeatwidget.cpp:191
+#, kde-format
+msgid "Any number of times (including zero times)"
+msgstr "Jichtenseen Tall (ok Null maal)"
+
+#: repeatwidget.cpp:198
+#, kde-format
+msgid "At least"
+msgstr "Tominnst"
+
+#: repeatwidget.cpp:199
+#, kde-format
+msgid "At most"
+msgstr "Tohööchst"
+
+#: repeatwidget.cpp:200
+#, kde-format
+msgid "Exactly"
+msgstr "Nau"
+
+#: repeatwidget.cpp:203
+#, kde-format
+msgid "From"
+msgstr "Vun"
+
+#: repeatwidget.cpp:215
+#, kde-format
+msgid "to"
+msgstr "bet"
+
+#: repeatwidget.cpp:223 repeatwidget.cpp:249
+#, kde-format
+msgid "time(s)"
+msgstr "maal"
+
+#: repeatwidget.cpp:299
+#, kde-format
+msgid "Repeated Any Number of Times"
+msgstr "jichtenswat faken"
+
+#: repeatwidget.cpp:301
+#, kde-format
+msgid "Repeated at Least 1 Time"
+msgid_plural "Repeated at Least %1 Times"
+msgstr[0] "tominnst eenmaal"
+msgstr[1] "tominnst %1 maal"
+
+#: repeatwidget.cpp:303
+#, kde-format
+msgid "Repeated at Most 1 Time"
+msgid_plural "Repeated at Most %1 Times"
+msgstr[0] "tohööchst eenmaal"
+msgstr[1] "tohööchst %1 maal"
+
+#: repeatwidget.cpp:305
+#, kde-format
+msgid "Repeated Exactly 1 Time"
+msgid_plural "Repeated Exactly %1 Times"
+msgstr[0] "nau eenmaal"
+msgstr[1] "nau %1 maal"
+
+#: repeatwidget.cpp:307
+#, kde-format
+msgid "Repeated From %1 to %2 Times"
+msgstr "vun %1 bet %2 maal"
+
+#: textrangeregexp.cpp:145
+#, kde-format
+msgid ""
+"<p>Invalid sub element to element <b>TextRange</b>. Tag was <b>%1</b></p>"
+msgstr ""
+"<p> Leeg Ünnerelement för Element <b>TextRebeet</b>. Beteker weer <b>%1</b>."
+"</p>"
+
+#: textregexp.cpp:53
+#, kde-format
+msgid "<p>Element <b>Text</b> did not contain any textual data.</p>"
+msgstr "<p>Element <b>Text</b> bargt keen Textdaten.</p>"
+
+#: userdefinedregexps.cpp:67
+#, kde-format
+msgid "User Defined"
+msgstr "Egen"
+
+#: userdefinedregexps.cpp:87
+#, kde-format
+msgid "general"
+msgstr "Allgemeen"
+
+#: userdefinedregexps.cpp:101
+#, kde-format
+msgid "Could not open file for reading: %1"
+msgstr "Datei \"%1\" lett sik nich för't Lesen opmaken."
+
+#: userdefinedregexps.cpp:111
+#, kde-format
+msgid "File %1 containing user defined regular expression contained an error"
+msgstr "Fehlerbinnen Datei \"%1\" mit egen reguleer Utdrück"
+
+#: userdefinedregexps.cpp:154
+#, fuzzy, kde-format
+#| msgid "Rename"
+msgid "Rename"
+msgstr "Ümnömen"
+
+#: userdefinedregexps.cpp:195
+#, kde-format
+msgid "Rename Item"
+msgstr "Indrag ümnömen"
+
+#: userdefinedregexps.cpp:195
+#, kde-format
+msgid "New name:"
+msgstr "Nieg Naam:"
+
+#: userdefinedregexps.cpp:202
+#, kde-format
+msgid "<p>Overwrite named regular expression <b>%1</b>?</p>"
+msgstr "<p>Reguleer Utdruck mir Naam <b>%1</b> överschrieven?</p>"
+
+#: userdefinedregexps.cpp:202
+#, kde-format
+msgid "Do Not Overwrite"
+msgstr "Nich överschrieven"
+
+#: verifybuttons.cpp:38
+#, kde-format
+msgid "Verify regular expression"
+msgstr "Reguleer Utdruck anwennen"
+
+#: verifybuttons.cpp:39
+#, kde-format
+msgid ""
+"Shows what part of the regular expression is being matched in the "
+"<i>verifier window</i>.(The window below the graphical editor window)."
+msgstr ""
+"Wiest binnen dat <i>Pröövfeld</i> (de Deel nerrn vun dat Arbeitrebeet), op "
+"wat Dien reguleer Utdruck passt."
+
+#: verifybuttons.cpp:48
+#, kde-format
+msgid "Load text in the verifier window"
+msgstr "Text na't Pröövfeld laden"
+
+#: verifybuttons.cpp:53
+#, kde-format
+msgid "Verification Settings"
+msgstr "Pröövinstellen"
+
+#: verifybuttons.cpp:101
+#, kde-format
+msgid "config menu"
+msgstr ""
+
+#: verifybuttons.cpp:104
+#, kde-format
+msgid "Verify on the Fly"
+msgstr "Direktemang pröven"
+
+#: verifybuttons.cpp:110
+#, kde-format
+msgid "Toggle on-the-fly verification of regular expression"
+msgstr "Direktemang Pröven an- un utmaken"
+
+#: verifybuttons.cpp:111
+#, kde-format
+msgid ""
+"Enabling this option will make the verifier update for each edit. If the "
+"verify window contains much text, or if the regular expression is either "
+"complex or matches a lot of time, this may be very slow."
+msgstr ""
+"Wenn anmaakt, warrt dat Pröövfeld na elkeen Ännern opfrischt. Wenn dat "
+"Pröövfeld veel Text bargt, oder de regulere Utdruck vigeliensch is oder "
+"faken funnen warrt, mag dat sien Tiet bruken."
+
+#: verifybuttons.cpp:115
+#, kde-format
+msgid "Match Greedy"
+msgstr "Freetsch pröven"
+
+#: verifybuttons.cpp:120
+#, kde-format
+msgid "Toggle greedy matching when verifying the regular expression."
+msgstr "Bi't pröven vun reguleer Utdrück dat freetsche Pröven an-/utmaken"
+
+#: verifybuttons.cpp:121
+#, kde-format
+msgid ""
+"When this option is enabled, the regular expression will be evaluated on a "
+"so-called greedy way."
+msgstr ""
+"Is dit anmaakt, sünd de reguleren Utdrück »freetsch«, se passt op so veel as "
+"mööglich"
+
+#: verifybuttons.cpp:124
+#, kde-format
+msgid "RegExp Language"
+msgstr "Utdruck-Syntax"
+
+#: widgetfactory.cpp:164
+#, kde-format
+msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
+msgstr ""
+"<p>Nich begäng Beteker bi't Lesen vun XML. Beteker weer: <b>%1</b>.</p>"
+
+#: widgetfactory.cpp:188
+#, fuzzy, kde-format
+#| msgid "Error While Loading Regular Expression From XML"
+msgid "Error while loading regular expression from XML."
+msgstr "Fehler bi't Inlesen vun reguleer Utdruck ut XML"
+
+#: widgetfactory.cpp:189
+#, kde-format
+msgid "Error While Loading Regular Expression From XML"
+msgstr "Fehler bi't Inlesen vun reguleer Utdruck ut XML"
+
+#: widgetfactory.cpp:195
+#, kde-format
+msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
+msgstr "<p>XML-Datei bargt keen <b>%1</b>-Beteker.</p>"
+
+#: widgetfactory.cpp:201
+#, kde-format
+msgid ""
+"<p>Error while reading XML file. The element just below the tag <b>%1</b> "
+"was not an element.</p>"
+msgstr ""
+"<p>Fehler bi't Lesen vun de XML-Datei. Dat Element jüst nerrn den Beteker <b>"
+"%1</b> is keen Element.</p>"
+
+#: zerowidgets.cpp:72
+#, kde-format
+msgid ""
+"Any\n"
+"Character"
+msgstr ""
+"Jichtenseen\n"
+"Teken"
+
+#: zerowidgets.cpp:85
+#, kde-format
+msgid ""
+"Line\n"
+"Start"
+msgstr ""
+"Reeg-\n"
+"Anfang"
+
+#: zerowidgets.cpp:98
+#, kde-format
+msgid ""
+"Line\n"
+"End"
+msgstr ""
+"Reeg-\n"
+"Enn"
+
+#: zerowidgets.cpp:111
+#, kde-format
+msgid ""
+"Word\n"
+"Boundary"
+msgstr ""
+"Woort-\n"
+"Grenz"
+
+#: zerowidgets.cpp:124
+#, kde-format
+msgid ""
+"Non-word\n"
+"Boundary"
+msgstr ""
+"Nich-Woort-\n"
+"grenz"
+
+#~ msgid "Clear expression"
+#~ msgstr "Leddig maken"
+
+#~ msgid "from "
+#~ msgstr "vun "
+
+#~ msgid " to "
+#~ msgstr " bet "
+
+#~ msgid ""
+#~ "Error while loading regular expression from XML. Most probably the "
+#~ "regular expression had unmatched tags."
+#~ msgstr ""
+#~ "Fehler bi't Inlesen vun reguleer Utdruck ut XML. Wohrschienlich passt de "
+#~ "Betekers bi den Utdruck nich tosamen."

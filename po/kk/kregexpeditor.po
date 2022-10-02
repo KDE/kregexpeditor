@@ -1,0 +1,1202 @@
+# translation of kregexpeditor.po to Kazakh
+#
+# Sairan Kikkarin <sairan@computer.org>, 2006, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: kregexpeditor\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-04-02 00:20+0000\n"
+"PO-Revision-Date: 2007-04-28 21:00+0600\n"
+"Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
+"Language-Team: Kazakh\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Сайран Киккарин"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sairan@computer.org"
+
+#: altnwidget.cpp:37 altnwidget.cpp:46 regexpbuttons.cpp:87
+#, kde-format
+msgid "Alternatives"
+msgstr "Варианттар"
+
+#: altnwidget.cpp:220
+#, kde-format
+msgid "Selecting several alternatives is currently not supported."
+msgstr "Бірнеше варианттарды таңдау әлі іске асырылмаған."
+
+#: altnwidget.cpp:222
+#, kde-format
+msgid "Selection Invalid"
+msgstr "Таңдау дұрыс емес"
+
+#: auxbuttons.cpp:35
+#, kde-format
+msgid "Undo"
+msgstr ""
+
+#: auxbuttons.cpp:41
+#, kde-format
+msgid "Redo"
+msgstr ""
+
+#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:70
+#, kde-format
+msgid "Cut"
+msgstr ""
+
+#: auxbuttons.cpp:53 KMultiFormListBox/ccp.cpp:71
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:67
+#, kde-format
+msgid "Copy"
+msgstr ""
+
+#: auxbuttons.cpp:59 KMultiFormListBox/ccp.cpp:72
+#, kde-format
+msgid "Paste"
+msgstr ""
+
+#: auxbuttons.cpp:65
+#, kde-format
+msgid "Save"
+msgstr ""
+
+#: characterswidget.cpp:116
+#, kde-format
+msgid "- A word character\n"
+msgstr "- Әріп\n"
+
+#: characterswidget.cpp:120
+#, kde-format
+msgid "- A non-word character\n"
+msgstr "- Әріп емес\n"
+
+#: characterswidget.cpp:124
+#, kde-format
+msgid "- A digit character\n"
+msgstr "- Цифр\n"
+
+#: characterswidget.cpp:128
+#, kde-format
+msgid "- A non-digit character\n"
+msgstr "- Цифр емес\n"
+
+#: characterswidget.cpp:132
+#, kde-format
+msgid "- A space character\n"
+msgstr "- Бос орын\n"
+
+#: characterswidget.cpp:136
+#, kde-format
+msgid "- A non-space character\n"
+msgstr "- Бос орын емес\n"
+
+#: characterswidget.cpp:151
+#, kde-format
+msgctxt "a range of characters"
+msgid "- from %1 to %2\n"
+msgstr ""
+
+#: characterswidget.cpp:159
+#, kde-format
+msgid "Any Character Except"
+msgstr "Мынадан басқа таңба"
+
+#: characterswidget.cpp:161
+#, kde-format
+msgid "One of Following Characters"
+msgstr "Келесі бір таңба"
+
+#: characterswidget.cpp:279
+#, kde-format
+msgid "Specify Characters"
+msgstr "Келтірілген таңбалар"
+
+#: characterswidget.cpp:289
+#, kde-format
+msgid "Do not match the characters specified here"
+msgstr "Келтірілген таңбалардан басқа"
+
+#: characterswidget.cpp:293
+#, kde-format
+msgid "Predefined Character Ranges"
+msgstr "Алдын ала берілген қатарлар"
+
+#: characterswidget.cpp:297
+#, kde-format
+msgid "A word character"
+msgstr "Әріп"
+
+#: characterswidget.cpp:299
+#, kde-format
+msgid "A digit character"
+msgstr "Цифр"
+
+#: characterswidget.cpp:301
+#, kde-format
+msgid "A space character"
+msgstr "Бос орын"
+
+#: characterswidget.cpp:304
+#, kde-format
+msgid "A non-word character"
+msgstr "Әріп емес"
+
+#: characterswidget.cpp:306
+#, kde-format
+msgid "A non-digit character"
+msgstr "Цифр емес"
+
+#: characterswidget.cpp:308
+#, kde-format
+msgid "A non-space character"
+msgstr "Бос орын емес"
+
+#: characterswidget.cpp:312
+#, kde-format
+msgid "Single Characters"
+msgstr "Жалғыз таңба"
+
+#: characterswidget.cpp:324 characterswidget.cpp:345
+#, kde-format
+msgid "More Entries"
+msgstr "Қосымша жазу"
+
+#: characterswidget.cpp:332
+#, kde-format
+msgid "Character Ranges"
+msgstr "Таңба қатарлары"
+
+#: characterswidget.cpp:426
+#, kde-format
+msgid "From:"
+msgstr "Басы:"
+
+#: characterswidget.cpp:433
+#, kde-format
+msgctxt "end of range"
+msgid "To:"
+msgstr "Соңы:"
+
+#: charselector.cpp:60
+#, kde-format
+msgid "Normal Character"
+msgstr "Қәдімгі таңба"
+
+#: charselector.cpp:61
+#, kde-format
+msgid "Unicode Char in Hex."
+msgstr "Оналтылық түріндегі Unicode таңбасы."
+
+#: charselector.cpp:62
+#, kde-format
+msgid "Unicode Char in Oct."
+msgstr "Сегіздік түріндегі Unicode таңбасы."
+
+#: charselector.cpp:64
+#, kde-format
+msgid "The Bell Character (\\a)"
+msgstr "\"Қоңырау\" белгісі (\\a)"
+
+#: charselector.cpp:65
+#, kde-format
+msgid "The Form Feed Character (\\f)"
+msgstr "\"Беттің соңы\" белгісі (\\f)"
+
+#: charselector.cpp:66
+#, kde-format
+msgid "The Line Feed Character (\\n)"
+msgstr "\"Жолдың соңы\" белгісі (\\n)"
+
+#: charselector.cpp:67
+#, kde-format
+msgid "The Carriage Return Character (\\r)"
+msgstr "\"Күймешені қайтару\" белгісі (\\r)"
+
+#: charselector.cpp:68
+#, kde-format
+msgid "The Horizontal Tab Character (\\t)"
+msgstr "\"Жатық кестелеу\" белгісі (\\t)"
+
+#: charselector.cpp:69
+#, kde-format
+msgid "The Vertical Tab Character (\\v)"
+msgstr "\"Тік кестелеу\" белгісі (\\v)"
+
+#: compoundwidget.cpp:47
+#, kde-format
+msgid "&Title:"
+msgstr "&Атауы:"
+
+#: compoundwidget.cpp:53
+#, kde-format
+msgid "&Description:"
+msgstr "&Сипаттамасы:"
+
+#: compoundwidget.cpp:59
+#, kde-format
+msgid "&Automatically replace using this item"
+msgstr "Осымен &автоматты түрде ауыстыру"
+
+#: compoundwidget.cpp:61
+#, fuzzy, kde-format
+#| msgid ""
+#| "When the content of this box is typed in to the ASCII line,<br>this box "
+#| "will automatically be added around it,<br>if this check box is selected."
+msgid ""
+"When the content of this box is typed in to the ASCII line,<br />this box "
+"will automatically be added around it,<br />if this check box is selected."
+msgstr "Құсбелгісі қойылса,<br>терілген мәтін<br>осындай қоршауға оралады."
+
+#: compoundwidget.cpp:126
+#, kde-format
+msgid "Configure Compound"
+msgstr "Құрама өрнекті құрастыру"
+
+#: emacsregexpconverter.cpp:78
+#, kde-format
+msgid "Look ahead regular expressions not supported in Emacs style"
+msgstr "Emacs стиліндегі ілеспе шарт үлгі өрнектері қолданылмайды"
+
+#: emacsregexpconverter.cpp:182
+#, kde-format
+msgid "Word boundary and non word boundary is not supported in Emacs syntax"
+msgstr ""
+"Сөз шегі және сөз шегі емес таңбалары Emacs синтаксисында қолданылмайды"
+
+#: errormap.cpp:47
+#, kde-format
+msgid ""
+"Your regular expression is invalid, due to something preceding a 'line "
+"start'."
+msgstr "Үлгі өрнегі жарамсыз, 'жол басы' белгісінің алдында бірдеме тұр."
+
+#: errormap.cpp:48 errormap.cpp:57 errormap.cpp:66
+#, kde-format
+msgid "Regular Expression Error"
+msgstr "Үлгі өрнек қатесі"
+
+#: errormap.cpp:56
+#, kde-format
+msgid ""
+"Your regular expression is invalid, due to something following a 'line end'."
+msgstr "Үлгі өрнегі жарамсыз, 'жол соңы' белгісінен кейін бірдеме тұр."
+
+#: errormap.cpp:65
+#, kde-format
+msgid ""
+"Your regular expression is invalid. 'Look Ahead' regular expression must be "
+"the last sub expression."
+msgstr "Үлгі өрнегі жарамсыз, 'ілеспе шарт' соңғы өрнегі болуы керек."
+
+#: infopage.cpp:33
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Translators, feel free to add yourself in the text below, asking for a "
+#| "postcard ;-), also feel free to add a section saying <h2>Translators</"
+#| "h2>. Kind regards, and thanks for your work - Jesper."
+#| msgid ""
+#| "<h1>Regular Expression Editor</h1><p>What you are currently looking at is "
+#| "an editor for <i>Regular Expressions</i>.</p><p>The upper part in the "
+#| "middle is the editing area, the lower part is a verification window where "
+#| "you can try your regular expressions right away. The row of buttons is "
+#| "the editing actions. This is actually very similar to common drawing "
+#| "programs. Select an editing tool to start editing your regular "
+#| "expression, and press the mouse button in the editing area where you want "
+#| "this item inserted.</p><p>For a more detailed description of this editor "
+#| "see the <a href=\"doc://\">info pages</a></p><h2>What is a regular "
+#| "expression?</h2>If you do not know what a regular expression is, then it "
+#| "might be a good idea to read <a href=\"doc://whatIsARegExp\">the "
+#| "introduction to regular expressions</a>.<p>"
+msgctxt ""
+"Translators, feel free to add yourself in the text below, asking for a "
+"postcard ;-), also feel free to add a section saying <h2>Translators</h2>. "
+"Kind regards, and thanks for your work - Jesper."
+msgid ""
+"<h1>Regular Expression Editor</h1><p>What you are currently looking at is an "
+"editor for <i>Regular Expressions</i>.</p><p>The upper part in the middle is "
+"the editing area, the lower part is a verification window where you can try "
+"your regular expressions right away. The row of buttons is the editing "
+"actions. This is actually very similar to common drawing programs. Select an "
+"editing tool to start editing your regular expression, and press the mouse "
+"button in the editing area where you want this item inserted.</p><p>For a "
+"more detailed description of this editor see the <a href=\"doc://\">info "
+"pages</a></p><h2>What is a regular expression?</h2>If you do not know what a "
+"regular expression is, then it might be a good idea to read <a href=\"doc://"
+"whatIsARegExp\">the introduction to regular expressions</a>.<br />"
+msgstr ""
+"<h1>Үлгі өрнек редакторы</h1><p>Алдыңыздағы - <i>Үлгі өрнектер</i> редакторы."
+"</p><p>Ортадағы жоғары өріс - редакциялау аумағы, төмендегі жолға дайын үлгі "
+"өрнекті келтіріп сынап көруге болады. Үстіндегі батырмалар - редакциялау "
+"құралдары. Редакциялау суретті құрастыруға ұқсас. Үлгі өрнектің керек "
+"элементін таңдап, оның батырмасына тышқанмен түртесіз де, ортадағы өріске "
+"барып, жаңағы элементтің орналастыратын жерін көрсетіп тағы түртесіз.</"
+"p><p>Редактордың толық нұсқауларын <a href=\"doc://\">info беттерінен</a> "
+"қараңыз.</p> <h2>Үлгі өрнек деген не?</h2>Егер үлгі өрнектерімен таныс "
+"болмасаңыз <a href=\"doc://whatIsARegExp\">үлгі өрнектеріне кіріспе</a> "
+"дегенді оқып шыққан жөн.<p>"
+
+#: infopage.cpp:46
+#, kde-format
+msgid ""
+"<h2>Send the author an electronic postcard</h2>I don't get any money for "
+"working on KRegExpEditor, I therefore appreciate it very much when users "
+"tell me what they think about my work. I would therefore be very happy if "
+"you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a short "
+"mail</a>, telling me that you use my regular expression editor.<h2>Author</"
+"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
+"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+msgstr ""
+"<h2>Авторына эл.хат жіберіңіз</h2>KRegExpEditor авторы бағдарламасын тегін "
+"таратады, сондықтан пайдаланушылардың өз жұмысы туралы пікірлерге риза "
+"болмақ. Пікірлеріңізді <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor"
+"\"> эл. пошта арқылы</a> білдіруге болады.<h2>Авторы </h2><a href=\"http://"
+"www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:blackie@kde.org"
+"\">blackie@kde.org</a>&gt;"
+
+#: KMultiFormListBox/ccp.cpp:73
+#, kde-format
+msgid "Insert Blank"
+msgstr "Бос элементті ендіру"
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#, kde-format
+msgid "Due to a bug, it is not possible to remove the last element."
+msgstr "Қатенің салдарынан соңғы элементті өшіруге болмады."
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#, kde-format
+msgid "Internal Error"
+msgstr "Ішкі қате"
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:282
+#, kde-format
+msgid "There is no element on the clipboard to paste in."
+msgstr "Алмасу буферінде ештеңе жоқ."
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:54
+#, kde-format
+msgid "Edit"
+msgstr ""
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:61
+#: userdefinedregexps.cpp:153
+#, fuzzy, kde-format
+msgid "Delete"
+msgstr "Элементті өшіру"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:74
+#, kde-format
+msgid "Up"
+msgstr "Жоғарыға"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:80
+#, kde-format
+msgid "Down"
+msgstr "Төменге"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#, kde-format
+msgid "Delete item \"%1\"?"
+msgstr "\"%1\" деген өшірілсін бе?"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#, kde-format
+msgid "Delete Item"
+msgstr "Элементті өшіру"
+
+#: KMultiFormListBox/kmultiformlistbox.h:71
+#, kde-format
+msgid "Add"
+msgstr ""
+
+#: KMultiFormListBox/widgetwindow.cpp:47
+#, kde-format
+msgid "Widget Configuration"
+msgstr "Бөлшектерін баптау"
+
+#: kregexpeditorguidialog.cpp:36
+#, kde-format
+msgid "Regular Expression Editor"
+msgstr "Үлгі өрнек редакторы"
+
+#: kregexpeditorprivate.cpp:68
+#, fuzzy, kde-format
+msgid "Compound regular expression:"
+msgstr "Құрама үлгі өрнек:"
+
+#: kregexpeditorprivate.cpp:69
+#, kde-format
+msgid ""
+"In this window you will find predefined regular expressions. Both regular "
+"expressions you have developed and saved, and regular expressions shipped "
+"with the system."
+msgstr ""
+"Бұл терезеде дайын үлгі өрнектер тізімделеді. Дайын дегеніміз, өзіңіз "
+"құрастырып сақтап қойған өрнектер мен бағдарламамен бірге келгендері."
+
+#: kregexpeditorprivate.cpp:78
+#, kde-format
+msgid ""
+"In this window you will develop your regular expressions. Select one of the "
+"actions from the action buttons above, and click the mouse in this window to "
+"insert the given action."
+msgstr ""
+"Бұл терезеде өзіңіздің үлгі өрнектеріңізді құрастыруға болады. Үлгі өрнектің "
+"керек әлементін таңдап, оның батырмасына тышқанмен түртесіз де, ортадағы "
+"өріске барып, жаңағы элементті орналастыратын жерді көрсетіп тағы түртесіз."
+
+#: kregexpeditorprivate.cpp:86
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type in some text in this window, and see what the regular expression you "
+#| "have developed matches.<p>Each second match will be colored in red and "
+#| "each other match will be colored blue, simply so you can distinguish them "
+#| "from each other.<p>If you select part of the regular expression in the "
+#| "editor window, then this part will be highlighted - This allows you to "
+#| "<i>debug</i> your regular expressions"
+msgid ""
+"<p>Type in some text in this window, and see what the regular expression you "
+"have developed matches.</p><p>Each second match will be colored in red and "
+"each other match will be colored blue, simply so you can distinguish them "
+"from each other.</p><p>If you select part of the regular expression in the "
+"editor window, then this part will be highlighted - This allows you to "
+"<i>debug</i> your regular expressions</p>"
+msgstr ""
+"Бұл терезеде мәтінді келтіріп, құрастырып жатқан үлгі өрнегіңіз мәтінге "
+"сәйкес келгенін көруге болады.<p>Сәйкестіктерді айыру үшін әрбір екінші "
+"сәйкестік қызыл түспен боялады, қалған сәйкестіктер көкпен боялады. "
+"<p>Редакциялау терезесінде үлгі өрнектің бір бөлігін таңдасаңыз, сәйкес "
+"келетін мәтіннің бөлігі де бояуланады - бұл үлгі өрнегіңізді <i>жөндеу</i> "
+"ыңғайы үшін"
+
+#: kregexpeditorprivate.cpp:148
+#, fuzzy, kde-format
+msgid "ASCII syntax:"
+msgstr "ASCII түрінде:"
+
+#: kregexpeditorprivate.cpp:161
+#, fuzzy, kde-format
+#| msgid ""
+#| "This is the regular expression in ASCII syntax. You are likely only to be "
+#| "interested in this if you are a programmer, and need to develop a regular "
+#| "expression using QRegExp.<p>You may develop your regular expression both "
+#| "by using the graphical editor, and by typing the regular expression in "
+#| "this line edit."
+msgid ""
+"<p>This is the regular expression in ASCII syntax. You are likely only to be "
+"interested in this if you are a programmer, and need to develop a regular "
+"expression using QRegExp.</p><p>You may develop your regular expression both "
+"by using the graphical editor, and by typing the regular expression in this "
+"line edit.</p>"
+msgstr ""
+"Бұл ASCII түріндегі үлгі өрнегі. Бәлкім, өрнектің бұл түрі, программист "
+"болып QRegExp көмегімен үлгі өрнекті құрастырғанда, пайдалы болар.<p>Жалпы, "
+"үлгі өрнекті графикалық редактормен да, осы жолда ASCII түріне де келтіріп, "
+"құрастыруға болады."
+
+#: kregexpeditorprivate.cpp:371
+#, kde-format
+msgid "Could not open file '%1' for reading"
+msgstr "'%1' деген файл оқу үшін ашылмады"
+
+#: lookaheadwidget.cpp:51
+#, kde-format
+msgid "Pos. Look Ahead"
+msgstr "Ілеспе шарт"
+
+#: lookaheadwidget.cpp:53
+#, kde-format
+msgid "Neg. Look Ahead"
+msgstr "Теріс ілеспе шарт"
+
+#: main.cpp:42
+#, kde-format
+msgid "RegExp Editor"
+msgstr "Үлгі өрнек редакторы"
+
+#: main.cpp:43
+#, kde-format
+msgid "Editor for Regular Expressions"
+msgstr "Үлгі өрнектерді құрастыру редакторы"
+
+#: main.cpp:45
+#, kde-format
+msgid "(c) 2002-2003 Jesper K. Pedersen"
+msgstr ""
+
+#: main.cpp:46
+#, kde-format
+msgid "Laurent Montel"
+msgstr ""
+
+#: main.cpp:46
+#, kde-format
+msgid "Developer"
+msgstr ""
+
+#: predefined/General/anything.regexp:5
+#, kde-format
+msgid "anything"
+msgstr "кез келгендер"
+
+#: predefined/General/anything.regexp:6
+#, kde-format
+msgid "This regular expression matches anything."
+msgstr "Барлық мәтіндерге сәйкес келетін үлгі өрнегі."
+
+#: predefined/General/spaces.regexp:5
+#, kde-format
+msgid "spaces"
+msgstr "бос орындар"
+
+#: predefined/General/spaces.regexp:6
+#, kde-format
+msgid "Matches an arbitrary amount of whitespace."
+msgstr "Кез келген бос орындар қатарына сәйкес келетін үлгі өрнегі."
+
+#: qregexpparser.y:205
+#, kde-format
+msgid ""
+"<p>Back reference regular expressions are not supported.</p><p><tt>\\1</tt>, "
+"<tt>\\2</tt>, ... are <i>back references</i>, meaning they refer to previous "
+"matches. Unfortunately this is not supported in the current version of this "
+"editor.</p><p>In the graphical area the text <b>%1</b> has been inserted. "
+"This is however just a workaround to ensure that the application handles the "
+"regexp at all. Therefore, as soon as you edit the regular expression in the "
+"graphical area, the back reference will be replaced by matching the text <b>"
+"%2</b> literally.</p>"
+msgstr ""
+
+#: qregexpparser.y:214
+#, fuzzy, kde-format
+#| msgid "Look ahead regular expressions not supported in Emacs style"
+msgid "Back reference regular expressions not supported"
+msgstr "Emacs стиліндегі ілеспе шарт үлгі өрнектері қолданылмайды"
+
+#: regexpbuttons.cpp:49
+#, kde-format
+msgid "Selection tool"
+msgstr "Таңдау құралы"
+
+#: regexpbuttons.cpp:50
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This will change the state of the editor to <i>selection state</i>."
+#| "<p>In this state you will not be inserting <i>regexp items</i>, but "
+#| "instead select them. To select a number of items, press down the left "
+#| "mouse button and drag it over the items.<p>When you have selected a "
+#| "number of items, you may use cut/copy/paste. These functions are found in "
+#| "the right mouse button menu.</qt>"
+msgid ""
+"<p>This will change the state of the editor to <i>selection state</i>.</"
+"p><p>In this state you will not be inserting <i>regexp items</i>, but "
+"instead select them. To select a number of items, press down the left mouse "
+"button and drag it over the items.</p><p>When you have selected a number of "
+"items, you may use cut/copy/paste. These functions are found in the right "
+"mouse button menu.</p>"
+msgstr ""
+"<qt>Бұл редакторды <i>таңдау күйіне</i> ауыстыратын батырма. <p>Бұл күйінде "
+"<i>үлгі өрнек элементтерін</i> батырмалар арқылы орналастыруға болмайды, тек "
+"таңдап қиып/көшіріп алып орналастыруға болады. Бірқатар нысандарды бірден "
+"таңдау үшін тышқанның сол жақ батырмасын басып тұрып керек элементтердің "
+"үстінен жүгіртіп өтіңіз. <p>Қиып алу/Көшіріп алу/Орналастыру мәзірі "
+"тышқанның оң жақ батырмасына басқанда шыға келеді.</qt>"
+
+#: regexpbuttons.cpp:59
+#, kde-format
+msgid "Text"
+msgstr "Мәтін"
+
+#: regexpbuttons.cpp:60
+#, kde-format
+msgid ""
+"<qt>This will insert a text field, where you may write text. The text you "
+"write will be matched literally. (i.e. you do not need to escape any "
+"characters)</qt>"
+msgstr ""
+"<qt>Бұл батырма мәтінді келтіретін өрісін енгізу үшін. Бұнда "
+"келтіргеніңіз(шартты таңбалар жоқ) нақты мәтін.</qt>"
+
+#: regexpbuttons.cpp:64
+#, kde-format
+msgid "A single character specified in a range"
+msgstr "Бір қатарға жататын жалғыз таңба"
+
+#: regexpbuttons.cpp:65
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This will match a single character from a predefined range.<p>When "
+#| "you insert this widget a dialog box will appear, which lets you specify "
+#| "which characters this <i>regexp item</i> will match.</qt>"
+msgid ""
+"<p>This will match a single character from a predefined range.</p><p>When "
+"you insert this widget a dialog box will appear, which lets you specify "
+"which characters this <i>regexp item</i> will match.</p>"
+msgstr ""
+"<qt>Келтірілген қатарға жататын жалғыз таңбаға сәйкес келетін шарт. <p>Бұны "
+"енгізгенде, осы <i>үлгі өрнекке</i> сәйкес келетін таңбалар қатарын "
+"таңдайтын диалог шығады.</qt>"
+
+#: regexpbuttons.cpp:70
+#, kde-format
+msgid "Any character"
+msgstr "Кез келген таңба"
+
+#: regexpbuttons.cpp:71
+#, kde-format
+msgid "<qt>This will match any single character</qt>"
+msgstr "<qt>Кез келген бір таңбаға сәйкес келетін шарт</qt>"
+
+#: regexpbuttons.cpp:74
+#, kde-format
+msgid "Repeated content"
+msgstr "Қайталау"
+
+#: regexpbuttons.cpp:75
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it "
+#| "surrounds a specified number of times.<p>The number of times to repeat "
+#| "may be specified using ranges. e.g. You may specify that it should match "
+#| "from 2 to 4 times, that it should match exactly 5 times, or that it "
+#| "should match at least one time.<p>Examples:<br>If you specify that it "
+#| "should match <i>any</i> time, and the content it surrounds is <tt>abc</"
+#| "tt>, then this <i>regexp item</i> will match the empty string, the string "
+#| "<tt>abc</tt>, the string <tt>abcabc</tt>, the string <tt>abcabcabcabc</"
+#| "tt>, etc.</qt>"
+msgid ""
+"<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
+"a specified number of times.<br />The number of times to repeat may be "
+"specified using ranges; e.g. it could be specified that it should match from "
+"2 to 4 times, that it should match exactly 5 times, or that it should match "
+"at least one time.<br />Examples:<br />If you specify that it should match "
+"<i>any</i> time, and the content it surrounds is <tt>abc</tt>, then this "
+"<i>regexp item</i> will match the empty string, the string <tt>abc</tt>, the "
+"string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, etc.</qt>"
+msgstr ""
+"<qt>Бұл <i>үлгі өрнек элементі</i> басқа <i>үлгі өрнек элементін бірнеше рет "
+"қайталағанын білдіреді.<p>Қайталану санын қатар ретінде де келтіруге болады, "
+"яғни 2-ден 4 ретке дейін қайталанатынды, не нақты 5 рет қайталанатынды, не "
+"кемінде бір рет кездесетінді іздестіруге болады.<p>Мысалы:<br>Егер <tt>abc</"
+"tt> дегенді <i>кез келген</i> рет қайталанғанын қарастырсаңыз, бұған бос жол "
+"да,<tt>abc</tt> деген жол да, <tt>abcabc</tt> деген жол да, "
+"<tt>abcabcabcabc</tt> деген жол да сәйкес келе береді.</qt>"
+
+#: regexpbuttons.cpp:88
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This <i>regexp item</i> will match any of its alternatives.</p>You "
+#| "specify alternatives by placing <i>regexp items</i> on top of each other "
+#| "inside this widget.</qt>"
+msgid ""
+"<p>This <i>regexp item</i> will match any of its alternatives.</"
+"p><p>Alternatives are specified by placing <i>regexp items</i> on top of "
+"each other inside this widget.</p>"
+msgstr ""
+"<qt>Бұл келтірілген варианттарға сәйкес келетін <i>үлгі өрнек элементі</i>. "
+"</p>Бұл бөлшетің ішінде <i>үлгі өрнек элементтерін</i> бір-бірінің үстіне "
+"қабаттастырып қойып, варианттарды құрастырады.</qt>"
+
+#: regexpbuttons.cpp:93
+#, kde-format
+msgid "Compound regexp"
+msgstr "Құрама үлгі өрнек"
+
+#: regexpbuttons.cpp:94
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it "
+#| "possible for you to collapse a huge <i>regexp item</i> into a small box. "
+#| "This makes it easier for you to get an overview of large <i>regexp items</"
+#| "i>. This is especially useful if you load a predefined <i>regexp item</i> "
+#| "you perhaps don't care about the inner workings of."
+msgid ""
+"<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
+"for you to collapse a huge <i>regexp item</i> into a small box. This makes "
+"it easier for you to get an overview of large <i>regexp items</i>. This is "
+"especially useful if you load a predefined <i>regexp item</i> that you "
+"perhaps do not care about the inner workings of.</qt>"
+msgstr ""
+"<qt>Бұл <i>үлгі өрнек элементі</i> екі мақсатқа арналған:<ul> <li>Үлкен "
+"<i>үлгі өрнек элементін</i> бір-біріне салып, шағын қылу. Үлкен <i>үлгі "
+"өрнек элементі</i> қарап шығуды жеңілдетеді. Бұл әсіресе дайын <i>үлгі өрнек "
+"элементі</i>, оның құрамына үңілмей пайдаланғанда ыңғайлы."
+
+#: regexpbuttons.cpp:101
+#, kde-format
+msgid "Beginning of line"
+msgstr "Жол басы"
+
+#: regexpbuttons.cpp:102
+#, kde-format
+msgid "<qt>This will match the beginning of a line.</qt>"
+msgstr "<qt>Бұл жолдың басына сәйкес келеді.</qt>"
+
+#: regexpbuttons.cpp:105
+#, kde-format
+msgid "End of line"
+msgstr "Жол соңы"
+
+#: regexpbuttons.cpp:106
+#, kde-format
+msgid "<qt>This will match the end of a line.</qt>"
+msgstr "<qt>Бұл жолдың соңына сәйкес келеді.</qt>"
+
+#: regexpbuttons.cpp:109
+#, kde-format
+msgid "Word boundary"
+msgstr "Сөздің шегі"
+
+#: regexpbuttons.cpp:110
+#, kde-format
+msgid ""
+"<qt>This asserts a word boundary (This part does not actually match any "
+"characters)</qt>"
+msgstr ""
+"<qt>Сөздін шегіне сәйкес келеді (Бұл ешбір таңбаға сәйкес келмейді, тек "
+"шекараны белгілейтін шарт)</qt>"
+
+#: regexpbuttons.cpp:113
+#, kde-format
+msgid "Non Word boundary"
+msgstr "Сөздің шегі емес"
+
+#: regexpbuttons.cpp:114
+#, kde-format
+msgid ""
+"<qt>This asserts a non-word boundary (This part does not actually match any "
+"characters)</qt>"
+msgstr ""
+"<qt>Сөздін шегі емес орындарға сәйкес келеді (Бұл ешбір таңбаға сәйкес "
+"келмейді, тек орынды белгілейтін шарт)</qt>"
+
+#: regexpbuttons.cpp:118
+#, kde-format
+msgid "Positive Look Ahead"
+msgstr "Ілеспе шарт"
+
+#: regexpbuttons.cpp:119
+#, kde-format
+msgid ""
+"<qt>This asserts a regular expression (This part does not actually match any "
+"characters). You can only use this at the end of a regular expression.</qt>"
+msgstr ""
+"<qt>Бұл сәйкестікке қосымша шарт қоятын нұсқалық өрнек (өзі бөлек ешбір "
+"таңбаға сәйкес келмейді). Бұл үлгі өрнектің соңында ғана қолданылатын белгі."
+"</qt>"
+
+#: regexpbuttons.cpp:123
+#, kde-format
+msgid "Negative Look Ahead"
+msgstr "Теріс ілеспе шарт"
+
+#: regexpbuttons.cpp:124
+#, kde-format
+msgid ""
+"<qt>This asserts a regular expression that must not match (This part does "
+"not actually match any characters). You can only use this at the end of a "
+"regular expression.</qt>"
+msgstr ""
+"<qt>Бұл сәйкестіктен шығарып тастайтын қосымша шарт қоятын нұсқалық өрнек "
+"(өзі бөлек ешбір таңбаға сәйкес келмейді). Бұл үлгі өрнектің соңында ғана "
+"қолданылатын белгі.</qt>"
+
+#: regexpeditorwindow.cpp:215
+#, kde-format
+msgid "There is no selection."
+msgstr "Таңдауы жоқ қой."
+
+#: regexpeditorwindow.cpp:215
+#, kde-format
+msgid "Missing Selection"
+msgstr "Ештеңе таңдалмаған"
+
+#: regexpeditorwindow.cpp:280
+#, kde-format
+msgid "There is no widget under cursor."
+msgstr "Меңзер ештеңені көрсетіп тұрған жоқ."
+
+#: regexpeditorwindow.cpp:280
+#, kde-format
+msgid "Invalid Operation"
+msgstr "Дұрыс емес амал"
+
+#: regexpeditorwindow.cpp:331
+#, kde-format
+msgid "C&ut"
+msgstr ""
+
+#: regexpeditorwindow.cpp:335
+#, kde-format
+msgid "&Copy"
+msgstr ""
+
+#: regexpeditorwindow.cpp:339
+#, kde-format
+msgid "&Paste"
+msgstr ""
+
+#: regexpeditorwindow.cpp:345
+#, kde-format
+msgid "&Edit"
+msgstr ""
+
+#: regexpeditorwindow.cpp:349
+#, kde-format
+msgid "&Save Regular Expression..."
+msgstr "Үлгі өрнекті &сақтау..."
+
+#: regexpeditorwindow.cpp:388
+#, kde-format
+msgid "Name for Regular Expression"
+msgstr "Үлгі өрнектің атауы"
+
+#: regexpeditorwindow.cpp:388
+#, kde-format
+msgid "Enter name:"
+msgstr "Атауын келтіріңіз:"
+
+#: regexpeditorwindow.cpp:390
+#, kde-format
+msgid "Empty name is not supported"
+msgstr ""
+
+#: regexpeditorwindow.cpp:390
+#, fuzzy, kde-format
+#| msgid "&Save Regular Expression..."
+msgid "Save Regular Expression"
+msgstr "Үлгі өрнекті &сақтау..."
+
+#: regexpeditorwindow.cpp:398
+#, kde-format
+msgid "<p>Overwrite named regular expression <b>%1</b></p>"
+msgstr "<p><b>%1</b> деп аталған үлгі өрнегін қайта жазу</p>"
+
+#: regexpeditorwindow.cpp:406
+#, kde-format
+msgid "Could not open file for writing: %1"
+msgstr "Келесіні жазу үшін файл ашылмады: %1"
+
+#: repeatregexp.cpp:57 repeatregexp.cpp:65
+#, kde-format
+msgid ""
+"<p>Value for attribute <b>%1</b> was not an integer for element <b>%2</b></"
+"p><p>It contained the value <b>%3</b></p>"
+msgstr ""
+"<p><b>%1</b> атрибутының мәні <b>%2</b> элементіне лайық емес</p> <p>Ондағы "
+"мән <b>%3</b></p>"
+
+#: repeatregexp.cpp:60 repeatregexp.cpp:68 textrangeregexp.cpp:146
+#: textregexp.cpp:54 widgetfactory.cpp:165 widgetfactory.cpp:196
+#: widgetfactory.cpp:203
+#, kde-format
+msgid "Error While Loading From XML File"
+msgstr "XML файлын оқыған кезде қате пайда болды"
+
+#: repeatwidget.cpp:74
+#, kde-format
+msgid "Number of Times to Repeat Content"
+msgstr "Мазмұны неше рет қайталануы тиіс"
+
+#: repeatwidget.cpp:184
+#, kde-format
+msgid "Times to Match"
+msgstr "Сәйкестіктер саны"
+
+#: repeatwidget.cpp:191
+#, kde-format
+msgid "Any number of times (including zero times)"
+msgstr "Бірнеше рет (нөл ретін қоса)"
+
+#: repeatwidget.cpp:198
+#, kde-format
+msgid "At least"
+msgstr "Кемінде"
+
+#: repeatwidget.cpp:199
+#, kde-format
+msgid "At most"
+msgstr "Көп дегенде"
+
+#: repeatwidget.cpp:200
+#, kde-format
+msgid "Exactly"
+msgstr "Тұра"
+
+#: repeatwidget.cpp:203
+#, kde-format
+msgid "From"
+msgstr "Келесі аралықта:"
+
+#: repeatwidget.cpp:215
+#, kde-format
+msgid "to"
+msgstr "-"
+
+#: repeatwidget.cpp:223 repeatwidget.cpp:249
+#, kde-format
+msgid "time(s)"
+msgstr "рет"
+
+#: repeatwidget.cpp:299
+#, kde-format
+msgid "Repeated Any Number of Times"
+msgstr "Бірнеше рет қайталанған"
+
+#: repeatwidget.cpp:301
+#, kde-format
+msgid "Repeated at Least 1 Time"
+msgid_plural "Repeated at Least %1 Times"
+msgstr[0] "Кемінде %1 рет қайталанған"
+
+#: repeatwidget.cpp:303
+#, kde-format
+msgid "Repeated at Most 1 Time"
+msgid_plural "Repeated at Most %1 Times"
+msgstr[0] "Көп дегенде %1 рет қайталанған"
+
+#: repeatwidget.cpp:305
+#, kde-format
+msgid "Repeated Exactly 1 Time"
+msgid_plural "Repeated Exactly %1 Times"
+msgstr[0] "%1 рет қайталанған"
+
+#: repeatwidget.cpp:307
+#, kde-format
+msgid "Repeated From %1 to %2 Times"
+msgstr "%1 реттен %2 ретке дейін қайталанған"
+
+#: textrangeregexp.cpp:145
+#, kde-format
+msgid ""
+"<p>Invalid sub element to element <b>TextRange</b>. Tag was <b>%1</b></p>"
+msgstr ""
+"<p><b>TextRange</b> элементінің құрамында жарамсыз элемент бар. Тегі <b>%1</"
+"b></p>"
+
+#: textregexp.cpp:53
+#, kde-format
+msgid "<p>Element <b>Text</b> did not contain any textual data.</p>"
+msgstr "<p><b>Text</b> элементінде ешбір мәтін жоқ.</p>"
+
+#: userdefinedregexps.cpp:67
+#, kde-format
+msgid "User Defined"
+msgstr "Пайдаланушының"
+
+#: userdefinedregexps.cpp:87
+#, fuzzy, kde-format
+msgid "general"
+msgstr "Жалпы"
+
+#: userdefinedregexps.cpp:101
+#, kde-format
+msgid "Could not open file for reading: %1"
+msgstr "Келесі файл оқу үшін ашылмады: %1"
+
+#: userdefinedregexps.cpp:111
+#, kde-format
+msgid "File %1 containing user defined regular expression contained an error"
+msgstr "Үлгі өрнек жазылған %1 файлда қате бар"
+
+#: userdefinedregexps.cpp:154
+#, fuzzy, kde-format
+#| msgid "Rename..."
+msgid "Rename"
+msgstr "Қайта атау..."
+
+#: userdefinedregexps.cpp:195
+#, kde-format
+msgid "Rename Item"
+msgstr "Элементті қайта атау"
+
+#: userdefinedregexps.cpp:195
+#, kde-format
+msgid "New name:"
+msgstr "Жаңа атау:"
+
+#: userdefinedregexps.cpp:202
+#, kde-format
+msgid "<p>Overwrite named regular expression <b>%1</b>?</p>"
+msgstr "<p><b>%1</b> деп аталған үлгі өрнек қайта жазылсын ба?</p>"
+
+#: userdefinedregexps.cpp:202
+#, kde-format
+msgid "Do Not Overwrite"
+msgstr "Керегі жоқ"
+
+#: verifybuttons.cpp:38
+#, kde-format
+msgid "Verify regular expression"
+msgstr "Үлгі өрнекті тексеру"
+
+#: verifybuttons.cpp:39
+#, kde-format
+msgid ""
+"Shows what part of the regular expression is being matched in the "
+"<i>verifier window</i>.(The window below the graphical editor window)."
+msgstr ""
+"Үлгі өрнектің қай бөліктері сәйкес келетіні (графикалық редактордың "
+"терезесінен төмен) <i>тексеру терезесінде</i> көрсетілсін."
+
+#: verifybuttons.cpp:48
+#, kde-format
+msgid "Load text in the verifier window"
+msgstr "Тексеру терезесіне мәтінді жүктеу"
+
+#: verifybuttons.cpp:53
+#, kde-format
+msgid "Verification Settings"
+msgstr ""
+
+#: verifybuttons.cpp:101
+#, kde-format
+msgid "config menu"
+msgstr ""
+
+#: verifybuttons.cpp:104
+#, kde-format
+msgid "Verify on the Fly"
+msgstr "Автотексеру"
+
+#: verifybuttons.cpp:110
+#, kde-format
+msgid "Toggle on-the-fly verification of regular expression"
+msgstr "Үлгі өрнекті автоматты түрде тексеру режімін қосу"
+
+#: verifybuttons.cpp:111
+#, kde-format
+msgid ""
+"Enabling this option will make the verifier update for each edit. If the "
+"verify window contains much text, or if the regular expression is either "
+"complex or matches a lot of time, this may be very slow."
+msgstr ""
+"Бұл параметр қосылса, үлгі өрнегі әрбір өзгерген сайын тексеріліп тұрады. "
+"Тексерілетін мәтін ұзын болса не үлгі өрнегі күрделі болса не сәйкстіктер "
+"көп болса, тексеріс біраз уақыт алады."
+
+#: verifybuttons.cpp:115
+#, kde-format
+msgid "Match Greedy"
+msgstr ""
+
+#: verifybuttons.cpp:120
+#, fuzzy, kde-format
+msgid "Toggle greedy matching when verifying the regular expression."
+msgstr "Үлгі өрнекті автоматты түрде тексеру режімін қосу"
+
+#: verifybuttons.cpp:121
+#, kde-format
+msgid ""
+"When this option is enabled, the regular expression will be evaluated on a "
+"so-called greedy way."
+msgstr ""
+
+#: verifybuttons.cpp:124
+#, kde-format
+msgid "RegExp Language"
+msgstr "Үлгі өрнегінің тілі"
+
+#: widgetfactory.cpp:164
+#, kde-format
+msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
+msgstr "<p>XML-ді оқығанда беймәлім тег кездесті: <b>%1</b></p>"
+
+#: widgetfactory.cpp:188
+#, fuzzy, kde-format
+#| msgid "Error While Loading Regular Expression From XML"
+msgid "Error while loading regular expression from XML."
+msgstr "XML-ден үлгі өрнекті алғанда қате орын алды"
+
+#: widgetfactory.cpp:189
+#, kde-format
+msgid "Error While Loading Regular Expression From XML"
+msgstr "XML-ден үлгі өрнекті алғанда қате орын алды"
+
+#: widgetfactory.cpp:195
+#, kde-format
+msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
+msgstr "<p>XML файлында <b>%1</b> деген тег жоқ.</p>"
+
+#: widgetfactory.cpp:201
+#, kde-format
+msgid ""
+"<p>Error while reading XML file. The element just below the tag <b>%1</b> "
+"was not an element.</p>"
+msgstr ""
+"<p>XML файлы оқылғанда қате орын алды. <b>%1</b> тегінің астындағысы элемент "
+"емес.</p>"
+
+#: zerowidgets.cpp:72
+#, kde-format
+msgid ""
+"Any\n"
+"Character"
+msgstr ""
+"Кез келген\n"
+"таңба"
+
+#: zerowidgets.cpp:85
+#, kde-format
+msgid ""
+"Line\n"
+"Start"
+msgstr ""
+"Жолдың\n"
+"басы"
+
+#: zerowidgets.cpp:98
+#, kde-format
+msgid ""
+"Line\n"
+"End"
+msgstr ""
+"Жолдың\n"
+"соңы"
+
+#: zerowidgets.cpp:111
+#, kde-format
+msgid ""
+"Word\n"
+"Boundary"
+msgstr ""
+"Сөздің\n"
+"шегі"
+
+#: zerowidgets.cpp:124
+#, kde-format
+msgid ""
+"Non-word\n"
+"Boundary"
+msgstr ""
+"Сөздің\n"
+"шегі емес"
+
+#~ msgid "Clear expression"
+#~ msgstr "Өрнекті тазалау"
+
+#~ msgid "from "
+#~ msgstr "басы "
+
+#~ msgid " to "
+#~ msgstr " аяғы "
+
+#~ msgid ""
+#~ "Error while loading regular expression from XML. Most probably the "
+#~ "regular expression had unmatched tags."
+#~ msgstr ""
+#~ "XML-ден үлгі өрнекті алғанда қате орын алды. Бәлкім, үлгі өрнегінде "
+#~ "тегтер қайшылығы болған шығар."

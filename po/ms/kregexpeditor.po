@@ -1,0 +1,1221 @@
+# Malay translation
+# MIMOS Open Source <opensource@mimos.my>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mimos\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-04-02 00:20+0000\n"
+"PO-Revision-Date: 2005-11-18 00:33+0800\n"
+"Last-Translator: MIMOS Open Source <opensource@mimos.my>\n"
+"Language-Team: Malay <kedidiemas@yahoogroups.com>\n"
+"Language: ms\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "MIMOS"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "opensource@mimos.my"
+
+#: altnwidget.cpp:37 altnwidget.cpp:46 regexpbuttons.cpp:87
+#, kde-format
+msgid "Alternatives"
+msgstr "Alternatif"
+
+#: altnwidget.cpp:220
+#, kde-format
+msgid "Selecting several alternatives is currently not supported."
+msgstr "Memilih beberapa alternatif pada masa ini disokong."
+
+#: altnwidget.cpp:222
+#, kde-format
+msgid "Selection Invalid"
+msgstr "Pilihan Tak Sah"
+
+#: auxbuttons.cpp:35
+#, kde-format
+msgid "Undo"
+msgstr ""
+
+#: auxbuttons.cpp:41
+#, kde-format
+msgid "Redo"
+msgstr ""
+
+#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:70
+#, kde-format
+msgid "Cut"
+msgstr ""
+
+#: auxbuttons.cpp:53 KMultiFormListBox/ccp.cpp:71
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:67
+#, kde-format
+msgid "Copy"
+msgstr ""
+
+#: auxbuttons.cpp:59 KMultiFormListBox/ccp.cpp:72
+#, kde-format
+msgid "Paste"
+msgstr ""
+
+#: auxbuttons.cpp:65
+#, kde-format
+msgid "Save"
+msgstr ""
+
+#: characterswidget.cpp:116
+#, kde-format
+msgid "- A word character\n"
+msgstr "- Aksara perkataan\n"
+
+#: characterswidget.cpp:120
+#, kde-format
+msgid "- A non-word character\n"
+msgstr "- Aksara bukan perkataan\n"
+
+#: characterswidget.cpp:124
+#, kde-format
+msgid "- A digit character\n"
+msgstr "- Aksara digit\n"
+
+#: characterswidget.cpp:128
+#, kde-format
+msgid "- A non-digit character\n"
+msgstr "- Aksara bukan digit\n"
+
+#: characterswidget.cpp:132
+#, kde-format
+msgid "- A space character\n"
+msgstr "- Aksara ruang\n"
+
+#: characterswidget.cpp:136
+#, kde-format
+msgid "- A non-space character\n"
+msgstr "- Aksara bukan ruang\n"
+
+#: characterswidget.cpp:151
+#, kde-format
+msgctxt "a range of characters"
+msgid "- from %1 to %2\n"
+msgstr ""
+
+#: characterswidget.cpp:159
+#, kde-format
+msgid "Any Character Except"
+msgstr "Sebarang Aksara Melainkan"
+
+#: characterswidget.cpp:161
+#, kde-format
+msgid "One of Following Characters"
+msgstr "Satu daripada Aksara Yang Berikut"
+
+#: characterswidget.cpp:279
+#, kde-format
+msgid "Specify Characters"
+msgstr "Nyatakan Aksara"
+
+#: characterswidget.cpp:289
+#, kde-format
+msgid "Do not match the characters specified here"
+msgstr "Jangan padankan aksara yang dinyatakan di sini"
+
+#: characterswidget.cpp:293
+#, kde-format
+msgid "Predefined Character Ranges"
+msgstr "Julat Aksara Pratakrif"
+
+#: characterswidget.cpp:297
+#, kde-format
+msgid "A word character"
+msgstr "Aksara perkataan"
+
+#: characterswidget.cpp:299
+#, kde-format
+msgid "A digit character"
+msgstr "Aksara digit"
+
+#: characterswidget.cpp:301
+#, kde-format
+msgid "A space character"
+msgstr "Aksara ruang"
+
+#: characterswidget.cpp:304
+#, kde-format
+msgid "A non-word character"
+msgstr "Aksara bukan perkataan"
+
+#: characterswidget.cpp:306
+#, kde-format
+msgid "A non-digit character"
+msgstr "Aksara bukan digit"
+
+#: characterswidget.cpp:308
+#, kde-format
+msgid "A non-space character"
+msgstr "Aksara bukan ruang"
+
+#: characterswidget.cpp:312
+#, kde-format
+msgid "Single Characters"
+msgstr "Aksara Tunggal"
+
+#: characterswidget.cpp:324 characterswidget.cpp:345
+#, kde-format
+msgid "More Entries"
+msgstr "Lagi Entri"
+
+#: characterswidget.cpp:332
+#, kde-format
+msgid "Character Ranges"
+msgstr "Julat Aksara"
+
+#: characterswidget.cpp:426
+#, kde-format
+msgid "From:"
+msgstr "Dari:"
+
+#: characterswidget.cpp:433
+#, kde-format
+msgctxt "end of range"
+msgid "To:"
+msgstr "Ke:"
+
+#: charselector.cpp:60
+#, kde-format
+msgid "Normal Character"
+msgstr "Aksara Normal"
+
+#: charselector.cpp:61
+#, kde-format
+msgid "Unicode Char in Hex."
+msgstr "Aksara Ekakod dalam Perenambelasan"
+
+#: charselector.cpp:62
+#, kde-format
+msgid "Unicode Char in Oct."
+msgstr "Aksara Ekakod dalam Perlapanan"
+
+#: charselector.cpp:64
+#, kde-format
+msgid "The Bell Character (\\a)"
+msgstr "Aksara Loceng (\\a)"
+
+#: charselector.cpp:65
+#, kde-format
+msgid "The Form Feed Character (\\f)"
+msgstr "Aksara Suap Borang (\\f)"
+
+#: charselector.cpp:66
+#, kde-format
+msgid "The Line Feed Character (\\n)"
+msgstr "Akasar Suap Baris (\\n)"
+
+#: charselector.cpp:67
+#, kde-format
+msgid "The Carriage Return Character (\\r)"
+msgstr "Aksara Kembalian Penyorong (\\r)"
+
+#: charselector.cpp:68
+#, kde-format
+msgid "The Horizontal Tab Character (\\t)"
+msgstr "Aksara Tab Mendatar (\\t)"
+
+#: charselector.cpp:69
+#, kde-format
+msgid "The Vertical Tab Character (\\v)"
+msgstr "Aksara Tab Menegak (\\v)"
+
+#: compoundwidget.cpp:47
+#, kde-format
+msgid "&Title:"
+msgstr "&Tajuk:"
+
+#: compoundwidget.cpp:53
+#, kde-format
+msgid "&Description:"
+msgstr "&Huraian:"
+
+#: compoundwidget.cpp:59
+#, kde-format
+msgid "&Automatically replace using this item"
+msgstr "&Ganti secara aotumatik menggunakan item ini"
+
+#: compoundwidget.cpp:61
+#, fuzzy, kde-format
+#| msgid ""
+#| "When the content of this box is typed in to the ASCII line,<br>this box "
+#| "will automatically be added around it,<br>if this check box is selected."
+msgid ""
+"When the content of this box is typed in to the ASCII line,<br />this box "
+"will automatically be added around it,<br />if this check box is selected."
+msgstr ""
+"Apabila kandungan kotak ini ditaip ke dalam baris ASCII, <br>kotak ini akan "
+"secara automatik ditambah di sekitarnya, <br>kotak semak ini dipilih."
+
+#: compoundwidget.cpp:126
+#, kde-format
+msgid "Configure Compound"
+msgstr "Konfigur Kawasan"
+
+#: emacsregexpconverter.cpp:78
+#, kde-format
+msgid "Look ahead regular expressions not supported in Emacs style"
+msgstr "Perhatikan bahawa ungkapan biasa tidak disokong dalam gaya Emacs"
+
+#: emacsregexpconverter.cpp:182
+#, kde-format
+msgid "Word boundary and non word boundary is not supported in Emacs syntax"
+msgstr ""
+"Sempadan perkataan dan sempadan bukan perkataan tidak disokong dalam sintaks "
+"Emacs"
+
+#: errormap.cpp:47
+#, kde-format
+msgid ""
+"Your regular expression is invalid, due to something preceding a 'line "
+"start'."
+msgstr ""
+"Ungkapan biasa anda tak sah, disebabkan oleh sesuatu yang mendahului "
+"'permulaan baris'."
+
+#: errormap.cpp:48 errormap.cpp:57 errormap.cpp:66
+#, kde-format
+msgid "Regular Expression Error"
+msgstr "Ralat Ungkapan Biasa"
+
+#: errormap.cpp:56
+#, kde-format
+msgid ""
+"Your regular expression is invalid, due to something following a 'line end'."
+msgstr ""
+"Ungkapan biasa anda tak sah, disebabkan oleh sesuatu berikutan 'penghujung "
+"baris'."
+
+#: errormap.cpp:65
+#, kde-format
+msgid ""
+"Your regular expression is invalid. 'Look Ahead' regular expression must be "
+"the last sub expression."
+msgstr ""
+"Ungkapan biasa anda tak sah. 'Perhatikan' ungkapan biasa mestilah "
+"subungkapan terakhir."
+
+#: infopage.cpp:33
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Translators, feel free to add yourself in the text below, asking for a "
+#| "postcard ;-), also feel free to add a section saying <h2>Translators</"
+#| "h2>. Kind regards, and thanks for your work - Jesper."
+#| msgid ""
+#| "<h1>Regular Expression Editor</h1><p>What you are currently looking at is "
+#| "an editor for <i>Regular Expressions</i>.</p><p>The upper part in the "
+#| "middle is the editing area, the lower part is a verification window where "
+#| "you can try your regular expressions right away. The row of buttons is "
+#| "the editing actions. This is actually very similar to common drawing "
+#| "programs. Select an editing tool to start editing your regular "
+#| "expression, and press the mouse button in the editing area where you want "
+#| "this item inserted.</p><p>For a more detailed description of this editor "
+#| "see the <a href=\"doc://\">info pages</a></p><h2>What is a regular "
+#| "expression?</h2>If you do not know what a regular expression is, then it "
+#| "might be a good idea to read <a href=\"doc://whatIsARegExp\">the "
+#| "introduction to regular expressions</a>.<p>"
+msgctxt ""
+"Translators, feel free to add yourself in the text below, asking for a "
+"postcard ;-), also feel free to add a section saying <h2>Translators</h2>. "
+"Kind regards, and thanks for your work - Jesper."
+msgid ""
+"<h1>Regular Expression Editor</h1><p>What you are currently looking at is an "
+"editor for <i>Regular Expressions</i>.</p><p>The upper part in the middle is "
+"the editing area, the lower part is a verification window where you can try "
+"your regular expressions right away. The row of buttons is the editing "
+"actions. This is actually very similar to common drawing programs. Select an "
+"editing tool to start editing your regular expression, and press the mouse "
+"button in the editing area where you want this item inserted.</p><p>For a "
+"more detailed description of this editor see the <a href=\"doc://\">info "
+"pages</a></p><h2>What is a regular expression?</h2>If you do not know what a "
+"regular expression is, then it might be a good idea to read <a href=\"doc://"
+"whatIsARegExp\">the introduction to regular expressions</a>.<br />"
+msgstr ""
+"<h1>Editor Ungkapan Biasa</h1><p>Apa yang anda cari ialah editor "
+"untuk<i>Ungkapan Biasa</i>.</p><p>Bahagian atas di tengah ialah kawasan "
+"pengeditan, bahagian bawah ialah tetingkap pengesahan di mana anda boleh "
+"terus mencuba ungkapan biasa anda . Baris butang itu ialah tindakan "
+"pengeditan. Ini biasanya sangat serupa dengan program lukisan biasa. Pilih "
+"alat pengeditan untuk mula mengedit ungkapan biasa anda, dan tekan butang "
+"tetikus di dalam kawasan pengeditan di mana anda ingin item ini diselitkan.</"
+"p><p>Untuk huraian terperinci bagi editor ini lihat <a href=\"doc://\"> "
+"dalam halaman </a></p><h2>Apakah itu ungkapan biasa?</h2>Jika anda tidak "
+"tahu apa itu ungkapan biasa, mungkin elok anda baca <a href=\"doc://"
+"whatIsARegExp\">pengenalan ungkapan biasa</a>.<p>"
+
+#: infopage.cpp:46
+#, kde-format
+msgid ""
+"<h2>Send the author an electronic postcard</h2>I don't get any money for "
+"working on KRegExpEditor, I therefore appreciate it very much when users "
+"tell me what they think about my work. I would therefore be very happy if "
+"you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a short "
+"mail</a>, telling me that you use my regular expression editor.<h2>Author</"
+"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
+"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+msgstr ""
+"<h2>Kirimkan poskad elektronik kepada pengarang</h2>Saya tidak mendapat "
+"bayaran kerana mengusahakan KRegExpEditor, oleh itu saya sangat menghargai "
+"apabila pengguna memberikan pendapat mereka tentang kerja saya. Lantaran "
+"itu, saya sangat gembira jika anda <a href=\"mailto:blackie@kde.org?"
+"subject=KRegExpEditor\">menghantar mel ringkas kepada saya</a>, memberitahu "
+"saya bahawa anda menggunakan editor ungkapan biasa saya.<h2>Pengarang</h2><a "
+"href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:"
+"blackie@kde.org\">blackie@kde.org</a>&gt;"
+
+#: KMultiFormListBox/ccp.cpp:73
+#, kde-format
+msgid "Insert Blank"
+msgstr "Selitkan Kosong"
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#, kde-format
+msgid "Due to a bug, it is not possible to remove the last element."
+msgstr "Disebabkan oleh pepijat, elemen terakhir tidak dapat dibuang."
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#, kde-format
+msgid "Internal Error"
+msgstr "Ralat Dalaman"
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:282
+#, kde-format
+msgid "There is no element on the clipboard to paste in."
+msgstr "Tiada elemen dalam klipbod untuk ditampal."
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:54
+#, kde-format
+msgid "Edit"
+msgstr ""
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:61
+#: userdefinedregexps.cpp:153
+#, fuzzy, kde-format
+msgid "Delete"
+msgstr "Hapuskan Item"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:74
+#, kde-format
+msgid "Up"
+msgstr "Atas"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:80
+#, kde-format
+msgid "Down"
+msgstr "Bawah"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#, kde-format
+msgid "Delete item \"%1\"?"
+msgstr "Hapuskan item \"%1\"?"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#, kde-format
+msgid "Delete Item"
+msgstr "Hapuskan Item"
+
+#: KMultiFormListBox/kmultiformlistbox.h:71
+#, kde-format
+msgid "Add"
+msgstr ""
+
+#: KMultiFormListBox/widgetwindow.cpp:47
+#, kde-format
+msgid "Widget Configuration"
+msgstr "Konfigurasi Widget"
+
+#: kregexpeditorguidialog.cpp:36
+#, kde-format
+msgid "Regular Expression Editor"
+msgstr "Editor Ungkapan Biasa"
+
+#: kregexpeditorprivate.cpp:68
+#, fuzzy, kde-format
+msgid "Compound regular expression:"
+msgstr "Ungkapan biasa kompaun:"
+
+#: kregexpeditorprivate.cpp:69
+#, kde-format
+msgid ""
+"In this window you will find predefined regular expressions. Both regular "
+"expressions you have developed and saved, and regular expressions shipped "
+"with the system."
+msgstr ""
+"Dalam tetingkap ini, anda akan temui ungkapan biasa pratakrif. Kedua-dua "
+"ungkapan biasa yang telah anda bangunkan dan simpan, dan ungkapan biasa "
+"dihantar dengan sistem."
+
+#: kregexpeditorprivate.cpp:78
+#, kde-format
+msgid ""
+"In this window you will develop your regular expressions. Select one of the "
+"actions from the action buttons above, and click the mouse in this window to "
+"insert the given action."
+msgstr ""
+"Dalam tetingkap ini anda akan bangunkan ungkapan biasa anda. Pilih satu "
+"daripada tindakan dari butang tindakan di atas, dan klik tetikus dalam "
+"tetingkap ini untuk menyelitkan tindakan yang diberi."
+
+#: kregexpeditorprivate.cpp:86
+#, fuzzy, kde-format
+#| msgid ""
+#| "Type in some text in this window, and see what the regular expression you "
+#| "have developed matches.<p>Each second match will be colored in red and "
+#| "each other match will be colored blue, simply so you can distinguish them "
+#| "from each other.<p>If you select part of the regular expression in the "
+#| "editor window, then this part will be highlighted - This allows you to "
+#| "<i>debug</i> your regular expressions"
+msgid ""
+"<p>Type in some text in this window, and see what the regular expression you "
+"have developed matches.</p><p>Each second match will be colored in red and "
+"each other match will be colored blue, simply so you can distinguish them "
+"from each other.</p><p>If you select part of the regular expression in the "
+"editor window, then this part will be highlighted - This allows you to "
+"<i>debug</i> your regular expressions</p>"
+msgstr ""
+"Taipkan teks dalam tetingkap ini, dan lihat apa yang padan dengan ungkapan "
+"biasa yang anda bangunkan.<p>Setiap padanan kedua akan diwarnai merah dan "
+"setiap padanan lain akan diwarnai biru, jadi anda boleh bezakan antara satu "
+"sama lain.<p>Jika anda pilih bahagian ungkapan biasa dalam tetingkap editor, "
+"maka bahagian ini akan ditonjolkan - Ini membolehkan anda <i>nyahpepijat</i> "
+"ungkapan biasa anda."
+
+#: kregexpeditorprivate.cpp:148
+#, fuzzy, kde-format
+msgid "ASCII syntax:"
+msgstr "Sintaks ASCII:"
+
+#: kregexpeditorprivate.cpp:161
+#, fuzzy, kde-format
+#| msgid ""
+#| "This is the regular expression in ASCII syntax. You are likely only to be "
+#| "interested in this if you are a programmer, and need to develop a regular "
+#| "expression using QRegExp.<p>You may develop your regular expression both "
+#| "by using the graphical editor, and by typing the regular expression in "
+#| "this line edit."
+msgid ""
+"<p>This is the regular expression in ASCII syntax. You are likely only to be "
+"interested in this if you are a programmer, and need to develop a regular "
+"expression using QRegExp.</p><p>You may develop your regular expression both "
+"by using the graphical editor, and by typing the regular expression in this "
+"line edit.</p>"
+msgstr ""
+"Ini ialah ungkapan biasa dalam sintaks ASCII. Anda mungkin hanya berminat "
+"akan hal ini jika anda seorang pemprogram, dan perlu membangunkan ungkapan "
+"biasa menggunakan QRegExp.<p>Anda boleh bangunkan ungkapan biasa anda dengan "
+"menggunakan editor grafik, dan dengan menaip ungkapan biasa dalam edit baris "
+"ini."
+
+#: kregexpeditorprivate.cpp:371
+#, kde-format
+msgid "Could not open file '%1' for reading"
+msgstr "Tidak dapat membuka fail '%1' untuk pembacaan"
+
+#: lookaheadwidget.cpp:51
+#, kde-format
+msgid "Pos. Look Ahead"
+msgstr "Positif. Perhatikan"
+
+#: lookaheadwidget.cpp:53
+#, kde-format
+msgid "Neg. Look Ahead"
+msgstr "Negatif. Perhatikan"
+
+#: main.cpp:42
+#, kde-format
+msgid "RegExp Editor"
+msgstr "Editor RegExp"
+
+#: main.cpp:43
+#, kde-format
+msgid "Editor for Regular Expressions"
+msgstr "Editor untuk Ungkapan Biasa"
+
+#: main.cpp:45
+#, kde-format
+msgid "(c) 2002-2003 Jesper K. Pedersen"
+msgstr ""
+
+#: main.cpp:46
+#, kde-format
+msgid "Laurent Montel"
+msgstr ""
+
+#: main.cpp:46
+#, kde-format
+msgid "Developer"
+msgstr ""
+
+#: predefined/General/anything.regexp:5
+#, kde-format
+msgid "anything"
+msgstr "apa sahaja"
+
+#: predefined/General/anything.regexp:6
+#, fuzzy, kde-format
+msgid "This regular expression matches anything."
+msgstr "Ungkapan biasa ini sepadan dengan apa sahaja"
+
+#: predefined/General/spaces.regexp:5
+#, kde-format
+msgid "spaces"
+msgstr ""
+
+#: predefined/General/spaces.regexp:6
+#, kde-format
+msgid "Matches an arbitrary amount of whitespace."
+msgstr ""
+
+#: qregexpparser.y:205
+#, kde-format
+msgid ""
+"<p>Back reference regular expressions are not supported.</p><p><tt>\\1</tt>, "
+"<tt>\\2</tt>, ... are <i>back references</i>, meaning they refer to previous "
+"matches. Unfortunately this is not supported in the current version of this "
+"editor.</p><p>In the graphical area the text <b>%1</b> has been inserted. "
+"This is however just a workaround to ensure that the application handles the "
+"regexp at all. Therefore, as soon as you edit the regular expression in the "
+"graphical area, the back reference will be replaced by matching the text <b>"
+"%2</b> literally.</p>"
+msgstr ""
+
+#: qregexpparser.y:214
+#, fuzzy, kde-format
+#| msgid "Look ahead regular expressions not supported in Emacs style"
+msgid "Back reference regular expressions not supported"
+msgstr "Perhatikan bahawa ungkapan biasa tidak disokong dalam gaya Emacs"
+
+#: regexpbuttons.cpp:49
+#, kde-format
+msgid "Selection tool"
+msgstr "Alat pilihan"
+
+#: regexpbuttons.cpp:50
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This will change the state of the editor to <i>selection state</i>."
+#| "<p>In this state you will not be inserting <i>regexp items</i>, but "
+#| "instead select them. To select a number of items, press down the left "
+#| "mouse button and drag it over the items.<p>When you have selected a "
+#| "number of items, you may use cut/copy/paste. These functions are found in "
+#| "the right mouse button menu.</qt>"
+msgid ""
+"<p>This will change the state of the editor to <i>selection state</i>.</"
+"p><p>In this state you will not be inserting <i>regexp items</i>, but "
+"instead select them. To select a number of items, press down the left mouse "
+"button and drag it over the items.</p><p>When you have selected a number of "
+"items, you may use cut/copy/paste. These functions are found in the right "
+"mouse button menu.</p>"
+msgstr ""
+"<qt>Ini akan mengubah keadaan editor kepada <i>keadaan pilihan</i>.<p>Dalam "
+"keadaan ini, anda tidak akan menyelitkan <i>item regexp</i>, tetapi "
+"sebaliknya memilih item tersebut. Untuk memilih sebilangan item, tekan "
+"butang kiri tetikus dan seret ke atas item tersebut.<p>Apabila anda memilih "
+"sebilangan item, anda boleh guna potong/salin/tampal. Fungsi ini ditemui "
+"dalam menu butang kanan tetikus.</qt>"
+
+#: regexpbuttons.cpp:59
+#, kde-format
+msgid "Text"
+msgstr "Teks"
+
+#: regexpbuttons.cpp:60
+#, kde-format
+msgid ""
+"<qt>This will insert a text field, where you may write text. The text you "
+"write will be matched literally. (i.e. you do not need to escape any "
+"characters)</qt>"
+msgstr ""
+"<qt>Ini akan menyelitkan medan teks, di mana anda boleh menulis teks. Teks "
+"yang anda tulis akan dipadan secara literal. (Iaitu, anda tidak perlu "
+"lepaskan sebarang aksara)</qt>"
+
+#: regexpbuttons.cpp:64
+#, kde-format
+msgid "A single character specified in a range"
+msgstr "Aksara tunggal dinyatakan dalam julat"
+
+#: regexpbuttons.cpp:65
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This will match a single character from a predefined range.<p>When "
+#| "you insert this widget a dialog box will appear, which lets you specify "
+#| "which characters this <i>regexp item</i> will match.</qt>"
+msgid ""
+"<p>This will match a single character from a predefined range.</p><p>When "
+"you insert this widget a dialog box will appear, which lets you specify "
+"which characters this <i>regexp item</i> will match.</p>"
+msgstr ""
+"<qt>Ini akan padan dengan aksara tunggal dari julat pratakrif.<p>Apabila "
+"anda selitkan widget ini, kotak dialog akan muncul, yang membolehkan anda "
+"menyatakan aksara mana yang <i>item regexp</i> ini akan padan.</qt>"
+
+#: regexpbuttons.cpp:70
+#, kde-format
+msgid "Any character"
+msgstr "Sebarang aksara"
+
+#: regexpbuttons.cpp:71
+#, kde-format
+msgid "<qt>This will match any single character</qt>"
+msgstr "<qt>Ini akan padan dengan sebarang aksara</qt>"
+
+#: regexpbuttons.cpp:74
+#, kde-format
+msgid "Repeated content"
+msgstr "Kandungan berulang"
+
+#: regexpbuttons.cpp:75
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it "
+#| "surrounds a specified number of times.<p>The number of times to repeat "
+#| "may be specified using ranges. e.g. You may specify that it should match "
+#| "from 2 to 4 times, that it should match exactly 5 times, or that it "
+#| "should match at least one time.<p>Examples:<br>If you specify that it "
+#| "should match <i>any</i> time, and the content it surrounds is <tt>abc</"
+#| "tt>, then this <i>regexp item</i> will match the empty string, the string "
+#| "<tt>abc</tt>, the string <tt>abcabc</tt>, the string <tt>abcabcabcabc</"
+#| "tt>, etc.</qt>"
+msgid ""
+"<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
+"a specified number of times.<br />The number of times to repeat may be "
+"specified using ranges; e.g. it could be specified that it should match from "
+"2 to 4 times, that it should match exactly 5 times, or that it should match "
+"at least one time.<br />Examples:<br />If you specify that it should match "
+"<i>any</i> time, and the content it surrounds is <tt>abc</tt>, then this "
+"<i>regexp item</i> will match the empty string, the string <tt>abc</tt>, the "
+"string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, etc.</qt>"
+msgstr ""
+"<qt><i>Item regexp</i> ini akan mengulangi <i>item regexp</i> yang "
+"dikelilinginya sebanyak kali bilangan yang dinyatakan.<p>Bilangan kali untuk "
+"ulang boleh dinyatakan menggunakan julat. Misalnya, anda boleh tetapkan "
+"bahawa ia hendaklah pada 2 hingga 4 kali, bahawa ia hendaklah padan betul-"
+"betul 5 kali, atau ia hendaklah padan sekurang-kurangnya satu kali.<p>Contoh:"
+"<br>Jika anda nyatakan ia hendaklah pada <i>sebarang</i> kali, dan kandungan "
+"yang ia kelilingi adalah <tt>abc</tt>, maka <i>item regexp</i>ini akan padan "
+"dengan rentetan kosong, rentetan <tt>abc</tt>, rentetan<tt>abcabc</tt>, "
+"rentetan <tt>abcabcabcabc</tt>, dsb.</qt>"
+
+#: regexpbuttons.cpp:88
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This <i>regexp item</i> will match any of its alternatives.</p>You "
+#| "specify alternatives by placing <i>regexp items</i> on top of each other "
+#| "inside this widget.</qt>"
+msgid ""
+"<p>This <i>regexp item</i> will match any of its alternatives.</"
+"p><p>Alternatives are specified by placing <i>regexp items</i> on top of "
+"each other inside this widget.</p>"
+msgstr ""
+"<qt><i>Item regexp ini</i> akan padan dengan mana-mana alternatif.</p>Anda "
+"nyatakan alternatif dengan menempatkan <i>item regexp</i> di atas satu sama "
+"lain di dalam widget ini.</qt>"
+
+#: regexpbuttons.cpp:93
+#, kde-format
+msgid "Compound regexp"
+msgstr "regexp compound"
+
+#: regexpbuttons.cpp:94
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it "
+#| "possible for you to collapse a huge <i>regexp item</i> into a small box. "
+#| "This makes it easier for you to get an overview of large <i>regexp items</"
+#| "i>. This is especially useful if you load a predefined <i>regexp item</i> "
+#| "you perhaps don't care about the inner workings of."
+msgid ""
+"<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
+"for you to collapse a huge <i>regexp item</i> into a small box. This makes "
+"it easier for you to get an overview of large <i>regexp items</i>. This is "
+"especially useful if you load a predefined <i>regexp item</i> that you "
+"perhaps do not care about the inner workings of.</qt>"
+msgstr ""
+"<qt><i>Item regexp</i> mempunyai dua tujuan:<ul><li>Ia memungkinkan anda "
+"meruntuhkan <i>item regexp</i> yang amat besar ke dalam kotak kecil. Ini "
+"memudahkan anda mendapatkan gambaran keseluruhan<i>item regexp</i>yang "
+"besar. Ini berguna khususnya jika anda memuatkan <i>item regexp</i> "
+"pratakrif yang anda mungkin tidak kisah tentang fungsian dalamannya."
+
+#: regexpbuttons.cpp:101
+#, kde-format
+msgid "Beginning of line"
+msgstr "Permulaan baris"
+
+#: regexpbuttons.cpp:102
+#, kde-format
+msgid "<qt>This will match the beginning of a line.</qt>"
+msgstr "<qt>Ini akan padan dengan permulaan baris.</qt>"
+
+#: regexpbuttons.cpp:105
+#, kde-format
+msgid "End of line"
+msgstr "Penghujung baris"
+
+#: regexpbuttons.cpp:106
+#, kde-format
+msgid "<qt>This will match the end of a line.</qt>"
+msgstr "<qt>Ini akan padan dengan penghujung baris.</qt>"
+
+#: regexpbuttons.cpp:109
+#, kde-format
+msgid "Word boundary"
+msgstr "Sempadan perkataan"
+
+#: regexpbuttons.cpp:110
+#, kde-format
+msgid ""
+"<qt>This asserts a word boundary (This part does not actually match any "
+"characters)</qt>"
+msgstr ""
+"<qt>Ini menegaskan sempadan perkataan (Bahagian ini sebenarnya tidak padan "
+"dengan mana-mana aksara)</qt>"
+
+#: regexpbuttons.cpp:113
+#, kde-format
+msgid "Non Word boundary"
+msgstr "Sempadan Bukan Perkataan"
+
+#: regexpbuttons.cpp:114
+#, kde-format
+msgid ""
+"<qt>This asserts a non-word boundary (This part does not actually match any "
+"characters)</qt>"
+msgstr ""
+"<qt>Ini menegaskan sempadan bukan perkataan (Bahagian ini sebenarnya tidak "
+"padan dengan mana-mana aksara)</qt>"
+
+#: regexpbuttons.cpp:118
+#, kde-format
+msgid "Positive Look Ahead"
+msgstr "Perhatikan Positif"
+
+#: regexpbuttons.cpp:119
+#, kde-format
+msgid ""
+"<qt>This asserts a regular expression (This part does not actually match any "
+"characters). You can only use this at the end of a regular expression.</qt>"
+msgstr ""
+"<qt>Ini menegaskan ungkapan biasa (Bahagian ini sebenarnya tidak padan "
+"dengan mana-mana aksara). Anda hanya boleh guna ini di penghujung ungkapan "
+"biasa.</qt>"
+
+#: regexpbuttons.cpp:123
+#, kde-format
+msgid "Negative Look Ahead"
+msgstr "Perhatikan Negatif"
+
+#: regexpbuttons.cpp:124
+#, kde-format
+msgid ""
+"<qt>This asserts a regular expression that must not match (This part does "
+"not actually match any characters). You can only use this at the end of a "
+"regular expression.</qt>"
+msgstr ""
+"<qt>Ini menegaskan ungkapan biasa yang tidak semestinya padan (Bahagian ini "
+"sebenarnya tidak padan dengan mana-mana aksara. Anda hanya boleh guna ini di "
+"penghujung ungkapan biasa.</qt>"
+
+#: regexpeditorwindow.cpp:215
+#, kde-format
+msgid "There is no selection."
+msgstr "Tiada pilihan"
+
+#: regexpeditorwindow.cpp:215
+#, kde-format
+msgid "Missing Selection"
+msgstr "Pilihan Hilang"
+
+#: regexpeditorwindow.cpp:280
+#, kde-format
+msgid "There is no widget under cursor."
+msgstr "Tiada widget di bawah kursor"
+
+#: regexpeditorwindow.cpp:280
+#, kde-format
+msgid "Invalid Operation"
+msgstr "Operasi Tak Sah"
+
+#: regexpeditorwindow.cpp:331
+#, kde-format
+msgid "C&ut"
+msgstr ""
+
+#: regexpeditorwindow.cpp:335
+#, kde-format
+msgid "&Copy"
+msgstr ""
+
+#: regexpeditorwindow.cpp:339
+#, kde-format
+msgid "&Paste"
+msgstr ""
+
+#: regexpeditorwindow.cpp:345
+#, kde-format
+msgid "&Edit"
+msgstr ""
+
+#: regexpeditorwindow.cpp:349
+#, kde-format
+msgid "&Save Regular Expression..."
+msgstr "&Simpan Ungkapan Biasa..."
+
+#: regexpeditorwindow.cpp:388
+#, kde-format
+msgid "Name for Regular Expression"
+msgstr "Nama bagi Ungkapan Biasa"
+
+#: regexpeditorwindow.cpp:388
+#, kde-format
+msgid "Enter name:"
+msgstr "Masukkan nama:"
+
+#: regexpeditorwindow.cpp:390
+#, kde-format
+msgid "Empty name is not supported"
+msgstr ""
+
+#: regexpeditorwindow.cpp:390
+#, fuzzy, kde-format
+#| msgid "&Save Regular Expression..."
+msgid "Save Regular Expression"
+msgstr "&Simpan Ungkapan Biasa..."
+
+#: regexpeditorwindow.cpp:398
+#, kde-format
+msgid "<p>Overwrite named regular expression <b>%1</b></p>"
+msgstr "<p>Tulis ganti ungkapan biasa yang bernama <b>%1</b></p>"
+
+#: regexpeditorwindow.cpp:406
+#, kde-format
+msgid "Could not open file for writing: %1"
+msgstr "Tidak dapat buka fail untuk menulis: %1"
+
+#: repeatregexp.cpp:57 repeatregexp.cpp:65
+#, kde-format
+msgid ""
+"<p>Value for attribute <b>%1</b> was not an integer for element <b>%2</b></"
+"p><p>It contained the value <b>%3</b></p>"
+msgstr ""
+"<p>Nilai untuk atribut <b>%1</b> bukan integer untuk elemen <b>%2</b></"
+"p><p>Ia mengandungi nilai <b>%3</b></p>"
+
+#: repeatregexp.cpp:60 repeatregexp.cpp:68 textrangeregexp.cpp:146
+#: textregexp.cpp:54 widgetfactory.cpp:165 widgetfactory.cpp:196
+#: widgetfactory.cpp:203
+#, kde-format
+msgid "Error While Loading From XML File"
+msgstr "Ralat Semasa Memuatkan Dari Fail XML"
+
+#: repeatwidget.cpp:74
+#, kde-format
+msgid "Number of Times to Repeat Content"
+msgstr "Bilangan Kali Hendak Mengulang Kandungan"
+
+#: repeatwidget.cpp:184
+#, kde-format
+msgid "Times to Match"
+msgstr "Kali untuk Padan"
+
+#: repeatwidget.cpp:191
+#, kde-format
+msgid "Any number of times (including zero times)"
+msgstr "Sebarang bilangan kali (termasuk sifar kali)"
+
+#: repeatwidget.cpp:198
+#, kde-format
+msgid "At least"
+msgstr "Sekurang-kurangnya"
+
+#: repeatwidget.cpp:199
+#, kde-format
+msgid "At most"
+msgstr "Paling banyak"
+
+#: repeatwidget.cpp:200
+#, kde-format
+msgid "Exactly"
+msgstr "Tepat"
+
+#: repeatwidget.cpp:203
+#, kde-format
+msgid "From"
+msgstr "Daripada"
+
+#: repeatwidget.cpp:215
+#, kde-format
+msgid "to"
+msgstr "hingga"
+
+#: repeatwidget.cpp:223 repeatwidget.cpp:249
+#, kde-format
+msgid "time(s)"
+msgstr "kali"
+
+#: repeatwidget.cpp:299
+#, kde-format
+msgid "Repeated Any Number of Times"
+msgstr "Diulang Sebarang Bilangan Kali "
+
+#: repeatwidget.cpp:301
+#, fuzzy, kde-format
+msgid "Repeated at Least 1 Time"
+msgid_plural "Repeated at Least %1 Times"
+msgstr[0] "Diulang Sekurang-kurangnya %2 Kali"
+
+#: repeatwidget.cpp:303
+#, fuzzy, kde-format
+msgid "Repeated at Most 1 Time"
+msgid_plural "Repeated at Most %1 Times"
+msgstr[0] "Diulang Paling Banyak %2 Kali"
+
+#: repeatwidget.cpp:305
+#, fuzzy, kde-format
+msgid "Repeated Exactly 1 Time"
+msgid_plural "Repeated Exactly %1 Times"
+msgstr[0] "Diulang Tepat %2 Kali"
+
+#: repeatwidget.cpp:307
+#, kde-format
+msgid "Repeated From %1 to %2 Times"
+msgstr "Diulang Dari %1 hingga %2 Kali"
+
+#: textrangeregexp.cpp:145
+#, kde-format
+msgid ""
+"<p>Invalid sub element to element <b>TextRange</b>. Tag was <b>%1</b></p>"
+msgstr ""
+"<p>Subelemen tak sah kepada elemen <b>TextRange</b>. Tag ialah <b>%1</b></p>"
+
+#: textregexp.cpp:53
+#, kde-format
+msgid "<p>Element <b>Text</b> did not contain any textual data.</p>"
+msgstr "<p>Teks <b>Elemen</b> tidak mengandungi data teks.</p>"
+
+#: userdefinedregexps.cpp:67
+#, kde-format
+msgid "User Defined"
+msgstr "Pengguna Ditakrif"
+
+#: userdefinedregexps.cpp:87
+#, fuzzy, kde-format
+msgid "general"
+msgstr "umum"
+
+#: userdefinedregexps.cpp:101
+#, kde-format
+msgid "Could not open file for reading: %1"
+msgstr "Tidak dapat buka fail untuk baca: %1"
+
+#: userdefinedregexps.cpp:111
+#, kde-format
+msgid "File %1 containing user defined regular expression contained an error"
+msgstr ""
+"Fail %1 mengandungi ungkapan biasa takrifan pengguna yang mengandungi ralat"
+
+#: userdefinedregexps.cpp:154
+#, fuzzy, kde-format
+#| msgid "Rename..."
+msgid "Rename"
+msgstr "Namakan semula..."
+
+#: userdefinedregexps.cpp:195
+#, kde-format
+msgid "Rename Item"
+msgstr "Namakan Semula Item"
+
+#: userdefinedregexps.cpp:195
+#, kde-format
+msgid "New name:"
+msgstr "Nama baru:"
+
+#: userdefinedregexps.cpp:202
+#, kde-format
+msgid "<p>Overwrite named regular expression <b>%1</b>?</p>"
+msgstr "<p>Tulis ganti ungkapan biasa yang dinamakan <b>%1</b>?</p>"
+
+#: userdefinedregexps.cpp:202
+#, kde-format
+msgid "Do Not Overwrite"
+msgstr ""
+
+#: verifybuttons.cpp:38
+#, kde-format
+msgid "Verify regular expression"
+msgstr "Sahkan ungkapan biasa"
+
+#: verifybuttons.cpp:39
+#, kde-format
+msgid ""
+"Shows what part of the regular expression is being matched in the "
+"<i>verifier window</i>.(The window below the graphical editor window)."
+msgstr ""
+"Papar apa yang bahagian ungkapan biasa dipadankan masa ini dalam "
+"<i>tetingkap pengesah</i>.(Tetingkap yang di bawah tetingkap editor grafik)."
+
+#: verifybuttons.cpp:48
+#, kde-format
+msgid "Load text in the verifier window"
+msgstr "Muatkan teks ke dalam tetingkap pengesah"
+
+#: verifybuttons.cpp:53
+#, kde-format
+msgid "Verification Settings"
+msgstr ""
+
+#: verifybuttons.cpp:101
+#, kde-format
+msgid "config menu"
+msgstr ""
+
+#: verifybuttons.cpp:104
+#, kde-format
+msgid "Verify on the Fly"
+msgstr "Sahkan Fly"
+
+#: verifybuttons.cpp:110
+#, kde-format
+msgid "Toggle on-the-fly verification of regular expression"
+msgstr "Toggel pengesahan semasa terbang bagi ungkapan biasa"
+
+#: verifybuttons.cpp:111
+#, kde-format
+msgid ""
+"Enabling this option will make the verifier update for each edit. If the "
+"verify window contains much text, or if the regular expression is either "
+"complex or matches a lot of time, this may be very slow."
+msgstr ""
+"Mengaktifkan opsyen ini akan membuat pengesah mengemas kini setiap edit. "
+"Jika tetingkap pengesahan mengandungi banyak teks, atau jika ungkapan biasa "
+"sama ada kompleks atau sering kali padan, ini mungkin sangat lambat."
+
+#: verifybuttons.cpp:115
+#, kde-format
+msgid "Match Greedy"
+msgstr ""
+
+#: verifybuttons.cpp:120
+#, fuzzy, kde-format
+msgid "Toggle greedy matching when verifying the regular expression."
+msgstr "Toggel pengesahan semasa terbang bagi ungkapan biasa"
+
+#: verifybuttons.cpp:121
+#, kde-format
+msgid ""
+"When this option is enabled, the regular expression will be evaluated on a "
+"so-called greedy way."
+msgstr ""
+
+#: verifybuttons.cpp:124
+#, kde-format
+msgid "RegExp Language"
+msgstr "Bahasa RegExp"
+
+#: widgetfactory.cpp:164
+#, kde-format
+msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
+msgstr "<p>Tag tak diketahui semasa membaca XML. Tag ialah <b>%1</b></p>"
+
+#: widgetfactory.cpp:188
+#, fuzzy, kde-format
+#| msgid "Error While Loading Regular Expression From XML"
+msgid "Error while loading regular expression from XML."
+msgstr "Ralat Semasa Memuatkan Ungkapan Biasa Dari XML"
+
+#: widgetfactory.cpp:189
+#, kde-format
+msgid "Error While Loading Regular Expression From XML"
+msgstr "Ralat Semasa Memuatkan Ungkapan Biasa Dari XML"
+
+#: widgetfactory.cpp:195
+#, kde-format
+msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
+msgstr "<p>Fail XML tidak mengandungi tag <b>%1</b>.</p>"
+
+#: widgetfactory.cpp:201
+#, kde-format
+msgid ""
+"<p>Error while reading XML file. The element just below the tag <b>%1</b> "
+"was not an element.</p>"
+msgstr ""
+"<p>Ralat semasa membaca fail XML. Elemen betul-betul di bawah tag <b>%1</b> "
+"bukan satu elemen.</p>"
+
+#: zerowidgets.cpp:72
+#, kde-format
+msgid ""
+"Any\n"
+"Character"
+msgstr ""
+"Sebarang\n"
+"Aksara"
+
+#: zerowidgets.cpp:85
+#, kde-format
+msgid ""
+"Line\n"
+"Start"
+msgstr ""
+"Baris\n"
+"Mula"
+
+#: zerowidgets.cpp:98
+#, kde-format
+msgid ""
+"Line\n"
+"End"
+msgstr ""
+"Baris\n"
+"Penghujung"
+
+#: zerowidgets.cpp:111
+#, kde-format
+msgid ""
+"Word\n"
+"Boundary"
+msgstr ""
+"Perkataan\n"
+"Sempadan"
+
+#: zerowidgets.cpp:124
+#, kde-format
+msgid ""
+"Non-word\n"
+"Boundary"
+msgstr ""
+"Sempadan\n"
+"Bukan Perkataan"
+
+#~ msgid "Clear expression"
+#~ msgstr "Kosongkan ungkapan"
+
+#~ msgid "from "
+#~ msgstr "dari"
+
+#~ msgid " to "
+#~ msgstr "ke"
+
+#~ msgid ""
+#~ "Error while loading regular expression from XML. Most probably the "
+#~ "regular expression had unmatched tags."
+#~ msgstr ""
+#~ "Ralat semasa memuatkan ungkapan biasa dari XML. Besar kemungkinan "
+#~ "ungkapan biasa mempunyai tag tak padan."
+
+#~ msgid "Settings"
+#~ msgstr "Seting"

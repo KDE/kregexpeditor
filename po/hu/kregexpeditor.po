@@ -1,0 +1,1168 @@
+#
+# Tamas Szanto <tszanto@mol.hu>, 2002.
+# Kristóf Kiszel <ulysses@kubuntu.org>, 2011.
+# Balázs Úr <urbalazs@gmail.com>, 2012, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: KDE 3.5\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-04-02 00:20+0000\n"
+"PO-Revision-Date: 2014-06-14 16:00+0200\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Szántó Tamás,Úr Balázs"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "tszanto@mol.hu,urbalazs@gmail.com"
+
+#: altnwidget.cpp:37 altnwidget.cpp:46 regexpbuttons.cpp:87
+#, kde-format
+msgid "Alternatives"
+msgstr "Alternatívák"
+
+#: altnwidget.cpp:220
+#, kde-format
+msgid "Selecting several alternatives is currently not supported."
+msgstr "Nem lehet egyszerre több alternatívát kiválasztani."
+
+#: altnwidget.cpp:222
+#, kde-format
+msgid "Selection Invalid"
+msgstr "A kijelölés érvénytelen"
+
+#: auxbuttons.cpp:35
+#, kde-format
+msgid "Undo"
+msgstr "Visszavonás"
+
+#: auxbuttons.cpp:41
+#, kde-format
+msgid "Redo"
+msgstr "Újra"
+
+#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:70
+#, kde-format
+msgid "Cut"
+msgstr "Kivágás"
+
+#: auxbuttons.cpp:53 KMultiFormListBox/ccp.cpp:71
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:67
+#, kde-format
+msgid "Copy"
+msgstr "Másolás"
+
+#: auxbuttons.cpp:59 KMultiFormListBox/ccp.cpp:72
+#, kde-format
+msgid "Paste"
+msgstr "Beillesztés"
+
+#: auxbuttons.cpp:65
+#, kde-format
+msgid "Save"
+msgstr "Mentés"
+
+#: characterswidget.cpp:116
+#, kde-format
+msgid "- A word character\n"
+msgstr "- Szóalkotó karakter\n"
+
+#: characterswidget.cpp:120
+#, kde-format
+msgid "- A non-word character\n"
+msgstr "- Szóelválasztó karakter\n"
+
+#: characterswidget.cpp:124
+#, kde-format
+msgid "- A digit character\n"
+msgstr "- Számjegy\n"
+
+#: characterswidget.cpp:128
+#, kde-format
+msgid "- A non-digit character\n"
+msgstr "- Nem számjegy\n"
+
+#: characterswidget.cpp:132
+#, kde-format
+msgid "- A space character\n"
+msgstr "- Szóköz karakter\n"
+
+#: characterswidget.cpp:136
+#, kde-format
+msgid "- A non-space character\n"
+msgstr "- Nem szóköz karakter\n"
+
+#: characterswidget.cpp:151
+#, kde-format
+msgctxt "a range of characters"
+msgid "- from %1 to %2\n"
+msgstr "- ettől: %1 eddig: %2\n"
+
+#: characterswidget.cpp:159
+#, kde-format
+msgid "Any Character Except"
+msgstr "Bármely karakter, kivéve"
+
+#: characterswidget.cpp:161
+#, kde-format
+msgid "One of Following Characters"
+msgstr "A következő karakterek egyike"
+
+#: characterswidget.cpp:279
+#, kde-format
+msgid "Specify Characters"
+msgstr "A karakterek felsorolása"
+
+#: characterswidget.cpp:289
+#, kde-format
+msgid "Do not match the characters specified here"
+msgstr "Az itt felsorolt karakterek kivételével"
+
+#: characterswidget.cpp:293
+#, kde-format
+msgid "Predefined Character Ranges"
+msgstr "Előre megadott karaktertartományok"
+
+#: characterswidget.cpp:297
+#, kde-format
+msgid "A word character"
+msgstr "Szóalkotó karakter"
+
+#: characterswidget.cpp:299
+#, kde-format
+msgid "A digit character"
+msgstr "Számjegy"
+
+#: characterswidget.cpp:301
+#, kde-format
+msgid "A space character"
+msgstr "Szóköz"
+
+#: characterswidget.cpp:304
+#, kde-format
+msgid "A non-word character"
+msgstr "Nem szóalkotó karakter"
+
+#: characterswidget.cpp:306
+#, kde-format
+msgid "A non-digit character"
+msgstr "Nem számjegy karakter"
+
+#: characterswidget.cpp:308
+#, kde-format
+msgid "A non-space character"
+msgstr "Nem üres karakter"
+
+#: characterswidget.cpp:312
+#, kde-format
+msgid "Single Characters"
+msgstr "Egy karakter"
+
+#: characterswidget.cpp:324 characterswidget.cpp:345
+#, kde-format
+msgid "More Entries"
+msgstr "Több bejegyzés"
+
+#: characterswidget.cpp:332
+#, kde-format
+msgid "Character Ranges"
+msgstr "Karaktertartományok"
+
+#: characterswidget.cpp:426
+#, kde-format
+msgid "From:"
+msgstr "Ettől:"
+
+#: characterswidget.cpp:433
+#, kde-format
+msgctxt "end of range"
+msgid "To:"
+msgstr "Eddig:"
+
+#: charselector.cpp:60
+#, kde-format
+msgid "Normal Character"
+msgstr "Normál karakter"
+
+#: charselector.cpp:61
+#, kde-format
+msgid "Unicode Char in Hex."
+msgstr "Unicode-karakter (hexa)"
+
+#: charselector.cpp:62
+#, kde-format
+msgid "Unicode Char in Oct."
+msgstr "Unicode-karakter (oktális)"
+
+#: charselector.cpp:64
+#, kde-format
+msgid "The Bell Character (\\a)"
+msgstr "A csengő karakter (\\a)"
+
+#: charselector.cpp:65
+#, kde-format
+msgid "The Form Feed Character (\\f)"
+msgstr "A lapdobás karakter (\\f)"
+
+#: charselector.cpp:66
+#, kde-format
+msgid "The Line Feed Character (\\n)"
+msgstr "Az újsor karakter (\\n)"
+
+#: charselector.cpp:67
+#, kde-format
+msgid "The Carriage Return Character (\\r)"
+msgstr "A sorvége karakter (\\r)"
+
+#: charselector.cpp:68
+#, kde-format
+msgid "The Horizontal Tab Character (\\t)"
+msgstr "A vízszintes tabulátor (\\t)"
+
+#: charselector.cpp:69
+#, kde-format
+msgid "The Vertical Tab Character (\\v)"
+msgstr "A függőleges tabulátor (\\v)"
+
+#: compoundwidget.cpp:47
+#, kde-format
+msgid "&Title:"
+msgstr "&Cím:"
+
+#: compoundwidget.cpp:53
+#, kde-format
+msgid "&Description:"
+msgstr "&Leírás:"
+
+#: compoundwidget.cpp:59
+#, kde-format
+msgid "&Automatically replace using this item"
+msgstr "Automatikus cs&ere ezzel az elemmel"
+
+#: compoundwidget.cpp:61
+#, kde-format
+msgid ""
+"When the content of this box is typed in to the ASCII line,<br />this box "
+"will automatically be added around it,<br />if this check box is selected."
+msgstr ""
+"Ha ennek a doboznak a tartalmát begépeli egy ASCII sorba,<br />akkor ez a "
+"doboz automatikusan körül fogja venni,<br />ha egy a jelölőnégyzet ki van "
+"választva."
+
+#: compoundwidget.cpp:126
+#, kde-format
+msgid "Configure Compound"
+msgstr "Az összetétel beállítása"
+
+#: emacsregexpconverter.cpp:78
+#, kde-format
+msgid "Look ahead regular expressions not supported in Emacs style"
+msgstr ""
+"A 'look ahead' típusú reguláris kifejezések nem használhatók Emacs-stílusban"
+
+#: emacsregexpconverter.cpp:182
+#, kde-format
+msgid "Word boundary and non word boundary is not supported in Emacs syntax"
+msgstr ""
+"A szóelválasztó és a nem szóelválasztó kifejezése nem használható az Emacs-"
+"stílusú szintaxisban"
+
+#: errormap.cpp:47
+#, kde-format
+msgid ""
+"Your regular expression is invalid, due to something preceding a 'line "
+"start'."
+msgstr ""
+"A megadott reguláris kifejezés érvénytelen, mert valami megelőzi a 'sor "
+"elejét'."
+
+#: errormap.cpp:48 errormap.cpp:57 errormap.cpp:66
+#, kde-format
+msgid "Regular Expression Error"
+msgstr "Hibás reguláris kifejezés"
+
+#: errormap.cpp:56
+#, kde-format
+msgid ""
+"Your regular expression is invalid, due to something following a 'line end'."
+msgstr ""
+"A megadott reguláris kifejezés érvénytelen, mert valami a 'sor vége' után "
+"következik."
+
+#: errormap.cpp:65
+#, kde-format
+msgid ""
+"Your regular expression is invalid. 'Look Ahead' regular expression must be "
+"the last sub expression."
+msgstr ""
+"A megadott reguláris kifejezés érvénytelen. Az előre keresési ('Look Ahead') "
+"kifejezésnek a legutolsó részkifejezésnek kell lennie."
+
+#: infopage.cpp:33
+#, kde-format
+msgctxt ""
+"Translators, feel free to add yourself in the text below, asking for a "
+"postcard ;-), also feel free to add a section saying <h2>Translators</h2>. "
+"Kind regards, and thanks for your work - Jesper."
+msgid ""
+"<h1>Regular Expression Editor</h1><p>What you are currently looking at is an "
+"editor for <i>Regular Expressions</i>.</p><p>The upper part in the middle is "
+"the editing area, the lower part is a verification window where you can try "
+"your regular expressions right away. The row of buttons is the editing "
+"actions. This is actually very similar to common drawing programs. Select an "
+"editing tool to start editing your regular expression, and press the mouse "
+"button in the editing area where you want this item inserted.</p><p>For a "
+"more detailed description of this editor see the <a href=\"doc://\">info "
+"pages</a></p><h2>What is a regular expression?</h2>If you do not know what a "
+"regular expression is, then it might be a good idea to read <a href=\"doc://"
+"whatIsARegExp\">the introduction to regular expressions</a>.<br />"
+msgstr ""
+"<h1>Szerkesztőprogram reguláris kifejezésekhez</h1><p>Ez a program "
+"<i>reguláris kifejezések</i> szerkesztésére szolgál.</p><p>A középen, felül "
+"látható nagy ablak a szerkesztési terület, alatta az ellenőrzési ablak "
+"látható. A nyomógombokkal különféle műveleteket lehet elvégezni, tehát a "
+"program felépítése nagyon hasonlít a rajzolóprogramokéhoz. Válasszon ki egy "
+"szerkesztőeszközt, kezdje el a kifejezés szerkesztését, majd kattintson a "
+"szerkesztőterületen az egérgombbal oda, ahová az elemet be szeretné szúrni.</"
+"p><p>A szerkesztő részletes leírása megtalálható <a href=\"doc://\">info "
+"oldalként</a></p><h2>Mit nevezünk reguláris kifejezésnek?</h2>Ha még nem "
+"találkozott ezzel a fogalommal, olvassa el a következő <a href=\"doc://"
+"whatIsARegExp\">bevezetést a reguláris kifejezések világába</a>.<br />"
+
+#: infopage.cpp:46
+#, kde-format
+msgid ""
+"<h2>Send the author an electronic postcard</h2>I don't get any money for "
+"working on KRegExpEditor, I therefore appreciate it very much when users "
+"tell me what they think about my work. I would therefore be very happy if "
+"you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a short "
+"mail</a>, telling me that you use my regular expression editor.<h2>Author</"
+"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
+"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+msgstr ""
+"<h2>Küldjön egy elektronikus képeslapot a szerzőnek, ha tetszik a program!</"
+"h2>A program fejlesztését nem pénzért végzem, ezért arra kérem Önöket, írják "
+"meg őszinte véleményüket a programomról. Nagyon szívesen fogadom a <a href="
+"\"mailto:blackie@kde.org?subject=KRegExpEditor\">programmal kapcsolatos e-"
+"maileket</a>, mert ezekből a visszajelzésekből látom, hogy vannak, akik "
+"valóban használják ezt a szerkesztőt.<h2>A szerző</h2><a href=\"http://www."
+"blackie.dk/\">Jesper K. Pedersen</a>, &lt;<a href=\"mailto:blackie@kde.org"
+"\">blackie@kde.org</a>&gt;"
+
+#: KMultiFormListBox/ccp.cpp:73
+#, kde-format
+msgid "Insert Blank"
+msgstr "Üres hely beszúrása"
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#, kde-format
+msgid "Due to a bug, it is not possible to remove the last element."
+msgstr "Egy hiba miatt az utolsó elemet nem lehet eltávolítani."
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#, kde-format
+msgid "Internal Error"
+msgstr "Belső hiba"
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:282
+#, kde-format
+msgid "There is no element on the clipboard to paste in."
+msgstr "Nincs a vágólapon olyan elem, melyet be lehetne illeszteni."
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:54
+#, kde-format
+msgid "Edit"
+msgstr "Szerkesztés"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:61
+#: userdefinedregexps.cpp:153
+#, kde-format
+msgid "Delete"
+msgstr "Törlés"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:74
+#, kde-format
+msgid "Up"
+msgstr "Fel"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:80
+#, kde-format
+msgid "Down"
+msgstr "Le"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#, kde-format
+msgid "Delete item \"%1\"?"
+msgstr "Törölni szeretné ezt az elemet: \"%1\"?"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#, kde-format
+msgid "Delete Item"
+msgstr "Az elem törlése"
+
+#: KMultiFormListBox/kmultiformlistbox.h:71
+#, kde-format
+msgid "Add"
+msgstr "Hozzáadás"
+
+#: KMultiFormListBox/widgetwindow.cpp:47
+#, kde-format
+msgid "Widget Configuration"
+msgstr "A grafikus elem beállításai"
+
+#: kregexpeditorguidialog.cpp:36
+#, kde-format
+msgid "Regular Expression Editor"
+msgstr "Reguláris kifejezés szerkesztő"
+
+#: kregexpeditorprivate.cpp:68
+#, kde-format
+msgid "Compound regular expression:"
+msgstr "Összetett reguláris kifejezés:"
+
+#: kregexpeditorprivate.cpp:69
+#, kde-format
+msgid ""
+"In this window you will find predefined regular expressions. Both regular "
+"expressions you have developed and saved, and regular expressions shipped "
+"with the system."
+msgstr ""
+"Ebben az ablakban előre definiált reguláris kifejezések találhatók. Ezek "
+"lehetnek a programmal együtt szállított vagy a felhasználó által készített "
+"kifejezések."
+
+#: kregexpeditorprivate.cpp:78
+#, kde-format
+msgid ""
+"In this window you will develop your regular expressions. Select one of the "
+"actions from the action buttons above, and click the mouse in this window to "
+"insert the given action."
+msgstr ""
+"Ebben az ablakban lehet saját reguláris kifejezéseket készíteni. Válasszon "
+"egyet a fenti nyomógombokhoz rendelt műveletek közül, majd kattintson ebbe "
+"az ablakba az elem beszúrásához."
+
+#: kregexpeditorprivate.cpp:86
+#, kde-format
+msgid ""
+"<p>Type in some text in this window, and see what the regular expression you "
+"have developed matches.</p><p>Each second match will be colored in red and "
+"each other match will be colored blue, simply so you can distinguish them "
+"from each other.</p><p>If you select part of the regular expression in the "
+"editor window, then this part will be highlighted - This allows you to "
+"<i>debug</i> your regular expressions</p>"
+msgstr ""
+"<p>Írjon be egy tesztszöveget ebbe az ablakba, és ellenőrizze, hogy a "
+"kialakított kifejezéshez illeszkedik-e.</p><p>Az illeszkedő részek felváltva "
+"piros és kék színűek lesznek, hogy könnyebb legyen őket egymástól "
+"megkülönböztetni.</p><p>Ha a szerkesztőablakban kijelöli a kifejezés egy "
+"darabját, akkor ez a rész ki lesz emelve, lehetővé téve a kifejezések "
+"<i>hibakeresését</i>.</p>"
+
+#: kregexpeditorprivate.cpp:148
+#, kde-format
+msgid "ASCII syntax:"
+msgstr "ASCII-szintaxis:"
+
+#: kregexpeditorprivate.cpp:161
+#, kde-format
+msgid ""
+"<p>This is the regular expression in ASCII syntax. You are likely only to be "
+"interested in this if you are a programmer, and need to develop a regular "
+"expression using QRegExp.</p><p>You may develop your regular expression both "
+"by using the graphical editor, and by typing the regular expression in this "
+"line edit.</p>"
+msgstr ""
+"<p>Ez a reguláris kifejezés ASCII-szintaxissal. Ez csak akkor lehet érdekes, "
+"ha programot fejleszt, és olyan kifejezésre van szüksége, amely "
+"felhasználható a Qt QRegExp nevű osztályával.</p><p>A kifejezés "
+"szerkesztéséhez grafikus szerkesztő áll rendelkezésre, de ha kívánja, "
+"egyszerűen be lehet gépelni ebbe a szövegmezőbe.</p>"
+
+#: kregexpeditorprivate.cpp:371
+#, kde-format
+msgid "Could not open file '%1' for reading"
+msgstr "A(z) '%1' fájlt nem sikerült olvasásra megnyitni"
+
+#: lookaheadwidget.cpp:51
+#, kde-format
+msgid "Pos. Look Ahead"
+msgstr "Pozitív előrekeresés (look ahead)"
+
+#: lookaheadwidget.cpp:53
+#, kde-format
+msgid "Neg. Look Ahead"
+msgstr "Negatív előrekeresés (look ahead)"
+
+#: main.cpp:42
+#, kde-format
+msgid "RegExp Editor"
+msgstr "Szerkesztőprogram reguláris kifejezésekhez"
+
+#: main.cpp:43
+#, kde-format
+msgid "Editor for Regular Expressions"
+msgstr "Szerkesztőprogram reguláris kifejezésekhez"
+
+#: main.cpp:45
+#, kde-format
+msgid "(c) 2002-2003 Jesper K. Pedersen"
+msgstr "© Jesper K. Pedersen, 2002-2003."
+
+#: main.cpp:46
+#, kde-format
+msgid "Laurent Montel"
+msgstr ""
+
+#: main.cpp:46
+#, kde-format
+msgid "Developer"
+msgstr ""
+
+#: predefined/General/anything.regexp:5
+#, kde-format
+msgid "anything"
+msgstr "bármi"
+
+#: predefined/General/anything.regexp:6
+#, kde-format
+msgid "This regular expression matches anything."
+msgstr "Ez a reguláris kifejezés mindenhez illeszkedik."
+
+#: predefined/General/spaces.regexp:5
+#, kde-format
+msgid "spaces"
+msgstr "szóközök"
+
+#: predefined/General/spaces.regexp:6
+#, kde-format
+msgid "Matches an arbitrary amount of whitespace."
+msgstr "Illeszkedik tetszőleges számú szóközhöz."
+
+#: qregexpparser.y:205
+#, kde-format
+msgid ""
+"<p>Back reference regular expressions are not supported.</p><p><tt>\\1</tt>, "
+"<tt>\\2</tt>, ... are <i>back references</i>, meaning they refer to previous "
+"matches. Unfortunately this is not supported in the current version of this "
+"editor.</p><p>In the graphical area the text <b>%1</b> has been inserted. "
+"This is however just a workaround to ensure that the application handles the "
+"regexp at all. Therefore, as soon as you edit the regular expression in the "
+"graphical area, the back reference will be replaced by matching the text <b>"
+"%2</b> literally.</p>"
+msgstr ""
+
+#: qregexpparser.y:214
+#, fuzzy, kde-format
+#| msgid "Look ahead regular expressions not supported in Emacs style"
+msgid "Back reference regular expressions not supported"
+msgstr ""
+"A 'look ahead' típusú reguláris kifejezések nem használhatók Emacs-stílusban"
+
+#: regexpbuttons.cpp:49
+#, kde-format
+msgid "Selection tool"
+msgstr "Kijelölési eszköz"
+
+#: regexpbuttons.cpp:50
+#, kde-format
+msgid ""
+"<p>This will change the state of the editor to <i>selection state</i>.</"
+"p><p>In this state you will not be inserting <i>regexp items</i>, but "
+"instead select them. To select a number of items, press down the left mouse "
+"button and drag it over the items.</p><p>When you have selected a number of "
+"items, you may use cut/copy/paste. These functions are found in the right "
+"mouse button menu.</p>"
+msgstr ""
+"<p>Ennek hatására a szerkesztő <i>kijelölési módba</i> vált.</p><p>Ilyenkor "
+"nem lehet <i>új tagokat beszúrni</i>, viszont ki lehet őket jelölni. Több "
+"elem kijelöléséhez nyomja le a bal egérgombot és húzza az egérmutatót a "
+"kívánt elemek fölé.</p><p>Ha kijelölt mindent, amit szeretett volna, "
+"használja a másolás/kivágás/beillesztés funkciókat. Ezek a jobb egérgombbal "
+"előhívható felbukkanó menüből érhetők el.</p>"
+
+#: regexpbuttons.cpp:59
+#, kde-format
+msgid "Text"
+msgstr "Szöveg"
+
+#: regexpbuttons.cpp:60
+#, kde-format
+msgid ""
+"<qt>This will insert a text field, where you may write text. The text you "
+"write will be matched literally. (i.e. you do not need to escape any "
+"characters)</qt>"
+msgstr ""
+"<qt>Beilleszt egy szövegmezőt, melybe szöveget lehet bevinni. A megadott "
+"szöveg illesztése pontosan történik, tehát egyik karaktert sem kell 'escape-"
+"elni'.</qt>"
+
+#: regexpbuttons.cpp:64
+#, kde-format
+msgid "A single character specified in a range"
+msgstr "Egy karakter illeszkedése a megadott tartományból"
+
+#: regexpbuttons.cpp:65
+#, kde-format
+msgid ""
+"<p>This will match a single character from a predefined range.</p><p>When "
+"you insert this widget a dialog box will appear, which lets you specify "
+"which characters this <i>regexp item</i> will match.</p>"
+msgstr ""
+"<p>Ez illeszkedni fog egy előre meghatározott tartománybeli egyedüli "
+"karakterre.</p><p>Amikor beszúrja ezt a felületi elemet, egy párbeszédablak "
+"doboz fog megjelenni, amely lehetővé teszi annak megadását, hogy mely "
+"karakterekre fog illeszkedni ez a <i>reguláris kifejezés elem</i>.</p>"
+
+#: regexpbuttons.cpp:70
+#, kde-format
+msgid "Any character"
+msgstr "Bármely karakter"
+
+#: regexpbuttons.cpp:71
+#, kde-format
+msgid "<qt>This will match any single character</qt>"
+msgstr "<qt>Illeszkedés bármely karakterhez</qt>"
+
+#: regexpbuttons.cpp:74
+#, kde-format
+msgid "Repeated content"
+msgstr "A tartalom ismétlése"
+
+#: regexpbuttons.cpp:75
+#, kde-format
+msgid ""
+"<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
+"a specified number of times.<br />The number of times to repeat may be "
+"specified using ranges; e.g. it could be specified that it should match from "
+"2 to 4 times, that it should match exactly 5 times, or that it should match "
+"at least one time.<br />Examples:<br />If you specify that it should match "
+"<i>any</i> time, and the content it surrounds is <tt>abc</tt>, then this "
+"<i>regexp item</i> will match the empty string, the string <tt>abc</tt>, the "
+"string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, etc.</qt>"
+msgstr ""
+"<qt>Ez a <i>tag</i> a benne foglalt másik <i>tag</i> megadott számú "
+"ismétlését adja meg.<br />Az ismétlési szám értéktartományként is megadható, "
+"pl. előírható 2 és 4 közötti, pontosan ötszöri, vagy legalább egyszeri "
+"ismétlődés.<br />Néhány példa:<br />Ha azt írja elő, hogy <i>tetszőleges "
+"számú</i> ismétlődés lehet, és a benne foglalt kifejezés <tt>abc</tt>, akkor "
+"a teljes <i>tag</i> illeszkedni fog az üres szöveghez, az <tt>abc</tt>, az "
+"<tt>abcabc</tt>, az <tt>abcabcabcabc</tt> stb. szövegekhez.</qt>"
+
+#: regexpbuttons.cpp:88
+#, kde-format
+msgid ""
+"<p>This <i>regexp item</i> will match any of its alternatives.</"
+"p><p>Alternatives are specified by placing <i>regexp items</i> on top of "
+"each other inside this widget.</p>"
+msgstr ""
+"<p>Ez a <i>reguláris kifejezés elem</i> illeszkedni fog minden "
+"alternatívájára.</p><p>Az alternatívák <i>reguláris kifejezés elemek</i> "
+"egymásra helyezésével vannak megadva ezen a felületi elemen belül.</p>"
+
+#: regexpbuttons.cpp:93
+#, kde-format
+msgid "Compound regexp"
+msgstr "Összetett reguláris kifejezés"
+
+#: regexpbuttons.cpp:94
+#, kde-format
+msgid ""
+"<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
+"for you to collapse a huge <i>regexp item</i> into a small box. This makes "
+"it easier for you to get an overview of large <i>regexp items</i>. This is "
+"especially useful if you load a predefined <i>regexp item</i> that you "
+"perhaps do not care about the inner workings of.</qt>"
+msgstr ""
+"<qt>Ez a <i>tag</i> két célt szolgál:<ul><li>egyrészt lehetővé teszi "
+"nagyméretű <i>tagok</i> elhelyezését egy kis szövegdobozba, hogy azok "
+"könnyebben áttekinthetők legyenek. Akkor célszerű használni, ha egy olyan, "
+"korábban elkészített <i>tagot</i> kell behelyezni, amelynek belső felépítése "
+"pillanatnyilag nem érdekes.</qt>"
+
+#: regexpbuttons.cpp:101
+#, kde-format
+msgid "Beginning of line"
+msgstr "Sor eleje"
+
+#: regexpbuttons.cpp:102
+#, kde-format
+msgid "<qt>This will match the beginning of a line.</qt>"
+msgstr "<qt>Illeszkedés sor elejéhez.</qt>"
+
+#: regexpbuttons.cpp:105
+#, kde-format
+msgid "End of line"
+msgstr "Sorvége"
+
+#: regexpbuttons.cpp:106
+#, kde-format
+msgid "<qt>This will match the end of a line.</qt>"
+msgstr "<qt>Illeszkedés sorvége-jelhez.</qt>"
+
+#: regexpbuttons.cpp:109
+#, kde-format
+msgid "Word boundary"
+msgstr "Szóelválasztó"
+
+#: regexpbuttons.cpp:110
+#, kde-format
+msgid ""
+"<qt>This asserts a word boundary (This part does not actually match any "
+"characters)</qt>"
+msgstr ""
+"<qt>Szó határához illeszkedik (nem rendelhető konkrét karakterhez)</qt>"
+
+#: regexpbuttons.cpp:113
+#, kde-format
+msgid "Non Word boundary"
+msgstr "Nem szóelválasztó"
+
+#: regexpbuttons.cpp:114
+#, kde-format
+msgid ""
+"<qt>This asserts a non-word boundary (This part does not actually match any "
+"characters)</qt>"
+msgstr ""
+"<qt>Nem szóalkotó részhez illeszkedik (nem rendelhető konkrét karakterhez)</"
+"qt>"
+
+#: regexpbuttons.cpp:118
+#, kde-format
+msgid "Positive Look Ahead"
+msgstr "Pozitív előrekeresés (look ahead)"
+
+#: regexpbuttons.cpp:119
+#, kde-format
+msgid ""
+"<qt>This asserts a regular expression (This part does not actually match any "
+"characters). You can only use this at the end of a regular expression.</qt>"
+msgstr ""
+"<qt>Ellenőrzi egy reguláris kifejezés helyességét (nem illeszkedik konkrétan "
+"semmihez). Csak reguláris kifejezés legvégén állhat.</qt>"
+
+#: regexpbuttons.cpp:123
+#, kde-format
+msgid "Negative Look Ahead"
+msgstr "Negatív előrekeresés (look ahead)"
+
+#: regexpbuttons.cpp:124
+#, kde-format
+msgid ""
+"<qt>This asserts a regular expression that must not match (This part does "
+"not actually match any characters). You can only use this at the end of a "
+"regular expression.</qt>"
+msgstr ""
+"<qt>Ellenőrzi, hogy egy reguláris kifejezés valóban nem illeszkedő-e (de nem "
+"illeszkedik konkrétan semmihez). Csak reguláris kifejezés legvégén állhat.</"
+"qt>"
+
+#: regexpeditorwindow.cpp:215
+#, kde-format
+msgid "There is no selection."
+msgstr "Semmi sincs kijelölve."
+
+#: regexpeditorwindow.cpp:215
+#, kde-format
+msgid "Missing Selection"
+msgstr "Semmi sincs kijelölve"
+
+#: regexpeditorwindow.cpp:280
+#, kde-format
+msgid "There is no widget under cursor."
+msgstr "Nincs grafikus elem az egérmutató alatt."
+
+#: regexpeditorwindow.cpp:280
+#, kde-format
+msgid "Invalid Operation"
+msgstr "Érvénytelen művelet"
+
+#: regexpeditorwindow.cpp:331
+#, kde-format
+msgid "C&ut"
+msgstr "Ki&vágás"
+
+#: regexpeditorwindow.cpp:335
+#, kde-format
+msgid "&Copy"
+msgstr "&Másolás"
+
+#: regexpeditorwindow.cpp:339
+#, kde-format
+msgid "&Paste"
+msgstr "&Beillesztés"
+
+#: regexpeditorwindow.cpp:345
+#, kde-format
+msgid "&Edit"
+msgstr "S&zerkesztés"
+
+#: regexpeditorwindow.cpp:349
+#, kde-format
+msgid "&Save Regular Expression..."
+msgstr "A reguláris kifejezés &mentése..."
+
+#: regexpeditorwindow.cpp:388
+#, kde-format
+msgid "Name for Regular Expression"
+msgstr "A reguláris kifejezés neve"
+
+#: regexpeditorwindow.cpp:388
+#, kde-format
+msgid "Enter name:"
+msgstr "Név:"
+
+#: regexpeditorwindow.cpp:390
+#, kde-format
+msgid "Empty name is not supported"
+msgstr ""
+
+#: regexpeditorwindow.cpp:390
+#, fuzzy, kde-format
+#| msgid "&Save Regular Expression..."
+msgid "Save Regular Expression"
+msgstr "A reguláris kifejezés &mentése..."
+
+#: regexpeditorwindow.cpp:398
+#, kde-format
+msgid "<p>Overwrite named regular expression <b>%1</b></p>"
+msgstr "<p>Felül szeretné írni a(z) <b>%1</b> reguláris kifejezést?</p>"
+
+#: regexpeditorwindow.cpp:406
+#, kde-format
+msgid "Could not open file for writing: %1"
+msgstr "Nem sikerült megnyitni a(z) %1 fájlt írásra."
+
+#: repeatregexp.cpp:57 repeatregexp.cpp:65
+#, kde-format
+msgid ""
+"<p>Value for attribute <b>%1</b> was not an integer for element <b>%2</b></"
+"p><p>It contained the value <b>%3</b></p>"
+msgstr ""
+"<p>A(z) <b>%1</b> attribútum értéke nem egész szám volt a(z) <b>%2</b> "
+"elemnél.</p><p>A tartalmazott érték: <b>%3</b></p>"
+
+#: repeatregexp.cpp:60 repeatregexp.cpp:68 textrangeregexp.cpp:146
+#: textregexp.cpp:54 widgetfactory.cpp:165 widgetfactory.cpp:196
+#: widgetfactory.cpp:203
+#, kde-format
+msgid "Error While Loading From XML File"
+msgstr "Hiba történt az XML fájlból való betöltés közben"
+
+#: repeatwidget.cpp:74
+#, kde-format
+msgid "Number of Times to Repeat Content"
+msgstr "A tartalom ismétlésének száma"
+
+#: repeatwidget.cpp:184
+#, kde-format
+msgid "Times to Match"
+msgstr "Az illeszkedések száma"
+
+#: repeatwidget.cpp:191
+#, kde-format
+msgid "Any number of times (including zero times)"
+msgstr "Akárhányszor (a 0-t is beleértve)"
+
+#: repeatwidget.cpp:198
+#, kde-format
+msgid "At least"
+msgstr "legalább"
+
+#: repeatwidget.cpp:199
+#, kde-format
+msgid "At most"
+msgstr "legfeljebb"
+
+#: repeatwidget.cpp:200
+#, kde-format
+msgid "Exactly"
+msgstr "pontosan"
+
+#: repeatwidget.cpp:203
+#, kde-format
+msgid "From"
+msgstr "Ettől"
+
+#: repeatwidget.cpp:215
+#, kde-format
+msgid "to"
+msgstr "eddig"
+
+#: repeatwidget.cpp:223 repeatwidget.cpp:249
+#, kde-format
+msgid "time(s)"
+msgstr "alkalommal"
+
+#: repeatwidget.cpp:299
+#, kde-format
+msgid "Repeated Any Number of Times"
+msgstr "akárhányszor ismétlődve"
+
+#: repeatwidget.cpp:301
+#, kde-format
+msgid "Repeated at Least 1 Time"
+msgid_plural "Repeated at Least %1 Times"
+msgstr[0] "Legalább 1 alkalommal ismétlődik"
+msgstr[1] "Legalább %1 alkalommal ismétlődik"
+
+#: repeatwidget.cpp:303
+#, kde-format
+msgid "Repeated at Most 1 Time"
+msgid_plural "Repeated at Most %1 Times"
+msgstr[0] "Legfeljebb 1 alkalommal ismétlődik"
+msgstr[1] "Legfeljebb %1 alkalommal ismétlődik"
+
+#: repeatwidget.cpp:305
+#, kde-format
+msgid "Repeated Exactly 1 Time"
+msgid_plural "Repeated Exactly %1 Times"
+msgstr[0] "Pontosan 1 alkalommal ismétlődik"
+msgstr[1] "Pontosan %1 alkalommal ismétlődik"
+
+#: repeatwidget.cpp:307
+#, kde-format
+msgid "Repeated From %1 to %2 Times"
+msgstr "%1..%2 alkalommal"
+
+#: textrangeregexp.cpp:145
+#, kde-format
+msgid ""
+"<p>Invalid sub element to element <b>TextRange</b>. Tag was <b>%1</b></p>"
+msgstr ""
+"<p>Érvénytelen al-elem a(z) <b>Szöveges tartomány</b> elemben. A tag: <b>%1</"
+"b></p>"
+
+#: textregexp.cpp:53
+#, kde-format
+msgid "<p>Element <b>Text</b> did not contain any textual data.</p>"
+msgstr "<p>A(z) <b>Szöveg</b> elem nem tartalmazott szöveges adatot.</p>"
+
+#: userdefinedregexps.cpp:67
+#, kde-format
+msgid "User Defined"
+msgstr "Felhasználó által megadott"
+
+#: userdefinedregexps.cpp:87
+#, kde-format
+msgid "general"
+msgstr "általános"
+
+#: userdefinedregexps.cpp:101
+#, kde-format
+msgid "Could not open file for reading: %1"
+msgstr "A(z) %1 fájlt nem sikerült olvasásra megnyitni."
+
+#: userdefinedregexps.cpp:111
+#, kde-format
+msgid "File %1 containing user defined regular expression contained an error"
+msgstr "A felhasználói reguláris kifejezést tartalmazó %1 fájl hibás"
+
+#: userdefinedregexps.cpp:154
+#, kde-format
+msgid "Rename"
+msgstr "Átnevezés"
+
+#: userdefinedregexps.cpp:195
+#, kde-format
+msgid "Rename Item"
+msgstr "Az elem átnevezése"
+
+#: userdefinedregexps.cpp:195
+#, kde-format
+msgid "New name:"
+msgstr "Új név:"
+
+#: userdefinedregexps.cpp:202
+#, kde-format
+msgid "<p>Overwrite named regular expression <b>%1</b>?</p>"
+msgstr "<p>Felül szeretné írni a(z) <b>%1</b> reguláris kifejezést?</p>"
+
+#: userdefinedregexps.cpp:202
+#, kde-format
+msgid "Do Not Overwrite"
+msgstr "Nem kell felülírni"
+
+#: verifybuttons.cpp:38
+#, kde-format
+msgid "Verify regular expression"
+msgstr "A reguláris kifejezés ellenőrzése"
+
+#: verifybuttons.cpp:39
+#, kde-format
+msgid ""
+"Shows what part of the regular expression is being matched in the "
+"<i>verifier window</i>.(The window below the graphical editor window)."
+msgstr ""
+"Megmutatja, hogy a megadott kifejezés mely része illeszkedik az "
+"<i>ellenőrzési ablakban</i> megadott szöveghez (amely a szerkesztési ablak "
+"alatt látható)."
+
+#: verifybuttons.cpp:48
+#, kde-format
+msgid "Load text in the verifier window"
+msgstr "Szöveg betöltése az ellenőrzési ablakba"
+
+#: verifybuttons.cpp:53
+#, kde-format
+msgid "Verification Settings"
+msgstr "Ellenőrzés beállítások"
+
+#: verifybuttons.cpp:101
+#, kde-format
+msgid "config menu"
+msgstr ""
+
+#: verifybuttons.cpp:104
+#, kde-format
+msgid "Verify on the Fly"
+msgstr "Automatikus ellenőrzés"
+
+#: verifybuttons.cpp:110
+#, kde-format
+msgid "Toggle on-the-fly verification of regular expression"
+msgstr "A kifejezés automatikus ellenőrzésének ki-be kapcsolása"
+
+#: verifybuttons.cpp:111
+#, kde-format
+msgid ""
+"Enabling this option will make the verifier update for each edit. If the "
+"verify window contains much text, or if the regular expression is either "
+"complex or matches a lot of time, this may be very slow."
+msgstr ""
+"Ha bejelöli ezt az opciót, az ellenőrzés minden módosításnál le fog futni. "
+"Ha az ellenőrző ablak túl sok szöveget tartalmaz, vagy a kifejezés "
+"bonyolult, esetleg nagyon sokszor illeszkedik, akkor ez igen sokáig "
+"eltarthat."
+
+#: verifybuttons.cpp:115
+#, kde-format
+msgid "Match Greedy"
+msgstr "Mohó illesztés"
+
+#: verifybuttons.cpp:120
+#, kde-format
+msgid "Toggle greedy matching when verifying the regular expression."
+msgstr "Mohó illesztés ki-be kapcsolása a reguláris kifejezés ellenőrzésekor."
+
+#: verifybuttons.cpp:121
+#, kde-format
+msgid ""
+"When this option is enabled, the regular expression will be evaluated on a "
+"so-called greedy way."
+msgstr ""
+"Ha ez a lehetőség engedélyezve van, a reguláris kifejezés az úgynevezett "
+"mohó módon lesz kiértékelve."
+
+#: verifybuttons.cpp:124
+#, kde-format
+msgid "RegExp Language"
+msgstr "Nyelv"
+
+#: widgetfactory.cpp:164
+#, kde-format
+msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
+msgstr ""
+"<p>Ismeretlen tag-et (<b>%1</b>) találtam az XML adatok beolvasásakor.</p>"
+
+#: widgetfactory.cpp:188
+#, kde-format
+msgid "Error while loading regular expression from XML."
+msgstr "Hiba történt a reguláris kifejezés XML-ből való betöltése közben."
+
+#: widgetfactory.cpp:189
+#, kde-format
+msgid "Error While Loading Regular Expression From XML"
+msgstr "Hiba történt a reguláris kifejezés XML-ből való betöltése közben"
+
+#: widgetfactory.cpp:195
+#, kde-format
+msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
+msgstr "<p>Az XML-fájl nem tartalmazott <b>%1</b> tag-et.</p>"
+
+#: widgetfactory.cpp:201
+#, kde-format
+msgid ""
+"<p>Error while reading XML file. The element just below the tag <b>%1</b> "
+"was not an element.</p>"
+msgstr ""
+"<p>Hiba történt az XML fájl beolvasása közben. A(z) <b>%1</b> tag alatti "
+"elem érvénytelen volt.</p>"
+
+#: zerowidgets.cpp:72
+#, kde-format
+msgid ""
+"Any\n"
+"Character"
+msgstr ""
+"Bármely\n"
+"karakter"
+
+#: zerowidgets.cpp:85
+#, kde-format
+msgid ""
+"Line\n"
+"Start"
+msgstr ""
+"Sor\n"
+"eleje"
+
+#: zerowidgets.cpp:98
+#, kde-format
+msgid ""
+"Line\n"
+"End"
+msgstr ""
+"Sor\n"
+"vége"
+
+#: zerowidgets.cpp:111
+#, kde-format
+msgid ""
+"Word\n"
+"Boundary"
+msgstr ""
+"Szó-\n"
+"elválasztó"
+
+#: zerowidgets.cpp:124
+#, kde-format
+msgid ""
+"Non-word\n"
+"Boundary"
+msgstr ""
+"Nem\n"
+"szóelválasztó"
+
+#~ msgid "Clear expression"
+#~ msgstr "A kifejezés törlése"
+
+#~ msgid "from "
+#~ msgstr "ettől "
+
+#~ msgid " to "
+#~ msgstr " eddig "
+
+#~ msgid ""
+#~ "Error while loading regular expression from XML. Most probably the "
+#~ "regular expression had unmatched tags."
+#~ msgstr ""
+#~ "Hiba történt a reguláris kifejezés XML-ből való betöltése közben. "
+#~ "Valószínűleg az egyik tag párja hiányzik."
+
+#~ msgid "Overwrite"
+#~ msgstr "Felülírás"
+
+#~ msgid "Settings"
+#~ msgstr "Beállítások"

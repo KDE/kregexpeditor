@@ -1,0 +1,929 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % Spanish "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kregexpeditor" lang="&language;">
+
+  <bookinfo>
+    <title
+>Manual del editor de expresiones regulares</title>
+
+    <authorgroup>
+      <author
+><firstname
+>Jesper K.</firstname
+> <surname
+>Pedersen</surname
+> <affiliation
+><address
+>&Jesper.Pedersen.mail;</address
+></affiliation>
+      </author>
+<othercredit role="translator"
+><firstname
+>Eloy</firstname
+> <surname
+>Cuadra</surname
+> <affiliation
+><address
+> <email
+>ecuadra@eloihr.net</email
+></address
+> </affiliation
+><contrib
+>Traductor</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>Kira</firstname
+><surname
+>J. Fernández</surname
+><affiliation
+><address
+><email
+>kirajfdez@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traductora</contrib
+></othercredit
+> 
+    </authorgroup>
+
+    <date
+>2001-07-03</date>
+    <releaseinfo
+>0.1</releaseinfo>
+
+    <legalnotice
+>&underFDL;</legalnotice>
+
+    <copyright>
+      <year
+>2001</year>
+      <holder
+>Jesper K. Pedersen</holder>
+    </copyright>
+
+    <abstract>
+      <para
+>Este manual describe la ventana del editor de expresiones regulares</para>
+    </abstract>
+
+    <keywordset>
+      <keyword
+>KDE</keyword>
+      <keyword
+>expresión regular</keyword>
+    </keywordset>
+  </bookinfo>
+
+  <!-- ====================================================================== -->
+  <!--                               Introduction                             -->
+  <!-- ====================================================================== -->
+  <chapter id="introduction">
+    <title
+>Introducción</title>
+
+
+    <para
+>El editor de expresiones regulares le permite editar expresiones regulares en modo gráfico (en contraste con la sintaxis <acronym
+>ASCII</acronym
+>). Tradicionalmente, las expresiones regulares han sido escritas con la sintaxis <acronym
+>ASCII</acronym
+>, algo que, por ejemplo, quedaría como <literal
+>^.*kde\b</literal
+>. Los principales inconvenientes de esta forma de edición son: <itemizedlist>
+        <listitem
+><para
+>Es difícil de entender para los que no son programadores.</para
+></listitem>
+
+        <listitem
+><para
+>Requiere el uso de secuencias de <emphasis
+>escape</emphasis
+> para ciertos símbolos (para representar un asterisco, por ejemplo, se necesitaría escribir: <literal
+>\*</literal
+>). </para
+></listitem>
+
+        <listitem
+><para
+>Requiere que recuerde reglas de <emphasis
+>precedencia</emphasis
+> (¿Qué representaría <literal
+>x|y*</literal
+>? Una única <literal
+>x</literal
+> o cualquier número de <literal
+>y</literal
+>, <emphasis
+>O</emphasis
+> cualquier número de <literal
+>x</literal
+> e <literal
+>y</literal
+> mezcladas?).</para
+></listitem>
+      </itemizedlist>
+    </para>
+
+    <para
+>Por el contrario, el editor de expresiones regulares le permite <emphasis
+>dibujar</emphasis
+> su expresión regular de una forma clara. El editor resuelve expresiones de más de dos o tres elementos. Aun así, no puede hacer que los no programadores entiendan las expresiones regulares, aunque solo las pruebas de los usuarios pueden decidir sobre este punto. Así, si usted no es un programador y ha alcanzado el dominio de las expresiones regulares gracias a este editor, le ruego que <ulink url="mailto:blackie@kde.org"
+>me lo haga saber</ulink
+>. </para>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                       What is a Regular Expression                     -->
+  <!-- ====================================================================== -->
+  <chapter id="whatIsARegExp">
+    <title
+>¿Qué es una expresión regular?</title>
+
+    <para
+>Una expresión regular es una forma de especificar <emphasis
+>condiciones </emphasis
+> para representar una situación que tiene en mente. Normalmente, cuando busca en un editor de texto, especifica el texto que va a buscar <emphasis
+>literalmente</emphasis
+>; por otra parte, al usar expresiones regulares, puede indicar que se busque un patrón determinado. Ejemplos de estas búsquedas son <emphasis
+>estoy buscando la palabra &kde;, pero solo al principio de la línea</emphasis
+>, o <emphasis
+>estoy buscando la palabra <literal
+>el</literal
+>, pero debe aparecer sola y no en medio de una palabra </emphasis
+>, o <emphasis
+>estoy buscando archivos que empiecen con la palabra <literal
+>prueba</literal
+>, seguida por un número de dígitos, por ejemplo <literal
+>prueba12</literal
+>, <literal
+>prueba107</literal
+> y <literal
+>prueba007</literal
+></emphasis
+>.</para>
+
+    <para
+>Puede construir expresiones regulares complejas a partir de expresiones regulares más sencillas, tal y como se construyen los juguetes Lego grandes a partir de otros más pequeños. Como en el mundo de Lego, existe un número de bloques de construcción básicos. A continuación se describirá cada uno de estos bloques de construcción básicos usando ejemplos.</para>
+
+    <example>
+      <title
+>Buscando un texto normal.</title>
+      <para
+>Si solo quiere buscar un texto dado, una expresión regular no es una buena elección, debido a que las expresiones regulares asignan un significado especial a algunos caracteres, como <literal
+>.*|$</literal
+>. Por lo tanto, si desea buscar el texto <literal
+>kde.</literal
+> (es decir, los caracteres <literal
+>kde</literal
+> seguidos por un punto), necesita especificarlo como <literal
+>kde\.</literal
+><footnote
+><para
+>El editor de expresiones regulares soluciona este problema teniendo en cuenta las reglas de escape por usted. </para
+></footnote
+> La acción de escribir <literal
+>\.</literal
+> en lugar de<literal
+>.</literal
+> se denomina <emphasis
+>escapar</emphasis
+>. </para>
+    </example>
+
+    <example id="positionregexp">
+      <title
+>Coincidencia de &URL;s</title>
+      <para
+>Cuando seleccione algo semejante a un &URL; en &kde;, el programa <command
+>klipper</command
+> le ofrecerá la posibilidad de iniciar <command
+>konqueror</command
+> con el &URL; seleccionado.</para>
+
+      <para
+><command
+>Klipper</command
+> hace esto buscando una coincidencia de la selección entre varias expresiones regulares diferentes. Cuando una de las expresiones regulares coincide, se le ofrecerá la posibilidad de ejecutar el comando que se amolde a ella.</para>
+      
+      <para
+>La expresión regular para &URL;s dice (entre otras cosas), que la selección debe comenzar con el texto <literal
+>http://</literal
+>. En las expresiones regulares, esto se indica precediendo al texto <literal
+>http://</literal
+> con el carácter <literal
+>^</literal
+>.</para>
+
+      <para
+>El ejemplo anterior es una muestra de coincidencia con posiciones usando expresiones regulares. Del mismo modo, la posición <emphasis
+>fin-de-línea</emphasis
+> se puede expresar usando el carácter <literal
+>$</literal
+> (es decir, un símbolo de dólar).</para>
+    </example>
+
+    <example id="boundaryregexp">
+      <title
+>Buscar la palabra <literal
+>el</literal
+>, pero no en <emphasis
+>el</emphasis
+><literal
+>la</literal
+>, <literal
+>aqu</literal
+><emphasis
+>el</emphasis
+> ni <literal
+>s</literal
+><emphasis
+>el</emphasis
+><literal
+>lo</literal
+>.</title>
+      <para
+>Se pueden indicar dos tipos de posición extra en la forma anterior, llamadas <emphasis
+>la posición en el límite de la palabra</emphasis
+> y <emphasis
+>posición <emphasis
+>no</emphasis
+> en el límite de la palabra</emphasis
+>. Estas posiciones se especifican usando <literal
+>\b</literal
+> (para límite de palabra) y <literal
+>\B</literal
+> (para no límite de palabra)</para>
+
+      <para
+>Por tanto, la búsqueda de la palabra <literal
+>el</literal
+> se puede hacer usando la expresión regular <literal
+>\bel\b</literal
+>. Esto especifica que se está buscando <literal
+>el</literal
+> sin letras a ambos lados (es decir, con un límite de palabra a cada lado).</para>
+
+      <para
+>Estas cuatro posiciones de búsqueda se pueden insertar en el editor de expresiones regulares usando <link linkend="positiontool"
+>cuatro herramientas de posición diferentes</link
+>.</para>
+    </example>
+
+    <example id="altnregexp">
+      <title
+>Buscar <literal
+>este</literal
+> o <literal
+>ese</literal
+></title>
+      <para
+>Imagine que quiere recorrer su documento buscando la palabra <literal
+>este</literal
+> o la palabra <literal
+>ese</literal
+>. Con un método de búsqueda normal puede hacerlo en dos pasos: en el primero buscaría <literal
+>este</literal
+>; y en el segundo buscaría <literal
+>ese</literal
+>.</para>
+
+      <para
+>Si usa expresiones regulares, podrá buscar ambas palabras en un solo paso. Puede hacer esto buscando <literal
+>este|ese</literal
+>. &ie;, separando las dos palabras con una barra vertical.<footnote
+><para
+>Tenga en cuenta que a cada lado de la barra vertical hay una expresión regular. Por tanto, esta característica no sirve solo para buscar dos o más trozos de texto, sino para buscar dos expresiones regulares diferentes.</para
+></footnote
+></para>
+
+      <para
+>En el editor de expresiones regulares no tendrá que escribir la barra vertical: seleccione en su lugar la <link linkend="altntool"
+>herramienta alternativa</link
+>, e inserte las dos expresiones regulares una encima de la otra.</para>
+    </example>
+
+    <example id="repeatregexp">
+      <title
+>Coincidir con cualquier cosa</title>
+      <para
+>Las expresiones regulares se suelen comparar con la búsqueda mediante comodines de la shell (la posibilidad de especificar un número de archivos usando el asterisco). Seguramente reconocerá los comodines de búsqueda de los siguientes ejemplos: <itemizedlist>
+          <listitem
+><para
+><literal
+>ls *.txt</literal
+> (aquí <literal
+>*.txt</literal
+> es el comodín de la consola para referirse a cualquier nombre de archivo que termine con la extensión <literal
+>.txt</literal
+>)</para
+></listitem>
+          <listitem
+><para
+><literal
+>cat test??.res</literal
+> se refiere a cualquier archivo que empiece con <literal
+>test</literal
+> seguido de dos caracteres cualesquiera, y que termine con <literal
+>.res</literal
+></para
+></listitem>
+        </itemizedlist>
+      </para>
+
+      <para
+>En la shell, el asterisco se refiere a cualquier carácter repetido cualquier número de veces. En otras palabras, el asterisco coincide con <emphasis
+>cualquier cosa</emphasis
+>. Esto se escribe como <literal
+>.*</literal
+> en la sintaxis de las expresiones regulares. El punto coincide con cualquier carácter aislado (&ie;, <emphasis
+>un</emphasis
+> carácter), y el asterisco le indica a la expresión regular que lo que haya antes de él puede repetirse cualquier número de veces. En conjunto, esto quiere decir cualquier carácter aislado repetido cualquier número de veces.</para>
+
+      <para
+>Esto puede parecer demasiado complicado, pero cuando tenga una perspectiva más adecuada, notará su potencia. Veamos otra expresión regular básica: <literal
+>a</literal
+>. La letra <literal
+>a</literal
+>, por sí misma, es una expresión regular que coincide con una sola letra, exactamente con la letra <literal
+>a</literal
+>. Si la combinamos con un asterisco (&ie;, <literal
+>a*</literal
+>), tendremos una expresión regular que representa a cualquier número de aes.</para>
+
+      <para
+>Podemos combinar varias expresiones regulares, una tras otra. Por ejemplo, <literal
+>ba(na)*</literal
+>. <footnote
+><para
+><literal
+>(na)*</literal
+> solo indica que lo que está dentro del paréntesis se repite cualquier número de veces.</para
+></footnote
+> Imagine que ha tecleado esta expresión regular en el campo de búsqueda de un editor de texto; en tal caso, encontrará las siguientes palabras (entre otras): <literal
+>ba</literal
+>, <literal
+>bana</literal
+>, <literal
+>banana</literal
+>, <literal
+>bananananananana</literal
+>. </para>
+
+      <para
+>Teniendo en cuenta la información anterior, no le será difícil escribir el comodín de la shell <literal
+>test??.res</literal
+> como una expresión regular. Respuesta: <literal
+>test..\.res</literal
+>. El punto por sí solo representa a cualquier carácter. Para representar un único punto debe escribir <literal
+>\.</literal
+><footnote
+><para
+>Esto se llama escapar</para
+> </footnote
+>. En otras palabras, la expresión regular <literal
+>\.</literal
+> representa a un punto, mientras que el punto por sí mismo representa a cualquier carácter. </para>
+
+      <para
+>En el editor de expresiones regulares, se pueden crear expresiones regulares repetidas usando la <link linkend="repeattool"
+>herramienta repetir</link
+> </para>
+    </example>
+
+    <example id="lookaheadregexp">
+      <title
+>Sustitución de <literal
+>&amp;</literal
+> por <literal
+>&amp;amp;</literal
+> en un documento &HTML;</title
+> <para
+>En &HTML;, el carácter especial <literal
+>&amp;</literal
+> se debe escribir como <literal
+>&amp;amp;</literal
+> (que es similar a escapar en una expresión regular).</para>
+
+      <para
+>Imagine que ha escrito un documento &HTML; en un editor normal (por ejemplo, &XEmacs; o &kate;), y olvidó completamente esta regla. Lo que hará cuando se dé cuenta de su error será reemplazar cada aparición de <literal
+>&amp;</literal
+> por <literal
+>&amp;amp;</literal
+>.</para>
+
+      <para
+>Esto se puede hacer fácilmente usando la herramienta de buscar y reemplazar texto, pero existe un problema. Imagine que recordó esta regla (<emphasis
+>alguna vez</emphasis
+>) y lo escribió bien en algunas ocasiones. El reemplazo incondicional haría que <literal
+>&amp;amp;</literal
+> se cambiara por <literal
+>&amp;amp;amp;</literal
+>.</para>
+
+      <para
+>Lo que verdaderamente querría hacer es que <literal
+>&amp;</literal
+> solo se cambie si <emphasis
+>no</emphasis
+> está seguido por las letras <literal
+>amp;</literal
+>. Puede hacer esto usando expresiones regulares con la herramienta <emphasis
+>afirmación previa positiva</emphasis
+>. </para>
+
+      <para
+>La expresión regular que solo representa a un «ampersand» si no está seguido por las letras <literal
+>amp;</literal
+> sería: <literal
+>&amp;(?!amp;)</literal
+>. Esto es, por supuesto, más fácil de leer en el editor de expresiones regulares, donde usaría las <link linkend="lookaheadtools"
+>herramientas de afirmación previa</link
+>.</para>
+    </example>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                    Using the Regular Expression Editor                 -->
+  <!-- ====================================================================== -->
+  <chapter id="theEditor">
+    <title
+>Uso del editor de expresiones regulares</title>
+
+    <para
+>Este capítulo le mostrará cómo funciona el editor de expresiones regulares. </para>
+
+    <!-- ====================================================================== -->
+    <!--                   The organization of the screen                       -->
+    <!-- ====================================================================== -->
+    <sect1 id="screenorganization">
+      <title
+>Organización de la ventana</title>
+
+      <mediaobject>
+        <imageobject
+><imagedata format="PNG" fileref="theEditor.png"/></imageobject>
+      </mediaobject>
+      
+      <para
+>La parte más importante del editor es, por supuesto, el área de edición. Aquí es donde dibujará sus expresiones regulares. Es el área gris más grande del centro.</para>
+
+      <para
+>Sobre el área de edición tiene dos barras de herramientas. La primera contiene las <link linkend="editingtools"
+>acciones de edición</link
+> (similares a las herramientas existentes en un programa de dibujo). La segunda barra de herramientas contiene el botón <emphasis
+>qué es esto</emphasis
+> y los botones para deshacer y rehacer.</para>
+
+      <para
+>Debajo del área de edición encontrará la expresión regular construida actualmente en formato de sintaxis ASCII, que se actualiza automáticamente mientras está editando la expresión regular en el editor gráfico. Si prefiere actualizar a mano la expresión ASCII, puede hacerlo directamente: el editor gráfico se actualizará al vuelo para reflejar sus cambios.</para>
+
+      <para
+>Finalmente, a la izquierda del área de edición encontrará algunas expresiones regulares previamente construidas. Sirven para dos propósitos: (1) Cuando cargue el editor con una expresión regular, esta expresión regular se hace <emphasis
+>más fácil</emphasis
+> o más comprensible al reemplazar las expresiones regulares comunes. En la captura de pantalla de arriba, puede ver cómo la sintaxis ASCII «.*» ha sido reemplazada por un cuadro donde pone «cualquier cosa». (2) Cuando inserta una expresión regular, puede encontrar bloques de construcción para sus propias expresiones regulares en el juego de expresiones regulares previamente construidas. Vea la sección sobre <link linkend="userdefinedregexps"
+>expresiones regulares definidas por el usuario</link
+> para aprender a guardar sus propias expresiones regulares.</para
+>      
+    </sect1>
+
+    <!-- ====================================================================== -->
+    <!--                         Editing Tools                                  -->
+    <!-- ====================================================================== -->
+    <sect1 id="editingtools">
+      <title
+>Herramientas de edición</title>
+      <para
+>El texto de esta sección supone que ha leído el capítulo sobre <link linkend="whatIsARegExp"
+>qué es una expresión regular</link
+>, o que tiene un conocimiento previo de ese tema.</para>
+      
+      <para
+>Todas las herramientas de edición están localizadas en la barra de herramientas que hay sobre el área de edición. A continuación se describirá cada una de ellas.</para>
+      
+      
+
+      <simplesect id="selecttool">
+        <title
+>Herramienta selección</title>
+	<mediaobject>
+            <imageobject
+><imagedata format="PNG" fileref="select.png"/>
+        </imageobject
+></mediaobject>
+        <para
+>La herramienta de selección se usa para marcar elementos que se podrán copiar-y-pegar, o arrastrar-y-soltar. Es similar a la herramienta de selección de cualquier programa de dibujo.</para>
+      </simplesect>
+        
+      
+
+      <simplesect id="texttool"
+><title
+>Herramienta texto</title>
+      <mediaobject>
+      <imageobject>
+	    <imagedata format="PNG" fileref="text.png"/>
+	</imageobject
+></mediaobject>
+		        
+        <para
+><inlinemediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="texttool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Con esta herramienta podrá insertar texto normal. Este texto se hará coincidir literalmente, por lo que no tiene que preocuparse de escapar caracteres especiales. En el ejemplo anterior, se construirá la siguiente expresión regular: <literal
+>abc\*\\\)</literal
+></para>
+      </simplesect>
+
+      
+
+      <simplesect id="characterstool"
+><title
+>Herramienta carácter</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="characters.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="charactertool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Con esta herramienta podrá insertar rangos de caracteres. Los ejemplos incluyen lo que en texto ASCII se expresa <literal
+>[0-9]</literal
+>, <literal
+>[^a-zA-Z,_]</literal
+>. Cuando se inserte un elemento con esta herramienta, aparecerá un diálogo en el que puede especificar los rangos de caracteres.</para>
+        
+        <para
+>Vea la descripción de <link linkend="repeatregexp"
+>expresiones regulares repetidas</link
+>.</para>
+      </simplesect>
+
+      
+      
+      <simplesect id="anychartool"
+><title
+>Herramienta cualquier carácter</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="anychar.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="anychartool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Esta es la expresión regular «punto» (.). Representa a cualquier carácter.</para
+> 
+        
+       
+        
+        </simplesect>
+
+
+
+      <simplesect id="repeattool"
+><title
+>Herramienta repetir</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeat.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeattool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Permite repetir elementos. Esto incluye lo que en sintaxis ASCII se representa usando un asterisco (*), un signo más (+), una interrogación (?), y rangos ({3,5}). Cuando inserte un elemento usando esta herramienta, aparecerá un diálogo pidiéndole el número de veces que se repetirá.</para>
+          
+          <para
+>Especifique qué se repetirá dibujándolo dentro de la caja que inserta esta herramienta.</para>
+
+          <para
+>Los elementos repetidos se pueden construir tanto fuera como dentro de esta caja. Así, puede dibujar primero lo que quiere repetir, seleccionarlo, y utilizar luego la herramienta para repetirlo. Alternativamente, puede insertar primero el elemento repetir y dibujar dentro de él lo que quiera repetir.</para>
+
+        <para
+>Vea la descripción de <link linkend="repeatregexp"
+>expresiones regulares repetidas</link
+>.</para>
+        </simplesect>
+
+
+
+
+      <simplesect id="altntool"
+><title
+>Herramienta alternativa</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="altn.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="altntool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Esta es la expresión regular alternativa (|). Debe especificar las alternativas dibujando cada una de ellas encima de la otra dentro de la caja que inserta esta herramienta.</para>
+
+        <para
+>Vea la descripción de <link linkend="altnregexp"
+>expresiones regulares alternativas</link
+></para>
+      </simplesect>
+      
+
+
+
+      <simplesect id="compoundtool"
+><title
+>Herramienta componer</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="compound.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="compoundtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>La herramienta componer no representa ninguna expresión regular. Se utiliza para agrupar otras subpartes en el interior de una caja, que se puede contraer fácilmente para mostrar solo su título. Esto se puede ver en la parte derecha de la captura de pantalla anterior.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="positiontool"
+><title
+>Herramientas de inicio/fin de línea</title>
+        <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="begline.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="endline.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="linestartendtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Las herramientas de inicio y fin de línea coinciden con el comienzo y el final de la línea, respectivamente. La expresión regular de la captura de pantalla anterior representa a líneas que solo contienen espacios.</para>
+        
+        <para
+>Vea la descripción de <link linkend="positionregexp"
+>expresiones regulares de posición</link
+>.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect
+><title
+>Herramientas de (no) límite de palabra</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="wordboundary.png"/>
+            </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+><imagedata format="PNG" fileref="nonwordboundary.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="boundarytools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Las herramientas de límites coinciden respectivamente o no con un límite de palabra. La expresión regular de la captura de pantalla representa a cualquier palabra que comience con <literal
+>el</literal
+>. Sin embargo, la palabra <literal
+>el</literal
+> aislada, no estaría representada.</para>
+
+        <para
+>Vea la descripción de <link linkend="boundaryregexp"
+>expresiones regulares de límites</link
+>.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="lookaheadtools"
+><title
+>Herramientas de afirmación previa positiva/negativa</title>
+	  <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="poslookahead.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="neglookahead.png"/>
+        </imageobject
+></mediaobject>
+
+        <para
+><inlinemediaobject
+><imageobject
+> <imagedata format="PNG" fileref="lookaheadtools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Las herramientas de afirmación previa especifican una expresión regular positiva o negativa a buscar. La coincidencia, sin embargo, no es parte de la coincidencia total.</para>
+
+        <para
+>Nota: Solo se permite colocar afirmaciones previas al final de las expresiones regulares, aunque el editor de expresiones regulares tiene esto en cuenta.</para>
+
+        <para
+>Vea la descripción de <link linkend="lookaheadregexp"
+>expresiones regulares de afirmación previa</link
+>.</para>
+      </simplesect>
+    </sect1>
+
+  <!-- ====================================================================== -->
+  <!--                  User Defined Regular Expressions                      -->
+  <!-- ====================================================================== -->
+    <sect1 id="userdefinedregexps">
+      <title
+>Expresiones regulares definidas por el usuario</title>
+      <para
+>A la izquierda del área de edición hay una lista que contiene las expresiones regulares definidas por el usuario. Algunas de estas expresiones regulares se preinstalaron en el momento en que instaló &kde;, mientras que otras las puede guardar usted.</para
+> 
+
+      <para
+>Estas expresiones regulares sirven para dos propósitos (<link linkend="screenorganization"
+>vea la descripción detallada</link
+>): (1) para ofrecerle un juego de bloques de construcción, y (2) para hacer las expresiones regulares más sencillas.</para>
+
+      <para
+>Puede guardar sus propias expresiones regulares haciendo clic con el botón derecho del ratón en el área de edición y seleccionando <literal
+>Guardar la expresión regular</literal
+>.</para>
+
+      <para
+>Si la expresión regular que está guardando está dentro de un <link linkend="compoundtool"
+>contenedor compuesto</link
+>, la expresión regular se encargará de hacer las subsiguientes expresiones regulares más sencillas.</para>
+
+      <para
+>Las expresiones regulares definidas por el usuario se pueden borrar o cambiar de nombre pulsando el botón derecho del ratón sobre ellas en la lista.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                  Reporting a bug and Suggesting Features               -->
+  <!-- ====================================================================== -->
+  <chapter id="bugreport">
+    <title
+>Informando de errores y sugiriendo características</title>
+    <para
+>Los errores y las peticiones de nuevas funcionalidades deben hacerse a través del <ulink url="http://bugs.kde.org/"
+>sistema de seguimiento de fallos de &kde;</ulink
+>. <emphasis role="strong"
+>Antes</emphasis
+> de informar de un error o sugerir una funcionalidad, compruebe que nadie ha <ulink url="http://bugs.kde.org/buglist.cgi?quicksearch=kregexpeditor"
+>informado o sugerido</ulink
+> lo mismo con anterioridad.</para>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                                 FAQ                                    -->
+  <!-- ====================================================================== -->
+  <chapter id="faq">
+    <title
+>Preguntas frecuentes</title>
+    <sect1 id="question1">
+      <title
+>¿Soporta el editor de expresiones regulares referencias hacia atrás?</title>
+      <para
+>No, por el momento no están soportadas. Está planeado para la siguiente versión.</para>
+    </sect1>
+
+    <sect1 id="question2">
+      <title
+>¿Soporta el editor de expresiones regulares mostrar las coincidencias?</title>
+      <para
+>No, pero con suerte estará disponible en la próxima versión</para>
+    </sect1>
+
+    <sect1 id="question3">
+      <title
+>Soy el autor de un programa de &kde;. ¿Cómo puedo usar este editor en mi aplicación?</title>
+      <para
+>Vea <ulink url="http://developer.kde.org/documentation/library/cvs-api/classref/interfaces/KRegExpEditorInterface.html"
+>la documentación para la clase KRegExpEditorInterface</ulink
+>.</para>
+    </sect1>
+
+    <sect1 id="question4">
+      <title
+>No puedo encontrar el botón <emphasis
+>Editar expresión regular</emphasis
+> en, por ejemplo, Konqueror en otra instalación de KDE3. ¿Por qué?</title>
+      <para
+>El editor de expresiones regulares se encuentra en el paquete &kde;-utils. Si no ha instalado este paquete, los botones de <emphasis
+>editar expresiones regulares</emphasis
+> no aparecerán en los programas.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                           Credits and Licenses                         -->
+  <!-- ====================================================================== -->
+  <chapter id="credits-and-license">
+    <title
+>Créditos y licencia</title>
+
+    <para
+>Copyright de la documentación 2001, Jesper K. Pedersen &Jesper.Pedersen.mail; </para>
+
+
+<para
+>Traducido por Eloy Cuadra <email
+>ecuadra@eloihr.net</email
+> y Kira J. Fernández <email
+>kirajfdez@gmail.com</email
+>.</para
+> 
+&underFDL; &underGPL; </chapter>
+
+
+</book>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

@@ -1,0 +1,908 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % German "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kregexpeditor" lang="&language;">
+
+  <bookinfo>
+    <title
+>Das Handbuch zum Editor für reguläre Ausdrücke</title>
+
+    <authorgroup>
+      <author
+><firstname
+>Jesper K.</firstname
+> <surname
+>Pedersen</surname
+>  <affiliation
+><address
+>&Jesper.Pedersen.mail;</address
+></affiliation>
+      </author>
+<othercredit role="translator"
+><firstname
+>Gregor</firstname
+><surname
+>Zumstein</surname
+><affiliation
+><address
+><email
+>zumstein@ssd.ethz.ch</email
+></address
+></affiliation
+><contrib
+>Übersetzung</contrib
+></othercredit
+> 
+    </authorgroup>
+
+    <date
+>2001-07-03</date>
+    <releaseinfo
+>0.1</releaseinfo>
+
+    <legalnotice
+>&underFDL;</legalnotice>
+
+    <copyright>
+      <year
+>2001</year>
+      <holder
+>Jesper K. Pedersen</holder>
+    </copyright>
+
+    <abstract>
+      <para
+>Dieses Handbuch beschreibt die Benutzung des Editors für reguläre Ausdrücke</para>
+    </abstract>
+
+    <keywordset>
+      <keyword
+>KDE</keyword>
+      <keyword
+>regulärer Ausdruck</keyword>
+    </keywordset>
+  </bookinfo>
+
+  <!-- ====================================================================== -->
+  <!--                               Introduction                             -->
+  <!-- ====================================================================== -->
+  <chapter id="introduction">
+    <title
+>Einführung</title>
+
+
+    <para
+>Mit dem Editor für reguläre Ausdrücke können reguläre Ausdrücke mit grafischer Unterstützung zusammengestellt werden und müssen nicht mit komplizierten und kryptischen Zeichenfolgen definiert werden (Dies sieht zum Beispiel etwa so aus: <literal
+>^.*kde\b</literal
+>.) Die hauptsächlichen Nachteile dieser Art sind: <itemizedlist>
+        <listitem
+><para
+>Es ist für Nicht-Programmierer schwierig zu verstehen.</para
+></listitem>
+
+        <listitem
+><para
+>Sie müssen manche Zeichen speziell kennzeichnen (um zum Beispiel einen Stern zu finden, müssen Sie <literal
+>\*</literal
+> tippen). </para
+></listitem>
+
+        <listitem
+><para
+>Sie müssen sich die Regeln für die <emphasis
+>Reihenfolge</emphasis
+> merken. (Was trifft auf <literal
+>x|y*</literal
+> zu? Ein einzelnes <literal
+>x</literal
+> oder eine Anzahl <literal
+>y</literal
+>, <emphasis
+>ODER</emphasis
+> eine Anzahl <literal
+>x</literal
+> und <literal
+>y</literal
+>'s gemischt?)</para
+></listitem>
+      </itemizedlist>
+    </para>
+
+    <para
+>Mit dem Editor für reguläre Ausdrücke können Sie reguläre Ausdrücke auf eindeutige Weise <emphasis
+>zeichnen</emphasis
+>. Der Editor löst zumindest die beiden letzten Probleme. Ob dieser Editor reguläre Ausdrücke für Nicht-Programmierer zugänglich macht, weiß der Autor nicht. Falls Sie aber ein Nicht-Programmierer sind, der dank diesem Editor reguläre Ausdrücke verwenden kann, schicken sie <ulink url="mailto:blackie@kde.org"
+>ihm</ulink
+> bitte eine kurze Nachricht. </para>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                       What is a Regular Expression                     -->
+  <!-- ====================================================================== -->
+  <chapter id="whatIsARegExp">
+    <title
+>Was ein regulärer Ausdruck ist</title>
+
+    <para
+>Ein regulärer Ausdruck ist ein Weg <emphasis
+>Bedingungen</emphasis
+> anzugeben, die für eine bestimmte Situation erfüllt sein müssen. Im normalen Suchdialog eines Texteditors können sie nur nach <emphasis
+>genau</emphasis
+> der eingegebenen Zeichenfolge suchen. Mit einem regulären Ausdruck hingegen geben Sie an wie das Suchergebnis aussehen soll. Beispiele hierfür sind: Suche das Wort <emphasis
+>&kde;, aber nur am Zeilenanfang</emphasis
+>. Oder <emphasis
+>suche das Wort <literal
+>der</literal
+>, aber nur wenn es allein steht</emphasis
+>. Oder suche <emphasis
+>alle Dateien, die mit <literal
+>test</literal
+> beginnen und danach eine beliebige Anzahl Ziffern haben, wie <literal
+>test107</literal
+> und <literal
+>test007</literal
+></emphasis
+>.</para>
+
+    <para
+>Reguläre Ausdrücke werden zusammengesetzt aus kleineren regulären Ausdrücken, genau so wie Lego-Bauwerke aus kleineren Teilen zusammengesetzt werden. Genau wie bei Lego gibt es auch für reguläre Ausdrücke elementare Bausteine. Diese werden im folgenden anhand von Beispielen vorgestellt.</para>
+
+    <example>
+      <title
+>Suche nach normalem Text.</title>
+      <para
+>Wenn nur nach einem bestimmten Text gesucht werden soll, sind reguläre Ausdrücke keine sonderlich gute Wahl. Grund dafür ist, dass in regulären Ausdrücken gewisse Zeichen eine Spezialbedeutung besitzen. Diese sind <literal
+>.*|$</literal
+>. Wenn also nach dem Text <literal
+>kde.</literal
+> (also den Zeichen <literal
+>kde</literal
+> gefolgt von einem Punkt), gesucht werden soll, muss dies als <literal
+>kde\.</literal
+> angegeben werden.<footnote
+><para
+>Der Editor für reguläre Ausdrücke übernimmt dieses so genannte Escapen für Sie</para
+></footnote
+>. Das Schreiben von <literal
+>\.</literal
+> anstelle von <literal
+>.</literal
+> nennt man <emphasis
+>Escaping</emphasis
+> oder <emphasis
+>Maskieren</emphasis
+>. </para>
+    </example>
+
+    <example id="positionregexp">
+      <title
+>Finden von &URL;s</title>
+      <para
+>Wenn Sie in &kde; etwas das wie eine &URL; aussieht auswählen, so ermöglicht Ihnen &klipper;, diese ausgewählte &URL; mit &konqueror; zu öffnen.</para>
+
+      <para
+>&klipper; ermöglicht dies, indem es den ausgewählten Text mit mehreren verschiedenen regulären Ausdrücken vergleicht und bei Übereinstimmung eine der URL entsprechende Funktion anbietet.</para>
+      
+      <para
+>Der reguläre Ausdruck für &URL;s sagt (unter anderem), dass die Adresse mit <literal
+>http://</literal
+> starten muss. Dies wird durch den regulären Ausdruck erreicht, der ein Dach <literal
+>^</literal
+>vor das <literal
+>http://</literal
+>setzt.</para>
+
+      <para
+>Die erwähnte Anwendung ist ein Beispiel bei dem die Position übereinstimmen muss. Auf ähnliche Weise kann auch das <emphasis
+>Ende der Zeile</emphasis
+> durch das <literal
+>$</literal
+>-Zeichen gefunden werden.</para>
+    </example>
+
+    <example id="boundaryregexp">
+      <title
+>Suche nach dem Wort <literal
+>der</literal
+>, aber nicht <literal
+>o</literal
+><emphasis
+>der</emphasis
+>, <literal
+>glie</literal
+><emphasis
+>der</emphasis
+><literal
+>t</literal
+> oder <emphasis
+>der</emphasis
+><literal
+>einst</literal
+>.</title>
+      <para
+>Zwei weitere Grenzen können auf gleiche Weise gefunden werden. Einerseits die <emphasis
+>Wortgrenze</emphasis
+> andererseits die <emphasis
+>Nicht-Wort-Grenze</emphasis
+>. Diese werden durch <literal
+>\b</literal
+> für die Wortgrenze und <literal
+>\B</literal
+> für die Nicht-Wort-Grenze gekennzeichnet.</para>
+
+      <para
+>So kann also die Suche nach dem Wort <literal
+>der</literal
+> durch den regulären Ausdruck <literal
+>\bthe\b</literal
+> erfolgen. Dies bedeutet, dass wir nach dem Wort <literal
+>der</literal
+> ohne Buchstaben hinten und vorne (also einer Wortgrenze) suchen.</para>
+
+      <para
+>Die vier Grenzen für reguläre Ausdrücke werden im Editor für reguläre Ausdrücke über die vier<link linkend="positiontool"
+>Grenzen-Werkzeuge</link
+> eingefügt.</para>
+    </example>
+
+    <example id="altnregexp">
+      <title
+>Suche nach entweder <literal
+>dies</literal
+> oder <literal
+>das</literal
+></title>
+      <para
+>Angenommen Sie wollen nach den beiden Wörtern <literal
+>dies</literal
+> und <literal
+>das</literal
+> suchen. Mit einer normalen Suchfunktion sind Sie gezwungen, dies in zwei Schritten durchzuführen: Im ersten suchen Sie nach <literal
+>dies</literal
+>, im zweiten nach <literal
+>das</literal
+>.</para>
+
+      <para
+>Mit der Benutzung von regulären Ausdrücken, ist es möglich, gleichzeitig nach beiden Begriffen zu suchen. Hierzu wird der Ausdruck <literal
+>dies|das</literal
+> verwendet, die beiden gesuchten Wörter also durch einen vertikalen Strich getrennt.<footnote
+><para
+>Auf beiden Seiten des vertikalen Striches können wiederum reguläre Ausdrücke stehen. Es ist also nicht nur möglich, nach zwei unterschiedlichen Wörtern, sondern sogar nach zwei unterschiedlichen regulären Ausdrücken zu suchen.</para
+></footnote
+></para>
+
+      <para
+>Im Editor für reguläre Ausdrücke schreiben Sie den senkrechten Strich nicht selbst, sondern wählen stattdessen das <link linkend="altntool"
+>Alternativen-Werkzeug</link
+> und fügen die verschiedenen Teile (die selbst reguläre Ausdrücke sind) übereinander.</para>
+    </example>
+
+    <example id="repeatregexp">
+      <title
+>Finden von irgendwas</title>
+      <para
+>Reguläre Ausdrücke werden oft mit den Platzhaltern auf der Befehlszeile verglichen, also der Möglichkeit eine Menge von Dateien mit dem Stern (*) oder dem Fragezeichen (?) einzuschränken. Sie kennen sicher die Platzhalter in den folgenden Beispielen: <itemizedlist>
+          <listitem
+><para
+><literal
+>ls *.txt</literal
+> - Hier ist <literal
+>*.txt</literal
+> der Platzhalter für alle Dateien, die mit der Erweiterung <literal
+>.txt</literal
+> enden.</para
+></listitem>
+          <listitem
+><para
+><literal
+>cat test??.res</literal
+> - wird auf alle Dateien angewandt, die mit <literal
+>test</literal
+> beginnen, dann zwei beliebige Zeichen enthalten, auf die die Dateierweiterung <literal
+>.res</literal
+> folgt.</para
+></listitem>
+        </itemizedlist>
+      </para>
+
+      <para
+>Auf der Befehlszeile entspricht der Stern (*) einer beliebigen Anzahl beliebiger Zeichen. Mit anderen Worten, der Stern steht für <emphasis
+>Alles</emphasis
+>. Bei regulären Ausdrücke erreichen sie diesen Effekt mit der Zeichenfolge <literal
+>.*</literal
+>. Der Punkt entspricht einem beliebigen Zeichen, also jeweils nur einem <emphasis
+> einzigen</emphasis
+> Zeichen und der Stern besagt, dass der reguläre Ausdruck davor beliebig oft wiederholt werden kann. Zusammen ergibt das also eine beliebige Anzahl beliebiger Zeichen.</para>
+
+      <para
+>Auf den ersten Blick erscheint dies übermäßig kompliziert, eröffnet aber nahezu unbegrenzte Möglichkeiten. Ein weiterer einfacher regulärer Ausdruck ist <literal
+>a</literal
+>. Der Buchstabe <literal
+>a</literal
+> stellt einen regulären Ausdruck dar, der einem einzelnen Buchstaben entspricht, dem Buchstaben <literal
+>a</literal
+>. Wenn wir diesen mit einem Stern (*) kombinieren, also <literal
+>a*</literal
+>, haben wir einen regulären Ausdruck, der jeder beliebigen Anzahl 'a's entspricht.</para>
+
+      <para
+>Es ist möglich, mehrere reguläre Ausdrücke hintereinander zu stellen, z.B. <literal
+>ba(na)*</literal
+>. <footnote
+><para
+><literal
+>(na)*</literal
+> sagt aus, dass der Inhalt zwischen den Klammern beliebig oft wiederholt wird</para
+></footnote
+>. Mit diesem Ausdruck würden Sie also unter anderem die folgenden Texte finden: <literal
+>ba</literal
+>, <literal
+>bana</literal
+>, <literal
+>banana</literal
+>, <literal
+>banananananananana</literal
+>. </para>
+
+      <para
+>Mit diesen Informationen ist es jetzt nicht schwer, die Befehlszeilen-Platzhalter <literal
+>test??.res</literal
+> als regulären Ausdruck nachzubilden. Dieser heißt <literal
+>test..\.res</literal
+>. Der einzelne Punkt ist jedes beliebige Zeichen. Um einen einzelnen Punkt zu finden, muss <literal
+>\.</literal
+> angegeben werden. <footnote
+><para
+>Dies wird Escapen genannt</para
+></footnote
+>. Mit anderen Worten findet der reguläre Ausdruck <literal
+>\.</literal
+> einen Punkt, während der einzelne Punkt jedes Zeichen findet. </para>
+
+      <para
+>Im Editor für reguläre Ausdrücke wird ein wiederholter regulärer Ausdruck mit dem <link linkend="repeattool"
+>Wiederholungs-Werkzeug</link
+> erstellt. </para>
+    </example>
+
+    <example id="lookaheadregexp">
+      <title
+>Ersetzen von <literal
+>&amp;</literal
+> mit <literal
+>&amp;amp;</literal
+> in einem &HTML;-Dokument</title
+> <para
+>In &HTML; muss das Zeichen <literal
+>&amp;</literal
+> als <literal
+>&amp;amp;</literal
+> geschrieben werden. Das ist ähnlich wie das Escapen in einem regulären Ausdruck.</para>
+
+      <para
+>Stellen Sie sich vor, Sie hätten in einem gewöhnlichen Editor (z.B. &kate; oder &XEmacs;) ein &HTML;-Dokument erstellt und hätten dabei diese Regel vollkommen vergessen. In diesem Fall müssten Sie also alle Vorkommen von <literal
+>&amp;</literal
+> durch <literal
+>&amp;amp;</literal
+> ersetzen.</para>
+
+      <para
+>Dies können Sie einfach mit einem gewöhnlichen Ersetzen erledigen. Es gibt aber ein kleines Problem. Wenn Sie manchmal doch an die Regel gedacht haben, funktioniert das nicht. Ein gewöhnliches Ersetzen würde zur Folge haben, dass <literal
+>&amp;amp;</literal
+> durch <literal
+>&amp;amp;amp;</literal
+> ersetzt würde.</para>
+
+      <para
+>Sie wollen aber eigentlich, dass alle Vorkommen von <literal
+>&amp;</literal
+> ersetzt werden, die <emphasis
+> nicht</emphasis
+> von den Buchstaben <literal
+>amp;</literal
+> gefolgt sind. Dies wird mit <emphasis
+>vorausschauenden</emphasis
+> regulären Ausdrücken erreicht. </para>
+
+      <para
+>Der reguläre Ausdruck, der ein kaufmännisches Und nur dann findet, wenn es nicht von den Buchstaben <literal
+>amp;</literal
+> gefolgt ist, sieht wie folgt aus: <literal
+>&amp;(?!amp;)</literal
+> Es ist natürlich leichter, diesen Ausdruck im Editor zu lesen, wo dafür die <link linkend="lookaheadtools"
+>vorausschauenden Werkzeuge</link
+> zur Verfügung stehen.</para>
+    </example>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                    Using the Regular Expression Editor                 -->
+  <!-- ====================================================================== -->
+  <chapter id="theEditor">
+    <title
+>Benutzung des Editors für reguläre Ausdrücke</title>
+
+    <para
+>Dieses Kapitel erklärt die Arbeitsweise des Editors für reguläre Ausdrücke. </para>
+
+    <!-- ====================================================================== -->
+    <!--                   The organization of the screen                       -->
+    <!-- ====================================================================== -->
+    <sect1 id="screenorganization">
+      <title
+>Aufbau der Benutzungsschnittstelle</title>
+
+      <mediaobject>
+        <imageobject
+><imagedata format="PNG" fileref="theEditor.png"/></imageobject>
+      </mediaobject>
+      
+      <para
+>Der bedeutendste Teil des Editors ist natürlich der Arbeitsbereich, wo ein regulärer Ausdruck gezeichnet wird.</para>
+
+      <para
+>Oberhalb des Arbeitsbereichs gibt es zwei Werkzeugleisten, die erste enthält <link linkend="editingtools"
+>Bearbeitungsaktionen</link
+> - ähnlich den Werkzeugen in einem Zeichenprogramm. Die zweite Werkzeugleiste enthält den Knopf für die <emphasis
+><quote
+>Was ist das?</quote
+>-Hilfe</emphasis
+> und Knöpfe für Rückggängig und Wiederherstellen.</para>
+
+      <para
+>Unterhalb des Arbeitsbereichs steht der aktuell bearbeitete reguläre Ausdruck in seiner ASCII-Notation. Diese wird laufend nachgeführt, wenn im grafischen Editor eine Änderung vorgenommen wird. Umgekehrt können auch Änderungen in der ASCII-Notation vorgenommen werden, die dann ebenfalls unmittelbar auch im grafischen Editor dargestellt werden.</para>
+
+      <para
+>Schlussendlich finden sich auf der linken Seite des Eingabebereichs einige vordefinierte reguläre Ausdrücke. Dafür gibt es zwei Gründe: (1) Wird ein vordefinierter regulärer Ausdruck verwendet wird er verständlicher dargestellt. So wird zum Beispiel der reguläre Ausdruck <quote
+>.*</quote
+>durch ein Symbol mit dem Text <quote
+>anything</quote
+>dargestellt. (2) Wenn Sie einen regulären Ausdruck erzeugen, können Sie möglicherweise aus der Menge der vordefinierten Ausdrücke einige direkt benutzen. Wie Sie selbst definierte reguläre Ausdrücke speichern können, sehen sie unter <link linkend="userdefinedregexps"
+>Benutzerdefinierte reguläre Ausdrücke</link
+>.</para
+>      
+    </sect1>
+
+    <!-- ====================================================================== -->
+    <!--                         Editing Tools                                  -->
+    <!-- ====================================================================== -->
+    <sect1 id="editingtools">
+      <title
+>Bearbeitungswerkzeuge</title>
+      <para
+>Für diesen Abschnitt ist es erforderlich, dass Sie das Kapitel <link linkend="whatIsARegExp"
+> Was ist ein regulärer Ausdruck</link
+> schon gelesen haben oder über äquivalentes Wissen verfügen.</para>
+      
+      <para
+>Alle Bearbeitungswerkzeuge befinden sich oberhalb des Arbeitsbereichs. Im folgenden wird jedes einzelne davon beschrieben.</para>
+      
+      
+
+      <simplesect id="selecttool">
+        <title
+>Auswahlwerkzeug</title>
+	<mediaobject>
+            <imageobject
+><imagedata format="PNG" fileref="select.png"/>
+        </imageobject
+></mediaobject>
+        <para
+>Das Auswahlwerkzeug wird gebraucht, um Elemente auszuwählen, welche ausgeschnitten oder verschoben werden sollen. Es funktioniert gleich wie in Zeichenprogrammen.</para>
+      </simplesect>
+        
+      
+
+      <simplesect id="texttool"
+><title
+>Textwerkzeug</title>
+      <mediaobject>
+      <imageobject>
+	    <imagedata format="PNG" fileref="text.png"/>
+	</imageobject
+></mediaobject>
+		        
+        <para
+><inlinemediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="texttool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Dieses Werkzeug dient dem Einfügen von gewöhnlichem Text. Der Text wird Zeichen für Zeichen auf Gleichheit überprüft, es müssen hierfür auch keine Zeichen speziell gekennzeichnet werden. Im Beispiel oben wird der folgende reguläre Ausdruck erstellt: <literal
+>abc\*\\\)</literal
+></para>
+      </simplesect>
+
+      
+
+      <simplesect id="characterstool"
+><title
+>Buchstabenwerkzeug</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="characters.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="charactertool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Mit diesem Werkzeug werden Zeichenbereiche eingefügt. Zum Beispiel alle Zeichen zwischen <quote
+>a</quote
+> und <quote
+>z</quote
+> oder <quote
+>0</quote
+> und <quote
+>9</quote
+>. Bei der Auswahl dieses Werkzeugs erscheint ein Dialog, in dem der Zeichenbereich eingegeben werden kann.</para>
+        
+        <para
+>Siehe die Beschreibung von <link linkend="repeatregexp"
+>wiederholten regulären Ausdrücken</link
+>.</para>
+      </simplesect>
+
+      
+      
+      <simplesect id="anychartool"
+><title
+>Werkzeug für beliebige Zeichen</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="anychar.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="anychartool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Dies ist der reguläre Ausdruck <quote
+>Punkt</quote
+> (.). Er entspricht jedem beliebigen Zeichen.</para
+> 
+        
+       
+        
+        </simplesect>
+
+
+
+      <simplesect id="repeattool"
+><title
+>Wiederholungswerkzeug</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeat.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeattool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Dieses Werkzeug dient dem Wiederholen von Teilausdrücken. Darunter sind die regulären Ausdrücke <quote
+>Stern</quote
+> (*), <quote
+>Plus</quote
+> (+), <quote
+>Fragezeichen</quote
+> (?) und Bereiche ({3,5}). Beim Einfügen mit diesem Werkzeug erscheint ein Dialogfenster, in dem die Anzahl Wiederholungen eingegeben werden kann.</para>
+          
+          <para
+>Was wiederholt werden soll, kommt im Innern dieses Elements zu stehen.</para>
+
+          <para
+>Wiederholte Teilausdrücke können sowohl von innen nach außen als auch von außen nach innen erzeugt werden. Es spielt also keine Rolle, ob zuerst die Wiederholung oder der zu wiederholende Teilausdruck eingefügt wird.</para>
+
+        <para
+>Siehe die Beschreibung von <link linkend="repeatregexp"
+>Wiederholten regulären Ausdrücken</link
+>.</para>
+        </simplesect>
+
+
+
+
+      <simplesect id="altntool"
+><title
+>Alternativen-Werkzeug</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="altn.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="altntool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Dies ist der reguläre Ausdruck der Alternative (|). Alle Alternativen werden übereinander gezeichnet.</para>
+
+        <para
+>Siehe die Beschreibung des <link linkend="altnregexp"
+>Alternativen regulären Ausdrucks</link
+></para>
+      </simplesect>
+      
+
+
+
+      <simplesect id="compoundtool"
+><title
+>Zusammensetzungswerkzeug</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="compound.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="compoundtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Das Zusammensetzungswerkzeug stellt keinen regulären Ausdruck dar. Es wird stattdessen gebraucht, um Teilausdrücke zusammenzufassen und diese nur durch einen Titel gekennzeichnet, darzustellen.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="positiontool"
+><title
+>Zeilenanfang/-ende-Werkzeuge</title>
+        <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="begline.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="endline.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="linestartendtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Die Zeilenanfangs und -ende-Werkzeuge finden den Beginn respektive das Ende einer Zeile.</para>
+        
+        <para
+>Siehe die Beschreibung von <link linkend="positionregexp"
+>Ortsbezogenen regulären Ausdrücken</link
+>.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect
+><title
+>(Nicht-)Wortgrenzen-Werkzeuge</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="wordboundary.png"/>
+            </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+><imagedata format="PNG" fileref="nonwordboundary.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="boundarytools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Die Wortgrenzen-Werkzeuge finden Wortgrenzen respektive Nicht-Wortgrenzen.</para>
+
+        <para
+>Siehe die Beschreibung von <link linkend="boundaryregexp"
+>Wortgrenzen in regulären Ausdrücken</link
+></para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="lookaheadtools"
+><title
+>Positiv/Negativ vorausschauende Werkzeuge</title>
+	  <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="poslookahead.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="neglookahead.png"/>
+        </imageobject
+></mediaobject>
+
+        <para
+><inlinemediaobject
+><imageobject
+> <imagedata format="PNG" fileref="lookaheadtools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Die vorausschauenden Werkzeuge definieren entweder einen positiven oder negativen regulären Ausdruck. Der gefundene Teilausdruck selbst ist jedoch nicht Teil der gesamten gefundenen Zeichenfolge.</para>
+
+        <para
+>Bemerkung: Vorausschauende reguläre Ausdrücke dürfen nur am Ende von regulären Ausdrücken verwendet werden. Der Editor für reguläre Ausdrücke erzwingt dies jedoch nicht.</para>
+
+        <para
+>Siehe die Beschreibung von <link linkend="lookaheadregexp"
+> vorausschauenden regulären Ausdrücken</link
+>.</para>
+      </simplesect>
+    </sect1>
+
+  <!-- ====================================================================== -->
+  <!--                  User Defined Regular Expressions                      -->
+  <!-- ====================================================================== -->
+    <sect1 id="userdefinedregexps">
+      <title
+>Benutzerdefinierte reguläre Ausdrücke</title>
+      <para
+>Links vom Arbeitsbereich ist eine Liste mit benutzerdefinierten regulären Ausdrücken. Einige vordefinierte reguläre Ausdrücke werden mit &kde; mitgeliefert, weitere können Sie selbst speichern.</para
+> 
+
+      <para
+>Mit diesen regulären Ausdrücken wird zweierlei erreicht (<link linkend="screenorganization"
+>Details</link
+>. Erstens werden Bausteine für eigene reguläre Ausdrücke zur Verfügung gestellt und zweitens werden häufig gebrauchte reguläre Ausdrücke schöner dargestellt.</para>
+
+      <para
+>Ihren eigenen regulären Ausdruck speichern Sie, indem Sie im Arbeitsbereich auf die rechte Maustaste klicken und <literal
+>Regulären Ausdruck speichern</literal
+> wählen.</para>
+
+      <para
+>Wenn der zu speichernde reguläre Ausdruck eine <link linkend="compoundtool"
+>Zusammensetzung </link
+>ist, so werden reguläre Ausdrücke, die ihn verwenden, ebenfalls schöner dargestellt.</para>
+
+      <para
+>Benutzerdefinierte reguläre Ausdrücke können gelöscht oder umbenannt werden, indem mit der rechten Maustaste das Kontextmenü geöffnet und der entsprechende Menüeintrag ausgewählt wird.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                  Reporting a bug and Suggesting Features               -->
+  <!-- ====================================================================== -->
+  <chapter id="bugreport">
+    <title
+>Berichten von Fehlern und Wünschen</title>
+    <para
+>Fehlermeldungen und Wünsche zur Funktionalität werden mit der <ulink url="http://bugs.kde.org/"
+>&kde;-Fehlerverfolgung</ulink
+> gemeldet. <emphasis role="strong"
+>Bevor</emphasis
+> Sie eine Fehlermeldung abschicken oder eine Funktionalitätserweiterung wünschen, prüfen Sie bitte, ob nicht schon jemand dasselbe <ulink url="http://bugs.kde.org/buglist.cgi?quicksearch=kregexpeditor"
+>bemerkt oder gewünscht</ulink
+> hat.</para>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                                 FAQ                                    -->
+  <!-- ====================================================================== -->
+  <chapter id="faq">
+    <title
+>Häufig gestellte Fragen</title>
+    <sect1 id="question1">
+      <title
+>Unterstützt der Editor für reguläre Ausdrücke Rückwärtsreferenzen?</title>
+      <para
+>Im Moment wird dies nicht unterstützt. Es ist für die nächste Version geplant.</para>
+    </sect1>
+
+    <sect1 id="question2">
+      <title
+>Unterstützt der Editor für reguläre Ausdrücke die Anzeige von Übereinstimmungen?</title>
+      <para
+>Nein, es ist Ziel, dies in der nächsten Version zur Verfügung zu stellen.</para>
+    </sect1>
+
+    <sect1 id="question3">
+      <title
+>Ich bin Entwickler einer &kde;-Anwendung. Wie kann ich dieses GUI-Element in meiner Anwendung benutzen?</title>
+      <para
+>Vergleichen Sie die Dokumentation für die Klasse  <ulink url="http://developer.kde.org/documentation/library/cvs-api/classref/interfaces/KRegExpEditorInterface.html"
+>KRegExpEditorInterface</ulink
+>.</para>
+    </sect1>
+
+    <sect1 id="question4">
+      <title
+>Ich kann den Knopf <emphasis
+>Regulären Ausdruck bearbeiten</emphasis
+> in &konqueror; oder einer anderen &kde;-Anwendung nicht finden.</title>
+      <para
+>Der Editor für reguläre Ausdrücke befindet sich im Paket kdeutils. Ist dieses nicht installiert, gibt es auch den Knopf <emphasis
+>Regulären Ausdruck bearbeiten</emphasis
+> nicht.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                           Credits and Licenses                         -->
+  <!-- ====================================================================== -->
+  <chapter id="credits-and-license">
+    <title
+>Danksagungen und Lizenz</title>
+
+    <para
+>Copyright für die Dokumentation 2001, Jesper K. Pedersen &Jesper.Pedersen.mail; </para>
+
+
+<para
+>Übersetzung Gregor Zumstein <email
+>zumstein@ssd.ethz.ch</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+
+</book>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

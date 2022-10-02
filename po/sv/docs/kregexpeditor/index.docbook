@@ -1,0 +1,912 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % Swedish "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kregexpeditor" lang="&language;">
+
+  <bookinfo>
+    <title
+>Handbok Editor för reguljära uttryck</title>
+
+    <authorgroup>
+      <author
+><firstname
+>Jesper K.</firstname
+> <surname
+>Pedersen</surname
+> <affiliation
+><address
+>&Jesper.Pedersen.mail;</address
+></affiliation>
+      </author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+    </authorgroup>
+
+    <date
+>2001-07-03</date>
+    <releaseinfo
+>0.1</releaseinfo>
+
+    <legalnotice
+>&underFDL;</legalnotice>
+
+    <copyright>
+      <year
+>2001</year>
+      <holder
+>Jesper K. Pedersen</holder>
+    </copyright>
+
+    <abstract>
+      <para
+>Den här handboken beskriver den grafiska komponenten för att redigera reguljära uttryck.</para>
+    </abstract>
+
+    <keywordset>
+      <keyword
+>KDE</keyword>
+      <keyword
+>reguljärt uttryck</keyword>
+    </keywordset>
+  </bookinfo>
+
+  <!-- ====================================================================== -->
+  <!--                               Introduction                             -->
+  <!-- ====================================================================== -->
+  <chapter id="introduction">
+    <title
+>Inledning</title>
+
+
+    <para
+>Editorn för reguljära uttryck är en editor som redigerar reguljära uttryck grafiskt (istället för <acronym
+>ASCII</acronym
+>-syntax). Traditionellt har reguljära uttryck skrivits in med <acronym
+>ASCII</acronym
+>-syntax, vilket till exempel ser ut som <literal
+>^.*kde\b</literal
+>. De stora nackdelarna med det här sättet är: <itemizedlist>
+        <listitem
+><para
+>Det är svårt att förstå för andra än programmerare.</para
+></listitem>
+
+        <listitem
+><para
+>Det kräver att du <emphasis
+>undantar</emphasis
+> vissa symboler (för att till exempel matcha en asterisk, måste du skriva <literal
+>\*</literal
+>). </para
+></listitem>
+
+        <listitem
+><para
+>Det kräver att du kommer ihåg regler för <emphasis
+>prioritet</emphasis
+> (Vad matchar <literal
+>x|y*</literal
+>? Ett ensamt <literal
+>x</literal
+> eller ett antal <literal
+>y</literal
+>, <emphasis
+>ELLER</emphasis
+> ett antal blandade <literal
+>x</literal
+> och <literal
+>y</literal
+>?)</para
+></listitem>
+      </itemizedlist>
+    </para>
+
+    <para
+>Editorn för reguljära uttryck, låter dig å andra sidan <emphasis
+>rita</emphasis
+> det reguljära uttrycket på ett entydigt sätt. Editorn löser åtminstone punkt två och tre ovan. Den kanske inte gör reguljära uttryck tillgängliga för andra än programmerare, men bara tester av användare kan avgöra det. Så om du inte är en programmerare, och använder den här editorn för att få tillgång till de kraftfulla reguljära uttrycken, tala gärna om det <ulink url="mailto:blackie@kde.org"
+>för mig</ulink
+>. </para>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                       What is a Regular Expression                     -->
+  <!-- ====================================================================== -->
+  <chapter id="whatIsARegExp">
+    <title
+>Vad är ett reguljärt uttryck</title>
+
+    <para
+>Reguljära uttryck är ett sätt att ange <emphasis
+>villkor</emphasis
+> som ska uppfyllas under vissa förutsättningar. Normalt när du söker i en texteditor, så anger du texten som ska sökas efter <emphasis
+>bokstavligen</emphasis
+>.  Med reguljära uttryck, så talar du istället om hur en given sökträff ska se ut. Exempel på det här omfattar: <emphasis
+>Jag letar efter ordet  KDE, men bara i början på raden</emphasis
+>, eller <emphasis
+>Jag letar efter ordet <literal
+>den</literal
+>, men det måste vara ensamt</emphasis
+>, eller <emphasis
+>Jag letar efter filer som börjar med ordet <literal
+>test</literal
+>, följt av ett antal siffror, till exempel <literal
+>test12</literal
+>, <literal
+>test107</literal
+> och <literal
+>test007</literal
+></emphasis
+>.</para>
+
+    <para
+>Man bygger upp reguljära uttryck från deluttryck, precis som man bygger stora konstruktioner med Lego från mindre delar. Som i Lego-världen, finns det ett antal grundläggande byggblock. I det följande kommer jag att beskriva vart och ett av de här grundläggande byggblocken med ett antal exempel.</para>
+
+    <example>
+      <title
+>Söka efter normal text</title>
+      <para
+>Om du bara vill söka efter en given text, så är reguljära uttryck definitivt inte ett bra alternativ. Orsaken till detta är att reguljära uttryck ger särskild mening till vissa tecken. Det omfattar följande tecken: <literal
+>.*|$</literal
+>. Så om du vill söka efter texten <literal
+>kde.</literal
+> (dvs. tecknen <literal
+>kde</literal
+> följt av en punkt), måste du ange detta som <literal
+>kde\.</literal
+><footnote
+><para
+>Editorn för reguljära uttryck löser det här problemet genom att ta hand om regler för undantag åt dig.</para
+></footnote
+> Att skriva <literal
+>\.</literal
+> istället för bara <literal
+>.</literal
+> kallas att <emphasis
+>undanta</emphasis
+>. </para>
+    </example>
+
+    <example id="positionregexp">
+      <title
+>Matcha webbadresser</title>
+      <para
+>När du väljer något som ser ut som en webbadress i &kde;, så erbjuder sig programmet <command
+>klipper</command
+> att starta <command
+>konqueror</command
+> med den markerade webbadressen.</para>
+
+      <para
+><command
+>Klipper</command
+> gör det här genom att matcha markeringen med flera olika reguljära uttryck, och om ett av uttrycken matchar, så erbjuds kommandot som hör ihop med uttrycket.</para>
+      
+      <para
+>Det reguljära uttrycket för webbadresser säger (bland annat), att texten måste börja med strängen <literal
+>http://</literal
+>. Det här beskrivs med ett reguljärt uttryck, genom att inleda strängen <literal
+>http://</literal
+> med en hatt (tecknet <literal
+>^</literal
+>).</para>
+
+      <para
+>Ovanstående är ett exempel på att matcha positioner med reguljära uttryck. På samma sätt kan positionen <emphasis
+>radslut</emphasis
+> matchas med tecknet <literal
+>$</literal
+> (dvs. ett dollartecken).</para>
+    </example>
+
+    <example id="boundaryregexp">
+      <title
+>Att söka efter ordet <literal
+>den</literal
+>, men inte <emphasis
+>den</emphasis
+><literal
+>na</literal
+>, <literal
+>an</literal
+><emphasis
+>den</emphasis
+> eller <literal
+>stu</literal
+><emphasis
+>den</emphasis
+><literal
+>t</literal
+>.</title>
+      <para
+>Två ytterligare typer av position kan matchas på ovanstående sätt, nämligen en <emphasis
+>position vid en ordgräns</emphasis
+>, och <emphasis
+>en position som <emphasis
+>inte</emphasis
+> är vid en ordgräns</emphasis
+>. Positionerna anges med texten <literal
+>\b</literal
+> (för ordgräns) och <literal
+>\B</literal
+> (för inte ordgräns).</para>
+
+      <para
+>På så sätt kan en sökning efter ordet <literal
+>den</literal
+> göras genom att använda det reguljära uttrycket <literal
+>\bden\b</literal
+>. Det här anger att vi söker efter <literal
+>den</literal
+> utan några bokstäver på båda sidorna (dvs. med en ordgräns på båda sidorna).</para>
+
+      <para
+>De fyra reguljära uttrycken för att matcha positioner, infogas av editorn för reguljära uttryck med hjälp av <link linkend="positiontool"
+>fyra olika positionsverktyg</link
+>.</para>
+    </example>
+
+    <example id="altnregexp">
+      <title
+>Söka efter antingen <literal
+>hit</literal
+> eller <literal
+>dit</literal
+></title>
+      <para
+>Antag att du vill gå igenom dokumentet och antingen leta efter ordet <literal
+>hit</literal
+> eller <literal
+>dit</literal
+>. Med en normal sökmetod, skulle du kunna göra det här i två omgångar, första gången skulle du söka efter <literal
+>hit</literal
+>, och andra gången efter <literal
+>dit</literal
+>.</para>
+
+      <para
+>Med reguljära uttryck skulle du söka efter båda på en gång. Du gör det här genom att söka efter <literal
+>hit|dit</literal
+>. dvs. avdelar de två orden med ett vertikalt streck.<footnote
+><para
+>Observera att varje sida av det vertikala strecket är ett reguljärt uttryck, så den här funktionen är inte bara till för att söka efter två olika strängar, utan för att söka efter två olika reguljära uttryck.</para
+></footnote
+></para>
+
+      <para
+>I editorn för reguljära uttryck, skriver du inte in det vertikala strecket själv, utan väljer istället <link linkend="altntool"
+>alternativverktyget</link
+>, och infogar deluttrycken ovanför varandra.</para>
+    </example>
+
+    <example id="repeatregexp">
+      <title
+>Matcha vad som helst</title>
+      <para
+>Reguljära uttryck jämförs ofta med jokertecken som används för matchning i skalet. Det här är möjligheten att ange flera filer med en asterisk. Du känner säkert igen matchning med jokertecken i följande exempel: <itemizedlist>
+          <listitem
+><para
+><literal
+>ls *.txt</literal
+> - här är <literal
+>*.txt</literal
+> skalets jokertecken som matchar alla filer som slutar med filändelsen <literal
+>.txt</literal
+>.</para
+></listitem>
+          <listitem
+><para
+><literal
+>cat test??.res</literal
+> - matchar varje fil som börjar med <literal
+>test</literal
+>, och sedan följs av två godtyckliga tecken, och till sist följs av texten <literal
+>.res</literal
+>.</para
+></listitem>
+        </itemizedlist>
+      </para>
+
+      <para
+>I skalet matchar asterisken alla tecken hur många gånger som helst. Med andra ord så matchar asterisken <emphasis
+>vad som helst</emphasis
+>. Det här skrivs som <literal
+>.*</literal
+> med syntaxen för reguljära uttryck. Punkten matchar vilket enskilt tecken som helst, dvs. bara <emphasis
+>ett</emphasis
+> tecken, och asterisken anger att det föregående reguljära uttrycket ska matchas hur många gånger som helst. Tillsammans säger detta vilket enskilt tecken som helst, hur många gånger som helst.</para>
+
+      <para
+>Det här kan verka onödigt komplicerat, men när du ser hela bilden, inser du hur kraftfullt detta är. Låt oss titta på ett annat grundläggande reguljärt uttryck: <literal
+>a</literal
+>. Den ensamma bokstaven <literal
+>a</literal
+> är ett reguljärt uttryck som matchar en enda bokstav, nämligen bokstaven  <literal
+>a</literal
+>. Om vi kombinerar det här med asterisken, dvs. <literal
+>a*</literal
+>, så har vi ett reguljärt uttryck som matchar hur många a:n som helst.</para>
+
+      <para
+>Vi kan kombinera flera reguljära uttryck efter varandra, till exempel <literal
+>b(an)*</literal
+>. <footnote
+><para
+><literal
+>(an)*</literal
+> anger bara att vad som är inom parentes upprepas hur många gånger som helst.</para
+></footnote
+> Antag att du skrev in det här reguljära uttrycket i sökfältet på en texteditor. Då skulle du (bland annat) ha hittat följande ord: <literal
+>ban</literal
+>, <literal
+>banan</literal
+>, <literal
+>bananan</literal
+>, <literal
+>banananananananan</literal
+>. </para>
+
+      <para
+>Med information ovan, är det förhoppningsvis inte svårt för dig att skriva skalets jokertecken <literal
+>test??.res</literal
+> som ett reguljärt uttryck. Svaret är: <literal
+>test..\.res</literal
+>. En ensam punkt är vilket tecken som helst. För att matcha en ensam punkt, måste du skriva <literal
+>\.</literal
+><footnote
+><para
+>Det här kallas att undanta.</para
+></footnote
+> Med andra ord, så matchar det reguljära uttrycket <literal
+>\.</literal
+> en punkt, medan en ensam punkt matchar vilket tecken som helst. </para>
+
+      <para
+>i editorn för reguljära uttryck, så skapas upprepade reguljära uttryck med <link linkend="repeattool"
+>upprepningsverktyget</link
+>. </para>
+    </example>
+
+    <example id="lookaheadregexp">
+      <title
+>Byta ut <literal
+>&amp;</literal
+> mot <literal
+>&amp;amp;</literal
+> i ett &HTML;-dokument.</title
+> <para
+>I &HTML; måste specialtecknet <literal
+>&amp;</literal
+> skrivas som <literal
+>&amp;amp;</literal
+> - det här liknar undantag i reguljära uttryck.</para>
+
+      <para
+>Antag att du har skrivit ett &HTML;-dokument med en vanlig editor (t.ex. &XEmacs; eller &kate;), och du totalt glömt bort den här regeln. Vad du skulle göra när du insåg misstaget, vore att byta ut varje förekomst av <literal
+>&amp;</literal
+> mot <literal
+>&amp;amp;</literal
+>.</para>
+
+      <para
+>Det här kan lätt göras med en vanlig ersättning, men det finns en hake. Antag att du kom ihåg den här regeln <emphasis
+>ibland</emphasis
+>, och gjorde rätt på en del ställen. En ovillkorlig ersättning skulle resultera i att <literal
+>&amp;amp;</literal
+> skulle ersättas med <literal
+>&amp;amp;amp;</literal
+>.</para>
+
+      <para
+>Vad du verkligen vill säga är att <literal
+>&amp;</literal
+> bara ska ersättas om det <emphasis
+>inte</emphasis
+> följs av bokstäverna <literal
+>amp;</literal
+>. Du kan göra det här med reguljära uttryck genom att använda <emphasis
+>positiv sökning framåt</emphasis
+>. </para>
+
+      <para
+>Det reguljära uttrycket, som bara matchar ett och-tecken om det inte följs av tecknen <literal
+>amp;</literal
+> ser ut som följer: <literal
+>&amp;(?!amp;)</literal
+>. Det här är förstås lättare att läsa genom att använda editorn för reguljära uttryck, där du skulle använda ett <link linkend="lookaheadtools"
+>verktyg för sökning framåt</link
+>.</para>
+    </example>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                    Using the Regular Expression Editor                 -->
+  <!-- ====================================================================== -->
+  <chapter id="theEditor">
+    <title
+>Att använda Editorn för reguljära uttryck</title>
+
+    <para
+>Det här kapitlet talar om hur editorn för reguljära uttryck fungerar. </para>
+
+    <!-- ====================================================================== -->
+    <!--                   The organization of the screen                       -->
+    <!-- ====================================================================== -->
+    <sect1 id="screenorganization">
+      <title
+>Organisation av skärmen</title>
+
+      <mediaobject>
+        <imageobject
+><imagedata format="PNG" fileref="theEditor.png"/></imageobject>
+      </mediaobject>
+      
+      <para
+>Den viktigaste delen av editorn är förstås redigeringsområdet, som är området där du ritar upp det reguljära uttrycket. Det här området är den stora gråa rutan i mitten.</para>
+
+      <para
+>Ovanför redigeringsområdet finns två verktygsrader, där den första innehåller <link linkend="editingtools"
+>redigeringsåtgärder</link
+> - som liknar ritverktygen i ett ritprogram. Den andra verktygsraden innehåller knappen <emphasis
+>Vad är det här?</emphasis
+>, och knappar för att ångra och göra om.</para>
+
+      <para
+>Under redigeringsområdet hittar du det reguljära uttrycket som för närvarande är uppbyggt, med den så kallade ASCII-syntaxen. Denna uppdateras medan du redigerar det reguljära uttrycket i den grafiska editorn. Om du hellre vill redigera ASCII-syntaxen, gör gärna det. Den grafiska editorn uppdateras i farten för att visa dina ändringar.</para>
+
+      <para
+>Till sist, längst till vänster i redigeringsområdet hittar du ett antal färdigbyggda reguljära uttryck. De har två syften: (1) När du laddar ett reguljärt uttryck i editorn blir det här uttrycket <emphasis
+>snyggare</emphasis
+>, eller mer begripligt genom att ersätta vanliga reguljära uttryck. På skärmbilden ovan, kan du se hur ASCII-syntaxen ".*" har ersatts med en ruta som säger "anything" (vad som helst). (2) När du lägger till reguljära uttryck kan du hitta byggblock för dina egna reguljära uttryck bland de redan uppbyggda uttrycken. Se avsnittet om <link linkend="userdefinedregexps"
+>användardefinierade reguljära uttryck</link
+> för att lära dig hur man sparar sina egna reguljära uttryck.</para
+>      
+    </sect1>
+
+    <!-- ====================================================================== -->
+    <!--                         Editing Tools                                  -->
+    <!-- ====================================================================== -->
+    <sect1 id="editingtools">
+      <title
+>Redigeringsverktyg</title>
+      <para
+>Texten i det här avsnittet förutsätter att du har läst kapitlet om <link linkend="whatIsARegExp"
+>vad ett reguljärt uttryck är</link
+>, eller känner till ämnet sedan tidigare.</para>
+      
+      <para
+>Alla redigeringsverktyg finns i verktygsraden ovanför redigeringsområdet. Vart och ett av dem beskrivs i det följande.</para>
+      
+      
+
+      <simplesect id="selecttool">
+        <title
+>Markeringsverktyg</title>
+	<mediaobject>
+            <imageobject
+><imagedata format="PNG" fileref="select.png"/>
+        </imageobject
+></mediaobject>
+        <para
+>Markeringsverktyget används för att markera element för att klippa och klistra, eller dra och släppa. Det här är mycket likt ett markeringsverktyg i vilket ritprogram som helst.</para>
+      </simplesect>
+        
+      
+
+      <simplesect id="texttool"
+><title
+>Textverktyg</title>
+      <mediaobject>
+      <imageobject>
+	    <imagedata format="PNG" fileref="text.png"/>
+	</imageobject
+></mediaobject>
+		        
+        <para
+><inlinemediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="texttool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Med det här verktyget lägger du till normal text som ska matcha. Texten matchas bokstavligen, dvs. du behöver inte bry dig om att undanta särskilda tecken. I exemplet ovan, så byggs följande reguljära uttryck: <literal
+>abc\*\\\)</literal
+>.</para>
+      </simplesect>
+
+      
+
+      <simplesect id="characterstool"
+><title
+>Teckenverktyg</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="characters.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="charactertool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Med det här verktyget lägger du till teckenintervall. Exempel är vad som motsvaras av ASCII-texten <literal
+>[0-9]</literal
+>, <literal
+>[^a-zA-Z,_]</literal
+>. När du lägger till ett element med det här verktyget, visas en dialogruta där du anger teckenintervallen.</para>
+        
+        <para
+>Se beskrivningen av <link linkend="repeatregexp"
+>upprepade reguljära uttryck</link
+>.</para>
+      </simplesect>
+
+      
+      
+      <simplesect id="anychartool"
+><title
+>Verktyg för alla tecken</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="anychar.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="anychartool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Det här är det reguljära uttrycket "punkt" (.). Det matchar vilket tecken som helst.</para
+> 
+        
+       
+        
+        </simplesect>
+
+
+
+      <simplesect id="repeattool"
+><title
+>Upprepningsverktyg</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeat.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeattool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Det här upprepar element. Det omfattar vad som i ASCII-syntax representeras med en asterisk (*), ett plustecken (+), ett frågetecken (?) och intervall  ({3,5}). När du lägger till ett element med det här verktyget, så visas en dialogruta som frågar efter antalet gånger att upprepa.</para>
+          
+          <para
+>Du anger vad som ska upprepas, genom att rita det inne i rutan som det här verktyget lägger till.</para>
+
+          <para
+>Upprepade element kan både byggas upp utifrån och in, och inifrån och ut. Det vill säga att du först kan rita det som ska upprepas, markera det och använda upprepningsverktyget för att upprepa det. Som ett alternativ kan du först lägga till upprepningselementet, och rita det som ska upprepas inne i det.</para>
+
+        <para
+>Se beskrivningen av <link linkend="repeatregexp"
+>upprepade reguljära uttryck</link
+>.</para>
+        </simplesect>
+
+
+
+
+      <simplesect id="altntool"
+><title
+>Alternativverktyg</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="altn.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="altntool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Det här är alternativa reguljära uttryck (|). Du anger alternativ genom att rita varje alternativ ovanpå varandra inne i rutan som det här verktyget lägger till.</para>
+
+        <para
+>Se beskrivningen av <link linkend="altnregexp"
+>alternativa reguljära uttryck</link
+>.</para>
+      </simplesect>
+      
+
+
+
+      <simplesect id="compoundtool"
+><title
+>Sammansättningsverktyg</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="compound.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="compoundtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Sammansättningsverktyget representerar inte något reguljärt uttryck. Det används för att gruppera andra delar i en ruta, som lätt kan minskas för att bara visa namnet. Det här kan ses till höger på skärmbilden ovan.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="positiontool"
+><title
+>Verktyg för radbörjan och radslut</title>
+        <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="begline.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="endline.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="linestartendtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Verktygen för radbörjan och radslut matchar början på raden, och slutet på raden. Det reguljära uttrycket på skärmbilden ovan, matchar alltså hela rader med bara mellanslag.</para>
+        
+        <para
+>Se beskrivningen av <link linkend="positionregexp"
+>reguljära uttryck för position</link
+>.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect
+><title
+>Ordgränsverktyg</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="wordboundary.png"/>
+            </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+><imagedata format="PNG" fileref="nonwordboundary.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="boundarytools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Gränsverktygen matchar en ordgräns eller allt som inte är en ordgräns. Det reguljära uttrycket på skärmbilden matchar alltså alla ord som börjar med <literal
+>den</literal
+>. Ordet <literal
+>den</literal
+> självt, matchas dock inte.</para>
+
+        <para
+>Se beskrivningen av <link linkend="boundaryregexp"
+>reguljära uttryck för gränser</link
+>.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="lookaheadtools"
+><title
+>Positiva eller negativa verktyg för sökning framåt</title>
+	  <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="poslookahead.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="neglookahead.png"/>
+        </imageobject
+></mediaobject>
+
+        <para
+><inlinemediaobject
+><imageobject
+> <imagedata format="PNG" fileref="lookaheadtools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Verktygen för sökning framåt anger antingen ett positivt eller negativt reguljärt uttryck som ska matchas. Den här matchningen är dock inte en del av hela matchningen.</para>
+
+        <para
+>Observera: Du får bara placera sökningar framåt i slutet på det reguljära uttrycket. Den grafiska komponenten för att redigera reguljära uttryck kontrollerar inte detta.</para>
+
+        <para
+>Se beskrivningen av <link linkend="lookaheadregexp"
+>reguljära uttryck med sökning framåt</link
+>.</para>
+      </simplesect>
+    </sect1>
+
+  <!-- ====================================================================== -->
+  <!--                  User Defined Regular Expressions                      -->
+  <!-- ====================================================================== -->
+    <sect1 id="userdefinedregexps">
+      <title
+>Användardefinierade reguljära uttryck</title>
+      <para
+>Till vänster om redigeringsområdet finns en listruta som innehåller användardefinierade reguljära uttryck. Vissa reguljära uttryck är förinstallerade med din &kde;-installation, medan du kan spara andra själv.</para
+> 
+
+      <para
+>De här reguljära uttrycken har två funktioner (<link linkend="screenorganization"
+>se den detaljerade beskrivningen</link
+>), nämligen (1) erbjuder en mängd byggblock, och (2) gör vanliga reguljära uttryck snyggare.</para>
+
+      <para
+>Du kan spara dina egna reguljära uttryck, genom att högerklicka med musknappen i redigeringsområdet, och välja <literal
+>Spara reguljärt uttryck</literal
+>.</para>
+
+      <para
+>Om det reguljära uttrycket du sparar är inom en <link linkend="compoundtool"
+>sammansatt behållare</link
+>, så kan det reguljära uttrycket användas för att göra efterföljande reguljära uttryck snyggare.</para>
+
+      <para
+>Användardefinierade reguljära uttryck kan tas bort eller döpas om genom att klicka med höger musknapp på motsvarande reguljära uttryck i listrutan.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                  Reporting a bug and Suggesting Features               -->
+  <!-- ====================================================================== -->
+  <chapter id="bugreport">
+    <title
+>Rapportera fel och föreslå funktioner</title>
+    <para
+>Felrapporter och önskemål ska rapporteras via <ulink url="http://bugs.kde.org/"
+>&kde;:s felspårningssystem</ulink
+>. Kontrollera <emphasis role="strong"
+>innan</emphasis
+> du rapporterar ett fel eller föreslår en funktion, att detta inte redan har <ulink url="http://bugs.kde.org/buglist.cgi?quicksearch=kregexpeditor"
+>gjorts</ulink
+>.</para>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                                 FAQ                                    -->
+  <!-- ====================================================================== -->
+  <chapter id="faq">
+    <title
+>Vanliga frågor</title>
+    <sect1 id="question1">
+      <title
+>Stöder editorn för reguljära uttryck bakåtreferenser?</title>
+      <para
+>Nej, för närvarande stöds inte detta. Det är planerat till nästa version.</para>
+    </sect1>
+
+    <sect1 id="question2">
+      <title
+>Visar editorn för reguljära uttryck matchningar?</title>
+      <para
+>Nej. Förhoppningsvis blir det här tillgängligt i nästa version.</para>
+    </sect1>
+
+    <sect1 id="question3">
+      <title
+>Jag är upphovsman till ett &kde;-program. Hur kan jag använda den här grafiska komponenten i mitt program?</title>
+      <para
+>Se <ulink url="http://developer.kde.org/documentation/library/cvs-api/classref/interfaces/KRegExpEditorInterface.html"
+>Dokumentationen för klassen KRegExpEditorInterface</ulink
+>.</para>
+    </sect1>
+
+    <sect1 id="question4">
+      <title
+>Jag kan inte hitta knappen <emphasis
+>Redigera reguljärt uttryck</emphasis
+> i till exempel Konqueror på en annan KDE3 installation, varför?</title>
+      <para
+>Den grafiska komponenten för reguljära uttryck finns i paketet kdeutils. Om du inte har installerat det här paketet, så visas inte knapparna för att <emphasis
+>redigera reguljära uttryck</emphasis
+> i program.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                           Credits and Licenses                         -->
+  <!-- ====================================================================== -->
+  <chapter id="credits-and-license">
+    <title
+>Tack till och licens</title>
+
+    <para
+>Dokumentation är copyright 2001, Jesper K. Pedersen &Jesper.Pedersen.mail; </para>
+
+
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+
+</book>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

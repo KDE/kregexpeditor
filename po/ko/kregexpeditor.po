@@ -1,0 +1,1113 @@
+# Shinjo Park <kde@peremen.name>, 2014, 2019, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: kregexpeditor\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-04-02 00:20+0000\n"
+"PO-Revision-Date: 2020-04-05 13:27+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 19.04.3\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "박신조"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde@peremen.name"
+
+#: altnwidget.cpp:37 altnwidget.cpp:46 regexpbuttons.cpp:87
+#, kde-format
+msgid "Alternatives"
+msgstr "대안"
+
+#: altnwidget.cpp:220
+#, kde-format
+msgid "Selecting several alternatives is currently not supported."
+msgstr "여러 가지 대안을 선택할 수 없습니다."
+
+#: altnwidget.cpp:222
+#, kde-format
+msgid "Selection Invalid"
+msgstr "선택 잘못됨"
+
+#: auxbuttons.cpp:35
+#, kde-format
+msgid "Undo"
+msgstr "실행 취소"
+
+#: auxbuttons.cpp:41
+#, kde-format
+msgid "Redo"
+msgstr "다시 실행"
+
+#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:70
+#, kde-format
+msgid "Cut"
+msgstr "잘라내기"
+
+#: auxbuttons.cpp:53 KMultiFormListBox/ccp.cpp:71
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:67
+#, kde-format
+msgid "Copy"
+msgstr "복사"
+
+#: auxbuttons.cpp:59 KMultiFormListBox/ccp.cpp:72
+#, kde-format
+msgid "Paste"
+msgstr "붙여넣기"
+
+#: auxbuttons.cpp:65
+#, kde-format
+msgid "Save"
+msgstr "저장"
+
+#: characterswidget.cpp:116
+#, kde-format
+msgid "- A word character\n"
+msgstr "- 단어 문자\n"
+
+#: characterswidget.cpp:120
+#, kde-format
+msgid "- A non-word character\n"
+msgstr "- 비 단어 문자\n"
+
+#: characterswidget.cpp:124
+#, kde-format
+msgid "- A digit character\n"
+msgstr "- 숫자 문자\n"
+
+#: characterswidget.cpp:128
+#, kde-format
+msgid "- A non-digit character\n"
+msgstr "- 비 숫자 문자\n"
+
+#: characterswidget.cpp:132
+#, kde-format
+msgid "- A space character\n"
+msgstr "- 공백 문자\n"
+
+#: characterswidget.cpp:136
+#, kde-format
+msgid "- A non-space character\n"
+msgstr "- 비 공백 문자\n"
+
+#: characterswidget.cpp:151
+#, kde-format
+msgctxt "a range of characters"
+msgid "- from %1 to %2\n"
+msgstr "- %1부터 %2까지\n"
+
+#: characterswidget.cpp:159
+#, kde-format
+msgid "Any Character Except"
+msgstr "다음 문자 제외 모든 문자"
+
+#: characterswidget.cpp:161
+#, kde-format
+msgid "One of Following Characters"
+msgstr "다음 문자 중 하나"
+
+#: characterswidget.cpp:279
+#, kde-format
+msgid "Specify Characters"
+msgstr "문자 지정"
+
+#: characterswidget.cpp:289
+#, kde-format
+msgid "Do not match the characters specified here"
+msgstr "지정한 문자와 일치하지 않음"
+
+#: characterswidget.cpp:293
+#, kde-format
+msgid "Predefined Character Ranges"
+msgstr "사전 정의 범위"
+
+#: characterswidget.cpp:297
+#, kde-format
+msgid "A word character"
+msgstr "단어 문자"
+
+#: characterswidget.cpp:299
+#, kde-format
+msgid "A digit character"
+msgstr "숫자 문자"
+
+#: characterswidget.cpp:301
+#, kde-format
+msgid "A space character"
+msgstr "공백 문자"
+
+#: characterswidget.cpp:304
+#, kde-format
+msgid "A non-word character"
+msgstr "비 단어 문자"
+
+#: characterswidget.cpp:306
+#, kde-format
+msgid "A non-digit character"
+msgstr "비 숫자 문자"
+
+#: characterswidget.cpp:308
+#, kde-format
+msgid "A non-space character"
+msgstr "비 공백 문자"
+
+#: characterswidget.cpp:312
+#, kde-format
+msgid "Single Characters"
+msgstr "단일 문자"
+
+#: characterswidget.cpp:324 characterswidget.cpp:345
+#, kde-format
+msgid "More Entries"
+msgstr "더 많은 항목"
+
+#: characterswidget.cpp:332
+#, kde-format
+msgid "Character Ranges"
+msgstr "문자 범위"
+
+#: characterswidget.cpp:426
+#, kde-format
+msgid "From:"
+msgstr "시작:"
+
+#: characterswidget.cpp:433
+#, kde-format
+msgctxt "end of range"
+msgid "To:"
+msgstr "끝:"
+
+#: charselector.cpp:60
+#, kde-format
+msgid "Normal Character"
+msgstr "일반 문자"
+
+#: charselector.cpp:61
+#, kde-format
+msgid "Unicode Char in Hex."
+msgstr "16진수 유니코드 문자"
+
+#: charselector.cpp:62
+#, kde-format
+msgid "Unicode Char in Oct."
+msgstr "8진수 유니코드 문자"
+
+#: charselector.cpp:64
+#, kde-format
+msgid "The Bell Character (\\a)"
+msgstr "종소리 문자 (\\a)"
+
+#: charselector.cpp:65
+#, kde-format
+msgid "The Form Feed Character (\\f)"
+msgstr "폼 피드 문자 (\\f)"
+
+#: charselector.cpp:66
+#, kde-format
+msgid "The Line Feed Character (\\n)"
+msgstr "다음 줄 문자 (\\n)"
+
+#: charselector.cpp:67
+#, kde-format
+msgid "The Carriage Return Character (\\r)"
+msgstr "줄 되돌리기 문자 (\\r)"
+
+#: charselector.cpp:68
+#, kde-format
+msgid "The Horizontal Tab Character (\\t)"
+msgstr "수평 탭 문자 (\\t)"
+
+#: charselector.cpp:69
+#, kde-format
+msgid "The Vertical Tab Character (\\v)"
+msgstr "수직 탭 문자 (\\v)"
+
+#: compoundwidget.cpp:47
+#, kde-format
+msgid "&Title:"
+msgstr "제목(&T):"
+
+#: compoundwidget.cpp:53
+#, kde-format
+msgid "&Description:"
+msgstr "설명(&D):"
+
+#: compoundwidget.cpp:59
+#, kde-format
+msgid "&Automatically replace using this item"
+msgstr "이 항목을 사용하여 자동으로 대체(&A)"
+
+#: compoundwidget.cpp:61
+#, kde-format
+msgid ""
+"When the content of this box is typed in to the ASCII line,<br />this box "
+"will automatically be added around it,<br />if this check box is selected."
+msgstr ""
+"이 상자의 내용을 ASCII 줄에 입력하면<br />이 체크 상자를 선택했을 때<br />이 "
+"상자가 추가됩니다."
+
+#: compoundwidget.cpp:126
+#, kde-format
+msgid "Configure Compound"
+msgstr "컴파운드 설정"
+
+#: emacsregexpconverter.cpp:78
+#, kde-format
+msgid "Look ahead regular expressions not supported in Emacs style"
+msgstr "Emacs 스타일에서 정규 표현식 예측을 지원하지 않습니다"
+
+#: emacsregexpconverter.cpp:182
+#, kde-format
+msgid "Word boundary and non word boundary is not supported in Emacs syntax"
+msgstr "Emacs 문법에서 단어 경계와 비 단어 경계를 지원하지 않습니다."
+
+#: errormap.cpp:47
+#, kde-format
+msgid ""
+"Your regular expression is invalid, due to something preceding a 'line "
+"start'."
+msgstr "이전의 '행 시작' 때문에 정규 표현식이 유효하지 않습니다. "
+
+#: errormap.cpp:48 errormap.cpp:57 errormap.cpp:66
+#, kde-format
+msgid "Regular Expression Error"
+msgstr "정규 표현식 오류"
+
+#: errormap.cpp:56
+#, kde-format
+msgid ""
+"Your regular expression is invalid, due to something following a 'line end'."
+msgstr "다음의 '행 끝' 때문에 정규 표현식이 유효하지 않습니다."
+
+#: errormap.cpp:65
+#, kde-format
+msgid ""
+"Your regular expression is invalid. 'Look Ahead' regular expression must be "
+"the last sub expression."
+msgstr ""
+"정규 표현식이 유효하지 않습니다. '예측' 정규 표현식은 마지막 하위 표현식이어"
+"야 합니다."
+
+#: infopage.cpp:33
+#, kde-format
+msgctxt ""
+"Translators, feel free to add yourself in the text below, asking for a "
+"postcard ;-), also feel free to add a section saying <h2>Translators</h2>. "
+"Kind regards, and thanks for your work - Jesper."
+msgid ""
+"<h1>Regular Expression Editor</h1><p>What you are currently looking at is an "
+"editor for <i>Regular Expressions</i>.</p><p>The upper part in the middle is "
+"the editing area, the lower part is a verification window where you can try "
+"your regular expressions right away. The row of buttons is the editing "
+"actions. This is actually very similar to common drawing programs. Select an "
+"editing tool to start editing your regular expression, and press the mouse "
+"button in the editing area where you want this item inserted.</p><p>For a "
+"more detailed description of this editor see the <a href=\"doc://\">info "
+"pages</a></p><h2>What is a regular expression?</h2>If you do not know what a "
+"regular expression is, then it might be a good idea to read <a href=\"doc://"
+"whatIsARegExp\">the introduction to regular expressions</a>.<br />"
+msgstr ""
+"<h1>정규 표현식 편집기</h1><p>지금 보고 계신 프로그램은 <i>정규 표현식</i> 편"
+"집기입니다.</p><p>가운데의 상단은 편집 구역이며, 하단은 정규 표현식을 즉시 시"
+"험해 볼 수 있는 구역입니다. 버튼 열은 편집 동작 입니다. 일반 그리기 프로그램"
+"과 거의 비슷합니다. 편집을 시작하려면 편집 도구를 선택하여 편집 구역에 해당 "
+"항목을 삽입하려는 곳을 클릭하십시오.</p><p>이 편집기에 대한 보다 많은 정보를 "
+"보려면 <a href=\"doc://\">정보 페이지를 참고하십시오.</a></p><h2>정규 표현식"
+"이란?</h2> 정규 표현식이 무엇인지 모른다면, <a href=\"doc://whatIsARegExp\">"
+"에서 정규 표현식 소개 부분을 참고하십시오</a>.<br />"
+
+#: infopage.cpp:46
+#, kde-format
+msgid ""
+"<h2>Send the author an electronic postcard</h2>I don't get any money for "
+"working on KRegExpEditor, I therefore appreciate it very much when users "
+"tell me what they think about my work. I would therefore be very happy if "
+"you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a short "
+"mail</a>, telling me that you use my regular expression editor.<h2>Author</"
+"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
+"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+msgstr ""
+"<h2>제작자에게 전자 우편을 보내 주십시오</h2> KRegExpEditor를 통해서 얻는 돈"
+"은 없기 때문에, 사용자 의견은 개발에 항상 도움이 됩니다. <a href=\"mailto:"
+"blackie@kde.org?subject=KRegExpEditor\">제게 짧은 메일을 보내 주셔서</a> 정"
+"규 표현식 편집기 사용에 대하여 이야기해 주십시오. <h2>제작자</h2><a href="
+"\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:"
+"blackie@kde.org\">blackie@kde.org</a>&gt;"
+
+#: KMultiFormListBox/ccp.cpp:73
+#, kde-format
+msgid "Insert Blank"
+msgstr "빈 칸 삽입"
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#, kde-format
+msgid "Due to a bug, it is not possible to remove the last element."
+msgstr "버그 때문에 마지막 원소를 제거할 수 없습니다."
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#, kde-format
+msgid "Internal Error"
+msgstr "내부 오류"
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:282
+#, kde-format
+msgid "There is no element on the clipboard to paste in."
+msgstr "클립보드에 붙여 넣을 원소가 없습니다."
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:54
+#, kde-format
+msgid "Edit"
+msgstr "편집"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:61
+#: userdefinedregexps.cpp:153
+#, kde-format
+msgid "Delete"
+msgstr "삭제"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:74
+#, kde-format
+msgid "Up"
+msgstr "위로"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:80
+#, kde-format
+msgid "Down"
+msgstr "아래로"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#, kde-format
+msgid "Delete item \"%1\"?"
+msgstr "항목 \"%1\"을(를) 삭제하겠습니까?"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#, kde-format
+msgid "Delete Item"
+msgstr "항목 삭제"
+
+#: KMultiFormListBox/kmultiformlistbox.h:71
+#, kde-format
+msgid "Add"
+msgstr "추가"
+
+#: KMultiFormListBox/widgetwindow.cpp:47
+#, kde-format
+msgid "Widget Configuration"
+msgstr "위젯 설정"
+
+#: kregexpeditorguidialog.cpp:36
+#, kde-format
+msgid "Regular Expression Editor"
+msgstr "정규 표현식 편집기"
+
+#: kregexpeditorprivate.cpp:68
+#, kde-format
+msgid "Compound regular expression:"
+msgstr "컴파운드 정규 표현식:"
+
+#: kregexpeditorprivate.cpp:69
+#, kde-format
+msgid ""
+"In this window you will find predefined regular expressions. Both regular "
+"expressions you have developed and saved, and regular expressions shipped "
+"with the system."
+msgstr ""
+"이 창에서 미리 정의된 정규 표현식을 찾을 수 있습니다. 직접 개발하고 저장한 정"
+"규 표현식과 시스템 자체의 정규 표현식 모두 존재합니다."
+
+#: kregexpeditorprivate.cpp:78
+#, kde-format
+msgid ""
+"In this window you will develop your regular expressions. Select one of the "
+"actions from the action buttons above, and click the mouse in this window to "
+"insert the given action."
+msgstr ""
+"이 창에서 사용자의 정규 표현식을 개발할 수 있습니다. 위의 동작 버튼 중 하나"
+"를 선택한 후 해당 동작을 삽입하려면, 이 창을 클릭하십시오."
+
+#: kregexpeditorprivate.cpp:86
+#, kde-format
+msgid ""
+"<p>Type in some text in this window, and see what the regular expression you "
+"have developed matches.</p><p>Each second match will be colored in red and "
+"each other match will be colored blue, simply so you can distinguish them "
+"from each other.</p><p>If you select part of the regular expression in the "
+"editor window, then this part will be highlighted - This allows you to "
+"<i>debug</i> your regular expressions</p>"
+msgstr ""
+"<p>이 창에 텍스트를 입력하여 개발한 정규 표현식과 일치하는지 확인하십시오.</"
+"p><p>각 초마다 적색과 청색으로 구분되어 표시되므로 쉽게 구분하여 볼 수 있습니"
+"다.</p><p>편집 창에서 특정 정규 표현식을 선택하면, 이 부분이 강조 표시 됩니"
+"다 - 사용자의 정규 표현식 <i>디버그</i>가 가능합니다.</p>"
+
+#: kregexpeditorprivate.cpp:148
+#, kde-format
+msgid "ASCII syntax:"
+msgstr "ASCII 문법:"
+
+#: kregexpeditorprivate.cpp:161
+#, kde-format
+msgid ""
+"<p>This is the regular expression in ASCII syntax. You are likely only to be "
+"interested in this if you are a programmer, and need to develop a regular "
+"expression using QRegExp.</p><p>You may develop your regular expression both "
+"by using the graphical editor, and by typing the regular expression in this "
+"line edit.</p>"
+msgstr ""
+"<p>ASCII 문법의 정규 표현식입니다. QRegExp를 사용하여 정규 표현식을 개발해야 "
+"하는 프로그래머에게 필요할 수도 있습니다.</p><p>그래픽 편집기와 행 편집기를 "
+"둘 다 사용하여 정규 표현식을 개발할 수 있습니다.</p>"
+
+#: kregexpeditorprivate.cpp:371
+#, kde-format
+msgid "Could not open file '%1' for reading"
+msgstr "파일 '%1'에서 읽으려고 열 수 없습니다"
+
+#: lookaheadwidget.cpp:51
+#, kde-format
+msgid "Pos. Look Ahead"
+msgstr "긍정 예측"
+
+#: lookaheadwidget.cpp:53
+#, kde-format
+msgid "Neg. Look Ahead"
+msgstr "부정 예측"
+
+#: main.cpp:42
+#, kde-format
+msgid "RegExp Editor"
+msgstr "정규 표현식 편집기"
+
+#: main.cpp:43
+#, kde-format
+msgid "Editor for Regular Expressions"
+msgstr "정규 표현식 편집기"
+
+#: main.cpp:45
+#, kde-format
+msgid "(c) 2002-2003 Jesper K. Pedersen"
+msgstr "(c) 2002-2003 Jesper K. Pedersen"
+
+#: main.cpp:46
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: main.cpp:46
+#, kde-format
+msgid "Developer"
+msgstr "개발자"
+
+#: predefined/General/anything.regexp:5
+#, kde-format
+msgid "anything"
+msgstr "무엇이든"
+
+#: predefined/General/anything.regexp:6
+#, kde-format
+msgid "This regular expression matches anything."
+msgstr "이 정규 표현식은 무엇에든 일치함"
+
+#: predefined/General/spaces.regexp:5
+#, kde-format
+msgid "spaces"
+msgstr "여백"
+
+#: predefined/General/spaces.regexp:6
+#, kde-format
+msgid "Matches an arbitrary amount of whitespace."
+msgstr "임의의 공백량과 일치"
+
+#: qregexpparser.y:205
+#, kde-format
+msgid ""
+"<p>Back reference regular expressions are not supported.</p><p><tt>\\1</tt>, "
+"<tt>\\2</tt>, ... are <i>back references</i>, meaning they refer to previous "
+"matches. Unfortunately this is not supported in the current version of this "
+"editor.</p><p>In the graphical area the text <b>%1</b> has been inserted. "
+"This is however just a workaround to ensure that the application handles the "
+"regexp at all. Therefore, as soon as you edit the regular expression in the "
+"graphical area, the back reference will be replaced by matching the text <b>"
+"%2</b> literally.</p>"
+msgstr ""
+"<p>역참조 정규 표현식은 지원하지 않습니다.</p><p><tt>\\1</tt>, <tt>\\2</"
+"tt>, ... 등은 <i>역참조 정규표현식</i>으로, 이전 일치를 가리킵니다. 이 편집기"
+"의 현재 버전에서는 역참조를 지원하지 않습니다.</p><p>그래픽 영역에는 텍스트 "
+"<b>%1</b>이(가) 추가되어 있지만, 프로그램에서 정규 표현식을 처리할 수 있도록 "
+"문제를 우회할 뿐입니다. 정규 표현식을 그래픽 영역에서 편집한 후에는 역참조가 "
+"일치하는 문자열인 <b>%2</b>(으)로 대체됩니다.</p>"
+
+#: qregexpparser.y:214
+#, kde-format
+msgid "Back reference regular expressions not supported"
+msgstr "역참조 정규 표현식은 지원하지 않음"
+
+#: regexpbuttons.cpp:49
+#, kde-format
+msgid "Selection tool"
+msgstr "선택 도구"
+
+#: regexpbuttons.cpp:50
+#, kde-format
+msgid ""
+"<p>This will change the state of the editor to <i>selection state</i>.</"
+"p><p>In this state you will not be inserting <i>regexp items</i>, but "
+"instead select them. To select a number of items, press down the left mouse "
+"button and drag it over the items.</p><p>When you have selected a number of "
+"items, you may use cut/copy/paste. These functions are found in the right "
+"mouse button menu.</p>"
+msgstr ""
+"<p>편집기의 상태를 <i>선택 상태</i>로 변경합니다.</p><p>이 상태에서 <i>정규 "
+"표현식 항목</i>을 삽입할 수는 없지만 선택할 수는 있습니다. 여러 항목을 선택하"
+"려면 마우스 왼쪽 단추를 누른 상태에서 항목을 드래그 하십시오.</p><p>여러 항목"
+"을 선택하면 잘라내기/복사/붙여넣기를 사용할 수 있습니다. 이 기능은 오른쪽 마"
+"우스 단추를 눌러서 나오는 메뉴에서 찾을 수 있습니다.</p>"
+
+#: regexpbuttons.cpp:59
+#, kde-format
+msgid "Text"
+msgstr "텍스트"
+
+#: regexpbuttons.cpp:60
+#, kde-format
+msgid ""
+"<qt>This will insert a text field, where you may write text. The text you "
+"write will be matched literally. (i.e. you do not need to escape any "
+"characters)</qt>"
+msgstr ""
+"<qt>이는 텍스트 영역에 삽입됩니다. 쓰여진 텍스트는 글자 모양대로 일치됩니다. "
+"(따라서 어떤 문자도 제외하지 않아도 됩니다)</qt>"
+
+#: regexpbuttons.cpp:64
+#, kde-format
+msgid "A single character specified in a range"
+msgstr "범위 중에 한 문자가 지정됨"
+
+#: regexpbuttons.cpp:65
+#, kde-format
+msgid ""
+"<p>This will match a single character from a predefined range.</p><p>When "
+"you insert this widget a dialog box will appear, which lets you specify "
+"which characters this <i>regexp item</i> will match.</p>"
+msgstr ""
+"<p>미리 정의된 범위에서 한 글자만 일치합니다.</p><p>이 위젯을 삽입하면 대화 "
+"상자가 나타나서 <i>정규 표현식 항목</i>이 어떤 글자에 일치할지 정할 수 있습니"
+"다.</p>"
+
+#: regexpbuttons.cpp:70
+#, kde-format
+msgid "Any character"
+msgstr "어떤 문자라도"
+
+#: regexpbuttons.cpp:71
+#, kde-format
+msgid "<qt>This will match any single character</qt>"
+msgstr "<qt>모든 단일 문자에 일치합니다.</qt>"
+
+#: regexpbuttons.cpp:74
+#, kde-format
+msgid "Repeated content"
+msgstr "반복 내용"
+
+#: regexpbuttons.cpp:75
+#, kde-format
+msgid ""
+"<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
+"a specified number of times.<br />The number of times to repeat may be "
+"specified using ranges; e.g. it could be specified that it should match from "
+"2 to 4 times, that it should match exactly 5 times, or that it should match "
+"at least one time.<br />Examples:<br />If you specify that it should match "
+"<i>any</i> time, and the content it surrounds is <tt>abc</tt>, then this "
+"<i>regexp item</i> will match the empty string, the string <tt>abc</tt>, the "
+"string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, etc.</qt>"
+msgstr ""
+"<qt>이 <i>정규 표현식 항목</i>은 지정된 횟수만큼 <i>정규 표현식 항목</i>을 반"
+"복합니다.<br />반복되는 횟수는 범위를 사용하여 지정합니다. 즉, 정규 표현식을 "
+"2-4번 반복하도록 지정하거나, 정규 표현식은 정확히 5번 일치하거나, 또는 적어"
+"도 한 번 이상 일치하도록 설정할 수 있습다.<br />예:<br />반복 횟수를 <i>아무"
+"때나</i>로 지정했고, 그 내용이 <tt>abc</tt>일 경우, 이 <i>정규 표현식</i>은 "
+"비어 있는 문자열, <tt>abc</tt>, <tt>abcabc</tt>, <tt>abcabcabcabc</tt> 등에 "
+"일치합니다.</qt>"
+
+#: regexpbuttons.cpp:88
+#, kde-format
+msgid ""
+"<p>This <i>regexp item</i> will match any of its alternatives.</"
+"p><p>Alternatives are specified by placing <i>regexp items</i> on top of "
+"each other inside this widget.</p>"
+msgstr ""
+"<p>이 <i>정규 표현식 항목</i>은 대안과 일치합니다.</p><p><i>정규 표현식 항목"
+"</i>을 이 구성요소 내의 양 위쪽에 위치시켜 대안을 지정할 수 있습니다.</p>"
+
+#: regexpbuttons.cpp:93
+#, kde-format
+msgid "Compound regexp"
+msgstr "컴파운드 정규 표현식"
+
+#: regexpbuttons.cpp:94
+#, kde-format
+msgid ""
+"<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
+"for you to collapse a huge <i>regexp item</i> into a small box. This makes "
+"it easier for you to get an overview of large <i>regexp items</i>. This is "
+"especially useful if you load a predefined <i>regexp item</i> that you "
+"perhaps do not care about the inner workings of.</qt>"
+msgstr ""
+"<qt>이 <i>정규 표현식 항목</i>은 두 가지 목적을 가지고 있습니다: <ul> <li>우"
+"선 큰 <i>정규 표현식 항목</i>을 작은 상자로 줄일 수 있습니다. 큰 <i>정규 표현"
+"식 항목</i>의 미리 보기에 유용하며, 특히 내부 작업의 진행 방법이 중요하지 않"
+"은 <i>정규 표현식 항목</i>을 불러올 때에 편리합니다."
+
+#: regexpbuttons.cpp:101
+#, kde-format
+msgid "Beginning of line"
+msgstr "행 시작"
+
+#: regexpbuttons.cpp:102
+#, kde-format
+msgid "<qt>This will match the beginning of a line.</qt>"
+msgstr "<qt>행의 시작과 일치합니다.</qt>"
+
+#: regexpbuttons.cpp:105
+#, kde-format
+msgid "End of line"
+msgstr "행의 끝"
+
+#: regexpbuttons.cpp:106
+#, kde-format
+msgid "<qt>This will match the end of a line.</qt>"
+msgstr "<qt>행 끝과 일치합니다.</qt>"
+
+#: regexpbuttons.cpp:109
+#, kde-format
+msgid "Word boundary"
+msgstr "단어 경계"
+
+#: regexpbuttons.cpp:110
+#, kde-format
+msgid ""
+"<qt>This asserts a word boundary (This part does not actually match any "
+"characters)</qt>"
+msgstr "<qt>단어 경계를 정합니다(실제로 특정 문자와 일치하지 않습니다)</qt>"
+
+#: regexpbuttons.cpp:113
+#, kde-format
+msgid "Non Word boundary"
+msgstr "비 단어 경계"
+
+#: regexpbuttons.cpp:114
+#, kde-format
+msgid ""
+"<qt>This asserts a non-word boundary (This part does not actually match any "
+"characters)</qt>"
+msgstr "<qt>비 단어 경계를 정합니다(실제로 특정 문자와 일치되지 않습니다)</qt>"
+
+#: regexpbuttons.cpp:118
+#, kde-format
+msgid "Positive Look Ahead"
+msgstr "긍정적 예측"
+
+#: regexpbuttons.cpp:119
+#, kde-format
+msgid ""
+"<qt>This asserts a regular expression (This part does not actually match any "
+"characters). You can only use this at the end of a regular expression.</qt>"
+msgstr ""
+"<qt>일치해야 할 정규 표현식을 설정합니다(이 부분은 어떠한 글자에도 일치합니"
+"다). 정규 표현식의 맨 끝에만 사용할 수 있습니다.</qt>"
+
+#: regexpbuttons.cpp:123
+#, kde-format
+msgid "Negative Look Ahead"
+msgstr "부정적 예측"
+
+#: regexpbuttons.cpp:124
+#, kde-format
+msgid ""
+"<qt>This asserts a regular expression that must not match (This part does "
+"not actually match any characters). You can only use this at the end of a "
+"regular expression.</qt>"
+msgstr ""
+"<qt>일치하지 않아야 할 정규 표현식을 설정합니다(이 부분은 어떠한 글자에도 일"
+"치하지 않습니다). 정규 표현식의 맨 끝에만 사용할 수 있습니다.</qt>"
+
+#: regexpeditorwindow.cpp:215
+#, kde-format
+msgid "There is no selection."
+msgstr "선택한 것이 없습니다."
+
+#: regexpeditorwindow.cpp:215
+#, kde-format
+msgid "Missing Selection"
+msgstr "누락된 선택"
+
+#: regexpeditorwindow.cpp:280
+#, kde-format
+msgid "There is no widget under cursor."
+msgstr "커서 위치에 위젯이 없습니다."
+
+#: regexpeditorwindow.cpp:280
+#, kde-format
+msgid "Invalid Operation"
+msgstr "잘못된 동작"
+
+#: regexpeditorwindow.cpp:331
+#, kde-format
+msgid "C&ut"
+msgstr "잘라내기(&U)"
+
+#: regexpeditorwindow.cpp:335
+#, kde-format
+msgid "&Copy"
+msgstr "복사(&C)"
+
+#: regexpeditorwindow.cpp:339
+#, kde-format
+msgid "&Paste"
+msgstr "붙여넣기(&P)"
+
+#: regexpeditorwindow.cpp:345
+#, kde-format
+msgid "&Edit"
+msgstr "편집(&E)"
+
+#: regexpeditorwindow.cpp:349
+#, kde-format
+msgid "&Save Regular Expression..."
+msgstr "정규 표현식 저장(&S)..."
+
+#: regexpeditorwindow.cpp:388
+#, kde-format
+msgid "Name for Regular Expression"
+msgstr "정규 표현식 이름"
+
+#: regexpeditorwindow.cpp:388
+#, kde-format
+msgid "Enter name:"
+msgstr "이름 입력:"
+
+#: regexpeditorwindow.cpp:390
+#, kde-format
+msgid "Empty name is not supported"
+msgstr "빈 이름은 지원하지 않음"
+
+#: regexpeditorwindow.cpp:390
+#, kde-format
+msgid "Save Regular Expression"
+msgstr "정규 표현식 저장"
+
+#: regexpeditorwindow.cpp:398
+#, kde-format
+msgid "<p>Overwrite named regular expression <b>%1</b></p>"
+msgstr "<p>정규 표현식 <b>%1</b> 덮어쓰기</p>"
+
+#: regexpeditorwindow.cpp:406
+#, kde-format
+msgid "Could not open file for writing: %1"
+msgstr "파일에 쓰려고 열 수 없습니다: %1"
+
+#: repeatregexp.cpp:57 repeatregexp.cpp:65
+#, kde-format
+msgid ""
+"<p>Value for attribute <b>%1</b> was not an integer for element <b>%2</b></"
+"p><p>It contained the value <b>%3</b></p>"
+msgstr ""
+"<p><b>%1</b>속성의 값이 <b>%2</b> 원소의 정수가 아닙니다</p><p>포함한 값은 "
+"<b>%3</b>입니다.</p>"
+
+#: repeatregexp.cpp:60 repeatregexp.cpp:68 textrangeregexp.cpp:146
+#: textregexp.cpp:54 widgetfactory.cpp:165 widgetfactory.cpp:196
+#: widgetfactory.cpp:203
+#, kde-format
+msgid "Error While Loading From XML File"
+msgstr "XML 파일에서 불러오는 중 오류 발생"
+
+#: repeatwidget.cpp:74
+#, kde-format
+msgid "Number of Times to Repeat Content"
+msgstr "내용 반복 횟수"
+
+#: repeatwidget.cpp:184
+#, kde-format
+msgid "Times to Match"
+msgstr "일치 횟수"
+
+#: repeatwidget.cpp:191
+#, kde-format
+msgid "Any number of times (including zero times)"
+msgstr "불특정 횟수(0도 포함)"
+
+#: repeatwidget.cpp:198
+#, kde-format
+msgid "At least"
+msgstr "최소"
+
+#: repeatwidget.cpp:199
+#, kde-format
+msgid "At most"
+msgstr "최대"
+
+#: repeatwidget.cpp:200
+#, kde-format
+msgid "Exactly"
+msgstr "정확히"
+
+#: repeatwidget.cpp:203
+#, kde-format
+msgid "From"
+msgstr "시작"
+
+#: repeatwidget.cpp:215
+#, kde-format
+msgid "to"
+msgstr "끝"
+
+#: repeatwidget.cpp:223 repeatwidget.cpp:249
+#, kde-format
+msgid "time(s)"
+msgstr "횟수"
+
+#: repeatwidget.cpp:299
+#, kde-format
+msgid "Repeated Any Number of Times"
+msgstr "불특정 횟수 반복됨"
+
+#: repeatwidget.cpp:301
+#, kde-format
+msgid "Repeated at Least 1 Time"
+msgid_plural "Repeated at Least %1 Times"
+msgstr[0] "최소 %1번 반복됨"
+
+#: repeatwidget.cpp:303
+#, kde-format
+msgid "Repeated at Most 1 Time"
+msgid_plural "Repeated at Most %1 Times"
+msgstr[0] "최대 %1번 반복됨"
+
+#: repeatwidget.cpp:305
+#, kde-format
+msgid "Repeated Exactly 1 Time"
+msgid_plural "Repeated Exactly %1 Times"
+msgstr[0] "정확히 %1번 반복됨"
+
+#: repeatwidget.cpp:307
+#, kde-format
+msgid "Repeated From %1 to %2 Times"
+msgstr "%1번부터 %2번까지 반복됨"
+
+#: textrangeregexp.cpp:145
+#, kde-format
+msgid ""
+"<p>Invalid sub element to element <b>TextRange</b>. Tag was <b>%1</b></p>"
+msgstr ""
+"<p><b>TextRange</b> 원소에 유효하지 않은 하위 원소가 있습니다. 태그는 <b>%1</"
+"b>입니다.</p>"
+
+#: textregexp.cpp:53
+#, kde-format
+msgid "<p>Element <b>Text</b> did not contain any textual data.</p>"
+msgstr "<p><b>Text</b> 원소에 텍스트 데이터가 없습니다.</p>"
+
+#: userdefinedregexps.cpp:67
+#, kde-format
+msgid "User Defined"
+msgstr "사용자 정의"
+
+#: userdefinedregexps.cpp:87
+#, kde-format
+msgid "general"
+msgstr "일반"
+
+#: userdefinedregexps.cpp:101
+#, kde-format
+msgid "Could not open file for reading: %1"
+msgstr "파일에서 읽으려고 열 수 없습니다: %1"
+
+#: userdefinedregexps.cpp:111
+#, kde-format
+msgid "File %1 containing user defined regular expression contained an error"
+msgstr "파일 %1에 있는 사용자 정의 정규 표현식에 오류가 있습니다"
+
+#: userdefinedregexps.cpp:154
+#, kde-format
+msgid "Rename"
+msgstr "이름 바꾸기"
+
+#: userdefinedregexps.cpp:195
+#, kde-format
+msgid "Rename Item"
+msgstr "이름 변경 항목"
+
+#: userdefinedregexps.cpp:195
+#, kde-format
+msgid "New name:"
+msgstr "새로운 이름:"
+
+#: userdefinedregexps.cpp:202
+#, kde-format
+msgid "<p>Overwrite named regular expression <b>%1</b>?</p>"
+msgstr "<p><b>%1</b> 정규 표현식의 이름을 덮어쓰겠습니까?</p>"
+
+#: userdefinedregexps.cpp:202
+#, kde-format
+msgid "Do Not Overwrite"
+msgstr "덮어쓰지 않음"
+
+#: verifybuttons.cpp:38
+#, kde-format
+msgid "Verify regular expression"
+msgstr "정규 표현식 확인"
+
+#: verifybuttons.cpp:39
+#, kde-format
+msgid ""
+"Shows what part of the regular expression is being matched in the "
+"<i>verifier window</i>.(The window below the graphical editor window)."
+msgstr ""
+"<i>확인창</i>에 일치하는 정규 표현식의 부분을 표시합니다. (그래픽 편집창 아래"
+"의 창)"
+
+#: verifybuttons.cpp:48
+#, kde-format
+msgid "Load text in the verifier window"
+msgstr "확인 창에 텍스트 불러오기"
+
+#: verifybuttons.cpp:53
+#, kde-format
+msgid "Verification Settings"
+msgstr "확인 설정"
+
+#: verifybuttons.cpp:101
+#, kde-format
+msgid "config menu"
+msgstr "설정 메뉴"
+
+#: verifybuttons.cpp:104
+#, kde-format
+msgid "Verify on the Fly"
+msgstr "바로 확인"
+
+#: verifybuttons.cpp:110
+#, kde-format
+msgid "Toggle on-the-fly verification of regular expression"
+msgstr "정규 표현식 바로 확인하기 전환"
+
+#: verifybuttons.cpp:111
+#, kde-format
+msgid ""
+"Enabling this option will make the verifier update for each edit. If the "
+"verify window contains much text, or if the regular expression is either "
+"complex or matches a lot of time, this may be very slow."
+msgstr ""
+"편집을 진행할 때마다 확인 정보를 업데이트합니다. 확인 창에 문자열이 많이 들"
+"어 있거나, 정규 표현식이 복잡하거나 일치 작업에 시간이 오래 걸리면 느려질 수 "
+"있습니다."
+
+#: verifybuttons.cpp:115
+#, kde-format
+msgid "Match Greedy"
+msgstr "탐욕스럽게 일치"
+
+#: verifybuttons.cpp:120
+#, kde-format
+msgid "Toggle greedy matching when verifying the regular expression."
+msgstr "정규 표현식을 확인할 때 탐욕스런 일치를 전환합니다."
+
+#: verifybuttons.cpp:121
+#, kde-format
+msgid ""
+"When this option is enabled, the regular expression will be evaluated on a "
+"so-called greedy way."
+msgstr "이 옵션을 사용하면 정규 표현식을 탐욕스럽게 적용합니다."
+
+#: verifybuttons.cpp:124
+#, kde-format
+msgid "RegExp Language"
+msgstr "정규 표현식 언어"
+
+#: widgetfactory.cpp:164
+#, kde-format
+msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
+msgstr "<p>XML을 읽는 도중 알 수 없는 태그 발견. 태그는 <b>%1</b>입니다.</p>"
+
+#: widgetfactory.cpp:188
+#, kde-format
+msgid "Error while loading regular expression from XML."
+msgstr "XML에서 정규 표현식을 불러오는 중 오류가 발생했습니다."
+
+#: widgetfactory.cpp:189
+#, kde-format
+msgid "Error While Loading Regular Expression From XML"
+msgstr "XML에서 정규 표현식 불러오던 중 오류 발생"
+
+#: widgetfactory.cpp:195
+#, kde-format
+msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
+msgstr "<p>XML 파일에 <b>%1</b> 태그가 없습니다.</p>"
+
+#: widgetfactory.cpp:201
+#, kde-format
+msgid ""
+"<p>Error while reading XML file. The element just below the tag <b>%1</b> "
+"was not an element.</p>"
+msgstr ""
+"<p>XML 파일 읽는 중 오류 발생. <b>%1</b>태그 바로 아래의 요소는 요소가 아닙니"
+"다.</p>"
+
+#: zerowidgets.cpp:72
+#, kde-format
+msgid ""
+"Any\n"
+"Character"
+msgstr ""
+"모든\n"
+"문자"
+
+#: zerowidgets.cpp:85
+#, kde-format
+msgid ""
+"Line\n"
+"Start"
+msgstr ""
+"행\n"
+"시작"
+
+#: zerowidgets.cpp:98
+#, kde-format
+msgid ""
+"Line\n"
+"End"
+msgstr ""
+"행\n"
+"끝"
+
+#: zerowidgets.cpp:111
+#, kde-format
+msgid ""
+"Word\n"
+"Boundary"
+msgstr ""
+"단어\n"
+"경계"
+
+#: zerowidgets.cpp:124
+#, kde-format
+msgid ""
+"Non-word\n"
+"Boundary"
+msgstr ""
+"비 단어\n"
+"경계"
+
+#~ msgid "Clear expression"
+#~ msgstr "정규 표현식 삭제"

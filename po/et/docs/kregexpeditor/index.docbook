@@ -1,0 +1,921 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % Estonian  "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kregexpeditor" lang="&language;">
+
+  <bookinfo>
+    <title
+>Regulaaravaldiste redaktori käsiraamat</title>
+
+    <authorgroup>
+      <author
+><firstname
+>Jesper K.</firstname
+> <surname
+>Pedersen</surname
+> <affiliation
+><address
+>&Jesper.Pedersen.mail;</address
+></affiliation>
+      </author>
+<othercredit role="translator"
+><firstname
+>Marek</firstname
+><surname
+>Laane</surname
+><affiliation
+><address
+><email
+>bald@starman.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+    </authorgroup>
+
+    <date
+>2001-07-03</date>
+    <releaseinfo
+>0.1</releaseinfo>
+
+    <legalnotice
+>&underFDL;</legalnotice>
+
+    <copyright>
+      <year
+>2001</year>
+      <holder
+>Jesper K. Pedersen</holder>
+    </copyright>
+
+    <abstract>
+      <para
+>See käsiraamat kirjeldab regulaaravaldiste redaktori vidinat.</para>
+    </abstract>
+
+    <keywordset>
+      <keyword
+>KDE</keyword>
+      <keyword
+>regulaaravaldis</keyword>
+    </keywordset>
+  </bookinfo>
+
+  <!-- ====================================================================== -->
+  <!--                               Introduction                             -->
+  <!-- ====================================================================== -->
+  <chapter id="introduction">
+    <title
+>Sissejuhatus</title>
+
+
+    <para
+>Regulaaravaldiste redaktor on redaktor regulaaravaldiste graafiliseks redigeerimiseks (vastandina <acronym
+>ASCII</acronym
+> süntaksile). Traditsiooniliselt kirjutatakse regulaaravaldisi <acronym
+>ASCII</acronym
+> süntaksis, mis näeb välja umbes nii: <literal
+>^.*kde\b</literal
+>. Selle peamiseks puuduseks on: <itemizedlist>
+        <listitem
+><para
+>Mitteprogrammeerijal on seda raske mõista.</para
+></listitem>
+
+        <listitem
+><para
+>See nõuab teatud märkide <emphasis
+>varjestamist</emphasis
+> (näiteks tähekese sobivuseks tuleb kirjutada <literal
+>\*</literal
+>). </para
+></listitem>
+
+        <listitem
+><para
+>See nõuab, et teaksid ja tunneksid <emphasis
+>eelnemisreegleid</emphasis
+> (Mida õieti tähendab <literal
+>x|y*</literal
+>? Kas ühekordset <literal
+>x</literal
+>-i või mitut <literal
+>y</literal
+>-t <emphasis
+>VÕI</emphasis
+> mitut <literal
+>x</literal
+>-i ja <literal
+>y</literal
+>-t?)</para
+></listitem>
+      </itemizedlist>
+    </para>
+
+    <para
+>Regulaaravaldiste redaktor aga võimaldab regulaaravaldise hõlpsasti <emphasis
+>joonistada</emphasis
+>. Redaktor lahendab vähemalt mainitud teise ja kolmanda probleemi. See ei pruugi küll regulaaravaldisi tavakasutajale tingimata arusaadavaks teha, kuigi seda saavad öelda vaid kasutajad ise. Niisiis - kui sa ei ole programmeerija, aga oled tänu käesolevale redaktorile regulaaravaldistega <quote
+>sina</quote
+> peale saanud, anna palun sellest <ulink url="mailto:blackie@kde.org"
+>mulle teada</ulink
+>. </para>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                       What is a Regular Expression                     -->
+  <!-- ====================================================================== -->
+  <chapter id="whatIsARegExp">
+    <title
+>Mis on regulaaravaldis?</title>
+
+    <para
+>Regulaaravaldis on viis määrata <emphasis
+>tingimused</emphasis
+>, mis peavad millekski täidetud olema. Kui näiteks tavaliselt otsitakse tekstiredaktoris mingit sõna või märki/märke, siis saab otsitava teksti määrata <emphasis
+>sõna-sõnalt</emphasis
+>, regulaaravaldisena või siis andes ette teatud mustrit, millega otsitav peab sobima. Näiteks <emphasis
+>otsin sõna &kde;, aga ainult rea alguses</emphasis
+> või <emphasis
+>otsin sõna <literal
+>see</literal
+>, aga see peab olema eraldi sõna</emphasis
+> või <emphasis
+>otsin faile, mis algavad sõnaga <literal
+>test</literal
+>, millele järgneb mingi number, näiteks <literal
+>test12</literal
+>, <literal
+>test107</literal
+> ja <literal
+>test007</literal
+></emphasis
+>.</para>
+
+    <para
+>Regulaaravaldisi saab luua alamavaldistest, nagu näiteks suurt Lego saab kokku panna väiksematest osakestest. Ja nagu Lego-maailmas, on ka siin teatud hulk elementaarseid põhiplokke. Järgnevalt kirjeldangi näidete varal kõiki neid põhiplokke.</para>
+
+    <example>
+      <title
+>Tavalise teksti otsimine.</title>
+      <para
+>Kui otsid lihtsalt tavalist teksti, ei ole regulaaravaldist erilist mõtet kasutada. Nimelt on regulaaravaldistes mõnedel märkidel eritähendus: <literal
+>.*|$</literal
+>. Nii et kui soovid otsida teksti <literal
+>kde.</literal
+> (s.t. tähti <literal
+>kde</literal
+>, millele järgneb punkt), siis tuleks see väljendada nii: <literal
+>kde\.</literal
+><footnote
+><para
+>Regulaaravaldise redaktor lahendab selle probleemi sinu eest, hoolitsedes paomärkide õigesse kohta asetamise eest.</para
+></footnote
+> Tavalise <literal
+>.</literal
+> asemel tuleb niisiis kirjutada <literal
+>\.</literal
+>, mida nimetatakse <emphasis
+>paomärgiks</emphasis
+>. </para>
+    </example>
+
+    <example id="positionregexp">
+      <title
+>&URL;-i sobivus</title>
+      <para
+>Kui oled valinud &kde;-s midagi, mis näeb välja nagu &URL;, pakub <command
+>Klipper</command
+> võimalust käivitada <command
+>Konqueror</command
+> antud &URL;-iga.</para>
+
+      <para
+><command
+>Klipper</command
+> suudab seda teha valikut kokku sobitades mitme erineva regulaaravaldisega ja kui üks neist sobib, pakutaksegi välja vastav võimalus.</para>
+      
+      <para
+>Regulaaravaldised &URL;-i jaoks määravad (lisaks muudele asjadele), et valik peab algama tekstiga <literal
+>http://</literal
+>. Regulaaravaldises kirjeldatakse seda tekstile <literal
+>http://</literal
+> katust (märk <literal
+>^</literal
+>) ette asetades.</para>
+
+      <para
+>Ülaltoodu on näide positsiooni kasutamisest regulaaravaldises. Samamoodi saab <emphasis
+>realõpu</emphasis
+> positsiooni määrata dollarimärgiga <literal
+>$</literal
+>.</para>
+    </example>
+
+    <example id="boundaryregexp">
+      <title
+>Sõna <literal
+>see</literal
+>, aga mitte <emphasis
+>see</emphasis
+><literal
+>s</literal
+>, <literal
+>glas</literal
+><emphasis
+>see</emphasis
+> või <literal
+>met</literal
+><emphasis
+>see</emphasis
+><literal
+>n</literal
+> otsimine</title>
+      <para
+>Selle leidmiseks saab kasutada kaht täiendavat positsioonitüüpi, nimelt <emphasis
+>sõnapiire</emphasis
+> ja <emphasis
+>mitte-<emphasis
+>sõnapiire</emphasis
+></emphasis
+>. Positsioone määratakse väljenditega <literal
+>\b</literal
+> (sõnapiire) ja <literal
+>\B</literal
+> (mitte-sõnapiire)<emphasis
+></emphasis
+></para>
+
+      <para
+>Nii saab sõna <literal
+>see</literal
+> otsida regulaaravaldisega <literal
+>\bsee\b</literal
+>. See määrab, et otsitakse sõna <literal
+>see</literal
+>, millel ei eelneks ega järgneks tähti (s.t. et tegu oleks sõnapiirdega nii sõna ees kui järel)</para>
+
+      <para
+>Nelja regulaaravaldise positsiooniväljendust saab redaktoris lisada <link linkend="positiontool"
+>nelja erineva positsioonivahendi</link
+> abil</para>
+    </example>
+
+    <example id="altnregexp">
+      <title
+>Kas <literal
+>see</literal
+> või <literal
+>too</literal
+> otsimine</title>
+      <para
+>Oletame, et soovid oma dokumendis otsida nii sõna <literal
+>see</literal
+> kui ka sõna <literal
+>too</literal
+>. Tavalist otsingut kasutades pead operatsiooni kaks korda ette võtma, otsides esimesel korral sõna <literal
+>see</literal
+> ja teisel <literal
+>too</literal
+>.</para>
+
+      <para
+>Regulaaravaldise abil saab mõlemat korraga otsida. Selleks tuleb otsida väljendit <literal
+>see|too</literal
+> ehk siis eraldada kaks otsitavat sõna püstkriipsuga.<footnote
+><para
+>Arvesta, et mõlemal pool püstkriipsu asub regulaaravaldis, nii et selle võimalusega ei saa otsida mitte ainult kaht erinevat tekstiosa, vaid ka kaht erinevat regulaaravaldise sobivust.</para
+></footnote
+></para>
+
+      <para
+>Regulaaravaldiste redaktoris ei pea sa püstkriipsu ise kirjutama, piisab, kui valida <link linkend="altntool"
+>alternatiivivahend</link
+> ja lisada alamregulaaravaldised teineteise peale.</para>
+    </example>
+
+    <example id="repeatregexp">
+      <title
+>Suvalise sobimine</title>
+      <para
+>Regulaaravaldisi võrreldakse sageli metamärkide kasutamisega shellis, see tähendab võimega määrata korraga mitu faili tärni kasutades. Ilmselt tunned järgmistes näidetes ära metamärgi kasutamise: <itemizedlist>
+          <listitem
+><para
+><literal
+>ls *.txt</literal
+> - siin on <literal
+>*.txt</literal
+> shelli metamärk, mis tähistab sobivust iga failiga, mille nime lõpus on <literal
+>*.txt</literal
+></para
+></listitem>
+          <listitem
+><para
+><literal
+>cat test??.res</literal
+> - sobib iga fail, mille alguses on <literal
+>test</literal
+>, millele järgneb kaks suvalist märki ja mis lõpeb märkidega <literal
+>.res</literal
+></para
+></listitem>
+        </itemizedlist>
+      </para>
+
+      <para
+>Shellis tähistab tärn suvalist märki, mis esineb suvaline arv korda. Teisisõnu vastab tärn <emphasis
+>suvalisele</emphasis
+>. Regulaaravaldises tähistatakse seda <literal
+>.*</literal
+>. Punkt tähendab siin suvalist üksikut, s.t ainult <emphasis
+>üht</emphasis
+> märki ning tärn seda, et sellele eelnev regulaaravaldis võib sobida suvaline arv kordi. Koos tähendabki see suvalise märgi sobivust suvaline arv kordi.</para>
+
+      <para
+>See võib tunduda üsna keerulisena, aga kui taipad asja tuuma, saad küllap aru, kui võimas see on. Võtame ette veel ühe elementaarse regulaaravaldise: <literal
+>a</literal
+>. Täht <literal
+>a</literal
+> omaette tähendab sobivust üksiku märgiga, nimelt tähega <literal
+>a</literal
+>. Kui me ühendame ta aga tärniga, s.t <literal
+>a*</literal
+>, siis on meil tegemist regulaaravaldisega, mis sobib suvalise arvu a-dega.</para>
+
+      <para
+>Mitut regulaaravaldist on võimalik kombineerida, asetades nad üksteise järele, näiteks <literal
+>ba(na)*</literal
+>. <footnote
+><para
+><literal
+>(na)*</literal
+> tähendab lihtsalt seda, et sulgudes olev võib esineda suvaline arv kordi.</para
+></footnote
+> Oletades, et kirjutasid selle regulaaravaldise tekstiredaktori otsinguväljale, leiad lisaks muudele näiteks järgmised sõnad: <literal
+>ba</literal
+>, <literal
+>bana</literal
+>, <literal
+>banana</literal
+>, <literal
+>bananananananana</literal
+> </para>
+
+      <para
+>Eeltoodust lähtudes ei ole sul loodetavasti kuigi keeruline kirjutada shelli metamärgiga otsing <literal
+>test??.res</literal
+> regulaaravaldisena. Õige vastus: <literal
+>test..\.res</literal
+>. Punkt tähistab suvalist märki. Üksiku punkti jaoks tuleb kirjutada <literal
+>\.</literal
+><footnote
+><para
+>Seda nimetatakse antud juhul paomärgiks</para
+></footnote
+>. Teisisõnu vastab regulaaravaldis <literal
+>\.</literal
+> punktile, punkt omaette aga suvalisele märgile. </para>
+
+      <para
+>Regulaaravaldiste redaktoris luuakse korduvad regulaaravaldised <link linkend="repeattool"
+>kordusvahendi</link
+> abil </para>
+    </example>
+
+    <example id="lookaheadregexp">
+      <title
+><literal
+>&amp;</literal
+> asemel <literal
+>&amp;amp;</literal
+> &HTML; -dokumendis</title
+> <para
+>&HTML; -keeles tuleb erimärk <literal
+>&amp;</literal
+> kirjutada kujul <literal
+>&amp;&amp;</literal
+>, mis mõnevõrra sarnaneb paomärgi kasutamisega regulaaravaldises.</para>
+
+      <para
+>Oletame, et kirjutasid &HTML; -dokumendi tavalises redaktoris (nt. &XEmacs; või &kate;) ning unustasid täiesti selle reegli. Nüüd oled mures, sest pead asendama kõik märgid <literal
+>&amp;</literal
+> märgiga <literal
+>&amp;amp;</literal
+>.</para>
+
+      <para
+>Seda saab hõlpsast teha ka tavalist otsimist ja asendamist kasutades, aga sellel on üks väike häda küljes. Oletame, et teksti kirjutades mõnel korral sul see reegel siiski meenus - aga ainult <emphasis
+>mõnel korral</emphasis
+>. Tingimusteta asendamine tähendab nüüd seda, et <literal
+>&amp;amp;</literal
+> asemele ilmub <literal
+>&amp;amp;amp;</literal
+></para>
+
+      <para
+>Tegelikult aga soovid ju seda, et <literal
+>&amp;</literal
+> asendataks ainult siis, kui sellele <emphasis
+>ei</emphasis
+> järgne <literal
+>amp;</literal
+>. Seda saab teha regulaaravaldisega, kui kasutada <emphasis
+>positiivset ettevaadet</emphasis
+>. </para>
+
+      <para
+>Regulaaravaldis, mis sobib ainult ja-märgiga, kui sellele ei järgne märke <literal
+>amp;</literal
+>, näeb välja selline: <literal
+>&amp;(?!amp;)</literal
+>. Seda on mõistagi lihtsam lugeda regulaaravaldiste redaktorit kasutades, kus saab tarvitada <link linkend="lookaheadtools"
+>ettevaadete vahendeid</link
+>.</para>
+    </example>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                    Using the Regular Expression Editor                 -->
+  <!-- ====================================================================== -->
+  <chapter id="theEditor">
+    <title
+>Regulaaravaldise redaktori kasutamine</title>
+
+    <para
+>See peatükk kirjeldab, kuidas toimib regulaaravaldiste redaktor. </para>
+
+    <!-- ====================================================================== -->
+    <!--                   The organization of the screen                       -->
+    <!-- ====================================================================== -->
+    <sect1 id="screenorganization">
+      <title
+>Akna väljanägemine</title>
+
+      <mediaobject>
+        <imageobject
+><imagedata format="PNG" fileref="theEditor.png"/></imageobject>
+      </mediaobject>
+      
+      <para
+>Redaktori tähtsaim osa on mõistagi redigeerimisala ehk siis ala, kus regulaaravaldis kokku pannakse. See on suur hall ala akna keskel.</para>
+
+      <para
+>Redigeerimisala kohal on kaks tööriistariba, millest üks sisaldab <link linkend="editingtools"
+>redigeerimistoiminguid</link
+> (sarnaselt joonistamistööriistadega joonistamisrakenduses). Teisel tööriistaribal paikneb nupp <emphasis
+>Mis see on?</emphasis
+> ning toimingu tagasivõtmise ja uuestisooritamise nupud.</para>
+
+      <para
+>Redigeerimisala all asub parajasti loodav regulaaravaldis niinimetatud ASCII süntaksis. ASCII süntaks värskeneb vastavalt regulaaravaldise redigeerimisele graafilises redaktoris. Kui soovid aga redigeerida hoopis ASCII süntaksit, on ka see võimalik - sellisel juhul värskendab ennast hoopis graafiline redaktor.</para>
+
+      <para
+>Lõpuks on redigeerimisalast vasakul valik eelnevalt loodud regulaaravaldisi. Neil on kahesugune otstarve: (1) kui avad redaktori regulaaravaldisega, muudetakse see <emphasis
+>ilusamaks</emphasis
+> või mõistetavamaks. Ülaltoodud pildil on ASCII süntaks ".*" asendatud kastiga, milles on kiri "suvaline". (2) Kui lisad regulaaravaldise, võid kasutada eelnevalt loodud regulaaravaldiste valikust omaenda regulaaravaldiste loomiseks mõningaid <quote
+>ehitusplokke</quote
+>. Vaata <link linkend="userdefinedregexps"
+>kasutaja määratud regulaaravaldistest</link
+> kõnelevat osa, kus selgitatakse omaloodud regulaaravaldiste salvestamist.</para
+>      
+    </sect1>
+
+    <!-- ====================================================================== -->
+    <!--                         Editing Tools                                  -->
+    <!-- ====================================================================== -->
+    <sect1 id="editingtools">
+      <title
+>Redigeerimistööriistad</title>
+      <para
+>Selles osas eeldan, et oled läbi lugenud peatüki, mis <link linkend="whatIsARegExp"
+>selgitas regulaaravaldiste olemust</link
+>, või et sa tead seda juba varem.</para>
+      
+      <para
+>Kõik redigeerimistööristad asuvad tööriistaribal redigeerimisala kohal. Alljärgnevalt kirjeldatakse neid kõiki.</para>
+      
+      
+
+      <simplesect id="selecttool">
+        <title
+>Valikutööriist</title>
+	<mediaobject>
+            <imageobject
+><imagedata format="PNG" fileref="select.png"/>
+        </imageobject
+></mediaobject>
+        <para
+>Valikutööriista kasutatakse elementide märkimisel lõikamiseks ja asetamiseks ning lohistamiseks. See on äärmiselt sarnane suvalise joonistamisrakenduse valikutööriistaga.</para>
+      </simplesect>
+        
+      
+
+      <simplesect id="texttool"
+><title
+>Tekstitööriist</title>
+      <mediaobject>
+      <imageobject>
+	    <imagedata format="PNG" fileref="text.png"/>
+	</imageobject
+></mediaobject>
+		        
+        <para
+><inlinemediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="texttool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Selle tööriista abil saab lisada tavalist teksti. Seda mõistetakse regulaaravaldises täht-tähelt, &ie; siin ei pruugi muret tunda paomärkide pärast. Ülaltoodud näites on loomisel järgmine regulaaravaldis: <literal
+>abc\*\\\)</literal
+></para>
+      </simplesect>
+
+      
+
+      <simplesect id="characterstool"
+><title
+>Märgitööriist</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="characters.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="charactertool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Selle abil saab lisada märgivahemiku. ASCII süntaksis oleks näideteks <literal
+>[0-9]</literal
+>, <literal
+>[^a-zA-Z,_]</literal
+>. Kui lisada element selle tööriista abil, ilmub dialoog, kus saab määrata märgivahemiku.</para>
+        
+        <para
+>Vaata <link linkend="repeatregexp"
+>korduvate regulaaravaldiste</link
+> kirjeldust.</para>
+      </simplesect>
+
+      
+      
+      <simplesect id="anychartool"
+><title
+>Suvalise märgi tööriist</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="anychar.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="anychartool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>See on regulaaravaldis "punkt" (.). See tähendab sobivust suvalise üksiku märgiga.</para
+> 
+        
+       
+        
+        </simplesect>
+
+
+
+      <simplesect id="repeattool"
+><title
+>Korduse tööriist</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeat.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeattool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>See tähendab elementide kordust. ASCII süntaksis väljendatakse seda järgmiste märkidega: tärn (*), pluss (+), küsimärk (?) ja vahemik ({3,5}). Kui lisada element selle tööriista abil, ilmub dialoog, kus saab määrata korduste arvu.</para>
+          
+          <para
+>Seda, mida korrata, saab määrata korratavat sisu kasti joonistades, mille antud tööriist lisab.</para>
+
+          <para
+>Korduvaid elemente saab luua nii seestpoolt väljapoole kui vastupidi. See tähendab, et võid esmalt joonistada, mida korrata, selle valida ja kasutada kordustööriista selle kordamiseks. Teise võimalusena võid aga esmalt lisada korduselemendi ja siis joonistada elemendi sisse selle, mida korrata.</para>
+
+        <para
+>Vaata <link linkend="repeatregexp"
+>regulaaravaldiste kordamise</link
+> kirjeldust.</para>
+        </simplesect>
+
+
+
+
+      <simplesect id="altntool"
+><title
+>Alternatiivitööriist</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="altn.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="altntool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>See on alternatiiviga regulaaravaldis (|). Alternatiivid saab määrata nad üksteise peale joonistades kastis, mille see tööriist lisab.</para>
+
+        <para
+>Vaata <link linkend="altnregexp"
+>alternatiivsete regulaaravaldiste</link
+> kirjeldust.</para>
+      </simplesect>
+      
+
+
+
+      <simplesect id="compoundtool"
+><title
+>Kompleksitööriist</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="compound.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="compoundtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Kompleksitööriist ei kujuta endast õigupoolest üldse regulaaravaldist. Seda kasutatakse erinevate alamkomponentide grupeerimiseks kasti, mille võib hõlpsasti kahandada vaid pealkirjaks. Seda võib näha ülaltoodud pildil paremal pool.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="positiontool"
+><title
+>Rea alguse/lõpu tööriistad</title>
+        <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="begline.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="endline.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="linestartendtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Rea alguse ja lõpu tööriistad tähistavad vastavalt sobivust rea lõpus ja alguses. Ülaltoodud pildil nähtav regulaaravaldis vastab niisiis vaid reale, kus on ainult tühikud.</para>
+        
+        <para
+>Vaata <link linkend="positionregexp"
+>regulaaravaldiste positsioonide</link
+> kirjeldust.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect
+><title
+>Sõnapiirde/mitte-sõnapiirde tööriistad</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="wordboundary.png"/>
+            </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+><imagedata format="PNG" fileref="nonwordboundary.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="boundarytools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Sõnapiirdetööriistad tähistavad sobivust vastavalt sõnapiirdele või selle puudumisele. Ülaltoodud pildil nähtav regulaaravaldis vastab kõigile sõnadele, mille alguses seisab <literal
+>see</literal
+>. Sõna <literal
+>see</literal
+> ise aga ei sobi.</para>
+
+        <para
+>Vaata <link linkend="boundaryregexp"
+>sõnapiirde regulaaravaldiste</link
+> kirjeldust.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="lookaheadtools"
+><title
+>Positiivse/negatiivse ettevaate tööriistad</title>
+	  <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="poslookahead.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="neglookahead.png"/>
+        </imageobject
+></mediaobject>
+
+        <para
+><inlinemediaobject
+><imageobject
+> <imagedata format="PNG" fileref="lookaheadtools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Ettevaatetööriistad määravad vastavalt positiivse või negatiivse regulaaravaldise sobivuse. See sobivus ei ole aga osa üldisest sobivusest.</para>
+
+        <para
+>Märkus: ettevaateid on lubatud asetada ainult regulaaravaldise lõppu. Regulaaravaldiste redaktori element seda peale ei sunni.</para>
+
+        <para
+>Vaata <link linkend="lookaheadregexp"
+>ettevaatavate regulaaravaldiste</link
+> kirjeldust.</para>
+      </simplesect>
+    </sect1>
+
+  <!-- ====================================================================== -->
+  <!--                  User Defined Regular Expressions                      -->
+  <!-- ====================================================================== -->
+    <sect1 id="userdefinedregexps">
+      <title
+>Kasutaja määratud regulaaravaldised</title>
+      <para
+>Redigeerimisalast vasakul asub nimekirjaga kast, mis sisaldab kasutaja määratud regulaaravaldisi. Mõned regulaaravaldised on juba eelnevalt paigaldatud &kde; paigaldamise ajal, teisi saad ise salvestada.</para
+> 
+
+      <para
+>Neil regulaaravaldistel on kaks eesmärki (<link linkend="screenorganization"
+>vaata täpsemat kirjeldust</link
+>): (1) pakkuda sulle valikut <quote
+>ehitusplokke</quote
+> ja (2) muuta mõned levinumad regulaaravaldised ilusamaks.</para>
+
+      <para
+>Omaenda regulaaravaldisi saab salvestada hiire parema nupu klõpsuga redigeerimisalal ning valides ilmuvast hüpikmenüüst käsu <literal
+>Salvesta regulaaravaldis</literal
+>.</para>
+
+      <para
+>Kui salvestatav regulaaravaldis kuulub <link linkend="compoundtool"
+>kompleksavaldisse</link
+>, kasutatakse seda järgnevates regulaaravaldiste nii-öelda ilustamise operatsioonides.</para>
+
+      <para
+>Kasutaja määratud regulaaravaldisi saab kustutada või ümber nimetada hiire parema nupu klõpsuga vastava regulaaravaldise nimel nimekirjakastis.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                  Reporting a bug and Suggesting Features               -->
+  <!-- ====================================================================== -->
+  <chapter id="bugreport">
+    <title
+>Vigadest teatamine ja soovide esitamine</title>
+    <para
+>Vigadest saab teatada ja oma soove avaldada <ulink url="http://bugs.kde.org/"
+>&kde; vigade jälgimise süsteemi</ulink
+> vahendusel. <emphasis role="strong"
+>Enne seda</emphasis
+>, kui annad teada veast või pakud välja mõne uuendusvõimaluse, kontrolli palun, et seda ei oleks juba <ulink url="http://bugs.kde.org/buglist.cgi?quicksearch=kregexpeditor"
+>teatatud/välja pakutud</ulink
+>.</para>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                                 FAQ                                    -->
+  <!-- ====================================================================== -->
+  <chapter id="faq">
+    <title
+>Korduma Kippuvad Küsimused</title>
+    <sect1 id="question1">
+      <title
+>Kas regulaaravaldiste redaktor toetab tagasiviiteid?</title>
+      <para
+>Ei, praegu mitte. Järgmises versioonis on see aga kavas.</para>
+    </sect1>
+
+    <sect1 id="question2">
+      <title
+>Kas regulaaravaldiste redaktor toetab sobivuste näitamist?</title>
+      <para
+>Ei, aga loodetavasti on see võimalik järgmises versioonis.</para>
+    </sect1>
+
+    <sect1 id="question3">
+      <title
+>Olen &kde; rakenduse autor ja tahan teada, kuidas seda elementi oma rakenduses kasutada.</title>
+      <para
+>Vaata <ulink url="http://developer.kde.org/documentation/library/cvs-api/classref/interfaces/KRegExpEditorInterface.html"
+>klassi KRegExpEditorInterface dokumentatsiooni</ulink
+>.</para>
+    </sect1>
+
+    <sect1 id="question4">
+      <title
+>Miks ma ei leia nuppu <emphasis
+>Redigeeri regulaaravaldist</emphasis
+> ei Konqueroris ega mõnes muus KDE3 rakenduses?</title>
+      <para
+>Regulaaravaldiste element asub paketis &kde;-utils. Kui seda paketti ei ole paigaldatud, ei saa ka nupp <emphasis
+>Redigeeri regulaaravaldist</emphasis
+> üheski rakenduses nähtav olla.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                           Credits and Licenses                         -->
+  <!-- ====================================================================== -->
+  <chapter id="credits-and-license">
+    <title
+>Autorid ja litsents</title>
+
+    <para
+>Dokumentatsiooni autoriõigus 2001: Jesper K. Pedersen &Jesper.Pedersen.mail; </para>
+
+
+<para
+>Tõlge eesti keelde: Marek Laane <email
+>bald@starman.ee</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+
+</book>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
