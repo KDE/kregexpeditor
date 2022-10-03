@@ -263,7 +263,7 @@ msgid ""
 "When the content of this box is typed in to the ASCII line,<br />this box "
 "will automatically be added around it,<br />if this check box is selected."
 msgstr ""
-"Quan es teclege el contingut d'este quadro a la línia ASCII, <br />este "
+"Quan es teclege el contingut d'este quadro en la línia ASCII, <br />este "
 "quadro s'afegirà al voltant automàticament, <br />si es marca esta casella "
 "de selecció."
 
@@ -815,7 +815,7 @@ msgstr "&Copia"
 #: regexpeditorwindow.cpp:339
 #, kde-format
 msgid "&Paste"
-msgstr "&Apega"
+msgstr "A&pega"
 
 #: regexpeditorwindow.cpp:345
 #, kde-format
@@ -1020,7 +1020,7 @@ msgid ""
 "Shows what part of the regular expression is being matched in the "
 "<i>verifier window</i>.(The window below the graphical editor window)."
 msgstr ""
-"Mostra amb quina part de l'expressió regular es coincidix a la <i>finestra "
+"Mostra amb quina part de l'expressió regular es coincidix en la <i>finestra "
 "de verificació</i>. (La finestra davall de la finestra de l'editor gràfic)."
 
 #: verifybuttons.cpp:48
