@@ -664,13 +664,13 @@ msgid ""
 msgstr ""
 "<qt>Este <i>element d'expressió regular</i> repetirà <i>els elements "
 "d'expressió regular</i> que envolta un nombre de vegades determinat.<br />El "
-"nombre de vegades a repetir es pot especificar utilitzant intervals. P. ex. "
-"es pot especificar que coincidisca de 2 a 4 vegades, que ha de coincidir "
-"exactament 5 vegades, o que ha de coincidir almenys una vegada.<br /"
-">Exemples:<br />si s'especifica que ha de coincidir <i>qualsevol vegada</i>, "
-"i el contingut que envolta és <tt>abc</tt>, llavors este <i>element "
-"d'expressió regular</i> coincidirà amb el text buit, amb <tt>abc</tt>, amb "
-"<tt>abcabc</tt>, amb <tt>abcabcabcabc</tt>, etc.</qt>"
+"nombre de vegades que es repetirà es pot especificar utilitzant intervals. "
+"P. ex. es pot especificar que coincidisca de 2 a 4 vegades, que ha de "
+"coincidir exactament 5 vegades, o que ha de coincidir almenys una vegada."
+"<br />Exemples:<br />si s'especifica que ha de coincidir <i>qualsevol "
+"vegada</i>, i el contingut que envolta és <tt>abc</tt>, llavors este "
+"<i>element d'expressió regular</i> coincidirà amb el text buit, amb <tt>abc</"
+"tt>, amb <tt>abcabc</tt>, amb <tt>abcabcabcabc</tt>, etc.</qt>"
 
 #: regexpbuttons.cpp:88
 #, kde-format
@@ -876,7 +876,7 @@ msgstr "S'ha produït un error en carregar des del fitxer XML"
 #: repeatwidget.cpp:74
 #, kde-format
 msgid "Number of Times to Repeat Content"
-msgstr "Nombre de vegades a repetir el contingut"
+msgstr "Nombre de vegades que s'ha de repetir el contingut"
 
 #: repeatwidget.cpp:184
 #, kde-format
