@@ -357,7 +357,7 @@ msgid ""
 "\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
 msgstr ""
 "<h2>Envia'm una postal electrònica</h2>No obtinc cap benefici econòmic del "
-"meu treball a KRegExpEditor, però m'agrada molt que els usuaris em diguen "
+"meu treball en KRegExpEditor, però m'agrada molt que els usuaris em diguen "
 "que pensen del meu treball. Per tant, seria molt feliç si <a href=\"mailto:"
 "blackie@kde.org?subject=KRegExpEditor\">m'envies un xicotet correu "
 "electrònic</a>, dient que utilitzes el meu editor d'expressions regulars. "
@@ -383,7 +383,7 @@ msgstr "S'ha produït un error intern"
 #: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:282
 #, kde-format
 msgid "There is no element on the clipboard to paste in."
-msgstr "No hi ha cap element al porta-retalls a apegar."
+msgstr "No hi ha cap element en el porta-retalls que s'haja d'apegar."
 
 #: KMultiFormListBox/kmultiformlistbox-windowed.cpp:54
 #, kde-format
