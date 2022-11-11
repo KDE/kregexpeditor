@@ -338,7 +338,7 @@ msgstr ""
 "d'edició, la part inferior és la finestra de verificació on pots escriure "
 "expressions regulars directament. La fila de botons té les accions d'editar. "
 "És molt similar als programes de dibuix. Selecciona una eina d'edició per a "
-"començar a editar la teua expressió regular, i clica el botó del ratolí a "
+"començar a editar la teua expressió regular, i clica el botó del ratolí en "
 "l'àrea d'edició on vullgues que s'inserisca l'element.</p><p>Per a una "
 "descripció més detallada de l'editor llig les <a href=\"doc://\">pàgines "
 "info</a></p><h2>Què és una expressió regular?</h2>Si no saps que és una "
@@ -992,7 +992,7 @@ msgstr "Canvia el nom"
 #: userdefinedregexps.cpp:195
 #, kde-format
 msgid "Rename Item"
-msgstr "Canvia el nom l'element"
+msgstr "Canvia el nom de l'element"
 
 #: userdefinedregexps.cpp:195
 #, kde-format
