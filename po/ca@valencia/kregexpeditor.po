@@ -263,9 +263,9 @@ msgid ""
 "When the content of this box is typed in to the ASCII line,<br />this box "
 "will automatically be added around it,<br />if this check box is selected."
 msgstr ""
-"Quan es teclege el contingut d'este quadro en la línia ASCII, <br />este "
-"quadro s'afegirà al voltant automàticament, <br />si es marca esta casella "
-"de selecció."
+"Quan es teclege el contingut d'este quadro a dins de la línia ASCII, <br /"
+">este quadro s'afegirà al voltant automàticament, <br />si es marca esta "
+"casella de selecció."
 
 #: compoundwidget.cpp:126
 #, kde-format
