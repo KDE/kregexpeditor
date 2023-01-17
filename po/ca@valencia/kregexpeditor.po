@@ -424,7 +424,7 @@ msgstr "Afig"
 #: KMultiFormListBox/widgetwindow.cpp:47
 #, kde-format
 msgid "Widget Configuration"
-msgstr "Configuració del giny"
+msgstr "Configureu el giny"
 
 #: kregexpeditorguidialog.cpp:36
 #, kde-format
