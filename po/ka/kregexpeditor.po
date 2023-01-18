@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-04-02 00:20+0000\n"
-"PO-Revision-Date: 2023-01-16 08:55+0100\n"
+"PO-Revision-Date: 2023-01-17 07:39+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -519,7 +519,7 @@ msgstr ""
 #: qregexpparser.y:214
 #, kde-format
 msgid "Back reference regular expressions not supported"
-msgstr ""
+msgstr "უკან მიმართული რეგულარული გამოსახულებები მხარდაჭერილი არაა"
 
 #: regexpbuttons.cpp:49
 #, kde-format
@@ -785,7 +785,7 @@ msgstr "რამდენჯერ დაემთხვეს"
 #: repeatwidget.cpp:191
 #, kde-format
 msgid "Any number of times (including zero times)"
-msgstr ""
+msgstr "რამდენჯერაც გნებავთ (0-ის ჩათვლით)"
 
 #: repeatwidget.cpp:198
 #, kde-format
@@ -853,11 +853,12 @@ msgstr "გამეორდება შუალედში %1-%2-ჯერ"
 msgid ""
 "<p>Invalid sub element to element <b>TextRange</b>. Tag was <b>%1</b></p>"
 msgstr ""
+"<p>არასწორი ქვეელემენტი ელემენისთვის <b>TextRange</b>. ჭდე <b>%1</b></p>"
 
 #: textregexp.cpp:53
 #, kde-format
 msgid "<p>Element <b>Text</b> did not contain any textual data.</p>"
-msgstr ""
+msgstr "<p>ელემენტი <b>Text</b> ტექსტურ მონაცემებს არ შეიცავდა.</p>"
 
 #: userdefinedregexps.cpp:67
 #, kde-format
