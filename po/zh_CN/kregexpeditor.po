@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-04-02 00:20+0000\n"
-"PO-Revision-Date: 2023-03-27 11:59\n"
+"PO-Revision-Date: 2023-04-10 14:10\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -35,12 +35,12 @@ msgstr "可替换项"
 #: altnwidget.cpp:220
 #, kde-format
 msgid "Selecting several alternatives is currently not supported."
-msgstr ""
+msgstr "目前不支持同时选择多个替代选项。"
 
 #: altnwidget.cpp:222
 #, kde-format
 msgid "Selection Invalid"
-msgstr ""
+msgstr "选择无效"
 
 #: auxbuttons.cpp:35
 #, kde-format
@@ -76,108 +76,108 @@ msgstr "保存"
 #: characterswidget.cpp:116
 #, kde-format
 msgid "- A word character\n"
-msgstr ""
+msgstr "- 一个文字字符\n"
 
 #: characterswidget.cpp:120
 #, kde-format
 msgid "- A non-word character\n"
-msgstr ""
+msgstr "- 一个非文字字符\n"
 
 #: characterswidget.cpp:124
 #, kde-format
 msgid "- A digit character\n"
-msgstr ""
+msgstr "- 一个数字字符\n"
 
 #: characterswidget.cpp:128
 #, kde-format
 msgid "- A non-digit character\n"
-msgstr ""
+msgstr "- 一个非数字字符\n"
 
 #: characterswidget.cpp:132
 #, kde-format
 msgid "- A space character\n"
-msgstr ""
+msgstr "- 一个空白字符\n"
 
 #: characterswidget.cpp:136
 #, kde-format
 msgid "- A non-space character\n"
-msgstr ""
+msgstr "- 一个非空白字符\n"
 
 #: characterswidget.cpp:151
 #, kde-format
 msgctxt "a range of characters"
 msgid "- from %1 to %2\n"
-msgstr ""
+msgstr "- 从 %1 到 %2\n"
 
 #: characterswidget.cpp:159
 #, kde-format
 msgid "Any Character Except"
-msgstr ""
+msgstr "任意字符，下列除外"
 
 #: characterswidget.cpp:161
 #, kde-format
 msgid "One of Following Characters"
-msgstr ""
+msgstr "下列字符之一"
 
 #: characterswidget.cpp:279
 #, kde-format
 msgid "Specify Characters"
-msgstr ""
+msgstr "指定字符"
 
 #: characterswidget.cpp:289
 #, kde-format
 msgid "Do not match the characters specified here"
-msgstr ""
+msgstr "不匹配此处指定的字符"
 
 #: characterswidget.cpp:293
 #, kde-format
 msgid "Predefined Character Ranges"
-msgstr ""
+msgstr "预定义字符范围"
 
 #: characterswidget.cpp:297
 #, kde-format
 msgid "A word character"
-msgstr ""
+msgstr "一个文字字符"
 
 #: characterswidget.cpp:299
 #, kde-format
 msgid "A digit character"
-msgstr ""
+msgstr "一个数字字符"
 
 #: characterswidget.cpp:301
 #, kde-format
 msgid "A space character"
-msgstr ""
+msgstr "一个空白字符"
 
 #: characterswidget.cpp:304
 #, kde-format
 msgid "A non-word character"
-msgstr ""
+msgstr "一个非文字字符"
 
 #: characterswidget.cpp:306
 #, kde-format
 msgid "A non-digit character"
-msgstr ""
+msgstr "一个非数字字符"
 
 #: characterswidget.cpp:308
 #, kde-format
 msgid "A non-space character"
-msgstr ""
+msgstr "一个非空白字符"
 
 #: characterswidget.cpp:312
 #, kde-format
 msgid "Single Characters"
-msgstr ""
+msgstr "单个字符"
 
 #: characterswidget.cpp:324 characterswidget.cpp:345
 #, kde-format
 msgid "More Entries"
-msgstr ""
+msgstr "更多条目"
 
 #: characterswidget.cpp:332
 #, kde-format
 msgid "Character Ranges"
-msgstr ""
+msgstr "字符范围"
 
 #: characterswidget.cpp:426
 #, kde-format
@@ -193,47 +193,47 @@ msgstr "至："
 #: charselector.cpp:60
 #, kde-format
 msgid "Normal Character"
-msgstr ""
+msgstr "普通字符"
 
 #: charselector.cpp:61
 #, kde-format
 msgid "Unicode Char in Hex."
-msgstr ""
+msgstr "十六进制的 Unicode 字符。"
 
 #: charselector.cpp:62
 #, kde-format
 msgid "Unicode Char in Oct."
-msgstr ""
+msgstr "八进制的 Unicode 字符。"
 
 #: charselector.cpp:64
 #, kde-format
 msgid "The Bell Character (\\a)"
-msgstr ""
+msgstr "响铃字符 (\\a)"
 
 #: charselector.cpp:65
 #, kde-format
 msgid "The Form Feed Character (\\f)"
-msgstr ""
+msgstr "换页字符 (\\f)"
 
 #: charselector.cpp:66
 #, kde-format
 msgid "The Line Feed Character (\\n)"
-msgstr ""
+msgstr "换行字符 (\\n)"
 
 #: charselector.cpp:67
 #, kde-format
 msgid "The Carriage Return Character (\\r)"
-msgstr ""
+msgstr "回车字符 (\\r)"
 
 #: charselector.cpp:68
 #, kde-format
 msgid "The Horizontal Tab Character (\\t)"
-msgstr ""
+msgstr "水平制表字符 (\\t)"
 
 #: charselector.cpp:69
 #, kde-format
 msgid "The Vertical Tab Character (\\v)"
-msgstr ""
+msgstr "垂直制表字符 (\\v)"
 
 #: compoundwidget.cpp:47
 #, kde-format
@@ -248,7 +248,7 @@ msgstr "描述(&S)："
 #: compoundwidget.cpp:59
 #, kde-format
 msgid "&Automatically replace using this item"
-msgstr ""
+msgstr "自动使用此项替换 (&A)"
 
 #: compoundwidget.cpp:61
 #, kde-format
@@ -256,28 +256,30 @@ msgid ""
 "When the content of this box is typed in to the ASCII line,<br />this box "
 "will automatically be added around it,<br />if this check box is selected."
 msgstr ""
+"如果这个选项被选中<br />当这个文本框的内容输入 ASCII 文本时<br/>此框将自动添"
+"加在文字的周围。"
 
 #: compoundwidget.cpp:126
 #, kde-format
 msgid "Configure Compound"
-msgstr ""
+msgstr "配置复合部件"
 
 #: emacsregexpconverter.cpp:78
 #, kde-format
 msgid "Look ahead regular expressions not supported in Emacs style"
-msgstr ""
+msgstr "Emacs 风格的正则表达式中不支持预搜索"
 
 #: emacsregexpconverter.cpp:182
 #, kde-format
 msgid "Word boundary and non word boundary is not supported in Emacs syntax"
-msgstr ""
+msgstr "Emacs 语法中不支持字词边界和非字词边界"
 
 #: errormap.cpp:47
 #, kde-format
 msgid ""
 "Your regular expression is invalid, due to something preceding a 'line "
 "start'."
-msgstr ""
+msgstr "您的正则表达式无效，因为行首描述符的位置超前。"
 
 #: errormap.cpp:48 errormap.cpp:57 errormap.cpp:66
 #, kde-format
@@ -288,14 +290,14 @@ msgstr "正则表达式错误"
 #, kde-format
 msgid ""
 "Your regular expression is invalid, due to something following a 'line end'."
-msgstr ""
+msgstr "您的正则表达式无效，因为在行尾描述符后还有内容。"
 
 #: errormap.cpp:65
 #, kde-format
 msgid ""
 "Your regular expression is invalid. 'Look Ahead' regular expression must be "
 "the last sub expression."
-msgstr ""
+msgstr "您的正则表达式无效，“预搜索”表达式必须在最后一个子表达段落中出现。"
 
 #: infopage.cpp:33
 #, kde-format
@@ -316,6 +318,13 @@ msgid ""
 "regular expression is, then it might be a good idea to read <a href=\"doc://"
 "whatIsARegExp\">the introduction to regular expressions</a>.<br />"
 msgstr ""
+"<h1>正则表达式编辑器</h1><p>您现在所看到的是一个<i>正则表达式</i>编辑器。</"
+"p><p>中间的大窗口是编辑区域，下面是供您输入的正则表达式校验窗口，那排按钮是编"
+"辑动作钮。事实上这与普通的绘图程序非常相似。选择一个编辑工具来开始编辑您的正"
+"则表达式，并用鼠标点击编辑区内您想插入该项的地方。</p><p>更多有关这个编辑器的"
+"细节描述请参见<a href=\"doc://\">信息页</a></p><h2>什么是正则表达式？</h2>如"
+"果您不知道什么是正则表达式，那么阅读<a href=\"doc://whatIsARegExp\">正则表达"
+"式简介</a>或许是个好主意。<br />"
 
 #: infopage.cpp:46
 #, kde-format
@@ -328,16 +337,22 @@ msgid ""
 "h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
 "\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
 msgstr ""
+"<h2>向作者寄送电子明信片</h2>我不会从为 KRegExpEditor 所做的工作中获得任何金"
+"钱，所以我非常感谢您对我的工作成果所发表的看法，如果您能给我<a href=\"mailto:"
+"blackie@kde.org?subject=KRegExpEditor\">发一封简短的邮件</a>，表示您在使用这"
+"正则表达式编辑器，我会非常高兴。<h2>作者</h2><a href=\"http://www.blackie.dk/"
+"\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:blackie@kde.org\">blackie@kde."
+"org</a>&gt;"
 
 #: KMultiFormListBox/ccp.cpp:73
 #, kde-format
 msgid "Insert Blank"
-msgstr ""
+msgstr "插入空白"
 
 #: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
 #, kde-format
 msgid "Due to a bug, it is not possible to remove the last element."
-msgstr ""
+msgstr "由于一个程序缺陷，无法删除最后一个元素。"
 
 #: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
 #, kde-format
@@ -347,7 +362,7 @@ msgstr "内部错误"
 #: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:282
 #, kde-format
 msgid "There is no element on the clipboard to paste in."
-msgstr ""
+msgstr "剪贴板里没有可粘贴的元素。"
 
 #: KMultiFormListBox/kmultiformlistbox-windowed.cpp:54
 #, kde-format
@@ -373,7 +388,7 @@ msgstr "下箭头"
 #: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
 #, kde-format
 msgid "Delete item \"%1\"?"
-msgstr ""
+msgstr "删除项目“%1”吗？"
 
 #: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
 #, kde-format
@@ -388,17 +403,17 @@ msgstr "添加"
 #: KMultiFormListBox/widgetwindow.cpp:47
 #, kde-format
 msgid "Widget Configuration"
-msgstr ""
+msgstr "窗口部件配置"
 
 #: kregexpeditorguidialog.cpp:36
 #, kde-format
 msgid "Regular Expression Editor"
-msgstr ""
+msgstr "正则表达式编辑器"
 
 #: kregexpeditorprivate.cpp:68
 #, kde-format
 msgid "Compound regular expression:"
-msgstr ""
+msgstr "复合正则表达式："
 
 #: kregexpeditorprivate.cpp:69
 #, kde-format
@@ -407,6 +422,8 @@ msgid ""
 "expressions you have developed and saved, and regular expressions shipped "
 "with the system."
 msgstr ""
+"您可以在此窗口找到预定义的正则表达式，其中包括您曾经设计和保存过的，以及和系"
+"统同时发布的那些表达式。"
 
 #: kregexpeditorprivate.cpp:78
 #, kde-format
@@ -415,6 +432,8 @@ msgid ""
 "actions from the action buttons above, and click the mouse in this window to "
 "insert the given action."
 msgstr ""
+"您可以在此窗口内设计自己的正则表达式。从上面的动作按钮中选择一个动作，然后在"
+"此窗口内单击鼠标以插入选定的动作。"
 
 #: kregexpeditorprivate.cpp:86
 #, kde-format
@@ -426,11 +445,15 @@ msgid ""
 "editor window, then this part will be highlighted - This allows you to "
 "<i>debug</i> your regular expressions</p>"
 msgstr ""
+"<p>在此窗口内输入一些文字，然后可以查看您设计的正则表达式的匹配原则。</p><p>"
+"每个第二匹配会以红色显示，其他匹配则以蓝色显示，这可让您简单地区别它们。</"
+"p><p>如果您在编辑窗口中选中了正则表达式的一部分，这部分会被突出显示 - 这将允"
+"许您<i>调试</i>自己的正则表达式</p>"
 
 #: kregexpeditorprivate.cpp:148
 #, kde-format
 msgid "ASCII syntax:"
-msgstr ""
+msgstr "ASCII 语法："
 
 #: kregexpeditorprivate.cpp:161
 #, kde-format
@@ -441,31 +464,34 @@ msgid ""
 "by using the graphical editor, and by typing the regular expression in this "
 "line edit.</p>"
 msgstr ""
+"<p>这将以 ASCII 语法描述正则表达式。可能只有当您是程序员，需要使用 QRegExp 工"
+"具开发正则表达式时才会对此感兴趣。</p><p>您既可以使用图形化的编辑器设计正则表"
+"达式，也可以在该行编辑框输入表达式，达成同样的目的。</p>"
 
 #: kregexpeditorprivate.cpp:371
 #, kde-format
 msgid "Could not open file '%1' for reading"
-msgstr ""
+msgstr "无法打开文件“%1”进行读取"
 
 #: lookaheadwidget.cpp:51
 #, kde-format
 msgid "Pos. Look Ahead"
-msgstr ""
+msgstr "正向预搜索"
 
 #: lookaheadwidget.cpp:53
 #, kde-format
 msgid "Neg. Look Ahead"
-msgstr ""
+msgstr "负向预搜索"
 
 #: main.cpp:42
 #, kde-format
 msgid "RegExp Editor"
-msgstr ""
+msgstr "正则表达式编辑器"
 
 #: main.cpp:43
 #, kde-format
 msgid "Editor for Regular Expressions"
-msgstr ""
+msgstr "正则表达式编辑器"
 
 #: main.cpp:45
 #, kde-format
@@ -485,12 +511,12 @@ msgstr "开发者"
 #: predefined/General/anything.regexp:5
 #, kde-format
 msgid "anything"
-msgstr ""
+msgstr "任意"
 
 #: predefined/General/anything.regexp:6
 #, kde-format
 msgid "This regular expression matches anything."
-msgstr ""
+msgstr "此正则表达式匹配所有内容。"
 
 #: predefined/General/spaces.regexp:5
 #, kde-format
@@ -500,7 +526,7 @@ msgstr "空格"
 #: predefined/General/spaces.regexp:6
 #, kde-format
 msgid "Matches an arbitrary amount of whitespace."
-msgstr ""
+msgstr "匹配任意数量的空白字符。"
 
 #: qregexpparser.y:205
 #, kde-format
@@ -514,11 +540,16 @@ msgid ""
 "graphical area, the back reference will be replaced by matching the text <b>"
 "%2</b> literally.</p>"
 msgstr ""
+"<p>不支持后向引用正则表达式。</p><p><tt>\\1</tt>, <tt>\\2</tt>, ... 是 <i>后"
+"向引用</i>, 表示它们指的是之前的匹配。很抱歉，这个编辑器当前版本不支持。</"
+"p><p>在图形区域插入文本 <b>%1</b> 然而，这只是确保应用程序处理正则表达式的工"
+"作。 因此，一旦您编辑图形区域中的正则表达式， 后向引用将被文本 <b>%2</b> 字面"
+"匹配替换。</p>"
 
 #: qregexpparser.y:214
 #, kde-format
 msgid "Back reference regular expressions not supported"
-msgstr ""
+msgstr "不支持后向引用正则表达式"
 
 #: regexpbuttons.cpp:49
 #, kde-format
@@ -535,6 +566,10 @@ msgid ""
 "items, you may use cut/copy/paste. These functions are found in the right "
 "mouse button menu.</p>"
 msgstr ""
+"<p>这将使编辑器切换到<i>选择状态</i>。</p><p>在这一状态下您将不能插入<i>正则"
+"表达式项目</i>，只能选择他们。如果想同时选中几项，按下鼠标左键并划过这些项目"
+"即可。</p><p>当您选中几项以后，就可以使用剪切/复制/粘贴功能。这些功能可以在鼠"
+"标右键菜单中看到。</p>"
 
 #: regexpbuttons.cpp:59
 #, kde-format
@@ -548,11 +583,13 @@ msgid ""
 "write will be matched literally. (i.e. you do not need to escape any "
 "characters)</qt>"
 msgstr ""
+"<qt>这将插入一个文本编辑框供您书写。您所写的文本将被逐字匹配。(也就是说您无须"
+"回避任何字符)</qt>"
 
 #: regexpbuttons.cpp:64
 #, kde-format
 msgid "A single character specified in a range"
-msgstr ""
+msgstr "在一定范围内指定的单个字符"
 
 #: regexpbuttons.cpp:65
 #, kde-format
@@ -561,21 +598,23 @@ msgid ""
 "you insert this widget a dialog box will appear, which lets you specify "
 "which characters this <i>regexp item</i> will match.</p>"
 msgstr ""
+"<p>这将从一个预定义的范围内匹配一个字符。</p><p>当您插入这个部件时一个对话框"
+"将出现，要求您指出这个<i>正则表达式项目</i>要和哪些字符匹配。</p>"
 
 #: regexpbuttons.cpp:70
 #, kde-format
 msgid "Any character"
-msgstr ""
+msgstr "任意字符"
 
 #: regexpbuttons.cpp:71
 #, kde-format
 msgid "<qt>This will match any single character</qt>"
-msgstr ""
+msgstr "<qt>这将匹配任意单个的字符</qt>"
 
 #: regexpbuttons.cpp:74
 #, kde-format
 msgid "Repeated content"
-msgstr ""
+msgstr "重复的内容"
 
 #: regexpbuttons.cpp:75
 #, kde-format
@@ -589,6 +628,12 @@ msgid ""
 "<i>regexp item</i> will match the empty string, the string <tt>abc</tt>, the "
 "string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, etc.</qt>"
 msgstr ""
+"<qt>这个<i>正则表达式项目</i>将按指定的次数重复它所围绕的<i>正则表达式项目</"
+"i>。<br />重复的次数可以被指定为一个范围。例如：您可以指定它应当匹配2到4次，"
+"或者应当精确地匹配5次，或者至少应当匹配1次。<br />例如：<br />如果您指定它应"
+"当重复<i>任何</i>次数，并且它围绕的内容是<tt>abc</tt>，那么这个<i>正则表达式"
+"项目</i>将匹配空字符串、字符串<tt>abc</tt>、字符串<tt>abcabc</tt>、字符串"
+"<tt>abcabcabcabc</tt>，等等。</qt>"
 
 #: regexpbuttons.cpp:88
 #, kde-format
@@ -597,11 +642,13 @@ msgid ""
 "p><p>Alternatives are specified by placing <i>regexp items</i> on top of "
 "each other inside this widget.</p>"
 msgstr ""
+"<p>这个<i>正则表达式项目</i>将匹配它的任何可替换项。</p><p>在这个部件内，您可"
+"以通过在彼此的上方放置<i>正则表达式项目</i>来指定可替代项。</p>"
 
 #: regexpbuttons.cpp:93
 #, kde-format
 msgid "Compound regexp"
-msgstr ""
+msgstr "复合正则表达式"
 
 #: regexpbuttons.cpp:94
 #, kde-format
@@ -612,6 +659,10 @@ msgid ""
 "especially useful if you load a predefined <i>regexp item</i> that you "
 "perhaps do not care about the inner workings of.</qt>"
 msgstr ""
+"<qt>这个<i>正则表达式项目</i>有两个作用：<ul><li>它使您可以将一个巨大的<i>正"
+"则表达式项目</i>压缩到一个小巧的文本框。这能让您更容易从整体上把握巨大的<i>正"
+"则表达式项目</i>。如果您载入一个预定义的<i>正则表达式项目</i>而又不关心其内部"
+"工作方式，这是特别有用的。</qt>"
 
 #: regexpbuttons.cpp:101
 #, kde-format
@@ -621,7 +672,7 @@ msgstr "行首"
 #: regexpbuttons.cpp:102
 #, kde-format
 msgid "<qt>This will match the beginning of a line.</qt>"
-msgstr ""
+msgstr "<qt>这将匹配一行的开始。</qt>"
 
 #: regexpbuttons.cpp:105
 #, kde-format
@@ -631,7 +682,7 @@ msgstr "行尾"
 #: regexpbuttons.cpp:106
 #, kde-format
 msgid "<qt>This will match the end of a line.</qt>"
-msgstr ""
+msgstr "<qt>这将匹配一行的结尾。</qt>"
 
 #: regexpbuttons.cpp:109
 #, kde-format
@@ -643,24 +694,24 @@ msgstr "词边界"
 msgid ""
 "<qt>This asserts a word boundary (This part does not actually match any "
 "characters)</qt>"
-msgstr ""
+msgstr "<qt>这里声明一个字词边界 (这部分并不真正匹配任何字符)</qt>"
 
 #: regexpbuttons.cpp:113
 #, kde-format
 msgid "Non Word boundary"
-msgstr ""
+msgstr "非词边界"
 
 #: regexpbuttons.cpp:114
 #, kde-format
 msgid ""
 "<qt>This asserts a non-word boundary (This part does not actually match any "
 "characters)</qt>"
-msgstr ""
+msgstr "<qt>这里声明一个非字词边界 (这部分并不真正匹配任何字符)</qt>"
 
 #: regexpbuttons.cpp:118
 #, kde-format
 msgid "Positive Look Ahead"
-msgstr ""
+msgstr "正向预搜索"
 
 #: regexpbuttons.cpp:119
 #, kde-format
@@ -668,11 +719,13 @@ msgid ""
 "<qt>This asserts a regular expression (This part does not actually match any "
 "characters). You can only use this at the end of a regular expression.</qt>"
 msgstr ""
+"<qt>这里声明一个正则表达式 (这部分并不真正匹配任何字符)。您只能将其用在正则表"
+"达式的最后。</qt>"
 
 #: regexpbuttons.cpp:123
 #, kde-format
 msgid "Negative Look Ahead"
-msgstr ""
+msgstr "负向预搜索"
 
 #: regexpbuttons.cpp:124
 #, kde-format
@@ -681,26 +734,28 @@ msgid ""
 "not actually match any characters). You can only use this at the end of a "
 "regular expression.</qt>"
 msgstr ""
+"<qt>这里声明一个必须不匹配的正则表达式 (这部分并不真正匹配任何字符)。您只能将"
+"其用在正则表达式的最后。</qt>"
 
 #: regexpeditorwindow.cpp:215
 #, kde-format
 msgid "There is no selection."
-msgstr ""
+msgstr "还没有选择。"
 
 #: regexpeditorwindow.cpp:215
 #, kde-format
 msgid "Missing Selection"
-msgstr ""
+msgstr "缺少选择"
 
 #: regexpeditorwindow.cpp:280
 #, kde-format
 msgid "There is no widget under cursor."
-msgstr ""
+msgstr "鼠标指针下方没有部件。"
 
 #: regexpeditorwindow.cpp:280
 #, kde-format
 msgid "Invalid Operation"
-msgstr ""
+msgstr "无效的操作"
 
 #: regexpeditorwindow.cpp:331
 #, kde-format
@@ -725,12 +780,12 @@ msgstr "编辑(&E)"
 #: regexpeditorwindow.cpp:349
 #, kde-format
 msgid "&Save Regular Expression..."
-msgstr ""
+msgstr "保存正则表达式 (&S)"
 
 #: regexpeditorwindow.cpp:388
 #, kde-format
 msgid "Name for Regular Expression"
-msgstr ""
+msgstr "正则表达式名称"
 
 #: regexpeditorwindow.cpp:388
 #, kde-format

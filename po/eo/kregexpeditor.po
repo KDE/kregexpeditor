@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-04-02 00:20+0000\n"
-"PO-Revision-Date: 2023-04-07 10:09+0100\n"
+"PO-Revision-Date: 2023-04-10 04:45+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -463,7 +463,7 @@ msgstr ""
 "ruĝe kaj ĉiu alia kongruo estos kolorigita blua, simple por ke vi povu "
 "distingu ilin unu de la alia.</p><p>Se vi elektas parton de la regula "
 "esprimo en la redaktora fenestro, tiam ĉi tiu parto estos reliefigita - Ĉi "
-"tio ebligas al vi <i>sencimi</i> viajn regulajn esprimojn</i>. p>"
+"tio ebligas al vi <i>sencimi</i> viajn regulajn esprimojn</p>"
 
 #: kregexpeditorprivate.cpp:148
 #, kde-format
@@ -656,10 +656,10 @@ msgstr ""
 "ĝi ĉirkaŭas difinitan nombron da fojoj.<br />La nombro da fojoj por ripeti "
 "povas esti specifita uzante intervalojn; ekz. oni povus specifi, ke ĝi "
 "kongruu de 2 ĝis 4 fojojn, ke ĝi kongruu ekzakte 5 fojojn, aŭ ke ĝi kongruu "
-"almenaŭ unufoje.<br />Ekzemploj:<br />Se vi precizigas, ke ĝi kongruu <br /> "
-"i>iufoje</i>, kaj la enhavo kiun ĝi ĉirkaŭas estas <tt>abc</tt>, tiam ĉi tiu "
-"<i>regexp item</i> kongruos kun la malplena ĉeno, la ĉeno <tt>abc</tt>, la "
-"ĉeno <tt>abcabc</tt>, la ĉeno <tt>abcabcabcabc</tt>, ktp.</qt>"
+"almenaŭ unufoje.<br />Ekzemploj:<br />Se vi precizigas, ke ĝi kongruu "
+"<i>iun</i> fojon, kaj la enhavo kiun ĝi ĉirkaŭas estas <tt>abc</tt>, tiam ĉi "
+"tiu <i>regexp item</i> kongruos kun la malplena ĉeno, la ĉeno <tt>abc</tt>, "
+"la ĉeno <tt>abcabc</tt>, la ĉeno <tt>abcabcabcabc</tt>, ktp.</qt>"
 
 #: regexpbuttons.cpp:88
 #, kde-format
