@@ -1,17 +1,17 @@
 # translation of kregexpeditor.po to galician
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # mvillarino <mvillarino@users.sourceforge.net>, 2007, 2009.
 # marce villarino <mvillarino@users.sourceforge.net>, 2009.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015, 2017.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-04-02 00:20+0000\n"
-"PO-Revision-Date: 2019-09-29 08:59+0200\n"
+"PO-Revision-Date: 2023-04-23 06:31+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.11.70\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -272,8 +272,8 @@ msgstr "Configurar a regra composta"
 #, kde-format
 msgid "Look ahead regular expressions not supported in Emacs style"
 msgstr ""
-"As expresións regulares de pesquisa cara diante non se permiten no estilo "
-"Emacs"
+"As expresións regulares de comprobación de continuación non se permiten no "
+"estilo Emacs"
 
 #: emacsregexpconverter.cpp:182
 #, kde-format
@@ -309,8 +309,8 @@ msgid ""
 "Your regular expression is invalid. 'Look Ahead' regular expression must be "
 "the last sub expression."
 msgstr ""
-"A súa expresión regular é incorrecta. A expresión regular de \"Pesquisa cara "
-"diante\" debe ser a última sub-expresión."
+"A súa expresión regular é incorrecta. A expresión regular de «Comprobación "
+"de continuación» debe ser a última sub-expresión."
 
 #: infopage.cpp:33
 #, kde-format
@@ -566,7 +566,7 @@ msgid ""
 msgstr ""
 "<p>Non se permiten expresións regulares con referencias previas.</p> <p><tt>"
 "\\1</tt>, <tt>\\2</tt>, … son <i>referencias previas</i> porque fan "
-"referecia a capturas previas. A versión actual do editor non é compatíbel "
+"referencia a capturas previas. A versión actual do editor non é compatíbel "
 "con esta funcionalidade.</p> <p>Na zona gráfica inseriuse o texto <b>%1</b>. "
 "Porén, isto non é máis que unha solución temporal para asegurarse de que a "
 "aplicación é capaz de asimilar a expresión regular. Polo tanto, en canto "
@@ -594,11 +594,11 @@ msgid ""
 "mouse button menu.</p>"
 msgstr ""
 "<p>Isto irá cambiar o estado do editor para o <i>estado de selección</i>.</"
-"p><p>Neste estado non se inseren <i>elementos de expresión regular</i>, "
+"p><p>Neste estado non se insiren <i>elementos de expresión regular</i>, "
 "senón que se escollen. Para seleccionar un elemento, prema o botón esquerdo "
-"do rato e arrásteo sobre os elementos.</p><p>Despois de seleccionar un certo "
-"número de elementos, pode usar cortar/copiar/pegar. Estas funcións atópanse "
-"no menú do botón dereito do rato.</p>"
+"do rato e arrástreo sobre os elementos.</p><p>Despois de seleccionar un "
+"certo número de elementos, pode usar cortar/copiar/pegar. Estas funcións "
+"atópanse no menú do botón dereito do rato.</p>"
 
 #: regexpbuttons.cpp:59
 #, kde-format
@@ -668,7 +668,7 @@ msgstr ""
 "indica que debe coincidir con<i>calquera</i> vez, e o contido que rodea é "
 "<tt>abc</tt>, entón este <i>elemento de expresión regular</i> concordará coa "
 "cadea baleira, a cadea <tt>abc</tt>, a cadea <tt>abcabc</tt>, a cadea "
-"<tt>abcabcabc</tt>, etc.</qt>"
+"<tt>abcabcabcabc</tt>, etc.</qt>"
 
 #: regexpbuttons.cpp:88
 #, kde-format
@@ -753,7 +753,7 @@ msgstr ""
 #: regexpbuttons.cpp:118
 #, kde-format
 msgid "Positive Look Ahead"
-msgstr "Pesquisa cara diante positiva"
+msgstr "Comprobación de continuación positiva"
 
 #: regexpbuttons.cpp:119
 #, kde-format
@@ -767,7 +767,7 @@ msgstr ""
 #: regexpbuttons.cpp:123
 #, kde-format
 msgid "Negative Look Ahead"
-msgstr "Pesquisa cara diante negativa"
+msgstr "Comprobación de continuación negativa"
 
 #: regexpbuttons.cpp:124
 #, kde-format
@@ -1060,12 +1060,12 @@ msgstr ""
 #: verifybuttons.cpp:115
 #, kde-format
 msgid "Match Greedy"
-msgstr "Concordar con coviza"
+msgstr "Concordar con cobiza"
 
 #: verifybuttons.cpp:120
 #, kde-format
 msgid "Toggle greedy matching when verifying the regular expression."
-msgstr "Comuta a concordanza covizosa ao verificar a expresión regular."
+msgstr "Conmuta a coincidencia cobizosa ao verificar a expresión regular."
 
 #: verifybuttons.cpp:121
 #, kde-format
