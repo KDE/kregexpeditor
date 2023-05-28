@@ -327,8 +327,8 @@ msgid ""
 "tell me what they think about my work. I would therefore be very happy if "
 "you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a short "
 "mail</a>, telling me that you use my regular expression editor.<h2>Author</"
-"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
-"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a "
+"href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
 msgstr ""
 
 #: KMultiFormListBox/ccp.cpp:73
@@ -513,8 +513,8 @@ msgid ""
 "editor.</p><p>In the graphical area the text <b>%1</b> has been inserted. "
 "This is however just a workaround to ensure that the application handles the "
 "regexp at all. Therefore, as soon as you edit the regular expression in the "
-"graphical area, the back reference will be replaced by matching the text <b>"
-"%2</b> literally.</p>"
+"graphical area, the back reference will be replaced by matching the text "
+"<b>%2</b> literally.</p>"
 msgstr ""
 
 #: qregexpparser.y:214
