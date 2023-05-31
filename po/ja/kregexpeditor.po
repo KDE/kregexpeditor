@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.10.2\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
@@ -900,22 +900,19 @@ msgstr "任意の回数の繰り返し"
 #, kde-format
 msgid "Repeated at Least 1 Time"
 msgid_plural "Repeated at Least %1 Times"
-msgstr[0] "1 回以上の繰り返し"
-msgstr[1] "%1 回以上の繰り返し"
+msgstr[0] "%1 回以上の繰り返し"
 
 #: repeatwidget.cpp:303
 #, kde-format
 msgid "Repeated at Most 1 Time"
 msgid_plural "Repeated at Most %1 Times"
-msgstr[0] "1 回以下の繰り返し"
-msgstr[1] "%1 回以下の繰り返し"
+msgstr[0] "%1 回以下の繰り返し"
 
 #: repeatwidget.cpp:305
 #, kde-format
 msgid "Repeated Exactly 1 Time"
 msgid_plural "Repeated Exactly %1 Times"
-msgstr[0] "正確に 1 回の繰り返し"
-msgstr[1] "正確に %1 回の繰り返し"
+msgstr[0] "正確に %1 回の繰り返し"
 
 #: repeatwidget.cpp:307
 #, kde-format
