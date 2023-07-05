@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.5\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -920,22 +920,25 @@ msgid "Repeated Any Number of Times"
 msgstr "تکرار در هر چند دفعه"
 
 #: repeatwidget.cpp:301
-#, kde-format
+#, fuzzy, kde-format
 msgid "Repeated at Least 1 Time"
 msgid_plural "Repeated at Least %1 Times"
 msgstr[0] "حداقل تکرار در %1 دفعه"
+msgstr[1] ""
 
 #: repeatwidget.cpp:303
-#, kde-format
+#, fuzzy, kde-format
 msgid "Repeated at Most 1 Time"
 msgid_plural "Repeated at Most %1 Times"
 msgstr[0] "حداکثر تکرار در %1 دفعه"
+msgstr[1] ""
 
 #: repeatwidget.cpp:305
-#, kde-format
+#, fuzzy, kde-format
 msgid "Repeated Exactly 1 Time"
 msgid_plural "Repeated Exactly %1 Times"
 msgstr[0] " تکرار درست در %1 دفعه"
+msgstr[1] ""
 
 #: repeatwidget.cpp:307
 #, kde-format
