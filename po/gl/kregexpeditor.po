@@ -495,7 +495,7 @@ msgstr ""
 #: kregexpeditorprivate.cpp:371
 #, kde-format
 msgid "Could not open file '%1' for reading"
-msgstr "Non se puido abrir o ficheiro «%1» para lectura"
+msgstr "Non foi posíbel abrir o ficheiro «%1» para lectura"
 
 #: lookaheadwidget.cpp:51
 #, kde-format
@@ -853,7 +853,7 @@ msgstr "<p>Sobrescribir a expresión regular de nome <b>%1</b></p>"
 #: regexpeditorwindow.cpp:406
 #, kde-format
 msgid "Could not open file for writing: %1"
-msgstr "Non se puido abrir o ficheiro para escribir nel: %1"
+msgstr "Non foi posíbel abrir o ficheiro para escribir nel: %1"
 
 #: repeatregexp.cpp:57 repeatregexp.cpp:65
 #, kde-format
@@ -973,7 +973,7 @@ msgstr "xeral"
 #: userdefinedregexps.cpp:101
 #, kde-format
 msgid "Could not open file for reading: %1"
-msgstr "Non se puido abrir o ficheiro para lectura: %1"
+msgstr "Non foi posíbel abrir o ficheiro para lectura: %1"
 
 #: userdefinedregexps.cpp:111
 #, kde-format
