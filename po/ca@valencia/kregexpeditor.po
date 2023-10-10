@@ -871,7 +871,7 @@ msgstr ""
 #: widgetfactory.cpp:203
 #, kde-format
 msgid "Error While Loading From XML File"
-msgstr "S'ha produït un error en carregar des del fitxer XML"
+msgstr "S'ha produït un error en carregar des del fitxer en XML"
 
 #: repeatwidget.cpp:74
 #, kde-format
@@ -1101,7 +1101,7 @@ msgstr "S'ha produït un error en carregar l'expressió regular des d'XML"
 #: widgetfactory.cpp:195
 #, kde-format
 msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
-msgstr "<p>El fitxer XML no conté l'etiqueta <b>%1</b>.</p>"
+msgstr "<p>El fitxer en XML no conté l'etiqueta <b>%1</b>.</p>"
 
 #: widgetfactory.cpp:201
 #, kde-format
@@ -1109,7 +1109,7 @@ msgid ""
 "<p>Error while reading XML file. The element just below the tag <b>%1</b> "
 "was not an element.</p>"
 msgstr ""
-"<p>S'ha produït un error en llegir el fitxer XML. L'element davall "
+"<p>S'ha produït un error en llegir el fitxer en XML. L'element davall "
 "l'etiqueta <b>%1</b> no és un element.</p>"
 
 #: zerowidgets.cpp:72
