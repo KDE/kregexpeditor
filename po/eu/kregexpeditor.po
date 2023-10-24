@@ -1,26 +1,26 @@
-# translation of kregexpeditor.po to
-# translation of kregexpeditor.po to Basque
-# translation of kregexpeditor.po to EUSKARA
-# translation of kregexpeditor.po to basque
-# Copyright (C) 2003, 2004, 2005 Free Software Foundation, Inc.
+# Translation for kregexpeditor.po to Euskara/Basque (eu).
+# Copyright (C) 2003-2023 This file is copyright:
+# This file is distributed under the same license as the kregexpeditor package.
+# SPDX-FileCopyrightText: 2023 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+#
+# Translators:
 # Marcos  <marcos@euskalgnu.org>, 2003.
-# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2004.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2004, 2023.
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
 # marcos <marcos@euskalgnu.org>, 2005.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-04-02 00:20+0000\n"
-"PO-Revision-Date: 2005-12-06 08:42+0100\n"
-"Last-Translator: marcos <marcos@euskalgnu.org>\n"
-"Language-Team:  <eu@li.org>\n"
+"PO-Revision-Date: 2023-10-24 00:20+0200\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.10.2\n"
+"X-Generator: Lokalize 23.08.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -51,33 +51,33 @@ msgstr "Hautaketa Baliogabea"
 #: auxbuttons.cpp:35
 #, kde-format
 msgid "Undo"
-msgstr ""
+msgstr "Desegin"
 
 #: auxbuttons.cpp:41
 #, kde-format
 msgid "Redo"
-msgstr ""
+msgstr "Berregin"
 
 #: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:70
 #, kde-format
 msgid "Cut"
-msgstr ""
+msgstr "Ebaki"
 
 #: auxbuttons.cpp:53 KMultiFormListBox/ccp.cpp:71
 #: KMultiFormListBox/kmultiformlistbox-windowed.cpp:67
 #, kde-format
 msgid "Copy"
-msgstr ""
+msgstr "Kopiatu"
 
 #: auxbuttons.cpp:59 KMultiFormListBox/ccp.cpp:72
 #, kde-format
 msgid "Paste"
-msgstr ""
+msgstr "Itsatsi"
 
 #: auxbuttons.cpp:65
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Gorde"
 
 #: characterswidget.cpp:116
 #, kde-format
@@ -113,7 +113,7 @@ msgstr "- Hutsunea ez den karaktere bat\n"
 #, kde-format
 msgctxt "a range of characters"
 msgid "- from %1 to %2\n"
-msgstr ""
+msgstr "- %1(e)tik %2(e)ra\n"
 
 #: characterswidget.cpp:159
 #, kde-format
@@ -257,16 +257,13 @@ msgid "&Automatically replace using this item"
 msgstr "&Automatikoki ordezkatu gai hau erabiliz"
 
 #: compoundwidget.cpp:61
-#, fuzzy, kde-format
-#| msgid ""
-#| "When the content of this box is typed in to the ASCII line,<br>this box "
-#| "will automatically be added around it,<br>if this check box is selected."
+#, kde-format
 msgid ""
 "When the content of this box is typed in to the ASCII line,<br />this box "
 "will automatically be added around it,<br />if this check box is selected."
 msgstr ""
-"Kaxa honen edukina ASCII lerroan sartzen denean, <br>kaxa hau honen inguruan "
-"automatikoki gehituko da,<br>hautapen-lauki hau hautatuta badago."
+"Kaxa honen edukia ASCII lerroan sartzen denean, <br />kaxa hau honen "
+"inguruan automatikoki gehituko da,<br />hautapen-lauki hori hautatuta badago."
 
 #: compoundwidget.cpp:126
 #, kde-format
@@ -316,24 +313,7 @@ msgstr ""
 "erregularrak azken azpi-adierazpena izan behar du."
 
 #: infopage.cpp:33
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translators, feel free to add yourself in the text below, asking for a "
-#| "postcard ;-), also feel free to add a section saying <h2>Translators</"
-#| "h2>. Kind regards, and thanks for your work - Jesper."
-#| msgid ""
-#| "<h1>Regular Expression Editor</h1><p>What you are currently looking at is "
-#| "an editor for <i>Regular Expressions</i>.</p><p>The upper part in the "
-#| "middle is the editing area, the lower part is a verification window where "
-#| "you can try your regular expressions right away. The row of buttons is "
-#| "the editing actions. This is actually very similar to common drawing "
-#| "programs. Select an editing tool to start editing your regular "
-#| "expression, and press the mouse button in the editing area where you want "
-#| "this item inserted.</p><p>For a more detailed description of this editor "
-#| "see the <a href=\"doc://\">info pages</a></p><h2>What is a regular "
-#| "expression?</h2>If you do not know what a regular expression is, then it "
-#| "might be a good idea to read <a href=\"doc://whatIsARegExp\">the "
-#| "introduction to regular expressions</a>.<p>"
+#, kde-format
 msgctxt ""
 "Translators, feel free to add yourself in the text below, asking for a "
 "postcard ;-), also feel free to add a section saying <h2>Translators</h2>. "
@@ -361,7 +341,7 @@ msgstr ""
 "<a href=\"doc://\">informazio-orriak</a></p><h2>Zer da adierazpen erregular "
 "bat?</h2>Adierazpen erregular bat zer den ez badakizu, hau irakurri behako "
 "zenuke: <a href=\"doc://whatIsARegExp\">Adierazpen erregularrei sarrera</a>."
-"<p>"
+"<br />"
 
 #: infopage.cpp:46
 #, kde-format
@@ -406,13 +386,13 @@ msgstr "(H)Arbelan ez dago itsasteko elementurik."
 #: KMultiFormListBox/kmultiformlistbox-windowed.cpp:54
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "Editatu"
 
 #: KMultiFormListBox/kmultiformlistbox-windowed.cpp:61
 #: userdefinedregexps.cpp:153
-#, fuzzy, kde-format
+#, kde-format
 msgid "Delete"
-msgstr "Gaia Ezabatu"
+msgstr "Ezabatu"
 
 #: KMultiFormListBox/kmultiformlistbox-windowed.cpp:74
 #, kde-format
@@ -437,20 +417,20 @@ msgstr "Gaia Ezabatu"
 #: KMultiFormListBox/kmultiformlistbox.h:71
 #, kde-format
 msgid "Add"
-msgstr ""
+msgstr "Gehitu"
 
 #: KMultiFormListBox/widgetwindow.cpp:47
 #, kde-format
 msgid "Widget Configuration"
-msgstr "Kontrol Konfigurazioa"
+msgstr "Trepetaren Konfigurazioa"
 
 #: kregexpeditorguidialog.cpp:36
 #, kde-format
 msgid "Regular Expression Editor"
-msgstr "Adierazpen Erregularren Editorea"
+msgstr "Adierazpen erregularren Editorea"
 
 #: kregexpeditorprivate.cpp:68
-#, fuzzy, kde-format
+#, kde-format
 msgid "Compound regular expression:"
 msgstr "Adierazpen erregular konposatua:"
 
@@ -461,7 +441,7 @@ msgid ""
 "expressions you have developed and saved, and regular expressions shipped "
 "with the system."
 msgstr ""
-"Leiho honeta aurrez definitutako adierazpen erregularrak aurkituko dituzu. "
+"Leiho horretan aurrez definitutako adierazpen erregularrak aurkituko dituzu. "
 "Zuk garatu eta gorde dituzun adierazpen erregularrak, eta sistemarekin "
 "batera datozenak."
 
@@ -493,26 +473,20 @@ msgid ""
 "editor window, then this part will be highlighted - This allows you to "
 "<i>debug</i> your regular expressions</p>"
 msgstr ""
-"Idatzi testua leiho honetan, eta begiratu nola datorren bat zuk garatu duzun "
-"adierazpen erregularrarekin.<p>Bigarren bat-egite bakoitza gorriz "
+"<p>Tekleatu testua leiho honetan, eta begiratu nola datorren bat zuk garatu "
+"duzun adierazpen erregularrarekin.</p><p>Bigarren bat-egite bakoitza gorriz "
 "koloreztatuko da  eta besteak urdinez, ongi bereizi ditzazun. <p>Adierazpen "
 "erregularraren zati bat hautatzen baduzu editoreko lehioan, orduan zati hau "
 "nabarmenduko da. Honek adierazpen erregularrak <i>arazteko</i> aukera ematen "
 "du"
 
 #: kregexpeditorprivate.cpp:148
-#, fuzzy, kde-format
+#, kde-format
 msgid "ASCII syntax:"
 msgstr "ASCII sintaxia:"
 
 #: kregexpeditorprivate.cpp:161
-#, fuzzy, kde-format
-#| msgid ""
-#| "This is the regular expression in ASCII syntax. You are likely only to be "
-#| "interested in this if you are a programmer, and need to develop a regular "
-#| "expression using QRegExp.<p>You may develop your regular expression both "
-#| "by using the graphical editor, and by typing the regular expression in "
-#| "this line edit."
+#, kde-format
 msgid ""
 "<p>This is the regular expression in ASCII syntax. You are likely only to be "
 "interested in this if you are a programmer, and need to develop a regular "
@@ -520,10 +494,10 @@ msgid ""
 "by using the graphical editor, and by typing the regular expression in this "
 "line edit.</p>"
 msgstr ""
-"Hau da adierazpen erregularra ASCII sintaxian. Programatzaile bat bazara eta "
-"QRegExp erabiliz adierazpen erregular bat garatu behar baduzu, honetan "
-"interesa izango duzu.<p>Zure adierazpen erregularra editore grafikoa "
-"erabiliz edo lerro-edizio honetan idatziz gara dezakezu."
+"<p>Hau da adierazpen erregularra ASCII sintaxian. Programatzaile bat bazara "
+"eta QRegExp erabiliz adierazpen erregular bat garatu behar baduzu, honetan "
+"interesa izango duzu.</p><p>Zure adierazpen erregularra editore grafikoa "
+"erabiliz edo lerro-edizio honetan idatziz gara dezakezu.</p>"
 
 #: kregexpeditorprivate.cpp:371
 #, kde-format
@@ -553,17 +527,17 @@ msgstr "Adierazpen Erregularren Editorea"
 #: main.cpp:45
 #, kde-format
 msgid "(c) 2002-2003 Jesper K. Pedersen"
-msgstr ""
+msgstr "(c) 2002-2003 Jesper K. Pedersen"
 
 #: main.cpp:46
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: main.cpp:46
 #, kde-format
 msgid "Developer"
-msgstr ""
+msgstr "Garatzailea"
 
 #: predefined/General/anything.regexp:5
 #, kde-format
@@ -861,22 +835,22 @@ msgstr "Eragiketa Baliogabea"
 #: regexpeditorwindow.cpp:331
 #, kde-format
 msgid "C&ut"
-msgstr ""
+msgstr "Eb&aki"
 
 #: regexpeditorwindow.cpp:335
 #, kde-format
 msgid "&Copy"
-msgstr ""
+msgstr "&Kopiatu"
 
 #: regexpeditorwindow.cpp:339
 #, kde-format
 msgid "&Paste"
-msgstr ""
+msgstr "&Itsatsi"
 
 #: regexpeditorwindow.cpp:345
 #, kde-format
 msgid "&Edit"
-msgstr ""
+msgstr "&Editatu"
 
 #: regexpeditorwindow.cpp:349
 #, kde-format
@@ -896,13 +870,12 @@ msgstr "Sartu izena:"
 #: regexpeditorwindow.cpp:390
 #, kde-format
 msgid "Empty name is not supported"
-msgstr ""
+msgstr "Izena hutsik ez da onartzen"
 
 #: regexpeditorwindow.cpp:390
-#, fuzzy, kde-format
-#| msgid "&Save Regular Expression..."
+#, kde-format
 msgid "Save Regular Expression"
-msgstr "&Gorde Adierazpen Erregularra..."
+msgstr "Gorde adierazpen erregularra"
 
 #: regexpeditorwindow.cpp:398
 #, kde-format
@@ -976,15 +949,15 @@ msgid "time(s)"
 msgstr "aldiz"
 
 #: repeatwidget.cpp:299
-#, kde-format
+#, fuzzy, kde-format
 msgid "Repeated Any Number of Times"
 msgstr "Errepikatuta Edozein Aldi Kopurutan"
 
 #: repeatwidget.cpp:301
-#, fuzzy, kde-format
+#, kde-format
 msgid "Repeated at Least 1 Time"
 msgid_plural "Repeated at Least %1 Times"
-msgstr[0] "Gutxienez behin errepikatuta"
+msgstr[0] "Gutxienez 1 errepikatua"
 msgstr[1] "Gutxienez %1 aldiz errepikatuta"
 
 #: repeatwidget.cpp:303
@@ -1025,9 +998,9 @@ msgid "User Defined"
 msgstr "Erabiltzaileak Definituta"
 
 #: userdefinedregexps.cpp:87
-#, fuzzy, kde-format
+#, kde-format
 msgid "general"
-msgstr "Orokorra"
+msgstr "orokorra"
 
 #: userdefinedregexps.cpp:101
 #, kde-format
@@ -1035,17 +1008,16 @@ msgid "Could not open file for reading: %1"
 msgstr "Ezin izan da fitxategia irakurtzeko ireki: %1"
 
 #: userdefinedregexps.cpp:111
-#, kde-format
+#, fuzzy, kde-format
 msgid "File %1 containing user defined regular expression contained an error"
 msgstr ""
 "Erabiltzaileak definitutako adierazpen erregularradun %1 fitxategiak akats "
 "bat zeukan"
 
 #: userdefinedregexps.cpp:154
-#, fuzzy, kde-format
-#| msgid "Rename..."
+#, kde-format
 msgid "Rename"
-msgstr "Berrizendatu..."
+msgstr "Berrizendatu"
 
 #: userdefinedregexps.cpp:195
 #, kde-format
@@ -1089,12 +1061,12 @@ msgstr "Testua zamatu leiho egiaztatzailean"
 #: verifybuttons.cpp:53
 #, kde-format
 msgid "Verification Settings"
-msgstr ""
+msgstr "Egiaztapen ezarpenak"
 
 #: verifybuttons.cpp:101
 #, kde-format
 msgid "config menu"
-msgstr ""
+msgstr "konfiguratzeko menua"
 
 #: verifybuttons.cpp:104
 #, kde-format
