@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-04-02 00:20+0000\n"
-"PO-Revision-Date: 2023-10-24 00:20+0200\n"
+"PO-Revision-Date: 2023-10-24 20:32+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -457,14 +457,7 @@ msgstr ""
 "honetan dagokion ekintza eransteko."
 
 #: kregexpeditorprivate.cpp:86
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type in some text in this window, and see what the regular expression you "
-#| "have developed matches.<p>Each second match will be colored in red and "
-#| "each other match will be colored blue, simply so you can distinguish them "
-#| "from each other.<p>If you select part of the regular expression in the "
-#| "editor window, then this part will be highlighted - This allows you to "
-#| "<i>debug</i> your regular expressions"
+#, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
 "have developed matches.</p><p>Each second match will be colored in red and "
@@ -473,12 +466,12 @@ msgid ""
 "editor window, then this part will be highlighted - This allows you to "
 "<i>debug</i> your regular expressions</p>"
 msgstr ""
-"<p>Tekleatu testua leiho honetan, eta begiratu nola datorren bat zuk garatu "
-"duzun adierazpen erregularrarekin.</p><p>Bigarren bat-egite bakoitza gorriz "
-"koloreztatuko da  eta besteak urdinez, ongi bereizi ditzazun. <p>Adierazpen "
-"erregularraren zati bat hautatzen baduzu editoreko lehioan, orduan zati hau "
-"nabarmenduko da. Honek adierazpen erregularrak <i>arazteko</i> aukera ematen "
-"du"
+"<p>Tekleatu testua leiho honetan, eta ikusi garatu duzun adierazpen "
+"erregularrarekin bat zer datorren.</p><p>Bigarren bat-etortze bakoitza "
+"gorriz koloreztatuko da eta besteak urdinez, ongi bereiz ditzazun.</"
+"p><p>Editorearen leihoan adierazpen erregularraren zati bat hautatzen "
+"baduzu, zati hori nabarmendu egingo da - Horrek zure adierazpen erregularrak "
+"<i>arazteko</i> aukera ematen dizu</p>"
 
 #: kregexpeditorprivate.cpp:148
 #, kde-format
@@ -571,13 +564,19 @@ msgid ""
 "graphical area, the back reference will be replaced by matching the text <b>"
 "%2</b> literally.</p>"
 msgstr ""
+"<p>Atzerako aipamena duten adierazpen erregularrak ez dira onartzen.</"
+"p><p><tt>\\1</tt>, <tt>\\2</tt>, ... <i>atzerako aipamenak</i> dira, aurreko "
+"bat etortzeei aipamen egiten dietela alegia. Tamalez, editorearen egungo "
+"bertsioak ez du horretarako euskarririk.</p><p>Eremu grafikoan <b>%1</b> "
+"sartu da. Hori baina, aplikazioak adierazpen erregularra maneiatzen duela "
+"ziurtatzeko konponbide bat besterik ez da. Beraz, eremu grafikoan adierazpen "
+"erregularra editatzen duzun bezain laster, atzerako aipamena <b>%2</b> "
+"testua hitzez-hitz parekatuz ordeztuko da.</p>"
 
 #: qregexpparser.y:214
-#, fuzzy, kde-format
-#| msgid "Look ahead regular expressions not supported in Emacs style"
+#, kde-format
 msgid "Back reference regular expressions not supported"
-msgstr ""
-"Aurre-bilaketadun adierazpen erregularrak ez dira Emacs estiloan onartzen"
+msgstr "Atzerako aipamena duten adierazpen erregularrak ez dira onartzen"
 
 #: regexpbuttons.cpp:49
 #, kde-format
@@ -585,14 +584,7 @@ msgid "Selection tool"
 msgstr "Hautapen tresna"
 
 #: regexpbuttons.cpp:50
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This will change the state of the editor to <i>selection state</i>."
-#| "<p>In this state you will not be inserting <i>regexp items</i>, but "
-#| "instead select them. To select a number of items, press down the left "
-#| "mouse button and drag it over the items.<p>When you have selected a "
-#| "number of items, you may use cut/copy/paste. These functions are found in "
-#| "the right mouse button menu.</qt>"
+#, kde-format
 msgid ""
 "<p>This will change the state of the editor to <i>selection state</i>.</"
 "p><p>In this state you will not be inserting <i>regexp items</i>, but "
@@ -601,12 +593,12 @@ msgid ""
 "items, you may use cut/copy/paste. These functions are found in the right "
 "mouse button menu.</p>"
 msgstr ""
-"<qt>Honek editorearen egoera <i>hautapenaren egoerara</i> aldatuko du."
-"<p>Egoera honetan ez dituzu <i>adierazpen erregularren elementuak</i> "
-"sartuko, hautatu baizik. Elementu batzuk hautatzeko, sakatu saguaren "
-"ezkerreko botoia eta arrastatu elementuen gainean.<p>Elementuak hautatu "
-"dituzunean, moztu/kopiatu/itsatsi dezakezu. Funtzio hauek saguaren eskuineko "
-"botoiaren menuan daude.</qt>"
+"<p>Horrek editorearen egoera <i>hautapen egoera</i>ra aldatuko du</p>."
+"<p>Egoera horretan ez dituzu <i>adierazpen erregularreko elementuak</i> "
+"sartuko, haiek hautatuko baizik. Hainbat elementu hautatzeko, sakatu "
+"saguaren ezkerreko botoia eta arrastatu elementuen gainera.</p><p>Hainbat "
+"elementu hautatu dituzunean, ebaki/kopiatu/itsatsi erabil ditzakezu. Funtzio "
+"horiek saguaren eskuineko botoiaren menuan daude.</p>"
 
 #: regexpbuttons.cpp:59
 #, kde-format
@@ -629,20 +621,16 @@ msgid "A single character specified in a range"
 msgstr "Barruti batean zehaztutako karaktere bakar bat"
 
 #: regexpbuttons.cpp:65
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This will match a single character from a predefined range.<p>When "
-#| "you insert this widget a dialog box will appear, which lets you specify "
-#| "which characters this <i>regexp item</i> will match.</qt>"
+#, kde-format
 msgid ""
 "<p>This will match a single character from a predefined range.</p><p>When "
 "you insert this widget a dialog box will appear, which lets you specify "
 "which characters this <i>regexp item</i> will match.</p>"
 msgstr ""
-"<qt>Honek aurredefinitutako barruti bateko karaktere bakar batekin egingo du "
-"bat.<p>Trepeta hau txertatzean elkarrizketa bat agertuko da, <i>adierazpen "
-"erregularraren elementuak</i> zein karaktererekin bat egingo duen zehazteko."
-"</qt>"
+"<p>Horrek aurrez definitutako barruti bateko karaktere bakar batekin "
+"parekatuko du.</p><p>Trepeta hau txertatzen duzunean elkarrizketa-koadro bat "
+"agertuko da, <i>adierazpen erregularreko elementu</i> hori zein "
+"karaktererekin bat etorriko den zehazteko.</p>"
 
 #: regexpbuttons.cpp:70
 #, kde-format
@@ -660,17 +648,7 @@ msgid "Repeated content"
 msgstr "Errepikatutako edukia"
 
 #: regexpbuttons.cpp:75
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it "
-#| "surrounds a specified number of times.<p>The number of times to repeat "
-#| "may be specified using ranges. e.g. You may specify that it should match "
-#| "from 2 to 4 times, that it should match exactly 5 times, or that it "
-#| "should match at least one time.<p>Examples:<br>If you specify that it "
-#| "should match <i>any</i> time, and the content it surrounds is <tt>abc</"
-#| "tt>, then this <i>regexp item</i> will match the empty string, the string "
-#| "<tt>abc</tt>, the string <tt>abcabc</tt>, the string <tt>abcabcabcabc</"
-#| "tt>, etc.</qt>"
+#, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
 "a specified number of times.<br />The number of times to repeat may be "
@@ -681,31 +659,28 @@ msgid ""
 "<i>regexp item</i> will match the empty string, the string <tt>abc</tt>, the "
 "string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, etc.</qt>"
 msgstr ""
-"<qt><i>Adierazpen erregularraren elementu</i> honek inguratzen dituen "
-"<i>adierazpen erregularraren elementuak</i> errepikatuko ditu."
-"<p>Errepikatzeko lerro kopurua barrutiak erabiliz zehaztu daiteke, adibidez, "
-"2 eta 4 artean bat egin behar duen edo zehazki 5 aldiz, edo gutxienez behin."
-"<p>Adibideak:<br><i>edozein</i> aldiz bat egin behar duela zehazten baduzu, "
-"eta inguratzen duen edukina <tt>abc</tt> bada, orduan <i>adierazpen "
-"erregularraren elementu</i> honek kate hutsarekin, <tt>abc</tt> katearekin, "
-"<tt>abcabc</tt> katearekin, <tt>abcabcabcabc</tt> katearekin, etb. bat "
+"<qt><i>Adierazpen erregularreko elementu</i> horrek, inguratzen dituen "
+"<i>adierazpen erregularreko elementu</i>ak zehaztutako kopuruan errepikatuko "
+"ditu.<br />Zenbatetan errepikatu behar den bitarteak erabiliz zehaztu  "
+"daiteke; adib. 2tik 4ra bitartean parekatu behar dela zehaztu daiteke, "
+"zehazki 5 aldiz parekatu behar dela, edo gutxienez behin parekatu behar dela."
+"<br />Adibideak:<br><i>edozein</i> aldiz parekatu behar duela zehazten "
+"baduzu, eta inguratzen duen edukia <tt>abc</tt> bada, orduan <i>adierazpen "
+"erregularreko elementu</i> horrek kate hutsarekin, <tt>abc</tt> katearekin, "
+"<tt>abcabc</tt> katearekin, <tt>abcabcabcabc</tt> katearekin, etab. bat "
 "egingo du.</qt>"
 
 #: regexpbuttons.cpp:88
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This <i>regexp item</i> will match any of its alternatives.</p>You "
-#| "specify alternatives by placing <i>regexp items</i> on top of each other "
-#| "inside this widget.</qt>"
+#, kde-format
 msgid ""
 "<p>This <i>regexp item</i> will match any of its alternatives.</"
 "p><p>Alternatives are specified by placing <i>regexp items</i> on top of "
 "each other inside this widget.</p>"
 msgstr ""
-"<qt><i>Adierazpen erregularraren elementu</i> honek bere edozein "
-"hautabideekin bat egingo du..</p> Hautabideak zehazteko <i>adierazpen "
-"erregularraren elementuak</i> bata bestearen gainea trepeta honen barruan "
-"kokatu.</qt>"
+"<p><i>Adierazpen erregularreko elementu</i> horrek bere edozein "
+"hautabideekin bat etorriko da.</p><p>Hautabideak zehazten dira, trepeta "
+"honen barruan  <i>adierazpen erregularreko elementuak</i> bata bestearen "
+"gainean kokatuz.</p>"
 
 #: regexpbuttons.cpp:93
 #, kde-format
@@ -713,13 +688,7 @@ msgid "Compound regexp"
 msgstr "Adierazpen erregular konposatua"
 
 #: regexpbuttons.cpp:94
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it "
-#| "possible for you to collapse a huge <i>regexp item</i> into a small box. "
-#| "This makes it easier for you to get an overview of large <i>regexp items</"
-#| "i>. This is especially useful if you load a predefined <i>regexp item</i> "
-#| "you perhaps don't care about the inner workings of."
+#, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
 "for you to collapse a huge <i>regexp item</i> into a small box. This makes "
@@ -727,11 +696,12 @@ msgid ""
 "especially useful if you load a predefined <i>regexp item</i> that you "
 "perhaps do not care about the inner workings of.</qt>"
 msgstr ""
-"<qt><i>Adierazpen erregularraren elementuak</i> bi helburu ditu:"
-"<ul><li>Honek <i>adierazpen erregularraren elementu</i> handi b at kaxa "
-"txiki batean sartzea posible egiten du. Honek <i>adierazpen erregularraren "
-"elementuaren</i> ikuspegi orokorra errazten du. Hau erabilgarria "
-"aurredefinitutako <i>adierazpen erregularraren elementu</i> bat kargatzeko."
+"<qt><i>Adierazpen erregularreko elementu</i> horrek bi helburu ditu:"
+"<ul><li><i>Adierazpen erregularreko elementu</i> oso handi bat kaxa txiki "
+"batean tolesteko aukera ematen dizu. Horrek <i>adierazpen erregularreko "
+"elementu</i> handien ikuspegi orokorra jasotzea errazten dizu. Bereziki "
+"erabilgarria, aurrez definitutako <i>adierazpen erregularreko elementu</i> "
+"bat zamatzen baduzu, eta barnean nola dabilen ez zaizunean inporta.</qt>"
 
 #: regexpbuttons.cpp:101
 #, kde-format
@@ -949,9 +919,9 @@ msgid "time(s)"
 msgstr "aldiz"
 
 #: repeatwidget.cpp:299
-#, fuzzy, kde-format
+#, kde-format
 msgid "Repeated Any Number of Times"
-msgstr "Errepikatuta Edozein Aldi Kopurutan"
+msgstr "Behin baino gehiagotan errepikatua"
 
 #: repeatwidget.cpp:301
 #, kde-format
@@ -961,18 +931,18 @@ msgstr[0] "Gutxienez 1 errepikatua"
 msgstr[1] "Gutxienez %1 aldiz errepikatuta"
 
 #: repeatwidget.cpp:303
-#, fuzzy, kde-format
+#, kde-format
 msgid "Repeated at Most 1 Time"
 msgid_plural "Repeated at Most %1 Times"
-msgstr[0] "Gehienez behin errepikatuta"
-msgstr[1] "Gehienez %1 aldiz errepikatuta"
+msgstr[0] "Gehienez 1 errepikatua"
+msgstr[1] "Gehienez %1 aldiz errepikatua"
 
 #: repeatwidget.cpp:305
-#, fuzzy, kde-format
+#, kde-format
 msgid "Repeated Exactly 1 Time"
 msgid_plural "Repeated Exactly %1 Times"
-msgstr[0] "Zehazki behin errepikatuta"
-msgstr[1] "Zehazki %1 aldiz errepikatuta"
+msgstr[0] "Zehazki 1 errepikatua"
+msgstr[1] "Zehazki %1 aldiz errepikatua"
 
 #: repeatwidget.cpp:307
 #, kde-format
@@ -1008,11 +978,11 @@ msgid "Could not open file for reading: %1"
 msgstr "Ezin izan da fitxategia irakurtzeko ireki: %1"
 
 #: userdefinedregexps.cpp:111
-#, fuzzy, kde-format
+#, kde-format
 msgid "File %1 containing user defined regular expression contained an error"
 msgstr ""
-"Erabiltzaileak definitutako adierazpen erregularradun %1 fitxategiak akats "
-"bat zeukan"
+"Erabiltzaileak definitutako adierazpen erregularra duen %1 fitxategiak akats "
+"bat du"
 
 #: userdefinedregexps.cpp:154
 #, kde-format
@@ -1092,12 +1062,12 @@ msgstr ""
 #: verifybuttons.cpp:115
 #, kde-format
 msgid "Match Greedy"
-msgstr ""
+msgstr "Parekatze aseezina"
 
 #: verifybuttons.cpp:120
-#, fuzzy, kde-format
+#, kde-format
 msgid "Toggle greedy matching when verifying the regular expression."
-msgstr "Aktibatu/Desaktibatu adierazpen erregularren egiaztapen automatikoa"
+msgstr "Txandakatu parekatze aseezina adierazpen erregularra egiaztatzean."
 
 #: verifybuttons.cpp:121
 #, kde-format
@@ -1105,6 +1075,8 @@ msgid ""
 "When this option is enabled, the regular expression will be evaluated on a "
 "so-called greedy way."
 msgstr ""
+"Aukera hori gaituta dagoenean, adierazpen erregularra «aseezina» deituriko "
+"eran ebaluatuko da."
 
 #: verifybuttons.cpp:124
 #, kde-format
@@ -1117,10 +1089,9 @@ msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
 msgstr "<p>Etiketa ezezaguna XML irakurtzerakoan. Etiketa <b>%1</b> zen</p>"
 
 #: widgetfactory.cpp:188
-#, fuzzy, kde-format
-#| msgid "Error While Loading Regular Expression From XML"
+#, kde-format
 msgid "Error while loading regular expression from XML."
-msgstr "Akatsa XML-tik Adierazpen Erregularra Zamatzerakoan"
+msgstr "Errorea «XML»tik adierazpen erregularra zamatzean."
 
 #: widgetfactory.cpp:189
 #, kde-format
