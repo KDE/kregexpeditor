@@ -2,7 +2,7 @@
 # Translation of kregexpeditor.po to Slovenian
 # SLOVENIAN TRANSLATION OF KDEUTILS
 # Copyright (C) 2002,2003, 2004, 2005, 2006 Free Software Foundation, Inc.
-# $Id: kregexpeditor.po 1597508 2021-04-02 01:00:11Z scripty $
+# $Id: kregexpeditor.po 1664120 2023-11-05 13:15:21Z scripty $
 # $Source$
 #
 # Roman Maurer <roman.maurer@amis.net>, 2002.
@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-04-02 00:20+0000\n"
+"POT-Creation-Date: 2023-11-05 12:41+0000\n"
 "PO-Revision-Date: 2020-07-07 07:27+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
