@@ -264,8 +264,8 @@ msgid ""
 "will automatically be added around it,<br />if this check box is selected."
 msgstr ""
 "Quan es teclege el contingut d'este quadro a dins de la línia ASCII, <br /"
-">este quadro s'afegirà al voltant automàticament, <br />si es marca esta "
-"casella de selecció."
+">este quadro s'afegirà al voltant automàticament, <br />si se selecciona "
+"esta casella de selecció."
 
 #: compoundwidget.cpp:126
 #, kde-format
@@ -569,7 +569,7 @@ msgid ""
 msgstr ""
 "<p>No s'admet la referència arrere d'expressions regulars.</p><p><tt>\\1</"
 "tt>, <tt>\\2</tt>,... són <i>referències arrere</i>, vol dir que referencien "
-"a coincidències anteriors. Malauradament, estes no estan admeses en la "
+"a coincidències anteriors. Desgraciadament, estes no estan admeses en la "
 "versió actual d'este editor.</p><p>S'ha inserit el text <b>%1</b> en l'àrea "
 "gràfica. Açò només és una solució alternativa per a assegurar que "
 "l'aplicació gestiona tota l'expressió regular. Per tant, tan prompte com "
@@ -1075,7 +1075,7 @@ msgid ""
 "When this option is enabled, the regular expression will be evaluated on a "
 "so-called greedy way."
 msgstr ""
-"Quan esta opció està habilitada, l'expressió regular s'avaluarà d'una manera "
+"Quan se selecciona esta opció, l'expressió regular s'avaluarà d'una manera "
 "anomenada voraç."
 
 #: verifybuttons.cpp:124
