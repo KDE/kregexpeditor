@@ -96,16 +96,14 @@ install(TARGETS kregexpeditorcommon ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### next target ###############
 
-set(kregexpeditor_SRCS main.cpp)
-
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/*-apps-kregexpeditor.png")
 ecm_add_app_icon(kregexpeditor_SRCS ICONS ${ICONS_SRCS})
 
-add_executable(kregexpeditor ${kregexpeditor_SRCS})
+add_executable(kregexpeditor main.cpp)
 
 target_link_libraries(kregexpeditor Qt6::Widgets kregexpeditorcommon KF6::Crash)
 
-install(TARGETS kregexpeditor DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kregexpeditor ${KF6_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
