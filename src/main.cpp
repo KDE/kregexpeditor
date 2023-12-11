@@ -30,10 +30,7 @@
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-
     QApplication app(argc, argv);
-    app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 
     KCrash::initialize();
 
@@ -44,6 +41,11 @@ int main(int argc, char *argv[])
                          KAboutLicense::GPL,
                          i18n("(c) 2002-2003 Jesper K. Pedersen"));
     aboutData.addAuthor(i18n("Laurent Montel"), i18n("Developer"), QStringLiteral("montel@kde.org"));
+    aboutData.addAuthor(i18nc("@info:credit", "Carl Schwan"),
+                    i18nc("@info:credit", "Port to Qt6"),
+                    QStringLiteral("carl@carlschwan.eu"),
+                    QStringLiteral("https://carlschwan.eu"),
+                    QUrl(QStringLiteral("https://carlschwan.eu/avatar.png")));
 
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
