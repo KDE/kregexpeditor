@@ -10,6 +10,7 @@
 #include "kmultiformlistboxentry.h"
 
 #include <KLocalizedString>
+#include <QWidget>
 
 class QDataStream;
 class KMultiFormListBoxFactory;

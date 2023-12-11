@@ -8,6 +8,8 @@
 #ifndef __kmultiformlistboxshower
 #define __kmultiformlistboxshower
 
+#include <QWidget>
+
 // -------------------------------- includes ------------------------------
 class KMultiFormListBoxEntry;
 //-------------------------------------------------------------------------
