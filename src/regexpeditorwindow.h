@@ -65,12 +65,12 @@ public:
        Note this method is only valid while doing rubber-band
        selection. Afterwards, use @ref pointSelected instead.
     */
-    bool selectionOverlap(QPoint globalPos, QSize size) const;
+    bool selectionOverlap(const QPointF &globalPos, QSize size) const;
 
     /**
        returns true if `pos' lays on top of a widget that is selected.
     */
-    bool pointSelected(QPoint pos) const;
+    bool pointSelected(const QPointF &pos) const;
 
     /**
        returns true if the editor has a selection.
@@ -198,13 +198,13 @@ Q_SIGNALS:
 
        If focusPoint is non-null then this point should be made visible
     */
-    void contentChanged(QPoint focusPoint);
+    void contentChanged(QPointF focusPoint);
 
     /**
        This signal is emitted whenever mouse is being dragged in the editor
        window. `focusPoint' is the mouse' current position.
     */
-    void scrolling(QPoint focusPoint);
+    void scrolling(QPointF focusPoint);
 
     /**
        see @ref RegExpScrolledEditorWindow::doneEditing
@@ -241,9 +241,9 @@ protected Q_SLOTS:
     void editWidget();
 
 private:
-    void cutCopyAux(QPoint pos);
-    void copy(QPoint pos);
-    void cut(QPoint pos);
+    void cutCopyAux(QPointF pos);
+    void copy(QPointF pos);
+    void cut(QPointF pos);
 
 private:
     /** This points to the top @ref RegExpWidget in the editor window. */
@@ -253,13 +253,13 @@ private:
     QHBoxLayout *_layout;
 
     /** This points to the edit widget */
-    QPoint _PosEdit;
+    QPointF _PosEdit;
 
     /** Start point and last point draw. Used when doing rubber band selection  */
-    QPoint _start, _lastPoint;
+    QPointF _start, _lastPoint;
 
     /** The area which the rubber band selection is over */
-    QRect _selection;
+    QRectF _selection;
 
     /** true when a paste action is in action (see @ref isPasteing ). */
     bool _pasteInAction;

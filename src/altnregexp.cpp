@@ -38,7 +38,7 @@ RegExpList AltnRegExp::children() const
 bool AltnRegExp::check(ErrorMap &map, bool first, bool last)
 {
     bool possibleEmpty = false;
-    foreach (RegExp *r, list) {
+    for (RegExp *r : std::as_const(list)) {
         possibleEmpty = r->check(map, first, last) || possibleEmpty;
     }
     return possibleEmpty;
@@ -47,7 +47,7 @@ bool AltnRegExp::check(ErrorMap &map, bool first, bool last)
 QDomNode AltnRegExp::toXml(QDomDocument *doc) const
 {
     QDomElement top = doc->createElement(QStringLiteral("Alternatives"));
-    foreach (RegExp *r, list) {
+    for (RegExp *r : std::as_const(list)) {
         top.appendChild(r->toXml(doc));
     }
     return top;
@@ -98,7 +98,7 @@ bool AltnRegExp::operator==(const RegExp &other) const
 
 void AltnRegExp::replacePart(CompoundRegExp *replacement)
 {
-    foreach (RegExp *r, list) {
+    for (RegExp *r : std::as_const(list)) {
         r->replacePart(replacement);
     }
 }

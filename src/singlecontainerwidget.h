@@ -39,8 +39,8 @@ public:
     RegExp *selection() const override;
     bool validateSelection() const override;
     QRect selectionRect() const override;
-    RegExpWidget *widgetUnderPoint(QPoint globalPos, bool justVisibleWidgets) override;
-    RegExpWidget *findWidgetToEdit(QPoint globalPos) override;
+    RegExpWidget *widgetUnderPoint(QPointF globalPos, bool justVisibleWidgets) override;
+    RegExpWidget *findWidgetToEdit(QPointF globalPos) override;
     void setConcChild(ConcWidget *child) override;
     void selectWidget(bool sel) override;
     void updateAll() override;

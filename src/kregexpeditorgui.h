@@ -21,7 +21,7 @@
 
 #include <QDialog>
 #include <QVariant>
-#include <kregexpeditorinterface.h>
+#include <qwidget.h>
 
 class KRegExpEditorPrivate;
 
@@ -31,15 +31,14 @@ class KRegExpEditorPrivate;
    @author Jesper Kjær Pedersen <blackie@kde.org>
    @version 0.1
  **/
-class Q_DECL_EXPORT KRegExpEditorGUI : public QWidget, public KRegExpEditorInterface
+class Q_DECL_EXPORT KRegExpEditorGUI : public QWidget
 {
     Q_OBJECT
-    Q_INTERFACES(KRegExpEditorInterface)
     Q_PROPERTY(QString regexp READ regExp WRITE setRegExp)
 public:
     explicit KRegExpEditorGUI(QWidget *parent = nullptr, const QVariantList & = QVariantList());
     ~KRegExpEditorGUI() override;
-    QString regExp() const override;
+    QString regExp() const;
 
     static const QString version;
 
@@ -48,16 +47,16 @@ protected:
 
 Q_SIGNALS:
     /** This signal tells whether undo is available. */
-    void canRedo(bool) override;
-    void canUndo(bool) override;
-    void changes(bool) override;
+    void canRedo(bool);
+    void canUndo(bool);
+    void changes(bool);
 
 public Q_SLOTS:
-    void redo() override;
-    void undo() override;
-    void setRegExp(const QString &regexp) override;
-    void doSomething(const QString &method, void *arguments) override;
-    void setMatchText(const QString &) override;
+    void redo();
+    void undo();
+    void setRegExp(const QString &regexp);
+    void doSomething(const QString &method, void *arguments);
+    void setMatchText(const QString &);
 
 private:
     KRegExpEditorPrivate *_editor = nullptr;

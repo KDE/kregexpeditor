@@ -5,7 +5,8 @@ set(regexpeditortest_SRCS
 
 add_executable(regexpeditor_gui ${regexpeditortest_SRCS})
 target_link_libraries(regexpeditor_gui
-     Qt5::Widgets
-     KF5::TextWidgets
-     KF5::Service
+    kregexpeditorcommon
+    Qt6::Widgets
+    KF6::TextWidgets
+    KF6::Service
 )

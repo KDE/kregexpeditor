@@ -20,9 +20,9 @@ include_directories(
 
 ########### next target ###############
 
-set(kregexpeditorcommon_SRCS
-   ${BISON_qregexpparser_OUTPUTS}
-   ${FLEX_qregexplexer_OUTPUTS}
+add_library(kregexpeditorcommon SHARED
+    ${BISON_qregexpparser_OUTPUTS}
+    ${FLEX_qregexplexer_OUTPUTS}
     altnregexp.cpp
     altnwidget.cpp
     auxbuttons.cpp
@@ -80,29 +80,18 @@ set(kregexpeditorcommon_SRCS
     zerowidgets.cpp
 )
 
-add_library(kregexpeditorcommon SHARED ${kregexpeditorcommon_SRCS})
-
 target_link_libraries(kregexpeditorcommon
-    KF5::ConfigWidgets
-    KF5::IconThemes
-    KF5::TextWidgets
-    KF5::WidgetsAddons
-    Qt5::Widgets
-    Qt5::Xml
-    )
+    KF6::ConfigWidgets
+    KF6::CoreAddons
+    KF6::IconThemes
+    KF6::TextWidgets
+    KF6::WidgetsAddons
+    Qt6::Widgets
+    Qt6::Xml
+)
 
 set_target_properties(kregexpeditorcommon PROPERTIES VERSION 1.0.0 SOVERSION 1)
 install(TARGETS kregexpeditorcommon ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-
-########### next target ###############
-
-set(kregexpeditorgui_PART_SRCS kregexpeditorfactory.cpp )
-
-add_library(kregexpeditorgui MODULE ${kregexpeditorgui_PART_SRCS})
-
-target_link_libraries(kregexpeditorgui  KF5::Service kregexpeditorcommon)
-
-install(TARGETS kregexpeditorgui DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
 ########### next target ###############
 
@@ -113,14 +102,14 @@ ecm_add_app_icon(kregexpeditor_SRCS ICONS ${ICONS_SRCS})
 
 add_executable(kregexpeditor ${kregexpeditor_SRCS})
 
-target_link_libraries(kregexpeditor Qt5::Widgets kregexpeditorcommon KF5::Crash)
+target_link_libraries(kregexpeditor Qt6::Widgets kregexpeditorcommon KF6::Crash)
 
-install(TARGETS kregexpeditor ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kregexpeditor DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install(FILES org.kde.kregexpeditor.desktop  DESTINATION ${KDE_INSTALL_APPDIR})
-install(FILES kregexpeditorgui.desktop  DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
+install(FILES org.kde.kregexpeditor.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+#install(FILES kregexpeditorgui.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 
 install(FILES
     KMultiFormListBox/kmultiformlistboxentry.h

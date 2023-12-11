@@ -63,7 +63,7 @@ void WidgetWindow::init(KMultiFormListBoxFactory *factory, QListWidget *lb, KMul
     } else {
         myWidget = factory->create(frame);
     }
-    QDataStream stream(&_backup, QIODevice::WriteOnly);
+    QDataStream stream(&_backup, QIODeviceBase::WriteOnly);
 
     stream.setVersion(QDataStream::Qt_3_1);
     myFact->toStream(myWidget, stream);
@@ -105,7 +105,7 @@ void WidgetWindow::slotCancel()
     if (initialShow) {
         deleteLater();
     } else {
-        QDataStream stream(&_backup, QIODevice::ReadOnly);
+        QDataStream stream(&_backup, QIODeviceBase::ReadOnly);
 
         stream.setVersion(QDataStream::Qt_3_1);
         myFact->fromStream(stream, myWidget);
@@ -117,11 +117,11 @@ WidgetWindow *WidgetWindow::clone()
 {
     WidgetWindow *item = new WidgetWindow(myFact, listbox);
     QByteArray data;
-    QDataStream ws(&data, QIODevice::WriteOnly);
+    QDataStream ws(&data, QIODeviceBase::WriteOnly);
 
     ws.setVersion(QDataStream::Qt_3_1);
     myFact->toStream(myWidget, ws);
-    QDataStream rs(&data, QIODevice::ReadOnly);
+    QDataStream rs(&data, QIODeviceBase::ReadOnly);
 
     rs.setVersion(QDataStream::Qt_3_1);
     myFact->fromStream(rs, item->myWidget);
@@ -132,7 +132,7 @@ WidgetWindow *WidgetWindow::clone()
 
 void WidgetWindow::display()
 {
-    QDataStream stream(&_backup, QIODevice::WriteOnly);
+    QDataStream stream(&_backup, QIODeviceBase::WriteOnly);
 
     stream.setVersion(QDataStream::Qt_3_1);
     myFact->toStream(myWidget, stream);

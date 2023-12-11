@@ -199,8 +199,8 @@ void UserDefinedRegExps::slotRenameUserRegexp()
         QFileInfo finfo(fileName);
         if (finfo.exists()) {
             int answer
-                = KMessageBox::warningYesNo(this, i18n("<p>Overwrite named regular expression <b>%1</b>?</p>", txt), QString(), KStandardGuiItem::overwrite(), KGuiItem(i18n("Do Not Overwrite")));
-            if (answer != KMessageBox::Yes) {
+                = KMessageBox::warningTwoActions(this, i18n("<p>Overwrite named regular expression <b>%1</b>?</p>", txt), QString(), KStandardGuiItem::overwrite(), KGuiItem(i18n("Do Not Overwrite")));
+            if (answer != KMessageBox::PrimaryAction) {
                 return;
             }
 

@@ -37,7 +37,7 @@ public:
     }
 
     QSize sizeHint() const override;
-    RegExpWidget *findWidgetToEdit(QPoint globalPos) override;
+    RegExpWidget *findWidgetToEdit(QPointF globalPos) override;
 
 protected:
     void init();

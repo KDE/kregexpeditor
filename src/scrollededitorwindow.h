@@ -55,8 +55,8 @@ public Q_SLOTS:
     void slotPaste();
 
 protected Q_SLOTS:
-    void slotUpdateContentSize(QPoint focusPoint);
-    void slotScroll(QPoint focusPoint);
+    void slotUpdateContentSize(QPointF focusPoint);
+    void slotScroll(QPointF focusPoint);
 
 Q_SIGNALS:
     /**

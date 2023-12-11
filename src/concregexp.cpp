@@ -62,7 +62,7 @@ RegExp *ConcRegExp::lastRegExp()
 QDomNode ConcRegExp::toXml(QDomDocument *doc) const
 {
     QDomElement top = doc->createElement(QStringLiteral("Concatenation"));
-    foreach (RegExp *r, list) {
+    for (RegExp *r : std::as_const(list)) {
         top.appendChild(r->toXml(doc));
     }
     return top;

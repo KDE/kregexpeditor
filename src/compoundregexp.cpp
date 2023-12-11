@@ -91,13 +91,13 @@ bool CompoundRegExp::load(const QDomElement &top, const QString &version)
             if (txt.isEmpty()) {
                 _title = txt;
             } else {
-                _title = i18n(txt.toUtf8());
+                _title = i18n(txt.toUtf8().data());
             }
         } else if (child.tagName() == QStringLiteral("Description")) {
             if (txt.isEmpty()) {
                 _description = txt;
             } else {
-                _description = i18n(txt.toUtf8());
+                _description = i18n(txt.toUtf8().data());
             }
         } else {
             _child = WidgetFactory::createRegExp(child, version);

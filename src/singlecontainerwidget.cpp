@@ -81,7 +81,7 @@ QRect SingleContainerWidget::selectionRect() const
     }
 }
 
-RegExpWidget *SingleContainerWidget::widgetUnderPoint(QPoint globalPos, bool justVisibleWidgets)
+RegExpWidget *SingleContainerWidget::widgetUnderPoint(QPointF globalPos, bool justVisibleWidgets)
 {
     RegExpWidget *wid = _child->widgetUnderPoint(globalPos, justVisibleWidgets);
     if (wid) {
@@ -93,12 +93,12 @@ RegExpWidget *SingleContainerWidget::widgetUnderPoint(QPoint globalPos, bool jus
     }
 }
 
-RegExpWidget *SingleContainerWidget::findWidgetToEdit(QPoint globalPos)
+RegExpWidget *SingleContainerWidget::findWidgetToEdit(QPointF globalPos)
 {
     RegExpWidget *wid = _child->findWidgetToEdit(globalPos);
     if (wid) {
         return wid;
-    } else if (QRect(mapToGlobal(QPoint(0, 0)), size()).contains(globalPos)) {
+    } else if (QRectF(mapToGlobal(QPointF(0, 0)), size()).contains(globalPos)) {
         return this;
     } else {
         return nullptr;

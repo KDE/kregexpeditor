@@ -47,7 +47,7 @@ public:
         return CHARSET;
     }
 
-    RegExpWidget *findWidgetToEdit(QPoint globalPos) override;
+    RegExpWidget *findWidgetToEdit(QPointF globalPos) override;
     int edit() override;
 
 protected:

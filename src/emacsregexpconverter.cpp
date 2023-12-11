@@ -40,13 +40,13 @@ QString EmacsRegExpConverter::toString(AltnRegExp *regexp, bool markSelection)
     QString res;
 
     bool first = true;
-    RegExpList list = regexp->children();
-    foreach (RegExp *r, list) {
+    const RegExpList children = regexp->children();
+    for (RegExp *child : children) {
         if (!first) {
             res += QLatin1String("\\|");
         }
         first = false;
-        res += toStr(r, markSelection);
+        res += toStr(child, markSelection);
     }
 
     return res;
@@ -56,16 +56,16 @@ QString EmacsRegExpConverter::toString(ConcRegExp *regexp, bool markSelection)
 {
     QString res;
 
-    RegExpList list = regexp->children();
-    foreach (RegExp *r, list) {
-        QString startPar = QString();
-        QString endPar = QString();
-        if (r->precedence() < regexp->precedence()) {
+    const RegExpList children = regexp->children();
+    for (RegExp *child : children) {
+        QString startPar;
+        QString endPar;
+        if (child->precedence() < regexp->precedence()) {
             startPar = QStringLiteral("\\(");
             endPar = QStringLiteral("\\)");
         }
 
-        res += startPar + toStr(r, markSelection) + endPar;
+        res += startPar + toStr(child, markSelection) + endPar;
     }
 
     return res;
@@ -106,8 +106,9 @@ QString EmacsRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelec
     }
 
     // Now insert the ranges.
-    foreach (const StringPair &elm, regexp->range()) {
-        txt.append(elm.first + QStringLiteral("-") + elm.second);
+    const auto range = regexp->range();
+    for (const StringPair &elm : range) {
+        txt.append(elm.first + QLatin1Char('-') + elm.second);
     }
 
     // Ok, its time to build each part of the regexp, here comes the rule:
@@ -142,7 +143,7 @@ QString EmacsRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelec
     }
 
     if (regexp->space()) {
-        res += QStringLiteral(" ") + QString(QLatin1Char((char)9));      // Tab char
+        res += QLatin1Char(' ') + QLatin1Char((char)9);      // Tab char
     }
 
     if (regexp->wordChar()) {
@@ -153,7 +154,7 @@ QString EmacsRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelec
         res.append(QLatin1Char('^'));
     }
 
-    res.append(QLatin1String("]"));
+    res.append(QLatin1Char(']'));
 
     return res;
 }

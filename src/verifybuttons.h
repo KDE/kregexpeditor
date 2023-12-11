@@ -20,7 +20,6 @@
 #define VERIFYBUTTONS_H
 
 #include <QToolBar>
-#include <QLinkedList>
 
 class QToolButton;
 class QLabel;
@@ -75,7 +74,7 @@ private:
     // QToolButton* _next;
     // QToolButton* _last;
 
-    QLinkedList< QPair<RegExpConverter *, QAction *> > _converters;
+    QList<QPair<RegExpConverter *, QAction *>> _converters;
 };
 
 #endif // VERIFYBUTTONS_H

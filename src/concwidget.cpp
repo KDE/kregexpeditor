@@ -68,8 +68,8 @@ ConcWidget::ConcWidget(ConcRegExp *regexp, RegExpEditorWindow *editorWindow, QWi
     DragAccepter *accepter = new DragAccepter(editorWindow, this);
     _children.append(accepter);
 
-    RegExpList list = regexp->children();
-    foreach (RegExp *r, list) {
+    const RegExpList list = regexp->children();
+    for (RegExp *r : list) {
         RegExpWidget *child = WidgetFactory::createWidget(r, editorWindow, this);
         append(child);
     }
@@ -85,7 +85,7 @@ QSize ConcWidget::sizeHint() const
     int childrenWidth = 0;
     int childrenHeight = 0;
 
-    foreach (const RegExpWidget *regExpWidget, _children) {
+    for (const RegExpWidget *regExpWidget : std::as_const(_children)) {
         QSize thisChildSize = regExpWidget->sizeHint();
         childrenWidth += thisChildSize.width();
         childrenHeight = qMax(childrenHeight, thisChildSize.height());

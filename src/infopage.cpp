@@ -55,8 +55,10 @@ InfoPage::InfoPage(QWidget *parent)
     setText(txt);
 }
 
-void InfoPage::setSource(const QUrl &name)
+void InfoPage::doSetSource(const QUrl &name, QTextDocument::ResourceType type)
 {
+    Q_UNUSED(type);
+
     QString nm = name.toString();
 
     if (nm.startsWith(QStringLiteral("doc://"))) {

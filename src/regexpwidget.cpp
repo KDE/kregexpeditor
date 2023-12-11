@@ -159,7 +159,7 @@ QRect RegExpWidget::selectionRect() const
     return QRect(mapToGlobal(QPoint(0, 0)), size());
 }
 
-void RegExpWidget::enterEvent(QEvent *)
+void RegExpWidget::enterEvent(QEnterEvent *)
 {
     updateCursorShape();
 }
@@ -202,9 +202,9 @@ bool RegExpWidget::acceptWidgetInsert(RegExpType tp) const
     return WidgetFactory::isContainer(tp);
 }
 
-RegExpWidget *RegExpWidget::widgetUnderPoint(QPoint globalPos, bool)
+RegExpWidget *RegExpWidget::widgetUnderPoint(QPointF globalPos, bool)
 {
-    if (QRect(mapToGlobal(QPoint(0, 0)), size()).contains(globalPos)) {
+    if (QRectF(mapToGlobal(QPointF(0, 0)), size()).contains(globalPos)) {
         return this;
     } else {
         return nullptr;

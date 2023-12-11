@@ -23,6 +23,7 @@
 #include <QPushButton>
 
 #include <KMessageBox>
+#include <qiodevicebase.h>
 
 #include "kmultiformlistboxfactory.h"
 #include "indexWindow.h"
@@ -57,7 +58,7 @@ KMultiFormListBoxMultiVisible::KMultiFormListBoxMultiVisible(KMultiFormListBoxFa
 KMultiFormListBoxEntryList KMultiFormListBoxMultiVisible::elements()
 {
     KMultiFormListBoxEntryList res;
-    foreach (QWidget *child, *elms) {
+    for (QWidget *child : *elms) {
         if (child->objectName() != QStringLiteral("separator")) {
             res.append((KMultiFormListBoxEntry *)child);
         }
@@ -90,7 +91,7 @@ void KMultiFormListBoxMultiVisible::updateClipperContent()
     int count = 0;
 
     // calculate the required size.
-    foreach (QWidget *child , *elms) {
+    for (QWidget *child : *elms) {
       maxWidth = qMax(maxWidth, child->sizeHint().width());
       if ( child->objectName() != "separator" ) {
         totalHeight += child->sizeHint().height();
@@ -110,7 +111,7 @@ void KMultiFormListBoxMultiVisible::updateClipperContent()
 
     // Now place the elements in the clipper.
     int yPos = 0;
-    foreach (QWidget *child2 , *elms) {
+    for (QWidget *child2 : *elms) {
       int h;
       if ( child2->objectName() != "separator" ) {
         h = child2->sizeHint().height();
@@ -217,7 +218,7 @@ void KMultiFormListBoxMultiVisible::showIndexList(KMultiFormListBoxEntry *elm)
     indexWindow *menu = new indexWindow();
 
     // Insert the elements into the menu item.
-    foreach (QWidget *child, *elms) {
+    for (QWidget *child : *elms) {
         if (child->objectName() != QStringLiteral("separator")) {
             QString txt = ((KMultiFormListBoxEntry *)child)->idxString();
             menu->insertItem(txt);
@@ -233,7 +234,7 @@ void KMultiFormListBoxMultiVisible::showIndexList(KMultiFormListBoxEntry *elm)
     int index = menu->exec(start, width);
 
     if (index != -1) {
-        foreach (QWidget *child, *elms) {
+        for (QWidget *child : *elms) {
             if (child->objectName() != QLatin1String("separator")) {
                 if (index == 0) {
                     showWidget((KMultiFormListBoxEntry *)child);
@@ -261,7 +262,7 @@ void KMultiFormListBoxMultiVisible::cut(KMultiFormListBoxEntry *elm)
         return;
     }
 
-    QDataStream stream(&clipboard, QIODevice::WriteOnly);
+    QDataStream stream(&clipboard, QIODeviceBase::WriteOnly);
 
     stream.setVersion(QDataStream::Qt_3_1);
     factory->toStream(elm, stream);
@@ -270,7 +271,7 @@ void KMultiFormListBoxMultiVisible::cut(KMultiFormListBoxEntry *elm)
 
 void KMultiFormListBoxMultiVisible::copy(KMultiFormListBoxEntry *elm)
 {
-    QDataStream stream(&clipboard, QIODevice::WriteOnly);
+    QDataStream stream(&clipboard, QIODeviceBase::WriteOnly);
 
     stream.setVersion(QDataStream::Qt_3_1);
     factory->toStream(elm, stream);
@@ -284,7 +285,7 @@ void KMultiFormListBoxMultiVisible::paste(KMultiFormListBoxEntry *oldElm)
     }
 
     KMultiFormListBoxEntry *newElm = factory->create(widget());
-    QDataStream stream(&clipboard, QIODevice::ReadOnly);
+    QDataStream stream(&clipboard, QIODeviceBase::ReadOnly);
 
     stream.setVersion(QDataStream::Qt_3_1);
     factory->fromStream(stream, newElm);
@@ -295,7 +296,7 @@ int KMultiFormListBoxMultiVisible::countElements(WidgetList *elms)
 {
     int count = 0;
 
-    foreach (QWidget *child, *elms) {
+    for (QWidget *child : *elms) {
         if (dynamic_cast<const KMultiFormListBoxEntry *>(child)) {
             count++;
         }

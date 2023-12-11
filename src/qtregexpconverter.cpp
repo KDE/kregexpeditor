@@ -47,8 +47,8 @@ QString QtRegExpConverter::toString(AltnRegExp *regexp, bool markSelection)
     QString res;
 
     bool first = true;
-    RegExpList list = regexp->children();
-    foreach (RegExp *r, list) {
+    const RegExpList list = regexp->children();
+    for (RegExp *r : list) {
         if (!first) {
             res += QLatin1String("|");
         }
@@ -68,11 +68,11 @@ QString QtRegExpConverter::toString(ConcRegExp *regexp, bool markSelection)
     QString res;
     bool childSelected = false;
 
-    RegExpList list = regexp->children();
-    foreach (RegExp *r, list) {
-        QString startPar = QString();
-        QString endPar = QString();
-        if (r->precedence() < regexp->precedence()) {
+    const auto children = regexp->children();
+    for (const auto child : children) {
+        QString startPar;
+        QString endPar;
+        if (child->precedence() < regexp->precedence()) {
             if (markSelection) {
                 startPar = QStringLiteral("(?:");
             } else {
@@ -82,17 +82,17 @@ QString QtRegExpConverter::toString(ConcRegExp *regexp, bool markSelection)
         }
 
         // Note these two have different tests! They are activated in each their iteration of the loop.
-        if (markSelection && !childSelected && !regexp->isSelected() && r->isSelected()) {
+        if (markSelection && !childSelected && !regexp->isSelected() && child->isSelected()) {
             res += QLatin1String("(");
             childSelected = true;
         }
 
-        if (markSelection && childSelected && !regexp->isSelected() && !r->isSelected()) {
+        if (markSelection && childSelected && !regexp->isSelected() && !child->isSelected()) {
             res += QLatin1String(")");
             childSelected = false;
         }
 
-        res += startPar + toStr(r, markSelection) + endPar;
+        res += startPar + toStr(child, markSelection) + endPar;
     }
     if (markSelection && childSelected && !regexp->isSelected()) {
         res += QLatin1String(")");
@@ -133,8 +133,9 @@ QString QtRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelectio
     }
 
     // Now insert the ranges.
-    foreach (const StringPair &elm, regexp->range()) {
-        txt.append(elm.first + QStringLiteral("-") + elm.second);
+    const auto range = regexp->range();
+    for (const StringPair &elm : range) {
+        txt.append(elm.first + QLatin1Char('-') + elm.second);
     }
 
     // Ok, its time to build each part of the regexp, here comes the rule:

@@ -201,7 +201,7 @@ RegExp* parseQtRegExp( const QString &qstr, bool* ok ) {
   scannerInit( &scanner, &context, qstr );
   (void) yyparse( scanner, &context );
   scannerDestroy( scanner );
-  foreach ( const QString &match, context.backrefs ) {
+  for (const QString &match : std::as_const(context.backrefs)) {
     KMessageBox::information(nullptr,i18n("<p>Back reference regular expressions are not supported.</p>"
                                     "<p><tt>\\1</tt>, <tt>\\2</tt>, ... are <i>back references</i>, meaning they "
                                     "refer to previous matches. "

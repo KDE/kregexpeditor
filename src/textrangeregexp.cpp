@@ -91,7 +91,7 @@ QDomNode TextRangeRegExp::toXml(QDomDocument *doc) const
         top.appendChild(elm);
     }
 
-    foreach (const StringPair &pair, _ranges) {
+    for (const StringPair &pair : _ranges) {
         QDomElement elm = doc->createElement(QStringLiteral("Range"));
         elm.setAttribute(QStringLiteral("from"), pair.first);
         elm.setAttribute(QStringLiteral("to"), pair.second);

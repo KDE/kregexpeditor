@@ -180,8 +180,8 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     // Push an initial empty element on the stack.
     _undoStack.push(_scrolledEditorWindow->regExp());
 
-    (void)new QShortcut(Qt::CTRL + Qt::Key_Z, this, SLOT(slotUndo()));
-    (void)new QShortcut(Qt::CTRL + Qt::Key_R, this, SLOT(slotRedo()));
+    (void)new QShortcut(Qt::CTRL | Qt::Key_Z, this, SLOT(slotUndo()));
+    (void)new QShortcut(Qt::CTRL | Qt::Key_R, this, SLOT(slotRedo()));
 
     setSyntax(QStringLiteral("Qt"));
 }
@@ -210,8 +210,8 @@ void KRegExpEditorPrivate::slotUpdateEditor(const QString &txt)
     } else {
         RegExp *result = RegExpConverter::current()->parse(txt, &ok);
         if (ok) {
-            QList<CompoundRegExp *> list = _userRegExps->regExps();
-            foreach (CompoundRegExp *regExp, list) {
+            const QList<CompoundRegExp *> list = _userRegExps->regExps();
+            for (CompoundRegExp *regExp : list) {
                 result->replacePart(regExp);
             }
 

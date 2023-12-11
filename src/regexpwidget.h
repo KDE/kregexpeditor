@@ -161,13 +161,13 @@ public:
        Returns the regexp widget under point. If `justVisibleWidgets' is
        true, @ref ConcWidget is ignored. That is, a ConcWidget will not be returned.
     */
-    virtual RegExpWidget *widgetUnderPoint(QPoint globalPos, bool justVisibleWidgets);
+    virtual RegExpWidget *widgetUnderPoint(QPointF globalPos, bool justVisibleWidgets);
 
     /**
        Returns the widget under point which can be edited. That is the
        "innermost" widget editable.
     */
-    virtual RegExpWidget *findWidgetToEdit(QPoint /* globalPos */)
+    virtual RegExpWidget *findWidgetToEdit(QPointF /* globalPos */)
     {
         return nullptr;
     }
@@ -194,7 +194,7 @@ protected:
     void mousePressEvent(QMouseEvent *event) override;
 
     void mouseReleaseEvent(QMouseEvent *) override;
-    void enterEvent(QEvent *) override;
+    void enterEvent(QEnterEvent *) override;
 
     RegExpEditorWindow *_editorWindow = nullptr;
 

@@ -144,7 +144,7 @@ QString CharactersWidget::text() const
     }
 
     // Ranges characters
-    foreach (const StringPair &elm, _regexp->range()) {
+    for (const StringPair &elm : _regexp->range()) {
         QString fromText = elm.first;
         QString toText = elm.second;
 
@@ -162,9 +162,9 @@ QString CharactersWidget::title() const
     }
 }
 
-RegExpWidget *CharactersWidget::findWidgetToEdit(QPoint globalPos)
+RegExpWidget *CharactersWidget::findWidgetToEdit(QPointF globalPos)
 {
-    if (QRect(mapToGlobal(QPoint(0, 0)), size()).contains(globalPos)) {
+    if (QRectF(mapToGlobal(QPointF(0, 0)), size()).contains(globalPos)) {
         return this;
     } else {
         return nullptr;
@@ -194,8 +194,8 @@ int CharactersWidget::edit()
 
 void CharacterEdits::addCharacter(const QString &txt)
 {
-    KMultiFormListBoxEntryList list = _single->elements();
-    foreach (KMultiFormListBoxEntry *e, list) {
+    const KMultiFormListBoxEntryList list = _single->elements();
+    for (KMultiFormListBoxEntry *e : list) {
         SingleEntry *entry = dynamic_cast<SingleEntry *>(e);
         if (entry && entry->isEmpty()) {
             entry->setText(txt);
@@ -210,8 +210,8 @@ void CharacterEdits::addCharacter(const QString &txt)
 
 void CharacterEdits::addRange(const QString &from, const QString &to)
 {
-    KMultiFormListBoxEntryList list = _range->elements();
-    foreach (KMultiFormListBoxEntry *e, list) {
+    const KMultiFormListBoxEntryList list = _range->elements();
+    for (KMultiFormListBoxEntry *e : list) {
         RangeEntry *entry = dynamic_cast<RangeEntry *>(e);
         if (entry && entry->isEmpty()) {
             entry->setFrom(from);
@@ -244,8 +244,8 @@ void CharacterEdits::setRegexp(TextRangeRegExp *regexp)
 
     // Characters
 
-    KMultiFormListBoxEntryList list1 = _single->elements();
-    foreach (KMultiFormListBoxEntry *e, list1) {
+    const KMultiFormListBoxEntryList list1 = _single->elements();
+    for (KMultiFormListBoxEntry *e : list1) {
         SingleEntry *entry = dynamic_cast<SingleEntry *>(e);
         if (entry) {
             entry->setText(QString());
@@ -258,7 +258,7 @@ void CharacterEdits::setRegexp(TextRangeRegExp *regexp)
 
     // Ranges
     KMultiFormListBoxEntryList list3 = _range->elements();
-    foreach (KMultiFormListBoxEntry *e, list3) {
+    for (KMultiFormListBoxEntry *e : list3) {
         RangeEntry *entry = dynamic_cast<RangeEntry *>(e);
         if (entry) {
             entry->setFrom(QString());
@@ -266,7 +266,8 @@ void CharacterEdits::setRegexp(TextRangeRegExp *regexp)
         }
     }
 
-    foreach (const StringPair &elm, _regexp->range()) {
+    const auto range = _regexp->range();
+    for (const StringPair &elm : range) {
         QString from = elm.first;
         QString to = elm.second;
         addRange(from, to);
@@ -372,8 +373,8 @@ void CharacterEdits::slotOK()
 
     // single characters
     _regexp->clearChars();
-    KMultiFormListBoxEntryList list = _single->elements();
-    foreach (KMultiFormListBoxEntry *e, list) {
+    const KMultiFormListBoxEntryList list = _single->elements();
+    for (KMultiFormListBoxEntry *e : list) {
         SingleEntry *entry = dynamic_cast<SingleEntry *>(e);
         if (entry && !entry->isEmpty()) {
             _regexp->addCharacter(entry->text());
@@ -382,8 +383,8 @@ void CharacterEdits::slotOK()
 
     // Ranges
     _regexp->clearRange();
-    list = _range->elements();
-    foreach (KMultiFormListBoxEntry *e, list) {
+    const auto elements = _range->elements();
+    for (KMultiFormListBoxEntry *e : elements) {
         RangeEntry *entry = dynamic_cast<RangeEntry *>(e);
         if (entry && !entry->isEmpty()) {
             _regexp->addRange(entry->fromText(), entry->toText());

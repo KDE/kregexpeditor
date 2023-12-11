@@ -29,7 +29,7 @@ QSize HackCalculateFontSize(const QFontMetrics &fm, const QString &str)
     if (str.isEmpty()) {
         return QSize(0, 0);
     }
-    list = str.split(QStringLiteral("\n"), QString::SkipEmptyParts);
+    list = str.split(QStringLiteral("\n"), Qt::SkipEmptyParts);
 
     const QStringList::const_iterator end(list.constEnd());
     for (QStringList::const_iterator it = list.constBegin(); it != end; ++it) {

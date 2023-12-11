@@ -45,8 +45,8 @@ AltnWidget::AltnWidget(AltnRegExp *regexp, RegExpEditorWindow *editorWindow, QWi
     _children.append(accepter);
     _text = i18n("Alternatives");
 
-    RegExpList list = regexp->children();
-    foreach (RegExp *r, list) {
+    const RegExpList list = regexp->children();
+    for (RegExp *r : list) {
         RegExpWidget *child = WidgetFactory::createWidget(r, editorWindow, this);
         ConcWidget *conc;
         if (!(conc = dynamic_cast<ConcWidget *>(child))) {

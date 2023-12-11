@@ -104,10 +104,10 @@ RegExp *RegExpScrolledEditorWindow::regExp()
 void RegExpScrolledEditorWindow::resizeEvent(QResizeEvent *event)
 {
     _scrollArea->resize(event->size());
-    slotUpdateContentSize(QPoint());
+    slotUpdateContentSize(QPointF());
 }
 
-void RegExpScrolledEditorWindow::slotUpdateContentSize(QPoint focusPoint)
+void RegExpScrolledEditorWindow::slotUpdateContentSize(QPointF focusPoint)
 {
     _editorWindow->resize(_editorWindow->sizeHint());
 
@@ -118,7 +118,7 @@ void RegExpScrolledEditorWindow::slotUpdateContentSize(QPoint focusPoint)
 
 // TODO: add timers, which will make the widget scroll when mouse is located
 // outside the QScrollView.
-void RegExpScrolledEditorWindow::slotScroll(QPoint focusPoint)
+void RegExpScrolledEditorWindow::slotScroll(QPointF focusPoint)
 {
     _scrollArea->ensureVisible(focusPoint.x(), focusPoint.y());
 }

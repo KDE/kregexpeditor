@@ -76,7 +76,7 @@ void KMultiFormListBox::toStream(QDataStream &stream) const
 {
     const KMultiFormListBoxEntryList elms = elements();
     stream << elms.count();
-    foreach (KMultiFormListBoxEntry *entry, elms) {
+    for (KMultiFormListBoxEntry *entry : elms) {
         _factory->toStream(entry, stream);
     }
 }
@@ -96,8 +96,8 @@ void KMultiFormListBox::fromStream(QDataStream &stream)
         theWidget->delAnElement();
     }
 
-    KMultiFormListBoxEntryList elms = elements();
-    foreach (KMultiFormListBoxEntry *entry, elms) {
+    const KMultiFormListBoxEntryList elms = elements();
+    for (KMultiFormListBoxEntry *entry : elms) {
         _factory->fromStream(stream, entry);
     }
 }

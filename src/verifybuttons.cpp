@@ -24,6 +24,7 @@
 #include <QMenu>
 #include <QToolButton>
 #include <QFileDialog>
+#include <QActionGroup>
 
 #include "qtregexpconverter.h"
 #include "emacsregexpconverter.h"
@@ -125,7 +126,7 @@ VerifyButtons::VerifyButtons(QWidget *parent, const QString &name)
     _configMenu->addMenu(_languages);
 
     QActionGroup *grp = new QActionGroup(this);
-    for (QLinkedList< QPair<RegExpConverter *, QAction *> >::Iterator it = _converters.begin(); it != _converters.end(); ++it) {
+    for (QList< QPair<RegExpConverter *, QAction *> >::Iterator it = _converters.begin(); it != _converters.end(); ++it) {
         QString name = (*it).first->name();
         QAction *action = new QAction(name, this);
         action->setCheckable(true);
@@ -191,10 +192,10 @@ RegExpConverter *VerifyButtons::setSyntax(const QString &which)
 {
     QString noAmpersand = which;
     noAmpersand.remove(QLatin1Char('&')); // HACK, can probably be done more cleanly
-    for (QLinkedList< QPair<RegExpConverter *, QAction *> >::Iterator it = _converters.begin(); it != _converters.end(); ++it) {
+    for (auto it = _converters.begin(); it != _converters.end(); ++it) {
         QString name = (*it).first->name();
         if (name == noAmpersand) {
-            (*it).second->setChecked(true);
+            it->second->setChecked(true);
             return (*it).first;
         }
     }

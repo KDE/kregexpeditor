@@ -54,13 +54,13 @@ RegExpEditorWindow::RegExpEditorWindow(QWidget *parent)
 
     _PosEdit = QPoint(0, 0);
 
-    (void)new QShortcut(Qt::CTRL + Qt::Key_C, this, SLOT(slotCopy()));
-    (void)new QShortcut(Qt::CTRL + Qt::Key_X, this, SLOT(slotCut()));
+    (void)new QShortcut(Qt::CTRL | Qt::Key_C, this, SLOT(slotCopy()));
+    (void)new QShortcut(Qt::CTRL | Qt::Key_X, this, SLOT(slotCut()));
     (void)new QShortcut(Qt::Key_Delete, this, SLOT(slotCut()));
     (void)new QShortcut(Qt::Key_Backspace, this, SLOT(slotCut()));
-    (void)new QShortcut(Qt::CTRL + Qt::Key_V, this, SLOT(slotStartPasteAction()));
+    (void)new QShortcut(Qt::CTRL | Qt::Key_V, this, SLOT(slotStartPasteAction()));
     (void)new QShortcut(Qt::Key_Escape, this, SLOT(slotEndActions()));
-    (void)new QShortcut(Qt::CTRL + Qt::Key_S, this, SLOT(slotSave()));
+    (void)new QShortcut(Qt::CTRL | Qt::Key_S, this, SLOT(slotSave()));
 
     connect(this, &RegExpEditorWindow::change, this, &RegExpEditorWindow::emitVerifyRegExp);
 }
@@ -83,7 +83,7 @@ void RegExpEditorWindow::mousePressEvent(QMouseEvent *event)
     _start = event->pos();
     _lastPoint = QPoint(0, 0);
 
-    if (pointSelected(event->globalPos())) {
+    if (pointSelected(event->globalPosition())) {
         _isDndOperation = true;
     } else {
         _isDndOperation = false;
@@ -95,9 +95,9 @@ void RegExpEditorWindow::mousePressEvent(QMouseEvent *event)
     grabMouse();
 }
 
-bool RegExpEditorWindow::pointSelected(QPoint p) const
+bool RegExpEditorWindow::pointSelected(const QPointF &p) const
 {
-    QRect rect = _top->selectionRect();
+    QRectF rect = _top->selectionRect();
     return rect.contains(p);
 }
 
@@ -139,7 +139,7 @@ void RegExpEditorWindow::mouseMoveEvent(QMouseEvent *event)
 
         update();
 
-        _selection = QRect(mapToGlobal(_start), mapToGlobal(_lastPoint)).normalized();
+        _selection = QRectF(mapToGlobal(_start), mapToGlobal(_lastPoint)).normalized();
     }
 }
 
@@ -158,9 +158,9 @@ void RegExpEditorWindow::mouseReleaseEvent(QMouseEvent *event)
     }
 }
 
-bool RegExpEditorWindow::selectionOverlap(QPoint pos, QSize size) const
+bool RegExpEditorWindow::selectionOverlap(const QPointF &pos, QSize size) const
 {
-    QRect child(pos, size);
+    QRectF child(pos, size);
 
     return _selection.intersects(child) && !child.contains(_selection);
 }
@@ -242,7 +242,7 @@ void RegExpEditorWindow::paintEvent(QPaintEvent *event)
     p.setPen(Qt::DotLine);
 
     if (!_lastPoint.isNull()) {
-        p.drawRect(QRect(_start, _lastPoint));
+        p.drawRect(QRectF(_start, _lastPoint));
     }
 
     QWidget::paintEvent(event);
@@ -255,7 +255,7 @@ void RegExpEditorWindow::slotCut()
     Q_EMIT canSave(_top->hasAnyChildren());
 }
 
-void RegExpEditorWindow::cut(QPoint pos)
+void RegExpEditorWindow::cut(QPointF pos)
 {
     cutCopyAux(pos);
     slotDeleteSelection();
@@ -266,13 +266,13 @@ void RegExpEditorWindow::slotCopy()
     copy(QCursor::pos());
 }
 
-void RegExpEditorWindow::copy(QPoint pos)
+void RegExpEditorWindow::copy(QPointF pos)
 {
     cutCopyAux(pos);
     clearSelection(true);
 }
 
-void RegExpEditorWindow::cutCopyAux(QPoint pos)
+void RegExpEditorWindow::cutCopyAux(QPointF pos)
 {
     if (!hasSelection()) {
         RegExpWidget *widget = _top->widgetUnderPoint(pos, true);
@@ -367,7 +367,7 @@ void RegExpEditorWindow::showRMBMenu(bool enableCutCopy)
 
     _editAction->setEnabled(editWidget);
 
-    _menu->exec(_PosEdit);
+    _menu->exec(_PosEdit.toPoint());
 
     _PosEdit = QPoint(0, 0);
 
@@ -454,7 +454,7 @@ void RegExpEditorWindow::emitVerifyRegExp()
 
 void RegExpEditorWindow::editWidget()
 {
-    QPoint EditPos = _PosEdit.isNull() ? QCursor::pos() : _PosEdit;
+    auto EditPos = _PosEdit.isNull() ? QCursor::pos() : _PosEdit;
     RegExpWidget *editWidget = _top->findWidgetToEdit(EditPos);
     if (editWidget) {
         editWidget->edit();

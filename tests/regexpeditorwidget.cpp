@@ -19,42 +19,30 @@
 
 #include "regexpeditorwidget.h"
 #include <QHBoxLayout>
-#include <KServiceTypeTrader>
-#include <KTextWidgets/kregexpeditorinterface.h>
 #include <QPushButton>
 #include <QLabel>
 #include <QDebug>
 #include <QDialog>
 
+#include "../src/kregexpeditorguidialog.h"
+
 RegExpEditorWidget::RegExpEditorWidget(QWidget *parent)
     : QWidget(parent)
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
-    bool regexEditorInstalled = !KServiceTypeTrader::self()->query(QStringLiteral("KRegExpEditor/KRegExpEditor")).isEmpty();
-    if (regexEditorInstalled) {
-        QPushButton *button = new QPushButton(QStringLiteral("Show regexpeditor"), this);
-        layout->addWidget(button);
-        const auto showRegExpDialog = [this]() {
-            QDialog *editorDialog = KServiceTypeTrader::createInstanceFromQuery<QDialog>(QStringLiteral("KRegExpEditor/KRegExpEditor"), QString(), this);
-            if ( editorDialog ) {
-                KRegExpEditorInterface* iface = qobject_cast<KRegExpEditorInterface*>(editorDialog);
-                Q_ASSERT( iface ); // This should not fail!
+    QPushButton *button = new QPushButton(QStringLiteral("Show regexpeditor"), this);
+    layout->addWidget(button);
+    const auto showRegExpDialog = [this]() {
+        auto editorDialog = new KRegExpEditorGUIDialog(this);
+        editorDialog->setRegExp(QStringLiteral("foo"));
 
-                // now use the editor.
-                iface->setRegExp(QStringLiteral("foo"));
+        if(editorDialog->exec() == QDialog::Accepted) {
+            //TODO
+        } else {
+            qDebug() << " Unable to create QDialog";
+        }
+    };
 
-                if(editorDialog->exec() == QDialog::Accepted) {
-                    //TODO
-                }
-            } else {
-                qDebug() << " Unable to create QDialog";
-            }
-        };
-
-        connect(button, &QPushButton::clicked, this, showRegExpDialog);
-    } else {
-        QLabel *label = new QLabel(QStringLiteral("KRegexpEditor is not installed!"), this);
-        layout->addWidget(label);
-    }
+    connect(button, &QPushButton::clicked, this, showRegExpDialog);
     layout->addStretch(1);
 }

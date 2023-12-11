@@ -104,7 +104,7 @@ void LookAheadWidget::paintEvent(QPaintEvent *e)
     SingleContainerWidget::paintEvent(e);
 }
 
-RegExpWidget *LookAheadWidget::findWidgetToEdit(QPoint globalPos)
+RegExpWidget *LookAheadWidget::findWidgetToEdit(QPointF globalPos)
 {
     return _child->findWidgetToEdit(globalPos);
 }

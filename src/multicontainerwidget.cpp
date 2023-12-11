@@ -206,7 +206,7 @@ QRect MultiContainerWidget::selectionRect() const
     }
 }
 
-RegExpWidget *MultiContainerWidget::widgetUnderPoint(QPoint globalPos, bool justVisibleWidgets)
+RegExpWidget *MultiContainerWidget::widgetUnderPoint(QPointF globalPos, bool justVisibleWidgets)
 {
     int start, incr;
     if (justVisibleWidgets) {
@@ -231,7 +231,7 @@ RegExpWidget *MultiContainerWidget::widgetUnderPoint(QPoint globalPos, bool just
     }
 }
 
-RegExpWidget *MultiContainerWidget::findWidgetToEdit(QPoint globalPos)
+RegExpWidget *MultiContainerWidget::findWidgetToEdit(QPointF globalPos)
 {
     for (int i = 1; i < _children.count(); i += 2) {
         RegExpWidget *wid = _children.at(i)->findWidgetToEdit(globalPos);

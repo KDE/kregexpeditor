@@ -37,8 +37,8 @@ public:
     void addNewChild(DragAccepter *accepter, RegExpWidget *child) override;
     bool updateSelection(bool parentSelected) override;
     QRect selectionRect() const override;
-    RegExpWidget *widgetUnderPoint(QPoint globalPos, bool justVisibleWidgets) override;
-    RegExpWidget *findWidgetToEdit(QPoint globalPos) override;
+    RegExpWidget *widgetUnderPoint(QPointF globalPos, bool justVisibleWidgets) override;
+    RegExpWidget *findWidgetToEdit(QPointF globalPos) override;
     void selectWidget(bool sel) override;
     void updateAll() override;
     void updateCursorRecursively() override;
