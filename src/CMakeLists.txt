@@ -84,8 +84,9 @@ target_link_libraries(kregexpeditorcommon
     KF6::ConfigWidgets
     KF6::CoreAddons
     KF6::IconThemes
-    KF6::TextWidgets
     KF6::WidgetsAddons
+    KF6::TextWidgets
+    KF6::I18n
     Qt6::Widgets
     Qt6::Xml
 )

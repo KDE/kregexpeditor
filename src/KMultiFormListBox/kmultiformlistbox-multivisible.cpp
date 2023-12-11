@@ -23,7 +23,6 @@
 #include <QPushButton>
 
 #include <KMessageBox>
-#include <qiodevicebase.h>
 
 #include "kmultiformlistboxfactory.h"
 #include "indexWindow.h"

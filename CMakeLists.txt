@@ -23,12 +23,13 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 
 find_package(Qt6 ${QT5_REQUIRED_VERSION} CONFIG REQUIRED Core Widgets Xml)
 find_package(KF6 REQUIRED
+    I18n
+    TextWidgets
     CoreAddons
     ConfigWidgets
     DocTools
     IconThemes
     Service
-    TextWidgets
     WidgetsAddons
     Crash
 )
