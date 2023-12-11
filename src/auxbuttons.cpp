@@ -9,9 +9,9 @@
 #include <QToolButton>
 #include <QWhatsThis>
 
-#include <QIcon>
 #include <KIconLoader>
 #include <KLocalizedString>
+#include <QIcon>
 
 AuxButtons::AuxButtons(QWidget *parent, const QString &name)
     : QToolBar(name, parent)

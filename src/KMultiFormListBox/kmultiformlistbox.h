@@ -45,17 +45,18 @@ class KMultiFormListBox : public QWidget
     Q_OBJECT
 
 public:
-
-    enum KMultiFormListBoxType {
-        MultiVisible, Windowed
-    };
+    enum KMultiFormListBoxType { MultiVisible, Windowed };
 
     /**
        @param factory A factory used to generate the instances of
        KMultiFormListBoxEntry class which is repeated in the KMultiFormListBox
        @param parent A pointer to the parent widget
      **/
-    explicit KMultiFormListBox(KMultiFormListBoxFactory *factory, KMultiFormListBoxType tp = Windowed, QWidget *parent = nullptr, bool showUpDownButtons = true, bool showHelpButton = true,
+    explicit KMultiFormListBox(KMultiFormListBoxFactory *factory,
+                               KMultiFormListBoxType tp = Windowed,
+                               QWidget *parent = nullptr,
+                               bool showUpDownButtons = true,
+                               bool showHelpButton = true,
                                const QString &addButtonText = i18n("Add"));
 
     /**

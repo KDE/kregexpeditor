@@ -9,21 +9,21 @@
 #include <QTextEdit>
 
 #include "altnregexp.h"
-#include "concregexp.h"
-#include "lookaheadregexp.h"
-#include "textrangeregexp.h"
 #include "compoundregexp.h"
+#include "concregexp.h"
 #include "dotregexp.h"
+#include "lookaheadregexp.h"
 #include "positionregexp.h"
-#include "repeatregexp.h"
-#include "textregexp.h"
 #include "regexphighlighter.h"
+#include "repeatregexp.h"
+#include "textrangeregexp.h"
+#include "textregexp.h"
 
 RegExpConverter *RegExpConverter::_current = nullptr;
 RegExp *RegExpConverter::parse(const QString &, bool *ok)
 {
     *ok = false;
-    return new DotRegExp(false);   // This method should never be called.
+    return new DotRegExp(false); // This method should never be called.
 }
 
 // This function needs to be called toStr rather than toString, as it is not possible to

@@ -42,9 +42,7 @@ public:
         return type() == other.type();
     }
 
-    enum RegExpType {
-        CONC, TEXT, DOT, POSITION, REPEAT, ALTN, COMPOUND, LOOKAHEAD, TEXTRANGE
-    };
+    enum RegExpType { CONC, TEXT, DOT, POSITION, REPEAT, ALTN, COMPOUND, LOOKAHEAD, TEXTRANGE };
     virtual RegExpType type() const = 0;
     virtual void replacePart(CompoundRegExp * /* replacement */)
     {
@@ -66,7 +64,7 @@ protected:
 private:
     RegExp()
     {
-    }           // disable
+    } // disable
 
     QList<RegExp *> _children;
     RegExp *_parent = nullptr;

@@ -6,21 +6,21 @@
 
 #include "repeatwidget.h"
 
-#include <QPainter>
-#include <QSpinBox>
-#include <QRadioButton>
-#include <QVBoxLayout>
-#include <QLabel>
 #include <QButtonGroup>
 #include <QGroupBox>
+#include <QLabel>
+#include <QPainter>
+#include <QRadioButton>
+#include <QSpinBox>
+#include <QVBoxLayout>
 
 #include <KLocalizedString>
 #include <QDialog>
 #include <QDialogButtonBox>
 #include <QPushButton>
 
-#include "kwidgetstreamer.h"
 #include "concwidget.h"
+#include "kwidgetstreamer.h"
 #include "repeatregexp.h"
 
 RepeatWidget::RepeatWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
@@ -43,7 +43,7 @@ RepeatWidget::RepeatWidget(RepeatRegExp *regexp, RegExpEditorWindow *editorWindo
         if (regexp->min() == 0) {
             _content->set(RepeatRangeWindow::ANY, regexp->min(), regexp->max());
         } else {
-            _content->set(RepeatRangeWindow::ATLEAST, regexp->min(), regexp->max());   // krazy:exclude=spelling
+            _content->set(RepeatRangeWindow::ATLEAST, regexp->min(), regexp->max()); // krazy:exclude=spelling
         }
     } else {
         if (regexp->min() == 0) {
@@ -113,8 +113,7 @@ void RepeatWidget::paintEvent(QPaintEvent *e)
 
     // Top lines and text
     painter.drawLine(pw, startY, bdSize, startY);
-    painter.drawText(pw + 2 * bdSize, 0, _textSize.width(), _textSize.height(), 0,
-                     _content->text());
+    painter.drawText(pw + 2 * bdSize, 0, _textSize.width(), _textSize.height(), 0, _content->text());
     int offset = pw + 3 * bdSize + _textSize.width();
     painter.drawLine(offset, startY, mySize.width() - pw, startY);
 
@@ -151,8 +150,7 @@ void RepeatWidget::slotConfigCanceled()
 
 int RepeatWidget::edit()
 {
-    _configWindow->move(QCursor::pos() - QPoint(_configWindow->sizeHint().width() / 2,
-                                                _configWindow->sizeHint().height() / 2));
+    _configWindow->move(QCursor::pos() - QPoint(_configWindow->sizeHint().width() / 2, _configWindow->sizeHint().height() / 2));
     QDataStream stream(&_backup, QIODevice::WriteOnly);
 
     stream.setVersion(QDataStream::Qt_3_1);
@@ -183,7 +181,7 @@ RepeatRangeWindow::RepeatRangeWindow(QWidget *parent)
     _group->addButton(radioBut, ANY);
     radioBut->click();
 
-    createLine(groupLayout, i18n("At least"), &_leastTimes, ATLEAST);     // krazy:exclude=spelling
+    createLine(groupLayout, i18n("At least"), &_leastTimes, ATLEAST); // krazy:exclude=spelling
     createLine(groupLayout, i18n("At most"), &_mostTimes, ATMOST);
     createLine(groupLayout, i18n("Exactly"), &_exactlyTimes, EXACTLY);
 
@@ -252,7 +250,7 @@ void RepeatRangeWindow::slotItemChange(int which)
         break;
     case ATLEAST:
         _leastTimes->setEnabled(true);
-        break;                                            // krazy:exclude=spelling
+        break; // krazy:exclude=spelling
     case ATMOST:
         _mostTimes->setEnabled(true);
         break;
@@ -286,14 +284,13 @@ QString RepeatRangeWindow::text()
     case ANY:
         return i18n("Repeated Any Number of Times");
     case ATLEAST:
-        return i18np("Repeated at Least 1 Time", "Repeated at Least %1 Times", _leastTimes->value());            // krazy:exclude=spelling
+        return i18np("Repeated at Least 1 Time", "Repeated at Least %1 Times", _leastTimes->value()); // krazy:exclude=spelling
     case ATMOST:
         return i18np("Repeated at Most 1 Time", "Repeated at Most %1 Times", _mostTimes->value());
     case EXACTLY:
         return i18np("Repeated Exactly 1 Time", "Repeated Exactly %1 Times", _exactlyTimes->value());
     case MINMAX:
-        return i18n("Repeated From %1 to %2 Times",
-                    _rangeFrom->value(), _rangeTo->value());
+        return i18n("Repeated From %1 to %2 Times", _rangeFrom->value(), _rangeTo->value());
     }
 
     qFatal("Fall through!");
@@ -306,7 +303,7 @@ int RepeatRangeWindow::min()
     case ANY:
         return 0;
     case ATLEAST:
-        return _leastTimes->value();           // krazy:exclude=spelling
+        return _leastTimes->value(); // krazy:exclude=spelling
     case ATMOST:
         return 0;
     case EXACTLY:
@@ -324,7 +321,7 @@ int RepeatRangeWindow::max()
     case ANY:
         return -1;
     case ATLEAST:
-        return -1;           // krazy:exclude=spelling
+        return -1; // krazy:exclude=spelling
     case ATMOST:
         return _mostTimes->value();
     case EXACTLY:

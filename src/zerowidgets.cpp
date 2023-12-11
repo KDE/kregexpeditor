@@ -11,8 +11,8 @@
 #include <KLocalizedString>
 
 #include "dotregexp.h"
-#include "positionregexp.h"
 #include "myfontmetrics.h"
+#include "positionregexp.h"
 
 //--------------------------------------------------------------------------------
 //                                ZeroWidget

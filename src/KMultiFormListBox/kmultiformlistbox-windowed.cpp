@@ -8,17 +8,21 @@
 
 #include <QVBoxLayout>
 
-#include <KLocalizedString>
-#include <QListWidget>
-#include <KMessageBox>
-#include <QPushButton>
 #include <KGuiItem>
+#include <KLocalizedString>
+#include <KMessageBox>
 #include <KStandardGuiItem>
+#include <QListWidget>
+#include <QPushButton>
 
 #include "widgetwindow.h"
 #include "windowlistboxitem.h"
 
-KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent, bool showUpDownButtons, bool showHelpButton, const QString &addButtonText)
+KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory,
+                                                     QWidget *parent,
+                                                     bool showUpDownButtons,
+                                                     bool showHelpButton,
+                                                     const QString &addButtonText)
     : QWidget(parent)
 {
     _layout = new QVBoxLayout(this);
@@ -43,7 +47,7 @@ KMultiFormListBoxWindowed::KMultiFormListBoxWindowed(KMultiFormListBoxFactory *f
     but->setObjectName(QStringLiteral("Edit Button"));
     buttons->addWidget(but, 0);
     connect(but, SIGNAL(clicked()), this, SLOT(slotEditSelected()));
-    connect(_listbox, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(slotEditSelected(QListWidgetItem*)));
+    connect(_listbox, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this, SLOT(slotEditSelected(QListWidgetItem *)));
     _buttonList.append(but);
 
     but = new QPushButton(i18n("Delete"), this);
@@ -145,8 +149,7 @@ void KMultiFormListBoxWindowed::slotDeleteEntry()
 {
     WindowListboxItem *item = selected();
     if (item) {
-        int answer
-            = KMessageBox::warningContinueCancel(nullptr, i18n("Delete item \"%1\"?", item->text()), i18n("Delete Item"), KStandardGuiItem::del());
+        int answer = KMessageBox::warningContinueCancel(nullptr, i18n("Delete item \"%1\"?", item->text()), i18n("Delete Item"), KStandardGuiItem::del());
         if (answer == KMessageBox::Continue) {
             delete item;
             slotUpdateButtonState();

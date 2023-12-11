@@ -6,9 +6,9 @@
 
 #include "regexpwidget.h"
 
-#include <QPainter>
-#include <QMouseEvent>
 #include <QApplication>
+#include <QMouseEvent>
+#include <QPainter>
 
 #include "concwidget.h"
 #include "dragaccepter.h"
@@ -43,9 +43,7 @@ void RegExpWidget::setConcChild(ConcWidget *)
 
 bool RegExpWidget::updateSelection(bool parentSelected)
 {
-    bool selected = (parentSelected
-                     || _editorWindow->selectionOverlap(mapToGlobal(QPoint(0, 0)), size()))
-                    && !_isToplevel;
+    bool selected = (parentSelected || _editorWindow->selectionOverlap(mapToGlobal(QPoint(0, 0)), size())) && !_isToplevel;
 
     if (_isSelected != selected) {
         // Selection state changed
@@ -113,8 +111,7 @@ void RegExpWidget::mousePressEvent(QMouseEvent *event)
             }
         }
 
-        QMouseEvent ev(event->type(), mapTo(_editorWindow, event->pos()),
-                       event->button(), event->buttons(), event->modifiers());
+        QMouseEvent ev(event->type(), mapTo(_editorWindow, event->pos()), event->button(), event->buttons(), event->modifiers());
         QApplication::sendEvent(_editorWindow, &ev);
     } else if (event->button() == Qt::RightButton) {
         _editorWindow->showRMBMenu(true);

@@ -6,17 +6,17 @@
 
 #include "qtregexpconverter.h"
 
+#include "altnregexp.h"
+#include "compoundregexp.h"
+#include "concregexp.h"
+#include "dotregexp.h"
+#include "lookaheadregexp.h"
+#include "positionregexp.h"
 #include "qtregexphighlighter.h"
 #include "regexp.h"
-#include "textregexp.h"
-#include "altnregexp.h"
-#include "concregexp.h"
-#include "lookaheadregexp.h"
-#include "textrangeregexp.h"
-#include "compoundregexp.h"
-#include "dotregexp.h"
-#include "positionregexp.h"
 #include "repeatregexp.h"
+#include "textrangeregexp.h"
+#include "textregexp.h"
 
 extern RegExp *parseQtRegExp(const QString &qstr, bool *ok);
 
@@ -243,13 +243,9 @@ QString QtRegExpConverter::toString(RepeatRegExp *regexp, bool markSelection)
     } else if (regexp->min() == 1 && regexp->max() == -1) {
         quantity = QStringLiteral("+");
     } else if (regexp->max() == -1) {
-        quantity = QStringLiteral("{")
-                   +QString::number(regexp->min()) + QStringLiteral(",")
-                   +QStringLiteral("}");
+        quantity = QStringLiteral("{") + QString::number(regexp->min()) + QStringLiteral(",") + QStringLiteral("}");
     } else {
-        quantity = QStringLiteral("{")
-                   +QString::number(regexp->min()) + QStringLiteral(",")
-                   +QString::number(regexp->max()) + QStringLiteral("}");
+        quantity = QStringLiteral("{") + QString::number(regexp->min()) + QStringLiteral(",") + QString::number(regexp->max()) + QStringLiteral("}");
     }
 
     return startPar + cText + endPar + quantity;
@@ -258,20 +254,8 @@ QString QtRegExpConverter::toString(RepeatRegExp *regexp, bool markSelection)
 QString QtRegExpConverter::toString(TextRegExp *regexp, bool /*markSelection*/)
 {
     QList<QChar> list;
-    list << QLatin1Char('$')
-         << QLatin1Char('^')
-         << QLatin1Char('.')
-         << QLatin1Char('*')
-         << QLatin1Char('+')
-         << QLatin1Char('?')
-         << QLatin1Char('[')
-         << QLatin1Char(']')
-         << QLatin1Char('\\')
-         << QLatin1Char('{')
-         << QLatin1Char('}')
-         << QLatin1Char('(')
-         << QLatin1Char(')')
-         << QLatin1Char('|');
+    list << QLatin1Char('$') << QLatin1Char('^') << QLatin1Char('.') << QLatin1Char('*') << QLatin1Char('+') << QLatin1Char('?') << QLatin1Char('[')
+         << QLatin1Char(']') << QLatin1Char('\\') << QLatin1Char('{') << QLatin1Char('}') << QLatin1Char('(') << QLatin1Char(')') << QLatin1Char('|');
 
     QString res = escape(regexp->text(), list, QLatin1Char('\\'));
     return res;
@@ -287,7 +271,7 @@ int QtRegExpConverter::features()
     return WordBoundary | NonWordBoundary | PosLookAhead | NegLookAhead | CharacterRangeNonItems | ExtRange;
 }
 
-RegexpHighlighter *QtRegExpConverter::highlighter(QTextEdit *edit)   // krazy:exclude=qclasses
+RegexpHighlighter *QtRegExpConverter::highlighter(QTextEdit *edit) // krazy:exclude=qclasses
 {
     return new QtRegexpHighlighter(edit);
 }

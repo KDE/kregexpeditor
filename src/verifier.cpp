@@ -8,8 +8,9 @@
 
 #include "regexphighlighter.h"
 
-Verifier::Verifier(QWidget *parent) : KTextEdit(parent)
-    /* QT_ANCHOR_DO_NOT_WORK: ,_current( 0 ) */
+Verifier::Verifier(QWidget *parent)
+    : KTextEdit(parent)
+/* QT_ANCHOR_DO_NOT_WORK: ,_current( 0 ) */
 {
     setCheckSpellingEnabled(false);
 

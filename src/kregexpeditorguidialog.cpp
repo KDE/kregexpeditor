@@ -6,21 +6,21 @@
 
 #include "kregexpeditorguidialog.h"
 
-#include <QVBoxLayout>
-#include <QFrame>
-
-#include <KLocalizedString>
-#include <KHelpClient>
-#include <QDialogButtonBox>
-#include <QPushButton>
 #include <QDebug>
+#include <QDialogButtonBox>
+#include <QFrame>
+#include <QPushButton>
+#include <QVBoxLayout>
+
+#include <KHelpClient>
+#include <KLocalizedString>
 
 #include "kregexpeditorprivate.h"
 
 KRegExpEditorGUIDialog::KRegExpEditorGUIDialog(QWidget *parent, const QVariantList &)
     : QDialog(parent)
 {
-    //qDebug() << "KRegExpEditorGUIDialog::KRegExpEditorGUIDialog(QWidget *parent, const QVariantList &) "<<this;
+    // qDebug() << "KRegExpEditorGUIDialog::KRegExpEditorGUIDialog(QWidget *parent, const QVariantList &) "<<this;
     setWindowTitle(i18n("Regular Expression Editor"));
 
     QVBoxLayout *layout = new QVBoxLayout(this);
@@ -44,7 +44,7 @@ KRegExpEditorGUIDialog::KRegExpEditorGUIDialog(QWidget *parent, const QVariantLi
 
 KRegExpEditorGUIDialog::~KRegExpEditorGUIDialog()
 {
-    //qDebug() << "KRegExpEditorGUIDialog::~KRegExpEditorGUIDialog(QWidget *parent, const QVariantList &) "<<this;
+    // qDebug() << "KRegExpEditorGUIDialog::~KRegExpEditorGUIDialog(QWidget *parent, const QVariantList &) "<<this;
 }
 
 QString KRegExpEditorGUIDialog::regExp() const

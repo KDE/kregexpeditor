@@ -7,21 +7,19 @@
 #include "kmultiformlistbox-multivisible.h"
 
 #include <QBitmap>
-#include <QVBoxLayout>
 #include <QPushButton>
+#include <QVBoxLayout>
 
 #include <KMessageBox>
 
-#include "kmultiformlistboxfactory.h"
-#include "indexWindow.h"
 #include "ccp.h"
+#include "indexWindow.h"
+#include "kmultiformlistboxfactory.h"
 
 const int indexButtonWidth = 16;
 const int indexButtonHeight = 12;
-const uchar indexButtonBits[] = {
-    0x00, 0x00, 0x00, 0x00, 0x0e, 0x02, 0x04, 0x02, 0x04, 0x02, 0xc4, 0x8a,
-    0x24, 0x53, 0x14, 0x22, 0x14, 0x22, 0x24, 0x53, 0xce, 0x8a, 0x00, 0x00
-};
+const uchar indexButtonBits[] = {0x00, 0x00, 0x00, 0x00, 0x0e, 0x02, 0x04, 0x02, 0x04, 0x02, 0xc4, 0x8a,
+                                 0x24, 0x53, 0x14, 0x22, 0x14, 0x22, 0x24, 0x53, 0xce, 0x8a, 0x00, 0x00};
 
 KMultiFormListBoxMultiVisible::KMultiFormListBoxMultiVisible(KMultiFormListBoxFactory *fact, QWidget *parent)
     : QScrollArea(parent)
@@ -117,7 +115,7 @@ void KMultiFormListBoxMultiVisible::updateClipperContent()
 
     // Finally call the resize procedure for the clipper to ensure that the
     // new sizes is shown properly.
-    //resizeContents(maxWidth, totalHeight);
+    // resizeContents(maxWidth, totalHeight);
 }
 
 void KMultiFormListBoxMultiVisible::addElement()
@@ -161,11 +159,9 @@ void KMultiFormListBoxMultiVisible::insertElmIntoWidget(KMultiFormListBoxEntry *
 {
     // Bind the index button if it exists.
     if (elm->indexButton()) {
-        elm->indexButton()->setIcon(static_cast<QIcon>(QBitmap::fromData(QSize(indexButtonWidth, indexButtonHeight),
-                                                                         indexButtonBits, QImage::Format_MonoLSB)));
+        elm->indexButton()->setIcon(static_cast<QIcon>(QBitmap::fromData(QSize(indexButtonWidth, indexButtonHeight), indexButtonBits, QImage::Format_MonoLSB)));
         connect(elm->indexButton(), &QAbstractButton::clicked, elm, &KMultiFormListBoxEntry::acceptIndexButton);
-        connect(elm, &KMultiFormListBoxEntry::gotoIndex,
-                this, &KMultiFormListBoxMultiVisible::showIndexList);
+        connect(elm, &KMultiFormListBoxEntry::gotoIndex, this, &KMultiFormListBoxMultiVisible::showIndexList);
     }
 
     // Find the location to insert the new element.
@@ -179,7 +175,7 @@ void KMultiFormListBoxMultiVisible::insertElmIntoWidget(KMultiFormListBoxEntry *
     layout->insertWidget(index, elm);
     elm->show();
     ensureWidgetVisible(elm, 0, 0);
-    //addChild(elm,0,0); // updateClipperContent will place the child correctly.
+    // addChild(elm,0,0); // updateClipperContent will place the child correctly.
 
     QWidget *sep = factory->separator(widget());
     if (sep != nullptr) {

@@ -40,11 +40,11 @@ void KWidgetStreamer::propertyToStream(const QObject *from, QDataStream &stream)
 
     // Stream in all the children (if any)
     const QList<QObject *> children = from->children();
-    //unsigned int count;
+    // unsigned int count;
 
-    //stream >> count;
+    // stream >> count;
     if (children.count() > 0) {
-        stream <<  children.count();
+        stream << children.count();
         for (int i = 0; i < children.size(); ++i) {
             toStream(children.at(i), stream);
         }
@@ -63,7 +63,7 @@ void KWidgetStreamer::propertyToStream(const QObject *from, QDataStream &stream)
                     qWarning("Invalid property: %s:%s", qPrintable(tp), qPrintable(*it));
                 }
 
-                stream <<  prop;
+                stream << prop;
             }
         }
     }
@@ -78,7 +78,7 @@ void KWidgetStreamer::propertyFromStream(QDataStream &stream, QObject *to)
 
     // Stream in all the children (if any)
     const QList<QObject *> children = to->children();
-    //const QObjectList* children = to->children();
+    // const QObjectList* children = to->children();
 
     /*  unsigned int count;
 
@@ -111,60 +111,47 @@ KWidgetStreamer::KWidgetStreamer()
 
     // QCheckBox
     l.clear();
-    l << QStringLiteral("enabled")
-      << QStringLiteral("checked") << QStringLiteral("tristate");
+    l << QStringLiteral("enabled") << QStringLiteral("checked") << QStringLiteral("tristate");
     _map.insert(QStringLiteral("QCheckBox"), l);
 
     // QComboBox
     l.clear();
-    l << QStringLiteral("enabled")
-      << QStringLiteral("editable") << QStringLiteral("currentItem")
-      << QStringLiteral("maxCount") << QStringLiteral("insertionPolicy")
-      << QStringLiteral("autoCompletion");
+    l << QStringLiteral("enabled") << QStringLiteral("editable") << QStringLiteral("currentItem") << QStringLiteral("maxCount")
+      << QStringLiteral("insertionPolicy") << QStringLiteral("autoCompletion");
     _map.insert(QStringLiteral("QComboBox"), l);
 
     // QDial
     l.clear();
-    l << QStringLiteral("enabled")
-      << QStringLiteral("tracking") << QStringLiteral("wrapping")
-      << QStringLiteral("value");
+    l << QStringLiteral("enabled") << QStringLiteral("tracking") << QStringLiteral("wrapping") << QStringLiteral("value");
     _map.insert(QStringLiteral("QDial"), l);
 
     // QLCDNumber
     l.clear();
-    l << QStringLiteral("enabled")
-      << QStringLiteral("digitCount") << QStringLiteral("mode")
-      << QStringLiteral("segmentStyle") << QStringLiteral("value");
+    l << QStringLiteral("enabled") << QStringLiteral("digitCount") << QStringLiteral("mode") << QStringLiteral("segmentStyle") << QStringLiteral("value");
     _map.insert(QStringLiteral("QLCDNumber"), l);
 
     // QLineEdit
     l.clear();
-    l << QStringLiteral("enabled")
-      << QStringLiteral("text") << QStringLiteral("maxLength")
-      << QStringLiteral("echoMode") << QStringLiteral("alignment");
+    l << QStringLiteral("enabled") << QStringLiteral("text") << QStringLiteral("maxLength") << QStringLiteral("echoMode") << QStringLiteral("alignment");
     _map.insert(QStringLiteral("QLineEdit"), l);
 
     // QMultiLineEdit
     l.clear();
-    l << QStringLiteral("enabled")
-      << QStringLiteral("plainText");
+    l << QStringLiteral("enabled") << QStringLiteral("plainText");
     _map.insert(QStringLiteral("QTextEdit"), l);
 
     // QRadioButton
     l.clear();
-    l << QStringLiteral("enabled")
-      << QStringLiteral("checked");
+    l << QStringLiteral("enabled") << QStringLiteral("checked");
     _map.insert(QStringLiteral("QRadioButton"), l);
 
     // QSlider
     l.clear();
-    l << QStringLiteral("enabled")
-      << QStringLiteral("value");
+    l << QStringLiteral("enabled") << QStringLiteral("value");
     _map.insert(QStringLiteral("QSlider"), l);
 
     // QSpinBox
     l.clear();
-    l << QStringLiteral("enabled")
-      << QStringLiteral("value");
+    l << QStringLiteral("enabled") << QStringLiteral("value");
     _map.insert(QStringLiteral("QSpinBox"), l);
 }

@@ -7,7 +7,8 @@
 #include "altnregexp.h"
 #include "widgetfactory.h"
 
-AltnRegExp::AltnRegExp(bool selected) : RegExp(selected)
+AltnRegExp::AltnRegExp(bool selected)
+    : RegExp(selected)
 {
     // Nothing to do
 }

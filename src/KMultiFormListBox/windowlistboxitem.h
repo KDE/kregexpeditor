@@ -20,6 +20,7 @@ class WindowListboxItem : public QListWidgetItem
 {
     friend class WidgetWindow;
     friend class KMultiFormListBoxWindowed;
+
 public:
     WindowListboxItem(QListWidget *, const QString &, WidgetWindow *);
     ~WindowListboxItem();

@@ -6,8 +6,8 @@
 
 #include "scrollededitorwindow.h"
 
-#include <QResizeEvent>
 #include <QDebug>
+#include <QResizeEvent>
 #include <QScrollArea>
 
 #include "regexpeditorwindow.h"
@@ -21,11 +21,9 @@ RegExpScrolledEditorWindow::RegExpScrolledEditorWindow(QWidget *parent)
     _scrollArea->setWidgetResizable(true); // Morten Sjøgren: This is for some reason required for pasting to work.
     _scrollArea->ensureWidgetVisible(_editorWindow);
 
-    connect(_editorWindow, &RegExpEditorWindow::contentChanged,
-            this, &RegExpScrolledEditorWindow::slotUpdateContentSize);
+    connect(_editorWindow, &RegExpEditorWindow::contentChanged, this, &RegExpScrolledEditorWindow::slotUpdateContentSize);
 
-    connect(_editorWindow, &RegExpEditorWindow::scrolling,
-            this, &RegExpScrolledEditorWindow::slotScroll);
+    connect(_editorWindow, &RegExpEditorWindow::scrolling, this, &RegExpScrolledEditorWindow::slotScroll);
 
     connect(_editorWindow, &RegExpEditorWindow::doneEditing, this, &RegExpScrolledEditorWindow::doneEditing);
 

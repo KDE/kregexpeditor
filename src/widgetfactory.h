@@ -18,9 +18,20 @@ class RegExp;
    All the different regular expression types.
 */
 enum RegExpType {
-    TEXT = 0, CHARSET = 1, DOT = 2, REPEAT = 3, ALTN = 4, COMPOUND = 5, BEGLINE = 6,
-    ENDLINE = 7, WORDBOUNDARY = 8, NONWORDBOUNDARY = 9, CONC = 10, DRAGACCEPTER = 11,
-    POSLOOKAHEAD = 12, NEGLOOKAHEAD = 13
+    TEXT = 0,
+    CHARSET = 1,
+    DOT = 2,
+    REPEAT = 3,
+    ALTN = 4,
+    COMPOUND = 5,
+    BEGLINE = 6,
+    ENDLINE = 7,
+    WORDBOUNDARY = 8,
+    NONWORDBOUNDARY = 9,
+    CONC = 10,
+    DRAGACCEPTER = 11,
+    POSLOOKAHEAD = 12,
+    NEGLOOKAHEAD = 13
 };
 
 /**

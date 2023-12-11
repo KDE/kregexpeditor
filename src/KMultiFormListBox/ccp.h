@@ -38,7 +38,7 @@ private:
     /**
      * Constructor is private so only the class @ref KMultiFormListBoxMultiVisible may create an
      * instance of this widget.
-    **/
+     **/
     CCP(KMultiFormListBoxMultiVisible *, KMultiFormListBoxEntry *);
 
     void install(QObject *);

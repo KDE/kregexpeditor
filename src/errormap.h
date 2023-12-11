@@ -16,6 +16,7 @@ public:
     void lineStartError();
     void lineEndError();
     void lookAheadError();
+
 private:
     bool _lineStartError, _prevLineStartError;
     bool _lineEndError, _prevLineEndError;

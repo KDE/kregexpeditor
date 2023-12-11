@@ -35,8 +35,8 @@ class KWidgetStreamer
 {
 public:
     typedef QStringList PropertyList;
-    typedef QMap< QString, PropertyList > PropertyMap;
-    typedef QMap< QString, PropertyList >::ConstIterator PropertyMapIt;
+    typedef QMap<QString, PropertyList> PropertyMap;
+    typedef QMap<QString, PropertyList>::ConstIterator PropertyMapIt;
     typedef QStringList::Iterator PropertyListIt;
 
     KWidgetStreamer();

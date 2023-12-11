@@ -11,7 +11,12 @@
 
 #include "kmultiformlistboxfactory.h"
 
-KMultiFormListBox::KMultiFormListBox(KMultiFormListBoxFactory *factory, KMultiFormListBoxType tp, QWidget *parent, bool showUpDownButtons, bool showHelpButton, const QString &addButtonText)
+KMultiFormListBox::KMultiFormListBox(KMultiFormListBoxFactory *factory,
+                                     KMultiFormListBoxType tp,
+                                     QWidget *parent,
+                                     bool showUpDownButtons,
+                                     bool showHelpButton,
+                                     const QString &addButtonText)
     : QWidget(parent)
 {
     switch (tp) {
@@ -20,8 +25,7 @@ KMultiFormListBox::KMultiFormListBox(KMultiFormListBoxFactory *factory, KMultiFo
         break;
 
     case Windowed:
-        theWidget = new KMultiFormListBoxWindowed(factory, this, showUpDownButtons,
-                                                  showHelpButton, addButtonText);
+        theWidget = new KMultiFormListBoxWindowed(factory, this, showUpDownButtons, showHelpButton, addButtonText);
         break;
     }
 

@@ -6,9 +6,9 @@
 
 #include "dragaccepter.h"
 
-#include <QPainter>
-#include <QMouseEvent>
 #include <QMimeData>
+#include <QMouseEvent>
+#include <QPainter>
 
 #include "concwidget.h"
 
@@ -67,13 +67,10 @@ void DragAccepter::mouseReleaseEvent(QMouseEvent *event)
             _editorWindow->clearSelection(true);
         }
     } else if (_editorWindow->isInserting() && event->button() == Qt::LeftButton) {
-        if (WidgetFactory::isContainer(_editorWindow->insertType())
-            && _editorWindow->pointSelected(mapToGlobal(event->pos()))) {
+        if (WidgetFactory::isContainer(_editorWindow->insertType()) && _editorWindow->pointSelected(mapToGlobal(event->pos()))) {
             RegExpWidget::mouseReleaseEvent(event);
         } else {
-            RegExpWidget *child = WidgetFactory::createWidget(_editorWindow,
-                                                              dynamic_cast<QWidget *>(parent()),
-                                                              _editorWindow->insertType());
+            RegExpWidget *child = WidgetFactory::createWidget(_editorWindow, dynamic_cast<QWidget *>(parent()), _editorWindow->insertType());
             if (child) {
                 RegExpWidget *w = dynamic_cast<RegExpWidget *>(parent());
                 if (w) {

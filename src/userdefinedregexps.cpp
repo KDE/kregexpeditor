@@ -6,20 +6,20 @@
 
 #include "userdefinedregexps.h"
 
-#include <QMenu>
+#include <QAction>
 #include <QDir>
+#include <QHeaderView>
+#include <QMenu>
 #include <QTextStream>
 #include <QVBoxLayout>
-#include <QAction>
-#include <QHeaderView>
 
-#include <QInputDialog>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <QInputDialog>
 #include <QStandardPaths>
 
-#include "widgetfactory.h"
 #include "compoundregexp.h"
+#include "widgetfactory.h"
 
 UserDefinedRegExps::UserDefinedRegExps(QWidget *parent, const QString &title)
     : QDockWidget(title, parent)
@@ -28,11 +28,11 @@ UserDefinedRegExps::UserDefinedRegExps(QWidget *parent, const QString &title)
     QVBoxLayout *lay = new QVBoxLayout(top);
     lay->setContentsMargins(0, 0, 0, 0);
 
-    //QLabel* label = new QLabel( i18n("Compound regular expression:"), top );
+    // QLabel* label = new QLabel( i18n("Compound regular expression:"), top );
 
     // This is to avoid that the label set the minimum width for the window.
-    //label->setMinimumSize(1,0);
-    //lay->addWidget(label);
+    // label->setMinimumSize(1,0);
+    // lay->addWidget(label);
 
     _userDefined = new QTreeWidget(top /*, "UserDefinedRegExps::_userDefined"*/);
     //_userDefined->addColumn( QString() );
@@ -54,7 +54,8 @@ void UserDefinedRegExps::slotPopulateUserRegexps()
 
     createItems(i18n("User Defined"), WidgetWinItem::path(), true);
 
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kregexpeditor/predefined/"), QStandardPaths::LocateDirectory);
+    const QStringList dirs =
+        QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kregexpeditor/predefined/"), QStandardPaths::LocateDirectory);
 
     for (QStringList::ConstIterator it1 = dirs.constBegin(); it1 != dirs.constEnd(); ++it1) {
         QDir dir(*it1, QString(), QDir::Name, QDir::Dirs);
@@ -186,8 +187,11 @@ void UserDefinedRegExps::slotRenameUserRegexp()
         const QString fileName = WidgetWinItem::path() + QLatin1Char('/') + txt + QStringLiteral(".regexp");
         QFileInfo finfo(fileName);
         if (finfo.exists()) {
-            int answer
-                = KMessageBox::warningTwoActions(this, i18n("<p>Overwrite named regular expression <b>%1</b>?</p>", txt), QString(), KStandardGuiItem::overwrite(), KGuiItem(i18n("Do Not Overwrite")));
+            int answer = KMessageBox::warningTwoActions(this,
+                                                        i18n("<p>Overwrite named regular expression <b>%1</b>?</p>", txt),
+                                                        QString(),
+                                                        KStandardGuiItem::overwrite(),
+                                                        KGuiItem(i18n("Do Not Overwrite")));
             if (answer != KMessageBox::PrimaryAction) {
                 return;
             }

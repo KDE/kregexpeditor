@@ -11,8 +11,7 @@ SelectableLineEdit::SelectableLineEdit(RegExpWidget *owner, QWidget *parent, con
     , _owner(owner)
 {
     setObjectName(name);
-    connect(this, &QLineEdit::textChanged, this,
-            &SelectableLineEdit::slotKeyPressed);
+    connect(this, &QLineEdit::textChanged, this, &SelectableLineEdit::slotKeyPressed);
     setAcceptDrops(false);
 }
 

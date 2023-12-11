@@ -6,27 +6,27 @@
 
 #include "regexpeditorwindow.h"
 
-#include <QMenu>
+#include <QApplication>
+#include <QClipboard>
+#include <QDrag>
 #include <QFileInfo>
+#include <QHBoxLayout>
+#include <QInputDialog>
+#include <QMenu>
+#include <QMimeData>
+#include <QMouseEvent>
 #include <QPainter>
 #include <QShortcut>
-#include <QClipboard>
 #include <QTextStream>
-#include <QHBoxLayout>
-#include <QApplication>
-#include <QMouseEvent>
-#include <QDrag>
-#include <QMimeData>
-#include <QInputDialog>
 
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QIcon>
 
-#include "regexp.h"
-#include "userdefinedregexps.h"
 #include "concwidget.h"
+#include "regexp.h"
 #include "regexpconverter.h"
+#include "userdefinedregexps.h"
 
 RegExpEditorWindow::RegExpEditorWindow(QWidget *parent)
     : QWidget(parent /*, Qt::WPaintUnclipped*/)
@@ -268,7 +268,7 @@ void RegExpEditorWindow::cutCopyAux(QPointF pos)
             KMessageBox::information(this, i18n("There is no widget under cursor."), i18n("Invalid Operation"));
             return;
         } else {
-            widget->updateSelection(true);   // HACK!
+            widget->updateSelection(true); // HACK!
         }
     }
 
@@ -308,33 +308,26 @@ void RegExpEditorWindow::slotEndActions()
 
 void RegExpEditorWindow::showRMBMenu(bool enableCutCopy)
 {
-    enum CHOICES {
-        CUT, COPY, PASTE, SAVE, EDIT
-    };
+    enum CHOICES { CUT, COPY, PASTE, SAVE, EDIT };
 
     if (!_menu) {
         _menu = new QMenu(nullptr);
 
-        _cutAction = _menu->addAction(getIcon(QStringLiteral("edit-cut")),
-                                      i18n("C&ut"));
+        _cutAction = _menu->addAction(getIcon(QStringLiteral("edit-cut")), i18n("C&ut"));
         connect(_cutAction, &QAction::triggered, this, &RegExpEditorWindow::slotCut);
 
-        _copyAction = _menu->addAction(getIcon(QStringLiteral("edit-copy")),
-                                       i18n("&Copy"));
+        _copyAction = _menu->addAction(getIcon(QStringLiteral("edit-copy")), i18n("&Copy"));
         connect(_copyAction, &QAction::triggered, this, &RegExpEditorWindow::slotCopy);
 
-        _pasteAction = _menu->addAction(getIcon(QStringLiteral("edit-paste")),
-                                        i18n("&Paste"));
+        _pasteAction = _menu->addAction(getIcon(QStringLiteral("edit-paste")), i18n("&Paste"));
         connect(_pasteAction, &QAction::triggered, this, &RegExpEditorWindow::slotStartPasteAction);
 
         _menu->addSeparator();
 
-        _editAction = _menu->addAction(getIcon(QStringLiteral("document-properties")),
-                                       i18n("&Edit"));
+        _editAction = _menu->addAction(getIcon(QStringLiteral("document-properties")), i18n("&Edit"));
         connect(_editAction, &QAction::triggered, this, &RegExpEditorWindow::editWidget);
 
-        _saveAction = _menu->addAction(getIcon(QStringLiteral("document-save")),
-                                       i18n("&Save Regular Expression..."));
+        _saveAction = _menu->addAction(getIcon(QStringLiteral("document-save")), i18n("&Save Regular Expression..."));
         connect(_saveAction, &QAction::triggered, this, &RegExpEditorWindow::slotSave);
     }
 
@@ -383,7 +376,10 @@ void RegExpEditorWindow::slotSave()
     QString fileName = dir + QLatin1Char('/') + txt + QStringLiteral(".regexp");
     QFileInfo finfo(fileName);
     if (finfo.exists()) {
-        int answer = KMessageBox::warningContinueCancel(this, i18n("<p>Overwrite named regular expression <b>%1</b></p>", txt), QString(), KStandardGuiItem::overwrite());
+        int answer = KMessageBox::warningContinueCancel(this,
+                                                        i18n("<p>Overwrite named regular expression <b>%1</b></p>", txt),
+                                                        QString(),
+                                                        KStandardGuiItem::overwrite());
         if (answer != KMessageBox::Continue) {
             return;
         }
@@ -423,7 +419,7 @@ void RegExpEditorWindow::slotSetRegExp(RegExp *regexp)
 
     _top->show();
     _layout->addWidget(_top);
-    clearSelection(true);   // HACK?
+    clearSelection(true); // HACK?
     Q_EMIT canSave(_top->hasAnyChildren());
 }
 

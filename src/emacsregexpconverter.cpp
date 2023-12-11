@@ -6,17 +6,17 @@
 
 #include "emacsregexpconverter.h"
 
-#include <KMessageBox>
 #include <KLocalizedString>
+#include <KMessageBox>
 
-#include "regexp.h"
 #include "altnregexp.h"
+#include "compoundregexp.h"
 #include "concregexp.h"
+#include "positionregexp.h"
+#include "regexp.h"
+#include "repeatregexp.h"
 #include "textrangeregexp.h"
 #include "textregexp.h"
-#include "compoundregexp.h"
-#include "positionregexp.h"
-#include "repeatregexp.h"
 
 bool EmacsRegExpConverter::canParse()
 {
@@ -131,7 +131,7 @@ QString EmacsRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelec
     }
 
     if (regexp->space()) {
-        res += QLatin1Char(' ') + QLatin1Char((char)9);      // Tab char
+        res += QLatin1Char(' ') + QLatin1Char((char)9); // Tab char
     }
 
     if (regexp->wordChar()) {
@@ -214,15 +214,8 @@ QString EmacsRegExpConverter::toString(RepeatRegExp *regexp, bool markSelection)
 QString EmacsRegExpConverter::toString(TextRegExp *regexp, bool /*markSelection*/)
 {
     QList<QChar> list;
-    list << QLatin1Char('$')
-         << QLatin1Char('^')
-         << QLatin1Char('.')
-         << QLatin1Char('*')
-         << QLatin1Char('+')
-         << QLatin1Char('?')
-         << QLatin1Char('[')
-         << QLatin1Char(']')
-         << QLatin1Char('\\');
+    list << QLatin1Char('$') << QLatin1Char('^') << QLatin1Char('.') << QLatin1Char('*') << QLatin1Char('+') << QLatin1Char('?') << QLatin1Char('[')
+         << QLatin1Char(']') << QLatin1Char('\\');
 
     QString res = escape(regexp->text(), list, QLatin1Char('\\'));
     return res;

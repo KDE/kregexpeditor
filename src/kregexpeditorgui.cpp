@@ -6,15 +6,15 @@
 
 #include "kregexpeditorgui.h"
 
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
 #include <QFrame>
+#include <QHBoxLayout>
+#include <QPushButton>
 #include <QSettings>
+#include <QVBoxLayout>
 
-#include <KLocalizedString>
-#include <KHelpClient>
 #include "kregexpeditorprivate.h"
+#include <KHelpClient>
+#include <KLocalizedString>
 
 const QString KRegExpEditorGUI::version = QStringLiteral("1.0");
 

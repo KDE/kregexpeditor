@@ -6,15 +6,15 @@
 
 #include "altnwidget.h"
 
-#include <QPainter>
 #include <QPaintEvent>
+#include <QPainter>
 
 #include <KLocalizedString>
 #include <KMessageBox>
 
-#include "dragaccepter.h"
-#include "concwidget.h"
 #include "altnregexp.h"
+#include "concwidget.h"
+#include "dragaccepter.h"
 
 AltnWidget::AltnWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
     : MultiContainerWidget(editorWindow, parent)
@@ -98,9 +98,7 @@ void AltnWidget::paintEvent(QPaintEvent *e)
 {
     Q_ASSERT(dynamic_cast<DragAccepter *>(_children.at(0)));
     // if this fails, then I should check the location of the show()
-    Q_ASSERT(_children.count() == 1
-             || (_children.count() >= 3
-                 && dynamic_cast<DragAccepter *>(_children.at(_children.count() - 1))));
+    Q_ASSERT(_children.count() == 1 || (_children.count() >= 3 && dynamic_cast<DragAccepter *>(_children.at(_children.count() - 1))));
 
     int offset = 0;
     QSize mySize = sizeHint();

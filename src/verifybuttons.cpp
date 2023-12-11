@@ -9,13 +9,13 @@
 #include <KLocalizedString>
 #include <QIcon>
 
+#include <QActionGroup>
+#include <QFileDialog>
 #include <QMenu>
 #include <QToolButton>
-#include <QFileDialog>
-#include <QActionGroup>
 
-#include "qtregexpconverter.h"
 #include "emacsregexpconverter.h"
+#include "qtregexpconverter.h"
 
 VerifyButtons::VerifyButtons(QWidget *parent, const QString &name)
     : QToolBar(name, parent)
@@ -25,8 +25,9 @@ VerifyButtons::VerifyButtons(QWidget *parent, const QString &name)
     QIcon icon = QIcon::fromTheme(QStringLiteral("tools-check-spelling"));
     _verify->setIcon(icon);
     _verify->setToolTip(i18n("Verify regular expression"));
-    _verify->setWhatsThis(i18n("Shows what part of the regular expression is being matched in the <i>verifier window</i>."
-                               "(The window below the graphical editor window)."));
+    _verify->setWhatsThis(
+        i18n("Shows what part of the regular expression is being matched in the <i>verifier window</i>."
+             "(The window below the graphical editor window)."));
     addWidget(_verify);
     connect(_verify, &QAbstractButton::clicked, this, &VerifyButtons::verify);
 
@@ -65,13 +66,13 @@ VerifyButtons::VerifyButtons(QWidget *parent, const QString &name)
     // _last->setFixedWidth( 25 );
 
     // Same as above
-//  QLabel* label = new QLabel( i18n("Matches: "), this );
-//  layout->addWidget( label );
-//  _matches = new QLabel(i18n("-"), this );
-//  layout->addWidget( _matches );
-//  QString txt = i18n( "Shows number of times regular expression matches the text in the verifier window");
-//  label->setToolTip( txt );
-//  _matches->setToolTip( txt );
+    //  QLabel* label = new QLabel( i18n("Matches: "), this );
+    //  layout->addWidget( label );
+    //  _matches = new QLabel(i18n("-"), this );
+    //  layout->addWidget( _matches );
+    //  QString txt = i18n( "Shows number of times regular expression matches the text in the verifier window");
+    //  label->setToolTip( txt );
+    //  _matches->setToolTip( txt );
 
     _verify->setEnabled(false);
 
@@ -97,9 +98,10 @@ VerifyButtons::VerifyButtons(QWidget *parent, const QString &name)
     connect(autoVerify, &QAction::toggled, this, &VerifyButtons::autoVerify);
     _configMenu->addAction(autoVerify);
     autoVerify->setToolTip(i18n("Toggle on-the-fly verification of regular expression"));
-    autoVerify->setWhatsThis(i18n("Enabling this option will make the verifier update for each edit. "
-                                  "If the verify window contains much text, or if the regular expression is either "
-                                  "complex or matches a lot of time, this may be very slow."));
+    autoVerify->setWhatsThis(
+        i18n("Enabling this option will make the verifier update for each edit. "
+             "If the verify window contains much text, or if the regular expression is either "
+             "complex or matches a lot of time, this may be very slow."));
 
     QAction *matchGreedy = new QAction(i18n("Match Greedy"), this);
     matchGreedy->setCheckable(true);
@@ -114,7 +116,7 @@ VerifyButtons::VerifyButtons(QWidget *parent, const QString &name)
     _configMenu->addMenu(_languages);
 
     QActionGroup *grp = new QActionGroup(this);
-    for (QList< QPair<RegExpConverter *, QAction *> >::Iterator it = _converters.begin(); it != _converters.end(); ++it) {
+    for (QList<QPair<RegExpConverter *, QAction *>>::Iterator it = _converters.begin(); it != _converters.end(); ++it) {
         QString name = (*it).first->name();
         QAction *action = new QAction(name, this);
         action->setCheckable(true);
@@ -161,7 +163,7 @@ void VerifyButtons::loadText()
 
 void VerifyButtons::setMatchCount(int /*count*/)
 {
-// currently this is not possible due to limitation in QSyntaxHighlighter
+    // currently this is not possible due to limitation in QSyntaxHighlighter
     /*
       if ( count == -1 ) {
       _matches->setText( QString::fromLatin1("-") );

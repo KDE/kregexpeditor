@@ -8,8 +8,8 @@
 #define __USERDEFINEDREGEXPS_H
 
 #include <QDockWidget>
-#include <QTreeWidgetItem>
 #include <QList>
+#include <QTreeWidgetItem>
 
 class CompoundRegExp;
 class QPoint;

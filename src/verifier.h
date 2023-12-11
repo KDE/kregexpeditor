@@ -30,7 +30,7 @@ public Q_SLOTS:
     // void gotoPrev();
     // void gotoNext();
     // void gotoLast();
-    //Q_SIGNALS:
+    // Q_SIGNALS:
     //    void countChanged( int );
     // void currentChanged( int );
     // void goBackwardPossible( bool );

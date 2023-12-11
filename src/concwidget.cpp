@@ -6,8 +6,8 @@
 
 #include "concwidget.h"
 
-#include <QPainter>
 #include <QMouseEvent>
+#include <QPainter>
 
 #include "concregexp.h"
 #include "dragaccepter.h"
@@ -86,17 +86,14 @@ void ConcWidget::paintEvent(QPaintEvent *e)
 {
     Q_ASSERT(dynamic_cast<DragAccepter *>(_children.at(0)));
     // if this fails, then I should check the location of the show()
-    Q_ASSERT(_children.count() == 1
-             || (_children.count() >= 3
-                 && dynamic_cast<DragAccepter *>(_children.at(_children.count() - 1))));
+    Q_ASSERT(_children.count() == 1 || (_children.count() >= 3 && dynamic_cast<DragAccepter *>(_children.at(_children.count() - 1))));
 
     if (_children.count() == 1) {
         // There is only an accepter, lets give it all the space.
         _children.at(0)->setGeometry(0, 0, size().width(), size().height());
     } else {
         QSize myReqSize = sizeHint();
-        QSize mySize(qMax(myReqSize.width(), size().width()),
-                     qMax(myReqSize.height(), size().height()));
+        QSize mySize(qMax(myReqSize.width(), size().width()), qMax(myReqSize.height(), size().height()));
 
         // If the widget needs less space than it can get then this space should
         // be given to the leftmost and rightmost accepter. So lets calculate
@@ -167,8 +164,7 @@ void ConcWidget::paintEvent(QPaintEvent *e)
         }
 
         //---------------------- Finally place the last accepter.
-        DragAccepter *accepter
-            = static_cast<DragAccepter *>(_children.at(_children.count() - 1));
+        DragAccepter *accepter = static_cast<DragAccepter *>(_children.at(_children.count() - 1));
         // dynamic_cast is ASSERTed at top
         int x = offset;
         int h = lastHeight;
@@ -275,7 +271,7 @@ void ConcWidget::applyRegExpToSelection(RegExpType type)
     if (start == -1) {
         // No item selected at top level
 
-        QList<RegExpWidget * >::const_iterator it = _children.constBegin();
+        QList<RegExpWidget *>::const_iterator it = _children.constBegin();
         ++it; // Skip past the first DragAccepter
         for (; it != _children.constEnd(); it += 2) {
             if ((*it)->hasSelection()) {
@@ -323,7 +319,7 @@ RegExp *ConcWidget::selection() const
     bool foundMoreThanOne = false;
     RegExp *regexp = nullptr;
 
-    QList<RegExpWidget * >::const_iterator it = _children.constBegin();
+    QList<RegExpWidget *>::const_iterator it = _children.constBegin();
     ++it; // Skip past the first DragAccepter
     for (; it != _children.constEnd(); it += 2) {
         if ((*it)->hasSelection()) {

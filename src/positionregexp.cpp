@@ -8,7 +8,8 @@
 
 #include "errormap.h"
 
-PositionRegExp::PositionRegExp(bool selected, PositionType tp) : RegExp(selected)
+PositionRegExp::PositionRegExp(bool selected, PositionType tp)
+    : RegExp(selected)
 {
     _tp = tp;
 }

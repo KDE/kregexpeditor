@@ -16,9 +16,9 @@
 // ------------------------------------------------------------------------
 
 // -------------------------------- includes ------------------------------
-#include <QScrollArea>
-#include "kmultiformlistbox.h"
 #include "kmultiformlistbox-shower.h"
+#include "kmultiformlistbox.h"
+#include <QScrollArea>
 //-------------------------------------------------------------------------
 class QVBoxLayout;
 class KMultiFormListBoxFactory;

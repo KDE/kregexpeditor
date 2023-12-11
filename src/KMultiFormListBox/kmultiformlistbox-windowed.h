@@ -7,8 +7,8 @@
 #ifndef __kmultiformlistboxwindowed
 #define __kmultiformlistboxwindowed
 
-#include <QWidget>
 #include "kmultiformlistbox-shower.h"
+#include <QWidget>
 
 class QVBoxLayout;
 class QListWidgetItem;
@@ -29,9 +29,7 @@ class KMultiFormListBoxWindowed : public QWidget, KMultiFormListBoxShower
     friend class KMultiFormListBox;
 
 private:
-    KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent, bool
-                              showUpDownButtons, bool
-                              showHelpButton, const QString &addButtonText);
+    KMultiFormListBoxWindowed(KMultiFormListBoxFactory *factory, QWidget *parent, bool showUpDownButtons, bool showHelpButton, const QString &addButtonText);
 
     KMultiFormListBoxEntryList elements() override;
     const KMultiFormListBoxEntryList elements() const;

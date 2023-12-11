@@ -6,23 +6,23 @@
 
 #include "compoundwidget.h"
 
-#include <QPainter>
-#include <QLabel>
 #include <QCheckBox>
-#include <QVBoxLayout>
-#include <QMouseEvent>
-
-#include <KLocalizedString>
 #include <QDialog>
-#include <QLineEdit>
-#include <KTextEdit>
-#include <KIconLoader>
 #include <QDialogButtonBox>
+#include <QLabel>
+#include <QLineEdit>
+#include <QMouseEvent>
+#include <QPainter>
 #include <QPushButton>
+#include <QVBoxLayout>
 
+#include <KIconLoader>
+#include <KLocalizedString>
+#include <KTextEdit>
+
+#include "compoundregexp.h"
 #include "concwidget.h"
 #include "kwidgetstreamer.h"
-#include "compoundregexp.h"
 
 //================================================================================
 
@@ -46,9 +46,10 @@ CompoundDetailWindow::CompoundDetailWindow(QWidget *parent)
 
     _allowReplace = new QCheckBox(i18n("&Automatically replace using this item"), this);
     layout->addWidget(_allowReplace);
-    _allowReplace->setToolTip(i18n("When the content of this box is typed in to the ASCII line,<br />"
-                                   "this box will automatically be added around it,<br />"
-                                   "if this check box is selected."));
+    _allowReplace->setToolTip(
+        i18n("When the content of this box is typed in to the ASCII line,<br />"
+             "this box will automatically be added around it,<br />"
+             "if this check box is selected."));
     _allowReplace->setChecked(true);
 
     _title->setFocus();
@@ -157,8 +158,7 @@ QSize CompoundWidget::sizeHint() const
         }
 
         width = qMax(2 * pw + _childSize.width(), headerLineWidth);
-        height = qMax(_textSize.height(), _pixmapSize.height())
-                 +2 * bdSize + _childSize.height() + pw;
+        height = qMax(_textSize.height(), _pixmapSize.height()) + 2 * bdSize + _childSize.height() + pw;
     }
     return QSize(width, height);
 }
@@ -178,8 +178,7 @@ void CompoundWidget::paintEvent(QPaintEvent *e)
         childY = _pixmapSize.height() + bdSize;
         _pixmapPos = QPoint(mySize.width() - pw - bdSize - _pixmapSize.width(), 0);
         painter.drawLine(pw, horLineY, _pixmapPos.x(), horLineY);
-        painter.drawLine(mySize.width() - bdSize - pw, horLineY,
-                         mySize.width(), horLineY);
+        painter.drawLine(mySize.width() - bdSize - pw, horLineY, mySize.width(), horLineY);
         painter.drawPixmap(_pixmapPos, _up);
     } else {
         int maxH = qMax(_textSize.height(), _pixmapSize.height());
@@ -191,14 +190,11 @@ void CompoundWidget::paintEvent(QPaintEvent *e)
         if (_textSize.width() != 0) {
             offset += pw + 2 * bdSize;
 
-            painter.drawText(offset, horLineY - _textSize.height() / 2,
-                             bdSize + _textSize.width(), horLineY + _textSize.height() / 2,
-                             0, _content->title());
+            painter.drawText(offset, horLineY - _textSize.height() / 2, bdSize + _textSize.width(), horLineY + _textSize.height() / 2, 0, _content->title());
             offset += _textSize.width() + bdSize;
         }
 
-        _pixmapPos = QPoint(mySize.width() - pw - bdSize - _pixmapSize.width(),
-                            horLineY - _pixmapSize.height() / 2);
+        _pixmapPos = QPoint(mySize.width() - pw - bdSize - _pixmapSize.width(), horLineY - _pixmapSize.height() / 2);
 
         painter.drawLine(offset, horLineY, _pixmapPos.x(), horLineY);
         painter.drawPixmap(_pixmapPos, _down);
@@ -214,13 +210,10 @@ void CompoundWidget::paintEvent(QPaintEvent *e)
     // place/size child
     if (_hidden) {
         _child->hide();
-        painter.drawText(pw + bdSize, childY,
-                         pw + bdSize + _textSize.width(), childY + _textSize.height(), 0,
-                         _content->title());
+        painter.drawText(pw + bdSize, childY, pw + bdSize + _textSize.width(), childY + _textSize.height(), 0, _content->title());
     } else {
         QSize curSize = _child->size();
-        QSize newSize = QSize(qMax(_child->sizeHint().width(), mySize.width() - 2 * pw),
-                              _child->sizeHint().height());
+        QSize newSize = QSize(qMax(_child->sizeHint().width(), mySize.width() - 2 * pw), _child->sizeHint().height());
 
         _child->move(pw, childY);
         if (curSize != newSize) {
@@ -253,14 +246,12 @@ void CompoundWidget::slotConfigCanceled()
 
 RegExp *CompoundWidget::regExp() const
 {
-    return new CompoundRegExp(isSelected(), _content->title(), _content->description(),
-                              _hidden, _content->allowReplace(), _child->regExp());
+    return new CompoundRegExp(isSelected(), _content->title(), _content->description(), _hidden, _content->allowReplace(), _child->regExp());
 }
 
 void CompoundWidget::mousePressEvent(QMouseEvent *event)
 {
-    if (event->button() == Qt::LeftButton
-        && QRect(_pixmapPos, _pixmapSize).contains(event->pos())) {
+    if (event->button() == Qt::LeftButton && QRect(_pixmapPos, _pixmapSize).contains(event->pos())) {
         // Skip otherwise we will never see the mouse release
         // since it is eaten by Editor window.
     } else {
@@ -270,8 +261,7 @@ void CompoundWidget::mousePressEvent(QMouseEvent *event)
 
 void CompoundWidget::mouseReleaseEvent(QMouseEvent *event)
 {
-    if (event->button() == Qt::LeftButton
-        && QRect(_pixmapPos, _pixmapSize).contains(event->pos())) {
+    if (event->button() == Qt::LeftButton && QRect(_pixmapPos, _pixmapSize).contains(event->pos())) {
         _hidden = !_hidden;
         _editorWindow->updateContent(nullptr);
         repaint(); // is this necesary?
@@ -297,8 +287,7 @@ bool CompoundWidget::updateSelection(bool parentSelected)
 
 int CompoundWidget::edit()
 {
-    _configWindow->move(QCursor::pos() - QPoint(_configWindow->sizeHint().width() / 2,
-                                                _configWindow->sizeHint().height() / 2));
+    _configWindow->move(QCursor::pos() - QPoint(_configWindow->sizeHint().width() / 2, _configWindow->sizeHint().height() / 2));
     QDataStream stream(&_backup, QIODevice::WriteOnly);
 
     stream.setVersion(QDataStream::Qt_3_1);

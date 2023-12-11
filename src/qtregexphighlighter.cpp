@@ -7,8 +7,8 @@
 
 #include "qtregexphighlighter.h"
 
-#include <QTextEdit>
 #include <QRegularExpression>
+#include <QTextEdit>
 
 // krazy:excludeall=qclasses
 
@@ -40,7 +40,7 @@ void QtRegexpHighlighter::highlightBlock(const QString &text)
     }
 
     // ------------------------------ Process with the regular expression.
-    QColor colors[] = { Qt::red, Qt::blue };
+    QColor colors[] = {Qt::red, Qt::blue};
     int color = previousBlockState();
     if (color < 0 || color > 1) {
         color = 0;
@@ -74,7 +74,7 @@ void QtRegexpHighlighter::highlightBlock(const QString &text)
             setFormat(start + length, match.capturedLength() - length - (start - index), colors[color]);
         }
 
-        index += qMax(1, match.capturedLength());    // ensure progress when matching for example ^ or \b
+        index += qMax(1, match.capturedLength()); // ensure progress when matching for example ^ or \b
         color = (color + 1) % 2;
     }
     setCurrentBlockState(color);

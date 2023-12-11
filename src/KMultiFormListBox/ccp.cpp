@@ -11,13 +11,14 @@
 
 #include "ccp.h"
 
-#include <QMenu>
 #include <QEvent>
+#include <QMenu>
 #include <QMouseEvent>
 
 #include "kmultiformlistbox-multivisible.h"
 
-CCP::CCP(KMultiFormListBoxMultiVisible *ee_, KMultiFormListBoxEntry *eee_) : QObject()
+CCP::CCP(KMultiFormListBoxMultiVisible *ee_, KMultiFormListBoxEntry *eee_)
+    : QObject()
 {
     ee = ee_;
     eee = eee_;
@@ -47,8 +48,7 @@ bool CCP::eventFilter(QObject *, QEvent *event)
     }
 
     auto mouseEvent = static_cast<QMouseEvent *>(event);
-    if (mouseEvent->button() != Qt::RightButton ||
-           (mouseEvent->modifiers() & Qt::ControlModifier) == 0) {
+    if (mouseEvent->button() != Qt::RightButton || (mouseEvent->modifiers() & Qt::ControlModifier) == 0) {
         return false;
     }
 

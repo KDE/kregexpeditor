@@ -1,4 +1,4 @@
-//Added by qt3to4:
+// Added by qt3to4:
 #include <QList>
 /*
  *  SPDX-FileCopyrightText: 2002-2003 Jesper K. Pedersen <blackie@kde.org>

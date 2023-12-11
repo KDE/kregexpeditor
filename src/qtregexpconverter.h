@@ -25,7 +25,7 @@ public:
     QString toString(PositionRegExp *, bool markSelection) override;
     QString toString(RepeatRegExp *, bool markSelection) override;
     QString toString(TextRegExp *, bool markSelection) override;
-    RegexpHighlighter *highlighter(QTextEdit *edit) override;   // krazy:exclude=qclasses
+    RegexpHighlighter *highlighter(QTextEdit *edit) override; // krazy:exclude=qclasses
 };
 
 #endif /* QTREGEXPCONVERTER_H */

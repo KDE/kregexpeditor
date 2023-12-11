@@ -9,9 +9,9 @@
 
 #include "regexp.h"
 
+#include <QList>
 #include <QPair>
 #include <QStringList>
-#include <QList>
 
 typedef QPair<QString, QString> StringPair;
 

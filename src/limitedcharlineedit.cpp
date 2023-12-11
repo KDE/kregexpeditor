@@ -6,8 +6,8 @@
 
 #include "limitedcharlineedit.h"
 
-#include <QValidator>
 #include <QKeyEvent>
+#include <QValidator>
 #include <qregularexpression.h>
 
 /**
@@ -27,10 +27,8 @@ public:
     QValidator::State validate(QString &txt, int & /*pos*/) const override
     {
         if (_mode == LimitedCharLineEdit::NORMAL
-            || (_mode == LimitedCharLineEdit::HEX
-                && txt.indexOf(QRegularExpression(QStringLiteral("^[0-9A-Fa-f]*$"))) != -1)
-            || (_mode == LimitedCharLineEdit::OCT
-                && txt.indexOf(QRegularExpression(QStringLiteral("^[0-7]*$"))) != -1)) {
+            || (_mode == LimitedCharLineEdit::HEX && txt.indexOf(QRegularExpression(QStringLiteral("^[0-9A-Fa-f]*$"))) != -1)
+            || (_mode == LimitedCharLineEdit::OCT && txt.indexOf(QRegularExpression(QStringLiteral("^[0-7]*$"))) != -1)) {
             return QValidator::Acceptable;
         } else {
             return QValidator::Invalid;

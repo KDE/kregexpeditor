@@ -26,7 +26,7 @@ public:
 private:
     RegExpScrolledEditorWindow()
     {
-    }                               // Do not use!
+    } // Do not use!
 
 protected:
     void resizeEvent(QResizeEvent *) override;

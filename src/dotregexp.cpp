@@ -6,7 +6,8 @@
 
 #include "dotregexp.h"
 
-DotRegExp::DotRegExp(bool selected) : RegExp(selected)
+DotRegExp::DotRegExp(bool selected)
+    : RegExp(selected)
 {
 }
 

@@ -7,18 +7,18 @@
 #include "characterswidget.h"
 
 #include <QApplication>
-#include <QPainter>
-#include <QLabel>
 #include <QCheckBox>
+#include <QDialogButtonBox>
 #include <QGroupBox>
+#include <QLabel>
+#include <QPainter>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QDialogButtonBox>
 
-#include "textrangeregexp.h"
 #include "charselector.h"
 #include "myfontmetrics.h"
 #include "regexpconverter.h"
+#include "textrangeregexp.h"
 
 CharacterEdits *CharactersWidget::_configWindow = nullptr;
 
@@ -46,8 +46,7 @@ QSize CharactersWidget::sizeHint() const
     _textSize = HackCalculateFontSize(metrics, title());
     //  _textSize = metrics.size(0, title());
 
-    QSize headerSize = QSize(_textSize.width() + 4 * bdSize,
-                             _textSize.height());
+    QSize headerSize(_textSize.width() + 4 * bdSize, _textSize.height());
 
     _contentSize = HackCalculateFontSize(metrics, text());
     //  _contentSize = metrics.size(0, text());
@@ -83,8 +82,7 @@ void CharactersWidget::paintEvent(QPaintEvent *e)
     painter.drawLine(0, x, y, x);
 
     // Draw the text
-    painter.drawText(bdSize, bdSize + _textSize.height(), _contentSize.width(),
-                     _contentSize.height(), 0, text());
+    painter.drawText(bdSize, bdSize + _textSize.height(), _contentSize.width(), _contentSize.height(), 0, text());
 
     RegExpWidget::paintEvent(e);
 }
@@ -169,8 +167,7 @@ int CharactersWidget::edit()
         QApplication::restoreOverrideCursor();
     }
 
-    _configWindow->move(QCursor::pos() - QPoint(_configWindow->sizeHint().width() / 2,
-                                                _configWindow->sizeHint().height() / 2));
+    _configWindow->move(QCursor::pos() - QPoint(_configWindow->sizeHint().width() / 2, _configWindow->sizeHint().height() / 2));
     _configWindow->setRegexp(_regexp);
     int ret = _configWindow->exec();
     if (ret == QDialog::Accepted) {

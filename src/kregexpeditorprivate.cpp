@@ -6,33 +6,33 @@
 
 #include "kregexpeditorprivate.h"
 
+#include <KIconLoader>
 #include <KLocalizedString>
 #include <QIcon>
-#include <KIconLoader>
 
 #include <KMessageBox>
 #include <QLineEdit>
 
 #include <QApplication>
-#include <QToolButton>
-#include <QTextStream>
-#include <QHBoxLayout>
-#include <QSplitter>
-#include <QTimer>
 #include <QFile>
-#include <QShortcut>
+#include <QHBoxLayout>
 #include <QLabel>
+#include <QShortcut>
+#include <QSplitter>
 #include <QStandardPaths>
+#include <QTextStream>
+#include <QTimer>
+#include <QToolButton>
 
 #include "auxbuttons.h"
-#include "verifybuttons.h"
-#include "regexpbuttons.h"
-#include "userdefinedregexps.h"
-#include "scrollededitorwindow.h"
 #include "infopage.h"
-#include "verifier.h"
-#include "regexpconverter.h"
 #include "regexp.h"
+#include "regexpbuttons.h"
+#include "regexpconverter.h"
+#include "scrollededitorwindow.h"
+#include "userdefinedregexps.h"
+#include "verifier.h"
+#include "verifybuttons.h"
 
 KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     : QMainWindow(parent)
@@ -54,8 +54,9 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     addToolBar(Qt::TopToolBarArea, _auxButtons);
 
     _userRegExps = new UserDefinedRegExps(/*verArea1*/ this, /*"KRegExpEditorPrivate::userRegExps"*/ i18n("Compound regular expression:"));
-    _userRegExps->setWhatsThis(i18n("In this window you will find predefined regular expressions. Both regular expressions "
-                                    "you have developed and saved, and regular expressions shipped with the system."));
+    _userRegExps->setWhatsThis(
+        i18n("In this window you will find predefined regular expressions. Both regular expressions "
+             "you have developed and saved, and regular expressions shipped with the system."));
     addDockWidget(Qt::LeftDockWidgetArea, _userRegExps);
 
     // Editor window
@@ -63,19 +64,21 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     _editor->setObjectName(QStringLiteral("KRegExpEditorPrivate::_editor"));
 
     _scrolledEditorWindow = new RegExpScrolledEditorWindow(_editor);
-    _scrolledEditorWindow->setWhatsThis(i18n("In this window you will develop your regular expressions. "
-                                             "Select one of the actions from the action buttons above, and click the mouse in this "
-                                             "window to insert the given action."));
+    _scrolledEditorWindow->setWhatsThis(
+        i18n("In this window you will develop your regular expressions. "
+             "Select one of the actions from the action buttons above, and click the mouse in this "
+             "window to insert the given action."));
 
     _info = new InfoPage(this);
     _info->setObjectName(QStringLiteral("_info"));
     _verifier = new Verifier(_editor);
     connect(_verifier, &QTextEdit::textChanged, this, &KRegExpEditorPrivate::maybeVerify);
-    _verifier->setWhatsThis(i18n("<p>Type in some text in this window, and see what the regular expression you have developed matches.</p>"
-                                 "<p>Each second match will be colored in red and each other match will be colored blue, simply so you "
-                                 "can distinguish them from each other.</p>"
-                                 "<p>If you select part of the regular expression in the editor window, then this part will be "
-                                 "highlighted - This allows you to <i>debug</i> your regular expressions</p>"));
+    _verifier->setWhatsThis(
+        i18n("<p>Type in some text in this window, and see what the regular expression you have developed matches.</p>"
+             "<p>Each second match will be colored in red and each other match will be colored blue, simply so you "
+             "can distinguish them from each other.</p>"
+             "<p>If you select part of the regular expression in the editor window, then this part will be "
+             "highlighted - This allows you to <i>debug</i> your regular expressions</p>"));
 
     _editor->hide();
     _editor->setSizes(QList<int>() << _editor->height() / 2 << _editor->height() / 2);
@@ -90,7 +93,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     // Connect the buttons
     connect(_regExpButtons, SIGNAL(clicked(int)), _scrolledEditorWindow, SLOT(slotInsertRegExp(int)));
     connect(_regExpButtons, &RegExpButtons::doSelect, _scrolledEditorWindow, &RegExpScrolledEditorWindow::slotDoSelect);
-    connect(_userRegExps, SIGNAL(load(RegExp*)), _scrolledEditorWindow, SLOT(slotInsertRegExp(RegExp*)));
+    connect(_userRegExps, SIGNAL(load(RegExp *)), _scrolledEditorWindow, SLOT(slotInsertRegExp(RegExp *)));
 
     connect(_regExpButtons, SIGNAL(clicked(int)), _userRegExps, SLOT(slotUnSelect()));
     connect(_regExpButtons, SIGNAL(doSelect()), _userRegExps, SLOT(slotUnSelect()));
@@ -146,13 +149,15 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     dockLayout->addWidget(_regexpEdit);
     _regexpEdit->setFocus(Qt::OtherFocusReason);
     _regexpEdit->setClearButtonEnabled(true);
-    _regexpEdit->setWhatsThis(i18n("<p>This is the regular expression in ASCII syntax. You are likely only "
-                                   "to be interested in this if you are a programmer, and need to "
-                                   "develop a regular expression using QRegExp.</p>"
-                                   "<p>You may develop your regular expression both by using the graphical "
-                                   "editor, and by typing the regular expression in this line edit.</p>"));
+    _regexpEdit->setWhatsThis(
+        i18n("<p>This is the regular expression in ASCII syntax. You are likely only "
+             "to be interested in this if you are a programmer, and need to "
+             "develop a regular expression using QRegExp.</p>"
+             "<p>You may develop your regular expression both by using the graphical "
+             "editor, and by typing the regular expression in this line edit.</p>"));
 
-    QPixmap pix = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kregexpeditor/pics/error.png")), KIconLoader::Toolbar);
+    QPixmap pix = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kregexpeditor/pics/error.png")),
+                                                  KIconLoader::Toolbar);
     _error = new QLabel(editDockWidget);
     _error->setPixmap(pix);
     dockLayout->addWidget(_error);
@@ -194,7 +199,7 @@ void KRegExpEditorPrivate::slotUpdateEditor(const QString &txt)
     bool ok;
     if (!RegExpConverter::current()->canParse()) {
         // This can happend if the application set a text through the API.
-        //qDebug("cannot parse");
+        // qDebug("cannot parse");
     } else {
         RegExp *result = RegExpConverter::current()->parse(txt, &ok);
         if (ok) {

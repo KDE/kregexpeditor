@@ -6,12 +6,12 @@
 
 #include "textwidget.h"
 
-#include <QHBoxLayout>
 #include <QApplication>
+#include <QHBoxLayout>
 #include <QMouseEvent>
 
-#include "textregexp.h"
 #include "selectablelineedit.h"
+#include "textregexp.h"
 
 TextWidget::TextWidget(RegExpEditorWindow *editorWindow, QWidget *parent)
     : RegExpWidget(editorWindow, parent)
@@ -29,7 +29,7 @@ void TextWidget::init(const QString &txt)
 {
     QHBoxLayout *lay = new QHBoxLayout(this);
     _edit = new SelectableLineEdit(this, this, QStringLiteral("TextWidget::edit"));
-    _edit->setDragEnabled(false);   //otherwise QLineEdit::mouseMoveEvent will set the cursor over and over again.
+    _edit->setDragEnabled(false); // otherwise QLineEdit::mouseMoveEvent will set the cursor over and over again.
     lay->addWidget(_edit);
 
     _edit->setText(txt);
@@ -106,8 +106,7 @@ bool TextWidget::eventFilter(QObject *, QEvent *event)
             return true;
         } else if (isSelected()) {
             QMouseEvent *e = static_cast<QMouseEvent *>(event);
-            QMouseEvent ev(event->type(), mapTo(_editorWindow, e->pos()),
-                           e->button(), e->buttons(), e->modifiers());
+            QMouseEvent ev(event->type(), mapTo(_editorWindow, e->pos()), e->button(), e->buttons(), e->modifiers());
             QApplication::sendEvent(_editorWindow, &ev);
             return true;
         }

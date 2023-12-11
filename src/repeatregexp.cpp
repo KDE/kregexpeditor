@@ -6,10 +6,11 @@
 
 #include "repeatregexp.h"
 
-#include <KMessageBox>
 #include <KLocalizedString>
+#include <KMessageBox>
 
-RepeatRegExp::RepeatRegExp(bool selected, int lower, int upper, RegExp *child) : RegExp(selected)
+RepeatRegExp::RepeatRegExp(bool selected, int lower, int upper, RegExp *child)
+    : RegExp(selected)
 {
     _lower = lower;
     _upper = upper;
@@ -42,17 +43,23 @@ bool RepeatRegExp::load(const QDomElement &top, const QString &version)
     bool ok;
     _lower = lower.toInt(&ok);
     if (!ok) {
-        KMessageBox::error(nullptr, i18n("<p>Value for attribute <b>%1</b> was not an integer for element "
-                                         "<b>%2</b></p><p>It contained the value <b>%3</b></p>",
-                                         QStringLiteral("lower"), QStringLiteral("Repeat"), lower),
+        KMessageBox::error(nullptr,
+                           i18n("<p>Value for attribute <b>%1</b> was not an integer for element "
+                                "<b>%2</b></p><p>It contained the value <b>%3</b></p>",
+                                QStringLiteral("lower"),
+                                QStringLiteral("Repeat"),
+                                lower),
                            i18n("Error While Loading From XML File"));
         _lower = 0;
     }
     _upper = upper.toInt(&ok);
     if (!ok) {
-        KMessageBox::error(nullptr, i18n("<p>Value for attribute <b>%1</b> was not an integer for element "
-                                         "<b>%2</b></p><p>It contained the value <b>%3</b></p>",
-                                         QStringLiteral("upper"), QStringLiteral("Repeat"), upper),
+        KMessageBox::error(nullptr,
+                           i18n("<p>Value for attribute <b>%1</b> was not an integer for element "
+                                "<b>%2</b></p><p>It contained the value <b>%3</b></p>",
+                                QStringLiteral("upper"),
+                                QStringLiteral("Repeat"),
+                                upper),
                            i18n("Error While Loading From XML File"));
         _upper = -1;
     }

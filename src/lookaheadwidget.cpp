@@ -10,8 +10,8 @@
 
 #include <KLocalizedString>
 
-#include "lookaheadregexp.h"
 #include "concwidget.h"
+#include "lookaheadregexp.h"
 
 LookAheadWidget::LookAheadWidget(RegExpEditorWindow *editorWindow, RegExpType tp, QWidget *parent)
     : SingleContainerWidget(editorWindow, parent)
@@ -44,8 +44,7 @@ void LookAheadWidget::init()
 
 RegExp *LookAheadWidget::regExp() const
 {
-    return new LookAheadRegExp(isSelected(), ((_tp == POSLOOKAHEAD) ? LookAheadRegExp::POSITIVE : LookAheadRegExp::NEGATIVE),
-                               _child->regExp());
+    return new LookAheadRegExp(isSelected(), ((_tp == POSLOOKAHEAD) ? LookAheadRegExp::POSITIVE : LookAheadRegExp::NEGATIVE), _child->regExp());
 }
 
 QSize LookAheadWidget::sizeHint() const

@@ -9,7 +9,8 @@
 #include <QHBoxLayout>
 #include <QListWidget>
 
-indexWindow::indexWindow() : QWidget(nullptr, Qt::Popup)
+indexWindow::indexWindow()
+    : QWidget(nullptr, Qt::Popup)
 {
     lb = new QListWidget(this);
     connect(lb, SIGNAL(selected(int)), this, SLOT(lbSelected(int)));
@@ -29,7 +30,7 @@ void indexWindow::lbSelected(int index)
 void indexWindow::finish(int index)
 {
     itemSelected = index;
-    //qApp->exit_loop();
+    // qApp->exit_loop();
 }
 
 void indexWindow::insertItem(const QString &txt)

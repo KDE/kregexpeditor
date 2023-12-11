@@ -7,8 +7,8 @@
 #ifndef kregexpeditorguidialog_h
 #define kregexpeditorguidialog_h
 
-#include <QDialog>
 #include "kregexpeditorgui.h"
+#include <QDialog>
 
 class Q_DECL_EXPORT KRegExpEditorGUIDialog : public QDialog
 {

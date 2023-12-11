@@ -7,8 +7,8 @@
 #ifndef __REGEXPBUTTONS_H
 #define __REGEXPBUTTONS_H
 
-#include <QToolBar>
 #include "widgetfactory.h"
+#include <QToolBar>
 
 class DoubleClickButton;
 class QButtonGroup;

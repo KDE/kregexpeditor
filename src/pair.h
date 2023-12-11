@@ -9,14 +9,16 @@
 /**
    @internal
 */
-template<class F, class S> class Pair
+template<class F, class S>
+class Pair
 {
 public:
     Pair()
     {
     }
 
-    Pair(F first, S second) : _first(first)
+    Pair(F first, S second)
+        : _first(first)
         , _second(second)
     {
     }

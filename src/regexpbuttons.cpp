@@ -25,7 +25,8 @@ RegExpButtons::RegExpButtons(QWidget *parent, const QString &name)
     // The "select" button.
     _selectBut = new QToolButton(this);
 
-    QPixmap pix = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kregexpeditor/pics/select.png")), KIconLoader::Toolbar);
+    QPixmap pix = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kregexpeditor/pics/select.png")),
+                                                  KIconLoader::Toolbar);
 
     _selectBut->setIcon(static_cast<QIcon>(pix));
     addWidget(_selectBut);
@@ -35,31 +36,37 @@ RegExpButtons::RegExpButtons(QWidget *parent, const QString &name)
     connect(_selectBut, &QAbstractButton::clicked, this, &RegExpButtons::slotSetNonKeepMode);
 
     _selectBut->setToolTip(i18n("Selection tool"));
-    _selectBut->setWhatsThis(i18n("<p>This will change the state of the editor to <i>selection state</i>.</p>"
-                                  "<p>In this state you will not be inserting <i>regexp items</i>, but instead select them. "
-                                  "To select a number of items, press down the left mouse button and drag it over the items.</p>"
-                                  "<p>When you have selected a number of items, you may use cut/copy/paste. These functions are "
-                                  "found in the right mouse button menu.</p>"));
+    _selectBut->setWhatsThis(
+        i18n("<p>This will change the state of the editor to <i>selection state</i>.</p>"
+             "<p>In this state you will not be inserting <i>regexp items</i>, but instead select them. "
+             "To select a number of items, press down the left mouse button and drag it over the items.</p>"
+             "<p>When you have selected a number of items, you may use cut/copy/paste. These functions are "
+             "found in the right mouse button menu.</p>"));
 
     // Insert buttons.
     DoubleClickButton *but;
 
-    but = insert(TEXT, QStringLiteral("text"), i18n("Text"),
+    but = insert(TEXT,
+                 QStringLiteral("text"),
+                 i18n("Text"),
                  i18n("<qt>This will insert a text field, where you may write text. The text you write will "
                       "be matched literally. (i.e. you do not need to escape any characters)</qt>"));
     addWidget(but);
 
-    but = insert(CHARSET, QStringLiteral("characters"), i18n("A single character specified in a range"),
+    but = insert(CHARSET,
+                 QStringLiteral("characters"),
+                 i18n("A single character specified in a range"),
                  i18n("<p>This will match a single character from a predefined range.</p>"
                       "<p>When you insert this widget a dialog box will appear, which lets you specify "
                       "which characters this <i>regexp item</i> will match.</p>"));
     addWidget(but);
 
-    but = insert(DOT, QStringLiteral("anychar"), i18n("Any character"),
-                 i18n("<qt>This will match any single character</qt>"));
+    but = insert(DOT, QStringLiteral("anychar"), i18n("Any character"), i18n("<qt>This will match any single character</qt>"));
     addWidget(but);
 
-    but = insert(REPEAT, QStringLiteral("repeat"), i18n("Repeated content"),
+    but = insert(REPEAT,
+                 QStringLiteral("repeat"),
+                 i18n("Repeated content"),
                  i18n("<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
                       "a specified number of times.<br />"
                       "The number of times to repeat may be specified using ranges; e.g. it could be specified "
@@ -72,13 +79,17 @@ RegExpButtons::RegExpButtons(QWidget *parent, const QString &name)
                       "etc.</qt>"));
     addWidget(but);
 
-    but = insert(ALTN, QStringLiteral("altn"), i18n("Alternatives"),
+    but = insert(ALTN,
+                 QStringLiteral("altn"),
+                 i18n("Alternatives"),
                  i18n("<p>This <i>regexp item</i> will match any of its alternatives.</p>"
                       "<p>Alternatives are specified by placing <i>regexp items</i> on top of "
                       "each other inside this widget.</p>"));
     addWidget(but);
 
-    but = insert(COMPOUND, QStringLiteral("compound"), i18n("Compound regexp"),
+    but = insert(COMPOUND,
+                 QStringLiteral("compound"),
+                 i18n("Compound regexp"),
                  i18n("<qt>This <i>regexp item</i> serves two purposes:"
                       "<ul><li>It makes it possible for you to collapse a huge <i>regexp item</i> into "
                       "a small box. This makes it easier for you to get an overview of large "
@@ -86,29 +97,35 @@ RegExpButtons::RegExpButtons(QWidget *parent, const QString &name)
                       "that you perhaps do not care about the inner workings of.</qt>"));
     addWidget(but);
 
-    but = insert(BEGLINE, QStringLiteral("begline"), i18n("Beginning of line"),
-                 i18n("<qt>This will match the beginning of a line.</qt>"));
+    but = insert(BEGLINE, QStringLiteral("begline"), i18n("Beginning of line"), i18n("<qt>This will match the beginning of a line.</qt>"));
     addWidget(but);
 
-    but = insert(ENDLINE, QStringLiteral("endline"), i18n("End of line"),
-                 i18n("<qt>This will match the end of a line.</qt>"));
+    but = insert(ENDLINE, QStringLiteral("endline"), i18n("End of line"), i18n("<qt>This will match the end of a line.</qt>"));
     addWidget(but);
 
-    _wordBoundary = insert(WORDBOUNDARY, QStringLiteral("wordboundary"), i18n("Word boundary"),
+    _wordBoundary = insert(WORDBOUNDARY,
+                           QStringLiteral("wordboundary"),
+                           i18n("Word boundary"),
                            i18n("<qt>This asserts a word boundary (This part does not actually match any characters)</qt>"));
     addWidget(_wordBoundary);
 
-    _nonWordBoundary = insert(NONWORDBOUNDARY, QStringLiteral("nonwordboundary"), i18n("Non Word boundary"),
+    _nonWordBoundary = insert(NONWORDBOUNDARY,
+                              QStringLiteral("nonwordboundary"),
+                              i18n("Non Word boundary"),
                               i18n("<qt>This asserts a non-word boundary "
                                    "(This part does not actually match any characters)</qt>"));
     addWidget(_nonWordBoundary);
 
-    _posLookAhead = insert(POSLOOKAHEAD, QStringLiteral("poslookahead"), i18n("Positive Look Ahead"),
+    _posLookAhead = insert(POSLOOKAHEAD,
+                           QStringLiteral("poslookahead"),
+                           i18n("Positive Look Ahead"),
                            i18n("<qt>This asserts a regular expression (This part does not actually match any characters). "
                                 "You can only use this at the end of a regular expression.</qt>"));
     addWidget(_posLookAhead);
 
-    _negLookAhead = insert(NEGLOOKAHEAD, QStringLiteral("neglookahead"), i18n("Negative Look Ahead"),
+    _negLookAhead = insert(NEGLOOKAHEAD,
+                           QStringLiteral("neglookahead"),
+                           i18n("Negative Look Ahead"),
                            i18n("<qt>This asserts a regular expression that must not match "
                                 "(This part does not actually match any characters). "
                                 "You can only use this at the end of a regular expression.</qt>"));
@@ -117,14 +134,15 @@ RegExpButtons::RegExpButtons(QWidget *parent, const QString &name)
 
 DoubleClickButton *RegExpButtons::insert(RegExpType tp, const QString &name, const QString &tooltip, const QString &whatsthis)
 {
-    QPixmap pix
-        = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation,
-                                                                 QStringLiteral("kregexpeditor/pics/") + name + QStringLiteral(
-                                                                     ".png")), KIconLoader::Toolbar);
+    QPixmap pix = KIconLoader::global()->loadIcon(
+        QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kregexpeditor/pics/") + name + QStringLiteral(".png")),
+        KIconLoader::Toolbar);
 
     DoubleClickButton *but = new DoubleClickButton(pix, this, QStringLiteral("RegExpButtons::but"));
 
-    connect(but, &DoubleClickButton::clicked, [this, tp](){ Q_EMIT clicked(tp); });
+    connect(but, &DoubleClickButton::clicked, [this, tp]() {
+        Q_EMIT clicked(tp);
+    });
     connect(but, &QAbstractButton::clicked, this, &RegExpButtons::slotSetNonKeepMode);
     connect(but, &DoubleClickButton::doubleClicked, this, &RegExpButtons::slotSetKeepMode);
 

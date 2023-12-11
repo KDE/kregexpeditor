@@ -78,6 +78,7 @@ public:
     void setFrom(const QString &text);
     void setTo(const QString &text);
     bool isEmpty() const;
+
 private:
     CharSelector *_from = nullptr;
     CharSelector *_to = nullptr;

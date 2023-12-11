@@ -6,11 +6,12 @@
 
 #include "regexp.h"
 
-#include "widgetfactory.h"
-#include "kregexpeditorgui.h"
 #include "errormap.h"
+#include "kregexpeditorgui.h"
+#include "widgetfactory.h"
 
-RegExp::RegExp(bool selected) : _parent(nullptr)
+RegExp::RegExp(bool selected)
+    : _parent(nullptr)
     , _destructing(false)
     , _selected(selected)
 {
@@ -69,7 +70,9 @@ QString RegExp::toXmlString() const
 
     top.appendChild(elm);
     QString xmlString = QStringLiteral(
-        "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<!DOCTYPE RegularExpression PUBLIC \"-//KDE//KRegexpEditor DTD 1.0//EN\" \"http://www.blackie.dk/kreg.dtd\">\n") + doc.toString();
+                            "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<!DOCTYPE RegularExpression PUBLIC \"-//KDE//KRegexpEditor DTD 1.0//EN\" "
+                            "\"http://www.blackie.dk/kreg.dtd\">\n")
+        + doc.toString();
 
     return xmlString;
 }

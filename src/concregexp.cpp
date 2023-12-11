@@ -6,10 +6,11 @@
 
 #include "concregexp.h"
 
-#include "widgetfactory.h"
 #include "compoundregexp.h"
+#include "widgetfactory.h"
 
-ConcRegExp::ConcRegExp(bool selected) : RegExp(selected)
+ConcRegExp::ConcRegExp(bool selected)
+    : RegExp(selected)
 {
 }
 
@@ -78,7 +79,7 @@ bool ConcRegExp::operator==(const RegExp &other) const
 {
     // TODO: Merge with AltnRegExp::operator==
     if (list.count() == 1) {
-        return other == *(const_cast< QList<RegExp *> & >(list).at(0));
+        return other == *(const_cast<QList<RegExp *> &>(list).at(0));
     }
 
     if (other.type() != type()) {

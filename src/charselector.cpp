@@ -6,9 +6,9 @@
 
 #include "charselector.h"
 
+#include <QComboBox>
 #include <QHBoxLayout>
 #include <QStackedWidget>
-#include <QComboBox>
 
 #include <KLocalizedString>
 
@@ -27,7 +27,8 @@ class StackContainer : public QWidget
 {
     Q_OBJECT
 public:
-    explicit StackContainer(QWidget *child, QWidget *parent) : QWidget(parent)
+    explicit StackContainer(QWidget *child, QWidget *parent)
+        : QWidget(parent)
     {
         QHBoxLayout *layout = new QHBoxLayout(this);
         child->setParent(this);
@@ -45,16 +46,9 @@ CharSelector::CharSelector(QWidget *parent)
 
     _type = new QComboBox(this);
     _type->setObjectName(QStringLiteral("_type"));
-    items << i18n("Normal Character")
-          << i18n("Unicode Char in Hex.")
-          << i18n("Unicode Char in Oct.")
-          << QStringLiteral("----")
-          << i18n("The Bell Character (\\a)")
-          << i18n("The Form Feed Character (\\f)")
-          << i18n("The Line Feed Character (\\n)")
-          << i18n("The Carriage Return Character (\\r)")
-          << i18n("The Horizontal Tab Character (\\t)")
-          << i18n("The Vertical Tab Character (\\v)");
+    items << i18n("Normal Character") << i18n("Unicode Char in Hex.") << i18n("Unicode Char in Oct.") << QStringLiteral("----")
+          << i18n("The Bell Character (\\a)") << i18n("The Form Feed Character (\\f)") << i18n("The Line Feed Character (\\n)")
+          << i18n("The Carriage Return Character (\\r)") << i18n("The Horizontal Tab Character (\\t)") << i18n("The Vertical Tab Character (\\v)");
     _type->addItems(items);
     layout->addWidget(_type);
 
@@ -135,9 +129,8 @@ void CharSelector::setText(const QString &text)
 
 bool CharSelector::isEmpty() const
 {
-    return (_type->currentIndex() == 0 && _normal->text().isEmpty())
-           || (_type->currentIndex() == 1 && _hex->text().isEmpty())
-           || (_type->currentIndex() == 2 && _oct->text().isEmpty());
+    return (_type->currentIndex() == 0 && _normal->text().isEmpty()) || (_type->currentIndex() == 1 && _hex->text().isEmpty())
+        || (_type->currentIndex() == 2 && _oct->text().isEmpty());
 }
 
 QString CharSelector::text() const

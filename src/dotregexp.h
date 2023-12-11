@@ -16,7 +16,6 @@
 class DotRegExp : public RegExp
 {
 public:
-
     DotRegExp(bool selected);
 
     bool check(ErrorMap &, bool first, bool last) override;
