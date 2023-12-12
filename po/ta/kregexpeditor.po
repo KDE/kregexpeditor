@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:41+0000\n"
+"POT-Creation-Date: 2023-12-12 01:39+0000\n"
 "PO-Revision-Date: 2004-08-16 02:59-0800\n"
 "Last-Translator: Tamil PC <tamilpc@ambalam.com>\n"
 "Language-Team: Tamil <en@li.org>\n"
@@ -30,230 +30,230 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "AUGUSTIN_RAJ@HOTMAIL.COM"
 
-#: altnwidget.cpp:37 altnwidget.cpp:46 regexpbuttons.cpp:87
+#: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:84
 #, kde-format
 msgid "Alternatives"
 msgstr "மாற்று எழுத்துக்கள்"
 
-#: altnwidget.cpp:220
+#: altnwidget.cpp:206
 #, kde-format
 msgid "Selecting several alternatives is currently not supported."
 msgstr "பல வித மாற்றுபாதைகலை தேர்வு செய்வதை தற்போது அதறிக்காது."
 
-#: altnwidget.cpp:222
+#: altnwidget.cpp:208
 #, kde-format
 msgid "Selection Invalid"
 msgstr "தேர்வு செல்லுபடியாகாது"
 
-#: auxbuttons.cpp:35
+#: auxbuttons.cpp:23
 #, kde-format
 msgid "Undo"
 msgstr ""
 
-#: auxbuttons.cpp:41
+#: auxbuttons.cpp:29
 #, kde-format
 msgid "Redo"
 msgstr ""
 
-#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:70
+#: auxbuttons.cpp:35 KMultiFormListBox/ccp.cpp:58
 #, kde-format
 msgid "Cut"
 msgstr ""
 
-#: auxbuttons.cpp:53 KMultiFormListBox/ccp.cpp:71
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:67
+#: auxbuttons.cpp:41 KMultiFormListBox/ccp.cpp:59
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
 #, kde-format
 msgid "Copy"
 msgstr ""
 
-#: auxbuttons.cpp:59 KMultiFormListBox/ccp.cpp:72
+#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:60
 #, kde-format
 msgid "Paste"
 msgstr ""
 
-#: auxbuttons.cpp:65
+#: auxbuttons.cpp:53
 #, kde-format
 msgid "Save"
 msgstr ""
 
-#: characterswidget.cpp:116
+#: characterswidget.cpp:102
 #, kde-format
 msgid "- A word character\n"
 msgstr "- ஒரு சொல் எழுத்து\n"
 
-#: characterswidget.cpp:120
+#: characterswidget.cpp:106
 #, kde-format
 msgid "- A non-word character\n"
 msgstr "ஒரு சொல்லற்ற எழுத்து\n"
 
-#: characterswidget.cpp:124
+#: characterswidget.cpp:110
 #, kde-format
 msgid "- A digit character\n"
 msgstr "ஒரு இலக்க எழுத்து\n"
 
-#: characterswidget.cpp:128
+#: characterswidget.cpp:114
 #, kde-format
 msgid "- A non-digit character\n"
 msgstr "ஒரு இலக்கமற்ற எழுத்து\n"
 
-#: characterswidget.cpp:132
+#: characterswidget.cpp:118
 #, kde-format
 msgid "- A space character\n"
 msgstr "- ஒரு இடைவெளி எழுத்து\n"
 
-#: characterswidget.cpp:136
+#: characterswidget.cpp:122
 #, kde-format
 msgid "- A non-space character\n"
 msgstr "ஒரு இடைவெளிஅற்ற எழுத்து\n"
 
-#: characterswidget.cpp:151
+#: characterswidget.cpp:137
 #, kde-format
 msgctxt "a range of characters"
 msgid "- from %1 to %2\n"
 msgstr ""
 
-#: characterswidget.cpp:159
+#: characterswidget.cpp:145
 #, kde-format
 msgid "Any Character Except"
 msgstr "ஏதோ ஒரு எழுத்தை தவிர."
 
-#: characterswidget.cpp:161
+#: characterswidget.cpp:147
 #, kde-format
 msgid "One of Following Characters"
 msgstr "பின் வரும் எழுத்துகளில் ஒன்று"
 
-#: characterswidget.cpp:279
+#: characterswidget.cpp:265
 #, kde-format
 msgid "Specify Characters"
 msgstr "குறிப்பிட்ட எழுத்துக்கள்"
 
-#: characterswidget.cpp:289
+#: characterswidget.cpp:275
 #, kde-format
 msgid "Do not match the characters specified here"
 msgstr "இங்கே குறிப்பிடப்பட்ட எழுத்தை பொருத்தாதே"
 
-#: characterswidget.cpp:293
+#: characterswidget.cpp:279
 #, kde-format
 msgid "Predefined Character Ranges"
 msgstr "எழுத்து முன்வரை வரம்புகள்"
 
-#: characterswidget.cpp:297
+#: characterswidget.cpp:283
 #, kde-format
 msgid "A word character"
 msgstr "ஒரு சொல் எழுத்து"
 
-#: characterswidget.cpp:299
+#: characterswidget.cpp:285
 #, kde-format
 msgid "A digit character"
 msgstr "ஒரு இலக்க எழுத்து"
 
-#: characterswidget.cpp:301
+#: characterswidget.cpp:287
 #, kde-format
 msgid "A space character"
 msgstr "ஒரு இடைவெளி எழுத்து "
 
-#: characterswidget.cpp:304
+#: characterswidget.cpp:290
 #, kde-format
 msgid "A non-word character"
 msgstr "ஒரு சொல்லற்ற எழுத்து "
 
-#: characterswidget.cpp:306
+#: characterswidget.cpp:292
 #, kde-format
 msgid "A non-digit character"
 msgstr "ஒரு இலக்கமற்ற எழுத்து "
 
-#: characterswidget.cpp:308
+#: characterswidget.cpp:294
 #, kde-format
 msgid "A non-space character"
 msgstr "ஒரு இடைவெளியற்ற எழுத்து "
 
-#: characterswidget.cpp:312
+#: characterswidget.cpp:298
 #, kde-format
 msgid "Single Characters"
 msgstr "ஒற்றை எழுத்துக்கள்"
 
-#: characterswidget.cpp:324 characterswidget.cpp:345
+#: characterswidget.cpp:310 characterswidget.cpp:331
 #, kde-format
 msgid "More Entries"
 msgstr "மேலும் உள்ளிட்டவைகள்"
 
-#: characterswidget.cpp:332
+#: characterswidget.cpp:318
 #, kde-format
 msgid "Character Ranges"
 msgstr "எழுத்து வரம்புகள்"
 
-#: characterswidget.cpp:426
+#: characterswidget.cpp:412
 #, kde-format
 msgid "From:"
 msgstr "தொடர்ந்து:"
 
-#: characterswidget.cpp:433
+#: characterswidget.cpp:419
 #, kde-format
 msgctxt "end of range"
 msgid "To:"
 msgstr "வரம்பின் எல்லை"
 
-#: charselector.cpp:60
+#: charselector.cpp:49
 #, kde-format
 msgid "Normal Character"
 msgstr "இயல்பான எழுத்து "
 
-#: charselector.cpp:61
+#: charselector.cpp:49
 #, kde-format
 msgid "Unicode Char in Hex."
 msgstr "யுனிகோடு எழுத்தும் எக்ஸாவும்"
 
-#: charselector.cpp:62
+#: charselector.cpp:49
 #, kde-format
 msgid "Unicode Char in Oct."
 msgstr "யுனிகோடு எழுத்தும் ஆக்டாவும்."
 
-#: charselector.cpp:64
+#: charselector.cpp:50
 #, kde-format
 msgid "The Bell Character (\\a)"
 msgstr "பெல் எழுத்து(\\a)"
 
-#: charselector.cpp:65
+#: charselector.cpp:50
 #, kde-format
 msgid "The Form Feed Character (\\f)"
 msgstr "வடிவம் செலுத்தும் எழுத்து(\\f)"
 
-#: charselector.cpp:66
+#: charselector.cpp:50
 #, kde-format
 msgid "The Line Feed Character (\\n)"
 msgstr "கோடு/இணைப்பு/வரி செலுத்தும் எழுத்து (\\n)"
 
-#: charselector.cpp:67
+#: charselector.cpp:51
 #, kde-format
 msgid "The Carriage Return Character (\\r)"
 msgstr "நகர்த்தி திரும்பல் எழுத்து (\\r)"
 
-#: charselector.cpp:68
+#: charselector.cpp:51
 #, kde-format
 msgid "The Horizontal Tab Character (\\t)"
 msgstr "கிடைமட்ட தத்தல் எழுத்து (\\t)"
 
-#: charselector.cpp:69
+#: charselector.cpp:51
 #, kde-format
 msgid "The Vertical Tab Character (\\v)"
 msgstr "செங்குத்து தத்தல் எழுத்து(\\v) "
 
-#: compoundwidget.cpp:47
+#: compoundwidget.cpp:35
 #, kde-format
 msgid "&Title:"
 msgstr "&தலைப்பு:"
 
-#: compoundwidget.cpp:53
+#: compoundwidget.cpp:41
 #, kde-format
 msgid "&Description:"
 msgstr "&விவரிப்பி: "
 
-#: compoundwidget.cpp:59
+#: compoundwidget.cpp:47
 #, kde-format
 msgid "&Automatically replace using this item"
 msgstr "இந்த உருப்படியை பயன்படுத்தி தானாக மாற்றிடும்"
 
-#: compoundwidget.cpp:61
+#: compoundwidget.cpp:50
 #, fuzzy, kde-format
 #| msgid ""
 #| "When the content of this box is typed in to the ASCII line,<br>this box "
@@ -265,40 +265,40 @@ msgstr ""
 "இந்த பெட்டியின் உள்ளடக்கம் ASCII-வரியில் தட்டச்சு செய்யும் போது,<br>இந்த பெட்டி அதை சுற்றி "
 "தானாக சேர்க்கப்பட்டு இருக்கும்,<br>சரிபார்ப்பு பெட்டி தேர்வுசெய்யப்பட்டு இருந்தால்."
 
-#: compoundwidget.cpp:126
+#: compoundwidget.cpp:115
 #, kde-format
 msgid "Configure Compound"
 msgstr "உள்ளமை கூட்டு"
 
-#: emacsregexpconverter.cpp:78
+#: emacsregexpconverter.cpp:66
 #, kde-format
 msgid "Look ahead regular expressions not supported in Emacs style"
 msgstr "வழக்கமான தொடர்கள் Emacs-பானியால் ஆதரிக்கப்படாது என்பதை முன்நோக்கு. "
 
-#: emacsregexpconverter.cpp:182
+#: emacsregexpconverter.cpp:171
 #, kde-format
 msgid "Word boundary and non word boundary is not supported in Emacs syntax"
 msgstr "Emacs-தொடரமைப்பில் எழுத்து எல்லை மற்றும் எழுத்தற்ற எல்லை ஆதரவு அளிக்கவில்லை. "
 
-#: errormap.cpp:47
+#: errormap.cpp:37
 #, kde-format
 msgid ""
 "Your regular expression is invalid, due to something preceding a 'line "
 "start'."
 msgstr "வரியின் தொடக்கத்தில் ஏதோ ஒன்று இருப்பதால்.உங்கள் வழக்கமான தொடர் தவறானது."
 
-#: errormap.cpp:48 errormap.cpp:57 errormap.cpp:66
+#: errormap.cpp:38 errormap.cpp:49 errormap.cpp:60
 #, kde-format
 msgid "Regular Expression Error"
 msgstr "வழக்கமான தொடர் பிழை "
 
-#: errormap.cpp:56
+#: errormap.cpp:48
 #, kde-format
 msgid ""
 "Your regular expression is invalid, due to something following a 'line end'."
 msgstr "வரியின் முடிவில் ஏதோ ஒன்று பின் தொடர்வதால்.உங்கள் வழக்கமான தொடர் தவறானது."
 
-#: errormap.cpp:65
+#: errormap.cpp:59
 #, kde-format
 msgid ""
 "Your regular expression is invalid. 'Look Ahead' regular expression must be "
@@ -307,7 +307,7 @@ msgstr ""
 "உங்கலுடைய வழக்கமானதொடர் தவறானது. வழக்கமானதொடர் கட்டாயமாக துணை தொடராக இருக்க வேண்டும் "
 "என்பதை நோக்குக. "
 
-#: infopage.cpp:33
+#: infopage.cpp:22
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Translators, feel free to add yourself in the text below, asking for a "
@@ -353,7 +353,7 @@ msgstr ""
 "p>பார்க்கவும்<h2>வழக்கமான கூற்று எது?</h2>வழக்கமான கூற்று தேவை இல்லை என்றால், இது ஒரு "
 "நல்ல யோசனை<a href=\"doc://whatIsARegExp\">வழக்கமான கூற்றுக்கு முன்னுறை</a>.<p>"
 
-#: infopage.cpp:46
+#: infopage.cpp:36
 #, kde-format
 msgid ""
 "<h2>Send the author an electronic postcard</h2>I don't get any money for "
@@ -372,78 +372,78 @@ msgstr ""
 "\">ஜெஸ்பர் கே. பேடர்ஸன்</a> &lt;<a href=\"mailto:blackie@kde.org\">blackie@kde."
 "org</a>&gt;"
 
-#: KMultiFormListBox/ccp.cpp:73
+#: KMultiFormListBox/ccp.cpp:61
 #, kde-format
 msgid "Insert Blank"
 msgstr "வெற்றுவை செருகு "
 
-#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:244
 #, kde-format
 msgid "Due to a bug, it is not possible to remove the last element."
 msgstr "தவரின் காரணமாக,கடைசி உறுப்புபினை நீக்க இயலாது. "
 
-#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:244
 #, kde-format
 msgid "Internal Error"
 msgstr "அகநிலை பிழை "
 
-#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:282
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:266
 #, kde-format
 msgid "There is no element on the clipboard to paste in."
 msgstr "ஒட்டுவதற்கு இடைநிலை பலகையில் ஒரு பொருளும் இல்லை "
 
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:54
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:46
 #, kde-format
 msgid "Edit"
 msgstr ""
 
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:61
-#: userdefinedregexps.cpp:153
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:53
+#: userdefinedregexps.cpp:142
 #, fuzzy, kde-format
 msgid "Delete"
 msgstr "உருப்படியை நீக்கு"
 
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:74
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:66
 #, kde-format
 msgid "Up"
 msgstr "மேல் "
 
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:80
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:72
 #, kde-format
 msgid "Down"
 msgstr "கீழ்/ செயலிழப்பு "
 
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:152
 #, kde-format
 msgid "Delete item \"%1\"?"
 msgstr "உருப்படியை நீக்கு\"%1\"?"
 
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:152
 #, kde-format
 msgid "Delete Item"
 msgstr "உருப்படியை நீக்கு"
 
-#: KMultiFormListBox/kmultiformlistbox.h:71
+#: KMultiFormListBox/kmultiformlistbox.h:61
 #, kde-format
 msgid "Add"
 msgstr ""
 
-#: KMultiFormListBox/widgetwindow.cpp:47
+#: KMultiFormListBox/widgetwindow.cpp:35
 #, kde-format
 msgid "Widget Configuration"
 msgstr "சிறு கருவி உள்ளமைவு "
 
-#: kregexpeditorguidialog.cpp:36
+#: kregexpeditorguidialog.cpp:24
 #, kde-format
 msgid "Regular Expression Editor"
 msgstr "வழக்கமான தொடர் தொகுப்பி/திருத்தி "
 
-#: kregexpeditorprivate.cpp:68
+#: kregexpeditorprivate.cpp:56
 #, fuzzy, kde-format
 msgid "Compound regular expression:"
 msgstr "அடிக்கடி தொடர் கூட்டு"
 
-#: kregexpeditorprivate.cpp:69
+#: kregexpeditorprivate.cpp:58
 #, kde-format
 msgid ""
 "In this window you will find predefined regular expressions. Both regular "
@@ -453,7 +453,7 @@ msgstr ""
 "இந்த சன்னல்திரையில் உங்களால் முன்வரை வழக்கமான தொடரினை கண்டுப்பிடிக்கலாம்.உங்களால் இரண்டு "
 "வழக்கமான தொடரிலும் முன்னேற்றம் மற்றும் சேமிக்க இயலும்."
 
-#: kregexpeditorprivate.cpp:78
+#: kregexpeditorprivate.cpp:68
 #, kde-format
 msgid ""
 "In this window you will develop your regular expressions. Select one of the "
@@ -464,7 +464,7 @@ msgstr ""
 "ஒரு செயல்லை தேர்வு செய்யவும்,அதன் பின் கூடுத்த செயலை  சேர்க்க இந்த சாலரத்தில் சுட்டியை "
 "வைத்து சொடுக்கவும்."
 
-#: kregexpeditorprivate.cpp:86
+#: kregexpeditorprivate.cpp:77
 #, fuzzy, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
@@ -480,12 +480,12 @@ msgstr ""
 "சாலரத்தில் இருந்து வழக்கமான கூற்று ஒரு பகுதி ஒன்றை தேர்வு செய்தால், அதன்பின் இந்த பகுதி "
 "முனைப்புறுத்தபடும்- உங்கள் வழக்கமான கூற்றை<i>வழு நீக்கு</i>இது அனுமதி தரும்."
 
-#: kregexpeditorprivate.cpp:148
+#: kregexpeditorprivate.cpp:139
 #, fuzzy, kde-format
 msgid "ASCII syntax:"
 msgstr "ஆஸ்கி தொடரமைப்பு: "
 
-#: kregexpeditorprivate.cpp:161
+#: kregexpeditorprivate.cpp:153
 #, fuzzy, kde-format
 #| msgid ""
 #| "This is the regular expression in ASCII syntax. You are likely only to be "
@@ -505,44 +505,56 @@ msgstr ""
 "உருவாக்க வேண்டும்.<p>வரைகலை தொகுப்பை உபயோகித்தோ, மற்றும் தொகுப்பு வரியில் வழக்கமான "
 "கூற்றை உள்ளிட்டோ வழக்கமான கூற்றுகலை உருவாக்கலாம்."
 
-#: kregexpeditorprivate.cpp:371
+#: kregexpeditorprivate.cpp:364
 #, kde-format
 msgid "Could not open file '%1' for reading"
 msgstr "படிப்பதற்கு கோப்பினை '%1'  திறக்க முடியவில்லை"
 
-#: lookaheadwidget.cpp:51
+#: lookaheadwidget.cpp:39
 #, kde-format
 msgid "Pos. Look Ahead"
 msgstr "நல்ல நோக்கத்துடன் நோக்கு "
 
-#: lookaheadwidget.cpp:53
+#: lookaheadwidget.cpp:41
 #, kde-format
 msgid "Neg. Look Ahead"
 msgstr "கெட்ட நோக்கத்துடன்  நோக்கு"
 
-#: main.cpp:42
+#: main.cpp:28
 #, kde-format
 msgid "RegExp Editor"
 msgstr "பதிவகம் தொடர் தொகுப்பி/திருத்தி "
 
-#: main.cpp:43
+#: main.cpp:30
 #, kde-format
 msgid "Editor for Regular Expressions"
 msgstr "வழக்கமான தொடருக்கு தொகுப்பி"
 
-#: main.cpp:45
+#: main.cpp:32
 #, kde-format
 msgid "(c) 2002-2003 Jesper K. Pedersen"
 msgstr ""
 
-#: main.cpp:46
+#: main.cpp:33
 #, kde-format
 msgid "Laurent Montel"
 msgstr ""
 
-#: main.cpp:46
+#: main.cpp:33
 #, kde-format
 msgid "Developer"
+msgstr ""
+
+#: main.cpp:34
+#, kde-format
+msgctxt "@info:credit"
+msgid "Carl Schwan"
+msgstr ""
+
+#: main.cpp:35
+#, kde-format
+msgctxt "@info:credit"
+msgid "Port to Qt6"
 msgstr ""
 
 #: predefined/General/anything.regexp:5
@@ -584,12 +596,12 @@ msgstr ""
 msgid "Back reference regular expressions not supported"
 msgstr "வழக்கமான தொடர்கள் Emacs-பானியால் ஆதரிக்கப்படாது என்பதை முன்நோக்கு. "
 
-#: regexpbuttons.cpp:49
+#: regexpbuttons.cpp:38
 #, kde-format
 msgid "Selection tool"
 msgstr "தேர்வுக் கருவி"
 
-#: regexpbuttons.cpp:50
+#: regexpbuttons.cpp:40
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This will change the state of the editor to <i>selection state</i>."
@@ -612,12 +624,12 @@ msgstr ""
 "பொருளை தேர்வு செய்தபின், வேட்டு/நகல்/ஒட்டு இதனை உபயோகிக்கலாம். இது எல்லாம் சுட்டியின் "
 "வலது பட்டியலில் இருக்கும்.</qt>"
 
-#: regexpbuttons.cpp:59
+#: regexpbuttons.cpp:51
 #, kde-format
 msgid "Text"
 msgstr "உரை"
 
-#: regexpbuttons.cpp:60
+#: regexpbuttons.cpp:52
 #, kde-format
 msgid ""
 "<qt>This will insert a text field, where you may write text. The text you "
@@ -627,12 +639,12 @@ msgstr ""
 "<qt>இது ஒரு உறை புலத்தை சொருகும், அங்கு உறையை ஏழுதலாம். ஏழுதிய உறைகல் அப்படியே "
 "பொருந்தும். (i.e. எந்த ஒரு எழுத்தையும் தவிற்க தேவையில்லை)</qt>"
 
-#: regexpbuttons.cpp:64
+#: regexpbuttons.cpp:58
 #, kde-format
 msgid "A single character specified in a range"
 msgstr "ஒரு ஒற்றை எழுத்து வரம்புகளில் குறுப்பிடப்படுகிறது"
 
-#: regexpbuttons.cpp:65
+#: regexpbuttons.cpp:59
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This will match a single character from a predefined range.<p>When "
@@ -647,22 +659,22 @@ msgstr ""
 "ஒரு உறையாடல் பேட்டி தோண்றும், அது எந்த எழுத்து பொருந்தும் என்பதை<i>regexp பொருள்</i> "
 "குறிப்பிடும்.</qt>"
 
-#: regexpbuttons.cpp:70
+#: regexpbuttons.cpp:64
 #, kde-format
 msgid "Any character"
 msgstr "ஏதாவது எழுத்து "
 
-#: regexpbuttons.cpp:71
+#: regexpbuttons.cpp:64
 #, kde-format
 msgid "<qt>This will match any single character</qt>"
 msgstr "<qt>இது ஏதாவது ஒரு ஒற்றை எழுத்தை பொருத்தும்</qt> "
 
-#: regexpbuttons.cpp:74
+#: regexpbuttons.cpp:69
 #, kde-format
 msgid "Repeated content"
 msgstr "மறுமுறை தொகுப்பு "
 
-#: regexpbuttons.cpp:75
+#: regexpbuttons.cpp:70
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it "
@@ -692,7 +704,7 @@ msgstr ""
 "<i>regexp பொருள்</i> காலி சரத்தில் பொருந்தும், சரம் <tt>abc</tt>, சரம் <tt>abcabc</"
 "tt>, சரம் <tt>abcabcabcabc</tt>, இன்னும்...</qt>"
 
-#: regexpbuttons.cpp:88
+#: regexpbuttons.cpp:85
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This <i>regexp item</i> will match any of its alternatives.</p>You "
@@ -707,12 +719,12 @@ msgstr ""
 "மேல் உள்ள விட்ஜடில் இரு பக்கதில் <i>regexp பொருள்</i> .</qt>மாற்று விருப்பத்தை "
 "குறிப்பிடலாம்."
 
-#: regexpbuttons.cpp:93
+#: regexpbuttons.cpp:92
 #, kde-format
 msgid "Compound regexp"
 msgstr "கூட்டுப்பதிவகத் தொடர் "
 
-#: regexpbuttons.cpp:94
+#: regexpbuttons.cpp:93
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it "
@@ -732,32 +744,32 @@ msgstr ""
 "இது உங்கள் பார்வைக்கு எளிதாக்கும். முன் அமைப்பு ஏற்றுக்கு இது மிகவும் உதவியாக "
 "இருக்கும்<i>regexp பொருள்</i> உள்ளே நடக்கும் வேலையை பற்றி யோசிக்க வேண்டாம்."
 
-#: regexpbuttons.cpp:101
+#: regexpbuttons.cpp:100
 #, kde-format
 msgid "Beginning of line"
 msgstr "கோட்டின் தொடக்கம்"
 
-#: regexpbuttons.cpp:102
+#: regexpbuttons.cpp:100
 #, kde-format
 msgid "<qt>This will match the beginning of a line.</qt>"
 msgstr "<qt>இது தொடக்க கோட்டினை பொருந்தச்செய்யும்.</qt>"
 
-#: regexpbuttons.cpp:105
+#: regexpbuttons.cpp:103
 #, kde-format
 msgid "End of line"
 msgstr "கோட்டின் முடிவு"
 
-#: regexpbuttons.cpp:106
+#: regexpbuttons.cpp:103
 #, kde-format
 msgid "<qt>This will match the end of a line.</qt>"
 msgstr "<qt>இது இறுதி கோட்டினை பொருந்தச்செய்யும்</qt>"
 
-#: regexpbuttons.cpp:109
+#: regexpbuttons.cpp:108
 #, kde-format
 msgid "Word boundary"
 msgstr "வார்த்தை எல்லை"
 
-#: regexpbuttons.cpp:110
+#: regexpbuttons.cpp:109
 #, kde-format
 msgid ""
 "<qt>This asserts a word boundary (This part does not actually match any "
@@ -766,12 +778,12 @@ msgstr ""
 "<qt>உறுதியாகக் கூறு ஒரு எழுத்து எல்லை(உண்மையில் இந்த பகுதி எந்த எழுத்தையும் "
 "பொருத்தாது).</qt> "
 
-#: regexpbuttons.cpp:113
+#: regexpbuttons.cpp:114
 #, kde-format
 msgid "Non Word boundary"
 msgstr "எழுத்தஅற்ற எல்லை"
 
-#: regexpbuttons.cpp:114
+#: regexpbuttons.cpp:115
 #, kde-format
 msgid ""
 "<qt>This asserts a non-word boundary (This part does not actually match any "
@@ -780,12 +792,12 @@ msgstr ""
 "<qt>உறுதியாகக் கூறு ஒரு எழுத்து அற்ற எல்லை(உண்மையில் இந்த பகுதி எந்த எழுத்தையும் "
 "பொருத்தாது).</qt> "
 
-#: regexpbuttons.cpp:118
+#: regexpbuttons.cpp:121
 #, kde-format
 msgid "Positive Look Ahead"
 msgstr "நல்ல நோக்கத்துடன் நோக்கு "
 
-#: regexpbuttons.cpp:119
+#: regexpbuttons.cpp:122
 #, kde-format
 msgid ""
 "<qt>This asserts a regular expression (This part does not actually match any "
@@ -794,12 +806,12 @@ msgstr ""
 "<qt>உறுதியாகக் கூறு ஒரு வழக்கமான தொடர்(உண்மையில் இந்த பகுதி எந்த எழுத்தையும் "
 "பொருத்தாது).உங்களால் இதை வழக்கமான தொடரின் முடிவில் மட்டும் பயன்படுத்த முடியும்(</qt> "
 
-#: regexpbuttons.cpp:123
+#: regexpbuttons.cpp:128
 #, kde-format
 msgid "Negative Look Ahead"
 msgstr "கெட்ட நோக்கத்துடன்  நோக்கு"
 
-#: regexpbuttons.cpp:124
+#: regexpbuttons.cpp:129
 #, kde-format
 msgid ""
 "<qt>This asserts a regular expression that must not match (This part does "
@@ -810,83 +822,83 @@ msgstr ""
 "எந்த எழுத்தையும் பொருத்தாது).உங்களால் இதை வழக்கமான தொடரின் முடிவில் மட்டும் பயன்படுத்த "
 "முடியும்(</qt> "
 
-#: regexpeditorwindow.cpp:215
+#: regexpeditorwindow.cpp:203
 #, kde-format
 msgid "There is no selection."
 msgstr "தேர்வு இங்கே இல்லை"
 
-#: regexpeditorwindow.cpp:215
+#: regexpeditorwindow.cpp:203
 #, kde-format
 msgid "Missing Selection"
 msgstr "தேர்வுஇல்லாமை"
 
-#: regexpeditorwindow.cpp:280
+#: regexpeditorwindow.cpp:268
 #, kde-format
 msgid "There is no widget under cursor."
 msgstr "காட்டியின் அடியில் எந்த சிறுகருவியும்  இல்லை"
 
-#: regexpeditorwindow.cpp:280
+#: regexpeditorwindow.cpp:268
 #, kde-format
 msgid "Invalid Operation"
 msgstr "செல்லாத செயல்பாடு "
 
-#: regexpeditorwindow.cpp:331
+#: regexpeditorwindow.cpp:316
 #, kde-format
 msgid "C&ut"
 msgstr ""
 
-#: regexpeditorwindow.cpp:335
+#: regexpeditorwindow.cpp:319
 #, kde-format
 msgid "&Copy"
 msgstr ""
 
-#: regexpeditorwindow.cpp:339
+#: regexpeditorwindow.cpp:322
 #, kde-format
 msgid "&Paste"
 msgstr ""
 
-#: regexpeditorwindow.cpp:345
+#: regexpeditorwindow.cpp:327
 #, kde-format
 msgid "&Edit"
 msgstr ""
 
-#: regexpeditorwindow.cpp:349
+#: regexpeditorwindow.cpp:330
 #, kde-format
 msgid "&Save Regular Expression..."
 msgstr "வழக்கமானதொடரினை சேமி"
 
-#: regexpeditorwindow.cpp:388
+#: regexpeditorwindow.cpp:369
 #, kde-format
 msgid "Name for Regular Expression"
 msgstr "வழக்கமான தொடருக்கான பெயர்"
 
-#: regexpeditorwindow.cpp:388
+#: regexpeditorwindow.cpp:369
 #, kde-format
 msgid "Enter name:"
 msgstr "பெயரினை உள்ளீடு செய்"
 
-#: regexpeditorwindow.cpp:390
+#: regexpeditorwindow.cpp:371
 #, kde-format
 msgid "Empty name is not supported"
 msgstr ""
 
-#: regexpeditorwindow.cpp:390
+#: regexpeditorwindow.cpp:371
 #, fuzzy, kde-format
 #| msgid "&Save Regular Expression..."
 msgid "Save Regular Expression"
 msgstr "வழக்கமானதொடரினை சேமி"
 
-#: regexpeditorwindow.cpp:398
+#: regexpeditorwindow.cpp:380
 #, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b></p>"
 msgstr "<p>வழக்கமானபெயர்தொடரின் மேல் எழுது<b>%1</b>?</p>"
 
-#: regexpeditorwindow.cpp:406
+#: regexpeditorwindow.cpp:390
 #, kde-format
 msgid "Could not open file for writing: %1"
 msgstr "எழுதுவதற்கு கோப்பினை திறக்க முடியவில்லை:%1"
 
-#: repeatregexp.cpp:57 repeatregexp.cpp:65
+#: repeatregexp.cpp:47 repeatregexp.cpp:58
 #, kde-format
 msgid ""
 "<p>Value for attribute <b>%1</b> was not an integer for element <b>%2</b></"
@@ -895,150 +907,150 @@ msgstr ""
 "<p>மாற்றுவிருப்பத்தின் மதிப்பு <b>%1</b> உறுபிற்கு ஒரு எண் அல்ல<b>%2</b></"
 "p><p>மதிப்புகலை கோண்டது <b>%3</b></p>"
 
-#: repeatregexp.cpp:60 repeatregexp.cpp:68 textrangeregexp.cpp:146
-#: textregexp.cpp:54 widgetfactory.cpp:165 widgetfactory.cpp:196
-#: widgetfactory.cpp:203
+#: repeatregexp.cpp:52 repeatregexp.cpp:63 textrangeregexp.cpp:136
+#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:185
+#: widgetfactory.cpp:194
 #, kde-format
 msgid "Error While Loading From XML File"
 msgstr "XML-கோப்பில் இருந்து ஏற்றல் செய்யும் போது பிழை ஏற்பட்டுள்ளது "
 
-#: repeatwidget.cpp:74
+#: repeatwidget.cpp:62
 #, kde-format
 msgid "Number of Times to Repeat Content"
 msgstr "எத்தனை முறை உள்ளடக்கத்தினை திரும்பச்செய்ய வேண்டும்"
 
-#: repeatwidget.cpp:184
+#: repeatwidget.cpp:170
 #, kde-format
 msgid "Times to Match"
 msgstr "காலத்துடன் பொருந்துக "
 
-#: repeatwidget.cpp:191
+#: repeatwidget.cpp:177
 #, kde-format
 msgid "Any number of times (including zero times)"
 msgstr "எத்தனை முறை வேண்டுமானாலும்(சுழி முறை உட்பட)"
 
-#: repeatwidget.cpp:198
+#: repeatwidget.cpp:184
 #, kde-format
 msgid "At least"
 msgstr "குறைந்தபட்சம்"
 
-#: repeatwidget.cpp:199
+#: repeatwidget.cpp:185
 #, kde-format
 msgid "At most"
 msgstr "அதிகபட்சம்"
 
-#: repeatwidget.cpp:200
+#: repeatwidget.cpp:186
 #, kde-format
 msgid "Exactly"
 msgstr "சரியாக"
 
-#: repeatwidget.cpp:203
+#: repeatwidget.cpp:189
 #, kde-format
 msgid "From"
 msgstr "தொடர்ந்து"
 
-#: repeatwidget.cpp:215
+#: repeatwidget.cpp:201
 #, kde-format
 msgid "to"
 msgstr "பெறுவது"
 
-#: repeatwidget.cpp:223 repeatwidget.cpp:249
+#: repeatwidget.cpp:209 repeatwidget.cpp:235
 #, kde-format
 msgid "time(s)"
 msgstr "முறைகள்"
 
-#: repeatwidget.cpp:299
+#: repeatwidget.cpp:285
 #, kde-format
 msgid "Repeated Any Number of Times"
 msgstr "எத்தனை முறை வேண்டுமானாலும் திரும்பச்செய்யலாம்"
 
-#: repeatwidget.cpp:301
+#: repeatwidget.cpp:287
 #, fuzzy, kde-format
 msgid "Repeated at Least 1 Time"
 msgid_plural "Repeated at Least %1 Times"
 msgstr[0] "குறைந்தபட்சம் %2 முறையாவது திரும்பச்செய்யலாம்"
 
-#: repeatwidget.cpp:303
+#: repeatwidget.cpp:289
 #, fuzzy, kde-format
 msgid "Repeated at Most 1 Time"
 msgid_plural "Repeated at Most %1 Times"
 msgstr[0] "அதிகபட்சம் %2 முறையாவது திரும்பச்செய்யலாம்"
 
-#: repeatwidget.cpp:305
+#: repeatwidget.cpp:291
 #, fuzzy, kde-format
 msgid "Repeated Exactly 1 Time"
 msgid_plural "Repeated Exactly %1 Times"
 msgstr[0] "சரியாக %2 முறை திரும்பச்செய்யலாம்"
 
-#: repeatwidget.cpp:307
+#: repeatwidget.cpp:293
 #, kde-format
 msgid "Repeated From %1 to %2 Times"
 msgstr "%1 முதல் %2  முறை வரை திரும்பச்செய்யலாம் "
 
-#: textrangeregexp.cpp:145
+#: textrangeregexp.cpp:135
 #, kde-format
 msgid ""
 "<p>Invalid sub element to element <b>TextRange</b>. Tag was <b>%1</b></p>"
 msgstr ""
 " <p>உறுப்புக்கு செல்லாத துனைஉறுப்பு <b> உரை வரம்பு</b>ஒட்டு/ குறி <b>%1</b></p>"
 
-#: textregexp.cpp:53
+#: textregexp.cpp:42
 #, kde-format
 msgid "<p>Element <b>Text</b> did not contain any textual data.</p>"
 msgstr "<p>உறுப்பு <b> உரை</b>உரைநிலை தரவு ஏதும் உள்கோள்ளவில்லை</p>"
 
-#: userdefinedregexps.cpp:67
+#: userdefinedregexps.cpp:55
 #, kde-format
 msgid "User Defined"
 msgstr "பயனர் வரையறு"
 
-#: userdefinedregexps.cpp:87
+#: userdefinedregexps.cpp:76
 #, fuzzy, kde-format
 msgid "general"
 msgstr "பொது"
 
-#: userdefinedregexps.cpp:101
+#: userdefinedregexps.cpp:90
 #, kde-format
 msgid "Could not open file for reading: %1"
 msgstr "படிப்பதற்கு கோப்பினை திறக்க முடியவில்லை: %1"
 
-#: userdefinedregexps.cpp:111
+#: userdefinedregexps.cpp:100
 #, kde-format
 msgid "File %1 containing user defined regular expression contained an error"
 msgstr "கோப்பு %1 பயனர் வரையறுவை கோண்டுள்ளது வழக்கமான் தொடரில் ஒரு பிழையை கோண்டுள்ளது."
 
-#: userdefinedregexps.cpp:154
+#: userdefinedregexps.cpp:143
 #, fuzzy, kde-format
 #| msgid "Rename..."
 msgid "Rename"
 msgstr "மாற்றுப்பெயரிடு..."
 
-#: userdefinedregexps.cpp:195
+#: userdefinedregexps.cpp:184
 #, kde-format
 msgid "Rename Item"
 msgstr "பெயர்மாற்று உருப்படி"
 
-#: userdefinedregexps.cpp:195
+#: userdefinedregexps.cpp:184
 #, kde-format
 msgid "New name:"
 msgstr "புதிய பெயர்"
 
-#: userdefinedregexps.cpp:202
+#: userdefinedregexps.cpp:191
 #, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b>?</p>"
 msgstr "<p>வழக்கமானபெயர்தொடரின் மேல் எழுது<b>%1</b>?</p>"
 
-#: userdefinedregexps.cpp:202
+#: userdefinedregexps.cpp:194
 #, kde-format
 msgid "Do Not Overwrite"
 msgstr ""
 
-#: verifybuttons.cpp:38
+#: verifybuttons.cpp:27
 #, kde-format
 msgid "Verify regular expression"
 msgstr "வழக்கமானதொடரினை சரிபார்"
 
-#: verifybuttons.cpp:39
+#: verifybuttons.cpp:29
 #, kde-format
 msgid ""
 "Shows what part of the regular expression is being matched in the "
@@ -1047,32 +1059,32 @@ msgstr ""
 "வழக்கமான கூற்றில் <i>சொதிக்கும் சாலரம்</i> எந்த பகுதி ஒற்று பொகிறது என்பதை காண்பிக்கும். "
 "(வரைகலை தொகுப்பு சாலரத்திற்கு கீழ் சாலரம்)."
 
-#: verifybuttons.cpp:48
+#: verifybuttons.cpp:38
 #, kde-format
 msgid "Load text in the verifier window"
 msgstr "சரிபார்ப்பு சன்னல்திரையில் உரையை ஏற்று "
 
-#: verifybuttons.cpp:53
+#: verifybuttons.cpp:43
 #, kde-format
 msgid "Verification Settings"
 msgstr ""
 
-#: verifybuttons.cpp:101
+#: verifybuttons.cpp:91
 #, kde-format
 msgid "config menu"
 msgstr ""
 
-#: verifybuttons.cpp:104
+#: verifybuttons.cpp:94
 #, kde-format
 msgid "Verify on the Fly"
 msgstr "செய்து கோண்டிருக்கும் போது சோதி"
 
-#: verifybuttons.cpp:110
+#: verifybuttons.cpp:100
 #, kde-format
 msgid "Toggle on-the-fly verification of regular expression"
 msgstr "செயல்படுத்தும் போழுது நிலைமாற்றியை வழக்கமான கூற்றில் சோதிக்கவும் "
 
-#: verifybuttons.cpp:111
+#: verifybuttons.cpp:102
 #, kde-format
 msgid ""
 "Enabling this option will make the verifier update for each edit. If the "
@@ -1083,50 +1095,50 @@ msgstr ""
 "சொதிக்கும் சாலரம் நிறைய உறைகலை கோண்டு இருந்தால்,அல்லது வழக்கமான கூற்று சிக்காகவோ அல்லது "
 "நிறைய பொருத்தம் இருந்தாலோ,இது மிகவும் மெதுவாக செல்லும்."
 
-#: verifybuttons.cpp:115
+#: verifybuttons.cpp:106
 #, kde-format
 msgid "Match Greedy"
 msgstr ""
 
-#: verifybuttons.cpp:120
+#: verifybuttons.cpp:111
 #, fuzzy, kde-format
 msgid "Toggle greedy matching when verifying the regular expression."
 msgstr "செயல்படுத்தும் போழுது நிலைமாற்றியை வழக்கமான கூற்றில் சோதிக்கவும் "
 
-#: verifybuttons.cpp:121
+#: verifybuttons.cpp:112
 #, kde-format
 msgid ""
 "When this option is enabled, the regular expression will be evaluated on a "
 "so-called greedy way."
 msgstr ""
 
-#: verifybuttons.cpp:124
+#: verifybuttons.cpp:115
 #, kde-format
 msgid "RegExp Language"
 msgstr "பதிவக தொடர் மொழி"
 
-#: widgetfactory.cpp:164
+#: widgetfactory.cpp:152
 #, kde-format
 msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
 msgstr "<p>XML-லிருந்து படிக்கும் போது தெரியாத ஒட்டு. ஒட்டு<b>%1</b></p>"
 
-#: widgetfactory.cpp:188
+#: widgetfactory.cpp:176
 #, fuzzy, kde-format
 #| msgid "Error While Loading Regular Expression From XML"
 msgid "Error while loading regular expression from XML."
 msgstr "XML-லிருந்து வழக்கமானதொடரினை ஏற்றல் செய்யும் போது பிழை ஏற்பட்டுள்ளது. "
 
-#: widgetfactory.cpp:189
+#: widgetfactory.cpp:177
 #, kde-format
 msgid "Error While Loading Regular Expression From XML"
 msgstr "XML-லிருந்து வழக்கமானதொடரினை ஏற்றல் செய்யும் போது பிழை ஏற்பட்டுள்ளது. "
 
-#: widgetfactory.cpp:195
+#: widgetfactory.cpp:184
 #, kde-format
 msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
 msgstr "<p>XML -கோப்பு உட்கொள்ளவில்லை<b>%1</b>ஒட்டு.</p>"
 
-#: widgetfactory.cpp:201
+#: widgetfactory.cpp:191
 #, kde-format
 msgid ""
 "<p>Error while reading XML file. The element just below the tag <b>%1</b> "
@@ -1135,7 +1147,7 @@ msgstr ""
 "<p>XML கோப்புகலை படிக்கும் போழுது பிழை. ஒட்டுக்கு கீழ் உள்ள உருப்பு<b>%1</b> உருப்பெ "
 "அல்ல.</p>"
 
-#: zerowidgets.cpp:72
+#: zerowidgets.cpp:60
 #, kde-format
 msgid ""
 "Any\n"
@@ -1144,7 +1156,7 @@ msgstr ""
 "ஏதாவது\n"
 "எழுத்து"
 
-#: zerowidgets.cpp:85
+#: zerowidgets.cpp:73
 #, kde-format
 msgid ""
 "Line\n"
@@ -1153,7 +1165,7 @@ msgstr ""
 "வரி\n"
 "துவக்கம் "
 
-#: zerowidgets.cpp:98
+#: zerowidgets.cpp:86
 #, kde-format
 msgid ""
 "Line\n"
@@ -1162,7 +1174,7 @@ msgstr ""
 "வரி\n"
 "முடிவு "
 
-#: zerowidgets.cpp:111
+#: zerowidgets.cpp:99
 #, kde-format
 msgid ""
 "Word\n"
@@ -1171,7 +1183,7 @@ msgstr ""
 "எழுத்து\n"
 "எல்லை"
 
-#: zerowidgets.cpp:124
+#: zerowidgets.cpp:112
 #, kde-format
 msgid ""
 "Non-word\n"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:41+0000\n"
+"POT-Creation-Date: 2023-12-12 01:39+0000\n"
 "PO-Revision-Date: 2008-01-04 09:27+0200\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@gmail.com>\n"
 "Language-Team: Belarusian (Official spelling) <i18n@mova.org>\n"
@@ -30,270 +30,270 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "komzpa@licei2.com"
 
-#: altnwidget.cpp:37 altnwidget.cpp:46 regexpbuttons.cpp:87
+#: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:84
 #, kde-format
 msgid "Alternatives"
 msgstr "Варыянты"
 
-#: altnwidget.cpp:220
+#: altnwidget.cpp:206
 #, kde-format
 msgid "Selecting several alternatives is currently not supported."
 msgstr "Выбар некалькіх варыянтаў у гэтай версіі не падтрымліваецца."
 
-#: altnwidget.cpp:222
+#: altnwidget.cpp:208
 #, kde-format
 msgid "Selection Invalid"
 msgstr "Вылучэнне няслушна"
 
-#: auxbuttons.cpp:35
+#: auxbuttons.cpp:23
 #, kde-format
 msgid "Undo"
 msgstr "Вярнуць"
 
-#: auxbuttons.cpp:41
+#: auxbuttons.cpp:29
 #, kde-format
 msgid "Redo"
 msgstr "Паўтарыць"
 
-#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:70
+#: auxbuttons.cpp:35 KMultiFormListBox/ccp.cpp:58
 #, kde-format
 msgid "Cut"
 msgstr "Выразаць"
 
-#: auxbuttons.cpp:53 KMultiFormListBox/ccp.cpp:71
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:67
+#: auxbuttons.cpp:41 KMultiFormListBox/ccp.cpp:59
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
 #, kde-format
 msgid "Copy"
 msgstr "Скапіраваць"
 
-#: auxbuttons.cpp:59 KMultiFormListBox/ccp.cpp:72
+#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:60
 #, kde-format
 msgid "Paste"
 msgstr "Уставіць"
 
-#: auxbuttons.cpp:65
+#: auxbuttons.cpp:53
 #, kde-format
 msgid "Save"
 msgstr "Запісаць"
 
-#: characterswidget.cpp:116
+#: characterswidget.cpp:102
 #, kde-format
 msgid "- A word character\n"
 msgstr "- Літара\n"
 
-#: characterswidget.cpp:120
+#: characterswidget.cpp:106
 #, kde-format
 msgid "- A non-word character\n"
 msgstr "- Не літара\n"
 
-#: characterswidget.cpp:124
+#: characterswidget.cpp:110
 #, kde-format
 msgid "- A digit character\n"
 msgstr "- Лічба\n"
 
-#: characterswidget.cpp:128
+#: characterswidget.cpp:114
 #, kde-format
 msgid "- A non-digit character\n"
 msgstr "- Не лічба\n"
 
-#: characterswidget.cpp:132
+#: characterswidget.cpp:118
 #, kde-format
 msgid "- A space character\n"
 msgstr "- Пусты падзельнік\n"
 
-#: characterswidget.cpp:136
+#: characterswidget.cpp:122
 #, kde-format
 msgid "- A non-space character\n"
 msgstr "- Не падзельнік\n"
 
-#: characterswidget.cpp:151
+#: characterswidget.cpp:137
 #, kde-format
 msgctxt "a range of characters"
 msgid "- from %1 to %2\n"
 msgstr ""
 
-#: characterswidget.cpp:159
+#: characterswidget.cpp:145
 #, kde-format
 msgid "Any Character Except"
 msgstr "Любы знак акрамя"
 
-#: characterswidget.cpp:161
+#: characterswidget.cpp:147
 #, kde-format
 msgid "One of Following Characters"
 msgstr "Адзін з наступных знакаў"
 
-#: characterswidget.cpp:279
+#: characterswidget.cpp:265
 #, kde-format
 msgid "Specify Characters"
 msgstr "Вызначаныя знакі"
 
-#: characterswidget.cpp:289
+#: characterswidget.cpp:275
 #, kde-format
 msgid "Do not match the characters specified here"
 msgstr "Акрамя знакаў"
 
-#: characterswidget.cpp:293
+#: characterswidget.cpp:279
 #, kde-format
 msgid "Predefined Character Ranges"
 msgstr "Групы знакаў"
 
-#: characterswidget.cpp:297
+#: characterswidget.cpp:283
 #, kde-format
 msgid "A word character"
 msgstr "Літара"
 
-#: characterswidget.cpp:299
+#: characterswidget.cpp:285
 #, kde-format
 msgid "A digit character"
 msgstr "Лічба"
 
-#: characterswidget.cpp:301
+#: characterswidget.cpp:287
 #, kde-format
 msgid "A space character"
 msgstr "Пусты падзельнік"
 
-#: characterswidget.cpp:304
+#: characterswidget.cpp:290
 #, kde-format
 msgid "A non-word character"
 msgstr "Не літара"
 
-#: characterswidget.cpp:306
+#: characterswidget.cpp:292
 #, kde-format
 msgid "A non-digit character"
 msgstr "Не лічба"
 
-#: characterswidget.cpp:308
+#: characterswidget.cpp:294
 #, kde-format
 msgid "A non-space character"
 msgstr "Не падзельнік"
 
-#: characterswidget.cpp:312
+#: characterswidget.cpp:298
 #, kde-format
 msgid "Single Characters"
 msgstr "Адзін знак"
 
-#: characterswidget.cpp:324 characterswidget.cpp:345
+#: characterswidget.cpp:310 characterswidget.cpp:331
 #, kde-format
 msgid "More Entries"
 msgstr "Дадаць запісы"
 
-#: characterswidget.cpp:332
+#: characterswidget.cpp:318
 #, kde-format
 msgid "Character Ranges"
 msgstr "Дыяпазоны знакаў"
 
-#: characterswidget.cpp:426
+#: characterswidget.cpp:412
 #, kde-format
 msgid "From:"
 msgstr "Ад:"
 
-#: characterswidget.cpp:433
+#: characterswidget.cpp:419
 #, kde-format
 msgctxt "end of range"
 msgid "To:"
 msgstr "Да:"
 
-#: charselector.cpp:60
+#: charselector.cpp:49
 #, kde-format
 msgid "Normal Character"
 msgstr "Звычайны знак"
 
-#: charselector.cpp:61
+#: charselector.cpp:49
 #, kde-format
 msgid "Unicode Char in Hex."
 msgstr "Знак Unicode у шаснаццатковым выглядзе"
 
-#: charselector.cpp:62
+#: charselector.cpp:49
 #, kde-format
 msgid "Unicode Char in Oct."
 msgstr "Знак Unicode у васьмерычнам выглядзе"
 
-#: charselector.cpp:64
+#: charselector.cpp:50
 #, kde-format
 msgid "The Bell Character (\\a)"
 msgstr "Знак званка (\\a)"
 
-#: charselector.cpp:65
+#: charselector.cpp:50
 #, kde-format
 msgid "The Form Feed Character (\\f)"
 msgstr "Знак канца старонкі (\\f)"
 
-#: charselector.cpp:66
+#: charselector.cpp:50
 #, kde-format
 msgid "The Line Feed Character (\\n)"
 msgstr "Знак канца радка (\\n)"
 
-#: charselector.cpp:67
+#: charselector.cpp:51
 #, kde-format
 msgid "The Carriage Return Character (\\r)"
 msgstr "Знак звароту карэткі (\\r)"
 
-#: charselector.cpp:68
+#: charselector.cpp:51
 #, kde-format
 msgid "The Horizontal Tab Character (\\t)"
 msgstr "Знак гарызантальнай табуляцыі (\\t)"
 
-#: charselector.cpp:69
+#: charselector.cpp:51
 #, kde-format
 msgid "The Vertical Tab Character (\\v)"
 msgstr "Знак вертыкальнай табуляцыі (\\v)"
 
-#: compoundwidget.cpp:47
+#: compoundwidget.cpp:35
 #, kde-format
 msgid "&Title:"
 msgstr "&Загаловак:"
 
-#: compoundwidget.cpp:53
+#: compoundwidget.cpp:41
 #, kde-format
 msgid "&Description:"
 msgstr "&Апісанне:"
 
-#: compoundwidget.cpp:59
+#: compoundwidget.cpp:47
 #, fuzzy, kde-format
 msgid "&Automatically replace using this item"
 msgstr "Замяніць"
 
-#: compoundwidget.cpp:61
+#: compoundwidget.cpp:50
 #, fuzzy, kde-format
 msgid ""
 "When the content of this box is typed in to the ASCII line,<br />this box "
 "will automatically be added around it,<br />if this check box is selected."
 msgstr "Калі дадзеная опцыя актыўная, вакол тэксту будзе дададзеная рамка."
 
-#: compoundwidget.cpp:126
+#: compoundwidget.cpp:115
 #, fuzzy, kde-format
 msgid "Configure Compound"
 msgstr "Наладзіць складовы выраз"
 
-#: emacsregexpconverter.cpp:78
+#: emacsregexpconverter.cpp:66
 #, fuzzy, kde-format
 msgid "Look ahead regular expressions not supported in Emacs style"
 msgstr "Папераджальны пошук не падтрымліваецца ў Emacs"
 
-#: emacsregexpconverter.cpp:182
+#: emacsregexpconverter.cpp:171
 #, fuzzy, kde-format
 msgid "Word boundary and non word boundary is not supported in Emacs syntax"
 msgstr "Знакі мяжы слова/не словы не падтрымліваюцца ў сінтаксісе Emacs"
 
-#: errormap.cpp:47
+#: errormap.cpp:37
 #, fuzzy, kde-format
 msgid ""
 "Your regular expression is invalid, due to something preceding a 'line "
 "start'."
 msgstr "Памылка ў рэгулярным выразе: да знака пачатку радкі паказаныя выразы"
 
-#: errormap.cpp:48 errormap.cpp:57 errormap.cpp:66
+#: errormap.cpp:38 errormap.cpp:49 errormap.cpp:60
 #, fuzzy, kde-format
 msgid "Regular Expression Error"
 msgstr "Памылка ў рэгулярным выразе"
 
-#: errormap.cpp:56
+#: errormap.cpp:48
 #, fuzzy, kde-format
 msgid ""
 "Your regular expression is invalid, due to something following a 'line end'."
 msgstr "Памылка ў рэгулярным выразе: пасля знака канца радка паказаныя выразы"
 
-#: errormap.cpp:65
+#: errormap.cpp:59
 #, fuzzy, kde-format
 msgid ""
 "Your regular expression is invalid. 'Look Ahead' regular expression must be "
@@ -302,7 +302,7 @@ msgstr ""
 "Памылка ў рэгулярным выразе: 'папераджальны пошук' павінна быць апошнім "
 "падвыразам"
 
-#: infopage.cpp:33
+#: infopage.cpp:22
 #, fuzzy, kde-format
 msgctxt ""
 "Translators, feel free to add yourself in the text below, asking for a "
@@ -333,7 +333,7 @@ msgstr ""
 "рэгулярныя выразы, нядрэнна для пачатку прачытаць <a href=\"doc://"
 "whatIsARegExp\">уводзіны ў рэгулярныя выразы</a>. "
 
-#: infopage.cpp:46
+#: infopage.cpp:36
 #, fuzzy, kde-format
 msgid ""
 "<h2>Send the author an electronic postcard</h2>I don't get any money for "
@@ -354,78 +354,78 @@ msgstr ""
 "\"http://www.blackie.dk/\">А.Л. Клютченя</a> lt;<a href=\"mailto:"
 "asoneofus@kde.ru\">asoneofus@kde.ru</a>gt;</qt>"
 
-#: KMultiFormListBox/ccp.cpp:73
+#: KMultiFormListBox/ccp.cpp:61
 #, fuzzy, kde-format
 msgid "Insert Blank"
 msgstr "Уставіць пустышку"
 
-#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:244
 #, fuzzy, kde-format
 msgid "Due to a bug, it is not possible to remove the last element."
 msgstr "У следстве памылкі, немагчыма выдаліць апошні элемент."
 
-#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:260
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:244
 #, fuzzy, kde-format
 msgid "Internal Error"
 msgstr "Унутраная памылка"
 
-#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:282
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:266
 #, fuzzy, kde-format
 msgid "There is no element on the clipboard to paste in."
 msgstr "У буферы абмену няма элементаў для ўстаўкі."
 
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:54
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:46
 #, fuzzy, kde-format
 msgid "Edit"
 msgstr "Змяніць"
 
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:61
-#: userdefinedregexps.cpp:153
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:53
+#: userdefinedregexps.cpp:142
 #, fuzzy, kde-format
 msgid "Delete"
 msgstr "Выдаліць"
 
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:74
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:66
 #, fuzzy, kde-format
 msgid "Up"
 msgstr "Угору"
 
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:80
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:72
 #, fuzzy, kde-format
 msgid "Down"
 msgstr "Уніз"
 
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:152
 #, fuzzy, kde-format
 msgid "Delete item \"%1\"?"
 msgstr "Выдаліць выраз \"%1\"?"
 
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:161
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:152
 #, fuzzy, kde-format
 msgid "Delete Item"
 msgstr "Выдаліць выраз"
 
-#: KMultiFormListBox/kmultiformlistbox.h:71
+#: KMultiFormListBox/kmultiformlistbox.h:61
 #, fuzzy, kde-format
 msgid "Add"
 msgstr "Дадаць"
 
-#: KMultiFormListBox/widgetwindow.cpp:47
+#: KMultiFormListBox/widgetwindow.cpp:35
 #, fuzzy, kde-format
 msgid "Widget Configuration"
 msgstr "Налада элементаў кіравання"
 
-#: kregexpeditorguidialog.cpp:36
+#: kregexpeditorguidialog.cpp:24
 #, fuzzy, kde-format
 msgid "Regular Expression Editor"
 msgstr "Рэдактар рэгулярных выразаў"
 
-#: kregexpeditorprivate.cpp:68
+#: kregexpeditorprivate.cpp:56
 #, fuzzy, kde-format
 msgid "Compound regular expression:"
 msgstr "Складовы рэгулярны выраз:"
 
-#: kregexpeditorprivate.cpp:69
+#: kregexpeditorprivate.cpp:58
 #, fuzzy, kde-format
 msgid ""
 "In this window you will find predefined regular expressions. Both regular "
@@ -435,7 +435,7 @@ msgstr ""
 "У гэтым вокны вы знойдзеце наканаваныя рэгулярныя выразы. Паказваюцца як "
 "вашы ўласныя рэгулярныя выразы так і тыя, якія пастаўляюцца разам з KDE."
 
-#: kregexpeditorprivate.cpp:78
+#: kregexpeditorprivate.cpp:68
 #, fuzzy, kde-format
 msgid ""
 "In this window you will develop your regular expressions. Select one of the "
@@ -446,7 +446,7 @@ msgstr ""
 "прылад на панэлі прылад угары і пстрыкніце мышшу на гэтым акне для таго, каб "
 "уставіць выраз."
 
-#: kregexpeditorprivate.cpp:86
+#: kregexpeditorprivate.cpp:77
 #, fuzzy, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
@@ -463,12 +463,12 @@ msgstr ""
 "ў супадальным тэксце таксама будзе падсветленая - гэта дазволіць вам "
 "<i>адладжваць</i> вашы рэгулярныя выразы "
 
-#: kregexpeditorprivate.cpp:148
+#: kregexpeditorprivate.cpp:139
 #, fuzzy, kde-format
 msgid "ASCII syntax:"
 msgstr "У ASCII выглядзе:"
 
-#: kregexpeditorprivate.cpp:161
+#: kregexpeditorprivate.cpp:153
 #, fuzzy, kde-format
 msgid ""
 "<p>This is the regular expression in ASCII syntax. You are likely only to be "
@@ -482,44 +482,56 @@ msgstr ""
 "можаце ствараць рэгулярны выраз як у графічным рэдактары, так і ў гэтым "
 "радку."
 
-#: kregexpeditorprivate.cpp:371
+#: kregexpeditorprivate.cpp:364
 #, fuzzy, kde-format
 msgid "Could not open file '%1' for reading"
 msgstr "Не атрымліваецца адкрыць файл '%1'"
 
-#: lookaheadwidget.cpp:51
+#: lookaheadwidget.cpp:39
 #, fuzzy, kde-format
 msgid "Pos. Look Ahead"
 msgstr "Папераджальны пошук"
 
-#: lookaheadwidget.cpp:53
+#: lookaheadwidget.cpp:41
 #, fuzzy, kde-format
 msgid "Neg. Look Ahead"
 msgstr "Папераджальны пошук - па адмаўленні"
 
-#: main.cpp:42
+#: main.cpp:28
 #, fuzzy, kde-format
 msgid "RegExp Editor"
 msgstr "Рэдактар рег.выразаў"
 
-#: main.cpp:43
+#: main.cpp:30
 #, fuzzy, kde-format
 msgid "Editor for Regular Expressions"
 msgstr "Рэдактар рэгулярных выразаў"
 
-#: main.cpp:45
+#: main.cpp:32
 #, kde-format
 msgid "(c) 2002-2003 Jesper K. Pedersen"
 msgstr ""
 
-#: main.cpp:46
+#: main.cpp:33
 #, kde-format
 msgid "Laurent Montel"
 msgstr ""
 
-#: main.cpp:46
+#: main.cpp:33
 #, kde-format
 msgid "Developer"
+msgstr ""
+
+#: main.cpp:34
+#, kde-format
+msgctxt "@info:credit"
+msgid "Carl Schwan"
+msgstr ""
+
+#: main.cpp:35
+#, kde-format
+msgctxt "@info:credit"
+msgid "Port to Qt6"
 msgstr ""
 
 #: predefined/General/anything.regexp:5
@@ -560,12 +572,12 @@ msgstr ""
 msgid "Back reference regular expressions not supported"
 msgstr "Папераджальны пошук не падтрымліваецца ў Emacs"
 
-#: regexpbuttons.cpp:49
+#: regexpbuttons.cpp:38
 #, fuzzy, kde-format
 msgid "Selection tool"
 msgstr "Вылучэнне"
 
-#: regexpbuttons.cpp:50
+#: regexpbuttons.cpp:40
 #, fuzzy, kde-format
 msgid ""
 "<p>This will change the state of the editor to <i>selection state</i>.</"
@@ -582,12 +594,12 @@ msgstr ""
 "капіраваць/уставіць. Гэтыя функцыі даступныя ў меню, які з'яўляецца пры "
 "націску на правую кнопку мышы.</qt>"
 
-#: regexpbuttons.cpp:59
+#: regexpbuttons.cpp:51
 #, fuzzy, kde-format
 msgid "Text"
 msgstr "Тэкст"
 
-#: regexpbuttons.cpp:60
+#: regexpbuttons.cpp:52
 #, fuzzy, kde-format
 msgid ""
 "<qt>This will insert a text field, where you may write text. The text you "
@@ -597,12 +609,12 @@ msgstr ""
 "<qt>Тут размешчаная вобласць для ўводу тэксту. Тэкст, які вы тут увядзеце, "
 "будзе інтэрпрэтаваны літаральна (выкарыстаць метасімвалы не трэба).</qt>"
 
-#: regexpbuttons.cpp:64
+#: regexpbuttons.cpp:58
 #, fuzzy, kde-format
 msgid "A single character specified in a range"
 msgstr "Адзін знак, вызначаны ў дыяпазоне значэнняў"
 
-#: regexpbuttons.cpp:65
+#: regexpbuttons.cpp:59
 #, fuzzy, kde-format
 msgid ""
 "<p>This will match a single character from a predefined range.</p><p>When "
@@ -613,22 +625,22 @@ msgstr ""
 "дыяпазону.<p>З'явіцца дыялогавае акно, якое дазволіць вызначыць спалучэнне "
 "знакаў.</qt>"
 
-#: regexpbuttons.cpp:70
+#: regexpbuttons.cpp:64
 #, fuzzy, kde-format
 msgid "Any character"
 msgstr "Любы знак"
 
-#: regexpbuttons.cpp:71
+#: regexpbuttons.cpp:64
 #, fuzzy, kde-format
 msgid "<qt>This will match any single character</qt>"
 msgstr "<qt>Гэта будзе адпавядаць любому аднаму знаку</qt>"
 
-#: regexpbuttons.cpp:74
+#: regexpbuttons.cpp:69
 #, fuzzy, kde-format
 msgid "Repeated content"
 msgstr "Паўтор"
 
-#: regexpbuttons.cpp:75
+#: regexpbuttons.cpp:70
 #, fuzzy, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
@@ -647,7 +659,7 @@ msgstr ""
 "адпаведнасці будуць уяўляць сабою: пусты радок, радок <tt>abc</tt>, радок "
 "<tt>abcabc</tt>, радок <tt>abcabcabcabc</tt>, і.т.д.</qt>"
 
-#: regexpbuttons.cpp:88
+#: regexpbuttons.cpp:85
 #, fuzzy, kde-format
 msgid ""
 "<p>This <i>regexp item</i> will match any of its alternatives.</"
@@ -657,12 +669,12 @@ msgstr ""
 "<qt>Гэты элементы дазваляе вылучыць адну з паказаных альтэрнатыў.</p> Вы "
 "вызначаеце альтэрнатыўныя варыянты, размяшчаючы элементы адно над адным.</qt>"
 
-#: regexpbuttons.cpp:93
+#: regexpbuttons.cpp:92
 #, fuzzy, kde-format
 msgid "Compound regexp"
 msgstr "Складовы рэгулярны выраз"
 
-#: regexpbuttons.cpp:94
+#: regexpbuttons.cpp:93
 #, fuzzy, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
@@ -677,32 +689,32 @@ msgstr ""
 "вас не цікавіць то, як апісаныя гэтыя складнікі, т.е., мадулюючы задачу, вам "
 "трэба шляхта толькі які выдаецца вынік, а не метад рэалізацыі."
 
-#: regexpbuttons.cpp:101
+#: regexpbuttons.cpp:100
 #, fuzzy, kde-format
 msgid "Beginning of line"
 msgstr "Пачатак радкі"
 
-#: regexpbuttons.cpp:102
+#: regexpbuttons.cpp:100
 #, fuzzy, kde-format
 msgid "<qt>This will match the beginning of a line.</qt>"
 msgstr "<qt>Пачатку радка.</qt>"
 
-#: regexpbuttons.cpp:105
+#: regexpbuttons.cpp:103
 #, fuzzy, kde-format
 msgid "End of line"
 msgstr "Канец радка"
 
-#: regexpbuttons.cpp:106
+#: regexpbuttons.cpp:103
 #, fuzzy, kde-format
 msgid "<qt>This will match the end of a line.</qt>"
 msgstr "<qt>Канец радка.</qt>"
 
-#: regexpbuttons.cpp:109
+#: regexpbuttons.cpp:108
 #, fuzzy, kde-format
 msgid "Word boundary"
 msgstr "Мяжа слова"
 
-#: regexpbuttons.cpp:110
+#: regexpbuttons.cpp:109
 #, fuzzy, kde-format
 msgid ""
 "<qt>This asserts a word boundary (This part does not actually match any "
@@ -711,12 +723,12 @@ msgstr ""
 "<qt>Адпавядае мяжы слова (гэты элемент не адпавядае якому-небудзь знаку).</"
 "qt>"
 
-#: regexpbuttons.cpp:113
+#: regexpbuttons.cpp:114
 #, fuzzy, kde-format
 msgid "Non Word boundary"
 msgstr "Не мяжа слова"
 
-#: regexpbuttons.cpp:114
+#: regexpbuttons.cpp:115
 #, fuzzy, kde-format
 msgid ""
 "<qt>This asserts a non-word boundary (This part does not actually match any "
@@ -725,12 +737,12 @@ msgstr ""
 "<qt>Не адпавядае мяжы слова (гэты элемент не адпавядае якому-небудзь знаку)."
 "</qt>"
 
-#: regexpbuttons.cpp:118
+#: regexpbuttons.cpp:121
 #, fuzzy, kde-format
 msgid "Positive Look Ahead"
 msgstr "Папераджальны пошук"
 
-#: regexpbuttons.cpp:119
+#: regexpbuttons.cpp:122
 #, fuzzy, kde-format
 msgid ""
 "<qt>This asserts a regular expression (This part does not actually match any "
@@ -739,12 +751,12 @@ msgstr ""
 "<qt>Пацвярджае выраз (гэты элемент не адпавядае якія-небудзь знакам). Вы "
 "можаце выкарыстаць яго толькі ў канцы рэгулярнага выраза.</qt>"
 
-#: regexpbuttons.cpp:123
+#: regexpbuttons.cpp:128
 #, fuzzy, kde-format
 msgid "Negative Look Ahead"
 msgstr "Папераджальны пошук па адмаўленні"
 
-#: regexpbuttons.cpp:124
+#: regexpbuttons.cpp:129
 #, fuzzy, kde-format
 msgid ""
 "<qt>This asserts a regular expression that must not match (This part does "
@@ -754,82 +766,82 @@ msgstr ""
 "<qt>Пацвярджае неадпаведнасць выраз (гэты элемент не адпавядае якія-небудзь "
 "знакам). Вы можаце выкарыстаць яго толькі ў канцы рэгулярнага выраза.</qt>"
 
-#: regexpeditorwindow.cpp:215
+#: regexpeditorwindow.cpp:203
 #, kde-format
 msgid "There is no selection."
 msgstr "Няма вылучэння."
 
-#: regexpeditorwindow.cpp:215
+#: regexpeditorwindow.cpp:203
 #, kde-format
 msgid "Missing Selection"
 msgstr "Няма вылучэння"
 
-#: regexpeditorwindow.cpp:280
+#: regexpeditorwindow.cpp:268
 #, fuzzy, kde-format
 msgid "There is no widget under cursor."
 msgstr "Няма аб'екта пад курсорам"
 
-#: regexpeditorwindow.cpp:280
+#: regexpeditorwindow.cpp:268
 #, fuzzy, kde-format
 msgid "Invalid Operation"
 msgstr "Памылка ў аперацыі"
 
-#: regexpeditorwindow.cpp:331
+#: regexpeditorwindow.cpp:316
 #, kde-format
 msgid "C&ut"
 msgstr ""
 
-#: regexpeditorwindow.cpp:335
+#: regexpeditorwindow.cpp:319
 #, fuzzy, kde-format
 msgid "&Copy"
 msgstr "С&капіраваць"
 
-#: regexpeditorwindow.cpp:339
+#: regexpeditorwindow.cpp:322
 #, fuzzy, kde-format
 msgid "&Paste"
 msgstr "&Уставіць"
 
-#: regexpeditorwindow.cpp:345
+#: regexpeditorwindow.cpp:327
 #, fuzzy, kde-format
 msgid "&Edit"
 msgstr "&Змяніць"
 
-#: regexpeditorwindow.cpp:349
+#: regexpeditorwindow.cpp:330
 #, fuzzy, kde-format
 msgid "&Save Regular Expression..."
 msgstr "Захаваць рэгулярны выраз..."
 
-#: regexpeditorwindow.cpp:388
+#: regexpeditorwindow.cpp:369
 #, fuzzy, kde-format
 msgid "Name for Regular Expression"
 msgstr "Рэдактар рэгулярных выразаў"
 
-#: regexpeditorwindow.cpp:388
+#: regexpeditorwindow.cpp:369
 #, fuzzy, kde-format
 msgid "Enter name:"
 msgstr "Увядзіце імя:"
 
-#: regexpeditorwindow.cpp:390
+#: regexpeditorwindow.cpp:371
 #, kde-format
 msgid "Empty name is not supported"
 msgstr ""
 
-#: regexpeditorwindow.cpp:390
+#: regexpeditorwindow.cpp:371
 #, fuzzy, kde-format
 msgid "Save Regular Expression"
 msgstr "Захаваць рэгулярны выраз..."
 
-#: regexpeditorwindow.cpp:398
+#: regexpeditorwindow.cpp:380
 #, fuzzy, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b></p>"
 msgstr "<p>Замяніць рэгулярны выраз з назовам <b>%1</b></p>"
 
-#: regexpeditorwindow.cpp:406
+#: regexpeditorwindow.cpp:390
 #, fuzzy, kde-format
 msgid "Could not open file for writing: %1"
 msgstr "Не атрымліваецца захаваць файл: %1"
 
-#: repeatregexp.cpp:57 repeatregexp.cpp:65
+#: repeatregexp.cpp:47 repeatregexp.cpp:58
 #, fuzzy, kde-format
 msgid ""
 "<p>Value for attribute <b>%1</b> was not an integer for element <b>%2</b></"
@@ -838,64 +850,64 @@ msgstr ""
 "<p>Значэнне для атрыбуту <b>%1</b> не адпавядае элементу <b>%2</b></p><p> "
 "Элемент утрымоўвае значэнне <b>%3</b></p>"
 
-#: repeatregexp.cpp:60 repeatregexp.cpp:68 textrangeregexp.cpp:146
-#: textregexp.cpp:54 widgetfactory.cpp:165 widgetfactory.cpp:196
-#: widgetfactory.cpp:203
+#: repeatregexp.cpp:52 repeatregexp.cpp:63 textrangeregexp.cpp:136
+#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:185
+#: widgetfactory.cpp:194
 #, fuzzy, kde-format
 msgid "Error While Loading From XML File"
 msgstr "Памылка пры чытанні з XML файла"
 
-#: repeatwidget.cpp:74
+#: repeatwidget.cpp:62
 #, fuzzy, kde-format
 msgid "Number of Times to Repeat Content"
 msgstr "Колькі раз паўтарыць змесціва"
 
-#: repeatwidget.cpp:184
+#: repeatwidget.cpp:170
 #, fuzzy, kde-format
 msgid "Times to Match"
 msgstr "Лік супадзенняў"
 
-#: repeatwidget.cpp:191
+#: repeatwidget.cpp:177
 #, fuzzy, kde-format
 msgid "Any number of times (including zero times)"
 msgstr "Некалькі раз (уключаючы нуль раз)"
 
-#: repeatwidget.cpp:198
+#: repeatwidget.cpp:184
 #, fuzzy, kde-format
 msgid "At least"
 msgstr "Не меней"
 
-#: repeatwidget.cpp:199
+#: repeatwidget.cpp:185
 #, fuzzy, kde-format
 msgid "At most"
 msgstr "Не больш"
 
-#: repeatwidget.cpp:200
+#: repeatwidget.cpp:186
 #, fuzzy, kde-format
 msgid "Exactly"
 msgstr "Сапраўды"
 
-#: repeatwidget.cpp:203
+#: repeatwidget.cpp:189
 #, fuzzy, kde-format
 msgid "From"
 msgstr "Ад"
 
-#: repeatwidget.cpp:215
+#: repeatwidget.cpp:201
 #, fuzzy, kde-format
 msgid "to"
 msgstr "да"
 
-#: repeatwidget.cpp:223 repeatwidget.cpp:249
+#: repeatwidget.cpp:209 repeatwidget.cpp:235
 #, fuzzy, kde-format
 msgid "time(s)"
 msgstr "раз(а)"
 
-#: repeatwidget.cpp:299
+#: repeatwidget.cpp:285
 #, fuzzy, kde-format
 msgid "Repeated Any Number of Times"
 msgstr "Паўтараецца некалькі раз"
 
-#: repeatwidget.cpp:301
+#: repeatwidget.cpp:287
 #, fuzzy, kde-format
 msgid "Repeated at Least 1 Time"
 msgid_plural "Repeated at Least %1 Times"
@@ -903,7 +915,7 @@ msgstr[0] "Паўтараецца некалькі раз"
 msgstr[1] "Паўтараецца некалькі раз"
 msgstr[2] "Паўтараецца некалькі раз"
 
-#: repeatwidget.cpp:303
+#: repeatwidget.cpp:289
 #, fuzzy, kde-format
 msgid "Repeated at Most 1 Time"
 msgid_plural "Repeated at Most %1 Times"
@@ -911,7 +923,7 @@ msgstr[0] "Паўтараецца ад %1 да %2 раз"
 msgstr[1] "Паўтараецца ад %1 да %2 раз"
 msgstr[2] "Паўтараецца ад %1 да %2 раз"
 
-#: repeatwidget.cpp:305
+#: repeatwidget.cpp:291
 #, fuzzy, kde-format
 msgid "Repeated Exactly 1 Time"
 msgid_plural "Repeated Exactly %1 Times"
@@ -919,12 +931,12 @@ msgstr[0] "Паўтараецца некалькі раз"
 msgstr[1] "Паўтараецца некалькі раз"
 msgstr[2] "Паўтараецца некалькі раз"
 
-#: repeatwidget.cpp:307
+#: repeatwidget.cpp:293
 #, fuzzy, kde-format
 msgid "Repeated From %1 to %2 Times"
 msgstr "Паўтараецца ад %1 да %2 раз"
 
-#: textrangeregexp.cpp:145
+#: textrangeregexp.cpp:135
 #, fuzzy, kde-format
 msgid ""
 "<p>Invalid sub element to element <b>TextRange</b>. Tag was <b>%1</b></p>"
@@ -932,63 +944,63 @@ msgstr ""
 "<p>Няправільная складнік у складзе элемента <b>TextRange</b>. Тэг <b>%1</b></"
 "p>"
 
-#: textregexp.cpp:53
+#: textregexp.cpp:42
 #, fuzzy, kde-format
 msgid "<p>Element <b>Text</b> did not contain any textual data.</p>"
 msgstr "<p>Элемент <b>Text</b> не ўтрымоўвае тэкставых дадзеных.</p>"
 
-#: userdefinedregexps.cpp:67
+#: userdefinedregexps.cpp:55
 #, fuzzy, kde-format
 msgid "User Defined"
 msgstr "Вызначана карыстальнікам"
 
-#: userdefinedregexps.cpp:87
+#: userdefinedregexps.cpp:76
 #, fuzzy, kde-format
 msgid "general"
 msgstr "Агульныя"
 
-#: userdefinedregexps.cpp:101
+#: userdefinedregexps.cpp:90
 #, fuzzy, kde-format
 msgid "Could not open file for reading: %1"
 msgstr "Немагчыма адкрыць файл: %1"
 
-#: userdefinedregexps.cpp:111
+#: userdefinedregexps.cpp:100
 #, fuzzy, kde-format
 msgid "File %1 containing user defined regular expression contained an error"
 msgstr ""
 "Памылка ў файле %1, які змяшчае вызначаныя карыстачом рэгулярныя выразы"
 
-#: userdefinedregexps.cpp:154
+#: userdefinedregexps.cpp:143
 #, fuzzy, kde-format
 msgid "Rename"
 msgstr "Перайменаваць..."
 
-#: userdefinedregexps.cpp:195
+#: userdefinedregexps.cpp:184
 #, fuzzy, kde-format
 msgid "Rename Item"
 msgstr "Перайменаваць"
 
-#: userdefinedregexps.cpp:195
+#: userdefinedregexps.cpp:184
 #, fuzzy, kde-format
 msgid "New name:"
 msgstr "Новае імя:"
 
-#: userdefinedregexps.cpp:202
+#: userdefinedregexps.cpp:191
 #, fuzzy, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b>?</p>"
 msgstr "<p>Перазапісаць найменны рэгулярны выраз: <b>%1</b> ?</p>"
 
-#: userdefinedregexps.cpp:202
+#: userdefinedregexps.cpp:194
 #, fuzzy, kde-format
 msgid "Do Not Overwrite"
 msgstr "Не перазапісваць"
 
-#: verifybuttons.cpp:38
+#: verifybuttons.cpp:27
 #, fuzzy, kde-format
 msgid "Verify regular expression"
 msgstr "Праверыць рэгулярны выраз"
 
-#: verifybuttons.cpp:39
+#: verifybuttons.cpp:29
 #, fuzzy, kde-format
 msgid ""
 "Shows what part of the regular expression is being matched in the "
@@ -996,32 +1008,32 @@ msgid ""
 msgstr ""
 "Паказаць, якія часткі рэгулярнага выраза адпавядаюць уведзенаму тэксту."
 
-#: verifybuttons.cpp:48
+#: verifybuttons.cpp:38
 #, fuzzy, kde-format
 msgid "Load text in the verifier window"
 msgstr "Загрузіць тэкст у акно праверкі"
 
-#: verifybuttons.cpp:53
+#: verifybuttons.cpp:43
 #, kde-format
 msgid "Verification Settings"
 msgstr ""
 
-#: verifybuttons.cpp:101
+#: verifybuttons.cpp:91
 #, kde-format
 msgid "config menu"
 msgstr ""
 
-#: verifybuttons.cpp:104
+#: verifybuttons.cpp:94
 #, fuzzy, kde-format
 msgid "Verify on the Fly"
 msgstr "Аўтаматычная праверка"
 
-#: verifybuttons.cpp:110
+#: verifybuttons.cpp:100
 #, fuzzy, kde-format
 msgid "Toggle on-the-fly verification of regular expression"
 msgstr "Уключэнне аўтаматычнай праверкі рэгулярных выразаў"
 
-#: verifybuttons.cpp:111
+#: verifybuttons.cpp:102
 #, fuzzy, kde-format
 msgid ""
 "Enabling this option will make the verifier update for each edit. If the "
@@ -1033,49 +1045,49 @@ msgstr ""
 "рэгулярны выраз занадта складанае або яно супадае шмат раз, праграма будзе "
 "працаваць вельмі павольна."
 
-#: verifybuttons.cpp:115
+#: verifybuttons.cpp:106
 #, kde-format
 msgid "Match Greedy"
 msgstr ""
 
-#: verifybuttons.cpp:120
+#: verifybuttons.cpp:111
 #, fuzzy, kde-format
 msgid "Toggle greedy matching when verifying the regular expression."
 msgstr "Уключэнне аўтаматычнай праверкі рэгулярных выразаў"
 
-#: verifybuttons.cpp:121
+#: verifybuttons.cpp:112
 #, kde-format
 msgid ""
 "When this option is enabled, the regular expression will be evaluated on a "
 "so-called greedy way."
 msgstr ""
 
-#: verifybuttons.cpp:124
+#: verifybuttons.cpp:115
 #, fuzzy, kde-format
 msgid "RegExp Language"
 msgstr "Мова рэгулярных выразаў"
 
-#: widgetfactory.cpp:164
+#: widgetfactory.cpp:152
 #, fuzzy, kde-format
 msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
 msgstr "<p>Невядомы тэг пры чытанні файла XML. Тэг: <b>%1</b></p>"
 
-#: widgetfactory.cpp:188
+#: widgetfactory.cpp:176
 #, fuzzy, kde-format
 msgid "Error while loading regular expression from XML."
 msgstr "Памылка падчас загрузкі рэгулярнага выраза з XML"
 
-#: widgetfactory.cpp:189
+#: widgetfactory.cpp:177
 #, fuzzy, kde-format
 msgid "Error While Loading Regular Expression From XML"
 msgstr "Памылка падчас загрузкі рэгулярнага выраза з XML"
 
-#: widgetfactory.cpp:195
+#: widgetfactory.cpp:184
 #, fuzzy, kde-format
 msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
 msgstr "<p>XML файл не ўтрымоўвае тэг <b>%1</b>.</p>"
 
-#: widgetfactory.cpp:201
+#: widgetfactory.cpp:191
 #, fuzzy, kde-format
 msgid ""
 "<p>Error while reading XML file. The element just below the tag <b>%1</b> "
@@ -1084,7 +1096,7 @@ msgstr ""
 "<p>Памылка пры чытанні XML файла. Элемент, размешчаны за тэгам <b>%1</b> не "
 "з'яўляецца патрабаваным элементам.</p>"
 
-#: zerowidgets.cpp:72
+#: zerowidgets.cpp:60
 #, fuzzy, kde-format
 msgid ""
 "Any\n"
@@ -1093,7 +1105,7 @@ msgstr ""
 "Любы\n"
 "знак"
 
-#: zerowidgets.cpp:85
+#: zerowidgets.cpp:73
 #, fuzzy, kde-format
 msgid ""
 "Line\n"
@@ -1102,7 +1114,7 @@ msgstr ""
 "Пачатак\n"
 "радкі"
 
-#: zerowidgets.cpp:98
+#: zerowidgets.cpp:86
 #, fuzzy, kde-format
 msgid ""
 "Line\n"
@@ -1111,7 +1123,7 @@ msgstr ""
 "Канец\n"
 "радкі"
 
-#: zerowidgets.cpp:111
+#: zerowidgets.cpp:99
 #, fuzzy, kde-format
 msgid ""
 "Word\n"
@@ -1120,7 +1132,7 @@ msgstr ""
 "Мяжа\n"
 "словы"
 
-#: zerowidgets.cpp:124
+#: zerowidgets.cpp:112
 #, fuzzy, kde-format
 msgid ""
 "Non-word\n"
