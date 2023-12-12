@@ -25,7 +25,6 @@ add_library(kregexpeditorcommon SHARED
     ${FLEX_qregexplexer_OUTPUTS}
     altnregexp.cpp
     altnwidget.cpp
-    auxbuttons.cpp
     characterswidget.cpp
     charselector.cpp
     compoundregexp.cpp
@@ -48,8 +47,8 @@ add_library(kregexpeditorcommon SHARED
     KMultiFormListBox/kmultiformlistbox-windowed.cpp
     KMultiFormListBox/widgetwindow.cpp
     KMultiFormListBox/windowlistboxitem.cpp
-    kregexpeditorgui.cpp
-    kregexpeditorguidialog.cpp
+    kregexpeditorwindow.h
+    kregexpeditorwindow.cpp
     kregexpeditorprivate.cpp
     KWidgetStreamer/kwidgetstreamer.cpp
     limitedcharlineedit.cpp
@@ -78,6 +77,8 @@ add_library(kregexpeditorcommon SHARED
     verifybuttons.cpp
     widgetfactory.cpp
     zerowidgets.cpp
+
+    kregexpeditor.qrc
 )
 
 target_link_libraries(kregexpeditorcommon
@@ -87,6 +88,7 @@ target_link_libraries(kregexpeditorcommon
     KF6::WidgetsAddons
     KF6::TextWidgets
     KF6::I18n
+    KF6::XmlGui
     Qt6::Widgets
     Qt6::Xml
 )

@@ -22,7 +22,7 @@
 #include "compoundregexp.h"
 #include "concregexp.h"
 #include "dotregexp.h"
-#include "kregexpeditorgui.h"
+#include "kregexpeditorwindow.h"
 #include "lookaheadregexp.h"
 #include "positionregexp.h"
 #include "repeatregexp.h"
@@ -184,7 +184,7 @@ RegExp *WidgetFactory::createRegExp(const QString &str)
                            i18n("<p>XML file did not contain a <b>%1</b> tag.</p>", QStringLiteral("RegularExpression")),
                            i18n("Error While Loading From XML File"));
     }
-    QString version = top.attribute(QStringLiteral("version"), KRegExpEditorGUI::version);
+    QString version = top.attribute(QStringLiteral("version"), KRegExpEditorWindow::version);
     QDomNode child = top.firstChild();
     if (!child.isElement()) {
         KMessageBox::error(nullptr,

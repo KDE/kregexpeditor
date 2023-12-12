@@ -1,0 +1,39 @@
+/*
+ *  SPDX-FileCopyrightText: 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+ *
+ *  SPDX-License-Identifier: LGPL-2.0-only
+ **/
+
+#ifndef kregexpeditorguidialog_h
+#define kregexpeditorguidialog_h
+
+#include "kregexpeditorprivate.h"
+#include <KXmlGuiWindow>
+
+class Q_DECL_EXPORT KRegExpEditorWindow : public KXmlGuiWindow
+{
+    Q_OBJECT
+public:
+    explicit KRegExpEditorWindow(QWidget *parent);
+    ~KRegExpEditorWindow() override;
+
+    QString regExp() const;
+
+    static const QString version;
+
+Q_SIGNALS:
+    void changes(bool);
+
+public Q_SLOTS:
+    void doSomething(const QString &method, void *arguments);
+    void setMatchText(const QString &);
+
+private:
+    void setupActions();
+    void showHelp();
+
+    KRegExpEditorPrivate *_editor = nullptr;
+    QList<QPair<RegExpConverter *, QAction *>> m_converters;
+};
+
+#endif

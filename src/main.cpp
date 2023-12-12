@@ -14,7 +14,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-#include "kregexpeditorguidialog.h"
+#include "kregexpeditorwindow.h"
 
 int main(int argc, char *argv[])
 {
@@ -43,10 +43,8 @@ int main(int argc, char *argv[])
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
-    KRegExpEditorGUIDialog iface(nullptr);
+    KRegExpEditorWindow window(nullptr);
+    window.show();
 
-    iface.show();
-
-    app.setQuitOnLastWindowClosed(true);
     return app.exec();
 }

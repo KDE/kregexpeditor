@@ -34,6 +34,7 @@ find_package(KF6 REQUIRED
     Service
     WidgetsAddons
     Crash
+    XmlGui
 )
 
 find_package(BISON REQUIRED)
@@ -48,8 +49,6 @@ include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} )
 
 add_subdirectory(src)
 add_subdirectory( doc )
-
-add_subdirectory(tests)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 

@@ -24,7 +24,6 @@
 #include <QTimer>
 #include <QToolButton>
 
-#include "auxbuttons.h"
 #include "infopage.h"
 #include "regexp.h"
 #include "regexpbuttons.h"
@@ -32,7 +31,6 @@
 #include "scrollededitorwindow.h"
 #include "userdefinedregexps.h"
 #include "verifier.h"
-#include "verifybuttons.h"
 
 KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
     : QMainWindow(parent)
@@ -45,13 +43,7 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
 
     // The DockWindows.
     _regExpButtons = new RegExpButtons(this, QStringLiteral("RegExpButton"));
-    addToolBar(Qt::TopToolBarArea, _regExpButtons);
-
-    _verifyButtons = new VerifyButtons(this, QStringLiteral("VerifyButtons"));
-    addToolBar(Qt::TopToolBarArea, _verifyButtons);
-
-    _auxButtons = new AuxButtons(this, QStringLiteral("AuxButtons"));
-    addToolBar(Qt::TopToolBarArea, _auxButtons);
+    addToolBar(Qt::LeftToolBarArea, _regExpButtons);
 
     _userRegExps = new UserDefinedRegExps(/*verArea1*/ this, /*"KRegExpEditorPrivate::userRegExps"*/ i18n("Compound regular expression:"));
     _userRegExps->setWhatsThis(
@@ -108,32 +100,11 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
 
     connect(_scrolledEditorWindow, SIGNAL(savedRegexp()), _userRegExps, SLOT(slotPopulateUserRegexps()));
 
-    connect(_auxButtons, &AuxButtons::undo, this, &KRegExpEditorPrivate::slotUndo);
-    connect(_auxButtons, &AuxButtons::redo, this, &KRegExpEditorPrivate::slotRedo);
-    connect(_auxButtons, &AuxButtons::cut, _scrolledEditorWindow, &RegExpScrolledEditorWindow::slotCut);
-    connect(_auxButtons, &AuxButtons::copy, _scrolledEditorWindow, &RegExpScrolledEditorWindow::slotCopy);
-    connect(_auxButtons, &AuxButtons::paste, _scrolledEditorWindow, &RegExpScrolledEditorWindow::slotPaste);
-    connect(_auxButtons, &AuxButtons::save, _scrolledEditorWindow, &RegExpScrolledEditorWindow::slotSave);
-    connect(_verifyButtons, &VerifyButtons::autoVerify, this, &KRegExpEditorPrivate::setAutoVerify);
-    connect(_verifyButtons, &VerifyButtons::verify, this, &KRegExpEditorPrivate::doVerify);
-    connect(_verifyButtons, &VerifyButtons::changeSyntax, this, &KRegExpEditorPrivate::setSyntax);
-    connect(_verifyButtons, &VerifyButtons::matchGreedy, this, &KRegExpEditorPrivate::setMatchGreedy);
-
-    connect(this, &KRegExpEditorPrivate::canUndo, _auxButtons, &AuxButtons::slotCanUndo);
-    connect(this, &KRegExpEditorPrivate::canRedo, _auxButtons, &AuxButtons::slotCanRedo);
-    connect(_scrolledEditorWindow, &RegExpScrolledEditorWindow::anythingSelected, _auxButtons, &AuxButtons::slotCanCut);
-    connect(_scrolledEditorWindow, &RegExpScrolledEditorWindow::anythingSelected, _auxButtons, &AuxButtons::slotCanCopy);
-    connect(_scrolledEditorWindow, &RegExpScrolledEditorWindow::anythingOnClipboard, _auxButtons, &AuxButtons::slotCanPaste);
-    connect(_scrolledEditorWindow, &RegExpScrolledEditorWindow::canSave, _auxButtons, &AuxButtons::slotCanSave);
+    connect(_scrolledEditorWindow, &RegExpScrolledEditorWindow::anythingSelected, this, &KRegExpEditorPrivate::anythingSelected);
+    connect(_scrolledEditorWindow, &RegExpScrolledEditorWindow::anythingOnClipboard, this, &KRegExpEditorPrivate::anythingOnClipboard);
+    connect(_scrolledEditorWindow, &RegExpScrolledEditorWindow::canSave, this, &KRegExpEditorPrivate::canSave);
 
     connect(_scrolledEditorWindow, &RegExpScrolledEditorWindow::verifyRegExp, this, &KRegExpEditorPrivate::maybeVerify);
-
-    connect(_verifyButtons, &VerifyButtons::loadVerifyText, this, &KRegExpEditorPrivate::setVerifyText);
-
-    _auxButtons->slotCanPaste(false);
-    _auxButtons->slotCanCut(false);
-    _auxButtons->slotCanCopy(false);
-    _auxButtons->slotCanSave(false);
 
     // Line Edit
     QDockWidget *editDock = new QDockWidget(i18n("ASCII syntax:"), this);
@@ -172,11 +143,6 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
 
     // Push an initial empty element on the stack.
     _undoStack.push(_scrolledEditorWindow->regExp());
-
-    (void)new QShortcut(Qt::CTRL | Qt::Key_Z, this, SLOT(slotUndo()));
-    (void)new QShortcut(Qt::CTRL | Qt::Key_R, this, SLOT(slotRedo()));
-
-    setSyntax(QStringLiteral("Qt"));
 }
 
 KRegExpEditorPrivate::~KRegExpEditorPrivate()
@@ -279,6 +245,26 @@ void KRegExpEditorPrivate::slotUndo()
     }
 }
 
+void KRegExpEditorPrivate::slotCut()
+{
+    _scrolledEditorWindow->slotCut();
+}
+
+void KRegExpEditorPrivate::slotCopy()
+{
+    _scrolledEditorWindow->slotCopy();
+}
+
+void KRegExpEditorPrivate::slotPaste()
+{
+    _scrolledEditorWindow->slotPaste();
+}
+
+void KRegExpEditorPrivate::slotSave()
+{
+    _scrolledEditorWindow->slotSave();
+}
+
 void KRegExpEditorPrivate::slotShowEditor()
 {
     _info->hide();
@@ -329,8 +315,6 @@ void KRegExpEditorPrivate::maybeVerify()
 {
     if (_autoVerify) {
         doVerify();
-    } else {
-        _verifyButtons->setMatchCount(-1);
     }
 }
 
@@ -384,9 +368,8 @@ void KRegExpEditorPrivate::setMinimal(bool b)
     _verifier->setMinimal(b);
 }
 
-void KRegExpEditorPrivate::setSyntax(const QString &syntax)
+void KRegExpEditorPrivate::setSyntax(RegExpConverter *converter)
 {
-    RegExpConverter *converter = _verifyButtons->setSyntax(syntax);
     RegExpConverter::setCurrent(converter);
     if (converter->canParse()) {
         _regexpEdit->setReadOnly(false);
@@ -404,11 +387,6 @@ void KRegExpEditorPrivate::showHelp()
 {
     _info->show();
     _editor->hide();
-}
-
-void KRegExpEditorPrivate::setAllowNonQtSyntax(bool b)
-{
-    _verifyButtons->setAllowNonQtSyntax(b);
 }
 
 void KRegExpEditorPrivate::setMatchGreedy(bool b)

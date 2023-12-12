@@ -24,6 +24,7 @@ class AuxButtons;
 class RegExpButtons;
 class RegExp;
 class QLabel;
+class RegExpConverter;
 
 /**
    Widget used to build a regular expression
@@ -41,7 +42,6 @@ public:
     QString regexp();
     void setMinimal(bool);
     void setCaseSensitive(bool);
-    void setAllowNonQtSyntax(bool);
 
 protected Q_SLOTS:
     void slotUpdateEditor(const QString &);
@@ -50,22 +50,30 @@ protected Q_SLOTS:
     void slotTriggerUpdate();
     void slotTimeout();
     void maybeVerify();
+
+public Q_SLOTS:
+    void slotUndo();
+    void slotRedo();
+    void slotCut();
+    void slotCopy();
+    void slotPaste();
+    void slotSave();
+    void slotSetRegexp(const QString &regexp);
+    void setMatchText(const QString &text);
+    void setSyntax(RegExpConverter *converter);
+    void showHelp();
+
     void doVerify();
     void setAutoVerify(bool);
     void setVerifyText(const QString &fileName);
     void setMatchGreedy(bool);
 
-public Q_SLOTS:
-    void slotUndo();
-    void slotRedo();
-    void slotSetRegexp(const QString &regexp);
-    void setMatchText(const QString &text);
-    void setSyntax(const QString &);
-    void showHelp();
-
 Q_SIGNALS:
     void canUndo(bool);
     void canRedo(bool);
+    void anythingSelected(bool);
+    void anythingOnClipboard(bool);
+    void canSave(bool);
     void changes(bool);
 
 protected:

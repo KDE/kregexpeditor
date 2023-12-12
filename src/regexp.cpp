@@ -7,7 +7,7 @@
 #include "regexp.h"
 
 #include "errormap.h"
-#include "kregexpeditorgui.h"
+#include "kregexpeditorwindow.h"
 #include "widgetfactory.h"
 
 RegExp::RegExp(bool selected)
@@ -64,7 +64,7 @@ QString RegExp::toXmlString() const
     QDomDocument doc;
     doc.setContent(QStringLiteral("<RegularExpression/>"));
     QDomNode top = doc.documentElement();
-    top.toElement().setAttribute(QStringLiteral("version"), KRegExpEditorGUI::version);
+    top.toElement().setAttribute(QStringLiteral("version"), KRegExpEditorWindow::version);
 
     QDomNode elm = toXml(&doc);
 
