@@ -1,8 +1,6 @@
-/*
- *  SPDX-FileCopyrightText: 2002-2003 Jesper K. Pedersen <blackie@kde.org>
- *
- *  SPDX-License-Identifier: LGPL-2.0-only
- **/
+// SPDX-FileCopyrightText: 2002-2003 Jesper K. Pedersen <blackie@kde.org>
+// SPDX-FileCopyrightText: 2023 Carl Schwan <carl@carlschwan.eu>
+// SPDX-License-Identifier: LGPL-2.0-only
 
 #ifndef kregexpeditorguidialog_h
 #define kregexpeditorguidialog_h
@@ -25,7 +23,6 @@ Q_SIGNALS:
     void changes(bool);
 
 public Q_SLOTS:
-    void doSomething(const QString &method, void *arguments);
     void setMatchText(const QString &);
 
 private:

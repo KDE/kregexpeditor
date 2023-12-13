@@ -176,19 +176,6 @@ void KRegExpEditorWindow::setupActions()
     setupGUI(ToolBar | Keys | Save | Create, u"kregexpeditorui.rc"_s);
 }
 
-void KRegExpEditorWindow::doSomething(const QString &method, void *arguments)
-{
-    if (method == QLatin1String("setCaseSensitive")) {
-        _editor->setCaseSensitive((bool)arguments);
-    } else if (method == QLatin1String("setMinimal")) {
-        _editor->setMinimal((bool)arguments);
-    } else if (method == QLatin1String("setSyntax")) {
-        //_editor->setSyntax(*((QString *)arguments));
-    } else {
-        qFatal("%s", qPrintable(tr("Method '%1' is not valid!").arg(method)));
-    }
-}
-
 void KRegExpEditorWindow::setMatchText(const QString &txt)
 {
     _editor->setMatchText(txt);
