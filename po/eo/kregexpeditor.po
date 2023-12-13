@@ -529,13 +529,13 @@ msgstr "Ellaboranto"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
 #: main.cpp:35
 #, kde-format
 msgctxt "@info:credit"
 msgid "Port to Qt6"
-msgstr ""
+msgstr "Portado la Qt6"
 
 #: predefined/General/anything.regexp:5
 #, kde-format

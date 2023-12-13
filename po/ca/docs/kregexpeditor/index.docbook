@@ -61,7 +61,7 @@
 
 
     <para
->L'editor d'expressions regulars és un editor per editar una expressió regular amb un estil gràfic (en contrast amb la sintaxi <acronym
+>L'editor d'expressions regulars és un editor per a editar una expressió regular amb un estil gràfic (en contrast amb la sintaxi <acronym
 >ASCII</acronym
 >). Tradicionalment, les expressions regulars s'han escrit en la sintaxi <acronym
 >ASCII</acronym
@@ -453,7 +453,7 @@
 >accions d'edició</link
 >, igual que les eines de dibuix en un programa de dibuix. La segona barra d'eines conté el botó <emphasis
 >Què és això?</emphasis
-> i els botons per desfer i refer.</para>
+> i els botons per a desfer i refer.</para>
 
       <para
 >A sota de l'àrea d'edició trobareu l'expressió regular que esteu creant, amb la sintaxi anomenada ASCII. La sintaxi ASCII s'actualitzarà mentre editeu l'expressió regular a l'editor gràfic. Si preferiu actualitzar la sintaxi en ASCII, feu-ho, l'editor gràfic s'actualitzarà al vol per a reflectir els vostres canvis.</para>
@@ -463,7 +463,7 @@
 >senzilla</emphasis
 > o més completa, substituint les expressions regulars comunes. En el bolcat de la pantalla superior, podeu veure com s'ha substituït la sintaxi «.*» en ASCII amb un quadre que diu «qualsevol cosa». (2) Quan inseriu expressions regulars, podeu trobar blocs de construcció per a la vostra pròpia expressió regular a partir del conjunt d'expressions regulars compilats prèviament. Vegeu la secció sobre <link linkend="userdefinedregexps"
 >expressions regulars definides per l'usuari</link
-> per aprendre a desar les vostres pròpies expressions regulars.</para
+> per a aprendre a desar les vostres pròpies expressions regulars.</para
 >      
     </sect1>
 
@@ -492,7 +492,7 @@
         </imageobject
 ></mediaobject>
         <para
->L'eina de selecció s'utilitza per a marcar els elements per retallar i enganxar i arrossegar i deixar anar. Això és molt similar a una eina de selecció en qualsevol programa de dibuix.</para>
+>L'eina de selecció s'utilitza per a marcar els elements per a retallar i enganxar i arrossegar i deixar anar. Això és molt similar a una eina de selecció en qualsevol programa de dibuix.</para>
       </simplesect>
         
       
@@ -658,7 +658,7 @@
 ></para>
         
         <para
->L'eina per a les compostes no representa cap expressió regular. S'utilitza per agrupar altres subparts juntes en un quadre, que es pot col·lapsar amb facilitat només pel seu títol. Això es pot veure a la part dreta del bolcat de la pantalla superior.</para>
+>L'eina per a les compostes no representa cap expressió regular. S'utilitza per a agrupar altres subparts juntes en un quadre, que es pot col·lapsar amb facilitat només pel seu títol. Això es pot veure a la part dreta del bolcat de la pantalla superior.</para>
       </simplesect>
 
 
@@ -760,7 +760,7 @@
 ></para>
 
         <para
->Les eines de cerca endavant, indiquen una expressió regular positiva o negativa per coincidir. La coincidència, però, no forma part de la coincidència total.</para>
+>Les eines de cerca endavant, indiquen una expressió regular positiva o negativa per a coincidir. La coincidència, però, no forma part de la coincidència total.</para>
 
         <para
 >Nota: Només es permet col·locar cerques endavant al final de les expressions regulars. El giny Editor de l'expressió regular no ho aplica.</para>
@@ -785,7 +785,7 @@
       <para
 >Aquesta expressió regular té dues finalitats (vegeu la <link linkend="screenorganization"
 >descripció detallada</link
->), a saber: (1) per oferir-vos un conjunt de blocs de construcció i (2) per a crear expressions regulars més boniques.</para>
+>), a saber: (1) per a oferir-vos un conjunt de blocs de construcció i (2) per a crear expressions regulars més boniques.</para>
 
       <para
 >Podeu desar les vostres pròpies expressions regulars fent clic amb el &BDR; a l'àrea d'edició i escollint <literal
