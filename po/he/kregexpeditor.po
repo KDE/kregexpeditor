@@ -14,15 +14,15 @@ msgstr ""
 "Project-Id-Version: kregexpeditor-3.1-12\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-12 01:39+0000\n"
-"PO-Revision-Date: 2023-12-12 15:54+0200\n"
+"PO-Revision-Date: 2023-12-13 09:35+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
-"2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Poedit 3.4.1\n"
 
 #, kde-format
@@ -280,7 +280,7 @@ msgstr "אין תמיכה בביטויים רגולריים עם גישוש קד
 #: emacsregexpconverter.cpp:171
 #, kde-format
 msgid "Word boundary and non word boundary is not supported in Emacs syntax"
-msgstr "אין תמיכה בגבול מילה ובגבול של צירוף שאינו מילה בסגנון Emacs."
+msgstr "אין תמיכה בגבול מילה ובגבול של צירוף שאינו מילה בסגנון Emacs"
 
 #: errormap.cpp:37
 #, kde-format
@@ -445,7 +445,7 @@ msgid ""
 "insert the given action."
 msgstr ""
 "בחלון הזה אפשר לפתח ביטויים רגולריים. נא לבחור את אחת מהפעולות מכפתורי "
-"הפעולה שלהלן וללחוץ עם העכבר בחלון הזה כדי להוסיף את הפעולה"
+"הפעולה שלהלן וללחוץ עם העכבר בחלון הזה כדי להוסיף את הפעולה."
 
 #: kregexpeditorprivate.cpp:77
 #, kde-format
@@ -457,6 +457,10 @@ msgid ""
 "editor window, then this part will be highlighted - This allows you to "
 "<i>debug</i> your regular expressions</p>"
 msgstr ""
+"<p>בחלון הזה יש להקליד טקסט ולראות מה הביטוי הרגולרי שפיתחת מצליח ללכוד.</"
+"p><p>כל תוצאה שנייה תיצבע באדום וכל תוצאה אחרת תיצבע בכחול, פשוט כדי להקל "
+"עליך להבדיל ביניהן.</p><p>בחירה בחלק מהביטוי הרגולרי בחלון העורך ידגיש את "
+"החלק התואם - כך אפשר <i>לתקן</i> את הביטויים הרגולריים שלך</p>"
 
 #: kregexpeditorprivate.cpp:139
 #, kde-format
@@ -472,6 +476,10 @@ msgid ""
 "by using the graphical editor, and by typing the regular expression in this "
 "line edit.</p>"
 msgstr ""
+"<p>זה הביטוי הרגולרי בתחביר ASCII. זה כנראה יעניין רק מפתחי תוכנה, שצריכים "
+"לפתח ביטויים רגולריים בעזרת QRegExp.</p><p>אפשר לפתח את הביטוי הרגולרי שלך "
+"גם באמצעות העורך הגרפי וגם באמצעות הקלדת הביטוי הרגולרי בשורת העריכה הזאת.</"
+"p>"
 
 #: kregexpeditorprivate.cpp:364
 #, kde-format
@@ -636,17 +644,7 @@ msgid "Repeated content"
 msgstr "תוכן חוזר"
 
 #: regexpbuttons.cpp:70
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it "
-#| "surrounds a specified number of times.<p>The number of times to repeat "
-#| "may be specified using ranges. e.g. You may specify that it should match "
-#| "from 2 to 4 times, that it should match exactly 5 times, or that it "
-#| "should match at least one time.<p>Examples:<br>If you specify that it "
-#| "should match <i>any</i> time, and the content it surrounds is <tt>abc</"
-#| "tt>, then this <i>regexp item</i> will match the empty string, the string "
-#| "<tt>abc</tt>, the string <tt>abcabc</tt>, the string <tt>abcabcabcabc</"
-#| "tt>, etc.</qt>"
+#, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
 "a specified number of times.<br />The number of times to repeat may be "
@@ -657,27 +655,23 @@ msgid ""
 "<i>regexp item</i> will match the empty string, the string <tt>abc</tt>, the "
 "string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, etc.</qt>"
 msgstr ""
-"<qt><i>פריט ביטוי רגולרי</i> זה יחזור על <i>פריטי הביטוי הרגולרי</i> אותם "
-"הוא מקיף בהתאם למספר הפעמים המצויין.<p>מספר הפעמים לחזרה מצויין באמצעות "
-"תחומים. כך למשל באפשרותך לציין שעליו להתאים בין 2 ל4- פעמים, שעליו להתאים "
-"בדיוק 5 פעמים, או שעליו להתאים לפחות פעם אחת.<p>דוגמאות:<br>אם תציין שעליו "
-"להתאים <i>כל</i> פעם, אם התוכן אותו הוא מקיף הוא <tt>abc</tt>, אז <i>פריט "
-"ביטוי סדיר</i> זה יתאים מחרוזת ריקה, את המחרוזת <tt>abc</tt>, את המחרוזת "
-"<tt>abcabc</tt>, את המחרוזת <tt>abcabcabcabc</tt>, וכן הלאה.</qt>"
+"<qt><i>פריט הביטוי הרגולרי</i> הזה יחזור על <i>פריטי הביטוי הרגולרי</i> שהוא "
+"מקיף מספר נקוב של פעמים.<br />אפשר לציין את מספר הפעמים לחזרה באמצעות "
+"טווחים, כלומר שאפשר לציין אם הוא אמור ללכוד בין 2 ל־4 פעמים, בדיוק 5 פעמים "
+"או שהוא אמור ללכוד בדיוק פעם אחת.<br />דוגמאות:<br />אם מציינים שעליו ללכוד "
+"<i>כל</i> פעם, והתוכן שהוא מקיף הוא <tt>אבג</tt>, אז <i>פריט הביטוי הרגולרי</"
+"i> ילכוד את המחרוזת הריקה, את המחרוזת <tt>אבג</tt>, את המחרוזת <tt>אבגאבג</"
+"tt>, את המחרוזת <tt>אבגאבגאבגאבג</tt>, וכו׳.</qt>"
 
 #: regexpbuttons.cpp:85
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This <i>regexp item</i> will match any of its alternatives.</p>You "
-#| "specify alternatives by placing <i>regexp items</i> on top of each other "
-#| "inside this widget.</qt>"
+#, kde-format
 msgid ""
 "<p>This <i>regexp item</i> will match any of its alternatives.</"
 "p><p>Alternatives are specified by placing <i>regexp items</i> on top of "
 "each other inside this widget.</p>"
 msgstr ""
-"<qt><i>פריט ביטוי רגולרי</i> זה יתאים לכל אחד מהחלופות שלו.</p>ציון חלופות "
-"מתבצע על ידי מיקום <i>פריטי ביטוי רגולרי</i> זה מעל זה בתוך פריט זה.</qt>"
+"<p><i>פריט הביטוי הרגולרי</i> הזה ילכוד כל אחת מהחלופות שלו.</p><p>ציון "
+"חלופות מתבצע על ידי הצבת <i>פריטי ביטוי רגולרי</i> זה מעל זה בתוך פקד זה.</p>"
 
 #: regexpbuttons.cpp:92
 #, kde-format
@@ -685,7 +679,7 @@ msgid "Compound regexp"
 msgstr "ביטוי רגולרי מורכב"
 
 #: regexpbuttons.cpp:93
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
 "for you to collapse a huge <i>regexp item</i> into a small box. This makes "
@@ -693,10 +687,10 @@ msgid ""
 "especially useful if you load a predefined <i>regexp item</i> that you "
 "perhaps do not care about the inner workings of.</qt>"
 msgstr ""
-"<qt><i>פריט ביטוי רגולרי</i> זה משרת שתי מטרות:<ul><li>הוא מאפשר לך לצמצם "
-"<i>פריט ביטוי רגולרי</i> ענק לתיבה קטנה. דבר זה מקל עליך לסקור <i>פריטי "
-"ביטוי סדיר</i> גדולים, והוא שימושי במיוחד אם אתה טוען <i>פריט ביטוי רגולרי</"
-"i> מוגדר מראש שאולי לא מעניין אותך המבנה הפנימי שלו."
+"<qt><i>פריט הביטוי הרגולרי</i> הזה משרת שתי מטרות:<ul><li>לאפשר לך לצמצם "
+"<i>פריט ביטוי רגולרי</i> ענק לתיבה קטנה. מה שמקל על סקירת <i>פריטי ביטוי "
+"רגולרי</i> גדולים, והוא שימושי במיוחד לטעינת <i>פריט ביטוי רגולרי</i> מוגדר "
+"מראש שאולי לא מעניין אותך המבנה הפנימי שלו."
 
 #: regexpbuttons.cpp:100
 #, kde-format
@@ -753,6 +747,8 @@ msgid ""
 "<qt>This asserts a regular expression (This part does not actually match any "
 "characters). You can only use this at the end of a regular expression.</qt>"
 msgstr ""
+"<qt>זה מכריז על ביטוי רגולרי (החלק הזה לא לוכד תווים). אפשר להשתמש בזה רק "
+"בסוף של ביטוי רגולרי.</qt>"
 
 #: regexpbuttons.cpp:128
 #, kde-format
@@ -766,6 +762,8 @@ msgid ""
 "not actually match any characters). You can only use this at the end of a "
 "regular expression.</qt>"
 msgstr ""
+"<qt>זה מכריז על ביטוי רגולרי בשלילה (החלק הזה לא לוכד תווים). אפשר להשתמש "
+"בזה רק בסוף של ביטוי רגולרי.</qt>"
 
 #: regexpeditorwindow.cpp:203
 #, kde-format
