@@ -1,24 +1,21 @@
 # translation of kregexpeditor.po to Tamil
 # Copyright (C) 2004 Free Software Foundation, Inc.
-# , 2004.
-# , 2004.
-# , 2004.
-# , 2004.
-# , 2004.
 #
+# SPDX-FileCopyrightText: 2023 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-12 01:39+0000\n"
-"PO-Revision-Date: 2004-08-16 02:59-0800\n"
-"Last-Translator: Tamil PC <tamilpc@ambalam.com>\n"
-"Language-Team: Tamil <en@li.org>\n"
+"PO-Revision-Date: 2023-12-17 16:40+0530\n"
+"Last-Translator: Kishore G <kishore96@gmail.com>\n"
+"Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -969,18 +966,21 @@ msgstr "எத்தனை முறை வேண்டுமானாலும�
 msgid "Repeated at Least 1 Time"
 msgid_plural "Repeated at Least %1 Times"
 msgstr[0] "குறைந்தபட்சம் %2 முறையாவது திரும்பச்செய்யலாம்"
+msgstr[1] ""
 
 #: repeatwidget.cpp:289
 #, fuzzy, kde-format
 msgid "Repeated at Most 1 Time"
 msgid_plural "Repeated at Most %1 Times"
 msgstr[0] "அதிகபட்சம் %2 முறையாவது திரும்பச்செய்யலாம்"
+msgstr[1] ""
 
 #: repeatwidget.cpp:291
 #, fuzzy, kde-format
 msgid "Repeated Exactly 1 Time"
 msgid_plural "Repeated Exactly %1 Times"
 msgstr[0] "சரியாக %2 முறை திரும்பச்செய்யலாம்"
+msgstr[1] ""
 
 #: repeatwidget.cpp:293
 #, kde-format
@@ -1005,9 +1005,9 @@ msgid "User Defined"
 msgstr "பயனர் வரையறு"
 
 #: userdefinedregexps.cpp:76
-#, fuzzy, kde-format
+#, kde-format
 msgid "general"
-msgstr "பொது"
+msgstr "பொதுவானவை"
 
 #: userdefinedregexps.cpp:90
 #, kde-format
