@@ -520,7 +520,7 @@ msgstr "Vývojář"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
 #: main.cpp:35
 #, kde-format
