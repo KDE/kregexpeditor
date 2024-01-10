@@ -30,17 +30,7 @@ InfoPage::InfoPage(QWidget *parent)
 
                 "<h2>What is a regular expression?</h2>"
                 "If you do not know what a regular expression is, then it might be a good idea "
-                "to read <a href=\"doc://whatIsARegExp\">the introduction to regular expressions</a>.<br />");
-
-    txt += i18n(
-               "<h2>Send the author an electronic postcard</h2>"
-               "I don't get any money for working on KRegExpEditor, "
-               "I therefore appreciate it very much when users tell me what they think about my work. "
-               "I would therefore be very happy if you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">"
-               "sent me a short mail</a>, telling me that you use my regular expression editor."
-
-               "<h2>Author</h2>"
-               "<a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;")
+                "to read <a href=\"doc://whatIsARegExp\">the introduction to regular expressions</a>.<br />")
         + QStringLiteral("</qt>");
     setText(txt);
 }
