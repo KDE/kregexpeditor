@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-12 01:39+0000\n"
+"POT-Creation-Date: 2024-01-11 00:39+0000\n"
 "PO-Revision-Date: 2020-04-05 13:27+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -38,37 +38,6 @@ msgstr "여러 가지 대안을 선택할 수 없습니다."
 #, kde-format
 msgid "Selection Invalid"
 msgstr "선택 잘못됨"
-
-#: auxbuttons.cpp:23
-#, kde-format
-msgid "Undo"
-msgstr "실행 취소"
-
-#: auxbuttons.cpp:29
-#, kde-format
-msgid "Redo"
-msgstr "다시 실행"
-
-#: auxbuttons.cpp:35 KMultiFormListBox/ccp.cpp:58
-#, kde-format
-msgid "Cut"
-msgstr "잘라내기"
-
-#: auxbuttons.cpp:41 KMultiFormListBox/ccp.cpp:59
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
-#, kde-format
-msgid "Copy"
-msgstr "복사"
-
-#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:60
-#, kde-format
-msgid "Paste"
-msgstr "붙여넣기"
-
-#: auxbuttons.cpp:53
-#, kde-format
-msgid "Save"
-msgstr "저장"
 
 #: characterswidget.cpp:102
 #, kde-format
@@ -326,23 +295,21 @@ msgstr ""
 "이란?</h2> 정규 표현식이 무엇인지 모른다면, <a href=\"doc://whatIsARegExp\">"
 "에서 정규 표현식 소개 부분을 참고하십시오</a>.<br />"
 
-#: infopage.cpp:36
+#: KMultiFormListBox/ccp.cpp:58
 #, kde-format
-msgid ""
-"<h2>Send the author an electronic postcard</h2>I don't get any money for "
-"working on KRegExpEditor, I therefore appreciate it very much when users "
-"tell me what they think about my work. I would therefore be very happy if "
-"you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a short "
-"mail</a>, telling me that you use my regular expression editor.<h2>Author</"
-"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
-"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
-msgstr ""
-"<h2>제작자에게 전자 우편을 보내 주십시오</h2> KRegExpEditor를 통해서 얻는 돈"
-"은 없기 때문에, 사용자 의견은 개발에 항상 도움이 됩니다. <a href=\"mailto:"
-"blackie@kde.org?subject=KRegExpEditor\">제게 짧은 메일을 보내 주셔서</a> 정"
-"규 표현식 편집기 사용에 대하여 이야기해 주십시오. <h2>제작자</h2><a href="
-"\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:"
-"blackie@kde.org\">blackie@kde.org</a>&gt;"
+msgid "Cut"
+msgstr "잘라내기"
+
+#: KMultiFormListBox/ccp.cpp:59
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
+#, kde-format
+msgid "Copy"
+msgstr "복사"
+
+#: KMultiFormListBox/ccp.cpp:60
+#, kde-format
+msgid "Paste"
+msgstr "붙여넣기"
 
 #: KMultiFormListBox/ccp.cpp:61
 #, kde-format
@@ -405,17 +372,12 @@ msgstr "추가"
 msgid "Widget Configuration"
 msgstr "위젯 설정"
 
-#: kregexpeditorguidialog.cpp:24
-#, kde-format
-msgid "Regular Expression Editor"
-msgstr "정규 표현식 편집기"
-
-#: kregexpeditorprivate.cpp:56
+#: kregexpeditorprivate.cpp:48
 #, kde-format
 msgid "Compound regular expression:"
 msgstr "컴파운드 정규 표현식:"
 
-#: kregexpeditorprivate.cpp:58
+#: kregexpeditorprivate.cpp:50
 #, kde-format
 msgid ""
 "In this window you will find predefined regular expressions. Both regular "
@@ -425,7 +387,7 @@ msgstr ""
 "이 창에서 미리 정의된 정규 표현식을 찾을 수 있습니다. 직접 개발하고 저장한 정"
 "규 표현식과 시스템 자체의 정규 표현식 모두 존재합니다."
 
-#: kregexpeditorprivate.cpp:68
+#: kregexpeditorprivate.cpp:60
 #, kde-format
 msgid ""
 "In this window you will develop your regular expressions. Select one of the "
@@ -435,7 +397,7 @@ msgstr ""
 "이 창에서 사용자의 정규 표현식을 개발할 수 있습니다. 위의 동작 버튼 중 하나"
 "를 선택한 후 해당 동작을 삽입하려면, 이 창을 클릭하십시오."
 
-#: kregexpeditorprivate.cpp:77
+#: kregexpeditorprivate.cpp:69
 #, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
@@ -450,12 +412,12 @@ msgstr ""
 "다.</p><p>편집 창에서 특정 정규 표현식을 선택하면, 이 부분이 강조 표시 됩니"
 "다 - 사용자의 정규 표현식 <i>디버그</i>가 가능합니다.</p>"
 
-#: kregexpeditorprivate.cpp:139
+#: kregexpeditorprivate.cpp:110
 #, kde-format
 msgid "ASCII syntax:"
 msgstr "ASCII 문법:"
 
-#: kregexpeditorprivate.cpp:153
+#: kregexpeditorprivate.cpp:124
 #, kde-format
 msgid ""
 "<p>This is the regular expression in ASCII syntax. You are likely only to be "
@@ -468,10 +430,78 @@ msgstr ""
 "하는 프로그래머에게 필요할 수도 있습니다.</p><p>그래픽 편집기와 행 편집기를 "
 "둘 다 사용하여 정규 표현식을 개발할 수 있습니다.</p>"
 
-#: kregexpeditorprivate.cpp:364
+#: kregexpeditorprivate.cpp:348
 #, kde-format
 msgid "Could not open file '%1' for reading"
 msgstr "파일 '%1'에서 읽으려고 열 수 없습니다"
+
+#: kregexpeditorwindow.cpp:36
+#, fuzzy, kde-format
+#| msgid "Regular Expression Editor"
+msgctxt "@title:window"
+msgid "Regular Expression Editor"
+msgstr "정규 표현식 편집기"
+
+#: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
+#, kde-format
+msgid "Verify regular expression"
+msgstr "정규 표현식 확인"
+
+#: kregexpeditorwindow.cpp:103
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Load text"
+msgstr ""
+
+#: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
+#, kde-format
+msgid "Load text in the verifier window"
+msgstr "확인 창에 텍스트 불러오기"
+
+#: kregexpeditorwindow.cpp:114 verifybuttons.cpp:94
+#, kde-format
+msgid "Verify on the Fly"
+msgstr "바로 확인"
+
+#: kregexpeditorwindow.cpp:122 verifybuttons.cpp:100
+#, kde-format
+msgid "Toggle on-the-fly verification of regular expression"
+msgstr "정규 표현식 바로 확인하기 전환"
+
+#: kregexpeditorwindow.cpp:124 verifybuttons.cpp:102
+#, kde-format
+msgid ""
+"Enabling this option will make the verifier update for each edit. If the "
+"verify window contains much text, or if the regular expression is either "
+"complex or matches a lot of time, this may be very slow."
+msgstr ""
+"편집을 진행할 때마다 확인 정보를 업데이트합니다. 확인 창에 문자열이 많이 들"
+"어 있거나, 정규 표현식이 복잡하거나 일치 작업에 시간이 오래 걸리면 느려질 수 "
+"있습니다."
+
+#: kregexpeditorwindow.cpp:129 verifybuttons.cpp:106
+#, kde-format
+msgid "Match Greedy"
+msgstr "탐욕스럽게 일치"
+
+#: kregexpeditorwindow.cpp:136 verifybuttons.cpp:111
+#, kde-format
+msgid "Toggle greedy matching when verifying the regular expression."
+msgstr "정규 표현식을 확인할 때 탐욕스런 일치를 전환합니다."
+
+#: kregexpeditorwindow.cpp:137 verifybuttons.cpp:112
+#, kde-format
+msgid ""
+"When this option is enabled, the regular expression will be evaluated on a "
+"so-called greedy way."
+msgstr "이 옵션을 사용하면 정규 표현식을 탐욕스럽게 적용합니다."
+
+#: kregexpeditorwindow.cpp:140
+#, fuzzy, kde-format
+#| msgid "RegExp Language"
+msgctxt "@title:menu"
+msgid "RegExp Languages"
+msgstr "정규 표현식 언어"
 
 #: lookaheadwidget.cpp:39
 #, kde-format
@@ -975,11 +1005,6 @@ msgstr "<p><b>%1</b> 정규 표현식의 이름을 덮어쓰겠습니까?</p>"
 msgid "Do Not Overwrite"
 msgstr "덮어쓰지 않음"
 
-#: verifybuttons.cpp:27
-#, kde-format
-msgid "Verify regular expression"
-msgstr "정규 표현식 확인"
-
 #: verifybuttons.cpp:29
 #, kde-format
 msgid ""
@@ -988,11 +1013,6 @@ msgid ""
 msgstr ""
 "<i>확인창</i>에 일치하는 정규 표현식의 부분을 표시합니다. (그래픽 편집창 아래"
 "의 창)"
-
-#: verifybuttons.cpp:38
-#, kde-format
-msgid "Load text in the verifier window"
-msgstr "확인 창에 텍스트 불러오기"
 
 #: verifybuttons.cpp:43
 #, kde-format
@@ -1003,44 +1023,6 @@ msgstr "확인 설정"
 #, kde-format
 msgid "config menu"
 msgstr "설정 메뉴"
-
-#: verifybuttons.cpp:94
-#, kde-format
-msgid "Verify on the Fly"
-msgstr "바로 확인"
-
-#: verifybuttons.cpp:100
-#, kde-format
-msgid "Toggle on-the-fly verification of regular expression"
-msgstr "정규 표현식 바로 확인하기 전환"
-
-#: verifybuttons.cpp:102
-#, kde-format
-msgid ""
-"Enabling this option will make the verifier update for each edit. If the "
-"verify window contains much text, or if the regular expression is either "
-"complex or matches a lot of time, this may be very slow."
-msgstr ""
-"편집을 진행할 때마다 확인 정보를 업데이트합니다. 확인 창에 문자열이 많이 들"
-"어 있거나, 정규 표현식이 복잡하거나 일치 작업에 시간이 오래 걸리면 느려질 수 "
-"있습니다."
-
-#: verifybuttons.cpp:106
-#, kde-format
-msgid "Match Greedy"
-msgstr "탐욕스럽게 일치"
-
-#: verifybuttons.cpp:111
-#, kde-format
-msgid "Toggle greedy matching when verifying the regular expression."
-msgstr "정규 표현식을 확인할 때 탐욕스런 일치를 전환합니다."
-
-#: verifybuttons.cpp:112
-#, kde-format
-msgid ""
-"When this option is enabled, the regular expression will be evaluated on a "
-"so-called greedy way."
-msgstr "이 옵션을 사용하면 정규 표현식을 탐욕스럽게 적용합니다."
 
 #: verifybuttons.cpp:115
 #, kde-format
@@ -1120,6 +1102,31 @@ msgid ""
 msgstr ""
 "비 단어\n"
 "경계"
+
+#~ msgid "Undo"
+#~ msgstr "실행 취소"
+
+#~ msgid "Redo"
+#~ msgstr "다시 실행"
+
+#~ msgid "Save"
+#~ msgstr "저장"
+
+#~ msgid ""
+#~ "<h2>Send the author an electronic postcard</h2>I don't get any money for "
+#~ "working on KRegExpEditor, I therefore appreciate it very much when users "
+#~ "tell me what they think about my work. I would therefore be very happy if "
+#~ "you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a "
+#~ "short mail</a>, telling me that you use my regular expression editor."
+#~ "<h2>Author</h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> "
+#~ "&lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+#~ msgstr ""
+#~ "<h2>제작자에게 전자 우편을 보내 주십시오</h2> KRegExpEditor를 통해서 얻는 "
+#~ "돈은 없기 때문에, 사용자 의견은 개발에 항상 도움이 됩니다. <a href="
+#~ "\"mailto:blackie@kde.org?subject=KRegExpEditor\">제게 짧은 메일을 보내 주"
+#~ "셔서</a> 정규 표현식 편집기 사용에 대하여 이야기해 주십시오. <h2>제작자</"
+#~ "h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
+#~ "\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
 
 #~ msgid "Clear expression"
 #~ msgstr "정규 표현식 삭제"

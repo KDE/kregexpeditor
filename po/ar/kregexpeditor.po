@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-12 01:39+0000\n"
+"POT-Creation-Date: 2024-01-11 00:39+0000\n"
 "PO-Revision-Date: 2022-10-01 13:35+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -50,37 +50,6 @@ msgstr "لا يتوفر الدعم حالياً لاختيار عدة بدائل
 #, kde-format
 msgid "Selection Invalid"
 msgstr "تحديد غير صالح"
-
-#: auxbuttons.cpp:23
-#, kde-format
-msgid "Undo"
-msgstr "تراجع"
-
-#: auxbuttons.cpp:29
-#, kde-format
-msgid "Redo"
-msgstr "أعد"
-
-#: auxbuttons.cpp:35 KMultiFormListBox/ccp.cpp:58
-#, kde-format
-msgid "Cut"
-msgstr "قص"
-
-#: auxbuttons.cpp:41 KMultiFormListBox/ccp.cpp:59
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
-#, kde-format
-msgid "Copy"
-msgstr "انسخ"
-
-#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:60
-#, kde-format
-msgid "Paste"
-msgstr "ألصق"
-
-#: auxbuttons.cpp:53
-#, kde-format
-msgid "Save"
-msgstr "احفظ"
 
 #: characterswidget.cpp:102
 #, kde-format
@@ -339,24 +308,21 @@ msgstr ""
 "التعبير النمطى، عندها قد يكون من المستحسن أن تقرأ <a href=\"doc://"
 "whatIsARegExp\">المقدّمة فى التعابير النمطية</a>.<br />"
 
-#: infopage.cpp:36
+#: KMultiFormListBox/ccp.cpp:58
 #, kde-format
-msgid ""
-"<h2>Send the author an electronic postcard</h2>I don't get any money for "
-"working on KRegExpEditor, I therefore appreciate it very much when users "
-"tell me what they think about my work. I would therefore be very happy if "
-"you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a short "
-"mail</a>, telling me that you use my regular expression editor.<h2>Author</"
-"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
-"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
-msgstr ""
-"<h2>ارسل للمؤلف بطاقة بريدية إلكترونية</h2>لا أتلقى أية أموال مقابل عملي على "
-"KRegExpEditor، لذلك أقدّر كثيراً عندما يخبرني مستخدموا البرنامج عن رأيهم في "
-"عملي.  لذلك سأكون سعيداً جداً لو أنك <a href=\"mailto:blackie@kde.org?"
-"subject=KRegExpEditor\">أرسلت لي رسالة قصيرة</a>، تخبرني فيها أنك تستخدم "
-"محرّري للتعابير النمطية.<h2>المؤلف</h2><a href=\"http://www.blackie.dk/"
-"\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:blackie@kde.org\">blackie@kde."
-"org</a>&gt;"
+msgid "Cut"
+msgstr "قص"
+
+#: KMultiFormListBox/ccp.cpp:59
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
+#, kde-format
+msgid "Copy"
+msgstr "انسخ"
+
+#: KMultiFormListBox/ccp.cpp:60
+#, kde-format
+msgid "Paste"
+msgstr "ألصق"
 
 #: KMultiFormListBox/ccp.cpp:61
 #, kde-format
@@ -419,17 +385,12 @@ msgstr "أضف"
 msgid "Widget Configuration"
 msgstr "إعدادات عنصر التحكم"
 
-#: kregexpeditorguidialog.cpp:24
-#, kde-format
-msgid "Regular Expression Editor"
-msgstr "محرر التعبير النمطى"
-
-#: kregexpeditorprivate.cpp:56
+#: kregexpeditorprivate.cpp:48
 #, kde-format
 msgid "Compound regular expression:"
 msgstr "تعابير نمطيّة مُرَكَّبة:"
 
-#: kregexpeditorprivate.cpp:58
+#: kregexpeditorprivate.cpp:50
 #, kde-format
 msgid ""
 "In this window you will find predefined regular expressions. Both regular "
@@ -439,7 +400,7 @@ msgstr ""
 "ستجد داخل هذه النافذة تعابير نمطية مسبقة التعريف. وهي تشمل التعابير النمطية "
 "التى قُمتَ بتطويرها وحفظها بنفسك، وتعابير نمطية شُحِنت مع النظام."
 
-#: kregexpeditorprivate.cpp:68
+#: kregexpeditorprivate.cpp:60
 #, kde-format
 msgid ""
 "In this window you will develop your regular expressions. Select one of the "
@@ -450,7 +411,7 @@ msgstr ""
 "الإجراءات من أزرار الإجراءات أعلاه، ثم اضغط الفأرة في هذه النافذة لإدراج "
 "الإجراء المُحَدّد."
 
-#: kregexpeditorprivate.cpp:77
+#: kregexpeditorprivate.cpp:69
 #, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
@@ -466,12 +427,12 @@ msgstr ""
 "التعبير النمطى في نافذة المُحَرّر، عندها يتم تظليل ذلك الجزء - يسمح لك ذلك "
 "<i>بتتبع أخطاء</i>التعابير النمطية التي كتبت</p>"
 
-#: kregexpeditorprivate.cpp:139
+#: kregexpeditorprivate.cpp:110
 #, kde-format
 msgid "ASCII syntax:"
 msgstr "صيغة ASCII:"
 
-#: kregexpeditorprivate.cpp:153
+#: kregexpeditorprivate.cpp:124
 #, kde-format
 msgid ""
 "<p>This is the regular expression in ASCII syntax. You are likely only to be "
@@ -484,10 +445,80 @@ msgstr ""
 "لتطوير تعبير نمطي باستخدام QRegExp.</p><p> بإمكانك تطوير تعبير نمطي باستخدام "
 "كلٍ من المُحَرّر ذي الواجهة الرسومية، وعن طريق كتابته في محرر السطر هذا.</p>>"
 
-#: kregexpeditorprivate.cpp:364
+#: kregexpeditorprivate.cpp:348
 #, kde-format
 msgid "Could not open file '%1' for reading"
 msgstr "لا يمكن فتح الملف '%1' للقراءة"
+
+#: kregexpeditorwindow.cpp:36
+#, fuzzy, kde-format
+#| msgid "Regular Expression Editor"
+msgctxt "@title:window"
+msgid "Regular Expression Editor"
+msgstr "محرر التعبير النمطى"
+
+#: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
+#, kde-format
+msgid "Verify regular expression"
+msgstr "تحقّق من التعبير النمطي"
+
+#: kregexpeditorwindow.cpp:103
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Load text"
+msgstr ""
+
+#: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
+#, kde-format
+msgid "Load text in the verifier window"
+msgstr "حمّل النص فى نافذة المُتَحَِِّق"
+
+#: kregexpeditorwindow.cpp:114 verifybuttons.cpp:94
+#, kde-format
+msgid "Verify on the Fly"
+msgstr "تحقّق آنياً"
+
+#: kregexpeditorwindow.cpp:122 verifybuttons.cpp:100
+#, kde-format
+msgid "Toggle on-the-fly verification of regular expression"
+msgstr "تشغيل/إيقاف التحقّق الآني (من دون سؤال) من صحة التعابير النمطية"
+
+#: kregexpeditorwindow.cpp:124 verifybuttons.cpp:102
+#, kde-format
+msgid ""
+"Enabling this option will make the verifier update for each edit. If the "
+"verify window contains much text, or if the regular expression is either "
+"complex or matches a lot of time, this may be very slow."
+msgstr ""
+"تمكين هذا الخيار سيجعل المُتَحَقِق يتم تحديثه عند كل تحرير. إن احتوت نافذة "
+"المُتَحَقِق على الكثير من النص، أو إن كان التعبير النمطي إما معقّداً أو يطابق "
+"الكثير من المرات، قد يصبح ذلك بطيئاً جداً."
+
+#: kregexpeditorwindow.cpp:129 verifybuttons.cpp:106
+#, kde-format
+msgid "Match Greedy"
+msgstr "طابق كل شيء"
+
+#: kregexpeditorwindow.cpp:136 verifybuttons.cpp:111
+#, kde-format
+msgid "Toggle greedy matching when verifying the regular expression."
+msgstr "تشغيل/إيقاف التحقّق الكلي عند  التأكد من صحة التعابير النمطية"
+
+#: kregexpeditorwindow.cpp:137 verifybuttons.cpp:112
+#, kde-format
+msgid ""
+"When this option is enabled, the regular expression will be evaluated on a "
+"so-called greedy way."
+msgstr ""
+"عندما يكون هذا الخيار ممكن ، التعبير النمطي سيقارن بما يسمى طريقة التطابق "
+"الكلي."
+
+#: kregexpeditorwindow.cpp:140
+#, fuzzy, kde-format
+#| msgid "RegExp Language"
+msgctxt "@title:menu"
+msgid "RegExp Languages"
+msgstr "لغة التعبير النمطي"
 
 #: lookaheadwidget.cpp:39
 #, kde-format
@@ -1009,11 +1040,6 @@ msgstr "<p>الكتابة فوق التعبير النمطي المسمى <b>%1<
 msgid "Do Not Overwrite"
 msgstr "لا تكتب فوقه"
 
-#: verifybuttons.cpp:27
-#, kde-format
-msgid "Verify regular expression"
-msgstr "تحقّق من التعبير النمطي"
-
 #: verifybuttons.cpp:29
 #, kde-format
 msgid ""
@@ -1022,11 +1048,6 @@ msgid ""
 msgstr ""
 "يُظهِر ما هو الجزء من التعبير النمطي الذى تتم مطابقته في <i>نافذة المُتَحَقِّق</i>. "
 "(النافذة أسفل نافذة المُحَرّر الرسومي)."
-
-#: verifybuttons.cpp:38
-#, kde-format
-msgid "Load text in the verifier window"
-msgstr "حمّل النص فى نافذة المُتَحَِِّق"
 
 #: verifybuttons.cpp:43
 #, kde-format
@@ -1037,46 +1058,6 @@ msgstr "إعدادات التحقق"
 #, kde-format
 msgid "config menu"
 msgstr "اضبط القائمة"
-
-#: verifybuttons.cpp:94
-#, kde-format
-msgid "Verify on the Fly"
-msgstr "تحقّق آنياً"
-
-#: verifybuttons.cpp:100
-#, kde-format
-msgid "Toggle on-the-fly verification of regular expression"
-msgstr "تشغيل/إيقاف التحقّق الآني (من دون سؤال) من صحة التعابير النمطية"
-
-#: verifybuttons.cpp:102
-#, kde-format
-msgid ""
-"Enabling this option will make the verifier update for each edit. If the "
-"verify window contains much text, or if the regular expression is either "
-"complex or matches a lot of time, this may be very slow."
-msgstr ""
-"تمكين هذا الخيار سيجعل المُتَحَقِق يتم تحديثه عند كل تحرير. إن احتوت نافذة "
-"المُتَحَقِق على الكثير من النص، أو إن كان التعبير النمطي إما معقّداً أو يطابق "
-"الكثير من المرات، قد يصبح ذلك بطيئاً جداً."
-
-#: verifybuttons.cpp:106
-#, kde-format
-msgid "Match Greedy"
-msgstr "طابق كل شيء"
-
-#: verifybuttons.cpp:111
-#, kde-format
-msgid "Toggle greedy matching when verifying the regular expression."
-msgstr "تشغيل/إيقاف التحقّق الكلي عند  التأكد من صحة التعابير النمطية"
-
-#: verifybuttons.cpp:112
-#, kde-format
-msgid ""
-"When this option is enabled, the regular expression will be evaluated on a "
-"so-called greedy way."
-msgstr ""
-"عندما يكون هذا الخيار ممكن ، التعبير النمطي سيقارن بما يسمى طريقة التطابق "
-"الكلي."
 
 #: verifybuttons.cpp:115
 #, kde-format
@@ -1155,6 +1136,32 @@ msgid ""
 msgstr ""
 "حدّ\n"
 "غير كلمة"
+
+#~ msgid "Undo"
+#~ msgstr "تراجع"
+
+#~ msgid "Redo"
+#~ msgstr "أعد"
+
+#~ msgid "Save"
+#~ msgstr "احفظ"
+
+#~ msgid ""
+#~ "<h2>Send the author an electronic postcard</h2>I don't get any money for "
+#~ "working on KRegExpEditor, I therefore appreciate it very much when users "
+#~ "tell me what they think about my work. I would therefore be very happy if "
+#~ "you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a "
+#~ "short mail</a>, telling me that you use my regular expression editor."
+#~ "<h2>Author</h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> "
+#~ "&lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+#~ msgstr ""
+#~ "<h2>ارسل للمؤلف بطاقة بريدية إلكترونية</h2>لا أتلقى أية أموال مقابل عملي "
+#~ "على KRegExpEditor، لذلك أقدّر كثيراً عندما يخبرني مستخدموا البرنامج عن "
+#~ "رأيهم في عملي.  لذلك سأكون سعيداً جداً لو أنك <a href=\"mailto:blackie@kde."
+#~ "org?subject=KRegExpEditor\">أرسلت لي رسالة قصيرة</a>، تخبرني فيها أنك "
+#~ "تستخدم محرّري للتعابير النمطية.<h2>المؤلف</h2><a href=\"http://www.blackie."
+#~ "dk/\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:blackie@kde.org"
+#~ "\">blackie@kde.org</a>&gt;"
 
 #~ msgid "Clear expression"
 #~ msgstr "مسح التعبير النمطى"

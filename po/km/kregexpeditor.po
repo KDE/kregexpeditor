@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-12 01:39+0000\n"
+"POT-Creation-Date: 2024-01-11 00:39+0000\n"
 "PO-Revision-Date: 2012-07-16 17:06+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -47,37 +47,6 @@ msgstr "ជ្រើស​ជំនួស​​ជាច្រើន​មិន
 #, kde-format
 msgid "Selection Invalid"
 msgstr "ជម្រើស​មិន​ត្រឹមត្រូវ"
-
-#: auxbuttons.cpp:23
-#, kde-format
-msgid "Undo"
-msgstr "មិន​ធ្វើវិញ"
-
-#: auxbuttons.cpp:29
-#, kde-format
-msgid "Redo"
-msgstr "ធ្វើ​វិញ"
-
-#: auxbuttons.cpp:35 KMultiFormListBox/ccp.cpp:58
-#, kde-format
-msgid "Cut"
-msgstr "កាត់"
-
-#: auxbuttons.cpp:41 KMultiFormListBox/ccp.cpp:59
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
-#, kde-format
-msgid "Copy"
-msgstr "ចម្លង"
-
-#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:60
-#, kde-format
-msgid "Paste"
-msgstr "បិទភ្ជាប់"
-
-#: auxbuttons.cpp:53
-#, kde-format
-msgid "Save"
-msgstr "រក្សាទុក"
 
 #: characterswidget.cpp:102
 #, kde-format
@@ -334,23 +303,21 @@ msgstr ""
 "ជា​កន្សោម​ធម្មតា​ទេ​នោះ ពេល​នោះ​វា​អាច​ជា​គំនិត​ល្អ​មួយ ក្នុង​ការ​អាន <a href=\"doc://"
 "whatIsARegExp\">សេចក្ដី​ណែនាំ​អំពី​កន្សោម​ធម្មតា</a> ។<br />"
 
-#: infopage.cpp:36
+#: KMultiFormListBox/ccp.cpp:58
 #, kde-format
-msgid ""
-"<h2>Send the author an electronic postcard</h2>I don't get any money for "
-"working on KRegExpEditor, I therefore appreciate it very much when users "
-"tell me what they think about my work. I would therefore be very happy if "
-"you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a short "
-"mail</a>, telling me that you use my regular expression editor.<h2>Author</"
-"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
-"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
-msgstr ""
-"<h2>ផ្ញើ​បណ្ណ​ប្រៃសណីយ៍​អេឡិចត្រូនិក​ទៅឲ្យ​អ្នក​និពន្ធ</h2>ខ្ញុំមិនបានទទួល​ប្រាក់​ក្នុងការ​ធ្វើការងារ​នៅលើ "
-"KRegExpEditor ទេ ដូច្នេះ​ខ្ញុំលើក​សរសើរ​វា​ខ្លាំងណាស់ នៅពេល​ដែល​អ្នកប្រើ​ប្រាប់ខ្ញុំ​អំពីអ្វី​ដែលពួកគេ​គិត​អំពី​"
-"ការងារ​របស់ខ្ញុំ ។ ដូច្នេះ​ខ្ញុំសប្បាយចិត្តខ្លាំងណាស់ ប្រសិនបើអ្នក <a href=\"mailto:blackie@kde."
-"org?subject=KRegExpEditor\">ផ្ញើ​សំបុត្រ​ខ្លី​ឲ្យខ្ញុំ</a> ការដែលប្រាប់​ខ្ញុំថា អ្នក​ប្រើ​កម្មវិធី​នពន្វ​"
-"កន្សោម​ធ្មតារបស់​ខ្ញុំ ។<h2>អ្នក​និពន្ធ</h2><a href=\"http://www.blackie.dk/\">Jesper K. "
-"Pedersen</a> &lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+msgid "Cut"
+msgstr "កាត់"
+
+#: KMultiFormListBox/ccp.cpp:59
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
+#, kde-format
+msgid "Copy"
+msgstr "ចម្លង"
+
+#: KMultiFormListBox/ccp.cpp:60
+#, kde-format
+msgid "Paste"
+msgstr "បិទភ្ជាប់"
 
 #: KMultiFormListBox/ccp.cpp:61
 #, kde-format
@@ -413,17 +380,12 @@ msgstr "បន្ថែម"
 msgid "Widget Configuration"
 msgstr "ការ​កំណត់​រចនា​សម្ព័ន្ធ​ធាតុ​ក្រាហ្វិក"
 
-#: kregexpeditorguidialog.cpp:24
-#, kde-format
-msgid "Regular Expression Editor"
-msgstr "កម្មវិធីនពន្វ​កន្សោម​ធម្មតា"
-
-#: kregexpeditorprivate.cpp:56
+#: kregexpeditorprivate.cpp:48
 #, kde-format
 msgid "Compound regular expression:"
 msgstr "កន្សោម​ធម្មតា​សមាស ៖"
 
-#: kregexpeditorprivate.cpp:58
+#: kregexpeditorprivate.cpp:50
 #, kde-format
 msgid ""
 "In this window you will find predefined regular expressions. Both regular "
@@ -433,7 +395,7 @@ msgstr ""
 "នៅ​ក្នុង​បង្អួច​នេះ​អ្នក​នឹង​ឃើញ​ការ​ឲ្យ​អត្ថន័យ​កន្សោម​ធម្មតា​​ជាមុន ។​កន្សោម​ធម្មតា​ទាំងពីរ​ដែល​អ្នក​បាន​អភិវឌ្ឍន៍​"
 "និង​រក្សា​ទុក ហើយ​កន្សោម​ធម្មតា​បាន​បញ្ជូន​ជាមួយ​ប្រព័ន្ធ ។​"
 
-#: kregexpeditorprivate.cpp:68
+#: kregexpeditorprivate.cpp:60
 #, kde-format
 msgid ""
 "In this window you will develop your regular expressions. Select one of the "
@@ -443,7 +405,7 @@ msgstr ""
 "ក្នុង​បង្អួច​នេះ​អ្នក​នឹង​អភិវឌ្ឍ​កន្សោម​ធម្មតា​របស់​អ្នក ។​ជ្រើស​យក​សកម្មភាព​មួយ​ពី​ប៊ូតុង​សកម្មភាព​ខាងលើ,​ហើយ​ចុច​"
 "កណ្ដុរ​នៅ​ក្នុង​បង្អួច​នេះ​ដើម្បី​បញ្ចូល​អំពើ​ដែល​បាន​ឲ្យ ។"
 
-#: kregexpeditorprivate.cpp:77
+#: kregexpeditorprivate.cpp:69
 #, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
@@ -459,12 +421,12 @@ msgstr ""
 "កម្មវិធី​កែសម្រួល នោះ​ផ្នែក​នេះ​នឹង​ត្រូវ​បាន​រំលេច ដែល​អនុញ្ញាត​ឲ្យ​អ្នក <i>បំបាត់​កំហុស</i> កន្សោម​ធម្មតា​"
 "របស់​អ្នក</p>"
 
-#: kregexpeditorprivate.cpp:139
+#: kregexpeditorprivate.cpp:110
 #, kde-format
 msgid "ASCII syntax:"
 msgstr "វាក្យ​សម្ព័ន្ធ ASCII ៖"
 
-#: kregexpeditorprivate.cpp:153
+#: kregexpeditorprivate.cpp:124
 #, kde-format
 msgid ""
 "<p>This is the regular expression in ASCII syntax. You are likely only to be "
@@ -478,10 +440,77 @@ msgstr ""
 "កន្សោម​ធម្មតា​របស់​អ្នក​ទាំង​ពីរ​ដោយ​ប្រើ​កម្មវិធី​កែប្រែ​ក្រាហ្វិក និង​ដោយ​វាយ​កន្សោម​ធម្មតា​ក្នុង​ការ​កែប្រែ​"
 "បន្ទាត់​នេះ ។</p>"
 
-#: kregexpeditorprivate.cpp:364
+#: kregexpeditorprivate.cpp:348
 #, kde-format
 msgid "Could not open file '%1' for reading"
 msgstr "មិន​អាច​បើក​ឯកសារ '%1' សម្រាប់​អាន​បាន​ទេ"
+
+#: kregexpeditorwindow.cpp:36
+#, fuzzy, kde-format
+#| msgid "Regular Expression Editor"
+msgctxt "@title:window"
+msgid "Regular Expression Editor"
+msgstr "កម្មវិធីនពន្វ​កន្សោម​ធម្មតា"
+
+#: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
+#, kde-format
+msgid "Verify regular expression"
+msgstr "ផ្ទៀងផ្ទាត់​កន្សោម​ធម្មតា"
+
+#: kregexpeditorwindow.cpp:103
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Load text"
+msgstr ""
+
+#: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
+#, kde-format
+msgid "Load text in the verifier window"
+msgstr "ផ្ទុក​អត្ថបទ​ក្នុង​បង្អួច​កម្មវិធី​ផ្ទៀងផ្ទាត់"
+
+#: kregexpeditorwindow.cpp:114 verifybuttons.cpp:94
+#, kde-format
+msgid "Verify on the Fly"
+msgstr "ផ្ទៀងផ្ទាត់ on the Fly"
+
+#: kregexpeditorwindow.cpp:122 verifybuttons.cpp:100
+#, kde-format
+msgid "Toggle on-the-fly verification of regular expression"
+msgstr "បិទបើក​ការ​ផ្ទៀងផ្ទាត់ on-the-fly នៃ​កន្សោម​ធម្មតា"
+
+#: kregexpeditorwindow.cpp:124 verifybuttons.cpp:102
+#, kde-format
+msgid ""
+"Enabling this option will make the verifier update for each edit. If the "
+"verify window contains much text, or if the regular expression is either "
+"complex or matches a lot of time, this may be very slow."
+msgstr ""
+"ការ​បើក​ជម្រើស​នេះ​នឹង​ធ្វើ​បច្ចុប្បន្នភាព​កម្មវិធី​ផ្ទៀងផ្ទាត់​​សម្រាប់​កម្មវិធី​កែប្រែ​នីមួយៗ ។ ប្រសិន​បើ​បង្អួច​"
+"ផ្ទៀងផ្ទាត់​មាន​អត្ថបទ​ច្រើន ឬ ប្រសិន​បើ​កន្សោម​ធម្មតា​សាំញ៉ាំ​ឬ​ផ្គូផ្គង​ច្រើន​ដង វា​ប្រហែល​ជា​យឺត​ណាស់ ។"
+
+#: kregexpeditorwindow.cpp:129 verifybuttons.cpp:106
+#, kde-format
+msgid "Match Greedy"
+msgstr "ផ្គូផ្គង Greedy"
+
+#: kregexpeditorwindow.cpp:136 verifybuttons.cpp:111
+#, kde-format
+msgid "Toggle greedy matching when verifying the regular expression."
+msgstr "បិទ/បើក greedy ដែល​ផ្គូផ្គង នៅ​ពេល​ផ្ទៀងផ្ទាត់​កន្សោម​ធម្មតា ។"
+
+#: kregexpeditorwindow.cpp:137 verifybuttons.cpp:112
+#, kde-format
+msgid ""
+"When this option is enabled, the regular expression will be evaluated on a "
+"so-called greedy way."
+msgstr "នៅ​ពេល​ជម្រើស​ត្រូវ​បាន​បើក​នឹង​ត្រូវ​បាន​វាយ​តម្លៃ លើ​មធ្យោបាយ greedy ដែល​​បាន​ហៅ ។"
+
+#: kregexpeditorwindow.cpp:140
+#, fuzzy, kde-format
+#| msgid "RegExp Language"
+msgctxt "@title:menu"
+msgid "RegExp Languages"
+msgstr "ភាសា RegExp"
 
 #: lookaheadwidget.cpp:39
 #, kde-format
@@ -976,11 +1005,6 @@ msgstr "<p>សសេរ​ជាន់​ពី​លើ​ឈ្មោះ​ក
 msgid "Do Not Overwrite"
 msgstr "កុំ​សរសេរ​ជាន់លើ"
 
-#: verifybuttons.cpp:27
-#, kde-format
-msgid "Verify regular expression"
-msgstr "ផ្ទៀងផ្ទាត់​កន្សោម​ធម្មតា"
-
 #: verifybuttons.cpp:29
 #, kde-format
 msgid ""
@@ -989,11 +1013,6 @@ msgid ""
 msgstr ""
 "បង្ហាញ​ផ្នែក​ណា​នៃ​កន្សោម​ធម្មតា​កំពុង​ត្រូវ​បាន​ផ្គូផ្គង​ក្នុង <i>បង្អួច​កម្មវិធី​ផ្ទៀងផ្ទាត់</i> ។(បង្អួច​"
 "ខាងក្រោម​គឺ​ជា​បង្អួច​កម្មវិធី​កែប្រែ​ក្រាហ្វិក) ។"
-
-#: verifybuttons.cpp:38
-#, kde-format
-msgid "Load text in the verifier window"
-msgstr "ផ្ទុក​អត្ថបទ​ក្នុង​បង្អួច​កម្មវិធី​ផ្ទៀងផ្ទាត់"
 
 #: verifybuttons.cpp:43
 #, kde-format
@@ -1004,43 +1023,6 @@ msgstr "កំណត់​ការ​ផ្ទៀងផ្ទាត់"
 #, kde-format
 msgid "config menu"
 msgstr ""
-
-#: verifybuttons.cpp:94
-#, kde-format
-msgid "Verify on the Fly"
-msgstr "ផ្ទៀងផ្ទាត់ on the Fly"
-
-#: verifybuttons.cpp:100
-#, kde-format
-msgid "Toggle on-the-fly verification of regular expression"
-msgstr "បិទបើក​ការ​ផ្ទៀងផ្ទាត់ on-the-fly នៃ​កន្សោម​ធម្មតា"
-
-#: verifybuttons.cpp:102
-#, kde-format
-msgid ""
-"Enabling this option will make the verifier update for each edit. If the "
-"verify window contains much text, or if the regular expression is either "
-"complex or matches a lot of time, this may be very slow."
-msgstr ""
-"ការ​បើក​ជម្រើស​នេះ​នឹង​ធ្វើ​បច្ចុប្បន្នភាព​កម្មវិធី​ផ្ទៀងផ្ទាត់​​សម្រាប់​កម្មវិធី​កែប្រែ​នីមួយៗ ។ ប្រសិន​បើ​បង្អួច​"
-"ផ្ទៀងផ្ទាត់​មាន​អត្ថបទ​ច្រើន ឬ ប្រសិន​បើ​កន្សោម​ធម្មតា​សាំញ៉ាំ​ឬ​ផ្គូផ្គង​ច្រើន​ដង វា​ប្រហែល​ជា​យឺត​ណាស់ ។"
-
-#: verifybuttons.cpp:106
-#, kde-format
-msgid "Match Greedy"
-msgstr "ផ្គូផ្គង Greedy"
-
-#: verifybuttons.cpp:111
-#, kde-format
-msgid "Toggle greedy matching when verifying the regular expression."
-msgstr "បិទ/បើក greedy ដែល​ផ្គូផ្គង នៅ​ពេល​ផ្ទៀងផ្ទាត់​កន្សោម​ធម្មតា ។"
-
-#: verifybuttons.cpp:112
-#, kde-format
-msgid ""
-"When this option is enabled, the regular expression will be evaluated on a "
-"so-called greedy way."
-msgstr "នៅ​ពេល​ជម្រើស​ត្រូវ​បាន​បើក​នឹង​ត្រូវ​បាន​វាយ​តម្លៃ លើ​មធ្យោបាយ greedy ដែល​​បាន​ហៅ ។"
 
 #: verifybuttons.cpp:115
 #, kde-format
@@ -1120,6 +1102,32 @@ msgid ""
 msgstr ""
 "មិន​មែន​ពាក្យ\n"
 "ព្រំដែន"
+
+#~ msgid "Undo"
+#~ msgstr "មិន​ធ្វើវិញ"
+
+#~ msgid "Redo"
+#~ msgstr "ធ្វើ​វិញ"
+
+#~ msgid "Save"
+#~ msgstr "រក្សាទុក"
+
+#~ msgid ""
+#~ "<h2>Send the author an electronic postcard</h2>I don't get any money for "
+#~ "working on KRegExpEditor, I therefore appreciate it very much when users "
+#~ "tell me what they think about my work. I would therefore be very happy if "
+#~ "you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a "
+#~ "short mail</a>, telling me that you use my regular expression editor."
+#~ "<h2>Author</h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> "
+#~ "&lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+#~ msgstr ""
+#~ "<h2>ផ្ញើ​បណ្ណ​ប្រៃសណីយ៍​អេឡិចត្រូនិក​ទៅឲ្យ​អ្នក​និពន្ធ</h2>ខ្ញុំមិនបានទទួល​ប្រាក់​ក្នុងការ​ធ្វើការងារ​នៅលើ "
+#~ "KRegExpEditor ទេ ដូច្នេះ​ខ្ញុំលើក​សរសើរ​វា​ខ្លាំងណាស់ នៅពេល​ដែល​អ្នកប្រើ​ប្រាប់ខ្ញុំ​អំពីអ្វី​ដែលពួកគេ​"
+#~ "គិត​អំពី​ការងារ​របស់ខ្ញុំ ។ ដូច្នេះ​ខ្ញុំសប្បាយចិត្តខ្លាំងណាស់ ប្រសិនបើអ្នក <a href=\"mailto:"
+#~ "blackie@kde.org?subject=KRegExpEditor\">ផ្ញើ​សំបុត្រ​ខ្លី​ឲ្យខ្ញុំ</a> ការដែលប្រាប់​ខ្ញុំថា "
+#~ "អ្នក​ប្រើ​កម្មវិធី​នពន្វ​កន្សោម​ធ្មតារបស់​ខ្ញុំ ។<h2>អ្នក​និពន្ធ</h2><a href=\"http://www."
+#~ "blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:blackie@kde.org"
+#~ "\">blackie@kde.org</a>&gt;"
 
 #~ msgid "Clear expression"
 #~ msgstr "សម្អាត​កន្សោម"

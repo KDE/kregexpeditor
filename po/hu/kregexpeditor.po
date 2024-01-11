@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 3.5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-12 01:39+0000\n"
+"POT-Creation-Date: 2024-01-11 00:39+0000\n"
 "PO-Revision-Date: 2014-06-14 16:00+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -41,37 +41,6 @@ msgstr "Nem lehet egyszerre több alternatívát kiválasztani."
 #, kde-format
 msgid "Selection Invalid"
 msgstr "A kijelölés érvénytelen"
-
-#: auxbuttons.cpp:23
-#, kde-format
-msgid "Undo"
-msgstr "Visszavonás"
-
-#: auxbuttons.cpp:29
-#, kde-format
-msgid "Redo"
-msgstr "Újra"
-
-#: auxbuttons.cpp:35 KMultiFormListBox/ccp.cpp:58
-#, kde-format
-msgid "Cut"
-msgstr "Kivágás"
-
-#: auxbuttons.cpp:41 KMultiFormListBox/ccp.cpp:59
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
-#, kde-format
-msgid "Copy"
-msgstr "Másolás"
-
-#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:60
-#, kde-format
-msgid "Paste"
-msgstr "Beillesztés"
-
-#: auxbuttons.cpp:53
-#, kde-format
-msgid "Save"
-msgstr "Mentés"
 
 #: characterswidget.cpp:102
 #, kde-format
@@ -340,25 +309,21 @@ msgstr ""
 "találkozott ezzel a fogalommal, olvassa el a következő <a href=\"doc://"
 "whatIsARegExp\">bevezetést a reguláris kifejezések világába</a>.<br />"
 
-#: infopage.cpp:36
+#: KMultiFormListBox/ccp.cpp:58
 #, kde-format
-msgid ""
-"<h2>Send the author an electronic postcard</h2>I don't get any money for "
-"working on KRegExpEditor, I therefore appreciate it very much when users "
-"tell me what they think about my work. I would therefore be very happy if "
-"you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a short "
-"mail</a>, telling me that you use my regular expression editor.<h2>Author</"
-"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
-"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
-msgstr ""
-"<h2>Küldjön egy elektronikus képeslapot a szerzőnek, ha tetszik a program!</"
-"h2>A program fejlesztését nem pénzért végzem, ezért arra kérem Önöket, írják "
-"meg őszinte véleményüket a programomról. Nagyon szívesen fogadom a <a href="
-"\"mailto:blackie@kde.org?subject=KRegExpEditor\">programmal kapcsolatos e-"
-"maileket</a>, mert ezekből a visszajelzésekből látom, hogy vannak, akik "
-"valóban használják ezt a szerkesztőt.<h2>A szerző</h2><a href=\"http://www."
-"blackie.dk/\">Jesper K. Pedersen</a>, &lt;<a href=\"mailto:blackie@kde.org"
-"\">blackie@kde.org</a>&gt;"
+msgid "Cut"
+msgstr "Kivágás"
+
+#: KMultiFormListBox/ccp.cpp:59
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
+#, kde-format
+msgid "Copy"
+msgstr "Másolás"
+
+#: KMultiFormListBox/ccp.cpp:60
+#, kde-format
+msgid "Paste"
+msgstr "Beillesztés"
 
 #: KMultiFormListBox/ccp.cpp:61
 #, kde-format
@@ -421,17 +386,12 @@ msgstr "Hozzáadás"
 msgid "Widget Configuration"
 msgstr "A grafikus elem beállításai"
 
-#: kregexpeditorguidialog.cpp:24
-#, kde-format
-msgid "Regular Expression Editor"
-msgstr "Reguláris kifejezés szerkesztő"
-
-#: kregexpeditorprivate.cpp:56
+#: kregexpeditorprivate.cpp:48
 #, kde-format
 msgid "Compound regular expression:"
 msgstr "Összetett reguláris kifejezés:"
 
-#: kregexpeditorprivate.cpp:58
+#: kregexpeditorprivate.cpp:50
 #, kde-format
 msgid ""
 "In this window you will find predefined regular expressions. Both regular "
@@ -442,7 +402,7 @@ msgstr ""
 "lehetnek a programmal együtt szállított vagy a felhasználó által készített "
 "kifejezések."
 
-#: kregexpeditorprivate.cpp:68
+#: kregexpeditorprivate.cpp:60
 #, kde-format
 msgid ""
 "In this window you will develop your regular expressions. Select one of the "
@@ -453,7 +413,7 @@ msgstr ""
 "egyet a fenti nyomógombokhoz rendelt műveletek közül, majd kattintson ebbe "
 "az ablakba az elem beszúrásához."
 
-#: kregexpeditorprivate.cpp:77
+#: kregexpeditorprivate.cpp:69
 #, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
@@ -470,12 +430,12 @@ msgstr ""
 "darabját, akkor ez a rész ki lesz emelve, lehetővé téve a kifejezések "
 "<i>hibakeresését</i>.</p>"
 
-#: kregexpeditorprivate.cpp:139
+#: kregexpeditorprivate.cpp:110
 #, kde-format
 msgid "ASCII syntax:"
 msgstr "ASCII-szintaxis:"
 
-#: kregexpeditorprivate.cpp:153
+#: kregexpeditorprivate.cpp:124
 #, kde-format
 msgid ""
 "<p>This is the regular expression in ASCII syntax. You are likely only to be "
@@ -490,10 +450,81 @@ msgstr ""
 "szerkesztéséhez grafikus szerkesztő áll rendelkezésre, de ha kívánja, "
 "egyszerűen be lehet gépelni ebbe a szövegmezőbe.</p>"
 
-#: kregexpeditorprivate.cpp:364
+#: kregexpeditorprivate.cpp:348
 #, kde-format
 msgid "Could not open file '%1' for reading"
 msgstr "A(z) '%1' fájlt nem sikerült olvasásra megnyitni"
+
+#: kregexpeditorwindow.cpp:36
+#, fuzzy, kde-format
+#| msgid "Regular Expression Editor"
+msgctxt "@title:window"
+msgid "Regular Expression Editor"
+msgstr "Reguláris kifejezés szerkesztő"
+
+#: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
+#, kde-format
+msgid "Verify regular expression"
+msgstr "A reguláris kifejezés ellenőrzése"
+
+#: kregexpeditorwindow.cpp:103
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Load text"
+msgstr ""
+
+#: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
+#, kde-format
+msgid "Load text in the verifier window"
+msgstr "Szöveg betöltése az ellenőrzési ablakba"
+
+#: kregexpeditorwindow.cpp:114 verifybuttons.cpp:94
+#, kde-format
+msgid "Verify on the Fly"
+msgstr "Automatikus ellenőrzés"
+
+#: kregexpeditorwindow.cpp:122 verifybuttons.cpp:100
+#, kde-format
+msgid "Toggle on-the-fly verification of regular expression"
+msgstr "A kifejezés automatikus ellenőrzésének ki-be kapcsolása"
+
+#: kregexpeditorwindow.cpp:124 verifybuttons.cpp:102
+#, kde-format
+msgid ""
+"Enabling this option will make the verifier update for each edit. If the "
+"verify window contains much text, or if the regular expression is either "
+"complex or matches a lot of time, this may be very slow."
+msgstr ""
+"Ha bejelöli ezt az opciót, az ellenőrzés minden módosításnál le fog futni. "
+"Ha az ellenőrző ablak túl sok szöveget tartalmaz, vagy a kifejezés "
+"bonyolult, esetleg nagyon sokszor illeszkedik, akkor ez igen sokáig "
+"eltarthat."
+
+#: kregexpeditorwindow.cpp:129 verifybuttons.cpp:106
+#, kde-format
+msgid "Match Greedy"
+msgstr "Mohó illesztés"
+
+#: kregexpeditorwindow.cpp:136 verifybuttons.cpp:111
+#, kde-format
+msgid "Toggle greedy matching when verifying the regular expression."
+msgstr "Mohó illesztés ki-be kapcsolása a reguláris kifejezés ellenőrzésekor."
+
+#: kregexpeditorwindow.cpp:137 verifybuttons.cpp:112
+#, kde-format
+msgid ""
+"When this option is enabled, the regular expression will be evaluated on a "
+"so-called greedy way."
+msgstr ""
+"Ha ez a lehetőség engedélyezve van, a reguláris kifejezés az úgynevezett "
+"mohó módon lesz kiértékelve."
+
+#: kregexpeditorwindow.cpp:140
+#, fuzzy, kde-format
+#| msgid "RegExp Language"
+msgctxt "@title:menu"
+msgid "RegExp Languages"
+msgstr "Nyelv"
 
 #: lookaheadwidget.cpp:39
 #, kde-format
@@ -1006,11 +1037,6 @@ msgstr "<p>Felül szeretné írni a(z) <b>%1</b> reguláris kifejezést?</p>"
 msgid "Do Not Overwrite"
 msgstr "Nem kell felülírni"
 
-#: verifybuttons.cpp:27
-#, kde-format
-msgid "Verify regular expression"
-msgstr "A reguláris kifejezés ellenőrzése"
-
 #: verifybuttons.cpp:29
 #, kde-format
 msgid ""
@@ -1021,11 +1047,6 @@ msgstr ""
 "<i>ellenőrzési ablakban</i> megadott szöveghez (amely a szerkesztési ablak "
 "alatt látható)."
 
-#: verifybuttons.cpp:38
-#, kde-format
-msgid "Load text in the verifier window"
-msgstr "Szöveg betöltése az ellenőrzési ablakba"
-
 #: verifybuttons.cpp:43
 #, kde-format
 msgid "Verification Settings"
@@ -1035,47 +1056,6 @@ msgstr "Ellenőrzés beállítások"
 #, kde-format
 msgid "config menu"
 msgstr ""
-
-#: verifybuttons.cpp:94
-#, kde-format
-msgid "Verify on the Fly"
-msgstr "Automatikus ellenőrzés"
-
-#: verifybuttons.cpp:100
-#, kde-format
-msgid "Toggle on-the-fly verification of regular expression"
-msgstr "A kifejezés automatikus ellenőrzésének ki-be kapcsolása"
-
-#: verifybuttons.cpp:102
-#, kde-format
-msgid ""
-"Enabling this option will make the verifier update for each edit. If the "
-"verify window contains much text, or if the regular expression is either "
-"complex or matches a lot of time, this may be very slow."
-msgstr ""
-"Ha bejelöli ezt az opciót, az ellenőrzés minden módosításnál le fog futni. "
-"Ha az ellenőrző ablak túl sok szöveget tartalmaz, vagy a kifejezés "
-"bonyolult, esetleg nagyon sokszor illeszkedik, akkor ez igen sokáig "
-"eltarthat."
-
-#: verifybuttons.cpp:106
-#, kde-format
-msgid "Match Greedy"
-msgstr "Mohó illesztés"
-
-#: verifybuttons.cpp:111
-#, kde-format
-msgid "Toggle greedy matching when verifying the regular expression."
-msgstr "Mohó illesztés ki-be kapcsolása a reguláris kifejezés ellenőrzésekor."
-
-#: verifybuttons.cpp:112
-#, kde-format
-msgid ""
-"When this option is enabled, the regular expression will be evaluated on a "
-"so-called greedy way."
-msgstr ""
-"Ha ez a lehetőség engedélyezve van, a reguláris kifejezés az úgynevezett "
-"mohó módon lesz kiértékelve."
 
 #: verifybuttons.cpp:115
 #, kde-format
@@ -1156,6 +1136,33 @@ msgid ""
 msgstr ""
 "Nem\n"
 "szóelválasztó"
+
+#~ msgid "Undo"
+#~ msgstr "Visszavonás"
+
+#~ msgid "Redo"
+#~ msgstr "Újra"
+
+#~ msgid "Save"
+#~ msgstr "Mentés"
+
+#~ msgid ""
+#~ "<h2>Send the author an electronic postcard</h2>I don't get any money for "
+#~ "working on KRegExpEditor, I therefore appreciate it very much when users "
+#~ "tell me what they think about my work. I would therefore be very happy if "
+#~ "you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a "
+#~ "short mail</a>, telling me that you use my regular expression editor."
+#~ "<h2>Author</h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> "
+#~ "&lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+#~ msgstr ""
+#~ "<h2>Küldjön egy elektronikus képeslapot a szerzőnek, ha tetszik a program!"
+#~ "</h2>A program fejlesztését nem pénzért végzem, ezért arra kérem Önöket, "
+#~ "írják meg őszinte véleményüket a programomról. Nagyon szívesen fogadom a "
+#~ "<a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">programmal "
+#~ "kapcsolatos e-maileket</a>, mert ezekből a visszajelzésekből látom, hogy "
+#~ "vannak, akik valóban használják ezt a szerkesztőt.<h2>A szerző</h2><a "
+#~ "href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a>, &lt;<a href="
+#~ "\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
 
 #~ msgid "Clear expression"
 #~ msgstr "A kifejezés törlése"

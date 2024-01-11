@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-12 01:39+0000\n"
+"POT-Creation-Date: 2024-01-11 00:39+0000\n"
 "PO-Revision-Date: 2023-12-13 07:59-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -49,37 +49,6 @@ msgstr "A seleção de várias alternativas não é suportada nesta edição."
 #, kde-format
 msgid "Selection Invalid"
 msgstr "Seleção inválida"
-
-#: auxbuttons.cpp:23
-#, kde-format
-msgid "Undo"
-msgstr "Desfazer"
-
-#: auxbuttons.cpp:29
-#, kde-format
-msgid "Redo"
-msgstr "Refazer"
-
-#: auxbuttons.cpp:35 KMultiFormListBox/ccp.cpp:58
-#, kde-format
-msgid "Cut"
-msgstr "Recortar"
-
-#: auxbuttons.cpp:41 KMultiFormListBox/ccp.cpp:59
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
-#, kde-format
-msgid "Copy"
-msgstr "Copiar"
-
-#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:60
-#, kde-format
-msgid "Paste"
-msgstr "Colar"
-
-#: auxbuttons.cpp:53
-#, kde-format
-msgid "Save"
-msgstr "Salvar"
 
 #: characterswidget.cpp:102
 #, kde-format
@@ -347,24 +316,21 @@ msgstr ""
 "pode ser uma boa ideia ler <a href=\"doc://whatIsARegExp\">a introdução às "
 "expressões regulares</a>.<br />"
 
-#: infopage.cpp:36
+#: KMultiFormListBox/ccp.cpp:58
 #, kde-format
-msgid ""
-"<h2>Send the author an electronic postcard</h2>I don't get any money for "
-"working on KRegExpEditor, I therefore appreciate it very much when users "
-"tell me what they think about my work. I would therefore be very happy if "
-"you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a short "
-"mail</a>, telling me that you use my regular expression editor.<h2>Author</"
-"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
-"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
-msgstr ""
-"<h2>Envie para o autor um cartão postal eletrônico</h2>Eu não recebo "
-"dinheiro pelo meu trabalho no KDE; portanto, eu gosto muito quando os "
-"usuários me dizem o que pensam sobre o meu trabalho. Eu ficaria muito feliz "
-"se você <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">enviasse "
-"uma breve mensagem</a>, contando que você usa o meu editor de expressões "
-"regulares.<h2>Autor</h2><a href=\"http://www.blackie.dk/\">Jesper K. "
-"Pedersen</a> &lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+msgid "Cut"
+msgstr "Recortar"
+
+#: KMultiFormListBox/ccp.cpp:59
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
+#, kde-format
+msgid "Copy"
+msgstr "Copiar"
+
+#: KMultiFormListBox/ccp.cpp:60
+#, kde-format
+msgid "Paste"
+msgstr "Colar"
 
 #: KMultiFormListBox/ccp.cpp:61
 #, kde-format
@@ -427,17 +393,12 @@ msgstr "Adicionar"
 msgid "Widget Configuration"
 msgstr "Configuração de Widget"
 
-#: kregexpeditorguidialog.cpp:24
-#, kde-format
-msgid "Regular Expression Editor"
-msgstr "Editor de Expressões Regulares"
-
-#: kregexpeditorprivate.cpp:56
+#: kregexpeditorprivate.cpp:48
 #, kde-format
 msgid "Compound regular expression:"
 msgstr "Expressão regular composta:"
 
-#: kregexpeditorprivate.cpp:58
+#: kregexpeditorprivate.cpp:50
 #, kde-format
 msgid ""
 "In this window you will find predefined regular expressions. Both regular "
@@ -447,7 +408,7 @@ msgstr ""
 "Nesta janela você encontrará expressões regulares predefinidas, tanto as "
 "expressões que você desenvolveu e salvou, como as integradas com o sistema."
 
-#: kregexpeditorprivate.cpp:68
+#: kregexpeditorprivate.cpp:60
 #, kde-format
 msgid ""
 "In this window you will develop your regular expressions. Select one of the "
@@ -458,7 +419,7 @@ msgstr ""
 "ações dos botões de ação acima, e clique com o mouse nesta janela, para "
 "inserir a ação fornecida."
 
-#: kregexpeditorprivate.cpp:77
+#: kregexpeditorprivate.cpp:69
 #, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
@@ -475,12 +436,12 @@ msgstr ""
 "expressão regular na janela de edição, então esta parte será destacada - "
 "Isto permite que você <i>depure</i> suas expressões regulares</p>"
 
-#: kregexpeditorprivate.cpp:139
+#: kregexpeditorprivate.cpp:110
 #, kde-format
 msgid "ASCII syntax:"
 msgstr "Sintaxe ASCII:"
 
-#: kregexpeditorprivate.cpp:153
+#: kregexpeditorprivate.cpp:124
 #, kde-format
 msgid ""
 "<p>This is the regular expression in ASCII syntax. You are likely only to be "
@@ -495,10 +456,80 @@ msgstr ""
 "regular usando o editor gráfico, e digitando sua expressão regular nesta "
 "linha de edição.</p>"
 
-#: kregexpeditorprivate.cpp:364
+#: kregexpeditorprivate.cpp:348
 #, kde-format
 msgid "Could not open file '%1' for reading"
 msgstr "Não foi possível abrir o arquivo '%1' para leitura"
+
+#: kregexpeditorwindow.cpp:36
+#, fuzzy, kde-format
+#| msgid "Regular Expression Editor"
+msgctxt "@title:window"
+msgid "Regular Expression Editor"
+msgstr "Editor de Expressões Regulares"
+
+#: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
+#, kde-format
+msgid "Verify regular expression"
+msgstr "Verificar expressão regular"
+
+#: kregexpeditorwindow.cpp:103
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Load text"
+msgstr ""
+
+#: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
+#, kde-format
+msgid "Load text in the verifier window"
+msgstr "Carregar texto na janela de verificação"
+
+#: kregexpeditorwindow.cpp:114 verifybuttons.cpp:94
+#, kde-format
+msgid "Verify on the Fly"
+msgstr "Verificar sob demanda"
+
+#: kregexpeditorwindow.cpp:122 verifybuttons.cpp:100
+#, kde-format
+msgid "Toggle on-the-fly verification of regular expression"
+msgstr "Alterna a verificação da expressão regular para o modo imediato"
+
+#: kregexpeditorwindow.cpp:124 verifybuttons.cpp:102
+#, kde-format
+msgid ""
+"Enabling this option will make the verifier update for each edit. If the "
+"verify window contains much text, or if the regular expression is either "
+"complex or matches a lot of time, this may be very slow."
+msgstr ""
+"Habilitar esta opção fará com que o verificador atualize em cada edição. Se "
+"a janela de verificação contiver muito texto, se a expressão regular é muito "
+"complexa ou ainda, combina muitas vezes, esta ação pode ser bastante lenta."
+
+#: kregexpeditorwindow.cpp:129 verifybuttons.cpp:106
+#, kde-format
+msgid "Match Greedy"
+msgstr "Correspondência Máxima"
+
+#: kregexpeditorwindow.cpp:136 verifybuttons.cpp:111
+#, kde-format
+msgid "Toggle greedy matching when verifying the regular expression."
+msgstr "Alternar a correspondência máxima ao testar a expressão regular."
+
+#: kregexpeditorwindow.cpp:137 verifybuttons.cpp:112
+#, kde-format
+msgid ""
+"When this option is enabled, the regular expression will be evaluated on a "
+"so-called greedy way."
+msgstr ""
+"Quando esta opção está habilitada, a expressão regular será avaliada com um, "
+"assim chamado, modo de correspondência máxima."
+
+#: kregexpeditorwindow.cpp:140
+#, fuzzy, kde-format
+#| msgid "RegExp Language"
+msgctxt "@title:menu"
+msgid "RegExp Languages"
+msgstr "Linguagem de Expressões Regulares"
 
 #: lookaheadwidget.cpp:39
 #, kde-format
@@ -1023,11 +1054,6 @@ msgstr "<p>Substituir expressão regular nomeada <b>%1</b>?</p>"
 msgid "Do Not Overwrite"
 msgstr "Não sobrescrever"
 
-#: verifybuttons.cpp:27
-#, kde-format
-msgid "Verify regular expression"
-msgstr "Verificar expressão regular"
-
 #: verifybuttons.cpp:29
 #, kde-format
 msgid ""
@@ -1036,11 +1062,6 @@ msgid ""
 msgstr ""
 "Mostra qual parte da expressão regular está sendo relacionada na <i>janela "
 "de verificação</i> (a janela abaixo do editor gráfico)."
-
-#: verifybuttons.cpp:38
-#, kde-format
-msgid "Load text in the verifier window"
-msgstr "Carregar texto na janela de verificação"
 
 #: verifybuttons.cpp:43
 #, kde-format
@@ -1051,46 +1072,6 @@ msgstr "Configurações de verificação"
 #, kde-format
 msgid "config menu"
 msgstr "Configurar menu"
-
-#: verifybuttons.cpp:94
-#, kde-format
-msgid "Verify on the Fly"
-msgstr "Verificar sob demanda"
-
-#: verifybuttons.cpp:100
-#, kde-format
-msgid "Toggle on-the-fly verification of regular expression"
-msgstr "Alterna a verificação da expressão regular para o modo imediato"
-
-#: verifybuttons.cpp:102
-#, kde-format
-msgid ""
-"Enabling this option will make the verifier update for each edit. If the "
-"verify window contains much text, or if the regular expression is either "
-"complex or matches a lot of time, this may be very slow."
-msgstr ""
-"Habilitar esta opção fará com que o verificador atualize em cada edição. Se "
-"a janela de verificação contiver muito texto, se a expressão regular é muito "
-"complexa ou ainda, combina muitas vezes, esta ação pode ser bastante lenta."
-
-#: verifybuttons.cpp:106
-#, kde-format
-msgid "Match Greedy"
-msgstr "Correspondência Máxima"
-
-#: verifybuttons.cpp:111
-#, kde-format
-msgid "Toggle greedy matching when verifying the regular expression."
-msgstr "Alternar a correspondência máxima ao testar a expressão regular."
-
-#: verifybuttons.cpp:112
-#, kde-format
-msgid ""
-"When this option is enabled, the regular expression will be evaluated on a "
-"so-called greedy way."
-msgstr ""
-"Quando esta opção está habilitada, a expressão regular será avaliada com um, "
-"assim chamado, modo de correspondência máxima."
 
 #: verifybuttons.cpp:115
 #, kde-format
@@ -1170,6 +1151,33 @@ msgid ""
 msgstr ""
 "Limite\n"
 "Não-alfanumérico"
+
+#~ msgid "Undo"
+#~ msgstr "Desfazer"
+
+#~ msgid "Redo"
+#~ msgstr "Refazer"
+
+#~ msgid "Save"
+#~ msgstr "Salvar"
+
+#~ msgid ""
+#~ "<h2>Send the author an electronic postcard</h2>I don't get any money for "
+#~ "working on KRegExpEditor, I therefore appreciate it very much when users "
+#~ "tell me what they think about my work. I would therefore be very happy if "
+#~ "you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a "
+#~ "short mail</a>, telling me that you use my regular expression editor."
+#~ "<h2>Author</h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> "
+#~ "&lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+#~ msgstr ""
+#~ "<h2>Envie para o autor um cartão postal eletrônico</h2>Eu não recebo "
+#~ "dinheiro pelo meu trabalho no KDE; portanto, eu gosto muito quando os "
+#~ "usuários me dizem o que pensam sobre o meu trabalho. Eu ficaria muito "
+#~ "feliz se você <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor"
+#~ "\">enviasse uma breve mensagem</a>, contando que você usa o meu editor de "
+#~ "expressões regulares.<h2>Autor</h2><a href=\"http://www.blackie.dk/"
+#~ "\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:blackie@kde.org"
+#~ "\">blackie@kde.org</a>&gt;"
 
 #~ msgid "Clear expression"
 #~ msgstr "Limpar expressão"

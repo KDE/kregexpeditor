@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-12 01:39+0000\n"
+"POT-Creation-Date: 2024-01-11 00:39+0000\n"
 "PO-Revision-Date: 2023-12-12 14:36+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -42,37 +42,6 @@ msgstr "რამდენიმე ალტერნატივის არ�
 #, kde-format
 msgid "Selection Invalid"
 msgstr "არასწორი მონიშვნა"
-
-#: auxbuttons.cpp:23
-#, kde-format
-msgid "Undo"
-msgstr "დაბრუნება"
-
-#: auxbuttons.cpp:29
-#, kde-format
-msgid "Redo"
-msgstr "ბრძანების აღდგენა"
-
-#: auxbuttons.cpp:35 KMultiFormListBox/ccp.cpp:58
-#, kde-format
-msgid "Cut"
-msgstr "ამოჭრა"
-
-#: auxbuttons.cpp:41 KMultiFormListBox/ccp.cpp:59
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
-#, kde-format
-msgid "Copy"
-msgstr "კოპირება"
-
-#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:60
-#, kde-format
-msgid "Paste"
-msgstr "ჩასმა"
-
-#: auxbuttons.cpp:53
-#, kde-format
-msgid "Save"
-msgstr "შენახვა"
 
 #: characterswidget.cpp:102
 #, kde-format
@@ -337,25 +306,21 @@ msgstr ""
 "არ იცით, რა არის რეგულარული გამოსახულება, კარგი აზრია, <a href=\"doc://"
 "whatIsARegExp\">რეგულარული გამოსახულებების საწყისები</a> წაიკითხოთ.<br />"
 
-#: infopage.cpp:36
+#: KMultiFormListBox/ccp.cpp:58
 #, kde-format
-msgid ""
-"<h2>Send the author an electronic postcard</h2>I don't get any money for "
-"working on KRegExpEditor, I therefore appreciate it very much when users "
-"tell me what they think about my work. I would therefore be very happy if "
-"you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a short "
-"mail</a>, telling me that you use my regular expression editor.<h2>Author</"
-"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
-"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
-msgstr ""
-"<h2>ელექტრონული საფოსტო ბარათის გაგზავნა ავტორისთვის</h2>მე KRegExpEditor-ზე "
-"მუშაობისთვის ფულს არავინ მიხდის, ამიტომ ძალან ვაფასებ, როცა მომხმარებლები "
-"მეუბნებიან, რას ფიქრობენ ჩემი სამუშაოს შესახებ. ძალიან გამიხარდებოდა, თუ <a "
-"href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">მომწერთ პატარა "
-"ელფოსტას</a>, რომელშიც მომიყვებით, რაში იყენებთ ჩემს რეგულარული "
-"გამოსახულებების რედაქტორს.<h2>ავტორი</h2><a href=\"http://www.blackie.dk/"
-"\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:blackie@kde.org\">blackie@kde."
-"org</a>&gt;"
+msgid "Cut"
+msgstr "ამოჭრა"
+
+#: KMultiFormListBox/ccp.cpp:59
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
+#, kde-format
+msgid "Copy"
+msgstr "კოპირება"
+
+#: KMultiFormListBox/ccp.cpp:60
+#, kde-format
+msgid "Paste"
+msgstr "ჩასმა"
 
 #: KMultiFormListBox/ccp.cpp:61
 #, kde-format
@@ -418,17 +383,12 @@ msgstr "დამატება"
 msgid "Widget Configuration"
 msgstr "ვიჯეტის მორგება"
 
-#: kregexpeditorguidialog.cpp:24
-#, kde-format
-msgid "Regular Expression Editor"
-msgstr "რეგულარული გამოსახულების რედაქტორი"
-
-#: kregexpeditorprivate.cpp:56
+#: kregexpeditorprivate.cpp:48
 #, kde-format
 msgid "Compound regular expression:"
 msgstr "შედგენილი რეგულარული გამოსახულება:"
 
-#: kregexpeditorprivate.cpp:58
+#: kregexpeditorprivate.cpp:50
 #, kde-format
 msgid ""
 "In this window you will find predefined regular expressions. Both regular "
@@ -439,7 +399,7 @@ msgstr ""
 "თქვენს მიერ დაწერილს და შენახულს და რეგულარულ გამოსახულებებს, რომლებიც "
 "სისტემას მოჰყვა."
 
-#: kregexpeditorprivate.cpp:68
+#: kregexpeditorprivate.cpp:60
 #, kde-format
 msgid ""
 "In this window you will develop your regular expressions. Select one of the "
@@ -450,7 +410,7 @@ msgstr ""
 "ერთ-ერთი ქმედების ღილაკი მაღლა და დააწკაპუნეთ თაგუნას ღილაკით ამ ფანჯარაში, "
 "რომ მითითებული ქმედება ჩასვათ."
 
-#: kregexpeditorprivate.cpp:77
+#: kregexpeditorprivate.cpp:69
 #, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
@@ -467,12 +427,12 @@ msgstr ""
 "მაშინ ეს ნაწილი გამოიკვეთება. ეს დაგეხმარებათ, <i>გამართოთ</i> თქვენი "
 "რეგულარული გამოსახულებები</p>"
 
-#: kregexpeditorprivate.cpp:139
+#: kregexpeditorprivate.cpp:110
 #, kde-format
 msgid "ASCII syntax:"
 msgstr "ASCII სინტაქსი:"
 
-#: kregexpeditorprivate.cpp:153
+#: kregexpeditorprivate.cpp:124
 #, kde-format
 msgid ""
 "<p>This is the regular expression in ASCII syntax. You are likely only to be "
@@ -486,10 +446,83 @@ msgstr ""
 "გამოსახულება QRegExp-სთვის.</p><p>რეგულარული გამოსახულებები ორივე, გრაფიკული "
 "რედაქტორით და ხელით შეყვანით შეგიძლიათ, დაწეროთ.</p>"
 
-#: kregexpeditorprivate.cpp:364
+#: kregexpeditorprivate.cpp:348
 #, kde-format
 msgid "Could not open file '%1' for reading"
 msgstr "ფაილის (\"%1\") წასაკითხად გახსნის შეცდომა"
+
+#: kregexpeditorwindow.cpp:36
+#, fuzzy, kde-format
+#| msgid "Regular Expression Editor"
+msgctxt "@title:window"
+msgid "Regular Expression Editor"
+msgstr "რეგულარული გამოსახულების რედაქტორი"
+
+#: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
+#, kde-format
+msgid "Verify regular expression"
+msgstr "რეგულარული გამოსახულების გადამოწმება"
+
+#: kregexpeditorwindow.cpp:103
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Load text"
+msgstr ""
+
+#: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
+#, kde-format
+msgid "Load text in the verifier window"
+msgstr "ტექსტის ჩატვირთვა გადამოწმების ფანჯარაში"
+
+#: kregexpeditorwindow.cpp:114 verifybuttons.cpp:94
+#, kde-format
+msgid "Verify on the Fly"
+msgstr "რეალურ დროში გადამოწმება"
+
+#: kregexpeditorwindow.cpp:122 verifybuttons.cpp:100
+#, kde-format
+msgid "Toggle on-the-fly verification of regular expression"
+msgstr "რეგულარული გამოსახულებების ავტომატური გადამოწმების ჩართვა"
+
+#: kregexpeditorwindow.cpp:124 verifybuttons.cpp:102
+#, kde-format
+msgid ""
+"Enabling this option will make the verifier update for each edit. If the "
+"verify window contains much text, or if the regular expression is either "
+"complex or matches a lot of time, this may be very slow."
+msgstr ""
+"ამ პარამეტრის ჩართვა გადამმოწმებელს თითოეული ჩასწორების შემდეგ გადამოწმებას "
+"აიძულებს. თუ გადასამოწმებელი ფანჯარა დიდ ტექსტს შეიცავს, ან რეგულარული "
+"გამოსახულება ან კომპლექსურია, ან ბევრ ტექსტს ემთხვევა, ეს ძალიან ნელი "
+"შეიძლება, იყოს."
+
+#: kregexpeditorwindow.cpp:129 verifybuttons.cpp:106
+#, kde-format
+msgid "Match Greedy"
+msgstr "„ხარბი“ დამთხვევები"
+
+#: kregexpeditorwindow.cpp:136 verifybuttons.cpp:111
+#, kde-format
+msgid "Toggle greedy matching when verifying the regular expression."
+msgstr ""
+"რეგულარული გამოსახულებით გადამოწმებისას, მხოლოდ, ყველაზე დიდი დამთხვევების "
+"არჩევა."
+
+#: kregexpeditorwindow.cpp:137 verifybuttons.cpp:112
+#, kde-format
+msgid ""
+"When this option is enabled, the regular expression will be evaluated on a "
+"so-called greedy way."
+msgstr ""
+"როცა ეს პარამეტრი ჩართულია, რეგულარული გამოსახულების შეფასება ე.წ. ხარბ "
+"რეჟიმში მოხდება."
+
+#: kregexpeditorwindow.cpp:140
+#, fuzzy, kde-format
+#| msgid "RegExp Language"
+msgctxt "@title:menu"
+msgid "RegExp Languages"
+msgstr "რეგულარული გამოსახულების ენა"
 
 #: lookaheadwidget.cpp:39
 #, kde-format
@@ -1008,11 +1041,6 @@ msgstr "<p>გადავაწერო სახელიან რეგუ�
 msgid "Do Not Overwrite"
 msgstr "არ გადააწერო"
 
-#: verifybuttons.cpp:27
-#, kde-format
-msgid "Verify regular expression"
-msgstr "რეგულარული გამოსახულების გადამოწმება"
-
 #: verifybuttons.cpp:29
 #, kde-format
 msgid ""
@@ -1021,11 +1049,6 @@ msgid ""
 msgstr ""
 "აჩვენებს, რეგულარული გამოსახულების რომელი ნაწილი დაემთხვა <i>გადამმოწმებელ "
 "ფანჯარაში</i>. (გრაფიკული რედაქტორის ქვემოთ მდებარე ფანჯარა)."
-
-#: verifybuttons.cpp:38
-#, kde-format
-msgid "Load text in the verifier window"
-msgstr "ტექსტის ჩატვირთვა გადამოწმების ფანჯარაში"
 
 #: verifybuttons.cpp:43
 #, kde-format
@@ -1036,49 +1059,6 @@ msgstr "გადამოწმების მორგება"
 #, kde-format
 msgid "config menu"
 msgstr "კონფიგურაციის მენიუ"
-
-#: verifybuttons.cpp:94
-#, kde-format
-msgid "Verify on the Fly"
-msgstr "რეალურ დროში გადამოწმება"
-
-#: verifybuttons.cpp:100
-#, kde-format
-msgid "Toggle on-the-fly verification of regular expression"
-msgstr "რეგულარული გამოსახულებების ავტომატური გადამოწმების ჩართვა"
-
-#: verifybuttons.cpp:102
-#, kde-format
-msgid ""
-"Enabling this option will make the verifier update for each edit. If the "
-"verify window contains much text, or if the regular expression is either "
-"complex or matches a lot of time, this may be very slow."
-msgstr ""
-"ამ პარამეტრის ჩართვა გადამმოწმებელს თითოეული ჩასწორების შემდეგ გადამოწმებას "
-"აიძულებს. თუ გადასამოწმებელი ფანჯარა დიდ ტექსტს შეიცავს, ან რეგულარული "
-"გამოსახულება ან კომპლექსურია, ან ბევრ ტექსტს ემთხვევა, ეს ძალიან ნელი "
-"შეიძლება, იყოს."
-
-#: verifybuttons.cpp:106
-#, kde-format
-msgid "Match Greedy"
-msgstr "„ხარბი“ დამთხვევები"
-
-#: verifybuttons.cpp:111
-#, kde-format
-msgid "Toggle greedy matching when verifying the regular expression."
-msgstr ""
-"რეგულარული გამოსახულებით გადამოწმებისას, მხოლოდ, ყველაზე დიდი დამთხვევების "
-"არჩევა."
-
-#: verifybuttons.cpp:112
-#, kde-format
-msgid ""
-"When this option is enabled, the regular expression will be evaluated on a "
-"so-called greedy way."
-msgstr ""
-"როცა ეს პარამეტრი ჩართულია, რეგულარული გამოსახულების შეფასება ე.წ. ხარბ "
-"რეჟიმში მოხდება."
 
 #: verifybuttons.cpp:115
 #, kde-format
@@ -1158,3 +1138,30 @@ msgid ""
 msgstr ""
 "არა-სიტყვის\n"
 "საზღვარი"
+
+#~ msgid "Undo"
+#~ msgstr "დაბრუნება"
+
+#~ msgid "Redo"
+#~ msgstr "ბრძანების აღდგენა"
+
+#~ msgid "Save"
+#~ msgstr "შენახვა"
+
+#~ msgid ""
+#~ "<h2>Send the author an electronic postcard</h2>I don't get any money for "
+#~ "working on KRegExpEditor, I therefore appreciate it very much when users "
+#~ "tell me what they think about my work. I would therefore be very happy if "
+#~ "you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a "
+#~ "short mail</a>, telling me that you use my regular expression editor."
+#~ "<h2>Author</h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> "
+#~ "&lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+#~ msgstr ""
+#~ "<h2>ელექტრონული საფოსტო ბარათის გაგზავნა ავტორისთვის</h2>მე KRegExpEditor-"
+#~ "ზე მუშაობისთვის ფულს არავინ მიხდის, ამიტომ ძალან ვაფასებ, როცა "
+#~ "მომხმარებლები მეუბნებიან, რას ფიქრობენ ჩემი სამუშაოს შესახებ. ძალიან "
+#~ "გამიხარდებოდა, თუ <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor"
+#~ "\">მომწერთ პატარა ელფოსტას</a>, რომელშიც მომიყვებით, რაში იყენებთ ჩემს "
+#~ "რეგულარული გამოსახულებების რედაქტორს.<h2>ავტორი</h2><a href=\"http://www."
+#~ "blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:blackie@kde.org"
+#~ "\">blackie@kde.org</a>&gt;"

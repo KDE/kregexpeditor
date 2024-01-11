@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-12 01:39+0000\n"
+"POT-Creation-Date: 2024-01-11 00:39+0000\n"
 "PO-Revision-Date: 2023-12-17 16:40+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -41,37 +41,6 @@ msgstr "பல வித மாற்றுபாதைகலை தேர்வ
 #, kde-format
 msgid "Selection Invalid"
 msgstr "தேர்வு செல்லுபடியாகாது"
-
-#: auxbuttons.cpp:23
-#, kde-format
-msgid "Undo"
-msgstr ""
-
-#: auxbuttons.cpp:29
-#, kde-format
-msgid "Redo"
-msgstr ""
-
-#: auxbuttons.cpp:35 KMultiFormListBox/ccp.cpp:58
-#, kde-format
-msgid "Cut"
-msgstr ""
-
-#: auxbuttons.cpp:41 KMultiFormListBox/ccp.cpp:59
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
-#, kde-format
-msgid "Copy"
-msgstr ""
-
-#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:60
-#, kde-format
-msgid "Paste"
-msgstr ""
-
-#: auxbuttons.cpp:53
-#, kde-format
-msgid "Save"
-msgstr ""
 
 #: characterswidget.cpp:102
 #, kde-format
@@ -350,24 +319,21 @@ msgstr ""
 "p>பார்க்கவும்<h2>வழக்கமான கூற்று எது?</h2>வழக்கமான கூற்று தேவை இல்லை என்றால், இது ஒரு "
 "நல்ல யோசனை<a href=\"doc://whatIsARegExp\">வழக்கமான கூற்றுக்கு முன்னுறை</a>.<p>"
 
-#: infopage.cpp:36
+#: KMultiFormListBox/ccp.cpp:58
 #, kde-format
-msgid ""
-"<h2>Send the author an electronic postcard</h2>I don't get any money for "
-"working on KRegExpEditor, I therefore appreciate it very much when users "
-"tell me what they think about my work. I would therefore be very happy if "
-"you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a short "
-"mail</a>, telling me that you use my regular expression editor.<h2>Author</"
-"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
-"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+msgid "Cut"
 msgstr ""
-"<h2>மின் அஞ்சல் பெயருடன் அனுப்பவும்</h2>KRegExpEditor இதில் வேலை செய்ததற்கு ஒரு "
-"கூலியும் பெறவில்லை, பயணர் என்னுடைய வேலையை பற்றி கூறும் போழுது எனக்கு பெருமையாக "
-"இருக்கிறது.நிங்களும் சிறிய மின அஞ்சல் அனுப்பினால்<a href=\"mailto:blackie@kde.org?"
-"subject=KRegExpEditor\">மிகவும் சந்தோஷ படுவேன்</a>, என்னுடைய வழக்கமான கூற்றை "
-"உபயோகிக்கிறிர் என்று கூறுங்கள்.<h2>எழுதியவர்</h2><a href=\"http://www.blackie.dk/"
-"\">ஜெஸ்பர் கே. பேடர்ஸன்</a> &lt;<a href=\"mailto:blackie@kde.org\">blackie@kde."
-"org</a>&gt;"
+
+#: KMultiFormListBox/ccp.cpp:59
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
+#, kde-format
+msgid "Copy"
+msgstr ""
+
+#: KMultiFormListBox/ccp.cpp:60
+#, kde-format
+msgid "Paste"
+msgstr ""
 
 #: KMultiFormListBox/ccp.cpp:61
 #, kde-format
@@ -430,17 +396,12 @@ msgstr ""
 msgid "Widget Configuration"
 msgstr "சிறு கருவி உள்ளமைவு "
 
-#: kregexpeditorguidialog.cpp:24
-#, kde-format
-msgid "Regular Expression Editor"
-msgstr "வழக்கமான தொடர் தொகுப்பி/திருத்தி "
-
-#: kregexpeditorprivate.cpp:56
+#: kregexpeditorprivate.cpp:48
 #, fuzzy, kde-format
 msgid "Compound regular expression:"
 msgstr "அடிக்கடி தொடர் கூட்டு"
 
-#: kregexpeditorprivate.cpp:58
+#: kregexpeditorprivate.cpp:50
 #, kde-format
 msgid ""
 "In this window you will find predefined regular expressions. Both regular "
@@ -450,7 +411,7 @@ msgstr ""
 "இந்த சன்னல்திரையில் உங்களால் முன்வரை வழக்கமான தொடரினை கண்டுப்பிடிக்கலாம்.உங்களால் இரண்டு "
 "வழக்கமான தொடரிலும் முன்னேற்றம் மற்றும் சேமிக்க இயலும்."
 
-#: kregexpeditorprivate.cpp:68
+#: kregexpeditorprivate.cpp:60
 #, kde-format
 msgid ""
 "In this window you will develop your regular expressions. Select one of the "
@@ -461,7 +422,7 @@ msgstr ""
 "ஒரு செயல்லை தேர்வு செய்யவும்,அதன் பின் கூடுத்த செயலை  சேர்க்க இந்த சாலரத்தில் சுட்டியை "
 "வைத்து சொடுக்கவும்."
 
-#: kregexpeditorprivate.cpp:77
+#: kregexpeditorprivate.cpp:69
 #, fuzzy, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
@@ -477,12 +438,12 @@ msgstr ""
 "சாலரத்தில் இருந்து வழக்கமான கூற்று ஒரு பகுதி ஒன்றை தேர்வு செய்தால், அதன்பின் இந்த பகுதி "
 "முனைப்புறுத்தபடும்- உங்கள் வழக்கமான கூற்றை<i>வழு நீக்கு</i>இது அனுமதி தரும்."
 
-#: kregexpeditorprivate.cpp:139
+#: kregexpeditorprivate.cpp:110
 #, fuzzy, kde-format
 msgid "ASCII syntax:"
 msgstr "ஆஸ்கி தொடரமைப்பு: "
 
-#: kregexpeditorprivate.cpp:153
+#: kregexpeditorprivate.cpp:124
 #, fuzzy, kde-format
 #| msgid ""
 #| "This is the regular expression in ASCII syntax. You are likely only to be "
@@ -502,10 +463,78 @@ msgstr ""
 "உருவாக்க வேண்டும்.<p>வரைகலை தொகுப்பை உபயோகித்தோ, மற்றும் தொகுப்பு வரியில் வழக்கமான "
 "கூற்றை உள்ளிட்டோ வழக்கமான கூற்றுகலை உருவாக்கலாம்."
 
-#: kregexpeditorprivate.cpp:364
+#: kregexpeditorprivate.cpp:348
 #, kde-format
 msgid "Could not open file '%1' for reading"
 msgstr "படிப்பதற்கு கோப்பினை '%1'  திறக்க முடியவில்லை"
+
+#: kregexpeditorwindow.cpp:36
+#, fuzzy, kde-format
+#| msgid "Regular Expression Editor"
+msgctxt "@title:window"
+msgid "Regular Expression Editor"
+msgstr "வழக்கமான தொடர் தொகுப்பி/திருத்தி "
+
+#: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
+#, kde-format
+msgid "Verify regular expression"
+msgstr "வழக்கமானதொடரினை சரிபார்"
+
+#: kregexpeditorwindow.cpp:103
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Load text"
+msgstr ""
+
+#: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
+#, kde-format
+msgid "Load text in the verifier window"
+msgstr "சரிபார்ப்பு சன்னல்திரையில் உரையை ஏற்று "
+
+#: kregexpeditorwindow.cpp:114 verifybuttons.cpp:94
+#, kde-format
+msgid "Verify on the Fly"
+msgstr "செய்து கோண்டிருக்கும் போது சோதி"
+
+#: kregexpeditorwindow.cpp:122 verifybuttons.cpp:100
+#, kde-format
+msgid "Toggle on-the-fly verification of regular expression"
+msgstr "செயல்படுத்தும் போழுது நிலைமாற்றியை வழக்கமான கூற்றில் சோதிக்கவும் "
+
+#: kregexpeditorwindow.cpp:124 verifybuttons.cpp:102
+#, kde-format
+msgid ""
+"Enabling this option will make the verifier update for each edit. If the "
+"verify window contains much text, or if the regular expression is either "
+"complex or matches a lot of time, this may be very slow."
+msgstr ""
+"இந்த தேர்வை செயல்படுத்தினால் ஒவ்வோரு தொகுப்பிற்கும் சொதிப்பவரை உள்ளமைக்க அமைத்துவிடும்."
+"சொதிக்கும் சாலரம் நிறைய உறைகலை கோண்டு இருந்தால்,அல்லது வழக்கமான கூற்று சிக்காகவோ அல்லது "
+"நிறைய பொருத்தம் இருந்தாலோ,இது மிகவும் மெதுவாக செல்லும்."
+
+#: kregexpeditorwindow.cpp:129 verifybuttons.cpp:106
+#, kde-format
+msgid "Match Greedy"
+msgstr ""
+
+#: kregexpeditorwindow.cpp:136 verifybuttons.cpp:111
+#, fuzzy, kde-format
+msgid "Toggle greedy matching when verifying the regular expression."
+msgstr "செயல்படுத்தும் போழுது நிலைமாற்றியை வழக்கமான கூற்றில் சோதிக்கவும் "
+
+#: kregexpeditorwindow.cpp:137 verifybuttons.cpp:112
+#, kde-format
+msgid ""
+"When this option is enabled, the regular expression will be evaluated on a "
+"so-called greedy way."
+msgstr ""
+
+#: kregexpeditorwindow.cpp:140
+#, fuzzy, kde-format
+#| msgid "RegExp Language"
+msgctxt "@title:menu"
+msgid "RegExp Languages"
+msgstr "பதிவக தொடர் மொழி"
 
 #: lookaheadwidget.cpp:39
 #, kde-format
@@ -1045,11 +1074,6 @@ msgstr "<p>வழக்கமானபெயர்தொடரின் மே�
 msgid "Do Not Overwrite"
 msgstr ""
 
-#: verifybuttons.cpp:27
-#, kde-format
-msgid "Verify regular expression"
-msgstr "வழக்கமானதொடரினை சரிபார்"
-
 #: verifybuttons.cpp:29
 #, kde-format
 msgid ""
@@ -1059,11 +1083,6 @@ msgstr ""
 "வழக்கமான கூற்றில் <i>சொதிக்கும் சாலரம்</i> எந்த பகுதி ஒற்று பொகிறது என்பதை காண்பிக்கும். "
 "(வரைகலை தொகுப்பு சாலரத்திற்கு கீழ் சாலரம்)."
 
-#: verifybuttons.cpp:38
-#, kde-format
-msgid "Load text in the verifier window"
-msgstr "சரிபார்ப்பு சன்னல்திரையில் உரையை ஏற்று "
-
 #: verifybuttons.cpp:43
 #, kde-format
 msgid "Verification Settings"
@@ -1072,44 +1091,6 @@ msgstr ""
 #: verifybuttons.cpp:91
 #, kde-format
 msgid "config menu"
-msgstr ""
-
-#: verifybuttons.cpp:94
-#, kde-format
-msgid "Verify on the Fly"
-msgstr "செய்து கோண்டிருக்கும் போது சோதி"
-
-#: verifybuttons.cpp:100
-#, kde-format
-msgid "Toggle on-the-fly verification of regular expression"
-msgstr "செயல்படுத்தும் போழுது நிலைமாற்றியை வழக்கமான கூற்றில் சோதிக்கவும் "
-
-#: verifybuttons.cpp:102
-#, kde-format
-msgid ""
-"Enabling this option will make the verifier update for each edit. If the "
-"verify window contains much text, or if the regular expression is either "
-"complex or matches a lot of time, this may be very slow."
-msgstr ""
-"இந்த தேர்வை செயல்படுத்தினால் ஒவ்வோரு தொகுப்பிற்கும் சொதிப்பவரை உள்ளமைக்க அமைத்துவிடும்."
-"சொதிக்கும் சாலரம் நிறைய உறைகலை கோண்டு இருந்தால்,அல்லது வழக்கமான கூற்று சிக்காகவோ அல்லது "
-"நிறைய பொருத்தம் இருந்தாலோ,இது மிகவும் மெதுவாக செல்லும்."
-
-#: verifybuttons.cpp:106
-#, kde-format
-msgid "Match Greedy"
-msgstr ""
-
-#: verifybuttons.cpp:111
-#, fuzzy, kde-format
-msgid "Toggle greedy matching when verifying the regular expression."
-msgstr "செயல்படுத்தும் போழுது நிலைமாற்றியை வழக்கமான கூற்றில் சோதிக்கவும் "
-
-#: verifybuttons.cpp:112
-#, kde-format
-msgid ""
-"When this option is enabled, the regular expression will be evaluated on a "
-"so-called greedy way."
 msgstr ""
 
 #: verifybuttons.cpp:115
@@ -1191,6 +1172,23 @@ msgid ""
 msgstr ""
 "எழுத்து அற்ற\n"
 "எல்லை"
+
+#~ msgid ""
+#~ "<h2>Send the author an electronic postcard</h2>I don't get any money for "
+#~ "working on KRegExpEditor, I therefore appreciate it very much when users "
+#~ "tell me what they think about my work. I would therefore be very happy if "
+#~ "you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a "
+#~ "short mail</a>, telling me that you use my regular expression editor."
+#~ "<h2>Author</h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> "
+#~ "&lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+#~ msgstr ""
+#~ "<h2>மின் அஞ்சல் பெயருடன் அனுப்பவும்</h2>KRegExpEditor இதில் வேலை செய்ததற்கு ஒரு "
+#~ "கூலியும் பெறவில்லை, பயணர் என்னுடைய வேலையை பற்றி கூறும் போழுது எனக்கு பெருமையாக "
+#~ "இருக்கிறது.நிங்களும் சிறிய மின அஞ்சல் அனுப்பினால்<a href=\"mailto:blackie@kde."
+#~ "org?subject=KRegExpEditor\">மிகவும் சந்தோஷ படுவேன்</a>, என்னுடைய வழக்கமான "
+#~ "கூற்றை உபயோகிக்கிறிர் என்று கூறுங்கள்.<h2>எழுதியவர்</h2><a href=\"http://www."
+#~ "blackie.dk/\">ஜெஸ்பர் கே. பேடர்ஸன்</a> &lt;<a href=\"mailto:blackie@kde.org"
+#~ "\">blackie@kde.org</a>&gt;"
 
 #, fuzzy
 #~ msgid "Clear expression"

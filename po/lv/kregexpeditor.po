@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-12 01:39+0000\n"
+"POT-Creation-Date: 2024-01-11 00:39+0000\n"
 "PO-Revision-Date: 2007-12-30 21:09+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
@@ -43,37 +43,6 @@ msgstr "Vairāku alternatīvu atlase pagaidām netiek atbalstīta."
 #, kde-format
 msgid "Selection Invalid"
 msgstr "Atlase ir nederīga"
-
-#: auxbuttons.cpp:23
-#, kde-format
-msgid "Undo"
-msgstr "Atsaukt"
-
-#: auxbuttons.cpp:29
-#, kde-format
-msgid "Redo"
-msgstr "Atkārtot"
-
-#: auxbuttons.cpp:35 KMultiFormListBox/ccp.cpp:58
-#, kde-format
-msgid "Cut"
-msgstr "Izgriezt"
-
-#: auxbuttons.cpp:41 KMultiFormListBox/ccp.cpp:59
-#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
-#, kde-format
-msgid "Copy"
-msgstr "Kopēt"
-
-#: auxbuttons.cpp:47 KMultiFormListBox/ccp.cpp:60
-#, kde-format
-msgid "Paste"
-msgstr "Ielīmēt"
-
-#: auxbuttons.cpp:53
-#, kde-format
-msgid "Save"
-msgstr "Saglabāt"
 
 #: characterswidget.cpp:102
 #, kde-format
@@ -334,24 +303,21 @@ msgstr ""
 "regulāra izteiksme, tad varat izlasīt par to  <a href=\"doc://whatIsARegExp"
 "\">ievadā par regulārajām izteiksmēm.</a>.<br />"
 
-#: infopage.cpp:36
+#: KMultiFormListBox/ccp.cpp:58
 #, kde-format
-msgid ""
-"<h2>Send the author an electronic postcard</h2>I don't get any money for "
-"working on KRegExpEditor, I therefore appreciate it very much when users "
-"tell me what they think about my work. I would therefore be very happy if "
-"you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a short "
-"mail</a>, telling me that you use my regular expression editor.<h2>Author</"
-"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
-"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
-msgstr ""
-"<h2>Nosūtiet autoram elektronisko pastkarti</h2>Es nesaņemu, nekādu naudu "
-"strādājot pie KRegExpEditor, tāpēc es novērtētu, ja jūs pateikt, ko domājat "
-"par manu darbu. Tāpēc es būtu ļoti priecīgs, ja jūs <a href=\"mailto:"
-"blackie@kde.org?subject=KRegExpEditor\">nosūtītu man īsu e-pastu</a>, "
-"pastāstot,ka jūs izmantojat manu regulāro izteiksmju redaktoru.<h2>Autors</"
-"h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
-"\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+msgid "Cut"
+msgstr "Izgriezt"
+
+#: KMultiFormListBox/ccp.cpp:59
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
+#, kde-format
+msgid "Copy"
+msgstr "Kopēt"
+
+#: KMultiFormListBox/ccp.cpp:60
+#, kde-format
+msgid "Paste"
+msgstr "Ielīmēt"
 
 #: KMultiFormListBox/ccp.cpp:61
 #, kde-format
@@ -414,17 +380,12 @@ msgstr "Pievienot"
 msgid "Widget Configuration"
 msgstr "Logdaļu konfigurācija"
 
-#: kregexpeditorguidialog.cpp:24
-#, kde-format
-msgid "Regular Expression Editor"
-msgstr "Regulāro izteiksmju redaktors"
-
-#: kregexpeditorprivate.cpp:56
+#: kregexpeditorprivate.cpp:48
 #, kde-format
 msgid "Compound regular expression:"
 msgstr "Regulārās izteiksmes apvienojums:"
 
-#: kregexpeditorprivate.cpp:58
+#: kregexpeditorprivate.cpp:50
 #, kde-format
 msgid ""
 "In this window you will find predefined regular expressions. Both regular "
@@ -435,7 +396,7 @@ msgstr ""
 "esat izstrādājis un saglabājis, gan regulārās izteiksmes, kas nāk kopā ar "
 "sistēmu."
 
-#: kregexpeditorprivate.cpp:68
+#: kregexpeditorprivate.cpp:60
 #, kde-format
 msgid ""
 "In this window you will develop your regular expressions. Select one of the "
@@ -446,7 +407,7 @@ msgstr ""
 "darbībām, darbību pogu joslā, un uzklikšķiniet ar peli logā, lai ievietotu "
 "darbību."
 
-#: kregexpeditorprivate.cpp:77
+#: kregexpeditorprivate.cpp:69
 #, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
@@ -462,13 +423,13 @@ msgstr ""
 "regulāras izteiksmes redaktora logā, tad tā daļa tiks iekrāsota - Tas ļauj "
 "jums <i>atkļūdot</i> jūsu regulārās izteiksmes.</p>"
 
-#: kregexpeditorprivate.cpp:139
+#: kregexpeditorprivate.cpp:110
 #, fuzzy, kde-format
 #| msgid "ASCII synta&x:"
 msgid "ASCII syntax:"
 msgstr "ASCII sin&takse:"
 
-#: kregexpeditorprivate.cpp:153
+#: kregexpeditorprivate.cpp:124
 #, kde-format
 msgid ""
 "<p>This is the regular expression in ASCII syntax. You are likely only to be "
@@ -482,10 +443,80 @@ msgstr ""
 "p><p>Jūs varat izstrādāt regulārās izteiksmes gan ar grafisko redaktoru, gan "
 "ievadot tekstu.</p>"
 
-#: kregexpeditorprivate.cpp:364
+#: kregexpeditorprivate.cpp:348
 #, kde-format
 msgid "Could not open file '%1' for reading"
 msgstr "Nevar atvērt failu %1 lasīšanai"
+
+#: kregexpeditorwindow.cpp:36
+#, fuzzy, kde-format
+#| msgid "Regular Expression Editor"
+msgctxt "@title:window"
+msgid "Regular Expression Editor"
+msgstr "Regulāro izteiksmju redaktors"
+
+#: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
+#, kde-format
+msgid "Verify regular expression"
+msgstr "Verificēt regulāro izteiksmi"
+
+#: kregexpeditorwindow.cpp:103
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Load text"
+msgstr ""
+
+#: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
+#, kde-format
+msgid "Load text in the verifier window"
+msgstr "Ielādēt tekstu verifikācijas logā"
+
+#: kregexpeditorwindow.cpp:114 verifybuttons.cpp:94
+#, kde-format
+msgid "Verify on the Fly"
+msgstr "Verificēt pie ievada"
+
+#: kregexpeditorwindow.cpp:122 verifybuttons.cpp:100
+#, kde-format
+msgid "Toggle on-the-fly verification of regular expression"
+msgstr "Ieslēgt verifikāciju ievada laikā."
+
+#: kregexpeditorwindow.cpp:124 verifybuttons.cpp:102
+#, kde-format
+msgid ""
+"Enabling this option will make the verifier update for each edit. If the "
+"verify window contains much text, or if the regular expression is either "
+"complex or matches a lot of time, this may be very slow."
+msgstr ""
+"Liks verificētājam pārbaudīt, pie katras rediģēšanas darbības. Ja "
+"verifikācijas logs satur tekstu, vai ja regulārā izteiksme ir pārāk "
+"sarežģīta, vai arī sakrīt daudzas reizes, tad verifikācija var būt lēna."
+
+#: kregexpeditorwindow.cpp:129 verifybuttons.cpp:106
+#, kde-format
+msgid "Match Greedy"
+msgstr "Sautīgā sakritība"
+
+#: kregexpeditorwindow.cpp:136 verifybuttons.cpp:111
+#, kde-format
+msgid "Toggle greedy matching when verifying the regular expression."
+msgstr "Ieslēgt sautīgo sakritību, kad verificē regulāru izteiksmi."
+
+#: kregexpeditorwindow.cpp:137 verifybuttons.cpp:112
+#, kde-format
+msgid ""
+"When this option is enabled, the regular expression will be evaluated on a "
+"so-called greedy way."
+msgstr ""
+"Kad šī opcija ir iespējota, regulārā izteiksme tiks novērtēta, saucamajā, "
+"sautīgajā veidā."
+
+#: kregexpeditorwindow.cpp:140
+#, fuzzy, kde-format
+#| msgid "RegExp Language"
+msgctxt "@title:menu"
+msgid "RegExp Languages"
+msgstr "RegExp valoda"
 
 #: lookaheadwidget.cpp:39
 #, kde-format
@@ -1020,11 +1051,6 @@ msgstr "<p>Pārrakstīt regulāro izteiksmi <b>%1</b>?</p>"
 msgid "Do Not Overwrite"
 msgstr "Nepārrakstīt"
 
-#: verifybuttons.cpp:27
-#, kde-format
-msgid "Verify regular expression"
-msgstr "Verificēt regulāro izteiksmi"
-
 #: verifybuttons.cpp:29
 #, kde-format
 msgid ""
@@ -1033,11 +1059,6 @@ msgid ""
 msgstr ""
 "Rāda, kura daļa no regulāras izteiksmes sakrīt <i>verifikācijas logā</i>. "
 "(Logs zem grafiskā redaktora loga)."
-
-#: verifybuttons.cpp:38
-#, kde-format
-msgid "Load text in the verifier window"
-msgstr "Ielādēt tekstu verifikācijas logā"
 
 #: verifybuttons.cpp:43
 #, kde-format
@@ -1048,46 +1069,6 @@ msgstr "Verifikācijas uzstādījumi"
 #, kde-format
 msgid "config menu"
 msgstr ""
-
-#: verifybuttons.cpp:94
-#, kde-format
-msgid "Verify on the Fly"
-msgstr "Verificēt pie ievada"
-
-#: verifybuttons.cpp:100
-#, kde-format
-msgid "Toggle on-the-fly verification of regular expression"
-msgstr "Ieslēgt verifikāciju ievada laikā."
-
-#: verifybuttons.cpp:102
-#, kde-format
-msgid ""
-"Enabling this option will make the verifier update for each edit. If the "
-"verify window contains much text, or if the regular expression is either "
-"complex or matches a lot of time, this may be very slow."
-msgstr ""
-"Liks verificētājam pārbaudīt, pie katras rediģēšanas darbības. Ja "
-"verifikācijas logs satur tekstu, vai ja regulārā izteiksme ir pārāk "
-"sarežģīta, vai arī sakrīt daudzas reizes, tad verifikācija var būt lēna."
-
-#: verifybuttons.cpp:106
-#, kde-format
-msgid "Match Greedy"
-msgstr "Sautīgā sakritība"
-
-#: verifybuttons.cpp:111
-#, kde-format
-msgid "Toggle greedy matching when verifying the regular expression."
-msgstr "Ieslēgt sautīgo sakritību, kad verificē regulāru izteiksmi."
-
-#: verifybuttons.cpp:112
-#, kde-format
-msgid ""
-"When this option is enabled, the regular expression will be evaluated on a "
-"so-called greedy way."
-msgstr ""
-"Kad šī opcija ir iespējota, regulārā izteiksme tiks novērtēta, saucamajā, "
-"sautīgajā veidā."
 
 #: verifybuttons.cpp:115
 #, kde-format
@@ -1167,6 +1148,32 @@ msgid ""
 msgstr ""
 "Ne-vārds\n"
 "Robeža"
+
+#~ msgid "Undo"
+#~ msgstr "Atsaukt"
+
+#~ msgid "Redo"
+#~ msgstr "Atkārtot"
+
+#~ msgid "Save"
+#~ msgstr "Saglabāt"
+
+#~ msgid ""
+#~ "<h2>Send the author an electronic postcard</h2>I don't get any money for "
+#~ "working on KRegExpEditor, I therefore appreciate it very much when users "
+#~ "tell me what they think about my work. I would therefore be very happy if "
+#~ "you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a "
+#~ "short mail</a>, telling me that you use my regular expression editor."
+#~ "<h2>Author</h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> "
+#~ "&lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
+#~ msgstr ""
+#~ "<h2>Nosūtiet autoram elektronisko pastkarti</h2>Es nesaņemu, nekādu naudu "
+#~ "strādājot pie KRegExpEditor, tāpēc es novērtētu, ja jūs pateikt, ko "
+#~ "domājat par manu darbu. Tāpēc es būtu ļoti priecīgs, ja jūs <a href="
+#~ "\"mailto:blackie@kde.org?subject=KRegExpEditor\">nosūtītu man īsu e-"
+#~ "pastu</a>, pastāstot,ka jūs izmantojat manu regulāro izteiksmju redaktoru."
+#~ "<h2>Autors</h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> "
+#~ "&lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
 
 #~ msgid "Clear expression"
 #~ msgstr "Notīrīt izteiksmi"
