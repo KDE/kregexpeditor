@@ -1,11 +1,11 @@
 # Translation for kregexpeditor.po to Euskara/Basque (eu).
-# Copyright (C) 2003-2023 This file is copyright:
+# Copyright (C) 2003-2024 This file is copyright:
 # This file is distributed under the same license as the kregexpeditor package.
-# SPDX-FileCopyrightText: 2023 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Marcos  <marcos@euskalgnu.org>, 2003.
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2004, 2023.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2004, 2023, 2024.
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
 # marcos <marcos@euskalgnu.org>, 2005.
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-11 00:39+0000\n"
-"PO-Revision-Date: 2023-12-13 22:03+0100\n"
+"PO-Revision-Date: 2024-01-11 23:00+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -458,11 +458,10 @@ msgid "Could not open file '%1' for reading"
 msgstr "Ezin da '%1' fitxategia irakurtzeko ireki"
 
 #: kregexpeditorwindow.cpp:36
-#, fuzzy, kde-format
-#| msgid "Regular Expression Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
-msgstr "Adierazpen erregularren Editorea"
+msgstr "Adierazpen erregularren editorea"
 
 #: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
 #, kde-format
@@ -473,7 +472,7 @@ msgstr "Adierazpen erregularra egiaztatu"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
-msgstr ""
+msgstr "Zamatu testua"
 
 #: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
 #, kde-format
@@ -521,11 +520,10 @@ msgstr ""
 "eran ebaluatuko da."
 
 #: kregexpeditorwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "RegExp Language"
+#, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
-msgstr "RegExp Hizkuntza"
+msgstr "RegExp lengoaiak"
 
 #: lookaheadwidget.cpp:39
 #, kde-format

@@ -1,18 +1,18 @@
 # Translation of kregexpeditor.po to Catalan (Valencian)
-# Copyright (C) 2002-2023 This_file_is_part_of_KDE
+# Copyright (C) 2002-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Albert Astals Cid <aacid@kde.org>, 2002, 2003, 2004.
 # Sebastià Pla i Sanz <sps@sastia.com>, 2004.
-# Josep M. Ferrer <txemaq@gmail.com>, 2005, 2007, 2008, 2009, 2010, 2011, 2012, 2014, 2015, 2016, 2017, 2020, 2021, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2005, 2007, 2008, 2009, 2010, 2011, 2012, 2014, 2015, 2016, 2017, 2020, 2021, 2022, 2023, 2024.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2017, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-11 00:39+0000\n"
-"PO-Revision-Date: 2023-12-12 11:03+0100\n"
+"PO-Revision-Date: 2024-01-11 15:32+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -462,8 +462,7 @@ msgid "Could not open file '%1' for reading"
 msgstr "El fitxer «%1» no s'ha pogut obrir per a lectura"
 
 #: kregexpeditorwindow.cpp:36
-#, fuzzy, kde-format
-#| msgid "Regular Expression Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "Editor d'expressions regulars"
@@ -477,7 +476,7 @@ msgstr "Verifica l'expressió regular"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
-msgstr ""
+msgstr "Carrega text"
 
 #: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
 #, kde-format
@@ -525,11 +524,10 @@ msgstr ""
 "anomenada voraç."
 
 #: kregexpeditorwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "RegExp Language"
+#, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
-msgstr "Llenguatge de l'expressió"
+msgstr "Llenguatges d'expressions regulars"
 
 #: lookaheadwidget.cpp:39
 #, kde-format
@@ -1149,30 +1147,3 @@ msgid ""
 msgstr ""
 "No límit\n"
 "de paraula"
-
-#~ msgid "Undo"
-#~ msgstr "Desfés"
-
-#~ msgid "Redo"
-#~ msgstr "Refés"
-
-#~ msgid "Save"
-#~ msgstr "Guarda"
-
-#~ msgid ""
-#~ "<h2>Send the author an electronic postcard</h2>I don't get any money for "
-#~ "working on KRegExpEditor, I therefore appreciate it very much when users "
-#~ "tell me what they think about my work. I would therefore be very happy if "
-#~ "you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a "
-#~ "short mail</a>, telling me that you use my regular expression editor."
-#~ "<h2>Author</h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> "
-#~ "&lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
-#~ msgstr ""
-#~ "<h2>Envia'm una postal electrònica</h2>No obtinc cap benefici econòmic "
-#~ "del meu treball en KRegExpEditor, però m'agrada molt que els usuaris em "
-#~ "diguen que pensen del meu treball. Per tant, seria molt feliç si <a href="
-#~ "\"mailto:blackie@kde.org?subject=KRegExpEditor\">m'envies un xicotet "
-#~ "correu electrònic</a>, dient que utilitzes el meu editor d'expressions "
-#~ "regulars. <h2>Autoria</h2><a href=\"http://www.blackie.dk/\">Jesper K. "
-#~ "Pedersen</a> &lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</"
-#~ "a>&gt;"

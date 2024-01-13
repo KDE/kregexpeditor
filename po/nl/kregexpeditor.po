@@ -8,13 +8,13 @@
 # Bram Schoenmakers <bramschoenmakers@kde.nl>, 2004.
 # Tom Albers <tomalbers@kde.nl>, 2004.
 # Rinse de Vries <rinsedevries@kde.nl>, 2004, 2005, 2007.
-# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2017, 2020, 2023 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2017, 2020, 2023, 2024 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-11 00:39+0000\n"
-"PO-Revision-Date: 2023-12-12 12:21+0100\n"
+"PO-Revision-Date: 2024-01-11 10:18+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -30,7 +30,7 @@ msgid "Your names"
 msgstr ""
 "Wilbert Berendsen - 2003,Tom Albers - 2004,Rinse de Vries - 2002; 2004; "
 "2005; 2007,Bram Schoenmakers  2004,Otto Bruggeman - 2001,Freek de Kruijf - "
-"2017;2023"
+"2017;2023-2024"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -467,11 +467,10 @@ msgid "Could not open file '%1' for reading"
 msgstr "Kan het bestand '%1' niet lezen"
 
 #: kregexpeditorwindow.cpp:36
-#, fuzzy, kde-format
-#| msgid "Regular Expression Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
-msgstr "Reguliere Expressies Editor"
+msgstr "Bewerker voor reguliere expressies"
 
 #: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
 #, kde-format
@@ -482,7 +481,7 @@ msgstr "Reguliere expressie verifiëren"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
-msgstr ""
+msgstr "Tekst laden"
 
 #: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
 #, kde-format
@@ -533,11 +532,10 @@ msgstr ""
 "op een zogenaamde gretige (greedy) manier."
 
 #: kregexpeditorwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "RegExp Language"
+#, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
-msgstr "RegExp Taal"
+msgstr "RegExp-talen"
 
 #: lookaheadwidget.cpp:39
 #, kde-format

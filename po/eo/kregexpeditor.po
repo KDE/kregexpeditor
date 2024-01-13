@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-11 00:39+0000\n"
-"PO-Revision-Date: 2023-04-10 04:45+0100\n"
+"PO-Revision-Date: 2024-01-11 07:32+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -452,11 +452,10 @@ msgid "Could not open file '%1' for reading"
 msgstr "Ne eblis malfermi dosieron '%1' por legado"
 
 #: kregexpeditorwindow.cpp:36
-#, fuzzy, kde-format
-#| msgid "Regular Expression Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
-msgstr "Regula Esprimo Redaktilo"
+msgstr "Redaktilo por Regulaj Esprimoj"
 
 #: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
 #, kde-format
@@ -467,7 +466,7 @@ msgstr "Kontroli regulan esprimon"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
-msgstr ""
+msgstr "Ŝargi tekston"
 
 #: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
 #, kde-format
@@ -515,11 +514,10 @@ msgstr ""
 "nomata avida maniero."
 
 #: kregexpeditorwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "RegExp Language"
+#, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
-msgstr "RegExp Lingvo"
+msgstr "RegExp-Lingvoj"
 
 #: lookaheadwidget.cpp:39
 #, kde-format
