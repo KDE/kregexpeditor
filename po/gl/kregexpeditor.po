@@ -4,14 +4,14 @@
 # mvillarino <mvillarino@users.sourceforge.net>, 2007, 2009.
 # marce villarino <mvillarino@users.sourceforge.net>, 2009.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015, 2017.
-# SPDX-FileCopyrightText: 2023 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2023, 2024 Adrián Chaves (Gallaecio)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-11 00:39+0000\n"
-"PO-Revision-Date: 2023-12-13 08:33+0100\n"
+"PO-Revision-Date: 2024-01-15 19:29+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -455,8 +455,7 @@ msgid "Could not open file '%1' for reading"
 msgstr "Non foi posíbel abrir o ficheiro «%1» para lectura"
 
 #: kregexpeditorwindow.cpp:36
-#, fuzzy, kde-format
-#| msgid "Regular Expression Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "Editor de expresións regulares"
@@ -470,7 +469,7 @@ msgstr "Verificar a expresión regular"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
-msgstr ""
+msgstr "Cargar un texto"
 
 #: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
 #, kde-format
@@ -518,11 +517,10 @@ msgstr ""
 "cobizoso."
 
 #: kregexpeditorwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "RegExp Language"
+#, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
-msgstr "Linguaxe da RegExp"
+msgstr "Linguaxes de expresións regulares"
 
 #: lookaheadwidget.cpp:39
 #, kde-format
