@@ -366,7 +366,11 @@ void RegExpEditorWindow::slotSave()
     QString dir = WidgetWinItem::path();
     QString txt;
 
-    const QString tmp = QInputDialog::getText(this, i18n("Name for Regular Expression"), i18n("Enter name:"));
+    bool ok = false;
+    const QString tmp = QInputDialog::getText(this, i18n("Name for Regular Expression"), i18n("Enter name:"), QLineEdit::Normal, QString(), &ok);
+    if (!ok) {
+        return;
+    }
     if (tmp.trimmed().isEmpty()) {
         KMessageBox::error(this, i18n("Empty name is not supported"), i18n("Save Regular Expression"));
         return;
