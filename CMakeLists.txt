@@ -1,8 +1,9 @@
+cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
+
 project(kregexpeditor)
 
 ############### search packages used by KDE ###############
 
-cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 
 set(KF_MIN_VERSION "5.240.0")
 set(QT_MIN_VERSION "6.5")
