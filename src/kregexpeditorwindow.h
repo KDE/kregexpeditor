@@ -8,7 +8,9 @@
 #include "kregexpeditorprivate.h"
 #include <KXmlGuiWindow>
 
-class Q_DECL_EXPORT KRegExpEditorWindow : public KXmlGuiWindow
+#include "kregexpeditorcommon_export.h"
+
+class KREGEXPEDITORCOMMON_EXPORT KRegExpEditorWindow : public KXmlGuiWindow
 {
     Q_OBJECT
 public:

@@ -94,6 +94,7 @@ target_link_libraries(kregexpeditorcommon
 )
 
 set_target_properties(kregexpeditorcommon PROPERTIES VERSION 1.0.0 SOVERSION 1)
+generate_export_header(kregexpeditorcommon)
 install(TARGETS kregexpeditorcommon ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### next target ###############
@@ -116,6 +117,7 @@ install(FILES
     KMultiFormListBox/kmultiformlistboxentry.h
     KMultiFormListBox/kmultiformlistbox.h
     KMultiFormListBox/kmultiformlistboxfactory.h
+    ${CMAKE_CURRENT_BINARY_DIR}/kregexpeditorcommon_export.h
     DESTINATION ${KDE_INSTALL_INCLUDEDIR}
 )
 
