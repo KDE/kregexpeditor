@@ -117,3 +117,5 @@ void SingleContainerWidget::updateCursorRecursively()
     _child->updateCursorRecursively();
     updateCursorShape();
 }
+
+#include "moc_singlecontainerwidget.cpp"

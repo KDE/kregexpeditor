@@ -395,3 +395,5 @@ void KRegExpEditorPrivate::setMatchGreedy(bool b)
     _verifier->setMinimal(!b);
     doVerify();
 }
+
+#include "moc_kregexpeditorprivate.cpp"

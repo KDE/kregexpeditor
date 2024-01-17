@@ -306,3 +306,5 @@ QPixmap CompoundWidget::getIcon(const QString &name)
 {
     return QIcon::fromTheme(name).pixmap(KIconLoader::SizeSmall);
 }
+
+#include "moc_compoundwidget.cpp"

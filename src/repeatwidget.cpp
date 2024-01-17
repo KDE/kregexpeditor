@@ -354,3 +354,5 @@ void RepeatRangeWindow::set(REPEATTYPE tp, int min, int max)
         break;
     }
 }
+
+#include "moc_repeatwidget.cpp"

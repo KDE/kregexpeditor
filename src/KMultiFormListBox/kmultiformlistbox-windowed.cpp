@@ -216,3 +216,5 @@ void KMultiFormListBoxWindowed::slotUpdateButtonState()
         _buttonList.at(i)->setEnabled(on);
     }
 }
+
+#include "moc_kmultiformlistbox-windowed.cpp"

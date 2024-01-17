@@ -74,3 +74,5 @@ bool CCP::eventFilter(QObject *, QEvent *event)
     }
     return true;
 }
+
+#include "moc_ccp.cpp"

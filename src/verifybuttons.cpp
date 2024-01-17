@@ -197,3 +197,5 @@ void VerifyButtons::setAllowNonQtSyntax(bool b)
 {
     _languages->setEnabled(b);
 }
+
+#include "moc_verifybuttons.cpp"

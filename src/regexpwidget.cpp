@@ -206,3 +206,5 @@ void RegExpWidget::updateAll()
 {
     update();
 }
+
+#include "moc_regexpwidget.cpp"

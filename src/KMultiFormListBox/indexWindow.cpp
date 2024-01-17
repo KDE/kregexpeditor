@@ -77,3 +77,5 @@ int indexWindow::exec(const QPoint & /*start*/, int /*width*/)
     */
     return 0;
 }
+
+#include "moc_indexWindow.cpp"

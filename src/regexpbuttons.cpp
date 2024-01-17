@@ -189,3 +189,5 @@ void RegExpButtons::setFeatures(int features)
     _posLookAhead->setVisible(features & RegExpConverter::PosLookAhead);
     _negLookAhead->setVisible(features & RegExpConverter::NegLookAhead);
 }
+
+#include "moc_regexpbuttons.cpp"

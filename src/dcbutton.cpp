@@ -17,3 +17,5 @@ void DoubleClickButton::mouseDoubleClickEvent(QMouseEvent *)
 {
     Q_EMIT doubleClicked();
 }
+
+#include "moc_dcbutton.cpp"

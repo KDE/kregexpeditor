@@ -95,3 +95,5 @@ RegExpWidget *LookAheadWidget::findWidgetToEdit(QPointF globalPos)
 {
     return _child->findWidgetToEdit(globalPos);
 }
+
+#include "moc_lookaheadwidget.cpp"

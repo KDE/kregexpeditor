@@ -161,3 +161,5 @@ QString CharSelector::text() const
 }
 
 #include "charselector.moc"
+
+#include "moc_charselector.cpp"

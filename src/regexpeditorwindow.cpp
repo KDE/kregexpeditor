@@ -449,3 +449,5 @@ QIcon RegExpEditorWindow::getIcon(const QString &name)
 {
     return QIcon::fromTheme(name);
 }
+
+#include "moc_regexpeditorwindow.cpp"

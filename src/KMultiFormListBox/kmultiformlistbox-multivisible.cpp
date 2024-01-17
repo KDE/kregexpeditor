@@ -287,3 +287,5 @@ int KMultiFormListBoxMultiVisible::countElements(WidgetList *elms)
 
     return count;
 }
+
+#include "moc_kmultiformlistbox-multivisible.cpp"

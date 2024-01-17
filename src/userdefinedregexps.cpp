@@ -264,3 +264,5 @@ QString WidgetWinItem::path()
     QDir().mkpath(regexppath);
     return regexppath;
 }
+
+#include "moc_userdefinedregexps.cpp"

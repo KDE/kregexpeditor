@@ -104,3 +104,5 @@ void Verifier::setHighlighter(RegexpHighlighter *highlighter)
         setEnabled(false);
     }
 }
+
+#include "moc_verifier.cpp"

@@ -57,3 +57,5 @@ void SelectableLineEdit::slotKeyPressed()
         Q_EMIT parentPleaseUpdate();
     }
 }
+
+#include "moc_selectablelineedit.cpp"

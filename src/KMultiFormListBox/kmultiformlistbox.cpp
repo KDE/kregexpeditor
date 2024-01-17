@@ -93,3 +93,5 @@ void KMultiFormListBox::fromStream(QDataStream &stream)
         _factory->fromStream(stream, entry);
     }
 }
+
+#include "moc_kmultiformlistbox.cpp"
