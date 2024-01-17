@@ -214,7 +214,7 @@ RepeatRangeWindow::RepeatRangeWindow(QWidget *parent)
     connect(_rangeFrom, SIGNAL(valueChanged(int)), this, SLOT(slotUpdateMaxVal(int)));
     connect(_rangeTo, SIGNAL(valueChanged(int)), this, SLOT(slotUpdateMinVal(int)));
 
-    connect(_group, SIGNAL(buttonClicked(int)), this, SLOT(slotItemChange(int)));
+    connect(_group, &QButtonGroup::idClicked, this, &RepeatRangeWindow::slotItemChange);
 
     _group->button(ANY)->click();
 }
