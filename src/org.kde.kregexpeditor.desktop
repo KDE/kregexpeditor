@@ -91,6 +91,6 @@ GenericName[zh_CN]=正则表达式编辑器
 GenericName[zh_TW]=正則表達式編輯器
 Terminal=false
 Type=Application
-X-KDE-StartupNotify=true
+StartupNotify=true
 Categories=Qt;KDE;Utility;X-KDE-More;
 Icon=kregexpeditor
