@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-11 00:39+0000\n"
+"POT-Creation-Date: 2024-01-18 00:39+0000\n"
 "PO-Revision-Date: 2023-06-22 14:48+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -843,32 +843,32 @@ msgstr "Ú&pravy"
 msgid "&Save Regular Expression..."
 msgstr "&Uložit regulární výraz..."
 
-#: regexpeditorwindow.cpp:369
+#: regexpeditorwindow.cpp:370
 #, kde-format
 msgid "Name for Regular Expression"
 msgstr "Název regulárního výrazu"
 
-#: regexpeditorwindow.cpp:369
+#: regexpeditorwindow.cpp:370
 #, kde-format
 msgid "Enter name:"
 msgstr "Vložte název:"
 
-#: regexpeditorwindow.cpp:371
+#: regexpeditorwindow.cpp:375
 #, kde-format
 msgid "Empty name is not supported"
 msgstr "Prázdný název není podporován"
 
-#: regexpeditorwindow.cpp:371
+#: regexpeditorwindow.cpp:375
 #, kde-format
 msgid "Save Regular Expression"
 msgstr "Uložit regulární výraz"
 
-#: regexpeditorwindow.cpp:380
+#: regexpeditorwindow.cpp:384
 #, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b></p>"
 msgstr "<p>Přepsat pojmenovaný regulární výraz <b>%1</b></p>"
 
-#: regexpeditorwindow.cpp:390
+#: regexpeditorwindow.cpp:394
 #, kde-format
 msgid "Could not open file for writing: %1"
 msgstr "Nelze otevřít soubor pro zápis: %1"

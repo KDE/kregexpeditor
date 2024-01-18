@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-11 00:39+0000\n"
+"POT-Creation-Date: 2024-01-18 00:39+0000\n"
 "PO-Revision-Date: 2017-07-28 09:31+0100\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -868,32 +868,32 @@ msgstr "&Editar"
 msgid "&Save Regular Expression..."
 msgstr "&Gravar Expressão Regular..."
 
-#: regexpeditorwindow.cpp:369
+#: regexpeditorwindow.cpp:370
 #, kde-format
 msgid "Name for Regular Expression"
 msgstr "Nome da Expressão Regular"
 
-#: regexpeditorwindow.cpp:369
+#: regexpeditorwindow.cpp:370
 #, kde-format
 msgid "Enter name:"
 msgstr "Indique o nome:"
 
-#: regexpeditorwindow.cpp:371
+#: regexpeditorwindow.cpp:375
 #, kde-format
 msgid "Empty name is not supported"
 msgstr "Um nome vazio não é suportado"
 
-#: regexpeditorwindow.cpp:371
+#: regexpeditorwindow.cpp:375
 #, kde-format
 msgid "Save Regular Expression"
 msgstr "Gravar a Expressão Regular"
 
-#: regexpeditorwindow.cpp:380
+#: regexpeditorwindow.cpp:384
 #, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b></p>"
 msgstr "<p>Sobrepor a expressão regular <b>%1</b></p>"
 
-#: regexpeditorwindow.cpp:390
+#: regexpeditorwindow.cpp:394
 #, kde-format
 msgid "Could not open file for writing: %1"
 msgstr "Não foi possível abrir o ficheiro para escrita: %1"

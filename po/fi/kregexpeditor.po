@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-11 00:39+0000\n"
+"POT-Creation-Date: 2024-01-18 00:39+0000\n"
 "PO-Revision-Date: 2020-07-29 14:27+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -868,32 +868,32 @@ msgstr "&Muokkaa"
 msgid "&Save Regular Expression..."
 msgstr "&Tallenna säännöllinen lauseke…"
 
-#: regexpeditorwindow.cpp:369
+#: regexpeditorwindow.cpp:370
 #, kde-format
 msgid "Name for Regular Expression"
 msgstr "Säännöllisen lausekkeen nimi"
 
-#: regexpeditorwindow.cpp:369
+#: regexpeditorwindow.cpp:370
 #, kde-format
 msgid "Enter name:"
 msgstr "Anna nimi:"
 
-#: regexpeditorwindow.cpp:371
+#: regexpeditorwindow.cpp:375
 #, kde-format
 msgid "Empty name is not supported"
 msgstr "Tyhjää nimeä ei tueta"
 
-#: regexpeditorwindow.cpp:371
+#: regexpeditorwindow.cpp:375
 #, kde-format
 msgid "Save Regular Expression"
 msgstr "Tallenna säännöllinen lauseke"
 
-#: regexpeditorwindow.cpp:380
+#: regexpeditorwindow.cpp:384
 #, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b></p>"
 msgstr "<p>Ylikirjoita nimetty säännöllinen lauseke<b>%1</b></p>"
 
-#: regexpeditorwindow.cpp:390
+#: regexpeditorwindow.cpp:394
 #, kde-format
 msgid "Could not open file for writing: %1"
 msgstr "Ei voitu avata tiedostoa kirjoitettavaksi: %1"

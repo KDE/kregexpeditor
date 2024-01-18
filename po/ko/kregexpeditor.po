@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-11 00:39+0000\n"
+"POT-Creation-Date: 2024-01-18 00:39+0000\n"
 "PO-Revision-Date: 2020-04-05 13:27+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -828,32 +828,32 @@ msgstr "편집(&E)"
 msgid "&Save Regular Expression..."
 msgstr "정규 표현식 저장(&S)..."
 
-#: regexpeditorwindow.cpp:369
+#: regexpeditorwindow.cpp:370
 #, kde-format
 msgid "Name for Regular Expression"
 msgstr "정규 표현식 이름"
 
-#: regexpeditorwindow.cpp:369
+#: regexpeditorwindow.cpp:370
 #, kde-format
 msgid "Enter name:"
 msgstr "이름 입력:"
 
-#: regexpeditorwindow.cpp:371
+#: regexpeditorwindow.cpp:375
 #, kde-format
 msgid "Empty name is not supported"
 msgstr "빈 이름은 지원하지 않음"
 
-#: regexpeditorwindow.cpp:371
+#: regexpeditorwindow.cpp:375
 #, kde-format
 msgid "Save Regular Expression"
 msgstr "정규 표현식 저장"
 
-#: regexpeditorwindow.cpp:380
+#: regexpeditorwindow.cpp:384
 #, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b></p>"
 msgstr "<p>정규 표현식 <b>%1</b> 덮어쓰기</p>"
 
-#: regexpeditorwindow.cpp:390
+#: regexpeditorwindow.cpp:394
 #, kde-format
 msgid "Could not open file for writing: %1"
 msgstr "파일에 쓰려고 열 수 없습니다: %1"

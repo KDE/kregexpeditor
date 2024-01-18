@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-11 00:39+0000\n"
+"POT-Creation-Date: 2024-01-18 00:39+0000\n"
 "PO-Revision-Date: 2008-01-04 09:27+0200\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@gmail.com>\n"
 "Language-Team: Belarusian (Official spelling) <i18n@mova.org>\n"
@@ -837,32 +837,32 @@ msgstr "&Змяніць"
 msgid "&Save Regular Expression..."
 msgstr "Захаваць рэгулярны выраз..."
 
-#: regexpeditorwindow.cpp:369
+#: regexpeditorwindow.cpp:370
 #, fuzzy, kde-format
 msgid "Name for Regular Expression"
 msgstr "Рэдактар рэгулярных выразаў"
 
-#: regexpeditorwindow.cpp:369
+#: regexpeditorwindow.cpp:370
 #, fuzzy, kde-format
 msgid "Enter name:"
 msgstr "Увядзіце імя:"
 
-#: regexpeditorwindow.cpp:371
+#: regexpeditorwindow.cpp:375
 #, kde-format
 msgid "Empty name is not supported"
 msgstr ""
 
-#: regexpeditorwindow.cpp:371
+#: regexpeditorwindow.cpp:375
 #, fuzzy, kde-format
 msgid "Save Regular Expression"
 msgstr "Захаваць рэгулярны выраз..."
 
-#: regexpeditorwindow.cpp:380
+#: regexpeditorwindow.cpp:384
 #, fuzzy, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b></p>"
 msgstr "<p>Замяніць рэгулярны выраз з назовам <b>%1</b></p>"
 
-#: regexpeditorwindow.cpp:390
+#: regexpeditorwindow.cpp:394
 #, fuzzy, kde-format
 msgid "Could not open file for writing: %1"
 msgstr "Не атрымліваецца захаваць файл: %1"
