@@ -120,7 +120,7 @@
     <para
 >L'éditeur d'expressions rationnelles, d'un autre côté, vous permet de <emphasis
 >dessiner</emphasis
-> vos expressions rationnelles d'une manière non ambiguë. L'éditeur résoud au moins les éléments deux et trois ci-dessus. Il ne permet pas aux non programmeurs d'accéder aux expressions rationnelles, bien que seuls des tests par des utilisateurs peuvent le dire. Donc, si vous n'êtes pas un programmeur, et que vous avez terrassé la puissance des expressions rationnelles par l'intermédiaire de cet éditeur, alors <ulink url="mailto:blackie@kde.org"
+> vos expressions rationnelles d'une manière non ambiguë. L'éditeur résout au moins les éléments deux et trois ci-dessus. Il ne permet pas aux non programmeurs d'accéder aux expressions rationnelles, bien que seuls des tests par des utilisateurs peuvent le dire. Donc, si vous n'êtes pas un programmeur, et que vous avez terrassé la puissance des expressions rationnelles par l'intermédiaire de cet éditeur, alors <ulink url="mailto:blackie@kde.org"
 >faites-le moi savoir</ulink
 > s'il vous plaît. </para>
 
@@ -157,7 +157,7 @@
 >.</para>
 
     <para
->Vous construisez des expressions rationnelles à partir d'expressions rationnelles plus petites, exactement comme vous construirez un immense jouet en lego à partir de sous-parties plus petites. De même que dans le monde des legos, il existe un certain nombre de blocs de construction de base. Dans les chapitres suivants, je décrirai chacun de ces blocs de construction de base en illustrant par un certain nombre d'exemples.</para>
+>Vous construisez des expressions rationnelles à partir d'expressions rationnelles plus petites, exactement comme vous construirez un immense jouet en Lego à partir de sous-parties plus petites. De même que dans le monde des Lego, il existe un certain nombre de blocs de construction de base. Dans les chapitres suivants, je décrirai chacun de ces blocs de construction de base en illustrant par un certain nombre d'exemples.</para>
 
     <example>
       <title
@@ -477,7 +477,7 @@
       <para
 >Enfin, à gauche de la zone d'édition, vous trouverez un certain nombre d'expressions rationnelles prédéfinies. Elles ont deux buts : (1) Lorsque vous chargez l'éditeur avec une expression rationnelle alors cette expression rationnelle est affichée de façon <emphasis
 >plus belle</emphasis
-> ou plus compréhensible en remplaçant les expressions rationnelles classiques. Dans la copie d'écran ci-dessus, vous pouvez voir comment la syntaxe ascii « .* » a été remplacé par une zone affichant « quelque chose ». (2) Lorsque vous insérez une expression rationnelle vous trouverez des blocs fabriqués pour vos propres expressions rationnelles dans l'ensemble des expressions rationnelles préfabriquées. Consultez le chapitre sur <link linkend="userdefinedregexps"
+> ou plus compréhensible en remplaçant les expressions rationnelles classiques. Dans la copie d'écran ci-dessus, vous pouvez voir comment la syntaxe ASCII « .* » a été remplacée par une zone affichant « quelque chose ». (2) Lorsque vous insérez une expression rationnelle vous trouverez des blocs fabriqués pour vos propres expressions rationnelles dans l'ensemble des expressions rationnelles préfabriquées. Veuillez consulter le chapitre sur <link linkend="userdefinedregexps"
 >les expressions rationnelles définies par l'utilisateur</link
 > pour apprendre comment enregistrer vos propres expressions rationnelles.</para
 >      
@@ -856,7 +856,7 @@
 
     <sect1 id="question3">
       <title
->Je suis l'auteur d'un programme &kde;. Comment puis-je utiliser ce composant graphiquedans mon application ?</title>
+>Je suis l'auteur d'un programme &kde;. Comment puis-je utiliser ce composant graphique dans mon application ?</title>
       <para
 >Consultez <ulink url="http://developer.kde.org/documentation/library/cvs-api/classref/interfaces/KRegExpEditorInterface.html"
 >la documentation de la classe KRegExpEditorInterface</ulink

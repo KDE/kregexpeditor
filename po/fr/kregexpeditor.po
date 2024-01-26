@@ -8,22 +8,22 @@
 # Matthieu Robin <matthieu@macolu.org>, 2005.
 # Mickael Sibelle <kimael@gmail.com>, 2008, 2009.
 # Sébastien Renard <Sebastien.Renard@digitalfox.org>, 2008.
-# SPDX-FileCopyrightText: 2012, 2013, 2021, 2023 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2012, 2013, 2021, 2023, 2024 Xavier Besnard <xavier.besnard@kde.org>
 # Simon Depiets <sdepiets@gmail.com>, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-18 00:39+0000\n"
-"PO-Revision-Date: 2023-12-13 11:14+0100\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
+"PO-Revision-Date: 2024-01-22 22:09+0100\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -475,8 +475,7 @@ msgid "Could not open file '%1' for reading"
 msgstr "Impossible d'ouvrir le fichier « %1 » pour lecture"
 
 #: kregexpeditorwindow.cpp:36
-#, fuzzy, kde-format
-#| msgid "Regular Expression Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "Éditeur d'expressions rationnelles"
@@ -490,7 +489,7 @@ msgstr "Vérifier l'expression rationnelle"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
-msgstr ""
+msgstr "Charger du texte"
 
 #: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
 #, kde-format
@@ -539,11 +538,10 @@ msgstr ""
 "manière dite « à la volée »."
 
 #: kregexpeditorwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "RegExp Language"
+#, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
-msgstr "Langue de l'expression rationnelle"
+msgstr "Langue pour expressions rationnelles"
 
 #: lookaheadwidget.cpp:39
 #, kde-format
