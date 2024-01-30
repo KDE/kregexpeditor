@@ -6,14 +6,14 @@
 # Federico Zenith <federico.zenith@member.fsf.org>, 2005.
 # Nicola Ruggero <nicola@nxnt.org>, 2006.
 # Pino Toscano <toscano.pino@tiscali.it>, 2014, 2015, 2017, 2018
-# SPDX-FileCopyrightText: 2023 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-18 00:39+0000\n"
-"PO-Revision-Date: 2023-12-24 04:39+0100\n"
+"PO-Revision-Date: 2024-01-20 11:19+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -466,8 +466,7 @@ msgid "Could not open file '%1' for reading"
 msgstr "Impossibile aprire il file \"%1\" in lettura"
 
 #: kregexpeditorwindow.cpp:36
-#, fuzzy, kde-format
-#| msgid "Regular Expression Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "Editor di espressioni regolari"
@@ -481,7 +480,7 @@ msgstr "Verifica espressione regolare"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
-msgstr ""
+msgstr "Carica il testo"
 
 #: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
 #, kde-format
@@ -533,8 +532,7 @@ msgstr ""
 "usando la cosiddetta modalità ingorda (greedy)."
 
 #: kregexpeditorwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "RegExp Language"
+#, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
 msgstr "Linguaggio espressioni regolari"
