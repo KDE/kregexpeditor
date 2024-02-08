@@ -5,7 +5,7 @@
 # Kim Enkovaara <kim.enkovaara@iki.fi>, 2003, 2004.
 # Ilpo Kantonen <ilpo@iki.fi>, 2006.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2011, 2012, 2013, 2015.
-# Tommi Nieminen <translator@legisign.org>, 2020.
+# Tommi Nieminen <translator@legisign.org>, 2020, 2024.
 #
 # KDE Finnish translation sprint participants:
 # Author: Artnay
@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-18 00:39+0000\n"
-"PO-Revision-Date: 2020-07-29 14:27+0300\n"
+"PO-Revision-Date: 2024-02-02 12:57+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-POT-Import-Date: 2012-12-01 22:27:36+0000\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -458,8 +458,7 @@ msgid "Could not open file '%1' for reading"
 msgstr "Tiedostoa ”%1” ei voitu avata luettavaksi"
 
 #: kregexpeditorwindow.cpp:36
-#, fuzzy, kde-format
-#| msgid "Regular Expression Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "Säännöllisten lausekkeiden muokkain"
@@ -473,7 +472,7 @@ msgstr "Tarkista säännöllinen lauseke"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
-msgstr ""
+msgstr "Lataa teksti"
 
 #: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
 #, kde-format
@@ -523,11 +522,10 @@ msgid ""
 msgstr "Kun tämä on valittu, säännöllinen lauseke suoritetaan ns. ahneesti."
 
 #: kregexpeditorwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "RegExp Language"
+#, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
-msgstr "Säännöllisen lauseen kieli"
+msgstr "Säännöllisten lausekkeiden kielet"
 
 #: lookaheadwidget.cpp:39
 #, kde-format
@@ -568,13 +566,13 @@ msgstr "Kehittäjä"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
 #: main.cpp:35
 #, kde-format
 msgctxt "@info:credit"
 msgid "Port to Qt6"
-msgstr ""
+msgstr "Sovitus Qt6:een"
 
 #: predefined/General/anything.regexp:5
 #, kde-format
@@ -1072,7 +1070,7 @@ msgstr "asetusvalikko"
 #: verifybuttons.cpp:115
 #, kde-format
 msgid "RegExp Language"
-msgstr "Säännöllisen lauseen kieli"
+msgstr "Säännöllisen lausekkeen kieli"
 
 #: widgetfactory.cpp:152
 #, kde-format
