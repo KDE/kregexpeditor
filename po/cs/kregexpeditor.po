@@ -443,11 +443,10 @@ msgid "Could not open file '%1' for reading"
 msgstr "Nelze otevřít soubor '%1' pro čtení"
 
 #: kregexpeditorwindow.cpp:36
-#, fuzzy, kde-format
-#| msgid "Regular Expression Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
-msgstr "Editor regulárních výrazů"
+msgstr ""
 
 #: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
 #, kde-format
@@ -506,11 +505,10 @@ msgstr ""
 "\"nenasytnou\" cestou."
 
 #: kregexpeditorwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "RegExp Language"
+#, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
-msgstr "Jazyk reg. výrazu"
+msgstr ""
 
 #: lookaheadwidget.cpp:39
 #, kde-format
@@ -1122,29 +1120,3 @@ msgid ""
 msgstr ""
 "Ne-slovní\n"
 "hranice"
-
-#~ msgid "Undo"
-#~ msgstr "Zpět"
-
-#~ msgid "Redo"
-#~ msgstr "Znovu"
-
-#~ msgid "Save"
-#~ msgstr "Uložit"
-
-#~ msgid ""
-#~ "<h2>Send the author an electronic postcard</h2>I don't get any money for "
-#~ "working on KRegExpEditor, I therefore appreciate it very much when users "
-#~ "tell me what they think about my work. I would therefore be very happy if "
-#~ "you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a "
-#~ "short mail</a>, telling me that you use my regular expression editor."
-#~ "<h2>Author</h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> "
-#~ "&lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
-#~ msgstr ""
-#~ "<h2>Zašlete autorovy elektronickou pohlednici</h2>Za svou práci na "
-#~ "KRegExpEditor nejsem nijak placen a tak bych rád získal zpětnou vazbu "
-#~ "přímo od vás, uživatelů. Velmi mě potěší, když mi zašlete <a href="
-#~ "\"mailto:blackie@kde.org?subject=KRegExpEditor\"> krátký mail</a> o své "
-#~ "práci s editorem regulárních výrazů. <h2>Autor</h2><a href=\"http://www."
-#~ "blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href=\"mailto:blackie@kde.org"
-#~ "\">blackie@kde.org</a>&gt;"
