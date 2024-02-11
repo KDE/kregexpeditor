@@ -7,13 +7,13 @@
 # خالد حسنى <dr.khaled.hosny@gmail.com>, 2006.
 # Fahad Al-Saidi <fahad.alsaidi@gmail.com>, 2007.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-18 00:39+0000\n"
-"PO-Revision-Date: 2022-10-01 13:35+0400\n"
+"PO-Revision-Date: 2024-02-10 21:22+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -451,8 +451,7 @@ msgid "Could not open file '%1' for reading"
 msgstr "لا يمكن فتح الملف '%1' للقراءة"
 
 #: kregexpeditorwindow.cpp:36
-#, fuzzy, kde-format
-#| msgid "Regular Expression Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "محرر التعبير النمطى"
@@ -466,7 +465,7 @@ msgstr "تحقّق من التعبير النمطي"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
-msgstr ""
+msgstr "حمّل نص"
 
 #: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
 #, kde-format
@@ -514,8 +513,7 @@ msgstr ""
 "الكلي."
 
 #: kregexpeditorwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "RegExp Language"
+#, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
 msgstr "لغة التعبير النمطي"
@@ -559,13 +557,13 @@ msgstr "مطوّر"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Carl Schwan"
-msgstr ""
+msgstr "كارل شوان"
 
 #: main.cpp:35
 #, kde-format
 msgctxt "@info:credit"
 msgid "Port to Qt6"
-msgstr ""
+msgstr "النّقل إلى كيوت 6"
 
 #: predefined/General/anything.regexp:5
 #, kde-format
