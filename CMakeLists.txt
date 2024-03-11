@@ -25,8 +25,8 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
 
-find_package(Qt6 ${QT5_REQUIRED_VERSION} CONFIG REQUIRED Core Widgets Xml)
-find_package(KF6 REQUIRED
+find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED Core Widgets Xml)
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     I18n
     TextWidgets
     CoreAddons
