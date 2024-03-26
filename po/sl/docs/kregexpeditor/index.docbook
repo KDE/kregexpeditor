@@ -1,0 +1,912 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % Slovenian "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kregexpeditor" lang="&language;">
+
+  <bookinfo>
+    <title
+>Priročnik urejevalnika regularnih izrazov</title>
+
+    <authorgroup>
+      <author
+><firstname
+>Jesper K.</firstname
+> <surname
+>Pedersen</surname
+> <affiliation
+><address
+>&Jesper.Pedersen.mail;</address
+></affiliation>
+      </author>
+<othercredit role="translator"
+><firstname
+>Matjaž</firstname
+><surname
+>Jeran</surname
+><affiliation
+><address
+><email
+>matjaz.jeran@amis.net</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+    </authorgroup>
+
+    <date
+>03.07.2001</date>
+    <releaseinfo
+>0,1</releaseinfo>
+
+    <legalnotice
+>&underFDL;</legalnotice>
+
+    <copyright>
+      <year
+>2001</year>
+      <holder
+>Jesper K. Pedersen</holder>
+    </copyright>
+
+    <abstract>
+      <para
+>Ta priročnik opisuje gradnik urejevalnika regularnih izrazov</para>
+    </abstract>
+
+    <keywordset>
+      <keyword
+>KDE</keyword>
+      <keyword
+>regularni izrazi</keyword>
+    </keywordset>
+  </bookinfo>
+
+  <!-- ====================================================================== -->
+  <!--                               Introduction                             -->
+  <!-- ====================================================================== -->
+  <chapter id="introduction">
+    <title
+>Uvod</title>
+
+
+    <para
+>Urejevalnik regularnih izrazov je urejevalnik za urejanje regularnih izrazov v grafičnem slogu (v nasprotju s sintakso <acronym
+>ASCII</acronym
+>). Običajno so regularni izrazi vneseni v sintakso <acronym
+>ASCII</acronym
+>, ki je na primer videti kot <literal
+>^.*kde\b</literal
+>. Glavne pomanjkljivosti tega sloga so: <itemizedlist>
+        <listitem
+><para
+>Neprogramerjem je to težko razumeti.</para
+></listitem>
+
+        <listitem
+><para
+>Zahteva, da <emphasis
+>dodajate ubežne simbole</emphasis
+> določenim simbolom (če se na primer ujema z zvezdico, morate vnesti <literal
+>\*</literal
+>). </para
+></listitem>
+
+        <listitem
+><para
+>Zahteva, da si zapomnite pravila za <emphasis
+>prednosti</emphasis
+> (Kaj se ujema <literal
+>x|y*</literal
+>? en sam <literal
+>x</literal
+> ali število <literal
+>y</literal
+>, <emphasis
+>ALI</emphasis
+> mešano število <literal
+>x</literal
+> in <literal
+>y</literal
+>?)</para
+></listitem>
+      </itemizedlist>
+    </para>
+
+    <para
+>Po drugi strani pa vam urejevalnik regularnih izrazov omogoča <emphasis
+>risanje</emphasis
+> regularnega izraza na nedvoumen način. Urejevalnik reši vsaj dve in tri zgornje točke. Neprogramerjem morda ne bo dal na voljo regularnih izrazov, čeprav lahko to ugotovijo le preizkusi uporabnikov. Torej, če niste programer in ste pridobili moč regularnega izražanja s tem urejevalnikom, potem <ulink url="mailto:blackie@kde.org"
+>me obvestite</ulink
+>. </para>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                       What is a Regular Expression                     -->
+  <!-- ====================================================================== -->
+  <chapter id="whatIsARegExp">
+    <title
+>Kaj je regularni izraz</title>
+
+    <para
+>Regularni izraz je način za določitev <emphasis
+>pogojev</emphasis
+>, ki morajo biti izpolnjeni za določeno situacijo. Običajno, ko iščete v urejevalniku besedil, določite besedilo za iskanje <emphasis
+>dobesedno</emphasis
+>, z uporabo regularnega izraza, po drugi strani pa poveste, kako bi bilo videti dano ujemanje. Primeri tega vključujejo <emphasis
+>Iščem besedo &kde; a samo na začetku vrstice</emphasis
+>, ali <emphasis
+>Iščem besedo <literal
+>the</literal
+>, a mora stati samostojno</emphasis
+>, ali <emphasis
+>Iščem datoteke, ki se začnejo z besedo <literal
+>test</literal
+>, ki ji sledi več števk, na primer <literal
+>test12</literal
+>, <literal
+>test107</literal
+> in <literal
+>test007</literal
+></emphasis
+></para>
+
+    <para
+>Regularne izraze sestavljate iz manjših regularnih izrazov, tako kot sestavljate velike igrače Lego iz manjših poddelov. Tako kot v Lego svetu obstaja več osnovnih gradnikov. V nadaljevanju bom s številnimi primeri opisal vsakega od teh osnovnih gradnikov.</para>
+
+    <example>
+      <title
+>Iskanje običajnega besedila.</title>
+      <para
+>Če želite samo iskati dano besedilo, regularni izraz zagotovo ni dobra izbira. Razlog za to je, da regularni izrazi nekaterim znakom pripisujejo poseben pomen. To vključuje naslednje znake: <literal
+>.*|$</literal
+>. Če torej želite iskati besedilo <literal
+>kde.</literal
+> (tj. znake <literal
+>kde</literal
+>, ki jim sledi pika), morate to podati kot <literal
+>kde\ .</literal
+><footnote
+><para
+>Urejevalnik regularnih izrazov reši to težavo tako, da namesto vas poskrbi za ubežna pravila.</para
+></footnote
+> Pisanje <literal
+>\.</literal
+> namesto samo <literal
+>.</literal
+> se imenuje <emphasis
+>izbegavanje (escaping)</emphasis
+>. </para>
+    </example>
+
+    <example id="positionregexp">
+      <title
+>Ujemanje &URL;jev</title>
+      <para
+>Ko izberete nekaj, kar je videti kot &URL; v &kde;, bo program <command
+>klipper</command
+> ponudil zagon <command
+>konqueror</command
+> z izbranim &URL;.</para>
+
+      <para
+><command
+>Klipper</command
+> to naredi tako, da izbor primerja z več različnimi regularnimi izrazi; ko se eden od regularnih izrazov ujema, bo ponujen prilagojen ukaz.</para>
+      
+      <para
+>Regularni izraz za &URL;s pravi (med drugim), da se mora izbor začeti z besedilom <literal
+>http://</literal
+>. To je opisano z uporabo regularnih izrazov s predpono besedila <literal
+>http://</literal
+> s klobukom (znak <literal
+>^</literal
+>).</para>
+
+      <para
+>Zgoraj je primer ujemanja položajev z uporabo regularnih izrazov. Podobno se lahko položaj <emphasis
+>konec vrstice</emphasis
+> ujema z uporabo znaka <literal
+>$</literal
+> (tj. znak za dolar).</para>
+    </example>
+
+    <example id="boundaryregexp">
+      <title
+>Iskanje besede <literal
+>the</literal
+>, vendar ne <emphasis
+>the</emphasis
+><literal
+>re</literal
+>, <literal
+>brea</literal
+><emphasis
+>the</emphasis
+> ali <literal
+>ano</literal
+><emphasis
+>the</emphasis
+><literal
+>r</literal
+></title>
+      <para
+>Na zgornji način je mogoče ujemati dve dodatni vrsti položaja, in sicer <emphasis
+>položaj na besedni meji</emphasis
+> in <emphasis
+>položaj na <emphasis
+>ne</emphasis
+>besedni meji</emphasis
+>. Položaji so podani z besedilom <literal
+>\b</literal
+> (za besedno mejo) in <literal
+>\B</literal
+> (za nebesedno mejo)</para>
+
+      <para
+>Tako je iskanje besede <literal
+>the</literal
+> mogoče izvesti z regularnim izrazom <literal
+>\bthe\b</literal
+>. To določa, da iščemo <literal
+>the</literal
+> brez črk na vsaki strani (tj. z besedno mejo na vsaki strani)</para>
+
+      <para
+>Regularni izrazi, ki se ujemajo s štirimi položaji, so vstavljeni v urejevalnik regularnih izrazov z <link linkend="positiontool"
+>orodjem za štiri različne položaje</link
+></para>
+    </example>
+
+    <example id="altnregexp">
+      <title
+>Iskanje <literal
+>this</literal
+> ali <literal
+>that</literal
+></title>
+      <para
+>Predstavljajte si, da želite pregledati svoj dokument in iskati besedo <literal
+>this</literal
+> ali besedo <literal
+>that</literal
+>. Z običajnim načinom iskanja bi lahko to naredili v dveh poteh, pri čemer bi prvič iskali <literal
+>this</literal
+>, drugič pa <literal
+>that</literal
+>.</para>
+
+      <para
+>Z iskanjem po regularnih izrazih bi istočasno iskali oboje. To storite tako, da poiščete <literal
+>this|that</literal
+>, &ie; obe besedi ločite z navpično črto.<footnote
+><para
+>Opomba na vsaki strani navpične vrstice je regularni izraz, zato ta funkcija ni samo za iskanje dveh različnih kosov besedila, ampak za iskanje dveh različnih regularnih izrazov.</para
+></footnote
+></para>
+
+      <para
+>V urejevalniku regularnih izrazov sami ne pišete navpične vrstice, temveč namesto tega izberete <link linkend="altntool"
+>alternativno orodje</link
+> in vstavite manjše regularne izraze enega nad drugega.</para>
+    </example>
+
+    <example id="repeatregexp">
+      <title
+>Ujemanje karkoli</title>
+      <para
+>Regularni izrazi se pogosto primerjajo z ujemanjem nadomestnih znakov v ukazni lupini - to je zmožnost določitve števila datotek z zvezdico. Ujemanje nadomestnih znakov boste najverjetneje prepoznali iz naslednjih primerov: <itemizedlist>
+          <listitem
+><para
+><literal
+>ls *.txt</literal
+> – tukaj je <literal
+>*.txt</literal
+> nadomestni znak lupine, ki se ujema z vsako datoteko, ki se konča s pripono <literal
+>.txt</literal
+>.</para
+></listitem>
+          <listitem
+><para
+><literal
+>cat test??.res</literal
+> - ujemanje vsake datoteke, ki se začne z <literal
+>test</literal
+>, ki ji sledita dva poljubna znaka, na koncu pa sledi test <literal
+>.res</literal
+></para
+></listitem>
+        </itemizedlist>
+      </para>
+
+      <para
+>V lupini se zvezdica poljubno število ujema s katerim koli znakom. Z drugimi besedami, zvezdica se ujema z <emphasis
+>karkoli</emphasis
+>. To je zapisano kot <literal
+>.*</literal
+> s sintakso regularnega izraza. Pika se ujema s katerim koli posameznim znakom, &ie;. samo <emphasis
+>en</emphasis
+> znak in zvezdica pravi, da se mora regularni izraz pred njim ujemati poljubno število krat. Skupaj to pove kateri koli posamezen znak poljubno število krat.</para>
+
+      <para
+>To se morda zdi preveč zapleteno, a ko boste dobili širšo sliko, boste videli moč. Naj vam pokažem še en osnovni regularni izraz: <literal
+>a</literal
+>. Črka <literal
+>a</literal
+> je sama po sebi regularni izraz, ki se ujema z eno samo črko, in sicer črko <literal
+>a</literal
+>. Če to združimo z zvezdico, &ie; <literal
+>a*</literal
+>, potem imamo regularni izraz, ki se ujema s poljubnim številom a-jev.</para>
+
+      <para
+>Lahko kombiniramo več regularnih izrazov enega za drugim, na primer <literal
+>ba(na)*</literal
+>. <footnote
+><para
+><literal
+>(na)*</literal
+> samo pravi, da se tisto, kar je v oklepaju, ponovi poljubno število krat.</para
+></footnote
+> Predstavljajte si, da ste ta regularni izraz vnesli v iskanje polje v urejevalniku besedila, potem bi našli naslednje besede (med drugim): <literal
+>ba</literal
+>, <literal
+>bana</literal
+>, <literal
+>banana</literal
+>, <literal
+>bananananananana </literal
+> </para>
+
+      <para
+>Glede na zgornje informacije upajmo, da vam ni težko napisati nadomestnega znaka lupine <literal
+>test??.res</literal
+> kot regularni izraz. Odgovor: <literal
+>test..\.res</literal
+>. Pika sama po sebi je kateri koli znak. Za ujemanje z eno samo piko morate napisati <literal
+>\.</literal
+><footnote
+><para
+>To se imenuje escaping</para
+></footnote
+>. Z drugimi besedami, regularni izraz <literal
+>\.</literal
+> se ujema s piko, medtem ko se pika sama ujema s katerim koli znakom. </para>
+
+      <para
+>V urejevalniku regularnih izrazov se ponovljeni regularni izraz ustvari z <link linkend="repeattool"
+>orodjem za ponavljanje</link
+> </para>
+    </example>
+
+    <example id="lookaheadregexp">
+      <title
+>Zamenjava <literal
+>&amp;</literal
+> z <literal
+>&amp;amp;</literal
+> v datoteki &HTML; dokument</title
+> <para
+>V &HTML; posebni znak <literal
+>&amp;</literal
+> mora biti zapisan kot <literal
+>&amp;amp;</literal
+> - to je podobno escapingu v regularnih izrazih.</para>
+
+      <para
+>Predstavljajte si, da ste napisali &HTML; dokument v običajnem urejevalniku (npr. &XEmacs; ali &kate;), in ste popolnoma pozabili na to pravilo. Kar bi storili, ko bi spoznali svojo napako, je, da bi zamenjali vse pojavitve <literal
+>&amp;</literal
+> z <literal
+>&amp;amp;</literal
+>.</para>
+
+      <para
+>To je enostavno narediti z običajnim iskanjem in zamenjavo, vendar obstaja ena napaka. Predstavljajte si, da ste si zapomnili to pravilo - <emphasis
+>samo malo</emphasis
+> - in na nekaterih mestih naredili prav. Brezpogojna zamenjava bi povzročila zamenjavo <literal
+>&amp;amp;</literal
+> z <literal
+>&amp;amp;amp;</literal
+></para>
+
+      <para
+>Resnično želite povedati, da je treba <literal
+>&amp;</literal
+> zamenjati le, če mu <emphasis
+>ne</emphasis
+> sledijo črke <literal
+>amp;</literal
+>. To lahko storite z uporabo regularnih izrazov z <emphasis
+>pozitivnim pogledom vnaprej (lookahead)</emphasis
+>. </para>
+
+      <para
+>Regularni izraz, ki se ujema z ampersandom le, če mu ne sledijo črke <literal
+>amp;</literal
+>, je videti takole: <literal
+>&amp;(?!amp;)</literal
+>. To je seveda lažje brati z uporabo urejevalnika regularnih izrazov, kjer bi uporabili <link linkend="lookaheadtools"
+>orodja lookahead</link
+>.</para>
+    </example>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                    Using the Regular Expression Editor                 -->
+  <!-- ====================================================================== -->
+  <chapter id="theEditor">
+    <title
+>Uporaba urejevalnika regularnih izrazov</title>
+
+    <para
+>To poglavje vam bo povedalo, kako deluje urejevalnik regularnih izrazov. </para>
+
+    <!-- ====================================================================== -->
+    <!--                   The organization of the screen                       -->
+    <!-- ====================================================================== -->
+    <sect1 id="screenorganization">
+      <title
+>Organizacija zaslona</title>
+
+      <mediaobject>
+        <imageobject
+><imagedata format="PNG" fileref="theEditor.png"/></imageobject>
+      </mediaobject>
+      
+      <para
+>Najpomembnejši del urejevalnika je seveda območje za urejanje, to je področje, kjer narišete svoj regularni izraz. To območje je večje sivo na sredini.</para>
+
+      <para
+>Nad območjem za urejanje imate dve orodni vrstici, prva vsebuje <link linkend="editingtools"
+>urejevalna dejanja</link
+> - podobno kot orodja za risanje v programu za risanje. Druga orodna vrstica vsebuje gumb <emphasis
+>Kaj je to?</emphasis
+> ter gumba za razveljavitev in ponovitev.</para>
+
+      <para
+>Pod območjem za urejanje najdete trenutno zgrajen regularni izraz v tako imenovani sintaksi ascii. Sintaksa ascii se posodobi, medtem ko urejate regularni izraz v grafičnem urejevalniku. Če raje želite posodobiti sintakso ascii, to storite, saj se grafični urejevalnik sproti posodablja, da odraža vaše spremembe.</para>
+
+      <para
+>Končno na levi strani urejevalnika boste našli številne vnaprej izdelane regularne izraze. Služijo dvema namenoma: (1) Ko naložite urejevalnik z regularnim izrazom, je ta regularni izraz <emphasis
+>lepši</emphasis
+> ali bolj celovit z zamenjavo običajnih regularnih izrazov. Na zgornjem izpisu zaslona lahko vidite, kako je bila sintaksa ascii ".*" nadomeščena s poljem "karkoli". (2) Ko vstavite regularni izraz, boste morda našli gradnike za lasten regularni izraz iz nabora regularnih izrazov, ki so bili predhodno izdelani. Oglejte si razdelek o <link linkend="userdefinedregexps"
+>uporabniško definiranih regularnih izrazih</link
+>, če želite izvedeti, kako shranite lastne regularne izraze.</para
+>      
+    </sect1>
+
+    <!-- ====================================================================== -->
+    <!--                         Editing Tools                                  -->
+    <!-- ====================================================================== -->
+    <sect1 id="editingtools">
+      <title
+>Orodja za urejanje</title>
+      <para
+>Besedilo v tem razdelku pričakuje, da ste prebrali poglavje o <link linkend="whatIsARegExp"
+>kaj je regularni izraz</link
+> ali da imate predhodno znanje o tej temi.</para>
+      
+      <para
+>Vsa orodja za urejanje se nahajajo v orodni vrstici nad območjem za urejanje. Vsak od njih bo opisan v nadaljevanju.</para>
+      
+      
+
+      <simplesect id="selecttool">
+        <title
+>Orodje za izbiro</title>
+	<mediaobject>
+            <imageobject
+><imagedata format="PNG" fileref="select.png"/>
+        </imageobject
+></mediaobject>
+        <para
+>Izbirno orodje se uporablja za označevanje elementov za izrezovanje in lepljenje ter povleci in spusti. To je zelo podobno izbirnemu orodju v katerem koli programu za risanje.</para>
+      </simplesect>
+        
+      
+
+      <simplesect id="texttool"
+><title
+>Orodje za besedilo</title>
+      <mediaobject>
+      <imageobject>
+	    <imagedata format="PNG" fileref="text.png"/>
+	</imageobject
+></mediaobject>
+		        
+        <para
+><inlinemediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="texttool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>S tem orodjem boste vstavili normalno besedilo, ki se bo ujemalo. Besedilo se ujema dobesedno, &ie; ni vam treba skrbeti za uhajanje posebnih znakov. V zgornjem primeru bo zgrajen naslednji regularni izraz: <literal
+>abc\*\\\)</literal
+></para>
+      </simplesect>
+
+      
+
+      <simplesect id="characterstool"
+><title
+>Orodje za znake</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="characters.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="charactertool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>S tem orodjem vstavite obseg znakov. Primeri vključujejo tisto, kar v besedilu ASCII piše <literal
+>[0-9]</literal
+>, <literal
+>[^a-zA-Z,_]</literal
+>. Ko vstavite element s tem orodjem, se prikaže pogovorno okno, v katerem določite obsege znakov.</para>
+        
+        <para
+>Oglejte si opis <link linkend="repeatregexp"
+>ponavljajočih se regularnih izrazov</link
+>.</para>
+      </simplesect>
+
+      
+      
+      <simplesect id="anychartool"
+><title
+>Poljubno orodje za znake</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="anychar.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="anychartool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>To je regularni izraz "dot" (.). Ujema se s katerim koli posameznim znakom.</para
+> 
+        
+       
+        
+        </simplesect>
+
+
+
+      <simplesect id="repeattool"
+><title
+>Orodje za ponavljanje</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeat.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeattool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>To so ponavljajoči se elementi. To vključuje tisto, kar je v sintaksi ASCII predstavljeno z zvezdico (*), plusom (+), vprašajem (?) in obsegi ({3,5}). Ko s tem orodjem vstavite element, se prikaže pogovorno okno, ki vas vpraša, kolikokrat naj se ponovi.</para>
+          
+          <para
+>Določite, kaj želite ponoviti, tako da narišete ponovljeno vsebino znotraj polja, ki ga to orodje vstavi.</para>
+
+          <para
+>Ponavljajoče se elemente je mogoče zgraditi od zunaj navznoter in od znotraj navzven. To pomeni, da lahko najprej narišete, kaj želite ponoviti, to izberete in uporabite orodje za ponavljanje, da to ponovite. Druga možnost je, da najprej vstavite ponavljajoči se element in znotraj njega narišete, kar naj se ponovi.</para>
+
+        <para
+>Oglejte si opis <link linkend="repeatregexp"
+>ponavljajočih se regularnih izrazov</link
+>.</para>
+        </simplesect>
+
+
+
+
+      <simplesect id="altntool"
+><title
+>Alternativno orodje</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="altn.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="altntool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>To je alternativni regularni izraz (|). Nadomestne možnosti določite tako, da vsako alternativno možnost narišete eno na drugo znotraj polja, ki ga vstavi to orodje.</para>
+
+        <para
+>Oglejte si opis <link linkend="altnregexp"
+>alternativnih regularnih izrazov</link
+></para>
+      </simplesect>
+      
+
+
+
+      <simplesect id="compoundtool"
+><title
+>Sestavljeno orodje</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="compound.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="compoundtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>Sestavljeno orodje ne predstavlja nobenih regularnih izrazov. Uporablja se za združevanje drugih poddelov v okvir, ki ga je mogoče zlahka strniti samo na naslov. To lahko vidite v desnem delu zgornjega izpisa zaslona.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="positiontool"
+><title
+>Orodja za začetek/konec vrstice</title>
+        <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="begline.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="endline.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="linestartendtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Orodja za začetek in konec vrstice se ujemajo z začetkom in koncem vrstice. Regularni izraz v zgornjem izpisu zaslona se torej ujema s črtami in samo s presledki.</para>
+        
+        <para
+>Oglejte si opis <link linkend="positionregexp"
+>regularnih izrazov položaja</link
+>.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect
+><title
+>Orodja za (ne)meje besed</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="wordboundary.png"/>
+            </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+><imagedata format="PNG" fileref="nonwordboundary.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="boundarytools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Orodja za meje se ujemajo z besedno mejo oziroma nebesedno mejo. Regularni izraz v izpisu zaslona se tako ujema s katero koli besedo, ki se začne z <literal
+>the</literal
+>. Sama beseda <literal
+>the</literal
+> pa se ne ujema.</para>
+
+        <para
+>Oglejte si opis <link linkend="boundaryregexp"
+>mejnih regularnih izrazov</link
+>.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="lookaheadtools"
+><title
+>Orodja za pozitivni/negativni pogled naprej</title>
+	  <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="poslookahead.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="neglookahead.png"/>
+        </imageobject
+></mediaobject>
+
+        <para
+><inlinemediaobject
+><imageobject
+> <imagedata format="PNG" fileref="lookaheadtools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>Orodja za pogled naprej določajo pozitivni ali negativni regularni izraz za ujemanje. Ujemanje pa ni del celotnega ujemanja.</para>
+
+        <para
+>Opomba: na koncu regularnih izrazov lahko postavite samo pogled naprej. Gradnik urejevalnika regularnih izrazov tega ne uveljavlja.</para>
+
+        <para
+>Oglejte si opis <link linkend="lookaheadregexp"
+>regularnih izrazov za pogled naprej</link
+>.</para>
+      </simplesect>
+    </sect1>
+
+  <!-- ====================================================================== -->
+  <!--                  User Defined Regular Expressions                      -->
+  <!-- ====================================================================== -->
+    <sect1 id="userdefinedregexps">
+      <title
+>Uporabniško določeni regularni izrazi</title>
+      <para
+>Na levi strani območja za urejanje je polje s seznamom, ki vsebuje uporabniško določene regularne izraze. Nekateri regularni izrazi so vnaprej nameščeni v vašem &kde; namestitev, druge pa lahko rešite sami.</para
+> 
+
+      <para
+>Ti regularni izrazi imajo dva namena (<link linkend="screenorganization"
+>glejte podroben opis</link
+>), in sicer (1) da vam ponudijo nabor gradnikov in (2) da polepšajo običajne regularne izraze.</para>
+
+      <para
+>Lastne regularne izraze lahko shranite tako, da z desno miškino tipko kliknete v območju za urejanje in izberete <literal
+>Shrani regularni izraz</literal
+>.</para>
+
+      <para
+>Če je regularni izraz, ki ga shranite, znotraj <link linkend="compoundtool"
+>sestavljenega vsebnika</link
+>, bo regularni izraz sodeloval pri lepšanju naslednjih regularnih izrazov.</para>
+
+      <para
+>Uporabniško definirane regularne izraze lahko izbrišete ali preimenujete tako, da pritisnete desno miškino tipko na vrh zadevnega regularnega izraza v polju s seznamom.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                  Reporting a bug and Suggesting Features               -->
+  <!-- ====================================================================== -->
+  <chapter id="bugreport">
+    <title
+>Poročanje o napakah in predlaganje funkcij</title>
+    <para
+>Poročila o napakah in zahteve po funkcijah je treba oddati prek <ulink url="http://bugs.kde.org/"
+>&kde; Sistem za sledenje napakam</ulink
+>. <emphasis role="strong"
+>Preden</emphasis
+> prijavite napako ali predlagate funkcijo, preverite, ali ni že bila <ulink url="http://bugs.kde.org/buglist.cgi? quicksearch=kregexpeditor"
+>prijavljen/predlagan.</ulink
+></para>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                                 FAQ                                    -->
+  <!-- ====================================================================== -->
+  <chapter id="faq">
+    <title
+>Pogosto zastavljena vprašanja</title>
+    <sect1 id="question1">
+      <title
+>Ali urejevalnik regularnih izrazov podpira povratne reference?</title>
+      <para
+>Ne, trenutno to ni podprto. Načrtovano je za naslednjo različico.</para>
+    </sect1>
+
+    <sect1 id="question2">
+      <title
+>Ali urejevalnik regularnih izrazov podpira prikaz ujemanj?</title>
+      <para
+>Ne, upajmo, da bo to na voljo v naslednji različici.</para>
+    </sect1>
+
+    <sect1 id="question3">
+      <title
+>Sem avtor &kde; programa, kako lahko uporabim ta pripomoček v svoji aplikaciji?</title>
+      <para
+>Oglejte si <ulink url="http://developer.kde.org/documentation/library/cvs-api/classref/interfaces/KRegExpEditorInterface.html"
+>dokumentacijo za razred KRegExpEditorInterface</ulink
+>.</para>
+    </sect1>
+
+    <sect1 id="question4">
+      <title
+>Ne najdem gumba <emphasis
+>Uredi regularni izraz</emphasis
+> v na primer konquerorju v drugi namestitvi KDE3, zakaj?</title>
+      <para
+>Gradnik regularnega izraza se nahaja v paketu &kde;-utils. Če tega paketa nimate nameščenega, gumbi za <emphasis
+>urejanje regularnih izrazov</emphasis
+> ne bodo prikazani v programih.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                           Credits and Licenses                         -->
+  <!-- ====================================================================== -->
+  <chapter id="credits-and-license">
+    <title
+>Zasluge in licenca</title>
+
+    <para
+>Dokumentacija je avtorsko zaščitena 2001, Jesper K. Pedersen &Jesper.Pedersen.mail; </para>
+
+
+<para
+>Prevod: Matjaž Jeran<email
+>matjaz.jeran@amis.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+
+</book>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
