@@ -160,7 +160,7 @@ void KRegExpEditorWindow::setupActions()
         it->second = action;
 
         if (it->first == qtConverter) {
-            action->setEnabled(true);
+            action->setChecked(true);
         }
     }
 
