@@ -52,7 +52,7 @@ bool CCP::eventFilter(QObject *, QEvent *event)
         return false;
     }
 
-    QPoint pos = mouseEvent->globalPos();
+    const QPoint pos = mouseEvent->globalPosition().toPoint();
 
     QMenu menu;
     QAction *cutAction = menu.addAction(i18n("Cut"));
