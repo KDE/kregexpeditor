@@ -78,6 +78,61 @@ add_library(kregexpeditorcommon SHARED
     widgetfactory.cpp
     zerowidgets.cpp
 
+    altnregexp.h
+    altnwidget.h
+    characterswidget.h
+    charselector.h
+    compoundregexp.h
+    compoundwidget.h
+    concregexp.h
+    concwidget.h
+    dcbutton.h
+    dotregexp.h
+    dragaccepter.h
+    regexpeditorwindow.h
+    emacsregexpconverter.h
+    errormap.h
+    infopage.h
+    KMultiFormListBox/ccp.h
+    KMultiFormListBox/kmultiformlistboxentry.h
+    KMultiFormListBox/kmultiformlistbox.h
+    KMultiFormListBox/kmultiformlistbox-multivisible.h
+    KMultiFormListBox/kmultiformlistboxfactory.h
+    KMultiFormListBox/indexWindow.h
+    KMultiFormListBox/kmultiformlistbox-windowed.h
+    KMultiFormListBox/widgetwindow.h
+    KMultiFormListBox/windowlistboxitem.h
+    kregexpeditorwindow.h
+    kregexpeditorwindow.h
+    kregexpeditorprivate.h
+    KWidgetStreamer/kwidgetstreamer.h
+    limitedcharlineedit.h
+    lookaheadregexp.h
+    lookaheadwidget.h
+    multicontainerwidget.h
+    myfontmetrics.h
+    positionregexp.h
+    qtregexpconverter.h
+    qtregexphighlighter.h
+    regexpbuttons.h
+    regexpconverter.h
+    regexp.h
+    regexphighlighter.h
+    regexpwidget.h
+    repeatregexp.h
+    repeatwidget.h
+    scrollededitorwindow.h
+    selectablelineedit.h
+    singlecontainerwidget.h
+    textrangeregexp.h
+    textregexp.h
+    textwidget.h
+    userdefinedregexps.h
+    verifier.h
+    verifybuttons.h
+    widgetfactory.h
+    zerowidgets.h
+
     kregexpeditor.qrc
 )
 
