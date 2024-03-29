@@ -87,7 +87,7 @@ private:
     QLineEdit *_regexpEdit = nullptr;
     QSplitter *_editor = nullptr;
     bool _updating;
-    QLabel *_error;
+    QLabel *_error = nullptr;
     QStack<RegExp *> _undoStack;
     QStack<RegExp *> _redoStack;
     UserDefinedRegExps *_userRegExps;
