@@ -95,8 +95,8 @@ bool MultiContainerWidget::updateSelection(bool parentSelected)
 {
     bool changed = false;
     bool isSel = _isSelected;
-    QVector<bool> oldState(_children.count());
-    QVector<bool> newState(_children.count());
+    QList<bool> oldState(_children.count());
+    QList<bool> newState(_children.count());
 
     for (int i = 0; i < (int)_children.count(); i++) {
         oldState[i] = _children.at(i)->isSelected();
