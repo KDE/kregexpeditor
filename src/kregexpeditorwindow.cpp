@@ -23,7 +23,6 @@
 #include <KSelectAction>
 
 #include "emacsregexpconverter.h"
-#include "kregexpeditorprivate.h"
 #include "qtregexpconverter.h"
 
 using namespace Qt::Literals::StringLiterals;
