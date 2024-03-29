@@ -52,6 +52,8 @@ include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} )
 add_subdirectory(src)
 add_subdirectory( doc )
 
+ki18n_install(po)
+
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES src/*.cpp src/*.h)
