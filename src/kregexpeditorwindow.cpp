@@ -166,3 +166,5 @@ void KRegExpEditorWindow::showHelp()
 {
     KHelpClient::invokeHelp(QString(), QStringLiteral("kregexpeditor"));
 }
+
+#include "moc_kregexpeditorwindow.cpp"
