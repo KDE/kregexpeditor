@@ -74,7 +74,6 @@ add_library(kregexpeditorcommon SHARED
     textwidget.cpp
     userdefinedregexps.cpp
     verifier.cpp
-    verifybuttons.cpp
     widgetfactory.cpp
     zerowidgets.cpp
 
@@ -129,7 +128,6 @@ add_library(kregexpeditorcommon SHARED
     textwidget.h
     userdefinedregexps.h
     verifier.h
-    verifybuttons.h
     widgetfactory.h
     zerowidgets.h
 

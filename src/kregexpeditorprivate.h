@@ -19,7 +19,6 @@ class InfoPage;
 class UserDefinedRegExps;
 class QSplitter;
 class Verifier;
-class VerifyButtons;
 class AuxButtons;
 class RegExpButtons;
 class RegExp;
@@ -83,7 +82,6 @@ protected:
 private:
     RegExpScrolledEditorWindow *_scrolledEditorWindow = nullptr;
     RegExpButtons *_regExpButtons = nullptr;
-    VerifyButtons *_verifyButtons = nullptr;
     AuxButtons *_auxButtons = nullptr;
     InfoPage *_info = nullptr;
     QLineEdit *_regexpEdit = nullptr;
