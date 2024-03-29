@@ -26,10 +26,8 @@ public:
 protected:
     void fillComboBox();
 
-private Q_SLOTS:
-    void slotNewItem(int which);
-
 private:
+    void slotNewItem(int which);
     QComboBox *_type = nullptr;
     QStackedWidget *_stack = nullptr;
     LimitedCharLineEdit *_normal = nullptr;

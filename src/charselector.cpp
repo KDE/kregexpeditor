@@ -66,7 +66,7 @@ CharSelector::CharSelector(QWidget *parent)
 
     _stack->setCurrentIndex(0);
 
-    connect(_type, SIGNAL(activated(int)), this, SLOT(slotNewItem(int)));
+    connect(_type, &QComboBox::activated, this, &CharSelector::slotNewItem);
 }
 
 void CharSelector::slotNewItem(int which)
