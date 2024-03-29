@@ -63,6 +63,7 @@ void KRegExpEditorWindow::setupActions()
 {
     // File
     KStandardAction::save(_editor, &KRegExpEditorPrivate::slotUndo, actionCollection());
+    KStandardAction::quit(this, &KRegExpEditorWindow::close, actionCollection());
 
     // Edit
     auto action = KStandardAction::undo(_editor, &KRegExpEditorPrivate::slotUndo, actionCollection());
