@@ -143,7 +143,6 @@ void KRegExpEditorWindow::setupActions()
     // Qt
     RegExpConverter *qtConverter = new QtRegExpConverter();
     m_converters.append(std::pair(qtConverter, static_cast<QAction *>(nullptr)));
-    QString qtConverterName = qtConverter->name();
     _editor->setSyntax(qtConverter);
 
     // Emacs
