@@ -39,19 +39,6 @@ KRegExpEditorWindow::KRegExpEditorWindow(QWidget *parent)
     setCentralWidget(_editor);
 
     setupActions();
-
-    // connect(_editor, &KRegExpEditorGUI::canUndo, this, &KRegExpEditorWindow::canUndo);
-    // connect(_editor, &KRegExpEditorGUI::canRedo, this, &KRegExpEditorWindow::canRedo);
-    // connect(_editor, &KRegExpEditorGUI::changes, this, &KRegExpEditorWindow::changes);
-
-    // QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Help);
-    // QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
-    // okButton->setDefault(true);
-    // okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    // layout->addWidget(buttonBox);
-    // connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
-    // connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
-    // connect(buttonBox, &QDialogButtonBox::helpRequested, this, &KRegExpEditorWindow::showHelp);
     resize(640, 400);
 }
 
@@ -115,7 +102,6 @@ void KRegExpEditorWindow::setupActions()
     QAction *autoVerify = new QAction(i18n("Verify on the Fly"), this);
     autoVerify->setCheckable(true);
     autoVerify->setChecked(true);
-    // connect(autoVerify, &QAction::toggled, this, &VerifyButtons::updateVerifyButton);
     connect(autoVerify, &QAction::toggled, this, [this](bool checked) {
         _editor->setAutoVerify(checked);
     });
