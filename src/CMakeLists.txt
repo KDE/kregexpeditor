@@ -144,8 +144,8 @@ target_link_libraries(kregexpeditorcommon
     KF6::TextWidgets
     KF6::I18n
     KF6::XmlGui
-    Qt6::Widgets
-    Qt6::Xml
+    Qt::Widgets
+    Qt::Xml
 )
 
 set_target_properties(kregexpeditorcommon PROPERTIES VERSION 1.0.0 SOVERSION 1)
@@ -159,7 +159,7 @@ ecm_add_app_icon(kregexpeditor_SRCS ICONS ${ICONS_SRCS})
 
 add_executable(kregexpeditor main.cpp)
 
-target_link_libraries(kregexpeditor Qt6::Widgets kregexpeditorcommon KF6::Crash)
+target_link_libraries(kregexpeditor Qt::Widgets kregexpeditorcommon KF6::Crash)
 
 install(TARGETS kregexpeditor ${KF6_INSTALL_TARGETS_DEFAULT_ARGS})
 
