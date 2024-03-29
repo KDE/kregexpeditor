@@ -203,6 +203,9 @@ void UserDefinedRegExps::slotRenameUserRegexp()
         }
         QDir dir;
         dir.remove(fileName);
+
+        const QString oldFileName = WidgetWinItem::path() + QLatin1Char('/') + oldName + QStringLiteral(".regexp");
+        dir.rename(oldFileName, fileName);
     }
 }
 
