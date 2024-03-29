@@ -24,9 +24,6 @@ public:
 Q_SIGNALS:
     void changes(bool);
 
-public Q_SLOTS:
-    void setMatchText(const QString &);
-
 private:
     void setupActions();
     void showHelp();

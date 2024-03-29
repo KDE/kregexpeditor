@@ -176,11 +176,6 @@ void KRegExpEditorWindow::setupActions()
     setupGUI(ToolBar | Keys | Save | Create, u"kregexpeditorui.rc"_s);
 }
 
-void KRegExpEditorWindow::setMatchText(const QString &txt)
-{
-    _editor->setMatchText(txt);
-}
-
 void KRegExpEditorWindow::showHelp()
 {
     KHelpClient::invokeHelp(QString(), QStringLiteral("kregexpeditor"));
