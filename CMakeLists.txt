@@ -50,9 +50,13 @@ include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} )
 ############### Find the stuff we need ###############
 
 add_subdirectory(src)
-add_subdirectory( doc )
 
 ki18n_install(po)
+if(KF6DocTools_FOUND)
+    kdoctools_install(po)
+    add_subdirectory(doc)
+endif()
+
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
