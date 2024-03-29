@@ -33,12 +33,12 @@ WidgetWindow::WidgetWindow(KMultiFormListBoxFactory *factory, KMultiFormListBoxE
 void WidgetWindow::init(KMultiFormListBoxFactory *factory, QListWidget *lb, KMultiFormListBoxEntry *widget)
 {
     setWindowTitle(i18n("Widget Configuration"));
-    setLayout(new QVBoxLayout);
+    auto mainLayout = new QVBoxLayout(this);
 
     listbox = lb;
     myFact = factory;
 
-    QFrame *frame = new QFrame;
+    QFrame *frame = new QFrame(this);
     QHBoxLayout *lay = new QHBoxLayout;
     frame->setLayout(lay);
     lay->setObjectName(QStringLiteral("WidgetWindow::init::lay"));
@@ -65,11 +65,11 @@ void WidgetWindow::init(KMultiFormListBoxFactory *factory, QListWidget *lb, KMul
         initialShow = true;
     }
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &WidgetWindow::slotOk);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &WidgetWindow::slotCancel);
-    layout()->addWidget(frame);
-    layout()->addWidget(buttonBox);
+    mainLayout->addWidget(frame);
+    mainLayout->addWidget(buttonBox);
 }
 
 WidgetWindow::~WidgetWindow()
