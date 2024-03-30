@@ -33,7 +33,6 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     ConfigWidgets
     DocTools
     IconThemes
-    Service
     WidgetsAddons
     Crash
     XmlGui
