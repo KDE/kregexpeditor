@@ -24,6 +24,7 @@ include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
+include(ECMDeprecationSettings)
 
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED Core Widgets Xml)
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED
@@ -47,6 +48,9 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} )
 
 ############### Find the stuff we need ###############
+ecm_set_disabled_deprecation_versions(QT 6.3
+    KF 6.1.0
+    )
 
 add_subdirectory(src)
 
