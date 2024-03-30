@@ -148,7 +148,7 @@ target_link_libraries(kregexpeditorcommon
 
 set_target_properties(kregexpeditorcommon PROPERTIES VERSION 1.0.0 SOVERSION 1)
 generate_export_header(kregexpeditorcommon)
-install(TARGETS kregexpeditorcommon ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kregexpeditorcommon ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
 ########### next target ###############
 
