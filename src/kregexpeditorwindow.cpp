@@ -27,7 +27,7 @@
 
 using namespace Qt::Literals::StringLiterals;
 
-const QString KRegExpEditorWindow::version = u"1.0"_s;
+const QString KRegExpEditorWindow::version = u"1.1"_s;
 
 KRegExpEditorWindow::KRegExpEditorWindow(QWidget *parent)
     : KXmlGuiWindow(parent)

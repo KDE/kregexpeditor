@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 
     KAboutData aboutData(QStringLiteral("kregexpeditor"),
                          i18n("RegExp Editor"),
-                         QStringLiteral("1.0"),
+                         QStringLiteral("1.1"),
                          i18n("Editor for Regular Expressions"),
                          KAboutLicense::GPL,
                          i18n("(c) 2002-2003 Jesper K. Pedersen"));
