@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:39+0000\n"
+"POT-Creation-Date: 2024-03-30 00:40+0000\n"
 "PO-Revision-Date: 2024-02-10 21:22+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -450,39 +450,39 @@ msgstr ""
 msgid "Could not open file '%1' for reading"
 msgstr "لا يمكن فتح الملف '%1' للقراءة"
 
-#: kregexpeditorwindow.cpp:36
+#: kregexpeditorwindow.cpp:35
 #, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "محرر التعبير النمطى"
 
-#: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
+#: kregexpeditorwindow.cpp:84
 #, kde-format
 msgid "Verify regular expression"
 msgstr "تحقّق من التعبير النمطي"
 
-#: kregexpeditorwindow.cpp:103
+#: kregexpeditorwindow.cpp:90
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
 msgstr "حمّل نص"
 
-#: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
+#: kregexpeditorwindow.cpp:91
 #, kde-format
 msgid "Load text in the verifier window"
 msgstr "حمّل النص فى نافذة المُتَحَِِّق"
 
-#: kregexpeditorwindow.cpp:114 verifybuttons.cpp:94
+#: kregexpeditorwindow.cpp:101
 #, kde-format
 msgid "Verify on the Fly"
 msgstr "تحقّق آنياً"
 
-#: kregexpeditorwindow.cpp:122 verifybuttons.cpp:100
+#: kregexpeditorwindow.cpp:108
 #, kde-format
 msgid "Toggle on-the-fly verification of regular expression"
 msgstr "تشغيل/إيقاف التحقّق الآني (من دون سؤال) من صحة التعابير النمطية"
 
-#: kregexpeditorwindow.cpp:124 verifybuttons.cpp:102
+#: kregexpeditorwindow.cpp:110
 #, kde-format
 msgid ""
 "Enabling this option will make the verifier update for each edit. If the "
@@ -493,17 +493,17 @@ msgstr ""
 "المُتَحَقِق على الكثير من النص، أو إن كان التعبير النمطي إما معقّداً أو يطابق "
 "الكثير من المرات، قد يصبح ذلك بطيئاً جداً."
 
-#: kregexpeditorwindow.cpp:129 verifybuttons.cpp:106
+#: kregexpeditorwindow.cpp:115
 #, kde-format
 msgid "Match Greedy"
 msgstr "طابق كل شيء"
 
-#: kregexpeditorwindow.cpp:136 verifybuttons.cpp:111
+#: kregexpeditorwindow.cpp:122
 #, kde-format
 msgid "Toggle greedy matching when verifying the regular expression."
 msgstr "تشغيل/إيقاف التحقّق الكلي عند  التأكد من صحة التعابير النمطية"
 
-#: kregexpeditorwindow.cpp:137 verifybuttons.cpp:112
+#: kregexpeditorwindow.cpp:123
 #, kde-format
 msgid ""
 "When this option is enabled, the regular expression will be evaluated on a "
@@ -512,7 +512,7 @@ msgstr ""
 "عندما يكون هذا الخيار ممكن ، التعبير النمطي سيقارن بما يسمى طريقة التطابق "
 "الكلي."
 
-#: kregexpeditorwindow.cpp:140
+#: kregexpeditorwindow.cpp:126
 #, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
@@ -1038,30 +1038,6 @@ msgstr "<p>الكتابة فوق التعبير النمطي المسمى <b>%1<
 msgid "Do Not Overwrite"
 msgstr "لا تكتب فوقه"
 
-#: verifybuttons.cpp:29
-#, kde-format
-msgid ""
-"Shows what part of the regular expression is being matched in the "
-"<i>verifier window</i>.(The window below the graphical editor window)."
-msgstr ""
-"يُظهِر ما هو الجزء من التعبير النمطي الذى تتم مطابقته في <i>نافذة المُتَحَقِّق</i>. "
-"(النافذة أسفل نافذة المُحَرّر الرسومي)."
-
-#: verifybuttons.cpp:43
-#, kde-format
-msgid "Verification Settings"
-msgstr "إعدادات التحقق"
-
-#: verifybuttons.cpp:91
-#, kde-format
-msgid "config menu"
-msgstr "اضبط القائمة"
-
-#: verifybuttons.cpp:115
-#, kde-format
-msgid "RegExp Language"
-msgstr "لغة التعبير النمطي"
-
 #: widgetfactory.cpp:152
 #, kde-format
 msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
@@ -1134,6 +1110,22 @@ msgid ""
 msgstr ""
 "حدّ\n"
 "غير كلمة"
+
+#~ msgid ""
+#~ "Shows what part of the regular expression is being matched in the "
+#~ "<i>verifier window</i>.(The window below the graphical editor window)."
+#~ msgstr ""
+#~ "يُظهِر ما هو الجزء من التعبير النمطي الذى تتم مطابقته في <i>نافذة المُتَحَقِّق</"
+#~ "i>. (النافذة أسفل نافذة المُحَرّر الرسومي)."
+
+#~ msgid "Verification Settings"
+#~ msgstr "إعدادات التحقق"
+
+#~ msgid "config menu"
+#~ msgstr "اضبط القائمة"
+
+#~ msgid "RegExp Language"
+#~ msgstr "لغة التعبير النمطي"
 
 #~ msgid "Undo"
 #~ msgstr "تراجع"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:39+0000\n"
+"POT-Creation-Date: 2024-03-30 00:40+0000\n"
 "PO-Revision-Date: 2008-01-04 09:27+0200\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@gmail.com>\n"
 "Language-Team: Belarusian (Official spelling) <i18n@mova.org>\n"
@@ -446,39 +446,39 @@ msgstr ""
 msgid "Could not open file '%1' for reading"
 msgstr "Не атрымліваецца адкрыць файл '%1'"
 
-#: kregexpeditorwindow.cpp:36
+#: kregexpeditorwindow.cpp:35
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "Рэдактар рэгулярных выразаў"
 
-#: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
+#: kregexpeditorwindow.cpp:84
 #, fuzzy, kde-format
 msgid "Verify regular expression"
 msgstr "Праверыць рэгулярны выраз"
 
-#: kregexpeditorwindow.cpp:103
+#: kregexpeditorwindow.cpp:90
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
 msgstr ""
 
-#: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
+#: kregexpeditorwindow.cpp:91
 #, fuzzy, kde-format
 msgid "Load text in the verifier window"
 msgstr "Загрузіць тэкст у акно праверкі"
 
-#: kregexpeditorwindow.cpp:114 verifybuttons.cpp:94
+#: kregexpeditorwindow.cpp:101
 #, fuzzy, kde-format
 msgid "Verify on the Fly"
 msgstr "Аўтаматычная праверка"
 
-#: kregexpeditorwindow.cpp:122 verifybuttons.cpp:100
+#: kregexpeditorwindow.cpp:108
 #, fuzzy, kde-format
 msgid "Toggle on-the-fly verification of regular expression"
 msgstr "Уключэнне аўтаматычнай праверкі рэгулярных выразаў"
 
-#: kregexpeditorwindow.cpp:124 verifybuttons.cpp:102
+#: kregexpeditorwindow.cpp:110
 #, fuzzy, kde-format
 msgid ""
 "Enabling this option will make the verifier update for each edit. If the "
@@ -490,24 +490,24 @@ msgstr ""
 "рэгулярны выраз занадта складанае або яно супадае шмат раз, праграма будзе "
 "працаваць вельмі павольна."
 
-#: kregexpeditorwindow.cpp:129 verifybuttons.cpp:106
+#: kregexpeditorwindow.cpp:115
 #, kde-format
 msgid "Match Greedy"
 msgstr ""
 
-#: kregexpeditorwindow.cpp:136 verifybuttons.cpp:111
+#: kregexpeditorwindow.cpp:122
 #, fuzzy, kde-format
 msgid "Toggle greedy matching when verifying the regular expression."
 msgstr "Уключэнне аўтаматычнай праверкі рэгулярных выразаў"
 
-#: kregexpeditorwindow.cpp:137 verifybuttons.cpp:112
+#: kregexpeditorwindow.cpp:123
 #, kde-format
 msgid ""
 "When this option is enabled, the regular expression will be evaluated on a "
 "so-called greedy way."
 msgstr ""
 
-#: kregexpeditorwindow.cpp:140
+#: kregexpeditorwindow.cpp:126
 #, fuzzy, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
@@ -1021,29 +1021,6 @@ msgstr "<p>Перазапісаць найменны рэгулярны выра
 msgid "Do Not Overwrite"
 msgstr "Не перазапісваць"
 
-#: verifybuttons.cpp:29
-#, fuzzy, kde-format
-msgid ""
-"Shows what part of the regular expression is being matched in the "
-"<i>verifier window</i>.(The window below the graphical editor window)."
-msgstr ""
-"Паказаць, якія часткі рэгулярнага выраза адпавядаюць уведзенаму тэксту."
-
-#: verifybuttons.cpp:43
-#, kde-format
-msgid "Verification Settings"
-msgstr ""
-
-#: verifybuttons.cpp:91
-#, kde-format
-msgid "config menu"
-msgstr ""
-
-#: verifybuttons.cpp:115
-#, fuzzy, kde-format
-msgid "RegExp Language"
-msgstr "Мова рэгулярных выразаў"
-
 #: widgetfactory.cpp:152
 #, fuzzy, kde-format
 msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
@@ -1117,6 +1094,17 @@ msgid ""
 msgstr ""
 "Не мяжа\n"
 "словы"
+
+#, fuzzy
+#~ msgid ""
+#~ "Shows what part of the regular expression is being matched in the "
+#~ "<i>verifier window</i>.(The window below the graphical editor window)."
+#~ msgstr ""
+#~ "Паказаць, якія часткі рэгулярнага выраза адпавядаюць уведзенаму тэксту."
+
+#, fuzzy
+#~ msgid "RegExp Language"
+#~ msgstr "Мова рэгулярных выразаў"
 
 #~ msgid "Undo"
 #~ msgstr "Вярнуць"

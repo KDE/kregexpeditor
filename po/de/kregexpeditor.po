@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:39+0000\n"
+"POT-Creation-Date: 2024-03-30 00:40+0000\n"
 "PO-Revision-Date: 2021-05-10 06:35+0200\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -453,40 +453,40 @@ msgstr ""
 msgid "Could not open file '%1' for reading"
 msgstr "Die Datei „%1“ kann nicht zum Lesen geöffnet werden"
 
-#: kregexpeditorwindow.cpp:36
+#: kregexpeditorwindow.cpp:35
 #, fuzzy, kde-format
 #| msgid "Regular Expression Editor"
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "Editor für reguläre Ausdrücke"
 
-#: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
+#: kregexpeditorwindow.cpp:84
 #, kde-format
 msgid "Verify regular expression"
 msgstr "Regulären Ausdruck evaluieren"
 
-#: kregexpeditorwindow.cpp:103
+#: kregexpeditorwindow.cpp:90
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
 msgstr ""
 
-#: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
+#: kregexpeditorwindow.cpp:91
 #, kde-format
 msgid "Load text in the verifier window"
 msgstr "Text ins Evaluationsfenster laden"
 
-#: kregexpeditorwindow.cpp:114 verifybuttons.cpp:94
+#: kregexpeditorwindow.cpp:101
 #, kde-format
 msgid "Verify on the Fly"
 msgstr "Laufend überprüfen"
 
-#: kregexpeditorwindow.cpp:122 verifybuttons.cpp:100
+#: kregexpeditorwindow.cpp:108
 #, kde-format
 msgid "Toggle on-the-fly verification of regular expression"
 msgstr "Laufende Überprüfung eines regulären Ausdrucks ein-/ausschalten"
 
-#: kregexpeditorwindow.cpp:124 verifybuttons.cpp:102
+#: kregexpeditorwindow.cpp:110
 #, kde-format
 msgid ""
 "Enabling this option will make the verifier update for each edit. If the "
@@ -497,24 +497,24 @@ msgstr ""
 "Ausdrucks der Text neu evaluiert. Wenn der Text lang ist, der reguläre "
 "Ausdruck komplex oder oft im Text gefunden wird, kann dies sehr langsam sein."
 
-#: kregexpeditorwindow.cpp:129 verifybuttons.cpp:106
+#: kregexpeditorwindow.cpp:115
 #, kde-format
 msgid "Match Greedy"
 msgstr "Laufende Überprüfung"
 
-#: kregexpeditorwindow.cpp:136 verifybuttons.cpp:111
+#: kregexpeditorwindow.cpp:122
 #, kde-format
 msgid "Toggle greedy matching when verifying the regular expression."
 msgstr "Laufende Überprüfung eines regulären Ausdrucks ein-/ausschalten."
 
-#: kregexpeditorwindow.cpp:137 verifybuttons.cpp:112
+#: kregexpeditorwindow.cpp:123
 #, kde-format
 msgid ""
 "When this option is enabled, the regular expression will be evaluated on a "
 "so-called greedy way."
 msgstr "Ist diese Einstellung aktiviert, erfolgt eine laufende Überprüfung."
 
-#: kregexpeditorwindow.cpp:140
+#: kregexpeditorwindow.cpp:126
 #, fuzzy, kde-format
 #| msgid "RegExp Language"
 msgctxt "@title:menu"
@@ -1043,30 +1043,6 @@ msgstr "<p>Soll der reguläre Ausdruck <b>%1</b> überschrieben werden?</p>"
 msgid "Do Not Overwrite"
 msgstr "Nicht überschreiben"
 
-#: verifybuttons.cpp:29
-#, kde-format
-msgid ""
-"Shows what part of the regular expression is being matched in the "
-"<i>verifier window</i>.(The window below the graphical editor window)."
-msgstr ""
-"Zeigt an, welcher Textausschnitt durch den regulären Ausdruck im "
-"Editorfenster gefunden wird."
-
-#: verifybuttons.cpp:43
-#, kde-format
-msgid "Verification Settings"
-msgstr "Verifikationseinstellungen"
-
-#: verifybuttons.cpp:91
-#, kde-format
-msgid "config menu"
-msgstr "Einstellungsmenü"
-
-#: verifybuttons.cpp:115
-#, kde-format
-msgid "RegExp Language"
-msgstr "RegExp Sprache"
-
 #: widgetfactory.cpp:152
 #, kde-format
 msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
@@ -1140,6 +1116,22 @@ msgid ""
 msgstr ""
 "Keine Wort-\n"
 "grenze"
+
+#~ msgid ""
+#~ "Shows what part of the regular expression is being matched in the "
+#~ "<i>verifier window</i>.(The window below the graphical editor window)."
+#~ msgstr ""
+#~ "Zeigt an, welcher Textausschnitt durch den regulären Ausdruck im "
+#~ "Editorfenster gefunden wird."
+
+#~ msgid "Verification Settings"
+#~ msgstr "Verifikationseinstellungen"
+
+#~ msgid "config menu"
+#~ msgstr "Einstellungsmenü"
+
+#~ msgid "RegExp Language"
+#~ msgstr "RegExp Sprache"
 
 #~ msgid "Undo"
 #~ msgstr "Rückgängig"

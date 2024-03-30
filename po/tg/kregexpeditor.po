@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:39+0000\n"
+"POT-Creation-Date: 2024-03-30 00:40+0000\n"
 "PO-Revision-Date: 2019-09-29 12:28+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -477,40 +477,40 @@ msgstr ""
 msgid "Could not open file '%1' for reading"
 msgstr "Файли '%1' барои хондан кушода намешавад"
 
-#: kregexpeditorwindow.cpp:36
+#: kregexpeditorwindow.cpp:35
 #, fuzzy, kde-format
 #| msgid "Regular Expression Editor"
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "Муҳаррири Ифодаҳои Муқаррарӣ"
 
-#: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
+#: kregexpeditorwindow.cpp:84
 #, kde-format
 msgid "Verify regular expression"
 msgstr "Санҷидани ифодаи муқаррарӣ"
 
-#: kregexpeditorwindow.cpp:103
+#: kregexpeditorwindow.cpp:90
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
 msgstr ""
 
-#: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
+#: kregexpeditorwindow.cpp:91
 #, kde-format
 msgid "Load text in the verifier window"
 msgstr "Боркунии матн ба тирезаи санҷишӣ"
 
-#: kregexpeditorwindow.cpp:114 verifybuttons.cpp:94
+#: kregexpeditorwindow.cpp:101
 #, kde-format
 msgid "Verify on the Fly"
 msgstr "Санҷидан дар Ҳаракат"
 
-#: kregexpeditorwindow.cpp:122 verifybuttons.cpp:100
+#: kregexpeditorwindow.cpp:108
 #, kde-format
 msgid "Toggle on-the-fly verification of regular expression"
 msgstr "Даргиронидани санҷиши худкори ифодаи муқаррарӣ"
 
-#: kregexpeditorwindow.cpp:124 verifybuttons.cpp:102
+#: kregexpeditorwindow.cpp:110
 #, kde-format
 msgid ""
 "Enabling this option will make the verifier update for each edit. If the "
@@ -522,24 +522,24 @@ msgstr ""
 "муқаррарӣ хеле мушкил бошад ё бисёр маротиба мувофиқат накунад, барнома хеле "
 "суст кор мекунад."
 
-#: kregexpeditorwindow.cpp:129 verifybuttons.cpp:106
+#: kregexpeditorwindow.cpp:115
 #, kde-format
 msgid "Match Greedy"
 msgstr ""
 
-#: kregexpeditorwindow.cpp:136 verifybuttons.cpp:111
+#: kregexpeditorwindow.cpp:122
 #, fuzzy, kde-format
 msgid "Toggle greedy matching when verifying the regular expression."
 msgstr "Даргиронидани санҷиши худкори ифодаи муқаррарӣ"
 
-#: kregexpeditorwindow.cpp:137 verifybuttons.cpp:112
+#: kregexpeditorwindow.cpp:123
 #, kde-format
 msgid ""
 "When this option is enabled, the regular expression will be evaluated on a "
 "so-called greedy way."
 msgstr ""
 
-#: kregexpeditorwindow.cpp:140
+#: kregexpeditorwindow.cpp:126
 #, fuzzy, kde-format
 #| msgid "RegExp Language"
 msgctxt "@title:menu"
@@ -1095,30 +1095,6 @@ msgstr "<p>Ифодаи муқаррарӣ номгузоридашударо р
 msgid "Do Not Overwrite"
 msgstr ""
 
-#: verifybuttons.cpp:29
-#, kde-format
-msgid ""
-"Shows what part of the regular expression is being matched in the "
-"<i>verifier window</i>.(The window below the graphical editor window)."
-msgstr ""
-"Кадом қисми ифодаи муқаррарӣ ба <i>тирезаи санҷанда</i> мувофиқат мекунад, "
-"нишон медиҳад.(Тирезаи дар поён буда тирезаи муҳаррари графикӣ аст)."
-
-#: verifybuttons.cpp:43
-#, kde-format
-msgid "Verification Settings"
-msgstr ""
-
-#: verifybuttons.cpp:91
-#, kde-format
-msgid "config menu"
-msgstr ""
-
-#: verifybuttons.cpp:115
-#, kde-format
-msgid "RegExp Language"
-msgstr "Забони Ифодаи Муқаррарӣ"
-
 #: widgetfactory.cpp:152
 #, kde-format
 msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
@@ -1193,6 +1169,17 @@ msgid ""
 msgstr ""
 "Калима не\n"
 "Сарҳад"
+
+#~ msgid ""
+#~ "Shows what part of the regular expression is being matched in the "
+#~ "<i>verifier window</i>.(The window below the graphical editor window)."
+#~ msgstr ""
+#~ "Кадом қисми ифодаи муқаррарӣ ба <i>тирезаи санҷанда</i> мувофиқат "
+#~ "мекунад, нишон медиҳад.(Тирезаи дар поён буда тирезаи муҳаррари графикӣ "
+#~ "аст)."
+
+#~ msgid "RegExp Language"
+#~ msgstr "Забони Ифодаи Муқаррарӣ"
 
 #~ msgid ""
 #~ "<h2>Send the author an electronic postcard</h2>I don't get any money for "

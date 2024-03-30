@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:39+0000\n"
+"POT-Creation-Date: 2024-03-30 00:40+0000\n"
 "PO-Revision-Date: 2010-10-10 08:39+0200\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -445,40 +445,40 @@ msgstr ""
 msgid "Could not open file '%1' for reading"
 msgstr "\"%1\" lett sik nich för't Lesen opmaken"
 
-#: kregexpeditorwindow.cpp:36
+#: kregexpeditorwindow.cpp:35
 #, fuzzy, kde-format
 #| msgid "Regular Expression Editor"
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "Editor för regulere Utdrück"
 
-#: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
+#: kregexpeditorwindow.cpp:84
 #, kde-format
 msgid "Verify regular expression"
 msgstr "Reguleer Utdruck anwennen"
 
-#: kregexpeditorwindow.cpp:103
+#: kregexpeditorwindow.cpp:90
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
 msgstr ""
 
-#: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
+#: kregexpeditorwindow.cpp:91
 #, kde-format
 msgid "Load text in the verifier window"
 msgstr "Text na't Pröövfeld laden"
 
-#: kregexpeditorwindow.cpp:114 verifybuttons.cpp:94
+#: kregexpeditorwindow.cpp:101
 #, kde-format
 msgid "Verify on the Fly"
 msgstr "Direktemang pröven"
 
-#: kregexpeditorwindow.cpp:122 verifybuttons.cpp:100
+#: kregexpeditorwindow.cpp:108
 #, kde-format
 msgid "Toggle on-the-fly verification of regular expression"
 msgstr "Direktemang Pröven an- un utmaken"
 
-#: kregexpeditorwindow.cpp:124 verifybuttons.cpp:102
+#: kregexpeditorwindow.cpp:110
 #, kde-format
 msgid ""
 "Enabling this option will make the verifier update for each edit. If the "
@@ -489,17 +489,17 @@ msgstr ""
 "Pröövfeld veel Text bargt, oder de regulere Utdruck vigeliensch is oder "
 "faken funnen warrt, mag dat sien Tiet bruken."
 
-#: kregexpeditorwindow.cpp:129 verifybuttons.cpp:106
+#: kregexpeditorwindow.cpp:115
 #, kde-format
 msgid "Match Greedy"
 msgstr "Freetsch pröven"
 
-#: kregexpeditorwindow.cpp:136 verifybuttons.cpp:111
+#: kregexpeditorwindow.cpp:122
 #, kde-format
 msgid "Toggle greedy matching when verifying the regular expression."
 msgstr "Bi't pröven vun reguleer Utdrück dat freetsche Pröven an-/utmaken"
 
-#: kregexpeditorwindow.cpp:137 verifybuttons.cpp:112
+#: kregexpeditorwindow.cpp:123
 #, kde-format
 msgid ""
 "When this option is enabled, the regular expression will be evaluated on a "
@@ -508,7 +508,7 @@ msgstr ""
 "Is dit anmaakt, sünd de reguleren Utdrück »freetsch«, se passt op so veel as "
 "mööglich"
 
-#: kregexpeditorwindow.cpp:140
+#: kregexpeditorwindow.cpp:126
 #, fuzzy, kde-format
 #| msgid "RegExp Language"
 msgctxt "@title:menu"
@@ -1049,30 +1049,6 @@ msgstr "<p>Reguleer Utdruck mir Naam <b>%1</b> överschrieven?</p>"
 msgid "Do Not Overwrite"
 msgstr "Nich överschrieven"
 
-#: verifybuttons.cpp:29
-#, kde-format
-msgid ""
-"Shows what part of the regular expression is being matched in the "
-"<i>verifier window</i>.(The window below the graphical editor window)."
-msgstr ""
-"Wiest binnen dat <i>Pröövfeld</i> (de Deel nerrn vun dat Arbeitrebeet), op "
-"wat Dien reguleer Utdruck passt."
-
-#: verifybuttons.cpp:43
-#, kde-format
-msgid "Verification Settings"
-msgstr "Pröövinstellen"
-
-#: verifybuttons.cpp:91
-#, kde-format
-msgid "config menu"
-msgstr ""
-
-#: verifybuttons.cpp:115
-#, kde-format
-msgid "RegExp Language"
-msgstr "Utdruck-Syntax"
-
 #: widgetfactory.cpp:152
 #, kde-format
 msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
@@ -1148,6 +1124,19 @@ msgid ""
 msgstr ""
 "Nich-Woort-\n"
 "grenz"
+
+#~ msgid ""
+#~ "Shows what part of the regular expression is being matched in the "
+#~ "<i>verifier window</i>.(The window below the graphical editor window)."
+#~ msgstr ""
+#~ "Wiest binnen dat <i>Pröövfeld</i> (de Deel nerrn vun dat Arbeitrebeet), "
+#~ "op wat Dien reguleer Utdruck passt."
+
+#~ msgid "Verification Settings"
+#~ msgstr "Pröövinstellen"
+
+#~ msgid "RegExp Language"
+#~ msgstr "Utdruck-Syntax"
 
 #~ msgid "Undo"
 #~ msgstr "Torüchnehmen"

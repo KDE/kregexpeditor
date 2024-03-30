@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:39+0000\n"
+"POT-Creation-Date: 2024-03-30 00:40+0000\n"
 "PO-Revision-Date: 2024-01-22 22:09+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -474,39 +474,39 @@ msgstr ""
 msgid "Could not open file '%1' for reading"
 msgstr "Impossible d'ouvrir le fichier « %1 » pour lecture"
 
-#: kregexpeditorwindow.cpp:36
+#: kregexpeditorwindow.cpp:35
 #, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "Éditeur d'expressions rationnelles"
 
-#: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
+#: kregexpeditorwindow.cpp:84
 #, kde-format
 msgid "Verify regular expression"
 msgstr "Vérifier l'expression rationnelle"
 
-#: kregexpeditorwindow.cpp:103
+#: kregexpeditorwindow.cpp:90
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
 msgstr "Charger du texte"
 
-#: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
+#: kregexpeditorwindow.cpp:91
 #, kde-format
 msgid "Load text in the verifier window"
 msgstr "Charger le texte dans la fenêtre de vérification"
 
-#: kregexpeditorwindow.cpp:114 verifybuttons.cpp:94
+#: kregexpeditorwindow.cpp:101
 #, kde-format
 msgid "Verify on the Fly"
 msgstr "Vérification à la volée"
 
-#: kregexpeditorwindow.cpp:122 verifybuttons.cpp:100
+#: kregexpeditorwindow.cpp:108
 #, kde-format
 msgid "Toggle on-the-fly verification of regular expression"
 msgstr "Activer la vérification à la volée de l'expression rationnelle"
 
-#: kregexpeditorwindow.cpp:124 verifybuttons.cpp:102
+#: kregexpeditorwindow.cpp:110
 #, kde-format
 msgid ""
 "Enabling this option will make the verifier update for each edit. If the "
@@ -517,18 +517,18 @@ msgstr ""
 "Si la fenêtre de contrôle contient du texte ou si l'expression rationnelle "
 "est complexe ou simplement trop longue à exécuter, cela peut être très lent."
 
-#: kregexpeditorwindow.cpp:129 verifybuttons.cpp:106
+#: kregexpeditorwindow.cpp:115
 #, kde-format
 msgid "Match Greedy"
 msgstr "Correspondance à la volée"
 
-#: kregexpeditorwindow.cpp:136 verifybuttons.cpp:111
+#: kregexpeditorwindow.cpp:122
 #, kde-format
 msgid "Toggle greedy matching when verifying the regular expression."
 msgstr ""
 "Activer/désactiver la vérification à la volée de l'expression rationnelle."
 
-#: kregexpeditorwindow.cpp:137 verifybuttons.cpp:112
+#: kregexpeditorwindow.cpp:123
 #, kde-format
 msgid ""
 "When this option is enabled, the regular expression will be evaluated on a "
@@ -537,7 +537,7 @@ msgstr ""
 "Lorsque cette option est activée, l'expression rationnelle est évaluée d'une "
 "manière dite « à la volée »."
 
-#: kregexpeditorwindow.cpp:140
+#: kregexpeditorwindow.cpp:126
 #, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
@@ -1076,31 +1076,6 @@ msgstr "<p>Écraser l'expression rationnelle intitulée <b>%1</b> ?</p>"
 msgid "Do Not Overwrite"
 msgstr "Ne pas écraser"
 
-#: verifybuttons.cpp:29
-#, kde-format
-msgid ""
-"Shows what part of the regular expression is being matched in the "
-"<i>verifier window</i>.(The window below the graphical editor window)."
-msgstr ""
-"Affiche la partie de l'expression rationnelle correspondant à la <i>fenêtre "
-"de contrôle</i> (la fenêtre située en-dessous de la fenêtre d'édition "
-"graphique)."
-
-#: verifybuttons.cpp:43
-#, kde-format
-msgid "Verification Settings"
-msgstr "Configuration de la vérification"
-
-#: verifybuttons.cpp:91
-#, kde-format
-msgid "config menu"
-msgstr "menu de configuration"
-
-#: verifybuttons.cpp:115
-#, kde-format
-msgid "RegExp Language"
-msgstr "Langue de l'expression rationnelle"
-
 #: widgetfactory.cpp:152
 #, kde-format
 msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
@@ -1175,6 +1150,23 @@ msgid ""
 msgstr ""
 "Limite\n"
 "non littérale"
+
+#~ msgid ""
+#~ "Shows what part of the regular expression is being matched in the "
+#~ "<i>verifier window</i>.(The window below the graphical editor window)."
+#~ msgstr ""
+#~ "Affiche la partie de l'expression rationnelle correspondant à la "
+#~ "<i>fenêtre de contrôle</i> (la fenêtre située en-dessous de la fenêtre "
+#~ "d'édition graphique)."
+
+#~ msgid "Verification Settings"
+#~ msgstr "Configuration de la vérification"
+
+#~ msgid "config menu"
+#~ msgstr "menu de configuration"
+
+#~ msgid "RegExp Language"
+#~ msgstr "Langue de l'expression rationnelle"
 
 #~ msgid "Undo"
 #~ msgstr "Annuler"

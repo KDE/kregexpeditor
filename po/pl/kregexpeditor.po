@@ -1,4 +1,4 @@
-# Version: $Revision: 1670604 $
+# Version: $Revision: 1676792 $
 # translation of kregexpeditor.po to Polish
 # Copyright (C) 2002, 2003, 2004, 2005, 2006 Free Software Foundation, Inc.
 #
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:39+0000\n"
+"POT-Creation-Date: 2024-03-30 00:40+0000\n"
 "PO-Revision-Date: 2024-01-21 08:42+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -461,39 +461,39 @@ msgstr ""
 msgid "Could not open file '%1' for reading"
 msgstr "Nie można otworzyć pliku '%1' do odczytu"
 
-#: kregexpeditorwindow.cpp:36
+#: kregexpeditorwindow.cpp:35
 #, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "Edytor wyrażeń regularnych"
 
-#: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
+#: kregexpeditorwindow.cpp:84
 #, kde-format
 msgid "Verify regular expression"
 msgstr "Sprawdzenie wyrażenia regularnego"
 
-#: kregexpeditorwindow.cpp:103
+#: kregexpeditorwindow.cpp:90
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
 msgstr "Wczytaj tekst"
 
-#: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
+#: kregexpeditorwindow.cpp:91
 #, kde-format
 msgid "Load text in the verifier window"
 msgstr "Wczytaj tekst do okna sprawdzenia"
 
-#: kregexpeditorwindow.cpp:114 verifybuttons.cpp:94
+#: kregexpeditorwindow.cpp:101
 #, kde-format
 msgid "Verify on the Fly"
 msgstr "Sprawdzaj w locie"
 
-#: kregexpeditorwindow.cpp:122 verifybuttons.cpp:100
+#: kregexpeditorwindow.cpp:108
 #, kde-format
 msgid "Toggle on-the-fly verification of regular expression"
 msgstr "Przełącza tryb sprawdzania wyrażenia regularnego w locie"
 
-#: kregexpeditorwindow.cpp:124 verifybuttons.cpp:102
+#: kregexpeditorwindow.cpp:110
 #, kde-format
 msgid ""
 "Enabling this option will make the verifier update for each edit. If the "
@@ -505,17 +505,17 @@ msgstr ""
 "skomplikowane albo pasuje do wielu fragmentów, wówczas może to spowodować "
 "znaczące spowolnienie pracy."
 
-#: kregexpeditorwindow.cpp:129 verifybuttons.cpp:106
+#: kregexpeditorwindow.cpp:115
 #, kde-format
 msgid "Match Greedy"
 msgstr "Skąpe dopasowanie"
 
-#: kregexpeditorwindow.cpp:136 verifybuttons.cpp:111
+#: kregexpeditorwindow.cpp:122
 #, kde-format
 msgid "Toggle greedy matching when verifying the regular expression."
 msgstr "Przełącza skąpe dopasowanie przy weryfikacji wyrażeń regularnych."
 
-#: kregexpeditorwindow.cpp:137 verifybuttons.cpp:112
+#: kregexpeditorwindow.cpp:123
 #, kde-format
 msgid ""
 "When this option is enabled, the regular expression will be evaluated on a "
@@ -524,7 +524,7 @@ msgstr ""
 "Gdy opcja ta jest włączona, to wyrażenie regularne zostanie ewaluowane na "
 "tak zwany skąpy sposób."
 
-#: kregexpeditorwindow.cpp:140
+#: kregexpeditorwindow.cpp:126
 #, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
@@ -1049,30 +1049,6 @@ msgstr "<p>Nadpisać nazwane wyrażenie regularne <b>%1</b> ?</p>"
 msgid "Do Not Overwrite"
 msgstr "Nie zastępuj"
 
-#: verifybuttons.cpp:29
-#, kde-format
-msgid ""
-"Shows what part of the regular expression is being matched in the "
-"<i>verifier window</i>.(The window below the graphical editor window)."
-msgstr ""
-"Pokazuje w <i>oknie sprawdzenia</i> (znajdującym się poniżej okna edycji), "
-"która część wyrażenia regularnego została dopasowana."
-
-#: verifybuttons.cpp:43
-#, kde-format
-msgid "Verification Settings"
-msgstr "Ustawienia weryfikacji"
-
-#: verifybuttons.cpp:91
-#, kde-format
-msgid "config menu"
-msgstr "menu ustawień"
-
-#: verifybuttons.cpp:115
-#, kde-format
-msgid "RegExp Language"
-msgstr "Język wyrażeń regularnych"
-
 #: widgetfactory.cpp:152
 #, kde-format
 msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
@@ -1147,6 +1123,22 @@ msgid ""
 msgstr ""
 "Nie-granica\n"
 "Wyrazu"
+
+#~ msgid ""
+#~ "Shows what part of the regular expression is being matched in the "
+#~ "<i>verifier window</i>.(The window below the graphical editor window)."
+#~ msgstr ""
+#~ "Pokazuje w <i>oknie sprawdzenia</i> (znajdującym się poniżej okna "
+#~ "edycji), która część wyrażenia regularnego została dopasowana."
+
+#~ msgid "Verification Settings"
+#~ msgstr "Ustawienia weryfikacji"
+
+#~ msgid "config menu"
+#~ msgstr "menu ustawień"
+
+#~ msgid "RegExp Language"
+#~ msgstr "Język wyrażeń regularnych"
 
 #~ msgid "Undo"
 #~ msgstr "Cofnij"

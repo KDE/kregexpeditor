@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:39+0000\n"
+"POT-Creation-Date: 2024-03-30 00:40+0000\n"
 "PO-Revision-Date: 2007-09-04 12:01+0545\n"
 "Last-Translator: Narayan Kumar Magar <narayan@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -478,40 +478,40 @@ msgstr ""
 msgid "Could not open file '%1' for reading"
 msgstr "पढ्नका लागि '%1' फाइल खोल्न सकेन"
 
-#: kregexpeditorwindow.cpp:36
+#: kregexpeditorwindow.cpp:35
 #, fuzzy, kde-format
 #| msgid "Regular Expression Editor"
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "नियमित अभिव्यक्ति सम्पादक"
 
-#: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
+#: kregexpeditorwindow.cpp:84
 #, kde-format
 msgid "Verify regular expression"
 msgstr "नियमित अभिव्यक्ति रूजु गर्नुहोस्"
 
-#: kregexpeditorwindow.cpp:103
+#: kregexpeditorwindow.cpp:90
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
 msgstr ""
 
-#: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
+#: kregexpeditorwindow.cpp:91
 #, kde-format
 msgid "Load text in the verifier window"
 msgstr "रूजुकर्ता सञ्झ्यालमा पाठ लोड गर्नुहोस्"
 
-#: kregexpeditorwindow.cpp:114 verifybuttons.cpp:94
+#: kregexpeditorwindow.cpp:101
 #, kde-format
 msgid "Verify on the Fly"
 msgstr "फ्लाइमा रुजु गर्नुहोस्"
 
-#: kregexpeditorwindow.cpp:122 verifybuttons.cpp:100
+#: kregexpeditorwindow.cpp:108
 #, kde-format
 msgid "Toggle on-the-fly verification of regular expression"
 msgstr "नियमित अभिव्यक्तिको फ्लाइ प्रमाणीकरणमा रुजु टगल गर्नुहोस्"
 
-#: kregexpeditorwindow.cpp:124 verifybuttons.cpp:102
+#: kregexpeditorwindow.cpp:110
 #, kde-format
 msgid ""
 "Enabling this option will make the verifier update for each edit. If the "
@@ -522,17 +522,17 @@ msgstr ""
 "सञ्झ्यालले धेरै पाठ समावेश गर्दछ भने वा नियमित अभिव्यक्ति या कठिन छ वा धेरै पटक मिल्दो "
 "हुन्छ भने, यो धेरै ढिलो हुन सक्छ ।"
 
-#: kregexpeditorwindow.cpp:129 verifybuttons.cpp:106
+#: kregexpeditorwindow.cpp:115
 #, kde-format
 msgid "Match Greedy"
 msgstr "ग्रिडि मिलाउनुहोस्"
 
-#: kregexpeditorwindow.cpp:136 verifybuttons.cpp:111
+#: kregexpeditorwindow.cpp:122
 #, kde-format
 msgid "Toggle greedy matching when verifying the regular expression."
 msgstr "नियमित अभिव्यक्ति रुजु गर्दा ग्रिडि मिलान टगल गर्नुहोस् ।"
 
-#: kregexpeditorwindow.cpp:137 verifybuttons.cpp:112
+#: kregexpeditorwindow.cpp:123
 #, kde-format
 msgid ""
 "When this option is enabled, the regular expression will be evaluated on a "
@@ -540,7 +540,7 @@ msgid ""
 msgstr ""
 "यो विकल्प सक्षम पारिँदा तथाकथित लाल्चि तरिकामा नियमित अभिव्यक्ति मूल्याङ्कन गरिनेछ ।"
 
-#: kregexpeditorwindow.cpp:140
+#: kregexpeditorwindow.cpp:126
 #, fuzzy, kde-format
 #| msgid "RegExp Language"
 msgctxt "@title:menu"
@@ -1078,30 +1078,6 @@ msgstr "<p>नामकरण गरिएको नियमित अभिव
 msgid "Do Not Overwrite"
 msgstr "अधिलेखन नगर्नुहोस्"
 
-#: verifybuttons.cpp:29
-#, kde-format
-msgid ""
-"Shows what part of the regular expression is being matched in the "
-"<i>verifier window</i>.(The window below the graphical editor window)."
-msgstr ""
-"<i>रूजुकर्ता सञ्झ्याल</i> मा मिलेको नियमित अभिव्यक्तिको भाग देखाउँदछ । (ग्राफिकल सम्पादक "
-"सञ्झ्याल मुनिको सञ्झ्याल)"
-
-#: verifybuttons.cpp:43
-#, kde-format
-msgid "Verification Settings"
-msgstr "प्रमाणीकरण सेटिङ"
-
-#: verifybuttons.cpp:91
-#, kde-format
-msgid "config menu"
-msgstr ""
-
-#: verifybuttons.cpp:115
-#, kde-format
-msgid "RegExp Language"
-msgstr "RegExp भाषा"
-
 #: widgetfactory.cpp:152
 #, kde-format
 msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
@@ -1174,6 +1150,19 @@ msgid ""
 msgstr ""
 "शब्द विहीन\n"
 "सीमा"
+
+#~ msgid ""
+#~ "Shows what part of the regular expression is being matched in the "
+#~ "<i>verifier window</i>.(The window below the graphical editor window)."
+#~ msgstr ""
+#~ "<i>रूजुकर्ता सञ्झ्याल</i> मा मिलेको नियमित अभिव्यक्तिको भाग देखाउँदछ । (ग्राफिकल "
+#~ "सम्पादक सञ्झ्याल मुनिको सञ्झ्याल)"
+
+#~ msgid "Verification Settings"
+#~ msgstr "प्रमाणीकरण सेटिङ"
+
+#~ msgid "RegExp Language"
+#~ msgstr "RegExp भाषा"
 
 #~ msgid "Undo"
 #~ msgstr "पूर्वस्थितिमा फर्काउनुहोस्"

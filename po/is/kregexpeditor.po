@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:39+0000\n"
+"POT-Creation-Date: 2024-03-30 00:40+0000\n"
 "PO-Revision-Date: 2010-04-16 15:01+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
@@ -430,40 +430,40 @@ msgstr "regluleg \" Þú \" a og a regluleg<p> Þú regluleg og regluleg \" lín
 msgid "Could not open file '%1' for reading"
 msgstr "Gat ekki opnað skrá '%1' til að lesa"
 
-#: kregexpeditorwindow.cpp:36
+#: kregexpeditorwindow.cpp:35
 #, fuzzy, kde-format
 #| msgid "Regular Expression Editor"
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "Ritill fyrir reglulegar segðir"
 
-#: kregexpeditorwindow.cpp:97 verifybuttons.cpp:27
+#: kregexpeditorwindow.cpp:84
 #, kde-format
 msgid "Verify regular expression"
 msgstr "Staðfesta reglulega segð"
 
-#: kregexpeditorwindow.cpp:103
+#: kregexpeditorwindow.cpp:90
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
 msgstr ""
 
-#: kregexpeditorwindow.cpp:104 verifybuttons.cpp:38
+#: kregexpeditorwindow.cpp:91
 #, kde-format
 msgid "Load text in the verifier window"
 msgstr "Lesa inn texta í staðfestingarglugga."
 
-#: kregexpeditorwindow.cpp:114 verifybuttons.cpp:94
+#: kregexpeditorwindow.cpp:101
 #, kde-format
 msgid "Verify on the Fly"
 msgstr "Staðfesta í leiðinni"
 
-#: kregexpeditorwindow.cpp:122 verifybuttons.cpp:100
+#: kregexpeditorwindow.cpp:108
 #, kde-format
 msgid "Toggle on-the-fly verification of regular expression"
 msgstr "Kveikja á staðfestingu jafnóðum á reglulegri segð"
 
-#: kregexpeditorwindow.cpp:124 verifybuttons.cpp:102
+#: kregexpeditorwindow.cpp:110
 #, kde-format
 msgid ""
 "Enabling this option will make the verifier update for each edit. If the "
@@ -471,24 +471,24 @@ msgid ""
 "complex or matches a lot of time, this may be very slow."
 msgstr ""
 
-#: kregexpeditorwindow.cpp:129 verifybuttons.cpp:106
+#: kregexpeditorwindow.cpp:115
 #, kde-format
 msgid "Match Greedy"
 msgstr ""
 
-#: kregexpeditorwindow.cpp:136 verifybuttons.cpp:111
+#: kregexpeditorwindow.cpp:122
 #, fuzzy, kde-format
 msgid "Toggle greedy matching when verifying the regular expression."
 msgstr "Kveikja á staðfestingu jafnóðum á reglulegri segð"
 
-#: kregexpeditorwindow.cpp:137 verifybuttons.cpp:112
+#: kregexpeditorwindow.cpp:123
 #, kde-format
 msgid ""
 "When this option is enabled, the regular expression will be evaluated on a "
 "so-called greedy way."
 msgstr ""
 
-#: kregexpeditorwindow.cpp:140
+#: kregexpeditorwindow.cpp:126
 #, fuzzy, kde-format
 #| msgid "RegExp Language"
 msgctxt "@title:menu"
@@ -969,30 +969,6 @@ msgstr "<p>Yfirskrifa nefnda reglulega segð <b>%1</b>?</p>"
 msgid "Do Not Overwrite"
 msgstr "Ekki skrifa yfir"
 
-#: verifybuttons.cpp:29
-#, fuzzy, kde-format
-msgid ""
-"Shows what part of the regular expression is being matched in the "
-"<i>verifier window</i>.(The window below the graphical editor window)."
-msgstr ""
-"Sýna þann hluta reglulegrar segðar sem  <i>verifier window</i>.(The window "
-"below the graphical editor window)."
-
-#: verifybuttons.cpp:43
-#, kde-format
-msgid "Verification Settings"
-msgstr ""
-
-#: verifybuttons.cpp:91
-#, kde-format
-msgid "config menu"
-msgstr ""
-
-#: verifybuttons.cpp:115
-#, kde-format
-msgid "RegExp Language"
-msgstr "RegExp-mál"
-
 #: widgetfactory.cpp:152
 #, kde-format
 msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
@@ -1067,6 +1043,17 @@ msgid ""
 msgstr ""
 "Orðleysis-\n"
 "mörk"
+
+#, fuzzy
+#~ msgid ""
+#~ "Shows what part of the regular expression is being matched in the "
+#~ "<i>verifier window</i>.(The window below the graphical editor window)."
+#~ msgstr ""
+#~ "Sýna þann hluta reglulegrar segðar sem  <i>verifier window</i>.(The "
+#~ "window below the graphical editor window)."
+
+#~ msgid "RegExp Language"
+#~ msgstr "RegExp-mál"
 
 #, fuzzy
 #~ msgid "Undo"
