@@ -38,7 +38,7 @@ QString QtRegExpConverter::toString(AltnRegExp *regexp, bool markSelection)
     const RegExpList list = regexp->children();
     for (RegExp *r : list) {
         if (!first) {
-            res += QLatin1String("|");
+            res += QLatin1StringView("|");
         }
 
         first = false;
@@ -71,19 +71,19 @@ QString QtRegExpConverter::toString(ConcRegExp *regexp, bool markSelection)
 
         // Note these two have different tests! They are activated in each their iteration of the loop.
         if (markSelection && !childSelected && !regexp->isSelected() && child->isSelected()) {
-            res += QLatin1String("(");
+            res += QLatin1StringView("(");
             childSelected = true;
         }
 
         if (markSelection && childSelected && !regexp->isSelected() && !child->isSelected()) {
-            res += QLatin1String(")");
+            res += QLatin1StringView(")");
             childSelected = false;
         }
 
         res += startPar + toStr(child, markSelection) + endPar;
     }
     if (markSelection && childSelected && !regexp->isSelected()) {
-        res += QLatin1String(")");
+        res += QLatin1StringView(")");
     }
     return res;
 }
@@ -136,17 +136,17 @@ QString QtRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelectio
     QString res = QStringLiteral("[");
 
     if (regexp->negate()) {
-        res.append(QLatin1String("^"));
+        res.append(QLatin1StringView("^"));
     }
 
     // a ']' must be the first character in teh range.
     if (foundParenthesis) {
-        res.append(QLatin1String("]"));
+        res.append(QLatin1StringView("]"));
     }
 
     // a '-' must be the first character ( only coming after a ']')
     if (foundDash) {
-        res.append(QLatin1String("-"));
+        res.append(QLatin1StringView("-"));
     }
 
     res += txt;
@@ -180,7 +180,7 @@ QString QtRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelectio
         res.append(QLatin1Char('^'));
     }
 
-    res.append(QLatin1String("]"));
+    res.append(QLatin1StringView("]"));
 
     return res;
 }

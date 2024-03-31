@@ -72,7 +72,7 @@ void UserDefinedRegExps::slotPopulateUserRegexps()
 void UserDefinedRegExps::createItems(const QString &_title, const QString &dir, bool usersRegExp)
 {
     QString title = _title;
-    if (_title == QLatin1String("general")) {
+    if (_title == QLatin1StringView("general")) {
         title = i18n("general");
     }
 
@@ -229,7 +229,7 @@ WidgetWinItem::WidgetWinItem(const QString &fileName, RegExp *regexp, bool users
     , _regexp(regexp)
     , _usersRegExp(usersRegExp)
 {
-    int index = fileName.lastIndexOf(QLatin1String(".regexp"));
+    int index = fileName.lastIndexOf(QLatin1StringView(".regexp"));
     _name = fileName.left(index);
 
     setText(0, _name);

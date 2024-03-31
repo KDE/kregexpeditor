@@ -218,7 +218,7 @@ void KMultiFormListBoxMultiVisible::showIndexList(KMultiFormListBoxEntry *elm)
 
     if (index != -1) {
         for (QWidget *child : *elms) {
-            if (child->objectName() != QLatin1String("separator")) {
+            if (child->objectName() != QLatin1StringView("separator")) {
                 if (index == 0) {
                     showWidget((KMultiFormListBoxEntry *)child);
                     break;

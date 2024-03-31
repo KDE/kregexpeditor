@@ -31,7 +31,7 @@ QString EmacsRegExpConverter::toString(AltnRegExp *regexp, bool markSelection)
     const RegExpList children = regexp->children();
     for (RegExp *child : children) {
         if (!first) {
-            res += QLatin1String("\\|");
+            res += QLatin1StringView("\\|");
         }
         first = false;
         res += toStr(child, markSelection);
@@ -109,17 +109,17 @@ QString EmacsRegExpConverter::toString(TextRangeRegExp *regexp, bool /*markSelec
     QString res = QStringLiteral("[");
 
     if (regexp->negate()) {
-        res.append(QLatin1String("^"));
+        res.append(QLatin1StringView("^"));
     }
 
     // a ']' must be the first character in teh range.
     if (foundParenthesis) {
-        res.append(QLatin1String("]"));
+        res.append(QLatin1StringView("]"));
     }
 
     // a '-' must be the first character ( only coming after a ']')
     if (foundDash) {
-        res.append(QLatin1String("-"));
+        res.append(QLatin1StringView("-"));
     }
 
     res += txt;
@@ -204,7 +204,7 @@ QString EmacsRegExpConverter::toString(RepeatRegExp *regexp, bool markSelection)
                 res += QStringLiteral("\\(") + cText + QStringLiteral("\\)?");
             }
         } else {
-            res += QLatin1String("+");
+            res += QLatin1StringView("+");
         }
 
         return res;
