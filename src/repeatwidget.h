@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __repeatwidget
-#define __repeatwidget
+#pragma once
 
 #include "singlecontainerwidget.h"
 
@@ -86,5 +85,3 @@ private:
     mutable QSize _childSize;
     QByteArray _backup;
 };
-
-#endif // __repeatwidget

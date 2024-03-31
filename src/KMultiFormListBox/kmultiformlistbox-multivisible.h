@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef KMULTIFORMLISTBOX_MULTIVISIBLE_H
-#define KMULTIFORMLISTBOX_MULTIVISIBLE_H
+#pragma once
 
 // ------------------------------- Description ----------------------------
 // This is the KMultiFormListBox Widget. You do not need to inherit from this class,
@@ -123,5 +122,3 @@ private:
     QByteArray clipboard;
     QVBoxLayout *layout;
 };
-
-#endif // KMULTIFORMLISTBOX_MULTIVISIBLE_H

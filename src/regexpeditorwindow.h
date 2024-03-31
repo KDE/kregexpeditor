@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef regexpeditorwindow_h
-#define regexpeditorwindow_h
+#pragma once
 
 #include <QWidget>
 
@@ -274,5 +273,3 @@ private:
 
     bool _isDndOperation;
 };
-
-#endif // regexpeditorwindow_h

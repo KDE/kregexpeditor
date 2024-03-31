@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __kmultiformlistboxwindowed
-#define __kmultiformlistboxwindowed
+#pragma once
 
 #include "kmultiformlistbox-shower.h"
 #include <QWidget>
@@ -63,5 +62,3 @@ private Q_SLOTS:
     void slotDeleteEntry();
     void slotUpdateButtonState();
 };
-
-#endif /* kmultiformlistboxwindowed */

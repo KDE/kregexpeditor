@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __kwidgetstreamer
-#define __kwidgetstreamer
+#pragma once
 
 #include <QMap>
 #include <QStringList>
@@ -59,5 +58,3 @@ protected:
 private:
     PropertyMap _map;
 };
-
-#endif /* __kwidgetstreamer */

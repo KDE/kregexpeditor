@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __kmultiformlistboxentry
-#define __kmultiformlistboxentry
+#pragma once
 
 #include <QWidget>
 
@@ -69,5 +68,3 @@ public Q_SLOTS:
 Q_SIGNALS:
     void gotoIndex(KMultiFormListBoxEntry *);
 };
-
-#endif /* kmultiformlistboxentry */

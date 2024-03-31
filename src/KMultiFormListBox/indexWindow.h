@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __indexWindow
-#define __indexWindow
+#pragma once
 
 #include <QWidget>
 
@@ -68,5 +67,3 @@ private:
     bool lbFinish;
     int itemSelected;
 };
-
-#endif /* indexWindow */

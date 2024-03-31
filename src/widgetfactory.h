@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef widgetfactory
-#define widgetfactory
+#pragma once
 
 #include <QDomElement>
 
@@ -52,5 +51,3 @@ public:
     static RegExp *createRegExp(const QString &str);
     static bool isContainer(RegExpType);
 };
-
-#endif // widgetfactory

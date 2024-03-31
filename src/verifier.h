@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef VERIFIER_H
-#define VERIFIER_H
+#pragma once
 
 #include <KTextEdit>
 
@@ -44,5 +43,3 @@ private:
     // int _current;
     RegexpHighlighter *_highlighter = nullptr;
 };
-
-#endif // VERIFIER_H

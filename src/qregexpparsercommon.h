@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  */
 
-#ifndef QREGEXPPARSERCOMMON_H
-#define QREGEXPPARSERCOMMON_H
+#pragma once
 
 #include "regexp.h"
 
@@ -16,5 +15,3 @@ struct parse_context {
     int nerrs;
     QList<QString> backrefs;
 };
-
-#endif

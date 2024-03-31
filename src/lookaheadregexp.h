@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __LOOKAHEADREGEXP_H
-#define __LOOKAHEADREGEXP_H
+#pragma once
 
 #include "regexp.h"
 
@@ -53,5 +52,3 @@ private:
     RegExp *_child = nullptr;
     TYPE _tp;
 };
-
-#endif // __LOOKAHEADREGEXP_H

@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef kregexpeditorprivate_h
-#define kregexpeditorprivate_h
+#pragma once
 
 #include <QMainWindow>
 #include <QStack>
@@ -97,5 +96,3 @@ private:
     ErrorMap _errorMap;
     bool _matchGreedy;
 };
-
-#endif

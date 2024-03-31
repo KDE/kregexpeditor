@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __CONCREGEXP_H
-#define __CONCREGEXP_H
+#pragma once
 
 #include "regexp.h"
 
@@ -41,5 +40,3 @@ public:
 private:
     RegExpList list;
 };
-
-#endif // __CONCREGEXP_H

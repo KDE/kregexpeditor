@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __dragaccepter
-#define __dragaccepter
+#pragma once
 
 #include "regexpwidget.h"
 
@@ -52,5 +51,3 @@ protected:
 private:
     bool _drawLine;
 };
-
-#endif // __dragaccepter

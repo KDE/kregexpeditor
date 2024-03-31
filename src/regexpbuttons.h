@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __REGEXPBUTTONS_H
-#define __REGEXPBUTTONS_H
+#pragma once
 
 #include "widgetfactory.h"
 #include <QToolBar>
@@ -52,5 +51,3 @@ private:
     */
     bool _keepMode;
 };
-
-#endif // __REGEXPBUTTON_H

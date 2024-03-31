@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __kmultiformlistbox
-#define __kmultiformlistbox
+#pragma once
 
 #include "kmultiformlistboxentry.h"
 
@@ -99,5 +98,3 @@ private:
     KMultiFormListBoxShower *theWidget = nullptr;
     KMultiFormListBoxFactory *_factory = nullptr;
 };
-
-#endif /* kmultiformlistbox */

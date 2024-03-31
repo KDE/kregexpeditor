@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef COMPOUNDREGEXP_H
-#define COMPOUNDREGEXP_H
+#pragma once
 
 #include "regexp.h"
 
@@ -70,5 +69,3 @@ private:
     bool _allowReplace;
     RegExp *_child = nullptr;
 };
-
-#endif // COMPOUNDREGEXP_H

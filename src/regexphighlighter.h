@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef REGEXPHIGHLIGHTER_H
-#define REGEXPHIGHLIGHTER_H
+#pragma once
 
 #include <QSyntaxHighlighter>
 
@@ -25,5 +24,3 @@ protected:
     QString _regexp;
     bool _caseSensitive, _minimal;
 };
-
-#endif /* REGEXPHIGHLIGHTER_H */

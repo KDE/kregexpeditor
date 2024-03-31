@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __limitedcharlineedit
-#define __limitedcharlineedit
+#pragma once
 
 #include <QLineEdit>
 
@@ -26,5 +25,3 @@ protected:
 private:
     int _count;
 };
-
-#endif

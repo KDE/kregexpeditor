@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef CHARSELECTOR_H
-#define CHARSELECTOR_H
+#pragma once
 
 #include <QWidget>
 
@@ -35,5 +34,3 @@ private:
     LimitedCharLineEdit *_oct = nullptr;
     int _oldIndex = 0;
 };
-
-#endif // CHARSELECTOR_H

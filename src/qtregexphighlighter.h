@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef QTREGEXPHIGHLIGHTER_H
-#define QTREGEXPHIGHLIGHTER_H
+#pragma once
 
 #include "regexphighlighter.h"
 
@@ -22,5 +21,3 @@ public:
 private:
     QTextEdit *_editor = nullptr;
 };
-
-#endif /* QTREGEXPHIGHLIGHTER_H */

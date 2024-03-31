@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef altnwidget
-#define altnwidget
+#pragma once
 
 #include "multicontainerwidget.h"
 
@@ -53,5 +52,3 @@ private:
     mutable int _childrenWidth;
     mutable int _childrenHeight;
 };
-
-#endif // altnwidget

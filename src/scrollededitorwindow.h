@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __scrolledEditorWindow
-#define __scrolledEditorWindow
+#pragma once
 
 #include <QWidget>
 
@@ -78,5 +77,3 @@ private:
     RegExpEditorWindow *_editorWindow = nullptr;
     QScrollArea *_scrollArea = nullptr;
 };
-
-#endif // __scrolledEditorWindow

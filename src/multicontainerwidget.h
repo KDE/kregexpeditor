@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __multicontainerwidget
-#define __multicontainerwidget
+#pragma once
 
 #include "regexpwidget.h"
 
@@ -35,5 +34,3 @@ protected:
     void append(RegExpWidget *child);
     QList<RegExpWidget *> _children;
 };
-
-#endif // __multicontainerwidget

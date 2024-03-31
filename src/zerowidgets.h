@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef zerowidget
-#define zerowidget
+#pragma once
 
 #include "regexpwidget.h"
 
@@ -105,5 +104,3 @@ public:
         return NONWORDBOUNDARY;
     }
 };
-
-#endif // zerowidget

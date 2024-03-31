@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __regexpwidget
-#define __regexpwidget
+#pragma once
 
 #include "regexpeditorwindow.h"
 
@@ -196,5 +195,3 @@ protected:
     static const int bdSize; // width between borders and text etc.
     static const int space; // TODO.
 };
-
-#endif // __regexpwidget

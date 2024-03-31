@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef QTREGEXPCONVERTER_H
-#define QTREGEXPCONVERTER_H
+#pragma once
 
 #include "regexpconverter.h"
 
@@ -27,5 +26,3 @@ public:
     QString toString(TextRegExp *, bool markSelection) override;
     RegexpHighlighter *highlighter(QTextEdit *edit) override; // krazy:exclude=qclasses
 };
-
-#endif /* QTREGEXPCONVERTER_H */

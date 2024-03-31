@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __textwidget
-#define __textwidget
+#pragma once
 
 #include "regexpwidget.h"
 
@@ -48,5 +47,3 @@ private:
     SelectableLineEdit *_edit = nullptr;
     QSize textSize, boxSize, editSize;
 };
-
-#endif // __textwidget

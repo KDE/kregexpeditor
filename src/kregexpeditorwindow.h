@@ -2,8 +2,7 @@
 // SPDX-FileCopyrightText: 2023 Carl Schwan <carl@carlschwan.eu>
 // SPDX-License-Identifier: LGPL-2.0-only
 
-#ifndef kregexpeditorguidialog_h
-#define kregexpeditorguidialog_h
+#pragma once
 
 #include "kregexpeditorprivate.h"
 #include <KXmlGuiWindow>
@@ -31,5 +30,3 @@ private:
     KRegExpEditorPrivate *_editor = nullptr;
     QList<QPair<RegExpConverter *, QAction *>> m_converters;
 };
-
-#endif

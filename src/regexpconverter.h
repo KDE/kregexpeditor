@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef REGEXPCONVERTER_H
-#define REGEXPCONVERTER_H
+#pragma once
 
 #include <QList>
 
@@ -65,5 +64,3 @@ protected:
 private:
     static RegExpConverter *_current;
 };
-
-#endif /* REGEXPCONVERTER_H */

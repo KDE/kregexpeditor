@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef REGEXP_H
-#define REGEXP_H
+#pragma once
 
 #include <QDomDocument>
 #include <QDomElement>
@@ -75,5 +74,3 @@ private:
 typedef QList<RegExp *> RegExpList;
 typedef QListIterator<RegExp *> RegExpListIt;
 typedef QList<RegExp *>::iterator RegExpListStlIt;
-
-#endif // REGEXP_H

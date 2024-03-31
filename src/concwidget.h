@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __concwidget
-#define __concwidget
+#pragma once
 
 #include "multicontainerwidget.h"
 
@@ -65,5 +64,3 @@ protected:
 private:
     int _maxSelectedHeight;
 };
-
-#endif // __concwidget

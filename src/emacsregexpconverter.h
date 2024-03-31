@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef EMACSREGEXPCONVERTER_H
-#define EMACSREGEXPCONVERTER_H
+#pragma once
 
 #include "regexpconverter.h"
 
@@ -25,5 +24,3 @@ public:
     QString toString(RepeatRegExp *, bool markSelection) override;
     QString toString(TextRegExp *, bool markSelection) override;
 };
-
-#endif /* EMACSREGEXPCONVERTER_H */

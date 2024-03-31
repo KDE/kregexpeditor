@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef dcbutton
-#define dcbutton
+#pragma once
 
 #include <QToolButton>
 
@@ -26,5 +25,3 @@ protected:
 Q_SIGNALS:
     void doubleClicked();
 };
-
-#endif // dcbutton

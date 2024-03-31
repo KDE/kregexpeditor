@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __lookaheadwidget
-#define __lookaheadwidget
+#pragma once
 
 #include "singlecontainerwidget.h"
 
@@ -38,5 +37,3 @@ private:
     mutable QSize _textSize;
     mutable QSize _childSize;
 };
-
-#endif // __lookaheadwidget

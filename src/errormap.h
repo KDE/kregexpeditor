@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef ERRORMAP_H
-#define ERRORMAP_H
+#pragma once
 
 class ErrorMap
 {
@@ -22,5 +21,3 @@ private:
     bool _lineEndError, _prevLineEndError;
     bool _lookAHeadError, _prevLookAHeadError;
 };
-
-#endif

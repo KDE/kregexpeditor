@@ -3,8 +3,7 @@
  *
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
-#ifndef __ccp
-#define __ccp
+#pragma once
 
 #include <QObject>
 
@@ -49,5 +48,3 @@ private:
     KMultiFormListBoxMultiVisible *ee = nullptr;
     KMultiFormListBoxEntry *eee = nullptr;
 };
-
-#endif /* ccp */

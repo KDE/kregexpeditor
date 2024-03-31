@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __windowlistboxitem
-#define __windowlistboxitem
+#pragma once
 
 #include <QListWidgetItem>
 
@@ -31,5 +30,3 @@ public:
 private:
     WidgetWindow *myItem = nullptr;
 };
-
-#endif // __windowlistboxitem

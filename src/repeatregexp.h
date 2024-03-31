@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __REPEATREGEXP_H
-#define __REPEATREGEXP_H
+#pragma once
 
 #include "regexp.h"
 
@@ -57,5 +56,3 @@ private:
     int _upper;
     RegExp *_child = nullptr;
 };
-
-#endif // __REPEATREGEXP_H

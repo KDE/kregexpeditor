@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef characterswidget
-#define characterswidget
+#pragma once
 
 #include <QDialog>
 
@@ -148,5 +147,3 @@ private:
     void addRange(const QString &from, const QString &to);
     TextRangeRegExp *_regexp = nullptr;
 };
-
-#endif // characterswidget

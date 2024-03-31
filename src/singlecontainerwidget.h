@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __singlecontainer
-#define __singlecontainer
+#pragma once
 
 #include "regexpwidget.h"
 
@@ -37,5 +36,3 @@ public:
 protected:
     ConcWidget *_child = nullptr;
 };
-
-#endif // __singlecontainer

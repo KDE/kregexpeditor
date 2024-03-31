@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __TEXTRANGEREGEXP_H
-#define __TEXTRANGEREGEXP_H
+#pragma once
 
 #include "regexp.h"
 
@@ -138,5 +137,3 @@ private:
     QStringList _chars;
     QList<StringPair> _ranges;
 };
-
-#endif // __TEXTRANGEREGEXP_H

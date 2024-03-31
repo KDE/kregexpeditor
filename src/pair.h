@@ -3,8 +3,7 @@
  *
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
-#ifndef __pair_h
-#define __pair_h
+#pragma once
 
 /**
    @internal
@@ -37,5 +36,3 @@ private:
     F _first;
     S _second;
 };
-
-#endif // __pair_h

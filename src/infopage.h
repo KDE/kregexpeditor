@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef infopage_h
-#define infopage_h
+#pragma once
 
 #include <QTextBrowser>
 
@@ -17,5 +16,3 @@ public:
 protected:
     void doSetSource(const QUrl &name, QTextDocument::ResourceType type = QTextDocument::UnknownResource) override;
 };
-
-#endif

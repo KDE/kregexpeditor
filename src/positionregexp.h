@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __POSITIONREGEXP_H
-#define __POSITIONREGEXP_H
+#pragma once
 
 #include "regexp.h"
 
@@ -40,5 +39,3 @@ public:
 private:
     PositionType _tp;
 };
-
-#endif // __POSITIONREGEXP_H

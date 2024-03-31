@@ -3,8 +3,7 @@
  *
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
-#ifndef __selectablelineedit
-#define __selectablelineedit
+#pragma once
 
 #include <QLineEdit>
 
@@ -39,5 +38,3 @@ Q_SIGNALS:
 private:
     RegExpWidget *_owner = nullptr;
 };
-
-#endif

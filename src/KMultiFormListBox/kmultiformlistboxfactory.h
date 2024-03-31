@@ -5,8 +5,7 @@
  **/
 
 // -------------------------------- includes ------------------------------
-#ifndef __kmultiformlistboxfactory
-#define __kmultiformlistboxfactory
+#pragma once
 
 #include "kwidgetstreamer.h"
 
@@ -58,5 +57,3 @@ public:
     **/
     virtual QWidget *separator(QWidget *parent);
 };
-
-#endif /* kmultiformlistbox */

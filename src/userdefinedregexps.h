@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __USERDEFINEDREGEXPS_H
-#define __USERDEFINEDREGEXPS_H
+#pragma once
 
 #include <QDockWidget>
 #include <QList>
@@ -66,5 +65,3 @@ private:
     RegExp *_regexp = nullptr;
     bool _usersRegExp;
 };
-
-#endif // __USERDEFINEDREGEXPS_H

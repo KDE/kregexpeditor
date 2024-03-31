@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef DOTREGEXP_H
-#define DOTREGEXP_H
+#pragma once
 
 #include "regexp.h"
 
@@ -31,5 +30,3 @@ public:
         return DOT;
     }
 };
-
-#endif // DOTREGEXP_H

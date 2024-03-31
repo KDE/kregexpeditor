@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef __textregexp_h
-#define __textregexp_h
+#pragma once
 
 #include "regexp.h"
 
@@ -46,5 +45,3 @@ public:
 private:
     QString _text;
 };
-
-#endif // __textregexp_h

@@ -1,5 +1,4 @@
-#ifndef WIDGETWINDOW_H
-#define WIDGETWINDOW_H
+#pragma once
 /*
  *  SPDX-FileCopyrightText: 2002-2003 Jesper K. Pedersen <blackie@kde.org>
  *
@@ -41,5 +40,3 @@ private:
     WindowListboxItem *myListboxItem = nullptr;
     bool initialShow;
 };
-
-#endif // WIDGETWINDOW_H

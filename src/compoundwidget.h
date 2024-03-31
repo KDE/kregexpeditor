@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
 
-#ifndef compoundwidget
-#define compoundwidget
+#pragma once
 
 #include <QWidget>
 
@@ -93,5 +92,3 @@ private:
 
     int _backRefId;
 };
-
-#endif // compoundwidget
