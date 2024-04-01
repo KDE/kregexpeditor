@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-30 00:40+0000\n"
+"POT-Creation-Date: 2024-04-01 00:40+0000\n"
 "PO-Revision-Date: 2008-01-04 09:27+0200\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@gmail.com>\n"
 "Language-Team: Belarusian (Official spelling) <i18n@mova.org>\n"
@@ -369,7 +369,7 @@ msgstr "Выдаліць выраз \"%1\"?"
 msgid "Delete Item"
 msgstr "Выдаліць выраз"
 
-#: KMultiFormListBox/kmultiformlistbox.h:61
+#: KMultiFormListBox/kmultiformlistbox.h:60
 #, fuzzy, kde-format
 msgid "Add"
 msgstr "Дадаць"

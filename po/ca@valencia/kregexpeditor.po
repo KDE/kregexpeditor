@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-30 00:40+0000\n"
+"POT-Creation-Date: 2024-04-01 00:40+0000\n"
 "PO-Revision-Date: 2024-01-11 15:32+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -382,7 +382,7 @@ msgstr "Vols eliminar l'element «%1»?"
 msgid "Delete Item"
 msgstr "Elimina l'element"
 
-#: KMultiFormListBox/kmultiformlistbox.h:61
+#: KMultiFormListBox/kmultiformlistbox.h:60
 #, kde-format
 msgid "Add"
 msgstr "Afig"

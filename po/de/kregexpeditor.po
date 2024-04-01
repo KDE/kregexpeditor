@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-30 00:40+0000\n"
+"POT-Creation-Date: 2024-04-01 00:40+0000\n"
 "PO-Revision-Date: 2021-05-10 06:35+0200\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -375,7 +375,7 @@ msgstr "Element „%1“ löschen?"
 msgid "Delete Item"
 msgstr "Element löschen"
 
-#: KMultiFormListBox/kmultiformlistbox.h:61
+#: KMultiFormListBox/kmultiformlistbox.h:60
 #, kde-format
 msgid "Add"
 msgstr "Hinzufügen"

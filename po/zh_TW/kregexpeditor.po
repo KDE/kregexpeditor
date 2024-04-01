@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-30 00:40+0000\n"
+"POT-Creation-Date: 2024-04-01 00:40+0000\n"
 "PO-Revision-Date: 2024-01-14 21:12+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -365,7 +365,7 @@ msgstr "刪除項目 \"%1\"？"
 msgid "Delete Item"
 msgstr "刪除項目"
 
-#: KMultiFormListBox/kmultiformlistbox.h:61
+#: KMultiFormListBox/kmultiformlistbox.h:60
 #, kde-format
 msgid "Add"
 msgstr "新增"

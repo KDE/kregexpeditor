@@ -2,7 +2,7 @@
 # Translation of kregexpeditor.po to Slovenian
 # SLOVENIAN TRANSLATION OF KDEUTILS
 # Copyright (C) 2002,2003, 2004, 2005, 2006 Free Software Foundation, Inc.
-# $Id: kregexpeditor.po 1676792 2024-03-30 01:07:21Z scripty $
+# $Id: kregexpeditor.po 1676898 2024-04-01 01:07:14Z scripty $
 # $Source$
 #
 # Roman Maurer <roman.maurer@amis.net>, 2002.
@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-30 00:40+0000\n"
+"POT-Creation-Date: 2024-04-01 00:40+0000\n"
 "PO-Revision-Date: 2024-01-11 09:18+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -384,7 +384,7 @@ msgstr "Izbrišem predmet »%1«?"
 msgid "Delete Item"
 msgstr "Izbriši predmet"
 
-#: KMultiFormListBox/kmultiformlistbox.h:61
+#: KMultiFormListBox/kmultiformlistbox.h:60
 #, kde-format
 msgid "Add"
 msgstr "Dodaj"
