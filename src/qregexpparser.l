@@ -19,7 +19,8 @@
 %option nounput
 %option reentrant
 %option bison-bridge
-
+%option never-interactive
+%option nounistd
 %{ 
   
   #include "textrangeregexp.h"
