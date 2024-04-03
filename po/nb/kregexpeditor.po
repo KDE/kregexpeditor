@@ -1105,17 +1105,3 @@ msgid ""
 msgstr ""
 "Ikke-ord-\n"
 "grense"
-
-#~ msgid ""
-#~ "Shows what part of the regular expression is being matched in the "
-#~ "<i>verifier window</i>.(The window below the graphical editor window)."
-#~ msgstr ""
-#~ "Viser hvilken del av det regulære uttrykket som treffer i "
-#~ "<i>verifiseringsvinduet</i>. (Vinduet nedenfor det grafiske "
-#~ "redigeringsvinduet)."
-
-#~ msgid "Verification Settings"
-#~ msgstr "Verifiseringsinnstillinger"
-
-#~ msgid "RegExp Language"
-#~ msgstr "RegExp-språk"

@@ -1096,19 +1096,3 @@ msgid ""
 msgstr ""
 "Ne-slovní\n"
 "hranice"
-
-#~ msgid ""
-#~ "Shows what part of the regular expression is being matched in the "
-#~ "<i>verifier window</i>.(The window below the graphical editor window)."
-#~ msgstr ""
-#~ "Ukazuje, jaká část regulárního výrazu je nalezena v <i>ověřovacím okně</"
-#~ "i>. (Okno pod grafickým editačním oknem)"
-
-#~ msgid "Verification Settings"
-#~ msgstr "Nastavení ověření"
-
-#~ msgid "config menu"
-#~ msgstr "nabídka s nastavením"
-
-#~ msgid "RegExp Language"
-#~ msgstr "Jazyk reg. výrazu"
