@@ -160,7 +160,7 @@ add_executable(kregexpeditor main.cpp)
 target_link_libraries(kregexpeditor Qt::Widgets kregexpeditorcommon KF6::Crash)
 
 if(APPLE)
-    set_target_properties(filelight PROPERTIES
+    set_target_properties(kregexpeditor PROPERTIES
 	    MACOSX_BUNDLE_DISPLAY_NAME "KRegexpEditor"
         MACOSX_BUNDLE_BUNDLE_NAME "KRegexpEditor"
         MACOSX_BUNDLE_LONG_VERSION_STRING "KRegexpEditor 1.1"
