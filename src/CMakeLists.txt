@@ -159,7 +159,7 @@ add_executable(kregexpeditor main.cpp)
 
 target_link_libraries(kregexpeditor Qt::Widgets kregexpeditorcommon KF6::Crash)
 
-install(TARGETS kregexpeditor ${KF6_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kregexpeditor ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
