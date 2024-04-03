@@ -159,6 +159,19 @@ add_executable(kregexpeditor main.cpp)
 
 target_link_libraries(kregexpeditor Qt::Widgets kregexpeditorcommon KF6::Crash)
 
+if(APPLE)
+    set_target_properties(filelight PROPERTIES
+	    MACOSX_BUNDLE_DISPLAY_NAME "KRegexpEditor"
+        MACOSX_BUNDLE_BUNDLE_NAME "KRegexpEditor"
+        MACOSX_BUNDLE_LONG_VERSION_STRING "KRegexpEditor 1.1"
+        MACOSX_BUNDLE_SHORT_VERSION_STRING "1.1"
+        MACOSX_BUNDLE_BUNDLE_VERSION "1.1"
+        MACOSX_BUNDLE_GUI_IDENTIFIER "org.kde.kregexpeditor.desktop"
+        MACOSX_BUNDLE_COPYRIGHT "2024 The KRegexpEditor Developers")
+
+endif()
+
+
 install(TARGETS kregexpeditor ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
