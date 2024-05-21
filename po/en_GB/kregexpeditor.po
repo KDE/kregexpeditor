@@ -3,21 +3,21 @@
 #
 # Malcolm Hunter <malcolm.hunter@gmx.co.uk>, 2003, 2004, 2005.
 # Andrew Coles <andrew_coles@yahoo.co.uk>, 2004, 2005, 2009.
-# Steve Allewell <steve.allewell@gmail.com>, 2017.
+# SPDX-FileCopyrightText: 2017, 2024 Steve Allewell <steve.allewell@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-01 00:40+0000\n"
-"PO-Revision-Date: 2017-12-28 11:55+0000\n"
+"PO-Revision-Date: 2024-05-20 19:34+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
-"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language-Team: British English\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -453,8 +453,7 @@ msgid "Could not open file '%1' for reading"
 msgstr "Could not open file '%1' for reading"
 
 #: kregexpeditorwindow.cpp:35
-#, fuzzy, kde-format
-#| msgid "Regular Expression Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "Regular Expression Editor"
@@ -468,7 +467,7 @@ msgstr "Verify regular expression"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
-msgstr ""
+msgstr "Load text"
 
 #: kregexpeditorwindow.cpp:91
 #, kde-format
@@ -516,11 +515,10 @@ msgstr ""
 "so-called greedy way."
 
 #: kregexpeditorwindow.cpp:126
-#, fuzzy, kde-format
-#| msgid "RegExp Language"
+#, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
-msgstr "RegExp Language"
+msgstr "RegExp Languages"
 
 #: lookaheadwidget.cpp:39
 #, kde-format
@@ -561,13 +559,13 @@ msgstr "Developer"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
 #: main.cpp:35
 #, kde-format
 msgctxt "@info:credit"
 msgid "Port to Qt6"
-msgstr ""
+msgstr "Port to Qt6"
 
 #: predefined/General/anything.regexp:5
 #, kde-format
