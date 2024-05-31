@@ -1,12 +1,12 @@
-# Version: $Revision: 1681059 $
+# Version: $Revision: 1681191 $
 # translation of kregexpeditor.po to Polish
 # Copyright (C) 2002, 2003, 2004, 2005, 2006 Free Software Foundation, Inc.
-#
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2003, 2005, 2006.
 # Michal Rudolf <mrudolf@kdewebdev.org>, 2003.
 # Mikolaj Machowski <mikmach@wp.pl>, 2004.
 # SPDX-FileCopyrightText: 2011, 2012, 2014, 2017, 2020, 2021, 2023, 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 # Marta Rybczyńska <kde-i18n@rybczynska.net>, 2013.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
