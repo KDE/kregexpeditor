@@ -12,14 +12,14 @@ msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-01 00:40+0000\n"
-"PO-Revision-Date: 2024-01-14 21:12+0900\n"
+"PO-Revision-Date: 2024-07-23 21:52+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.01.90\n"
+"X-Generator: Lokalize 24.04.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -655,7 +655,7 @@ msgstr "<qt>這將會匹配任一單一字元</qt>"
 #: regexpbuttons.cpp:69
 #, kde-format
 msgid "Repeated content"
-msgstr "重覆內容"
+msgstr "重複內容"
 
 #: regexpbuttons.cpp:70
 #, kde-format
@@ -873,7 +873,7 @@ msgstr "讀取XML檔時發生錯誤"
 #: repeatwidget.cpp:62
 #, kde-format
 msgid "Number of Times to Repeat Content"
-msgstr "重覆內容的次數"
+msgstr "重複內容的次數"
 
 #: repeatwidget.cpp:170
 #, kde-format
@@ -918,30 +918,30 @@ msgstr "次"
 #: repeatwidget.cpp:285
 #, kde-format
 msgid "Repeated Any Number of Times"
-msgstr "重覆任意次數"
+msgstr "重複任意次數"
 
 #: repeatwidget.cpp:287
 #, kde-format
 msgid "Repeated at Least 1 Time"
 msgid_plural "Repeated at Least %1 Times"
-msgstr[0] "最少重覆 %1 次"
+msgstr[0] "最少重複 %1 次"
 
 #: repeatwidget.cpp:289
 #, kde-format
 msgid "Repeated at Most 1 Time"
 msgid_plural "Repeated at Most %1 Times"
-msgstr[0] "最多重覆 %1 次"
+msgstr[0] "最多重複 %1 次"
 
 #: repeatwidget.cpp:291
 #, kde-format
 msgid "Repeated Exactly 1 Time"
 msgid_plural "Repeated Exactly %1 Times"
-msgstr[0] "正好重覆 %1 次"
+msgstr[0] "正好重複 %1 次"
 
 #: repeatwidget.cpp:293
 #, kde-format
 msgid "Repeated From %1 to %2 Times"
-msgstr "重覆 %1 到 %2 次"
+msgstr "重複 %1 到 %2 次"
 
 #: textrangeregexp.cpp:135
 #, kde-format
