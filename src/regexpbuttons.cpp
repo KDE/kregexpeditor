@@ -8,7 +8,6 @@
 
 #include <QButtonGroup>
 
-#include <KIconLoader>
 #include <KLocalizedString>
 #include <QStandardPaths>
 
@@ -25,10 +24,9 @@ RegExpButtons::RegExpButtons(QWidget *parent, const QString &name)
     // The "select" button.
     _selectBut = new QToolButton(this);
 
-    QPixmap pix = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kregexpeditor/pics/select.png")),
-                                                  KIconLoader::Toolbar);
+    QIcon icon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kregexpeditor/pics/select.png")));
 
-    _selectBut->setIcon(static_cast<QIcon>(pix));
+    _selectBut->setIcon(icon);
     addWidget(_selectBut);
     _grp->addButton(_selectBut);
     _selectBut->setCheckable(true);
@@ -134,11 +132,9 @@ RegExpButtons::RegExpButtons(QWidget *parent, const QString &name)
 
 DoubleClickButton *RegExpButtons::insert(RegExpType tp, const QString &name, const QString &tooltip, const QString &whatsthis)
 {
-    QPixmap pix = KIconLoader::global()->loadIcon(
-        QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kregexpeditor/pics/") + name + QStringLiteral(".png")),
-        KIconLoader::Toolbar);
+    QIcon icon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kregexpeditor/pics/") + name + QStringLiteral(".png")));
 
-    DoubleClickButton *but = new DoubleClickButton(pix, this, QStringLiteral("RegExpButtons::but"));
+    DoubleClickButton *but = new DoubleClickButton(icon, this, QStringLiteral("RegExpButtons::but"));
 
     connect(but, &DoubleClickButton::clicked, [this, tp]() {
         Q_EMIT clicked(tp);

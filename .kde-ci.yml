@@ -10,7 +10,6 @@ Dependencies:
     'frameworks/kwidgetsaddons': '@latest-kf6'
     'frameworks/kconfigwidgets': '@latest-kf6'
     'frameworks/ktextwidgets': '@latest-kf6'
-    'frameworks/kiconthemes': '@latest-kf6'
     'frameworks/kcrash': '@latest-kf6'
     'frameworks/kxmlgui': '@latest-kf6'
 

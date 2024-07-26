@@ -6,11 +6,11 @@
 
 #include "dcbutton.h"
 
-DoubleClickButton::DoubleClickButton(const QPixmap &pixmap, QWidget *parent, const QString &name)
+DoubleClickButton::DoubleClickButton(const QIcon &icon, QWidget *parent, const QString &name)
     : QToolButton(parent)
 {
     setObjectName(name);
-    setIcon(static_cast<QIcon>(pixmap));
+    setIcon(icon);
 }
 
 void DoubleClickButton::mouseDoubleClickEvent(QMouseEvent *)

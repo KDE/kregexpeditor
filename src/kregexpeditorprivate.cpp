@@ -6,7 +6,6 @@
 
 #include "kregexpeditorprivate.h"
 
-#include <KIconLoader>
 #include <KLocalizedString>
 #include <QIcon>
 
@@ -127,9 +126,9 @@ KRegExpEditorPrivate::KRegExpEditorPrivate(QWidget *parent)
              "<p>You may develop your regular expression both by using the graphical "
              "editor, and by typing the regular expression in this line edit.</p>"));
 
-    QPixmap pix = KIconLoader::global()->loadIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kregexpeditor/pics/error.png")),
-                                                  KIconLoader::Toolbar);
     _error = new QLabel(editDockWidget);
+    const QString iconPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kregexpeditor/pics/error.png"));
+    const QPixmap pix = QIcon(iconPath).pixmap(style()->pixelMetric(QStyle::PM_ToolBarIconSize));
     _error->setPixmap(pix);
     dockLayout->addWidget(_error);
     _error->hide();

@@ -14,9 +14,9 @@
 #include <QMouseEvent>
 #include <QPainter>
 #include <QPushButton>
+#include <QStyle>
 #include <QVBoxLayout>
 
-#include <KIconLoader>
 #include <KLocalizedString>
 #include <KTextEdit>
 
@@ -123,8 +123,8 @@ void CompoundWidget::init()
     connect(_configWindow, &QDialog::rejected, this, &CompoundWidget::slotConfigCanceled);
     connect(_configWindow, &QDialog::finished, this, &CompoundWidget::slotConfigWindowClosed);
 
-    _down = getIcon(QStringLiteral("arrow-down"));
-    _up = getIcon(QStringLiteral("arrow-up"));
+    _down = QIcon::fromTheme(QStringLiteral("arrow-down")).pixmap(style()->pixelMetric(QStyle::PM_SmallIconSize));
+    _up = QIcon::fromTheme(QStringLiteral("arrow-up")).pixmap(style()->pixelMetric(QStyle::PM_SmallIconSize));
 
     _hidden = false;
     _backRefId = -1;
@@ -300,11 +300,6 @@ int nextId()
 {
     static int counter = 0;
     return ++counter;
-}
-
-QPixmap CompoundWidget::getIcon(const QString &name)
-{
-    return QIcon::fromTheme(name).pixmap(KIconLoader::SizeSmall);
 }
 
 #include "moc_compoundwidget.cpp"

@@ -71,7 +71,6 @@ protected:
     void mousePressEvent(QMouseEvent *e) override;
     void mouseReleaseEvent(QMouseEvent *e) override;
     void init();
-    QPixmap getIcon(const QString &name);
 
 protected Q_SLOTS:
     void slotConfigCanceled();

@@ -17,7 +17,7 @@ class DoubleClickButton : public QToolButton
     Q_OBJECT
 
 public:
-    explicit DoubleClickButton(const QPixmap &pix, QWidget *parent, const QString &name = QString());
+    explicit DoubleClickButton(const QIcon &icon, QWidget *parent, const QString &name = QString());
 
 protected:
     void mouseDoubleClickEvent(QMouseEvent *) override;

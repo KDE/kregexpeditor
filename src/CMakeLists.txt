@@ -137,7 +137,6 @@ add_library(kregexpeditorcommon SHARED
 target_link_libraries(kregexpeditorcommon
     KF6::ConfigWidgets
     KF6::CoreAddons
-    KF6::IconThemes
     KF6::WidgetsAddons
     KF6::TextWidgets
     KF6::I18n
