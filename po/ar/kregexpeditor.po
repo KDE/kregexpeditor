@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:40+0000\n"
+"POT-Creation-Date: 2024-07-27 00:44+0000\n"
 "PO-Revision-Date: 2024-02-10 21:22+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -35,7 +35,7 @@ msgstr ""
 "azawawi@emirates.net.ae, atabba@kacst.edu.sa, dr.khaled.hosny@gmail.com,"
 "Fahad.alsaidi@gmail.com"
 
-#: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:84
+#: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:82
 #, kde-format
 msgid "Alternatives"
 msgstr "بدائل"
@@ -384,12 +384,12 @@ msgstr "أضف"
 msgid "Widget Configuration"
 msgstr "إعدادات عنصر التحكم"
 
-#: kregexpeditorprivate.cpp:48
+#: kregexpeditorprivate.cpp:47
 #, kde-format
 msgid "Compound regular expression:"
 msgstr "تعابير نمطيّة مُرَكَّبة:"
 
-#: kregexpeditorprivate.cpp:50
+#: kregexpeditorprivate.cpp:49
 #, kde-format
 msgid ""
 "In this window you will find predefined regular expressions. Both regular "
@@ -399,7 +399,7 @@ msgstr ""
 "ستجد داخل هذه النافذة تعابير نمطية مسبقة التعريف. وهي تشمل التعابير النمطية "
 "التى قُمتَ بتطويرها وحفظها بنفسك، وتعابير نمطية شُحِنت مع النظام."
 
-#: kregexpeditorprivate.cpp:60
+#: kregexpeditorprivate.cpp:59
 #, kde-format
 msgid ""
 "In this window you will develop your regular expressions. Select one of the "
@@ -410,7 +410,7 @@ msgstr ""
 "الإجراءات من أزرار الإجراءات أعلاه، ثم اضغط الفأرة في هذه النافذة لإدراج "
 "الإجراء المُحَدّد."
 
-#: kregexpeditorprivate.cpp:69
+#: kregexpeditorprivate.cpp:68
 #, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
@@ -426,12 +426,12 @@ msgstr ""
 "التعبير النمطى في نافذة المُحَرّر، عندها يتم تظليل ذلك الجزء - يسمح لك ذلك "
 "<i>بتتبع أخطاء</i>التعابير النمطية التي كتبت</p>"
 
-#: kregexpeditorprivate.cpp:110
+#: kregexpeditorprivate.cpp:109
 #, kde-format
 msgid "ASCII syntax:"
 msgstr "صيغة ASCII:"
 
-#: kregexpeditorprivate.cpp:124
+#: kregexpeditorprivate.cpp:123
 #, kde-format
 msgid ""
 "<p>This is the regular expression in ASCII syntax. You are likely only to be "
@@ -444,7 +444,7 @@ msgstr ""
 "لتطوير تعبير نمطي باستخدام QRegExp.</p><p> بإمكانك تطوير تعبير نمطي باستخدام "
 "كلٍ من المُحَرّر ذي الواجهة الرسومية، وعن طريق كتابته في محرر السطر هذا.</p>>"
 
-#: kregexpeditorprivate.cpp:348
+#: kregexpeditorprivate.cpp:347
 #, kde-format
 msgid "Could not open file '%1' for reading"
 msgstr "لا يمكن فتح الملف '%1' للقراءة"
@@ -608,12 +608,12 @@ msgstr ""
 msgid "Back reference regular expressions not supported"
 msgstr "التعابير النمطية للتطابقات السابقة غير مدعومة"
 
-#: regexpbuttons.cpp:38
+#: regexpbuttons.cpp:36
 #, kde-format
 msgid "Selection tool"
 msgstr "أداة التحديد"
 
-#: regexpbuttons.cpp:40
+#: regexpbuttons.cpp:38
 #, kde-format
 msgid ""
 "<p>This will change the state of the editor to <i>selection state</i>.</"
@@ -629,12 +629,12 @@ msgstr ""
 "لمجموعة من العناصر، بإمكانك استخدام وظائف قص/نسخ/لصق. هذه الوظائف موجودة "
 "داخل قائمة زر الفأرة الأيمن.</p>"
 
-#: regexpbuttons.cpp:51
+#: regexpbuttons.cpp:49
 #, kde-format
 msgid "Text"
 msgstr "نص"
 
-#: regexpbuttons.cpp:52
+#: regexpbuttons.cpp:50
 #, kde-format
 msgid ""
 "<qt>This will insert a text field, where you may write text. The text you "
@@ -644,12 +644,12 @@ msgstr ""
 "<qt>سيدرج ذلك حقلاً نصياً، حيث يمكنك كتابة نص. وسيتم مطابقة النص الذي كتبت "
 "حرفياً. (أي أنك لا تحتاج لتخطّى أية رموز)</qt>"
 
-#: regexpbuttons.cpp:58
+#: regexpbuttons.cpp:56
 #, kde-format
 msgid "A single character specified in a range"
 msgstr "رمز واحد محدد في المجال"
 
-#: regexpbuttons.cpp:59
+#: regexpbuttons.cpp:57
 #, kde-format
 msgid ""
 "<p>This will match a single character from a predefined range.</p><p>When "
@@ -660,22 +660,22 @@ msgstr ""
 "سيظهر مربّع حوار يمكّنك من تحديد الرموز التي سيطابقها <i>عنصر التعبير النمطى</"
 "i> هذا.</p>"
 
-#: regexpbuttons.cpp:64
+#: regexpbuttons.cpp:62
 #, kde-format
 msgid "Any character"
 msgstr "أي رمز"
 
-#: regexpbuttons.cpp:64
+#: regexpbuttons.cpp:62
 #, kde-format
 msgid "<qt>This will match any single character</qt>"
 msgstr "<qt>سيطابق هذا أي رمز مفرد</qt>"
 
-#: regexpbuttons.cpp:69
+#: regexpbuttons.cpp:67
 #, kde-format
 msgid "Repeated content"
 msgstr "محتويات متكرّرة"
 
-#: regexpbuttons.cpp:70
+#: regexpbuttons.cpp:68
 #, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
@@ -696,7 +696,7 @@ msgstr ""
 "الفارغة، و سلسلة الرموز <tt>abc</tt>، و سلسلة الرموز <tt>abcabc</tt>، و "
 "سلسلة الرموز <tt>abcabcabcabc</tt>،وهكذا.</qt>"
 
-#: regexpbuttons.cpp:85
+#: regexpbuttons.cpp:83
 #, kde-format
 msgid ""
 "<p>This <i>regexp item</i> will match any of its alternatives.</"
@@ -707,12 +707,12 @@ msgstr ""
 "البدائل عن طريق وضع <i>عناصر التعبير النمطي</i> فوق بعضها البعض في داخل عنصر "
 "التحكم هذا.</p>"
 
-#: regexpbuttons.cpp:92
+#: regexpbuttons.cpp:90
 #, kde-format
 msgid "Compound regexp"
 msgstr "تعبير نمطى مركّب"
 
-#: regexpbuttons.cpp:93
+#: regexpbuttons.cpp:91
 #, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
@@ -727,56 +727,56 @@ msgstr ""
 "بتحميل <i>عنصر تعبير نمطي </i>مُعَرّف مسبقاً قد لا تكون مهتماً بمعرفة تفاصيله "
 "الداخلية.</qt>"
 
-#: regexpbuttons.cpp:100
+#: regexpbuttons.cpp:98
 #, kde-format
 msgid "Beginning of line"
 msgstr "بداية سطر"
 
-#: regexpbuttons.cpp:100
+#: regexpbuttons.cpp:98
 #, kde-format
 msgid "<qt>This will match the beginning of a line.</qt>"
 msgstr "<qt>سيطابق هذا بداية سطر</qt>"
 
-#: regexpbuttons.cpp:103
+#: regexpbuttons.cpp:101
 #, kde-format
 msgid "End of line"
 msgstr "نهاية سطر"
 
-#: regexpbuttons.cpp:103
+#: regexpbuttons.cpp:101
 #, kde-format
 msgid "<qt>This will match the end of a line.</qt>"
 msgstr "<qt>سيطابق هذا نهاية سطر</qt>"
 
-#: regexpbuttons.cpp:108
+#: regexpbuttons.cpp:106
 #, kde-format
 msgid "Word boundary"
 msgstr "حدّ كلمة"
 
-#: regexpbuttons.cpp:109
+#: regexpbuttons.cpp:107
 #, kde-format
 msgid ""
 "<qt>This asserts a word boundary (This part does not actually match any "
 "characters)</qt>"
 msgstr "<qt> هذا يوضّح حدّ كلمة (هذا الجزء لن يطابق أي رمز حقيقةً)</qt>"
 
-#: regexpbuttons.cpp:114
+#: regexpbuttons.cpp:112
 #, kde-format
 msgid "Non Word boundary"
 msgstr "حدّ غير كلمة"
 
-#: regexpbuttons.cpp:115
+#: regexpbuttons.cpp:113
 #, kde-format
 msgid ""
 "<qt>This asserts a non-word boundary (This part does not actually match any "
 "characters)</qt>"
 msgstr "<qt> هذا يوضّح حدّ غير كلمة (هذا الجزء لن يطابق أي رمز حقيقةً)</qt>"
 
-#: regexpbuttons.cpp:121
+#: regexpbuttons.cpp:119
 #, kde-format
 msgid "Positive Look Ahead"
 msgstr "بحث استباقي موجب"
 
-#: regexpbuttons.cpp:122
+#: regexpbuttons.cpp:120
 #, kde-format
 msgid ""
 "<qt>This asserts a regular expression (This part does not actually match any "
@@ -785,12 +785,12 @@ msgstr ""
 "<qt> هذا يوضّح تعبير نمطي (هذا الجزء لن يطابق أي رمز حقيقةً). يمكنك استخدامه "
 "فقط في نهاية تعبير نمطي.</qt>"
 
-#: regexpbuttons.cpp:128
+#: regexpbuttons.cpp:126
 #, kde-format
 msgid "Negative Look Ahead"
 msgstr "بحث استباقي سالب"
 
-#: regexpbuttons.cpp:129
+#: regexpbuttons.cpp:127
 #, kde-format
 msgid ""
 "<qt>This asserts a regular expression that must not match (This part does "

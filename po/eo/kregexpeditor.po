@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:40+0000\n"
+"POT-Creation-Date: 2024-07-27 00:44+0000\n"
 "PO-Revision-Date: 2024-01-11 07:32+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "axel@esperanto-jeunes.org,olivermkellogg@gmail.com"
 
-#: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:84
+#: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:82
 #, kde-format
 msgid "Alternatives"
 msgstr "Alternativoj"
@@ -382,12 +382,12 @@ msgstr "Aldoni"
 msgid "Widget Configuration"
 msgstr "Agordo de fenestraĵo"
 
-#: kregexpeditorprivate.cpp:48
+#: kregexpeditorprivate.cpp:47
 #, kde-format
 msgid "Compound regular expression:"
 msgstr "Kunmetita regula esprimo:"
 
-#: kregexpeditorprivate.cpp:50
+#: kregexpeditorprivate.cpp:49
 #, kde-format
 msgid ""
 "In this window you will find predefined regular expressions. Both regular "
@@ -398,7 +398,7 @@ msgstr ""
 "esprimoj, kiujn vi evoluigis kaj konservis, kaj regulaj esprimoj senditaj "
 "kun la sistemo."
 
-#: kregexpeditorprivate.cpp:60
+#: kregexpeditorprivate.cpp:59
 #, kde-format
 msgid ""
 "In this window you will develop your regular expressions. Select one of the "
@@ -409,7 +409,7 @@ msgstr ""
 "agoj el la agbutonoj supre, kaj alklaku la muson en ĉi tiu fenestro por "
 "enmeti la donitan agon."
 
-#: kregexpeditorprivate.cpp:69
+#: kregexpeditorprivate.cpp:68
 #, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
@@ -426,12 +426,12 @@ msgstr ""
 "esprimo en la redaktora fenestro, tiam ĉi tiu parto estos reliefigita - Ĉi "
 "tio ebligas al vi <i>sencimi</i> viajn regulajn esprimojn</p>"
 
-#: kregexpeditorprivate.cpp:110
+#: kregexpeditorprivate.cpp:109
 #, kde-format
 msgid "ASCII syntax:"
 msgstr "ASCII-sintakso:"
 
-#: kregexpeditorprivate.cpp:124
+#: kregexpeditorprivate.cpp:123
 #, kde-format
 msgid ""
 "<p>This is the regular expression in ASCII syntax. You are likely only to be "
@@ -446,7 +446,7 @@ msgstr ""
 "grafikan redaktilon, kaj tajpante la regulan esprimon. esprimo en ĉi tiu "
 "linio redaktas.</p>"
 
-#: kregexpeditorprivate.cpp:348
+#: kregexpeditorprivate.cpp:347
 #, kde-format
 msgid "Could not open file '%1' for reading"
 msgstr "Ne eblis malfermi dosieron '%1' por legado"
@@ -612,12 +612,12 @@ msgstr ""
 msgid "Back reference regular expressions not supported"
 msgstr "Malantaŭreferencaj regulaj esprimoj ne subtenataj"
 
-#: regexpbuttons.cpp:38
+#: regexpbuttons.cpp:36
 #, kde-format
 msgid "Selection tool"
 msgstr "Elektilo"
 
-#: regexpbuttons.cpp:40
+#: regexpbuttons.cpp:38
 #, kde-format
 msgid ""
 "<p>This will change the state of the editor to <i>selection state</i>.</"
@@ -634,12 +634,12 @@ msgstr ""
 "kopii/alglui. Ĉi tiuj funkcioj troviĝas en la menuo de la dekstra musbutono."
 "</p>"
 
-#: regexpbuttons.cpp:51
+#: regexpbuttons.cpp:49
 #, kde-format
 msgid "Text"
 msgstr "Teksto"
 
-#: regexpbuttons.cpp:52
+#: regexpbuttons.cpp:50
 #, kde-format
 msgid ""
 "<qt>This will insert a text field, where you may write text. The text you "
@@ -650,12 +650,12 @@ msgstr ""
 "vi skribas, estos laŭvorte kongrua. (t.e. vi ne bezonas eskapi iujn ajn "
 "signojn)</qt>"
 
-#: regexpbuttons.cpp:58
+#: regexpbuttons.cpp:56
 #, kde-format
 msgid "A single character specified in a range"
 msgstr "Unuopa signo difinita en areo"
 
-#: regexpbuttons.cpp:59
+#: regexpbuttons.cpp:57
 #, kde-format
 msgid ""
 "<p>This will match a single character from a predefined range.</p><p>When "
@@ -666,22 +666,22 @@ msgstr ""
 "enigas ĉi tiun fenestraĵon aperos dialogujo, kiu ebligas al vi specifi al "
 "kiuj signoj ĉi tiu <i>regexp item</i> kongruos .</p>"
 
-#: regexpbuttons.cpp:64
+#: regexpbuttons.cpp:62
 #, kde-format
 msgid "Any character"
 msgstr "Iu ajn signo"
 
-#: regexpbuttons.cpp:64
+#: regexpbuttons.cpp:62
 #, kde-format
 msgid "<qt>This will match any single character</qt>"
 msgstr "<qt>Tio kaptos iun ajn unuopan signon</qt>"
 
-#: regexpbuttons.cpp:69
+#: regexpbuttons.cpp:67
 #, kde-format
 msgid "Repeated content"
 msgstr "ultobligita enhavo"
 
-#: regexpbuttons.cpp:70
+#: regexpbuttons.cpp:68
 #, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
@@ -702,7 +702,7 @@ msgstr ""
 "tiu <i>regexp item</i> kongruos kun la malplena ĉeno, la ĉeno <tt>abc</tt>, "
 "la ĉeno <tt>abcabc</tt>, la ĉeno <tt>abcabcabcabc</tt>, ktp.</qt>"
 
-#: regexpbuttons.cpp:85
+#: regexpbuttons.cpp:83
 #, kde-format
 msgid ""
 "<p>This <i>regexp item</i> will match any of its alternatives.</"
@@ -713,12 +713,12 @@ msgstr ""
 "p><p>Alternativoj estas specifitaj metante <i>regexp-elementojn</i> unu "
 "super la alia ene de ĉi tiu fenestraĵo. </p>"
 
-#: regexpbuttons.cpp:92
+#: regexpbuttons.cpp:90
 #, kde-format
 msgid "Compound regexp"
 msgstr "Kunligita regesp"
 
-#: regexpbuttons.cpp:93
+#: regexpbuttons.cpp:91
 #, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
@@ -733,32 +733,32 @@ msgstr ""
 "estas precipe utila se vi ŝargas antaŭdifinitan <i>regexp item</i> pri kiu "
 "vi eble ne zorgas pri la interna funkciado de.</qt>"
 
-#: regexpbuttons.cpp:100
+#: regexpbuttons.cpp:98
 #, kde-format
 msgid "Beginning of line"
 msgstr "Liniokomenco"
 
-#: regexpbuttons.cpp:100
+#: regexpbuttons.cpp:98
 #, kde-format
 msgid "<qt>This will match the beginning of a line.</qt>"
 msgstr "<qt>Tio kaptos la komencon de linio.</qt>"
 
-#: regexpbuttons.cpp:103
+#: regexpbuttons.cpp:101
 #, kde-format
 msgid "End of line"
 msgstr "Liniofino"
 
-#: regexpbuttons.cpp:103
+#: regexpbuttons.cpp:101
 #, kde-format
 msgid "<qt>This will match the end of a line.</qt>"
 msgstr "<qt>Tio kaptos la finon de linio.</qt>"
 
-#: regexpbuttons.cpp:108
+#: regexpbuttons.cpp:106
 #, kde-format
 msgid "Word boundary"
 msgstr "Vortlimo"
 
-#: regexpbuttons.cpp:109
+#: regexpbuttons.cpp:107
 #, kde-format
 msgid ""
 "<qt>This asserts a word boundary (This part does not actually match any "
@@ -766,12 +766,12 @@ msgid ""
 msgstr ""
 "<qt>Tiu asertas vortlimon (ĉi parto fakte ne kaptos iun ajn signon)</qt>"
 
-#: regexpbuttons.cpp:114
+#: regexpbuttons.cpp:112
 #, kde-format
 msgid "Non Word boundary"
 msgstr "Ne vortlimo"
 
-#: regexpbuttons.cpp:115
+#: regexpbuttons.cpp:113
 #, kde-format
 msgid ""
 "<qt>This asserts a non-word boundary (This part does not actually match any "
@@ -780,12 +780,12 @@ msgstr ""
 "<qt>Ne stopu je vortlimoj, sed en vorto (tio parto ne kaptos iu ajn signon)</"
 "qt>"
 
-#: regexpbuttons.cpp:121
+#: regexpbuttons.cpp:119
 #, kde-format
 msgid "Positive Look Ahead"
 msgstr "Pozitiva Rigardu Antaŭen"
 
-#: regexpbuttons.cpp:122
+#: regexpbuttons.cpp:120
 #, kde-format
 msgid ""
 "<qt>This asserts a regular expression (This part does not actually match any "
@@ -794,12 +794,12 @@ msgstr ""
 "<qt>Tiu ĉi asertas regulan esprimon (Ĉi tiu parto fakte ne kongruas kun iuj "
 "signoj). Vi povas uzi ĉi tion nur ĉe la fino de regula esprimo.</qt>"
 
-#: regexpbuttons.cpp:128
+#: regexpbuttons.cpp:126
 #, kde-format
 msgid "Negative Look Ahead"
 msgstr "Negativa Antaŭenrigardo"
 
-#: regexpbuttons.cpp:129
+#: regexpbuttons.cpp:127
 #, kde-format
 msgid ""
 "<qt>This asserts a regular expression that must not match (This part does "

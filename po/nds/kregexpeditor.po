@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:40+0000\n"
+"POT-Creation-Date: 2024-07-27 00:44+0000\n"
 "PO-Revision-Date: 2010-10-10 08:39+0200\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "s_dibbern@web.de"
 
-#: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:84
+#: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:82
 #, kde-format
 msgid "Alternatives"
 msgstr "Alternativen"
@@ -378,12 +378,12 @@ msgstr "Tofögen"
 msgid "Widget Configuration"
 msgstr "Bedeenelementen instellen"
 
-#: kregexpeditorprivate.cpp:48
+#: kregexpeditorprivate.cpp:47
 #, kde-format
 msgid "Compound regular expression:"
 msgstr "Tosamensett reguleer Utdrück:"
 
-#: kregexpeditorprivate.cpp:50
+#: kregexpeditorprivate.cpp:49
 #, kde-format
 msgid ""
 "In this window you will find predefined regular expressions. Both regular "
@@ -393,7 +393,7 @@ msgstr ""
 "Binnen dit Paneel findst Du fardige regulere Utdrück: Welke, de Du sülven "
 "opstellt un sekert hest, un ok welke, de mit dat Programm utlevert wöörn."
 
-#: kregexpeditorprivate.cpp:60
+#: kregexpeditorprivate.cpp:59
 #, kde-format
 msgid ""
 "In this window you will develop your regular expressions. Select one of the "
@@ -404,7 +404,7 @@ msgstr ""
 "op den Knoopbalken en Warktüüch ut, un klick hier binnen, wenn Du de "
 "Akschoon infögen wullt."
 
-#: kregexpeditorprivate.cpp:69
+#: kregexpeditorprivate.cpp:68
 #, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
@@ -420,13 +420,13 @@ msgstr ""
 "Deelutdruck binnen dat Arbeitrebeet markeerst, warrt hier de tohören Deel "
 "rutheevt - so kannst Du binnen Dien Utdrück na <i>Fehlers söken</i>.</p>"
 
-#: kregexpeditorprivate.cpp:110
+#: kregexpeditorprivate.cpp:109
 #, fuzzy, kde-format
 #| msgid "ASCII syntax:"
 msgid "ASCII syntax:"
 msgstr "ASCII-Schriefwies:"
 
-#: kregexpeditorprivate.cpp:124
+#: kregexpeditorprivate.cpp:123
 #, kde-format
 msgid ""
 "<p>This is the regular expression in ASCII syntax. You are likely only to be "
@@ -440,7 +440,7 @@ msgstr ""
 "a.B. opstellen muttst.</p><p>Du kannst regulere Utdrück mit den graafschen "
 "Editor opstellen, man du kannst se ok hier ingeven.</p>"
 
-#: kregexpeditorprivate.cpp:348
+#: kregexpeditorprivate.cpp:347
 #, kde-format
 msgid "Could not open file '%1' for reading"
 msgstr "\"%1\" lett sik nich för't Lesen opmaken"
@@ -601,12 +601,12 @@ msgstr ""
 msgid "Back reference regular expressions not supported"
 msgstr "De Emacs-Syntax ünnerstütt keen bedingte reguleer Utdrück."
 
-#: regexpbuttons.cpp:38
+#: regexpbuttons.cpp:36
 #, kde-format
 msgid "Selection tool"
 msgstr "Utsöök-Warktüüch"
 
-#: regexpbuttons.cpp:40
+#: regexpbuttons.cpp:38
 #, kde-format
 msgid ""
 "<p>This will change the state of the editor to <i>selection state</i>.</"
@@ -623,12 +623,12 @@ msgstr ""
 "Du de Funkschonen Knippen, Koperen un Infögen bruken, de Du in't "
 "Rechtsklickmenü finnst.</p>"
 
-#: regexpbuttons.cpp:51
+#: regexpbuttons.cpp:49
 #, kde-format
 msgid "Text"
 msgstr "Text"
 
-#: regexpbuttons.cpp:52
+#: regexpbuttons.cpp:50
 #, kde-format
 msgid ""
 "<qt>This will insert a text field, where you may write text. The text you "
@@ -639,12 +639,12 @@ msgstr ""
 "kannst. Disse Deelutdruck warrt denn op Text anwendt, as he is, d.h. du "
 "bruukst keen Tekens (mit Torüchstreken \"\\\") schulen.</qt>"
 
-#: regexpbuttons.cpp:58
+#: regexpbuttons.cpp:56
 #, kde-format
 msgid "A single character specified in a range"
 msgstr "Een enkel Teken ut en angeven Rebeet"
 
-#: regexpbuttons.cpp:59
+#: regexpbuttons.cpp:57
 #, kde-format
 msgid ""
 "<p>This will match a single character from a predefined range.</p><p>When "
@@ -655,22 +655,22 @@ msgstr ""
 "Element inföögst, dukt en Dialoog op, mit den Du de Tekens angeven kannst, "
 "op de de <i>Deelutdruck</i> passt.</p>"
 
-#: regexpbuttons.cpp:64
+#: regexpbuttons.cpp:62
 #, kde-format
 msgid "Any character"
 msgstr "Jichtenseen Teken"
 
-#: regexpbuttons.cpp:64
+#: regexpbuttons.cpp:62
 #, kde-format
 msgid "<qt>This will match any single character</qt>"
 msgstr "<qt>Dit passt op all enkelte Tekens.</qt>"
 
-#: regexpbuttons.cpp:69
+#: regexpbuttons.cpp:67
 #, kde-format
 msgid "Repeated content"
 msgstr "Wedderhaalt Inholt"
 
-#: regexpbuttons.cpp:70
+#: regexpbuttons.cpp:68
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it "
@@ -702,7 +702,7 @@ msgstr ""
 "wedderhaalt), de Keed <tt>abc</tt>, de Keed <tt>abcabc</tt>, de Keed "
 "<tt>abcabcabcabc</tt>, usw.</qt>"
 
-#: regexpbuttons.cpp:85
+#: regexpbuttons.cpp:83
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>This <i>regexp item</i> will match any of its alternatives.</"
@@ -717,12 +717,12 @@ msgstr ""
 "p><p>Alternativen giffst Du an, wenn Du binnen dit Element Deelutdrück "
 "<i>överenanner</i> afleggst.</p>"
 
-#: regexpbuttons.cpp:92
+#: regexpbuttons.cpp:90
 #, kde-format
 msgid "Compound regexp"
 msgstr "Tosamensett Utdruck"
 
-#: regexpbuttons.cpp:93
+#: regexpbuttons.cpp:91
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it "
@@ -742,32 +742,32 @@ msgstr ""
 "hanteren sünd. Dat is ok denn goot, wenn Du vöropstellte Deelutdrück laadst "
 "un an ehr Binnenleven keen Vermaak hest.</qt>."
 
-#: regexpbuttons.cpp:100
+#: regexpbuttons.cpp:98
 #, kde-format
 msgid "Beginning of line"
 msgstr "Reeganfang"
 
-#: regexpbuttons.cpp:100
+#: regexpbuttons.cpp:98
 #, kde-format
 msgid "<qt>This will match the beginning of a line.</qt>"
 msgstr "<qt>Dit passt op den Anfang vun en Reeg.</qt>"
 
-#: regexpbuttons.cpp:103
+#: regexpbuttons.cpp:101
 #, kde-format
 msgid "End of line"
 msgstr "Reegenn"
 
-#: regexpbuttons.cpp:103
+#: regexpbuttons.cpp:101
 #, kde-format
 msgid "<qt>This will match the end of a line.</qt>"
 msgstr "<qt>Dit passt op dat Enn vun en Reeg.</qt>"
 
-#: regexpbuttons.cpp:108
+#: regexpbuttons.cpp:106
 #, kde-format
 msgid "Word boundary"
 msgstr "Woortgrenz"
 
-#: regexpbuttons.cpp:109
+#: regexpbuttons.cpp:107
 #, kde-format
 msgid ""
 "<qt>This asserts a word boundary (This part does not actually match any "
@@ -776,12 +776,12 @@ msgstr ""
 "<qt>Dit passt op de Grenz twischen twee Tekens, wenn se de Kant vun en Woort "
 "is (is keen redig vörhannen Teken).</qt>"
 
-#: regexpbuttons.cpp:114
+#: regexpbuttons.cpp:112
 #, kde-format
 msgid "Non Word boundary"
 msgstr "Nich-Woortgrenz"
 
-#: regexpbuttons.cpp:115
+#: regexpbuttons.cpp:113
 #, kde-format
 msgid ""
 "<qt>This asserts a non-word boundary (This part does not actually match any "
@@ -790,12 +790,12 @@ msgstr ""
 "<qt>Dit passt op de Grenz twischen twee Tekens, wenn dat keen Woortgrenz is "
 "(is keen redig vörhannen Teken).</qt>"
 
-#: regexpbuttons.cpp:121
+#: regexpbuttons.cpp:119
 #, kde-format
 msgid "Positive Look Ahead"
 msgstr "Positiv Bedingen"
 
-#: regexpbuttons.cpp:122
+#: regexpbuttons.cpp:120
 #, kde-format
 msgid ""
 "<qt>This asserts a regular expression (This part does not actually match any "
@@ -805,12 +805,12 @@ msgstr ""
 "Tekens, op de disse Utdruck passt, warrt nich Deel vun de passen Tekenkeed). "
 "Lett sik bloots an't Enn vun en reguleren Utdruck bruken.</qt>"
 
-#: regexpbuttons.cpp:128
+#: regexpbuttons.cpp:126
 #, kde-format
 msgid "Negative Look Ahead"
 msgstr "Negativ Bedingen"
 
-#: regexpbuttons.cpp:129
+#: regexpbuttons.cpp:127
 #, kde-format
 msgid ""
 "<qt>This asserts a regular expression that must not match (This part does "

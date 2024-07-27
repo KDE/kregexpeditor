@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:40+0000\n"
+"POT-Creation-Date: 2024-07-27 00:44+0000\n"
 "PO-Revision-Date: 2004-04-20 13:27+CEST\n"
 "Last-Translator: auto\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "lokalizacija@linux.hr"
 
-#: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:84
+#: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:82
 #, fuzzy, kde-format
 msgid "Alternatives"
 msgstr "Alternative"
@@ -372,12 +372,12 @@ msgstr ""
 msgid "Widget Configuration"
 msgstr "Podešavalje kontrola"
 
-#: kregexpeditorprivate.cpp:48
+#: kregexpeditorprivate.cpp:47
 #, fuzzy, kde-format
 msgid "Compound regular expression:"
 msgstr "Složeni regularni izraz:"
 
-#: kregexpeditorprivate.cpp:50
+#: kregexpeditorprivate.cpp:49
 #, fuzzy, kde-format
 msgid ""
 "In this window you will find predefined regular expressions. Both regular "
@@ -387,7 +387,7 @@ msgstr ""
 "U ovom prozoru ćete naći predefinirane regularne izraze. Tu spadaju izrazi "
 "koje ste razvili i snimili, kao i oni koji su isporučeni uz sustav."
 
-#: kregexpeditorprivate.cpp:60
+#: kregexpeditorprivate.cpp:59
 #, fuzzy, kde-format
 msgid ""
 "In this window you will develop your regular expressions. Select one of the "
@@ -398,7 +398,7 @@ msgstr ""
 "akcionih gumbii iznad, i kliknite mišem u ovaj prozor da biste ubacili "
 "odabranu akciju."
 
-#: kregexpeditorprivate.cpp:69
+#: kregexpeditorprivate.cpp:68
 #, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
@@ -409,12 +409,12 @@ msgid ""
 "<i>debug</i> your regular expressions</p>"
 msgstr ""
 
-#: kregexpeditorprivate.cpp:110
+#: kregexpeditorprivate.cpp:109
 #, fuzzy, kde-format
 msgid "ASCII syntax:"
 msgstr "ASCII sintaksa:"
 
-#: kregexpeditorprivate.cpp:124
+#: kregexpeditorprivate.cpp:123
 #, kde-format
 msgid ""
 "<p>This is the regular expression in ASCII syntax. You are likely only to be "
@@ -424,7 +424,7 @@ msgid ""
 "line edit.</p>"
 msgstr ""
 
-#: kregexpeditorprivate.cpp:348
+#: kregexpeditorprivate.cpp:347
 #, kde-format
 msgid "Could not open file '%1' for reading"
 msgstr ""
@@ -581,12 +581,12 @@ msgid "Back reference regular expressions not supported"
 msgstr ""
 "Regularni izrazi za gledanje unaprijed nisu podržani u Emacs-ovom stilu"
 
-#: regexpbuttons.cpp:38
+#: regexpbuttons.cpp:36
 #, fuzzy, kde-format
 msgid "Selection tool"
 msgstr "Alat za biranje"
 
-#: regexpbuttons.cpp:40
+#: regexpbuttons.cpp:38
 #, kde-format
 msgid ""
 "<p>This will change the state of the editor to <i>selection state</i>.</"
@@ -597,12 +597,12 @@ msgid ""
 "mouse button menu.</p>"
 msgstr ""
 
-#: regexpbuttons.cpp:51
+#: regexpbuttons.cpp:49
 #, kde-format
 msgid "Text"
 msgstr "Tekst"
 
-#: regexpbuttons.cpp:52
+#: regexpbuttons.cpp:50
 #, fuzzy, kde-format
 msgid ""
 "<qt>This will insert a text field, where you may write text. The text you "
@@ -613,12 +613,12 @@ msgstr ""
 "upišete biti će poklapan doslovno (tj. ne morate da izbegavete nijedan znak)."
 "</qt>"
 
-#: regexpbuttons.cpp:58
+#: regexpbuttons.cpp:56
 #, fuzzy, kde-format
 msgid "A single character specified in a range"
 msgstr "Jedan znak iz navedenog opsega"
 
-#: regexpbuttons.cpp:59
+#: regexpbuttons.cpp:57
 #, kde-format
 msgid ""
 "<p>This will match a single character from a predefined range.</p><p>When "
@@ -626,22 +626,22 @@ msgid ""
 "which characters this <i>regexp item</i> will match.</p>"
 msgstr ""
 
-#: regexpbuttons.cpp:64
+#: regexpbuttons.cpp:62
 #, fuzzy, kde-format
 msgid "Any character"
 msgstr "Bilo koji znak"
 
-#: regexpbuttons.cpp:64
+#: regexpbuttons.cpp:62
 #, fuzzy, kde-format
 msgid "<qt>This will match any single character</qt>"
 msgstr "<qt>Ovo će poklopiti bilo koji znak</qt>"
 
-#: regexpbuttons.cpp:69
+#: regexpbuttons.cpp:67
 #, fuzzy, kde-format
 msgid "Repeated content"
 msgstr "Ponovljeni sadržaj"
 
-#: regexpbuttons.cpp:70
+#: regexpbuttons.cpp:68
 #, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
@@ -654,7 +654,7 @@ msgid ""
 "string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, etc.</qt>"
 msgstr ""
 
-#: regexpbuttons.cpp:85
+#: regexpbuttons.cpp:83
 #, fuzzy, kde-format
 msgid ""
 "<p>This <i>regexp item</i> will match any of its alternatives.</"
@@ -665,12 +665,12 @@ msgstr ""
 "p>Alternative navodite dodavanjem <i>reg.iz. stavki</i> u okviru ove "
 "kontrole.</qt>"
 
-#: regexpbuttons.cpp:92
+#: regexpbuttons.cpp:90
 #, fuzzy, kde-format
 msgid "Compound regexp"
 msgstr "Složeni reg.iz."
 
-#: regexpbuttons.cpp:93
+#: regexpbuttons.cpp:91
 #, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
@@ -680,32 +680,32 @@ msgid ""
 "perhaps do not care about the inner workings of.</qt>"
 msgstr ""
 
-#: regexpbuttons.cpp:100
+#: regexpbuttons.cpp:98
 #, fuzzy, kde-format
 msgid "Beginning of line"
 msgstr "Početak linije"
 
-#: regexpbuttons.cpp:100
+#: regexpbuttons.cpp:98
 #, fuzzy, kde-format
 msgid "<qt>This will match the beginning of a line.</qt>"
 msgstr "<qt>Ovo će poklopiti početak linije.</qt>"
 
-#: regexpbuttons.cpp:103
+#: regexpbuttons.cpp:101
 #, fuzzy, kde-format
 msgid "End of line"
 msgstr "Kraj linije"
 
-#: regexpbuttons.cpp:103
+#: regexpbuttons.cpp:101
 #, fuzzy, kde-format
 msgid "<qt>This will match the end of a line.</qt>"
 msgstr "<qt>Ovo će poklopiti kraj linije.</qt>"
 
-#: regexpbuttons.cpp:108
+#: regexpbuttons.cpp:106
 #, fuzzy, kde-format
 msgid "Word boundary"
 msgstr "Granica reči"
 
-#: regexpbuttons.cpp:109
+#: regexpbuttons.cpp:107
 #, fuzzy, kde-format
 msgid ""
 "<qt>This asserts a word boundary (This part does not actually match any "
@@ -714,12 +714,12 @@ msgstr ""
 "<qt>Ovo utvrđuje granicu riječi (ovaj dio u stvari ne poklapa nijedan znak)</"
 "qt>"
 
-#: regexpbuttons.cpp:114
+#: regexpbuttons.cpp:112
 #, fuzzy, kde-format
 msgid "Non Word boundary"
 msgstr "Granica ne-reči"
 
-#: regexpbuttons.cpp:115
+#: regexpbuttons.cpp:113
 #, fuzzy, kde-format
 msgid ""
 "<qt>This asserts a non-word boundary (This part does not actually match any "
@@ -728,24 +728,24 @@ msgstr ""
 "<qt>Ovo utvrđuje granicu ne-riječi (ovaj dio u stvari ne poklapa nijedan "
 "znak)</qt>"
 
-#: regexpbuttons.cpp:121
+#: regexpbuttons.cpp:119
 #, fuzzy, kde-format
 msgid "Positive Look Ahead"
 msgstr "Pozitivan pogled unaprijed"
 
-#: regexpbuttons.cpp:122
+#: regexpbuttons.cpp:120
 #, kde-format
 msgid ""
 "<qt>This asserts a regular expression (This part does not actually match any "
 "characters). You can only use this at the end of a regular expression.</qt>"
 msgstr ""
 
-#: regexpbuttons.cpp:128
+#: regexpbuttons.cpp:126
 #, fuzzy, kde-format
 msgid "Negative Look Ahead"
 msgstr "Negativan pogled unaprijed"
 
-#: regexpbuttons.cpp:129
+#: regexpbuttons.cpp:127
 #, fuzzy, kde-format
 msgid ""
 "<qt>This asserts a regular expression that must not match (This part does "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:40+0000\n"
+"POT-Creation-Date: 2024-07-27 00:44+0000\n"
 "PO-Revision-Date: 2012-07-16 17:06+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -33,7 +33,7 @@ msgstr ""
 "khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
 "ratanak@khmeros.info,sophea@khmeros.info"
 
-#: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:84
+#: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:82
 #, kde-format
 msgid "Alternatives"
 msgstr "ជំនួស"
@@ -380,12 +380,12 @@ msgstr "បន្ថែម"
 msgid "Widget Configuration"
 msgstr "ការ​កំណត់​រចនា​សម្ព័ន្ធ​ធាតុ​ក្រាហ្វិក"
 
-#: kregexpeditorprivate.cpp:48
+#: kregexpeditorprivate.cpp:47
 #, kde-format
 msgid "Compound regular expression:"
 msgstr "កន្សោម​ធម្មតា​សមាស ៖"
 
-#: kregexpeditorprivate.cpp:50
+#: kregexpeditorprivate.cpp:49
 #, kde-format
 msgid ""
 "In this window you will find predefined regular expressions. Both regular "
@@ -395,7 +395,7 @@ msgstr ""
 "នៅ​ក្នុង​បង្អួច​នេះ​អ្នក​នឹង​ឃើញ​ការ​ឲ្យ​អត្ថន័យ​កន្សោម​ធម្មតា​​ជាមុន ។​កន្សោម​ធម្មតា​ទាំងពីរ​ដែល​អ្នក​បាន​អភិវឌ្ឍន៍​"
 "និង​រក្សា​ទុក ហើយ​កន្សោម​ធម្មតា​បាន​បញ្ជូន​ជាមួយ​ប្រព័ន្ធ ។​"
 
-#: kregexpeditorprivate.cpp:60
+#: kregexpeditorprivate.cpp:59
 #, kde-format
 msgid ""
 "In this window you will develop your regular expressions. Select one of the "
@@ -405,7 +405,7 @@ msgstr ""
 "ក្នុង​បង្អួច​នេះ​អ្នក​នឹង​អភិវឌ្ឍ​កន្សោម​ធម្មតា​របស់​អ្នក ។​ជ្រើស​យក​សកម្មភាព​មួយ​ពី​ប៊ូតុង​សកម្មភាព​ខាងលើ,​ហើយ​ចុច​"
 "កណ្ដុរ​នៅ​ក្នុង​បង្អួច​នេះ​ដើម្បី​បញ្ចូល​អំពើ​ដែល​បាន​ឲ្យ ។"
 
-#: kregexpeditorprivate.cpp:69
+#: kregexpeditorprivate.cpp:68
 #, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
@@ -421,12 +421,12 @@ msgstr ""
 "កម្មវិធី​កែសម្រួល នោះ​ផ្នែក​នេះ​នឹង​ត្រូវ​បាន​រំលេច ដែល​អនុញ្ញាត​ឲ្យ​អ្នក <i>បំបាត់​កំហុស</i> កន្សោម​ធម្មតា​"
 "របស់​អ្នក</p>"
 
-#: kregexpeditorprivate.cpp:110
+#: kregexpeditorprivate.cpp:109
 #, kde-format
 msgid "ASCII syntax:"
 msgstr "វាក្យ​សម្ព័ន្ធ ASCII ៖"
 
-#: kregexpeditorprivate.cpp:124
+#: kregexpeditorprivate.cpp:123
 #, kde-format
 msgid ""
 "<p>This is the regular expression in ASCII syntax. You are likely only to be "
@@ -440,7 +440,7 @@ msgstr ""
 "កន្សោម​ធម្មតា​របស់​អ្នក​ទាំង​ពីរ​ដោយ​ប្រើ​កម្មវិធី​កែប្រែ​ក្រាហ្វិក និង​ដោយ​វាយ​កន្សោម​ធម្មតា​ក្នុង​ការ​កែប្រែ​"
 "បន្ទាត់​នេះ ។</p>"
 
-#: kregexpeditorprivate.cpp:348
+#: kregexpeditorprivate.cpp:347
 #, kde-format
 msgid "Could not open file '%1' for reading"
 msgstr "មិន​អាច​បើក​ឯកសារ '%1' សម្រាប់​អាន​បាន​ទេ"
@@ -598,12 +598,12 @@ msgstr ""
 msgid "Back reference regular expressions not supported"
 msgstr "មើល​ទៅ​កាន់​កន្សោម​ធម្មតា​ដែល​បាន​មិនបាន​គាំទ្រ​ដោយ​រចនាប័ទ្ម Emacs"
 
-#: regexpbuttons.cpp:38
+#: regexpbuttons.cpp:36
 #, kde-format
 msgid "Selection tool"
 msgstr "ឧបករណ៍​ជ្រើស"
 
-#: regexpbuttons.cpp:40
+#: regexpbuttons.cpp:38
 #, kde-format
 msgid ""
 "<p>This will change the state of the editor to <i>selection state</i>.</"
@@ -618,12 +618,12 @@ msgstr ""
 "ខាង​ឆ្វេង​និង​អូស​វា​ទៅ​លើ​ធាតុ ។</p><p>នៅ​ពេល​ដែល​អ្នក​ជ្រើស​ធាតុ​មួយ​ចំនួន អ្នក​ប្រហែល​ជា​ប្រើ កាត់/ចម្លង/"
 "បិទ​ភ្ជាប់ ។ មុខ​ងារ​ទាំង​នេះ​អាច​រក​ឃើញ​នៅ​ក្នុង​ម៉ឺនុយ​ប៊ូតុង​កណ្ដុរ​ខាង​ស្ដាំ ។</p>"
 
-#: regexpbuttons.cpp:51
+#: regexpbuttons.cpp:49
 #, kde-format
 msgid "Text"
 msgstr "អត្ថបទ"
 
-#: regexpbuttons.cpp:52
+#: regexpbuttons.cpp:50
 #, kde-format
 msgid ""
 "<qt>This will insert a text field, where you may write text. The text you "
@@ -633,12 +633,12 @@ msgstr ""
 "<qt>វា​នឹង​បញ្ចូល​វាល​អត្ថបទ កន្លែង​ដែល​អ្នក​សសេរ​អត្ថបទ ។ អត្ថបទ​ដែល​អ្នក​សសេរ​នឹង​ត្រូវ​ផ្គូផ្គង​​តាម​"
 "ព្យញ្ជនៈ ។ (ឧ. អ្នក​មិន​ត្រូវ​គេច​តួ​អក្សរ​ខ្លះ​នោះ​ទេ ។)</qt>"
 
-#: regexpbuttons.cpp:58
+#: regexpbuttons.cpp:56
 #, kde-format
 msgid "A single character specified in a range"
 msgstr "តួ​អក្សរ​មួយ​តួ​ត្រូវ​បាន​បញ្ជាក់​នៅ​ក្នុង​ជួរ"
 
-#: regexpbuttons.cpp:59
+#: regexpbuttons.cpp:57
 #, kde-format
 msgid ""
 "<p>This will match a single character from a predefined range.</p><p>When "
@@ -648,22 +648,22 @@ msgstr ""
 "<p>វា​នឹង​ផ្គូផ្គង​តែ​តួអក្សរ​ពី​ជួរ​ដែល​បាន​ជ្រើស​​កំណត់​ជា​មុន​ប៉ុណ្ណោះ ។</p><p>នៅ​ពេល​អ្នក​បញ្ចូល​ធាតុ​ក្រាហ្វិក​នេះ​"
 "ប្រអប់​នឹង​លេច​ឡើង ដែល​អនុញ្ញាត​ឲ្យ​អ្នក​បញ្ជាក់​​តួអក្សរ <i>ធាតុ regexp </i> នឹង​ផ្គូផ្គង ។</p>"
 
-#: regexpbuttons.cpp:64
+#: regexpbuttons.cpp:62
 #, kde-format
 msgid "Any character"
 msgstr "តួ​អក្សរ​ច្រើន"
 
-#: regexpbuttons.cpp:64
+#: regexpbuttons.cpp:62
 #, kde-format
 msgid "<qt>This will match any single character</qt>"
 msgstr "<qt>វា​នឹង​ផ្គងផ្គង​តួ​អក្សរ​តែ​មួយ​ទាំង​អស់</qt>"
 
-#: regexpbuttons.cpp:69
+#: regexpbuttons.cpp:67
 #, kde-format
 msgid "Repeated content"
 msgstr "មាតិកា​​ដដែលៗ"
 
-#: regexpbuttons.cpp:70
+#: regexpbuttons.cpp:68
 #, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
@@ -682,7 +682,7 @@ msgstr ""
 "tt> បន្ទាប់  <i>ធាតុ​ regexp </i> នឹង​ផ្គូផ្គង ឃ្លា​ទទេ ឃ្លា <tt>abc</tt> ឃ្លា "
 "<tt>abcabc</tt> ឃ្លា <tt>abcabcabcabc</tt>។ល។</qt>"
 
-#: regexpbuttons.cpp:85
+#: regexpbuttons.cpp:83
 #, kde-format
 msgid ""
 "<p>This <i>regexp item</i> will match any of its alternatives.</"
@@ -692,12 +692,12 @@ msgstr ""
 "<p><i>ធាតុ regexp </i> នឹង​ផ្គូផ្គង​គ្រប់​ការ​ជំនួស​របស់​វា ។</p><p>អ្នក​បញ្ជាក់​ការ​ជំនួស​ដោយ​ដាក់ "
 "<i>ធាតុ regexp </i> នៅ​ពី​លើ​គ្នា​ក្នុង​ធាតុ​ក្រាហ្វិក​នេះ ។</p>"
 
-#: regexpbuttons.cpp:92
+#: regexpbuttons.cpp:90
 #, kde-format
 msgid "Compound regexp"
 msgstr "regexp សមាស"
 
-#: regexpbuttons.cpp:93
+#: regexpbuttons.cpp:91
 #, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
@@ -711,56 +711,56 @@ msgstr ""
 "regexp </i> ។ វា​មាន​ប្រយោជន៍​យ៉ាង​ពិសេស​ប្រសិន​បើ​អ្នក​ផ្ទុក<i>ធាតុ regexp </i> ដែល​បាន​កំណត់​ជា​មុន "
 "នោះ​អ្នក​ប្រហែល​ជា​មិន​​ខ្វល់​អំពី​ការ​ងារ​ខាងក្នុង​ឡើយ ។</qt>"
 
-#: regexpbuttons.cpp:100
+#: regexpbuttons.cpp:98
 #, kde-format
 msgid "Beginning of line"
 msgstr "ចំនុច​ចាប់​ផ្ដើម​នៃ​បន្ទាត់"
 
-#: regexpbuttons.cpp:100
+#: regexpbuttons.cpp:98
 #, kde-format
 msgid "<qt>This will match the beginning of a line.</qt>"
 msgstr "<qt>វា​នឹង​ផ្គូផ្គង​ចំណុច​ចាប់​ផ្ដើម​នៃ​បន្ទាត់ ។</qt>"
 
-#: regexpbuttons.cpp:103
+#: regexpbuttons.cpp:101
 #, kde-format
 msgid "End of line"
 msgstr "ចំណុច​បញ្ចប់​នៃ​បន្ទាត់"
 
-#: regexpbuttons.cpp:103
+#: regexpbuttons.cpp:101
 #, kde-format
 msgid "<qt>This will match the end of a line.</qt>"
 msgstr "<qt>វា​នឹង​ផ្គូផ្គង​ចំណុច​បញ្ចប់​នៃ​បន្ទាប់ ។</qt>"
 
-#: regexpbuttons.cpp:108
+#: regexpbuttons.cpp:106
 #, kde-format
 msgid "Word boundary"
 msgstr "ព្រំដែន​ពាក្យ"
 
-#: regexpbuttons.cpp:109
+#: regexpbuttons.cpp:107
 #, kde-format
 msgid ""
 "<qt>This asserts a word boundary (This part does not actually match any "
 "characters)</qt>"
 msgstr "<qt>វា​ការពារ​ព្រំដែន​ពាក្យ (ផ្នែក​នេះ​មិន​ផ្គូផ្គង​តួ​អក្សរ​ទាំងអស់​ទេ)</qt>"
 
-#: regexpbuttons.cpp:114
+#: regexpbuttons.cpp:112
 #, kde-format
 msgid "Non Word boundary"
 msgstr "មិន​មែន​ជា​ព្រំដែន​ពាក្យ​ទេ"
 
-#: regexpbuttons.cpp:115
+#: regexpbuttons.cpp:113
 #, kde-format
 msgid ""
 "<qt>This asserts a non-word boundary (This part does not actually match any "
 "characters)</qt>"
 msgstr "<qt>វា​ការពារ​មិន​មែន​ព្រំដែន​ពាក្យ (ផ្នែក​នេះ​មិន​ផ្គូផ្គង​តួ​អក្សរ​ទាំងអស់​ទេ)</qt>"
 
-#: regexpbuttons.cpp:121
+#: regexpbuttons.cpp:119
 #, kde-format
 msgid "Positive Look Ahead"
 msgstr "វិជ្ជមាន​មើល​ទៅ​មុខ"
 
-#: regexpbuttons.cpp:122
+#: regexpbuttons.cpp:120
 #, kde-format
 msgid ""
 "<qt>This asserts a regular expression (This part does not actually match any "
@@ -769,12 +769,12 @@ msgstr ""
 "<qt>វា​ការពារ​កន្សោម​ធម្មតា (ផ្នែក​នេះ​មិន​ផ្គូផ្គង​តួអក្សរ​ទាំងអស់​ទេ) ។ អ្នក​អាច​ប្រើ​វា​តែ​នៅ​ពេល​បញ្ចប់​"
 "នៃ​កន្សោម​ធម្មតា ។</qt>"
 
-#: regexpbuttons.cpp:128
+#: regexpbuttons.cpp:126
 #, kde-format
 msgid "Negative Look Ahead"
 msgstr "អវិជ្ជមាន​មើល​ទៅ​មុខ"
 
-#: regexpbuttons.cpp:129
+#: regexpbuttons.cpp:127
 #, kde-format
 msgid ""
 "<qt>This asserts a regular expression that must not match (This part does "

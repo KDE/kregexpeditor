@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:40+0000\n"
+"POT-Creation-Date: 2024-07-27 00:44+0000\n"
 "PO-Revision-Date: 2023-12-17 16:40+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "AUGUSTIN_RAJ@HOTMAIL.COM"
 
-#: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:84
+#: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:82
 #, kde-format
 msgid "Alternatives"
 msgstr "மாற்று எழுத்துக்கள்"
@@ -396,12 +396,12 @@ msgstr ""
 msgid "Widget Configuration"
 msgstr "சிறு கருவி உள்ளமைவு "
 
-#: kregexpeditorprivate.cpp:48
+#: kregexpeditorprivate.cpp:47
 #, fuzzy, kde-format
 msgid "Compound regular expression:"
 msgstr "அடிக்கடி தொடர் கூட்டு"
 
-#: kregexpeditorprivate.cpp:50
+#: kregexpeditorprivate.cpp:49
 #, kde-format
 msgid ""
 "In this window you will find predefined regular expressions. Both regular "
@@ -411,7 +411,7 @@ msgstr ""
 "இந்த சன்னல்திரையில் உங்களால் முன்வரை வழக்கமான தொடரினை கண்டுப்பிடிக்கலாம்.உங்களால் இரண்டு "
 "வழக்கமான தொடரிலும் முன்னேற்றம் மற்றும் சேமிக்க இயலும்."
 
-#: kregexpeditorprivate.cpp:60
+#: kregexpeditorprivate.cpp:59
 #, kde-format
 msgid ""
 "In this window you will develop your regular expressions. Select one of the "
@@ -422,7 +422,7 @@ msgstr ""
 "ஒரு செயல்லை தேர்வு செய்யவும்,அதன் பின் கூடுத்த செயலை  சேர்க்க இந்த சாலரத்தில் சுட்டியை "
 "வைத்து சொடுக்கவும்."
 
-#: kregexpeditorprivate.cpp:69
+#: kregexpeditorprivate.cpp:68
 #, fuzzy, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
@@ -438,12 +438,12 @@ msgstr ""
 "சாலரத்தில் இருந்து வழக்கமான கூற்று ஒரு பகுதி ஒன்றை தேர்வு செய்தால், அதன்பின் இந்த பகுதி "
 "முனைப்புறுத்தபடும்- உங்கள் வழக்கமான கூற்றை<i>வழு நீக்கு</i>இது அனுமதி தரும்."
 
-#: kregexpeditorprivate.cpp:110
+#: kregexpeditorprivate.cpp:109
 #, fuzzy, kde-format
 msgid "ASCII syntax:"
 msgstr "ஆஸ்கி தொடரமைப்பு: "
 
-#: kregexpeditorprivate.cpp:124
+#: kregexpeditorprivate.cpp:123
 #, fuzzy, kde-format
 #| msgid ""
 #| "This is the regular expression in ASCII syntax. You are likely only to be "
@@ -463,7 +463,7 @@ msgstr ""
 "உருவாக்க வேண்டும்.<p>வரைகலை தொகுப்பை உபயோகித்தோ, மற்றும் தொகுப்பு வரியில் வழக்கமான "
 "கூற்றை உள்ளிட்டோ வழக்கமான கூற்றுகலை உருவாக்கலாம்."
 
-#: kregexpeditorprivate.cpp:348
+#: kregexpeditorprivate.cpp:347
 #, kde-format
 msgid "Could not open file '%1' for reading"
 msgstr "படிப்பதற்கு கோப்பினை '%1'  திறக்க முடியவில்லை"
@@ -622,12 +622,12 @@ msgstr ""
 msgid "Back reference regular expressions not supported"
 msgstr "வழக்கமான தொடர்கள் Emacs-பானியால் ஆதரிக்கப்படாது என்பதை முன்நோக்கு. "
 
-#: regexpbuttons.cpp:38
+#: regexpbuttons.cpp:36
 #, kde-format
 msgid "Selection tool"
 msgstr "தேர்வுக் கருவி"
 
-#: regexpbuttons.cpp:40
+#: regexpbuttons.cpp:38
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This will change the state of the editor to <i>selection state</i>."
@@ -650,12 +650,12 @@ msgstr ""
 "பொருளை தேர்வு செய்தபின், வேட்டு/நகல்/ஒட்டு இதனை உபயோகிக்கலாம். இது எல்லாம் சுட்டியின் "
 "வலது பட்டியலில் இருக்கும்.</qt>"
 
-#: regexpbuttons.cpp:51
+#: regexpbuttons.cpp:49
 #, kde-format
 msgid "Text"
 msgstr "உரை"
 
-#: regexpbuttons.cpp:52
+#: regexpbuttons.cpp:50
 #, kde-format
 msgid ""
 "<qt>This will insert a text field, where you may write text. The text you "
@@ -665,12 +665,12 @@ msgstr ""
 "<qt>இது ஒரு உறை புலத்தை சொருகும், அங்கு உறையை ஏழுதலாம். ஏழுதிய உறைகல் அப்படியே "
 "பொருந்தும். (i.e. எந்த ஒரு எழுத்தையும் தவிற்க தேவையில்லை)</qt>"
 
-#: regexpbuttons.cpp:58
+#: regexpbuttons.cpp:56
 #, kde-format
 msgid "A single character specified in a range"
 msgstr "ஒரு ஒற்றை எழுத்து வரம்புகளில் குறுப்பிடப்படுகிறது"
 
-#: regexpbuttons.cpp:59
+#: regexpbuttons.cpp:57
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This will match a single character from a predefined range.<p>When "
@@ -685,22 +685,22 @@ msgstr ""
 "ஒரு உறையாடல் பேட்டி தோண்றும், அது எந்த எழுத்து பொருந்தும் என்பதை<i>regexp பொருள்</i> "
 "குறிப்பிடும்.</qt>"
 
-#: regexpbuttons.cpp:64
+#: regexpbuttons.cpp:62
 #, kde-format
 msgid "Any character"
 msgstr "ஏதாவது எழுத்து "
 
-#: regexpbuttons.cpp:64
+#: regexpbuttons.cpp:62
 #, kde-format
 msgid "<qt>This will match any single character</qt>"
 msgstr "<qt>இது ஏதாவது ஒரு ஒற்றை எழுத்தை பொருத்தும்</qt> "
 
-#: regexpbuttons.cpp:69
+#: regexpbuttons.cpp:67
 #, kde-format
 msgid "Repeated content"
 msgstr "மறுமுறை தொகுப்பு "
 
-#: regexpbuttons.cpp:70
+#: regexpbuttons.cpp:68
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it "
@@ -730,7 +730,7 @@ msgstr ""
 "<i>regexp பொருள்</i> காலி சரத்தில் பொருந்தும், சரம் <tt>abc</tt>, சரம் <tt>abcabc</"
 "tt>, சரம் <tt>abcabcabcabc</tt>, இன்னும்...</qt>"
 
-#: regexpbuttons.cpp:85
+#: regexpbuttons.cpp:83
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This <i>regexp item</i> will match any of its alternatives.</p>You "
@@ -745,12 +745,12 @@ msgstr ""
 "மேல் உள்ள விட்ஜடில் இரு பக்கதில் <i>regexp பொருள்</i> .</qt>மாற்று விருப்பத்தை "
 "குறிப்பிடலாம்."
 
-#: regexpbuttons.cpp:92
+#: regexpbuttons.cpp:90
 #, kde-format
 msgid "Compound regexp"
 msgstr "கூட்டுப்பதிவகத் தொடர் "
 
-#: regexpbuttons.cpp:93
+#: regexpbuttons.cpp:91
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it "
@@ -770,32 +770,32 @@ msgstr ""
 "இது உங்கள் பார்வைக்கு எளிதாக்கும். முன் அமைப்பு ஏற்றுக்கு இது மிகவும் உதவியாக "
 "இருக்கும்<i>regexp பொருள்</i> உள்ளே நடக்கும் வேலையை பற்றி யோசிக்க வேண்டாம்."
 
-#: regexpbuttons.cpp:100
+#: regexpbuttons.cpp:98
 #, kde-format
 msgid "Beginning of line"
 msgstr "கோட்டின் தொடக்கம்"
 
-#: regexpbuttons.cpp:100
+#: regexpbuttons.cpp:98
 #, kde-format
 msgid "<qt>This will match the beginning of a line.</qt>"
 msgstr "<qt>இது தொடக்க கோட்டினை பொருந்தச்செய்யும்.</qt>"
 
-#: regexpbuttons.cpp:103
+#: regexpbuttons.cpp:101
 #, kde-format
 msgid "End of line"
 msgstr "கோட்டின் முடிவு"
 
-#: regexpbuttons.cpp:103
+#: regexpbuttons.cpp:101
 #, kde-format
 msgid "<qt>This will match the end of a line.</qt>"
 msgstr "<qt>இது இறுதி கோட்டினை பொருந்தச்செய்யும்</qt>"
 
-#: regexpbuttons.cpp:108
+#: regexpbuttons.cpp:106
 #, kde-format
 msgid "Word boundary"
 msgstr "வார்த்தை எல்லை"
 
-#: regexpbuttons.cpp:109
+#: regexpbuttons.cpp:107
 #, kde-format
 msgid ""
 "<qt>This asserts a word boundary (This part does not actually match any "
@@ -804,12 +804,12 @@ msgstr ""
 "<qt>உறுதியாகக் கூறு ஒரு எழுத்து எல்லை(உண்மையில் இந்த பகுதி எந்த எழுத்தையும் "
 "பொருத்தாது).</qt> "
 
-#: regexpbuttons.cpp:114
+#: regexpbuttons.cpp:112
 #, kde-format
 msgid "Non Word boundary"
 msgstr "எழுத்தஅற்ற எல்லை"
 
-#: regexpbuttons.cpp:115
+#: regexpbuttons.cpp:113
 #, kde-format
 msgid ""
 "<qt>This asserts a non-word boundary (This part does not actually match any "
@@ -818,12 +818,12 @@ msgstr ""
 "<qt>உறுதியாகக் கூறு ஒரு எழுத்து அற்ற எல்லை(உண்மையில் இந்த பகுதி எந்த எழுத்தையும் "
 "பொருத்தாது).</qt> "
 
-#: regexpbuttons.cpp:121
+#: regexpbuttons.cpp:119
 #, kde-format
 msgid "Positive Look Ahead"
 msgstr "நல்ல நோக்கத்துடன் நோக்கு "
 
-#: regexpbuttons.cpp:122
+#: regexpbuttons.cpp:120
 #, kde-format
 msgid ""
 "<qt>This asserts a regular expression (This part does not actually match any "
@@ -832,12 +832,12 @@ msgstr ""
 "<qt>உறுதியாகக் கூறு ஒரு வழக்கமான தொடர்(உண்மையில் இந்த பகுதி எந்த எழுத்தையும் "
 "பொருத்தாது).உங்களால் இதை வழக்கமான தொடரின் முடிவில் மட்டும் பயன்படுத்த முடியும்(</qt> "
 
-#: regexpbuttons.cpp:128
+#: regexpbuttons.cpp:126
 #, kde-format
 msgid "Negative Look Ahead"
 msgstr "கெட்ட நோக்கத்துடன்  நோக்கு"
 
-#: regexpbuttons.cpp:129
+#: regexpbuttons.cpp:127
 #, kde-format
 msgid ""
 "<qt>This asserts a regular expression that must not match (This part does "

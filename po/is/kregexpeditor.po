@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:40+0000\n"
+"POT-Creation-Date: 2024-07-27 00:44+0000\n"
 "PO-Revision-Date: 2010-04-16 15:01+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
@@ -33,7 +33,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stigur@vortex.is"
 
-#: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:84
+#: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:82
 #, kde-format
 msgid "Alternatives"
 msgstr "Valkostir"
@@ -376,12 +376,12 @@ msgstr "Bæta við"
 msgid "Widget Configuration"
 msgstr "Stillingar"
 
-#: kregexpeditorprivate.cpp:48
+#: kregexpeditorprivate.cpp:47
 #, fuzzy, kde-format
 msgid "Compound regular expression:"
 msgstr "Samsett regluleg segð:"
 
-#: kregexpeditorprivate.cpp:50
+#: kregexpeditorprivate.cpp:49
 #, fuzzy, kde-format
 msgid ""
 "In this window you will find predefined regular expressions. Both regular "
@@ -389,7 +389,7 @@ msgid ""
 "with the system."
 msgstr "Inn regluleg Bæði regluleg og og regluleg með."
 
-#: kregexpeditorprivate.cpp:60
+#: kregexpeditorprivate.cpp:59
 #, fuzzy, kde-format
 msgid ""
 "In this window you will develop your regular expressions. Select one of the "
@@ -397,7 +397,7 @@ msgid ""
 "insert the given action."
 msgstr "Inn regluleg Velja einn og \"."
 
-#: kregexpeditorprivate.cpp:69
+#: kregexpeditorprivate.cpp:68
 #, fuzzy, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
@@ -410,12 +410,12 @@ msgstr ""
 "Tegund \" \" og regluleg<p> passa við \" og passa við<p> regluleg \"<i></i> "
 "regluleg"
 
-#: kregexpeditorprivate.cpp:110
+#: kregexpeditorprivate.cpp:109
 #, fuzzy, kde-format
 msgid "ASCII syntax:"
 msgstr "ASCII málskipan:"
 
-#: kregexpeditorprivate.cpp:124
+#: kregexpeditorprivate.cpp:123
 #, fuzzy, kde-format
 msgid ""
 "<p>This is the regular expression in ASCII syntax. You are likely only to be "
@@ -425,7 +425,7 @@ msgid ""
 "line edit.</p>"
 msgstr "regluleg \" Þú \" a og a regluleg<p> Þú regluleg og regluleg \" lína"
 
-#: kregexpeditorprivate.cpp:348
+#: kregexpeditorprivate.cpp:347
 #, fuzzy, kde-format
 msgid "Could not open file '%1' for reading"
 msgstr "Gat ekki opnað skrá '%1' til að lesa"
@@ -580,12 +580,12 @@ msgstr ""
 msgid "Back reference regular expressions not supported"
 msgstr "Útlit regluleg \""
 
-#: regexpbuttons.cpp:38
+#: regexpbuttons.cpp:36
 #, kde-format
 msgid "Selection tool"
 msgstr "Valtól"
 
-#: regexpbuttons.cpp:40
+#: regexpbuttons.cpp:38
 #, fuzzy, kde-format
 msgid ""
 "<p>This will change the state of the editor to <i>selection state</i>.</"
@@ -596,12 +596,12 @@ msgid ""
 "mouse button menu.</p>"
 msgstr "<qt><i></i><p> Inn<i></i> Til a og<p> a \"</qt>"
 
-#: regexpbuttons.cpp:51
+#: regexpbuttons.cpp:49
 #, kde-format
 msgid "Text"
 msgstr "Texti"
 
-#: regexpbuttons.cpp:52
+#: regexpbuttons.cpp:50
 #, kde-format
 msgid ""
 "<qt>This will insert a text field, where you may write text. The text you "
@@ -611,12 +611,12 @@ msgstr ""
 "<qt>Þetta setur inn textasvæði þar sem þú getur skrifað texta. (þ.e. þú "
 "þarft ekki að 'eskeipa' nein tákn)</qt>"
 
-#: regexpbuttons.cpp:58
+#: regexpbuttons.cpp:56
 #, kde-format
 msgid "A single character specified in a range"
 msgstr "Eitt tákn tilgreint á bili"
 
-#: regexpbuttons.cpp:59
+#: regexpbuttons.cpp:57
 #, fuzzy, kde-format
 msgid ""
 "<p>This will match a single character from a predefined range.</p><p>When "
@@ -624,22 +624,22 @@ msgid ""
 "which characters this <i>regexp item</i> will match.</p>"
 msgstr "<qt> passa við a a<p> a kassi<i></i> passa við</qt>"
 
-#: regexpbuttons.cpp:64
+#: regexpbuttons.cpp:62
 #, kde-format
 msgid "Any character"
 msgstr "Hvaða tákn sem er"
 
-#: regexpbuttons.cpp:64
+#: regexpbuttons.cpp:62
 #, kde-format
 msgid "<qt>This will match any single character</qt>"
 msgstr "<qt>Þetta finnur hvaða eitt samsvarandi tákn</qt>"
 
-#: regexpbuttons.cpp:69
+#: regexpbuttons.cpp:67
 #, kde-format
 msgid "Repeated content"
 msgstr "Endurtaka innihald"
 
-#: regexpbuttons.cpp:70
+#: regexpbuttons.cpp:68
 #, fuzzy, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
@@ -655,7 +655,7 @@ msgstr ""
 "Dæmi<br> passa við<i></i> tími og<tt></tt><i></i> passa við tómt<tt></"
 "tt><tt></tt><tt></tt></qt>"
 
-#: regexpbuttons.cpp:85
+#: regexpbuttons.cpp:83
 #, fuzzy, kde-format
 msgid ""
 "<p>This <i>regexp item</i> will match any of its alternatives.</"
@@ -663,12 +663,12 @@ msgid ""
 "each other inside this widget.</p>"
 msgstr "<qt><i></i> passa við</p> Þú<i></i> á</qt>"
 
-#: regexpbuttons.cpp:92
+#: regexpbuttons.cpp:90
 #, kde-format
 msgid "Compound regexp"
 msgstr "Samsett regexp"
 
-#: regexpbuttons.cpp:93
+#: regexpbuttons.cpp:91
 #, fuzzy, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
@@ -679,68 +679,68 @@ msgid ""
 msgstr ""
 "<qt><i></i> tveir<ul><li> fyrir a<i></i> a kassi fyrir<i></i> a<i></i>."
 
-#: regexpbuttons.cpp:100
+#: regexpbuttons.cpp:98
 #, kde-format
 msgid "Beginning of line"
 msgstr "Í byrjun línu"
 
-#: regexpbuttons.cpp:100
+#: regexpbuttons.cpp:98
 #, kde-format
 msgid "<qt>This will match the beginning of a line.</qt>"
 msgstr "<qt>Þetta finnur samsvarandi byrjun línu.</qt>"
 
-#: regexpbuttons.cpp:103
+#: regexpbuttons.cpp:101
 #, kde-format
 msgid "End of line"
 msgstr "Í enda línu"
 
-#: regexpbuttons.cpp:103
+#: regexpbuttons.cpp:101
 #, fuzzy, kde-format
 msgid "<qt>This will match the end of a line.</qt>"
 msgstr "<qt> passa við a lína</qt>"
 
-#: regexpbuttons.cpp:108
+#: regexpbuttons.cpp:106
 #, kde-format
 msgid "Word boundary"
 msgstr "Orðamörk"
 
-#: regexpbuttons.cpp:109
+#: regexpbuttons.cpp:107
 #, fuzzy, kde-format
 msgid ""
 "<qt>This asserts a word boundary (This part does not actually match any "
 "characters)</qt>"
 msgstr "<qt> a passa við</qt>"
 
-#: regexpbuttons.cpp:114
+#: regexpbuttons.cpp:112
 #, fuzzy, kde-format
 msgid "Non Word boundary"
 msgstr "Án orðamarka"
 
-#: regexpbuttons.cpp:115
+#: regexpbuttons.cpp:113
 #, fuzzy, kde-format
 msgid ""
 "<qt>This asserts a non-word boundary (This part does not actually match any "
 "characters)</qt>"
 msgstr "<qt> a passa við</qt>"
 
-#: regexpbuttons.cpp:121
+#: regexpbuttons.cpp:119
 #, fuzzy, kde-format
 msgid "Positive Look Ahead"
 msgstr "Jákvætt Útlit"
 
-#: regexpbuttons.cpp:122
+#: regexpbuttons.cpp:120
 #, fuzzy, kde-format
 msgid ""
 "<qt>This asserts a regular expression (This part does not actually match any "
 "characters). You can only use this at the end of a regular expression.</qt>"
 msgstr "<qt> a regluleg passa við Þú a regluleg</qt>"
 
-#: regexpbuttons.cpp:128
+#: regexpbuttons.cpp:126
 #, fuzzy, kde-format
 msgid "Negative Look Ahead"
 msgstr "Neikvætt Útlit"
 
-#: regexpbuttons.cpp:129
+#: regexpbuttons.cpp:127
 #, fuzzy, kde-format
 msgid ""
 "<qt>This asserts a regular expression that must not match (This part does "
