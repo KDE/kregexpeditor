@@ -174,7 +174,7 @@ RepeatRangeWindow::RepeatRangeWindow(QWidget *parent)
     QGridLayout *groupLayout = new QGridLayout(_groupWidget);
 
     // Any number of times
-    QRadioButton *radioBut = new QRadioButton(i18n("Any number of times (including zero times)"));
+    QRadioButton *radioBut = new QRadioButton(i18nc("@option:radio", "Any number of times (including zero times)"));
     radioBut->setObjectName(QStringLiteral("RepeatRangeWindow::choice any times"));
 
     groupLayout->addWidget(radioBut, 0, 0, 1, 3);
@@ -186,7 +186,7 @@ RepeatRangeWindow::RepeatRangeWindow(QWidget *parent)
     createLine(groupLayout, i18n("Exactly"), &_exactlyTimes, EXACTLY);
 
     // from ___ to ___ times
-    radioBut = new QRadioButton(i18n("From"));
+    radioBut = new QRadioButton(i18nc("@option:radio", "From"));
     radioBut->setObjectName(QStringLiteral("RepeatRangeWindow::from"));
     groupLayout->addWidget(radioBut, 4, 0);
     _group->addButton(radioBut, MINMAX);

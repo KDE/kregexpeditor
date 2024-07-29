@@ -272,7 +272,7 @@ CharacterEdits::CharacterEdits(QWidget *parent)
     topLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->addWidget(top);
 
-    negate = new QCheckBox(i18n("Do not match the characters specified here"));
+    negate = new QCheckBox(i18nc("@option:check", "Do not match the characters specified here"));
     topLayout->addWidget(negate);
 
     // The predefined box
@@ -280,18 +280,18 @@ CharacterEdits::CharacterEdits(QWidget *parent)
     topLayout->addWidget(predefined);
     QGridLayout *predefinedLayout = new QGridLayout(predefined);
 
-    wordChar = new QCheckBox(i18n("A word character"));
+    wordChar = new QCheckBox(i18nc("@option:check", "A word character"));
     predefinedLayout->addWidget(wordChar, 0, 0);
-    digit = new QCheckBox(i18n("A digit character"));
+    digit = new QCheckBox(i18nc("@option:check", "A digit character"));
     predefinedLayout->addWidget(digit, 0, 1);
-    space = new QCheckBox(i18n("A space character"));
+    space = new QCheckBox(i18nc("@option:check", "A space character"));
     predefinedLayout->addWidget(space, 0, 2);
 
-    _nonWordChar = new QCheckBox(i18n("A non-word character"));
+    _nonWordChar = new QCheckBox(i18nc("@option:check", "A non-word character"));
     predefinedLayout->addWidget(_nonWordChar, 1, 0);
-    _nonDigit = new QCheckBox(i18n("A non-digit character"));
+    _nonDigit = new QCheckBox(i18nc("@option:check", "A non-digit character"));
     predefinedLayout->addWidget(_nonDigit, 1, 1);
-    _nonSpace = new QCheckBox(i18n("A non-space character"));
+    _nonSpace = new QCheckBox(i18nc("@option:check", "A non-space character"));
     predefinedLayout->addWidget(_nonSpace, 1, 2);
 
     // Single characters
