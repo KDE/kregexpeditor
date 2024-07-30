@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:44+0000\n"
+"POT-Creation-Date: 2024-07-30 00:44+0000\n"
 "PO-Revision-Date: 2017-07-28 09:31+0100\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -92,7 +92,9 @@ msgid "Specify Characters"
 msgstr "Especificar os Caracteres"
 
 #: characterswidget.cpp:275
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Do not match the characters specified here"
+msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr "Não corresponder com os caracteres aqui indicados"
 
@@ -102,32 +104,44 @@ msgid "Predefined Character Ranges"
 msgstr "Gamas de Caracteres Predefinidos"
 
 #: characterswidget.cpp:283
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A word character"
+msgctxt "@option:check"
 msgid "A word character"
 msgstr "Um carácter alfabético"
 
 #: characterswidget.cpp:285
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A digit character"
+msgctxt "@option:check"
 msgid "A digit character"
 msgstr "Um carácter numérico"
 
 #: characterswidget.cpp:287
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A space character"
+msgctxt "@option:check"
 msgid "A space character"
 msgstr "Um carácter de espaço"
 
 #: characterswidget.cpp:290
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A non-word character"
+msgctxt "@option:check"
 msgid "A non-word character"
 msgstr "Um carácter não-alfabético"
 
 #: characterswidget.cpp:292
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A non-digit character"
+msgctxt "@option:check"
 msgid "A non-digit character"
 msgstr "Um carácter não-numérico"
 
 #: characterswidget.cpp:294
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A non-space character"
+msgctxt "@option:check"
 msgid "A non-space character"
 msgstr "Um carácter diferente de espaço"
 
@@ -213,7 +227,9 @@ msgid "&Description:"
 msgstr "&Descrição:"
 
 #: compoundwidget.cpp:47
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Automatically replace using this item"
+msgctxt "@option:check"
 msgid "&Automatically replace using this item"
 msgstr "Substituir &automaticamente por este item"
 
@@ -925,7 +941,9 @@ msgid "Times to Match"
 msgstr "Número de Vezes a Corresponder"
 
 #: repeatwidget.cpp:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Any number of times (including zero times)"
+msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr "Qualquer número de vezes (incluindo zero vezes)"
 
@@ -945,7 +963,9 @@ msgid "Exactly"
 msgstr "Exactamente"
 
 #: repeatwidget.cpp:189
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "From"
+msgctxt "@option:radio"
 msgid "From"
 msgstr "De"
 

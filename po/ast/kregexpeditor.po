@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:44+0000\n"
+"POT-Creation-Date: 2024-07-30 00:44+0000\n"
 "PO-Revision-Date: 2024-03-27 22:50+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -95,6 +95,7 @@ msgstr ""
 
 #: characterswidget.cpp:275
 #, kde-format
+msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr ""
 
@@ -105,31 +106,37 @@ msgstr ""
 
 #: characterswidget.cpp:283
 #, kde-format
+msgctxt "@option:check"
 msgid "A word character"
 msgstr ""
 
 #: characterswidget.cpp:285
 #, kde-format
+msgctxt "@option:check"
 msgid "A digit character"
 msgstr ""
 
 #: characterswidget.cpp:287
 #, kde-format
+msgctxt "@option:check"
 msgid "A space character"
 msgstr ""
 
 #: characterswidget.cpp:290
 #, kde-format
+msgctxt "@option:check"
 msgid "A non-word character"
 msgstr ""
 
 #: characterswidget.cpp:292
 #, kde-format
+msgctxt "@option:check"
 msgid "A non-digit character"
 msgstr ""
 
 #: characterswidget.cpp:294
 #, kde-format
+msgctxt "@option:check"
 msgid "A non-space character"
 msgstr ""
 
@@ -216,6 +223,7 @@ msgstr ""
 
 #: compoundwidget.cpp:47
 #, kde-format
+msgctxt "@option:check"
 msgid "&Automatically replace using this item"
 msgstr ""
 
@@ -826,6 +834,7 @@ msgstr ""
 
 #: repeatwidget.cpp:177
 #, kde-format
+msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr ""
 
@@ -846,6 +855,7 @@ msgstr ""
 
 #: repeatwidget.cpp:189
 #, kde-format
+msgctxt "@option:radio"
 msgid "From"
 msgstr ""
 

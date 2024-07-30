@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:44+0000\n"
+"POT-Creation-Date: 2024-07-30 00:44+0000\n"
 "PO-Revision-Date: 2013-03-29 17:47+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -95,6 +95,7 @@ msgstr ""
 
 #: characterswidget.cpp:275
 #, kde-format
+msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr ""
 
@@ -104,34 +105,46 @@ msgid "Predefined Character Ranges"
 msgstr ""
 
 #: characterswidget.cpp:283
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Any character"
+msgctxt "@option:check"
 msgid "A word character"
-msgstr ""
+msgstr "कोणतेही अक्षर"
 
 #: characterswidget.cpp:285
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Any character"
+msgctxt "@option:check"
 msgid "A digit character"
-msgstr ""
+msgstr "कोणतेही अक्षर"
 
 #: characterswidget.cpp:287
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Any character"
+msgctxt "@option:check"
 msgid "A space character"
-msgstr ""
+msgstr "कोणतेही अक्षर"
 
 #: characterswidget.cpp:290
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Any character"
+msgctxt "@option:check"
 msgid "A non-word character"
-msgstr ""
+msgstr "कोणतेही अक्षर"
 
 #: characterswidget.cpp:292
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Any character"
+msgctxt "@option:check"
 msgid "A non-digit character"
-msgstr ""
+msgstr "कोणतेही अक्षर"
 
 #: characterswidget.cpp:294
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Any character"
+msgctxt "@option:check"
 msgid "A non-space character"
-msgstr ""
+msgstr "कोणतेही अक्षर"
 
 #: characterswidget.cpp:298
 #, kde-format
@@ -216,6 +229,7 @@ msgstr "वर्णन (&D):"
 
 #: compoundwidget.cpp:47
 #, kde-format
+msgctxt "@option:check"
 msgid "&Automatically replace using this item"
 msgstr ""
 
@@ -826,6 +840,7 @@ msgstr ""
 
 #: repeatwidget.cpp:177
 #, kde-format
+msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr ""
 
@@ -845,7 +860,9 @@ msgid "Exactly"
 msgstr ""
 
 #: repeatwidget.cpp:189
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "From"
+msgctxt "@option:radio"
 msgid "From"
 msgstr "पासून"
 

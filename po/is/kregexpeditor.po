@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:44+0000\n"
+"POT-Creation-Date: 2024-07-30 00:44+0000\n"
 "PO-Revision-Date: 2010-04-16 15:01+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
@@ -100,7 +100,9 @@ msgid "Specify Characters"
 msgstr "Tilgreindu tákn"
 
 #: characterswidget.cpp:275
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Do not match the characters specified here"
+msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr "Ekki finna hliðstæðu við tákn tilgreind hér"
 
@@ -111,31 +113,37 @@ msgstr "Forskilgreind stafabil"
 
 #: characterswidget.cpp:283
 #, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "A word character"
 msgstr "A"
 
 #: characterswidget.cpp:285
 #, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "A digit character"
 msgstr "A"
 
 #: characterswidget.cpp:287
 #, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "A space character"
 msgstr "A"
 
 #: characterswidget.cpp:290
 #, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "A non-word character"
 msgstr "A"
 
 #: characterswidget.cpp:292
 #, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "A non-digit character"
 msgstr "A"
 
 #: characterswidget.cpp:294
 #, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "A non-space character"
 msgstr "A"
 
@@ -221,7 +229,9 @@ msgid "&Description:"
 msgstr "&Lýsing:"
 
 #: compoundwidget.cpp:47
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Automatically replace using this item"
+msgctxt "@option:check"
 msgid "&Automatically replace using this item"
 msgstr "Skipt&a sjálfvirkt út með þessum hlut"
 
@@ -849,7 +859,9 @@ msgid "Times to Match"
 msgstr "Hve oft finna samsvörun"
 
 #: repeatwidget.cpp:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Any number of times (including zero times)"
+msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr "Hve oft sem er (þ.m.t. núll sinnum)"
 
@@ -869,7 +881,9 @@ msgid "Exactly"
 msgstr "Nákvæmlega"
 
 #: repeatwidget.cpp:189
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "From"
+msgctxt "@option:radio"
 msgid "From"
 msgstr "Frá"
 

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:44+0000\n"
+"POT-Creation-Date: 2024-07-30 00:44+0000\n"
 "PO-Revision-Date: 2024-07-23 21:52+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -99,7 +99,9 @@ msgid "Specify Characters"
 msgstr "指定字元"
 
 #: characterswidget.cpp:275
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Do not match the characters specified here"
+msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr "不要匹配在這指定的字元"
 
@@ -109,32 +111,44 @@ msgid "Predefined Character Ranges"
 msgstr "預先定義的字元範圍"
 
 #: characterswidget.cpp:283
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A word character"
+msgctxt "@option:check"
 msgid "A word character"
 msgstr "單字字元"
 
 #: characterswidget.cpp:285
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A digit character"
+msgctxt "@option:check"
 msgid "A digit character"
 msgstr "數字字元"
 
 #: characterswidget.cpp:287
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A space character"
+msgctxt "@option:check"
 msgid "A space character"
 msgstr "空白字元"
 
 #: characterswidget.cpp:290
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A non-word character"
+msgctxt "@option:check"
 msgid "A non-word character"
 msgstr "非單字字元"
 
 #: characterswidget.cpp:292
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A non-digit character"
+msgctxt "@option:check"
 msgid "A non-digit character"
 msgstr "非數字字元"
 
 #: characterswidget.cpp:294
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A non-space character"
+msgctxt "@option:check"
 msgid "A non-space character"
 msgstr "非空白字元"
 
@@ -220,7 +234,9 @@ msgid "&Description:"
 msgstr "描述(&D)："
 
 #: compoundwidget.cpp:47
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Automatically replace using this item"
+msgctxt "@option:check"
 msgid "&Automatically replace using this item"
 msgstr "自動使用此項目取代(&A)"
 
@@ -881,7 +897,9 @@ msgid "Times to Match"
 msgstr "匹配次數"
 
 #: repeatwidget.cpp:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Any number of times (including zero times)"
+msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr "任何次數（包括 0 次）"
 
@@ -901,7 +919,9 @@ msgid "Exactly"
 msgstr "準確地"
 
 #: repeatwidget.cpp:189
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "From"
+msgctxt "@option:radio"
 msgid "From"
 msgstr "從"
 

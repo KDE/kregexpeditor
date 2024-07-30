@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:44+0000\n"
+"POT-Creation-Date: 2024-07-30 00:44+0000\n"
 "PO-Revision-Date: 2017-10-06 19:06+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -97,7 +97,9 @@ msgid "Specify Characters"
 msgstr "Καθορισμός χαρακτήρων"
 
 #: characterswidget.cpp:275
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Do not match the characters specified here"
+msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr "Να μην ταιριάζει με τους χαρακτήρες που καθορίζονται εδώ"
 
@@ -107,32 +109,44 @@ msgid "Predefined Character Ranges"
 msgstr "Προκαθορισμένα εύρη χαρακτήρων"
 
 #: characterswidget.cpp:283
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A word character"
+msgctxt "@option:check"
 msgid "A word character"
 msgstr "Ένας αλφαριθμητικός χαρακτήρας"
 
 #: characterswidget.cpp:285
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A digit character"
+msgctxt "@option:check"
 msgid "A digit character"
 msgstr "Ένας χαρακτήρας ψηφίου"
 
 #: characterswidget.cpp:287
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A space character"
+msgctxt "@option:check"
 msgid "A space character"
 msgstr "Ένας χαρακτήρας κενού"
 
 #: characterswidget.cpp:290
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A non-word character"
+msgctxt "@option:check"
 msgid "A non-word character"
 msgstr "Όχι αλφαριθμητικός χαρακτήρας"
 
 #: characterswidget.cpp:292
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A non-digit character"
+msgctxt "@option:check"
 msgid "A non-digit character"
 msgstr "Όχι χαρακτήρας ψηφίου"
 
 #: characterswidget.cpp:294
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A non-space character"
+msgctxt "@option:check"
 msgid "A non-space character"
 msgstr "Όχι κενός χαρακτήρας"
 
@@ -218,7 +232,9 @@ msgid "&Description:"
 msgstr "&Περιγραφή:"
 
 #: compoundwidget.cpp:47
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Automatically replace using this item"
+msgctxt "@option:check"
 msgid "&Automatically replace using this item"
 msgstr "&Αυτόματη αντικατάσταση με τη χρήση αυτού του αντικειμένου"
 
@@ -935,7 +951,9 @@ msgid "Times to Match"
 msgstr "Αριθμός ταιριασμάτων"
 
 #: repeatwidget.cpp:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Any number of times (including zero times)"
+msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr "Απεριόριστος (ακόμα και καμία φορά)"
 
@@ -955,7 +973,9 @@ msgid "Exactly"
 msgstr "Ακριβώς"
 
 #: repeatwidget.cpp:189
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "From"
+msgctxt "@option:radio"
 msgid "From"
 msgstr "Από"
 

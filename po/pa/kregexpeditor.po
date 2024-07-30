@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:44+0000\n"
+"POT-Creation-Date: 2024-07-30 00:44+0000\n"
 "PO-Revision-Date: 2009-12-17 20:40+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: Punjabi/Panjabi <punjabi-users@lists.sf.net>\n"
@@ -94,6 +94,7 @@ msgstr "ਅੱਖਰ ਦਿਓ"
 
 #: characterswidget.cpp:275
 #, kde-format
+msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr ""
 
@@ -103,34 +104,46 @@ msgid "Predefined Character Ranges"
 msgstr ""
 
 #: characterswidget.cpp:283
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A word character"
+msgctxt "@option:check"
 msgid "A word character"
 msgstr "ਇੱਕ ਸ਼ਬਦ ਅੱਖਰ"
 
 #: characterswidget.cpp:285
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A digit character"
+msgctxt "@option:check"
 msgid "A digit character"
 msgstr "ਇੱਕ ਅੰਕ ਅੱਖਰ"
 
 #: characterswidget.cpp:287
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Any character"
+msgctxt "@option:check"
 msgid "A space character"
-msgstr ""
+msgstr "ਕੋਈ ਵੀ ਅੱਖਰ"
 
 #: characterswidget.cpp:290
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A non-word character"
+msgctxt "@option:check"
 msgid "A non-word character"
 msgstr "ਇੱਕ ਗ਼ੈਰ-ਸ਼ਬਦ ਅੱਖਰ"
 
 #: characterswidget.cpp:292
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A digit character"
+msgctxt "@option:check"
 msgid "A non-digit character"
-msgstr ""
+msgstr "ਇੱਕ ਅੰਕ ਅੱਖਰ"
 
 #: characterswidget.cpp:294
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A non-word character"
+msgctxt "@option:check"
 msgid "A non-space character"
-msgstr ""
+msgstr "ਇੱਕ ਗ਼ੈਰ-ਸ਼ਬਦ ਅੱਖਰ"
 
 #: characterswidget.cpp:298
 #, kde-format
@@ -214,7 +227,9 @@ msgid "&Description:"
 msgstr "ਵੇਰਵਾ(&D):"
 
 #: compoundwidget.cpp:47
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Automatically replace using this item"
+msgctxt "@option:check"
 msgid "&Automatically replace using this item"
 msgstr "ਇਸ ਆਈਟਮ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਆਟੋਮੈਟਿਕ ਬਦਲੋ(&A)"
 
@@ -827,6 +842,7 @@ msgstr ""
 
 #: repeatwidget.cpp:177
 #, kde-format
+msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr ""
 
@@ -846,7 +862,9 @@ msgid "Exactly"
 msgstr ""
 
 #: repeatwidget.cpp:189
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "From"
+msgctxt "@option:radio"
 msgid "From"
 msgstr "ਤੋਂ"
 

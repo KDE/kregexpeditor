@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:44+0000\n"
+"POT-Creation-Date: 2024-07-30 00:44+0000\n"
 "PO-Revision-Date: 2008-01-04 09:27+0200\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@gmail.com>\n"
 "Language-Team: Belarusian (Official spelling) <i18n@mova.org>\n"
@@ -97,7 +97,9 @@ msgid "Specify Characters"
 msgstr "Вызначаныя знакі"
 
 #: characterswidget.cpp:275
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Do not match the characters specified here"
+msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr "Акрамя знакаў"
 
@@ -107,32 +109,44 @@ msgid "Predefined Character Ranges"
 msgstr "Групы знакаў"
 
 #: characterswidget.cpp:283
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A word character"
+msgctxt "@option:check"
 msgid "A word character"
 msgstr "Літара"
 
 #: characterswidget.cpp:285
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A digit character"
+msgctxt "@option:check"
 msgid "A digit character"
 msgstr "Лічба"
 
 #: characterswidget.cpp:287
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A space character"
+msgctxt "@option:check"
 msgid "A space character"
 msgstr "Пусты падзельнік"
 
 #: characterswidget.cpp:290
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A non-word character"
+msgctxt "@option:check"
 msgid "A non-word character"
 msgstr "Не літара"
 
 #: characterswidget.cpp:292
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A non-digit character"
+msgctxt "@option:check"
 msgid "A non-digit character"
 msgstr "Не лічба"
 
 #: characterswidget.cpp:294
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A non-space character"
+msgctxt "@option:check"
 msgid "A non-space character"
 msgstr "Не падзельнік"
 
@@ -219,6 +233,7 @@ msgstr "&Апісанне:"
 
 #: compoundwidget.cpp:47
 #, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "&Automatically replace using this item"
 msgstr "Замяніць"
 
@@ -895,6 +910,7 @@ msgstr "Лік супадзенняў"
 
 #: repeatwidget.cpp:177
 #, fuzzy, kde-format
+msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr "Некалькі раз (уключаючы нуль раз)"
 
@@ -915,6 +931,7 @@ msgstr "Сапраўды"
 
 #: repeatwidget.cpp:189
 #, fuzzy, kde-format
+msgctxt "@option:radio"
 msgid "From"
 msgstr "Ад"
 

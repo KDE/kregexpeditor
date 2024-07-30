@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:44+0000\n"
+"POT-Creation-Date: 2024-07-30 00:44+0000\n"
 "PO-Revision-Date: 2013-04-13 14:32+0300\n"
 "Last-Translator: Liudas Ališauskas <liudas@akmc.lt>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -97,6 +97,7 @@ msgstr ""
 
 #: characterswidget.cpp:275
 #, kde-format
+msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr ""
 
@@ -106,34 +107,40 @@ msgid "Predefined Character Ranges"
 msgstr ""
 
 #: characterswidget.cpp:283
-#, kde-format
+#, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "A word character"
-msgstr ""
+msgstr "Bet koks simbolis"
 
 #: characterswidget.cpp:285
-#, kde-format
+#, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "A digit character"
-msgstr ""
+msgstr "Bet koks simbolis"
 
 #: characterswidget.cpp:287
-#, kde-format
+#, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "A space character"
-msgstr ""
+msgstr "Bet koks simbolis"
 
 #: characterswidget.cpp:290
-#, kde-format
+#, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "A non-word character"
-msgstr ""
+msgstr "Bet koks simbolis"
 
 #: characterswidget.cpp:292
-#, kde-format
+#, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "A non-digit character"
-msgstr ""
+msgstr "Bet koks simbolis"
 
 #: characterswidget.cpp:294
-#, kde-format
+#, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "A non-space character"
-msgstr ""
+msgstr "Bet koks simbolis"
 
 #: characterswidget.cpp:298
 #, kde-format
@@ -218,6 +225,7 @@ msgstr "&Aprašymas:"
 
 #: compoundwidget.cpp:47
 #, kde-format
+msgctxt "@option:check"
 msgid "&Automatically replace using this item"
 msgstr ""
 
@@ -830,6 +838,7 @@ msgstr ""
 
 #: repeatwidget.cpp:177
 #, kde-format
+msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr ""
 
@@ -849,7 +858,9 @@ msgid "Exactly"
 msgstr "Tiksliai"
 
 #: repeatwidget.cpp:189
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "From"
+msgctxt "@option:radio"
 msgid "From"
 msgstr "Nuo"
 

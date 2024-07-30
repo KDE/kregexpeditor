@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:44+0000\n"
+"POT-Creation-Date: 2024-07-30 00:44+0000\n"
 "PO-Revision-Date: 2004-04-20 13:27+CEST\n"
 "Last-Translator: auto\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -98,6 +98,7 @@ msgstr "Navedite znake"
 
 #: characterswidget.cpp:275
 #, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr "Ne poklapaj ovdje navedene znakove"
 
@@ -108,31 +109,38 @@ msgstr "Predefinirani znakovni opsezi"
 
 #: characterswidget.cpp:283
 #, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "A word character"
 msgstr "Slovo"
 
 #: characterswidget.cpp:285
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A digit character"
+msgctxt "@option:check"
 msgid "A digit character"
 msgstr "Znamenka"
 
 #: characterswidget.cpp:287
 #, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "A space character"
 msgstr "Razmak"
 
 #: characterswidget.cpp:290
 #, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "A non-word character"
 msgstr "Ne-slovo"
 
 #: characterswidget.cpp:292
 #, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "A non-digit character"
 msgstr "Ne-cifra"
 
 #: characterswidget.cpp:294
 #, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "A non-space character"
 msgstr "Ne-razmak"
 
@@ -219,6 +227,7 @@ msgstr "Opis:"
 
 #: compoundwidget.cpp:47
 #, fuzzy, kde-format
+msgctxt "@option:check"
 msgid "&Automatically replace using this item"
 msgstr "&Automatski zamijenjuj koristeći ovu stavku"
 
@@ -857,6 +866,7 @@ msgstr "Poklopiti puta"
 
 #: repeatwidget.cpp:177
 #, fuzzy, kde-format
+msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr "Bilo koji broj puta (uključujući i nijednom)"
 
@@ -876,7 +886,9 @@ msgid "Exactly"
 msgstr "Točno"
 
 #: repeatwidget.cpp:189
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "From"
+msgctxt "@option:radio"
 msgid "From"
 msgstr "Od"
 
