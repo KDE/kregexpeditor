@@ -2,7 +2,7 @@
 # Translation of kregexpeditor.po to Slovenian
 # SLOVENIAN TRANSLATION OF KDEUTILS
 # Copyright (C) 2002,2003, 2004, 2005, 2006 Free Software Foundation, Inc.
-# $Id: kregexpeditor.po 1685899 2024-07-30 01:16:11Z scripty $
+# $Id: kregexpeditor.po 1685977 2024-07-31 01:15:53Z scripty $
 # $Source$
 #
 # Roman Maurer <roman.maurer@amis.net>, 2002.
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-30 00:44+0000\n"
-"PO-Revision-Date: 2024-01-11 09:18+0100\n"
+"PO-Revision-Date: 2024-07-30 09:47+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Jure Repinc <jlp@holodeck1.com>\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -107,11 +107,10 @@ msgid "Specify Characters"
 msgstr "Navedite znake"
 
 #: characterswidget.cpp:275
-#, fuzzy, kde-format
-#| msgid "Do not match the characters specified here"
+#, kde-format
 msgctxt "@option:check"
 msgid "Do not match the characters specified here"
-msgstr "Ne zadeni znakov, določenih tu"
+msgstr "Ne ujemaj se z znaki določenimi tukaj"
 
 #: characterswidget.cpp:279
 #, kde-format
@@ -119,43 +118,37 @@ msgid "Predefined Character Ranges"
 msgstr "Predefinirani obsegi znakov"
 
 #: characterswidget.cpp:283
-#, fuzzy, kde-format
-#| msgid "A word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A word character"
 msgstr "Besedni znak"
 
 #: characterswidget.cpp:285
-#, fuzzy, kde-format
-#| msgid "A digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A digit character"
 msgstr "Znak za števko"
 
 #: characterswidget.cpp:287
-#, fuzzy, kde-format
-#| msgid "A space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A space character"
 msgstr "Znak za presledek"
 
 #: characterswidget.cpp:290
-#, fuzzy, kde-format
-#| msgid "A non-word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-word character"
 msgstr "Nebesedni znak"
 
 #: characterswidget.cpp:292
-#, fuzzy, kde-format
-#| msgid "A non-digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-digit character"
 msgstr "Neštevčni znak"
 
 #: characterswidget.cpp:294
-#, fuzzy, kde-format
-#| msgid "A non-space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-space character"
 msgstr "Znak, ki ni presledek"
@@ -242,11 +235,10 @@ msgid "&Description:"
 msgstr "&Opis:"
 
 #: compoundwidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "&Automatically replace using this item"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Automatically replace using this item"
-msgstr "&Samodejno nadomesti z uporabo tega dela"
+msgstr "S&amodejno nadomesti z uporabo te postavke"
 
 #: compoundwidget.cpp:50
 #, kde-format
@@ -937,8 +929,7 @@ msgid "Times to Match"
 msgstr "Število ujemanj"
 
 #: repeatwidget.cpp:177
-#, fuzzy, kde-format
-#| msgid "Any number of times (including zero times)"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr "Katerokoli število pojavitev (vključno z nič)"
@@ -959,8 +950,7 @@ msgid "Exactly"
 msgstr "Natanko"
 
 #: repeatwidget.cpp:189
-#, fuzzy, kde-format
-#| msgid "From"
+#, kde-format
 msgctxt "@option:radio"
 msgid "From"
 msgstr "Od"

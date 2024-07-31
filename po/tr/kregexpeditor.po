@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: playground-utils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-30 00:44+0000\n"
-"PO-Revision-Date: 2024-01-11 16:09+0300\n"
+"PO-Revision-Date: 2024-07-30 18:58+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.85\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -52,38 +52,38 @@ msgstr "Geçersiz Seçim"
 #: characterswidget.cpp:102
 #, kde-format
 msgid "- A word character\n"
-msgstr "- Bir sözcük karakteri\n"
+msgstr "— Bir sözcük karakteri\n"
 
 #: characterswidget.cpp:106
 #, kde-format
 msgid "- A non-word character\n"
-msgstr "- Sözcük olmayan karakter\n"
+msgstr "— Sözcük olmayan karakter\n"
 
 #: characterswidget.cpp:110
 #, kde-format
 msgid "- A digit character\n"
-msgstr "- Rakam karakteri\n"
+msgstr "— Rakam karakteri\n"
 
 #: characterswidget.cpp:114
 #, kde-format
 msgid "- A non-digit character\n"
-msgstr "- Rakam olmayan karakter\n"
+msgstr "— Rakam olmayan karakter\n"
 
 #: characterswidget.cpp:118
 #, kde-format
 msgid "- A space character\n"
-msgstr "- Boşluk karakteri\n"
+msgstr "— Boşluk karakteri\n"
 
 #: characterswidget.cpp:122
 #, kde-format
 msgid "- A non-space character\n"
-msgstr "- Boşluk olmayan karakter\n"
+msgstr "— Boşluk olmayan karakter\n"
 
 #: characterswidget.cpp:137
 #, kde-format
 msgctxt "a range of characters"
 msgid "- from %1 to %2\n"
-msgstr "- %1 ile %2 arası\n"
+msgstr "— %1 ile %2 arası\n"
 
 #: characterswidget.cpp:145
 #, kde-format
@@ -101,11 +101,10 @@ msgid "Specify Characters"
 msgstr "Karakterleri Belirle"
 
 #: characterswidget.cpp:275
-#, fuzzy, kde-format
-#| msgid "Do not match the characters specified here"
+#, kde-format
 msgctxt "@option:check"
 msgid "Do not match the characters specified here"
-msgstr "Burda belirtilmiş karakterlerle eşleştirme"
+msgstr "Burada belirtilen karakterlerle eşleştirme"
 
 #: characterswidget.cpp:279
 #, kde-format
@@ -113,46 +112,40 @@ msgid "Predefined Character Ranges"
 msgstr "Önceden Tanımlanmış Karakter Aralıkları"
 
 #: characterswidget.cpp:283
-#, fuzzy, kde-format
-#| msgid "A word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A word character"
 msgstr "Bir sözcük karakteri"
 
 #: characterswidget.cpp:285
-#, fuzzy, kde-format
-#| msgid "A digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A digit character"
 msgstr "Bir rakam karakteri"
 
 #: characterswidget.cpp:287
-#, fuzzy, kde-format
-#| msgid "A space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A space character"
 msgstr "Bir boşluk karakteri"
 
 #: characterswidget.cpp:290
-#, fuzzy, kde-format
-#| msgid "A non-word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-word character"
 msgstr "Sözcük olmayan karakter"
 
 #: characterswidget.cpp:292
-#, fuzzy, kde-format
-#| msgid "A non-digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-digit character"
-msgstr "rakam olmayan karakter"
+msgstr "Rakam olmayan karakter"
 
 #: characterswidget.cpp:294
-#, fuzzy, kde-format
-#| msgid "A non-space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-space character"
-msgstr "boşluk olmayan karakter"
+msgstr "Boşluk olmayan karakter"
 
 #: characterswidget.cpp:298
 #, kde-format
@@ -236,11 +229,10 @@ msgid "&Description:"
 msgstr "&Açıklama:"
 
 #: compoundwidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "&Automatically replace using this item"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Automatically replace using this item"
-msgstr "Bunu kullanarak &otomatik değiştir"
+msgstr "Bunu kullanarak &kendiliğinden değiştir"
 
 #: compoundwidget.cpp:50
 #, kde-format
@@ -272,7 +264,7 @@ msgid ""
 "Your regular expression is invalid, due to something preceding a 'line "
 "start'."
 msgstr ""
-"Bir 'satır başlangıc'ından önceki sebepten dolayı düzenli ifadeniz geçersiz."
+"Bir “satır başlangıcından“ önceki nedenden dolayı düzenli ifadeniz geçersiz."
 
 #: errormap.cpp:38 errormap.cpp:49 errormap.cpp:60
 #, kde-format
@@ -284,7 +276,7 @@ msgstr "Düzenli İfade Hatası"
 msgid ""
 "Your regular expression is invalid, due to something following a 'line end'."
 msgstr ""
-"Bir 'satır sonu'ndan sonraki sebepten dolayı düzenli ifadeniz geçersiz."
+"Bir “satır sonundan” sonraki nedenden dolayı düzenli ifadeniz geçersiz."
 
 #: errormap.cpp:59
 #, kde-format
@@ -292,7 +284,7 @@ msgid ""
 "Your regular expression is invalid. 'Look Ahead' regular expression must be "
 "the last sub expression."
 msgstr ""
-"Düzenli ifadeniz geçersiz. 'Look Ahead' düzenli ifadesi son alt ifade "
+"Düzenli ifadeniz geçersiz. “Look Ahead” düzenli ifadesi son alt ifade "
 "olmalıdır."
 
 #: infopage.cpp:22
@@ -320,10 +312,10 @@ msgstr ""
 "Düğmelerin bulunduğu satırda ise düzenleme eylemleri bulunur. Genel çizim "
 "programları ile aynı yapıdadır. Bir düzenleme aracını seçerek düzenli "
 "ifadenizi düzenlemeye başlayabilirsiniz ve ögeyi nereye eklemek istiyorsanız "
-"alanda oraya tıklayın.</p><p>Daha fazla detaylı bilgi içib <a href=\"doc://"
-"\">bilgi sayfası</a> tıklayın</p><h2>Düzenli ifade nedir?</h2>Bir düzenli "
-"ifadenin ne olduğunu bilmiyorsanız işte tam okumanız gerekenleri<a href="
-"\"doc://whatIsARegExp\">Düzenli ifadelere giriş</a>'te bulabilirsiniz.<br/>"
+"alanda oraya tıklayın.</p><p>Ayrıntılı bilgi için <a href=\"doc://\">bilgi "
+"sayfasına</a> tıklayın</p><h2>Düzenli ifade nedir?</h2>Bir düzenli ifadenin "
+"ne olduğunu bilmiyorsanız işte tam okumanız gerekenleri<a href=\"doc://"
+"whatIsARegExp\">Düzenli ifadelere giriş</a> sayfasında bulabilirsiniz.<br/>"
 
 #: KMultiFormListBox/ccp.cpp:58
 #, kde-format
@@ -385,7 +377,7 @@ msgstr "Aşağı"
 #: KMultiFormListBox/kmultiformlistbox-windowed.cpp:152
 #, kde-format
 msgid "Delete item \"%1\"?"
-msgstr "\"%1\" nesnesini sileyim mi?"
+msgstr "“%1” ögesi silinsin mi?"
 
 #: KMultiFormListBox/kmultiformlistbox-windowed.cpp:152
 #, kde-format
@@ -441,8 +433,8 @@ msgstr ""
 "eşleştiğini görün.</p><p>Her ikinci eş kırmızı, diğer her eş mavi renkle "
 "renklendirilecektir, böyle bunları birbirinden kolayca ayırabilirsiniz.</"
 "p><p>Düzenleyici penceresinde düzenli ifadenin bir kısmını seçerseniz bu "
-"parça vurgulanacaktır - Bu, düzenli ifadelerinizde <i>hata ayıklamanızı</i> "
-"sağlar.</p>"
+"parça vurgulanacaktır — bu, düzenli ifadelerinizde <i>hata ayıklama</i> "
+"yapabilmenizi sağlar.</p>"
 
 #: kregexpeditorprivate.cpp:109
 #, kde-format
@@ -466,7 +458,7 @@ msgstr ""
 #: kregexpeditorprivate.cpp:347
 #, kde-format
 msgid "Could not open file '%1' for reading"
-msgstr "'%1' dosyası okumak için açılamadı"
+msgstr "“%1” dosyası okumak için açılamadı"
 
 #: kregexpeditorwindow.cpp:35
 #, kde-format
@@ -559,7 +551,7 @@ msgstr "Düzenli İfadeler İçin Düzenleyici"
 #: main.cpp:32
 #, kde-format
 msgid "(c) 2002-2003 Jesper K. Pedersen"
-msgstr "(c) 2002-2003 Jesper K. Pedersen"
+msgstr "© 2002–2003 Jesper K. Pedersen"
 
 #: main.cpp:33
 #, kde-format
@@ -616,12 +608,12 @@ msgid ""
 "%2</b> literally.</p>"
 msgstr ""
 "<p>Kapsayan düzenli ifadeleri desteklenmiyor.</p><p><tt>\\1</tt>, <tt>\\2</"
-"tt>, ... <i>kapsayandır</i>, yani önceki eşleşmeleride kullanırlar. Maalesef "
-"bu özellik, düzenleyicinin mevcut sürümünde desteklenmiyor.</p><p>Grafik "
+"tt>, … <i>kapsayandır</i>, yani önceki eşleşmelerde kullanırlar. Ne yazık ki "
+"bu özellik, düzenleyicinin geçerli sürümünde desteklenmiyor.</p><p>Grafik "
 "bölümüne <b>%1</b> metni eklendi. Ancak bu, uygulamanın düzenli ifade "
 "işlemediğinden emin olmak için geçici bir çözüm. Dolayısıyla, grafik alanda "
-"düzenlediğiniz düzenli ifade, hızlıca eşleşen <b>%2</b> metni ile eşlenir ve "
-"değiştirilir.</p>"
+"düzenlediğiniz düzenli ifade, hızlıca eşleşen <b>%2</b> metni ile "
+"eşleştirilir ve değiştirilir.</p>"
 
 #: qregexpparser.y:214
 #, kde-format
@@ -644,10 +636,11 @@ msgid ""
 "mouse button menu.</p>"
 msgstr ""
 "<p>Bu editörün durumunu <i>seçim durumuna</i> getirecek.</p><p>Bu durumda "
-"<i>düzenli ögeler</i> ekleyemeyecek, ancak onun yerine seçiyor olacaksınız. "
-"Birkaç ögeyi seçmek için, farenin sol tuşuna basılı tutun ve imleci ögelerin "
-"üzerine sürükleyin.</p><p>Birkaç öge seçtiğinizde, kes/kopyala/yapıştır'ı "
-"kullanabilirsiniz. Bu işlevler sağ fare tuşu menüsünde bulunurlar.</p>"
+"<i>düzenli ögeler</i> ekleyemeyecek; ancak onun yerine seçiyor olacaksınız. "
+"Birkaç ögeyi seçmek için farenin sol düğmesini basılı tutun ve imleci "
+"ögelerin üzerine sürükleyin.</p><p>Birkaç öge seçtiğinizde, kes/kopyala/"
+"yapıştır eylemlerini kullanabilirsiniz. Bu işlevler sağ fare düğmesi "
+"menüsünde bulunurlar.</p>"
 
 #: regexpbuttons.cpp:49
 #, kde-format
@@ -711,11 +704,12 @@ msgid ""
 msgstr ""
 "<qt>Bu <i>düzenli ifade ögesi</i>, belirlenen sayıdaki <i>düzenli ifade "
 "ögelerini</i> çevreler.<br /> Bunu kaç kere yapacağı, aralık kullanılarak "
-"belirlenebilir; örn. 2-4 kere yapılacağı belirtilmişse, 5 kere eşlenir veya "
-"en az bir kere eşleşecektir.<br />Örnekler:<br /><i>Herhangi</i> bir zamanda "
-"eşleşeceği belirttiyseniz ve içerik <tt>abc</tt>'yi çevreliyorsa bu "
-"<i>düzenli ifade ögesi</i>, boş dizi ile eşleşecek, <tt>abc</tt> dizisi, "
-"<tt>abcabc</tt> ile ve <tt>abcabcabcabc</tt> ile de eşleşecektir.</qt>"
+"belirlenebilir; örneğin, 2–4 kere yapılacağı belirtilmişse, 5 kere "
+"eşleştirilir veya en az bir kere eşleşecektir.<br />Örnekler:<br /"
+"><i>Herhangi</i> bir zamanda eşleşeceği belirttiyseniz ve içerik <tt>abc</"
+"tt>’yi çevreliyorsa bu <i>düzenli ifade ögesi</i>, boş dizi ile eşleşecek, "
+"<tt>abc</tt> dizisi, <tt>abcabc</tt> ile ve <tt>abcabcabcabc</tt> ile de "
+"eşleşecektir.</qt>"
 
 #: regexpbuttons.cpp:83
 #, kde-format
@@ -868,7 +862,7 @@ msgstr "Dü&zen"
 #: regexpeditorwindow.cpp:330
 #, kde-format
 msgid "&Save Regular Expression..."
-msgstr "&Düzenli İfadeyi Kaydet..."
+msgstr "&Düzenli İfadeyi Kaydet…"
 
 #: regexpeditorwindow.cpp:370
 #, kde-format
@@ -927,11 +921,10 @@ msgid "Times to Match"
 msgstr "Eşleme Sayısı"
 
 #: repeatwidget.cpp:177
-#, fuzzy, kde-format
-#| msgid "Any number of times (including zero times)"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
-msgstr "Herhangi bir kez (sıfır dahil)"
+msgstr "Herhangi bir kez (sıfır içerilir)"
 
 #: repeatwidget.cpp:184
 #, kde-format
@@ -949,11 +942,10 @@ msgid "Exactly"
 msgstr "Tam"
 
 #: repeatwidget.cpp:189
-#, fuzzy, kde-format
-#| msgid "From"
+#, kde-format
 msgctxt "@option:radio"
 msgid "From"
-msgstr "Başlangıç"
+msgstr "Şuradan"
 
 #: repeatwidget.cpp:201
 #, kde-format
@@ -1061,12 +1053,12 @@ msgstr "<p>XML yüklenirken bilinmeyen etiket: <b>%1</b></p>"
 #: widgetfactory.cpp:176
 #, kde-format
 msgid "Error while loading regular expression from XML."
-msgstr "XML'den düzenli ifade yüklenirken hata."
+msgstr "XML’den düzenli ifade yüklenirken hata."
 
 #: widgetfactory.cpp:177
 #, kde-format
 msgid "Error While Loading Regular Expression From XML"
-msgstr "XML'den Düzenli İfade Yüklenirken Hata"
+msgstr "XML’den Düzenli İfade Yüklenirken Hata"
 
 #: widgetfactory.cpp:184
 #, kde-format

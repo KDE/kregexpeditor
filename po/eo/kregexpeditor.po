@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-30 00:44+0000\n"
-"PO-Revision-Date: 2024-01-11 07:32+0100\n"
+"PO-Revision-Date: 2024-07-30 21:06+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -68,12 +68,12 @@ msgstr "- Ne-cifera signo\n"
 #: characterswidget.cpp:118
 #, kde-format
 msgid "- A space character\n"
-msgstr "- Spaca signo\n"
+msgstr "- Spaceta signo\n"
 
 #: characterswidget.cpp:122
 #, kde-format
 msgid "- A non-space character\n"
-msgstr "- Ne-spaca signo\n"
+msgstr "- Ne-spaceta signo\n"
 
 #: characterswidget.cpp:137
 #, kde-format
@@ -97,8 +97,7 @@ msgid "Specify Characters"
 msgstr "Donu Signojn"
 
 #: characterswidget.cpp:275
-#, fuzzy, kde-format
-#| msgid "Do not match the characters specified here"
+#, kde-format
 msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr "Ne trovu jenajn signojn"
@@ -109,46 +108,40 @@ msgid "Predefined Character Ranges"
 msgstr "Antaŭdifinitaj Signo-Gamoj"
 
 #: characterswidget.cpp:283
-#, fuzzy, kde-format
-#| msgid "A word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A word character"
 msgstr "Vorta signo"
 
 #: characterswidget.cpp:285
-#, fuzzy, kde-format
-#| msgid "A digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A digit character"
 msgstr "cifera signo"
 
 #: characterswidget.cpp:287
-#, fuzzy, kde-format
-#| msgid "A space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A space character"
-msgstr "spaca signo"
+msgstr "spaceta signo"
 
 #: characterswidget.cpp:290
-#, fuzzy, kde-format
-#| msgid "A non-word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-word character"
 msgstr "Nevorta signo"
 
 #: characterswidget.cpp:292
-#, fuzzy, kde-format
-#| msgid "A non-digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-digit character"
 msgstr "ne-cifera signo"
 
 #: characterswidget.cpp:294
-#, fuzzy, kde-format
-#| msgid "A non-space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-space character"
-msgstr "Ne-spaca signo"
+msgstr "Ne-spaceta signo"
 
 #: characterswidget.cpp:298
 #, kde-format
@@ -232,8 +225,7 @@ msgid "&Description:"
 msgstr "&Priskribo:"
 
 #: compoundwidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "&Automatically replace using this item"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Automatically replace using this item"
 msgstr "&Aŭtomate anstataŭigi uzante tiun ĉi eron"
@@ -340,7 +332,7 @@ msgstr "Alglui"
 #: KMultiFormListBox/ccp.cpp:61
 #, kde-format
 msgid "Insert Blank"
-msgstr "Enmetu spacon"
+msgstr "Enmeti Spaceton"
 
 #: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:244
 #, kde-format
@@ -928,8 +920,7 @@ msgid "Times to Match"
 msgstr "Nombro de multobligoj por kapti"
 
 #: repeatwidget.cpp:177
-#, fuzzy, kde-format
-#| msgid "Any number of times (including zero times)"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr "Iu ajn nombro (inkl. nul-oblo)"
@@ -950,8 +941,7 @@ msgid "Exactly"
 msgstr "Ĝuste"
 
 #: repeatwidget.cpp:189
-#, fuzzy, kde-format
-#| msgid "From"
+#, kde-format
 msgctxt "@option:radio"
 msgid "From"
 msgstr "De"
@@ -1128,46 +1118,3 @@ msgid ""
 msgstr ""
 "Ne-vorta\n"
 "Limo"
-
-#~ msgid ""
-#~ "Shows what part of the regular expression is being matched in the "
-#~ "<i>verifier window</i>.(The window below the graphical editor window)."
-#~ msgstr ""
-#~ "Montras kian parton de la regula esprimo estas kongrua en la "
-#~ "<i>kontrolilo-fenestro</i>.(La fenestro sub la grafika redaktilo "
-#~ "fenestro)."
-
-#~ msgid "Verification Settings"
-#~ msgstr "Kontrolaj Agordoj"
-
-#~ msgid "config menu"
-#~ msgstr "agorda menuo"
-
-#~ msgid "RegExp Language"
-#~ msgstr "RegExp Lingvo"
-
-#~ msgid "Undo"
-#~ msgstr "Malfari"
-
-#~ msgid "Redo"
-#~ msgstr "Refari"
-
-#~ msgid "Save"
-#~ msgstr "Konservi"
-
-#~ msgid ""
-#~ "<h2>Send the author an electronic postcard</h2>I don't get any money for "
-#~ "working on KRegExpEditor, I therefore appreciate it very much when users "
-#~ "tell me what they think about my work. I would therefore be very happy if "
-#~ "you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a "
-#~ "short mail</a>, telling me that you use my regular expression editor."
-#~ "<h2>Author</h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> "
-#~ "&lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
-#~ msgstr ""
-#~ "<h2>Sendu al la aŭtoro elektronikan poŝtkarton</h2>Mi ne ricevas monon "
-#~ "por labori pri KRegExpEditor, mi do tre dankas kiam uzantoj diras al mi "
-#~ "kion ili opinias pri mia laboro. Mi do tre ĝojus, se vi <a href=\"mailto:"
-#~ "blackie@kde.org?subject=KRegExpEditor\">sendus al mi mallongan retpoŝton</"
-#~ "a>, dirante al mi, ke vi uzas mian regulespriman redaktilon.<h2>Aŭtoro</"
-#~ "h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
-#~ "\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
