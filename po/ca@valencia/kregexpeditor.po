@@ -101,8 +101,7 @@ msgid "Specify Characters"
 msgstr "Especifica els caràcters"
 
 #: characterswidget.cpp:275
-#, fuzzy, kde-format
-#| msgid "Do not match the characters specified here"
+#, kde-format
 msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr "Que no coincidisca el caràcter especificat ací"
@@ -113,43 +112,37 @@ msgid "Predefined Character Ranges"
 msgstr "Intervals de caràcters predefinits"
 
 #: characterswidget.cpp:283
-#, fuzzy, kde-format
-#| msgid "A word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A word character"
 msgstr "Un caràcter de paraula"
 
 #: characterswidget.cpp:285
-#, fuzzy, kde-format
-#| msgid "A digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A digit character"
 msgstr "Un dígit"
 
 #: characterswidget.cpp:287
-#, fuzzy, kde-format
-#| msgid "A space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A space character"
 msgstr "Un espai"
 
 #: characterswidget.cpp:290
-#, fuzzy, kde-format
-#| msgid "A non-word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-word character"
 msgstr "Un caràcter de no paraula"
 
 #: characterswidget.cpp:292
-#, fuzzy, kde-format
-#| msgid "A non-digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-digit character"
 msgstr "Un no dígit"
 
 #: characterswidget.cpp:294
-#, fuzzy, kde-format
-#| msgid "A non-space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-space character"
 msgstr "Un no espai"
@@ -236,8 +229,7 @@ msgid "&Description:"
 msgstr "&Descripció:"
 
 #: compoundwidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "&Automatically replace using this item"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Automatically replace using this item"
 msgstr "Substituïx &automàticament utilitzant este element"
@@ -941,8 +933,7 @@ msgid "Times to Match"
 msgstr "Vegades a coincidir"
 
 #: repeatwidget.cpp:177
-#, fuzzy, kde-format
-#| msgid "Any number of times (including zero times)"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr "Qualsevol nombre de vegades (incloent-hi cap vegada)"
@@ -963,8 +954,7 @@ msgid "Exactly"
 msgstr "Exactament"
 
 #: repeatwidget.cpp:189
-#, fuzzy, kde-format
-#| msgid "From"
+#, kde-format
 msgctxt "@option:radio"
 msgid "From"
 msgstr "Des de"

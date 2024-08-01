@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# giovanni <g.sora@tiscali.it>, 2018, 2020, 2024.
+# SPDX-FileCopyrightText: 2018, 2020, 2024 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-30 00:44+0000\n"
-"PO-Revision-Date: 2024-01-11 12:20+0100\n"
+"PO-Revision-Date: 2024-07-31 10:32+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -105,46 +105,40 @@ msgid "Predefined Character Ranges"
 msgstr ""
 
 #: characterswidget.cpp:283
-#, fuzzy, kde-format
-#| msgid "Any character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A word character"
-msgstr "Omne Character"
+msgstr "Un character de parola"
 
 #: characterswidget.cpp:285
-#, fuzzy, kde-format
-#| msgid "Any character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A digit character"
-msgstr "Omne Character"
+msgstr "Un character de cifra"
 
 #: characterswidget.cpp:287
-#, fuzzy, kde-format
-#| msgid "Any character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A space character"
-msgstr "Omne Character"
+msgstr "Un character de spatio"
 
 #: characterswidget.cpp:290
-#, fuzzy, kde-format
-#| msgid "Any character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-word character"
-msgstr "Omne Character"
+msgstr "Un character de non -parola"
 
 #: characterswidget.cpp:292
-#, fuzzy, kde-format
-#| msgid "Any character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-digit character"
-msgstr "Omne Character"
+msgstr "Un character de non cifra"
 
 #: characterswidget.cpp:294
-#, fuzzy, kde-format
-#| msgid "Any character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-space character"
-msgstr "Omne Character"
+msgstr "Un character d enon spatio"
 
 #: characterswidget.cpp:298
 #, kde-format
@@ -531,7 +525,7 @@ msgstr "Disveloppator"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
 #: main.cpp:35
 #, kde-format
@@ -860,8 +854,7 @@ msgid "Exactly"
 msgstr ""
 
 #: repeatwidget.cpp:189
-#, fuzzy, kde-format
-#| msgid "From"
+#, kde-format
 msgctxt "@option:radio"
 msgid "From"
 msgstr "Ex"
