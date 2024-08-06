@@ -13,14 +13,14 @@ msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-30 00:44+0000\n"
-"PO-Revision-Date: 2024-01-11 23:00+0100\n"
+"PO-Revision-Date: 2024-08-06 00:18+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.05.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -100,8 +100,7 @@ msgid "Specify Characters"
 msgstr "Karaktereak Zehaztu"
 
 #: characterswidget.cpp:275
-#, fuzzy, kde-format
-#| msgid "Do not match the characters specified here"
+#, kde-format
 msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr "Ez parekatu hemen zehaztutako karaktereak"
@@ -112,46 +111,40 @@ msgid "Predefined Character Ranges"
 msgstr "Aurrez Definitutako Karaktere Tartea"
 
 #: characterswidget.cpp:283
-#, fuzzy, kde-format
-#| msgid "A word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A word character"
-msgstr "Hitz karaktere bat"
+msgstr "Hitzerako karaktere bat"
 
 #: characterswidget.cpp:285
-#, fuzzy, kde-format
-#| msgid "A digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A digit character"
-msgstr "digito karaktere bat"
+msgstr "Digitu karaktere bat"
 
 #: characterswidget.cpp:287
-#, fuzzy, kde-format
-#| msgid "A space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A space character"
-msgstr "Hutsune karaktere bat"
+msgstr "Zuriune karaktere bat"
 
 #: characterswidget.cpp:290
-#, fuzzy, kde-format
-#| msgid "A non-word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-word character"
-msgstr "Hitza ez den karaktere bat"
+msgstr "Hitzarena ez den karaktere bat"
 
 #: characterswidget.cpp:292
-#, fuzzy, kde-format
-#| msgid "A non-digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-digit character"
-msgstr "Digitoa ez den karaktere bat"
+msgstr "Digitua ez den karaktere bat"
 
 #: characterswidget.cpp:294
-#, fuzzy, kde-format
-#| msgid "A non-space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-space character"
-msgstr "Hutsunea ez den karaktere bat"
+msgstr "Zuriunea ez den karaktere bat"
 
 #: characterswidget.cpp:298
 #, kde-format
@@ -235,11 +228,10 @@ msgid "&Description:"
 msgstr "&Deskribapena:"
 
 #: compoundwidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "&Automatically replace using this item"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Automatically replace using this item"
-msgstr "&Automatikoki ordezkatu gai hau erabiliz"
+msgstr "&Automatikoki ordezkatu elementu hau erabiliz"
 
 #: compoundwidget.cpp:50
 #, kde-format
@@ -940,8 +932,7 @@ msgid "Times to Match"
 msgstr "Bat-egite kopurua"
 
 #: repeatwidget.cpp:177
-#, fuzzy, kde-format
-#| msgid "Any number of times (including zero times)"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr "Edozein aldi kopuru (zero aldiz barne)"
@@ -962,8 +953,7 @@ msgid "Exactly"
 msgstr "Zehatz"
 
 #: repeatwidget.cpp:189
-#, fuzzy, kde-format
-#| msgid "From"
+#, kde-format
 msgctxt "@option:radio"
 msgid "From"
 msgstr "Hontatik"
