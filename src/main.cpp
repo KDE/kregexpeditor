@@ -20,8 +20,6 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    KCrash::initialize();
-
     KLocalizedString::setApplicationDomain("kregexpeditor");
 
     KAboutData aboutData(QStringLiteral("kregexpeditor"),
@@ -39,6 +37,7 @@ int main(int argc, char *argv[])
 
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
+    KCrash::initialize();
     aboutData.setupCommandLine(&parser);
     parser.process(app);
     aboutData.processCommandLine(&parser);
