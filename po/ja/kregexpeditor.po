@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-30 00:44+0000\n"
+"POT-Creation-Date: 2024-08-13 00:42+0000\n"
 "PO-Revision-Date: 2007-06-05 23:00+0900\n"
 "Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -543,38 +543,38 @@ msgstr "肯定的先読み"
 msgid "Neg. Look Ahead"
 msgstr "否定的先読み"
 
-#: main.cpp:28
+#: main.cpp:26
 #, kde-format
 msgid "RegExp Editor"
 msgstr "正規表現エディタ"
 
-#: main.cpp:30
+#: main.cpp:28
 #, kde-format
 msgid "Editor for Regular Expressions"
 msgstr "正規表現作成用エディタ"
 
-#: main.cpp:32
+#: main.cpp:30
 #, kde-format
 msgid "(c) 2002-2003 Jesper K. Pedersen"
 msgstr "(c) 2002-2003 Jesper K. Pedersen"
 
-#: main.cpp:33
+#: main.cpp:31
 #, kde-format
 msgid "Laurent Montel"
 msgstr ""
 
-#: main.cpp:33
+#: main.cpp:31
 #, kde-format
 msgid "Developer"
 msgstr ""
 
-#: main.cpp:34
+#: main.cpp:32
 #, kde-format
 msgctxt "@info:credit"
 msgid "Carl Schwan"
 msgstr ""
 
-#: main.cpp:35
+#: main.cpp:33
 #, kde-format
 msgctxt "@info:credit"
 msgid "Port to Qt6"

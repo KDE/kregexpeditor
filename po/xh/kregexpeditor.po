@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-30 00:44+0000\n"
+"POT-Creation-Date: 2024-08-13 00:42+0000\n"
 "PO-Revision-Date: 2002-11-01 15:02SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -531,38 +531,38 @@ msgstr ""
 msgid "Neg. Look Ahead"
 msgstr ""
 
-#: main.cpp:28
+#: main.cpp:26
 #, fuzzy, kde-format
 msgid "RegExp Editor"
 msgstr "Umhleli Wentetho Eyaziwayo"
 
-#: main.cpp:30
+#: main.cpp:28
 #, fuzzy, kde-format
 msgid "Editor for Regular Expressions"
 msgstr "Imbumba yokuzichaza okuthe rhoqo:"
 
-#: main.cpp:32
+#: main.cpp:30
 #, kde-format
 msgid "(c) 2002-2003 Jesper K. Pedersen"
 msgstr ""
 
-#: main.cpp:33
+#: main.cpp:31
 #, kde-format
 msgid "Laurent Montel"
 msgstr ""
 
-#: main.cpp:33
+#: main.cpp:31
 #, kde-format
 msgid "Developer"
 msgstr ""
 
-#: main.cpp:34
+#: main.cpp:32
 #, kde-format
 msgctxt "@info:credit"
 msgid "Carl Schwan"
 msgstr ""
 
-#: main.cpp:35
+#: main.cpp:33
 #, kde-format
 msgctxt "@info:credit"
 msgid "Port to Qt6"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mimos\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-30 00:44+0000\n"
+"POT-Creation-Date: 2024-08-13 00:42+0000\n"
 "PO-Revision-Date: 2005-11-18 00:33+0800\n"
 "Last-Translator: MIMOS Open Source <opensource@mimos.my>\n"
 "Language-Team: Malay <kedidiemas@yahoogroups.com>\n"
@@ -578,38 +578,38 @@ msgstr "Positif. Perhatikan"
 msgid "Neg. Look Ahead"
 msgstr "Negatif. Perhatikan"
 
-#: main.cpp:28
+#: main.cpp:26
 #, kde-format
 msgid "RegExp Editor"
 msgstr "Editor RegExp"
 
-#: main.cpp:30
+#: main.cpp:28
 #, kde-format
 msgid "Editor for Regular Expressions"
 msgstr "Editor untuk Ungkapan Biasa"
 
-#: main.cpp:32
+#: main.cpp:30
 #, kde-format
 msgid "(c) 2002-2003 Jesper K. Pedersen"
 msgstr ""
 
-#: main.cpp:33
+#: main.cpp:31
 #, kde-format
 msgid "Laurent Montel"
 msgstr ""
 
-#: main.cpp:33
+#: main.cpp:31
 #, kde-format
 msgid "Developer"
 msgstr ""
 
-#: main.cpp:34
+#: main.cpp:32
 #, kde-format
 msgctxt "@info:credit"
 msgid "Carl Schwan"
 msgstr ""
 
-#: main.cpp:35
+#: main.cpp:33
 #, kde-format
 msgctxt "@info:credit"
 msgid "Port to Qt6"

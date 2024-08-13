@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-30 00:44+0000\n"
+"POT-Creation-Date: 2024-08-13 00:42+0000\n"
 "PO-Revision-Date: 2010-04-16 15:01+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
@@ -515,38 +515,38 @@ msgstr "Staða Útlit"
 msgid "Neg. Look Ahead"
 msgstr "Útlit"
 
-#: main.cpp:28
+#: main.cpp:26
 #, kde-format
 msgid "RegExp Editor"
 msgstr "RegExp ritill"
 
-#: main.cpp:30
+#: main.cpp:28
 #, kde-format
 msgid "Editor for Regular Expressions"
 msgstr "Ritill fyrir reglulegar segðir"
 
-#: main.cpp:32
+#: main.cpp:30
 #, kde-format
 msgid "(c) 2002-2003 Jesper K. Pedersen"
 msgstr ""
 
-#: main.cpp:33
+#: main.cpp:31
 #, kde-format
 msgid "Laurent Montel"
 msgstr ""
 
-#: main.cpp:33
+#: main.cpp:31
 #, kde-format
 msgid "Developer"
 msgstr ""
 
-#: main.cpp:34
+#: main.cpp:32
 #, kde-format
 msgctxt "@info:credit"
 msgid "Carl Schwan"
 msgstr ""
 
-#: main.cpp:35
+#: main.cpp:33
 #, kde-format
 msgctxt "@info:credit"
 msgid "Port to Qt6"
