@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-13 00:42+0000\n"
-"PO-Revision-Date: 2024-02-10 00:00+0100\n"
+"PO-Revision-Date: 2024-08-20 00:00+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -91,8 +91,7 @@ msgid "Specify Characters"
 msgstr "문자 지정"
 
 #: characterswidget.cpp:275
-#, fuzzy, kde-format
-#| msgid "Do not match the characters specified here"
+#, kde-format
 msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr "지정한 문자와 일치하지 않음"
@@ -103,43 +102,37 @@ msgid "Predefined Character Ranges"
 msgstr "사전 정의 범위"
 
 #: characterswidget.cpp:283
-#, fuzzy, kde-format
-#| msgid "A word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A word character"
 msgstr "단어 문자"
 
 #: characterswidget.cpp:285
-#, fuzzy, kde-format
-#| msgid "A digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A digit character"
 msgstr "숫자 문자"
 
 #: characterswidget.cpp:287
-#, fuzzy, kde-format
-#| msgid "A space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A space character"
 msgstr "공백 문자"
 
 #: characterswidget.cpp:290
-#, fuzzy, kde-format
-#| msgid "A non-word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-word character"
 msgstr "비 단어 문자"
 
 #: characterswidget.cpp:292
-#, fuzzy, kde-format
-#| msgid "A non-digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-digit character"
 msgstr "비 숫자 문자"
 
 #: characterswidget.cpp:294
-#, fuzzy, kde-format
-#| msgid "A non-space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-space character"
 msgstr "비 공백 문자"
@@ -226,8 +219,7 @@ msgid "&Description:"
 msgstr "설명(&D):"
 
 #: compoundwidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "&Automatically replace using this item"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Automatically replace using this item"
 msgstr "이 항목을 사용하여 자동으로 대체(&A)"
@@ -899,8 +891,7 @@ msgid "Times to Match"
 msgstr "일치 횟수"
 
 #: repeatwidget.cpp:177
-#, fuzzy, kde-format
-#| msgid "Any number of times (including zero times)"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr "불특정 횟수(0도 포함)"
@@ -921,8 +912,7 @@ msgid "Exactly"
 msgstr "정확히"
 
 #: repeatwidget.cpp:189
-#, fuzzy, kde-format
-#| msgid "From"
+#, kde-format
 msgctxt "@option:radio"
 msgid "From"
 msgstr "시작"
