@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-13 00:42+0000\n"
-"PO-Revision-Date: 2024-07-30 13:09+0200\n"
+"PO-Revision-Date: 2024-08-23 12:07+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -590,7 +590,7 @@ msgstr "Carl Schwan"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Port to Qt6"
-msgstr "Overgezet naar Qt6"
+msgstr "Overzetten naar Qt6"
 
 #: predefined/General/anything.regexp:5
 #, kde-format
