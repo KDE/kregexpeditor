@@ -97,7 +97,6 @@ msgstr "Oppgje teikn"
 
 #: characterswidget.cpp:275
 #, fuzzy, kde-format
-#| msgid "Do not match the characters specified here"
 msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr "Ikkje gje treff på teikna oppgjevne her"
@@ -109,42 +108,36 @@ msgstr "Førehandsdefinerte teiknområde"
 
 #: characterswidget.cpp:283
 #, fuzzy, kde-format
-#| msgid "A word character"
 msgctxt "@option:check"
 msgid "A word character"
 msgstr "Eit ordteikn"
 
 #: characterswidget.cpp:285
 #, fuzzy, kde-format
-#| msgid "A digit character"
 msgctxt "@option:check"
 msgid "A digit character"
 msgstr "Eit sifferteikn"
 
 #: characterswidget.cpp:287
 #, fuzzy, kde-format
-#| msgid "A space character"
 msgctxt "@option:check"
 msgid "A space character"
 msgstr "Eit mellomromsteikn"
 
 #: characterswidget.cpp:290
 #, fuzzy, kde-format
-#| msgid "A non-word character"
 msgctxt "@option:check"
 msgid "A non-word character"
 msgstr "Eit ikkje-ordteikn"
 
 #: characterswidget.cpp:292
 #, fuzzy, kde-format
-#| msgid "A non-digit character"
 msgctxt "@option:check"
 msgid "A non-digit character"
 msgstr "Eit ikkje-sifferteikn"
 
 #: characterswidget.cpp:294
 #, fuzzy, kde-format
-#| msgid "A non-space character"
 msgctxt "@option:check"
 msgid "A non-space character"
 msgstr "Eit ikkje-mellomromsteikn"
@@ -232,7 +225,6 @@ msgstr "&Skildring:"
 
 #: compoundwidget.cpp:47
 #, fuzzy, kde-format
-#| msgid "&Automatically replace using this item"
 msgctxt "@option:check"
 msgid "&Automatically replace using this item"
 msgstr "Byt &automatisk ut med dette elementet"
@@ -923,7 +915,6 @@ msgstr "Tal på treff"
 
 #: repeatwidget.cpp:177
 #, fuzzy, kde-format
-#| msgid "Any number of times (including zero times)"
 msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr "Vilkårleg mange gongar (inkludert null gongar)"
@@ -945,7 +936,6 @@ msgstr "Akkurat"
 
 #: repeatwidget.cpp:189
 #, fuzzy, kde-format
-#| msgid "From"
 msgctxt "@option:radio"
 msgid "From"
 msgstr "Frå"

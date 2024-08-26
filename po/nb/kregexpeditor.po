@@ -99,7 +99,6 @@ msgstr "Oppgi tegn"
 
 #: characterswidget.cpp:275
 #, fuzzy, kde-format
-#| msgid "Do not match the characters specified here"
 msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr "Passer ikke med de tegnene som er oppgitt her"
@@ -111,42 +110,36 @@ msgstr "Forhåndsdefinerte tegnområder"
 
 #: characterswidget.cpp:283
 #, fuzzy, kde-format
-#| msgid "A word character"
 msgctxt "@option:check"
 msgid "A word character"
 msgstr "Et ordtegn"
 
 #: characterswidget.cpp:285
 #, fuzzy, kde-format
-#| msgid "A digit character"
 msgctxt "@option:check"
 msgid "A digit character"
 msgstr "Et siffertegn"
 
 #: characterswidget.cpp:287
 #, fuzzy, kde-format
-#| msgid "A space character"
 msgctxt "@option:check"
 msgid "A space character"
 msgstr "Et mellomromstegn"
 
 #: characterswidget.cpp:290
 #, fuzzy, kde-format
-#| msgid "A non-word character"
 msgctxt "@option:check"
 msgid "A non-word character"
 msgstr "Et ikke-ordtegn"
 
 #: characterswidget.cpp:292
 #, fuzzy, kde-format
-#| msgid "A non-digit character"
 msgctxt "@option:check"
 msgid "A non-digit character"
 msgstr "Et ikke-siffertegn"
 
 #: characterswidget.cpp:294
 #, fuzzy, kde-format
-#| msgid "A non-space character"
 msgctxt "@option:check"
 msgid "A non-space character"
 msgstr "Et ikke-mellomromtegn"
@@ -234,7 +227,6 @@ msgstr "&Beskrivelse:"
 
 #: compoundwidget.cpp:47
 #, fuzzy, kde-format
-#| msgid "&Automatically replace using this item"
 msgctxt "@option:check"
 msgid "&Automatically replace using this item"
 msgstr "Bytt ut &automatisk med dette elementet"
@@ -472,7 +464,6 @@ msgstr "Klarte ikke å åpne fila «%1» for lesing"
 
 #: kregexpeditorwindow.cpp:35
 #, fuzzy, kde-format
-#| msgid "Regular Expression Editor"
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "Redigeringsprogram for regulære uttrykk"
@@ -535,7 +526,6 @@ msgstr ""
 
 #: kregexpeditorwindow.cpp:126
 #, fuzzy, kde-format
-#| msgid "RegExp Language"
 msgctxt "@title:menu"
 msgid "RegExp Languages"
 msgstr "RegExp-språk"
@@ -926,7 +916,6 @@ msgstr "Antall ganger det skal finnes"
 
 #: repeatwidget.cpp:177
 #, fuzzy, kde-format
-#| msgid "Any number of times (including zero times)"
 msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr "Vilkårlig antall ganger (medregnet null ganger)"
@@ -948,7 +937,6 @@ msgstr "Akkurat"
 
 #: repeatwidget.cpp:189
 #, fuzzy, kde-format
-#| msgid "From"
 msgctxt "@option:radio"
 msgid "From"
 msgstr "Fra"
