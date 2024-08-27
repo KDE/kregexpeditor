@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-13 00:42+0000\n"
-"PO-Revision-Date: 2024-07-26 15:06+0200\n"
+"PO-Revision-Date: 2024-08-26 22:09+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -96,7 +96,7 @@ msgid "Specify Characters"
 msgstr "Oppgje teikn"
 
 #: characterswidget.cpp:275
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr "Ikkje gje treff på teikna oppgjevne her"
@@ -107,37 +107,37 @@ msgid "Predefined Character Ranges"
 msgstr "Førehandsdefinerte teiknområde"
 
 #: characterswidget.cpp:283
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "A word character"
 msgstr "Eit ordteikn"
 
 #: characterswidget.cpp:285
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "A digit character"
 msgstr "Eit sifferteikn"
 
 #: characterswidget.cpp:287
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "A space character"
 msgstr "Eit mellomromsteikn"
 
 #: characterswidget.cpp:290
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-word character"
 msgstr "Eit ikkje-ordteikn"
 
 #: characterswidget.cpp:292
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-digit character"
 msgstr "Eit ikkje-sifferteikn"
 
 #: characterswidget.cpp:294
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-space character"
 msgstr "Eit ikkje-mellomromsteikn"
@@ -224,7 +224,7 @@ msgid "&Description:"
 msgstr "&Skildring:"
 
 #: compoundwidget.cpp:47
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "&Automatically replace using this item"
 msgstr "Byt &automatisk ut med dette elementet"
@@ -914,7 +914,7 @@ msgid "Times to Match"
 msgstr "Tal på treff"
 
 #: repeatwidget.cpp:177
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr "Vilkårleg mange gongar (inkludert null gongar)"
@@ -935,7 +935,7 @@ msgid "Exactly"
 msgstr "Akkurat"
 
 #: repeatwidget.cpp:189
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:radio"
 msgid "From"
 msgstr "Frå"
