@@ -45,7 +45,10 @@ class KMultiFormListBox : public QWidget
     Q_OBJECT
 
 public:
-    enum KMultiFormListBoxType { MultiVisible, Windowed };
+    enum KMultiFormListBoxType {
+        MultiVisible,
+        Windowed
+    };
 
     /**
        @param factory A factory used to generate the instances of

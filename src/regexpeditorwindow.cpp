@@ -308,7 +308,13 @@ void RegExpEditorWindow::slotEndActions()
 
 void RegExpEditorWindow::showRMBMenu(bool enableCutCopy)
 {
-    enum CHOICES { CUT, COPY, PASTE, SAVE, EDIT };
+    enum CHOICES {
+        CUT,
+        COPY,
+        PASTE,
+        SAVE,
+        EDIT
+    };
 
     if (!_menu) {
         _menu = new QMenu(nullptr);

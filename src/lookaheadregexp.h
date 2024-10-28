@@ -15,7 +15,10 @@
 class LookAheadRegExp : public RegExp
 {
 public:
-    enum TYPE { POSITIVE, NEGATIVE };
+    enum TYPE {
+        POSITIVE,
+        NEGATIVE
+    };
 
     LookAheadRegExp(bool selected, TYPE tp, RegExp *child = nullptr);
 

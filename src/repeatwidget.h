@@ -24,7 +24,13 @@ class RepeatRangeWindow : public QWidget
     Q_OBJECT
 
 public:
-    enum REPEATTYPE { ANY, ATLEAST, ATMOST, EXACTLY, MINMAX }; // krazy:exclude=spelling
+    enum REPEATTYPE {
+        ANY,
+        ATLEAST,
+        ATMOST,
+        EXACTLY,
+        MINMAX
+    }; // krazy:exclude=spelling
 
     RepeatRangeWindow(QWidget *parent);
     QString text();
