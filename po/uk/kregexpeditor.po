@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:42+0000\n"
+"POT-Creation-Date: 2024-10-29 00:42+0000\n"
 "PO-Revision-Date: 2024-07-30 09:56+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -384,7 +384,7 @@ msgstr "Вилучити елемент «%1»?"
 msgid "Delete Item"
 msgstr "Вилучити елемент"
 
-#: KMultiFormListBox/kmultiformlistbox.h:60
+#: KMultiFormListBox/kmultiformlistbox.h:63
 #, kde-format
 msgid "Add"
 msgstr "Додати"
@@ -842,57 +842,57 @@ msgstr "Віджет під курсором відсутній."
 msgid "Invalid Operation"
 msgstr "Недійсна дія"
 
-#: regexpeditorwindow.cpp:316
+#: regexpeditorwindow.cpp:322
 #, kde-format
 msgid "C&ut"
 msgstr "В&ирізати"
 
-#: regexpeditorwindow.cpp:319
+#: regexpeditorwindow.cpp:325
 #, kde-format
 msgid "&Copy"
 msgstr "&Копіювати"
 
-#: regexpeditorwindow.cpp:322
+#: regexpeditorwindow.cpp:328
 #, kde-format
 msgid "&Paste"
 msgstr "&Вставити"
 
-#: regexpeditorwindow.cpp:327
+#: regexpeditorwindow.cpp:333
 #, kde-format
 msgid "&Edit"
 msgstr "З&міни"
 
-#: regexpeditorwindow.cpp:330
+#: regexpeditorwindow.cpp:336
 #, kde-format
 msgid "&Save Regular Expression..."
 msgstr "&Зберегти формальний вираз..."
 
-#: regexpeditorwindow.cpp:370
+#: regexpeditorwindow.cpp:376
 #, kde-format
 msgid "Name for Regular Expression"
 msgstr "Назва для формального виразу"
 
-#: regexpeditorwindow.cpp:370
+#: regexpeditorwindow.cpp:376
 #, kde-format
 msgid "Enter name:"
 msgstr "Введіть назву:"
 
-#: regexpeditorwindow.cpp:375
+#: regexpeditorwindow.cpp:381
 #, kde-format
 msgid "Empty name is not supported"
 msgstr "Підтримки порожніх назв не передбачено"
 
-#: regexpeditorwindow.cpp:375
+#: regexpeditorwindow.cpp:381
 #, kde-format
 msgid "Save Regular Expression"
 msgstr "Збереження формального виразу"
 
-#: regexpeditorwindow.cpp:384
+#: regexpeditorwindow.cpp:390
 #, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b></p>"
 msgstr "<p>Замінити названий формальний вираз <b>%1</b></p>"
 
-#: regexpeditorwindow.cpp:394
+#: regexpeditorwindow.cpp:400
 #, kde-format
 msgid "Could not open file for writing: %1"
 msgstr "Неможливо відкрити файл для запису: %1"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:42+0000\n"
+"POT-Creation-Date: 2024-10-29 00:42+0000\n"
 "PO-Revision-Date: 2010-04-16 15:01+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
@@ -376,7 +376,7 @@ msgstr "Eyða hlut \"%1\"?"
 msgid "Delete Item"
 msgstr "Eyða hlut"
 
-#: KMultiFormListBox/kmultiformlistbox.h:60
+#: KMultiFormListBox/kmultiformlistbox.h:63
 #, fuzzy, kde-format
 msgid "Add"
 msgstr "Bæta við"
@@ -778,58 +778,58 @@ msgstr "nei."
 msgid "Invalid Operation"
 msgstr "Ógild aðgerð"
 
-#: regexpeditorwindow.cpp:316
+#: regexpeditorwindow.cpp:322
 #, fuzzy, kde-format
 msgid "C&ut"
 msgstr "&Klippa"
 
-#: regexpeditorwindow.cpp:319
+#: regexpeditorwindow.cpp:325
 #, fuzzy, kde-format
 msgid "&Copy"
 msgstr "&Afrita"
 
-#: regexpeditorwindow.cpp:322
+#: regexpeditorwindow.cpp:328
 #, fuzzy, kde-format
 msgid "&Paste"
 msgstr "&Líma"
 
-#: regexpeditorwindow.cpp:327
+#: regexpeditorwindow.cpp:333
 #, fuzzy, kde-format
 msgid "&Edit"
 msgstr "Br&eyta"
 
-#: regexpeditorwindow.cpp:330
+#: regexpeditorwindow.cpp:336
 #, kde-format
 msgid "&Save Regular Expression..."
 msgstr "Vi&sta reglulega segð..."
 
-#: regexpeditorwindow.cpp:370
+#: regexpeditorwindow.cpp:376
 #, fuzzy, kde-format
 msgid "Name for Regular Expression"
 msgstr "Ritill fyrir reglulegar segðir"
 
-#: regexpeditorwindow.cpp:370
+#: regexpeditorwindow.cpp:376
 #, kde-format
 msgid "Enter name:"
 msgstr "Sláðu inn heiti:"
 
-#: regexpeditorwindow.cpp:375
+#: regexpeditorwindow.cpp:381
 #, kde-format
 msgid "Empty name is not supported"
 msgstr ""
 
-#: regexpeditorwindow.cpp:375
+#: regexpeditorwindow.cpp:381
 #, fuzzy, kde-format
 #| msgid "&Save Regular Expression..."
 msgid "Save Regular Expression"
 msgstr "Vi&sta reglulega segð..."
 
-#: regexpeditorwindow.cpp:384
+#: regexpeditorwindow.cpp:390
 #, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b></p>"
 msgstr "<p>Skrifa yfir nefnda reglulega segð <b>%1</b></p>"
 
-#: regexpeditorwindow.cpp:394
+#: regexpeditorwindow.cpp:400
 #, kde-format
 msgid "Could not open file for writing: %1"
 msgstr "Gat ekki opnað skrá til að skrifa í: %1"

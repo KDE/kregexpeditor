@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:42+0000\n"
+"POT-Creation-Date: 2024-10-29 00:42+0000\n"
 "PO-Revision-Date: 2007-06-05 23:00+0900\n"
 "Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -388,7 +388,7 @@ msgstr "項目 “%1” を削除しますか？"
 msgid "Delete Item"
 msgstr "項目を削除"
 
-#: KMultiFormListBox/kmultiformlistbox.h:60
+#: KMultiFormListBox/kmultiformlistbox.h:63
 #, kde-format
 msgid "Add"
 msgstr "追加"
@@ -833,58 +833,58 @@ msgstr "カーソルの下にウィジェットがありません。"
 msgid "Invalid Operation"
 msgstr "不正な操作"
 
-#: regexpeditorwindow.cpp:316
+#: regexpeditorwindow.cpp:322
 #, kde-format
 msgid "C&ut"
 msgstr "切り取り(&U)"
 
-#: regexpeditorwindow.cpp:319
+#: regexpeditorwindow.cpp:325
 #, kde-format
 msgid "&Copy"
 msgstr "コピー(&C)"
 
-#: regexpeditorwindow.cpp:322
+#: regexpeditorwindow.cpp:328
 #, kde-format
 msgid "&Paste"
 msgstr "貼り付け(&P)"
 
-#: regexpeditorwindow.cpp:327
+#: regexpeditorwindow.cpp:333
 #, kde-format
 msgid "&Edit"
 msgstr "編集(&E)"
 
-#: regexpeditorwindow.cpp:330
+#: regexpeditorwindow.cpp:336
 #, kde-format
 msgid "&Save Regular Expression..."
 msgstr "正規表現を保存(&S)..."
 
-#: regexpeditorwindow.cpp:370
+#: regexpeditorwindow.cpp:376
 #, kde-format
 msgid "Name for Regular Expression"
 msgstr "正規表現の名前"
 
-#: regexpeditorwindow.cpp:370
+#: regexpeditorwindow.cpp:376
 #, kde-format
 msgid "Enter name:"
 msgstr "名前を入力:"
 
-#: regexpeditorwindow.cpp:375
+#: regexpeditorwindow.cpp:381
 #, kde-format
 msgid "Empty name is not supported"
 msgstr ""
 
-#: regexpeditorwindow.cpp:375
+#: regexpeditorwindow.cpp:381
 #, fuzzy, kde-format
 #| msgid "&Save Regular Expression..."
 msgid "Save Regular Expression"
 msgstr "正規表現を保存(&S)..."
 
-#: regexpeditorwindow.cpp:384
+#: regexpeditorwindow.cpp:390
 #, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b></p>"
 msgstr "<p>名前のある正規表現 <b>%1</b> を上書き</p>"
 
-#: regexpeditorwindow.cpp:394
+#: regexpeditorwindow.cpp:400
 #, kde-format
 msgid "Could not open file for writing: %1"
 msgstr "ファイルを書き込みのために開けませんでした: %1"

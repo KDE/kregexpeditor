@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:42+0000\n"
+"POT-Creation-Date: 2024-10-29 00:42+0000\n"
 "PO-Revision-Date: 2023-12-12 19:24+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -387,7 +387,7 @@ msgstr "Odstrániť položku \"%1\"?"
 msgid "Delete Item"
 msgstr "Odstrániť položku"
 
-#: KMultiFormListBox/kmultiformlistbox.h:60
+#: KMultiFormListBox/kmultiformlistbox.h:63
 #, kde-format
 msgid "Add"
 msgstr "Pridať"
@@ -840,57 +840,57 @@ msgstr "Pod kurzorom nie je ovládací prvok."
 msgid "Invalid Operation"
 msgstr "Neplatná operácia"
 
-#: regexpeditorwindow.cpp:316
+#: regexpeditorwindow.cpp:322
 #, kde-format
 msgid "C&ut"
 msgstr "Vystrihnúť"
 
-#: regexpeditorwindow.cpp:319
+#: regexpeditorwindow.cpp:325
 #, kde-format
 msgid "&Copy"
 msgstr "&Kopírovať"
 
-#: regexpeditorwindow.cpp:322
+#: regexpeditorwindow.cpp:328
 #, kde-format
 msgid "&Paste"
 msgstr "&Vložiť"
 
-#: regexpeditorwindow.cpp:327
+#: regexpeditorwindow.cpp:333
 #, kde-format
 msgid "&Edit"
 msgstr "&Upraviť"
 
-#: regexpeditorwindow.cpp:330
+#: regexpeditorwindow.cpp:336
 #, kde-format
 msgid "&Save Regular Expression..."
 msgstr "&Uložiť regulárny výraz..."
 
-#: regexpeditorwindow.cpp:370
+#: regexpeditorwindow.cpp:376
 #, kde-format
 msgid "Name for Regular Expression"
 msgstr "Meno pre regulárny výraz"
 
-#: regexpeditorwindow.cpp:370
+#: regexpeditorwindow.cpp:376
 #, kde-format
 msgid "Enter name:"
 msgstr "Zadajte meno:"
 
-#: regexpeditorwindow.cpp:375
+#: regexpeditorwindow.cpp:381
 #, kde-format
 msgid "Empty name is not supported"
 msgstr "Prázdny názov nie je podporovaný"
 
-#: regexpeditorwindow.cpp:375
+#: regexpeditorwindow.cpp:381
 #, kde-format
 msgid "Save Regular Expression"
 msgstr "Uložiť regulárny výraz"
 
-#: regexpeditorwindow.cpp:384
+#: regexpeditorwindow.cpp:390
 #, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b></p>"
 msgstr "<p>Prepísať regulárny výraz s menom <b>%1</b></p>"
 
-#: regexpeditorwindow.cpp:394
+#: regexpeditorwindow.cpp:400
 #, kde-format
 msgid "Could not open file for writing: %1"
 msgstr "Nepodarilo sa otvoriť súbore pre zápis: %1"

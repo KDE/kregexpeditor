@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:42+0000\n"
+"POT-Creation-Date: 2024-10-29 00:42+0000\n"
 "PO-Revision-Date: 2024-08-07 20:18+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -381,7 +381,7 @@ msgstr "Изтриване на елемент \"%1\"?"
 msgid "Delete Item"
 msgstr "Изтриване на елемент"
 
-#: KMultiFormListBox/kmultiformlistbox.h:60
+#: KMultiFormListBox/kmultiformlistbox.h:63
 #, kde-format
 msgid "Add"
 msgstr "Добавяне"
@@ -843,59 +843,59 @@ msgstr "Няма графичен обект под показалеца."
 msgid "Invalid Operation"
 msgstr "Невалидна операция"
 
-#: regexpeditorwindow.cpp:316
+#: regexpeditorwindow.cpp:322
 #, kde-format
 msgid "C&ut"
 msgstr "&Изрязване"
 
-#: regexpeditorwindow.cpp:319
+#: regexpeditorwindow.cpp:325
 #, kde-format
 msgid "&Copy"
 msgstr "&Копиране"
 
-#: regexpeditorwindow.cpp:322
+#: regexpeditorwindow.cpp:328
 #, kde-format
 msgid "&Paste"
 msgstr "&Вмъкване"
 
-#: regexpeditorwindow.cpp:327
+#: regexpeditorwindow.cpp:333
 #, kde-format
 msgid "&Edit"
 msgstr "&Редактиране"
 
-#: regexpeditorwindow.cpp:330
+#: regexpeditorwindow.cpp:336
 #, kde-format
 msgid "&Save Regular Expression..."
 msgstr "&Записване на регулярния израз..."
 
-#: regexpeditorwindow.cpp:370
+#: regexpeditorwindow.cpp:376
 #, kde-format
 msgid "Name for Regular Expression"
 msgstr "Име на регулярен израз"
 
-#: regexpeditorwindow.cpp:370
+#: regexpeditorwindow.cpp:376
 #, kde-format
 msgid "Enter name:"
 msgstr "Въведете име:"
 
-#: regexpeditorwindow.cpp:375
+#: regexpeditorwindow.cpp:381
 #, kde-format
 msgid "Empty name is not supported"
 msgstr "Не се поддържа празно име"
 
-#: regexpeditorwindow.cpp:375
+#: regexpeditorwindow.cpp:381
 #, kde-format
 msgid "Save Regular Expression"
 msgstr "Записване на регулярния израз"
 
-#: regexpeditorwindow.cpp:384
+#: regexpeditorwindow.cpp:390
 #, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b></p>"
 msgstr ""
 "<p>Сигурни ли сте, че искате именувания регулярен израз <b>%1</b> да бъде "
 "презаписан?</p>"
 
-#: regexpeditorwindow.cpp:394
+#: regexpeditorwindow.cpp:400
 #, kde-format
 msgid "Could not open file for writing: %1"
 msgstr "Грешка при отваряне на файл за запис: %1"

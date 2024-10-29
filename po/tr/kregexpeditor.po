@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playground-utils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:42+0000\n"
+"POT-Creation-Date: 2024-10-29 00:42+0000\n"
 "PO-Revision-Date: 2024-07-30 18:58+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -384,7 +384,7 @@ msgstr "“%1” ögesi silinsin mi?"
 msgid "Delete Item"
 msgstr "Nesneyi Sil"
 
-#: KMultiFormListBox/kmultiformlistbox.h:60
+#: KMultiFormListBox/kmultiformlistbox.h:63
 #, kde-format
 msgid "Add"
 msgstr "Ekle"
@@ -839,57 +839,57 @@ msgstr "İmleç altında araç takımı yok."
 msgid "Invalid Operation"
 msgstr "Geçersiz İşlem"
 
-#: regexpeditorwindow.cpp:316
+#: regexpeditorwindow.cpp:322
 #, kde-format
 msgid "C&ut"
 msgstr "&Kes"
 
-#: regexpeditorwindow.cpp:319
+#: regexpeditorwindow.cpp:325
 #, kde-format
 msgid "&Copy"
 msgstr "Ko&pyala"
 
-#: regexpeditorwindow.cpp:322
+#: regexpeditorwindow.cpp:328
 #, kde-format
 msgid "&Paste"
 msgstr "&Yapıştır"
 
-#: regexpeditorwindow.cpp:327
+#: regexpeditorwindow.cpp:333
 #, kde-format
 msgid "&Edit"
 msgstr "Dü&zen"
 
-#: regexpeditorwindow.cpp:330
+#: regexpeditorwindow.cpp:336
 #, kde-format
 msgid "&Save Regular Expression..."
 msgstr "&Düzenli İfadeyi Kaydet…"
 
-#: regexpeditorwindow.cpp:370
+#: regexpeditorwindow.cpp:376
 #, kde-format
 msgid "Name for Regular Expression"
 msgstr "Düzenli İfade Adı"
 
-#: regexpeditorwindow.cpp:370
+#: regexpeditorwindow.cpp:376
 #, kde-format
 msgid "Enter name:"
 msgstr "Ad girin:"
 
-#: regexpeditorwindow.cpp:375
+#: regexpeditorwindow.cpp:381
 #, kde-format
 msgid "Empty name is not supported"
 msgstr "Boş ad desteklenmiyor"
 
-#: regexpeditorwindow.cpp:375
+#: regexpeditorwindow.cpp:381
 #, kde-format
 msgid "Save Regular Expression"
 msgstr "Düzenli İfadeyi Kaydet"
 
-#: regexpeditorwindow.cpp:384
+#: regexpeditorwindow.cpp:390
 #, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b></p>"
 msgstr "<p>Adlandırılmış düzenli ifadenin üzerine yaz <b>%1</b></p>"
 
-#: regexpeditorwindow.cpp:394
+#: regexpeditorwindow.cpp:400
 #, kde-format
 msgid "Could not open file for writing: %1"
 msgstr "Dosya açılamadı: %1"

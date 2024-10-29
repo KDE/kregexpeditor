@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:42+0000\n"
+"POT-Creation-Date: 2024-10-29 00:42+0000\n"
 "PO-Revision-Date: 2019-09-29 12:28+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -414,7 +414,7 @@ msgstr "Пункти \"%1\"-ро нобуд созам?"
 msgid "Delete Item"
 msgstr "Нобудсозии Пункт"
 
-#: KMultiFormListBox/kmultiformlistbox.h:60
+#: KMultiFormListBox/kmultiformlistbox.h:63
 #, kde-format
 msgid "Add"
 msgstr ""
@@ -902,58 +902,58 @@ msgstr "Зери нишоннамо объект нест."
 msgid "Invalid Operation"
 msgstr "Амалиёти Нодуруст"
 
-#: regexpeditorwindow.cpp:316
+#: regexpeditorwindow.cpp:322
 #, kde-format
 msgid "C&ut"
 msgstr ""
 
-#: regexpeditorwindow.cpp:319
+#: regexpeditorwindow.cpp:325
 #, kde-format
 msgid "&Copy"
 msgstr ""
 
-#: regexpeditorwindow.cpp:322
+#: regexpeditorwindow.cpp:328
 #, kde-format
 msgid "&Paste"
 msgstr ""
 
-#: regexpeditorwindow.cpp:327
+#: regexpeditorwindow.cpp:333
 #, kde-format
 msgid "&Edit"
 msgstr ""
 
-#: regexpeditorwindow.cpp:330
+#: regexpeditorwindow.cpp:336
 #, kde-format
 msgid "&Save Regular Expression..."
 msgstr "&Захиракунии Ифодаҳои Муқаррарӣ..."
 
-#: regexpeditorwindow.cpp:370
+#: regexpeditorwindow.cpp:376
 #, fuzzy, kde-format
 msgid "Name for Regular Expression"
 msgstr "Муҳаррир барои Ифодаҳои Муқаррарӣ"
 
-#: regexpeditorwindow.cpp:370
+#: regexpeditorwindow.cpp:376
 #, kde-format
 msgid "Enter name:"
 msgstr "Номро ворид кунед:"
 
-#: regexpeditorwindow.cpp:375
+#: regexpeditorwindow.cpp:381
 #, kde-format
 msgid "Empty name is not supported"
 msgstr ""
 
-#: regexpeditorwindow.cpp:375
+#: regexpeditorwindow.cpp:381
 #, fuzzy, kde-format
 #| msgid "&Save Regular Expression..."
 msgid "Save Regular Expression"
 msgstr "&Захиракунии Ифодаҳои Муқаррарӣ..."
 
-#: regexpeditorwindow.cpp:384
+#: regexpeditorwindow.cpp:390
 #, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b></p>"
 msgstr "<p>Ифодаи муқаррариро бо номи <b>%1</b></p> рӯиҳам нависед"
 
-#: regexpeditorwindow.cpp:394
+#: regexpeditorwindow.cpp:400
 #, kde-format
 msgid "Could not open file for writing: %1"
 msgstr "Барои навиштан файл кушода намешавад: %1"

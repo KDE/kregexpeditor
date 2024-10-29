@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:42+0000\n"
+"POT-Creation-Date: 2024-10-29 00:42+0000\n"
 "PO-Revision-Date: 2012-07-16 17:06+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -386,7 +386,7 @@ msgstr "លុប​ធាតុ \"%1\" ឬ ?"
 msgid "Delete Item"
 msgstr "លុប​ធាតុ"
 
-#: KMultiFormListBox/kmultiformlistbox.h:60
+#: KMultiFormListBox/kmultiformlistbox.h:63
 #, kde-format
 msgid "Add"
 msgstr "បន្ថែម"
@@ -820,58 +820,58 @@ msgstr "មិន​មាន​ធាតុ​ក្រាហ្វិក​ន
 msgid "Invalid Operation"
 msgstr "ប្រតិបត្តិការ​មិន​ត្រឹមត្រូវ"
 
-#: regexpeditorwindow.cpp:316
+#: regexpeditorwindow.cpp:322
 #, kde-format
 msgid "C&ut"
 msgstr "កាត់"
 
-#: regexpeditorwindow.cpp:319
+#: regexpeditorwindow.cpp:325
 #, kde-format
 msgid "&Copy"
 msgstr "ចម្លង"
 
-#: regexpeditorwindow.cpp:322
+#: regexpeditorwindow.cpp:328
 #, kde-format
 msgid "&Paste"
 msgstr "បិទភ្ជាប់"
 
-#: regexpeditorwindow.cpp:327
+#: regexpeditorwindow.cpp:333
 #, kde-format
 msgid "&Edit"
 msgstr "កែសម្រួល"
 
-#: regexpeditorwindow.cpp:330
+#: regexpeditorwindow.cpp:336
 #, kde-format
 msgid "&Save Regular Expression..."
 msgstr "រក្សាទុក​កន្សោម​ធម្មតា..."
 
-#: regexpeditorwindow.cpp:370
+#: regexpeditorwindow.cpp:376
 #, kde-format
 msgid "Name for Regular Expression"
 msgstr "ឈ្មោះ​សម្រាប់​កន្សោម​ធម្មតា"
 
-#: regexpeditorwindow.cpp:370
+#: regexpeditorwindow.cpp:376
 #, kde-format
 msgid "Enter name:"
 msgstr "បញ្ចូល​ឈ្មោះ ៖"
 
-#: regexpeditorwindow.cpp:375
+#: regexpeditorwindow.cpp:381
 #, kde-format
 msgid "Empty name is not supported"
 msgstr ""
 
-#: regexpeditorwindow.cpp:375
+#: regexpeditorwindow.cpp:381
 #, fuzzy, kde-format
 #| msgid "&Save Regular Expression..."
 msgid "Save Regular Expression"
 msgstr "រក្សាទុក​កន្សោម​ធម្មតា..."
 
-#: regexpeditorwindow.cpp:384
+#: regexpeditorwindow.cpp:390
 #, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b></p>"
 msgstr "<p>សរសេរ​ជាន់​លើ​​កន្សោម​ធម្មតា​ដែល​មានឈ្មោះ<b>%1</b></p>"
 
-#: regexpeditorwindow.cpp:394
+#: regexpeditorwindow.cpp:400
 #, kde-format
 msgid "Could not open file for writing: %1"
 msgstr "មិន​អាច​បើក​ឯកសារ​សម្រាប់​ការសរសេរ ៖ %1"
