@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-29 00:42+0000\n"
-"PO-Revision-Date: 2024-08-07 20:18+0200\n"
+"PO-Revision-Date: 2024-11-09 20:04+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 24.08.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -374,7 +374,7 @@ msgstr "Долу"
 #: KMultiFormListBox/kmultiformlistbox-windowed.cpp:152
 #, kde-format
 msgid "Delete item \"%1\"?"
-msgstr "Изтриване на елемент \"%1\"?"
+msgstr "Изтриване на елемент „%1“?"
 
 #: KMultiFormListBox/kmultiformlistbox-windowed.cpp:152
 #, kde-format
@@ -457,7 +457,7 @@ msgstr ""
 #: kregexpeditorprivate.cpp:347
 #, kde-format
 msgid "Could not open file '%1' for reading"
-msgstr "Грешка при отваряне на файла \"%1\" за четене"
+msgstr "Грешка при отваряне на файла „%1“ за четене"
 
 #: kregexpeditorwindow.cpp:35
 #, kde-format
@@ -1026,8 +1026,8 @@ msgstr "Грешка при отваряне на файл за четене: %1
 #, kde-format
 msgid "File %1 containing user defined regular expression contained an error"
 msgstr ""
-"Файлът \"%1\", който съдържа потребителската дефиниция на регулярен израз "
-"има грешка."
+"Файлът „%1“, който съдържа потребителската дефиниция на регулярен израз има "
+"грешка."
 
 #: userdefinedregexps.cpp:143
 #, kde-format
