@@ -5,8 +5,8 @@ project(kregexpeditor)
 ############### search packages used by KDE ###############
 
 
-set(KF_MIN_VERSION "6.3.0")
-set(QT_MIN_VERSION "6.5")
+set(KF_MIN_VERSION "6.5.0")
+set(QT_MIN_VERSION "6.7")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
@@ -48,7 +48,7 @@ include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} )
 
 ############### Find the stuff we need ###############
 ecm_set_disabled_deprecation_versions(QT 6.3
-    KF 6.5.0
+    KF 6.8.0
     )
 
 add_subdirectory(src)
