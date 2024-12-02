@@ -5,7 +5,7 @@
 # Kim Enkovaara <kim.enkovaara@iki.fi>, 2003, 2004.
 # Ilpo Kantonen <ilpo@iki.fi>, 2006.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2011, 2012, 2013, 2015.
-# Tommi Nieminen <translator@legisign.org>, 2020, 2024.
+# SPDX-FileCopyrightText: 2020, 2024 Tommi Nieminen <translator@legisign.org>
 #
 # KDE Finnish translation sprint participants:
 # Author: Artnay
@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-29 00:42+0000\n"
-"PO-Revision-Date: 2024-02-02 12:57+0200\n"
+"PO-Revision-Date: 2024-10-28 21:19+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -23,18 +23,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-POT-Import-Date: 2012-12-01 22:27:36+0000\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Teemu Rytilahti,Ilpo Kantonen,Tommi Nieminen"
+msgstr "Teemu Rytilahti, Ilpo Kantonen, Tommi Nieminen"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "teemu.rytilahti@kde-fi.org,ilpo@iki.fi,translator@legisign.org"
+msgstr "teemu.rytilahti@kde-fi.org, ilpo@iki.fi, translator@legisign.org"
 
 #: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:82
 #, kde-format
@@ -103,8 +102,7 @@ msgid "Specify Characters"
 msgstr "Anna merkit"
 
 #: characterswidget.cpp:275
-#, fuzzy, kde-format
-#| msgid "Do not match the characters specified here"
+#, kde-format
 msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr "Älä sovita tässä annettuihin merkkeihin"
@@ -115,43 +113,37 @@ msgid "Predefined Character Ranges"
 msgstr "Ennalta asetetut merkkialueet"
 
 #: characterswidget.cpp:283
-#, fuzzy, kde-format
-#| msgid "A word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A word character"
 msgstr "Kirjainmerkki"
 
 #: characterswidget.cpp:285
-#, fuzzy, kde-format
-#| msgid "A digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A digit character"
 msgstr "Numero"
 
 #: characterswidget.cpp:287
-#, fuzzy, kde-format
-#| msgid "A space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A space character"
 msgstr "Tyhjemerkki"
 
 #: characterswidget.cpp:290
-#, fuzzy, kde-format
-#| msgid "A non-word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-word character"
 msgstr "Ei kirjainmerkki"
 
 #: characterswidget.cpp:292
-#, fuzzy, kde-format
-#| msgid "A non-digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-digit character"
 msgstr "Ei numero"
 
 #: characterswidget.cpp:294
-#, fuzzy, kde-format
-#| msgid "A non-space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-space character"
 msgstr "Ei tyhjemerkki"
@@ -238,8 +230,7 @@ msgid "&Description:"
 msgstr "&Kuvaus:"
 
 #: compoundwidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "&Automatically replace using this item"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Automatically replace using this item"
 msgstr "Korvaa &automaattisesti tällä"
@@ -939,8 +930,7 @@ msgid "Times to Match"
 msgstr "Osumakertojen määrä"
 
 #: repeatwidget.cpp:177
-#, fuzzy, kde-format
-#| msgid "Any number of times (including zero times)"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr "Mikä tahansa määrä (nolla mukaan lukien)"
@@ -961,8 +951,7 @@ msgid "Exactly"
 msgstr "Täsmälleen"
 
 #: repeatwidget.cpp:189
-#, fuzzy, kde-format
-#| msgid "From"
+#, kde-format
 msgctxt "@option:radio"
 msgid "From"
 msgstr "Mistä"
