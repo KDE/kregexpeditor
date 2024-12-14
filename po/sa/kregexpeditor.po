@@ -1,0 +1,1092 @@
+# Sanskrit translations for kregexpeditor package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kregexpeditor package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kregexpeditor\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-10-29 00:42+0000\n"
+"PO-Revision-Date: 2024-12-13 19:09+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Sanskrit\n"
+"Language: sa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n>2);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:82
+#, kde-format
+msgid "Alternatives"
+msgstr "विकल्पाः"
+
+#: altnwidget.cpp:206
+#, kde-format
+msgid "Selecting several alternatives is currently not supported."
+msgstr "अनेकविकल्पानां चयनं सम्प्रति समर्थितं नास्ति ।"
+
+#: altnwidget.cpp:208
+#, kde-format
+msgid "Selection Invalid"
+msgstr "चयनम् अमान्यम्"
+
+#: characterswidget.cpp:102
+#, kde-format
+msgid "- A word character\n"
+msgstr "- शब्दवर्णः\n"
+
+#: characterswidget.cpp:106
+#, kde-format
+msgid "- A non-word character\n"
+msgstr "- अशब्दवर्णः\n"
+
+#: characterswidget.cpp:110
+#, kde-format
+msgid "- A digit character\n"
+msgstr "- अङ्कवर्णः\n"
+
+#: characterswidget.cpp:114
+#, kde-format
+msgid "- A non-digit character\n"
+msgstr "- अङ्कीयः वर्णः\n"
+
+#: characterswidget.cpp:118
+#, kde-format
+msgid "- A space character\n"
+msgstr "- अन्तरिक्षवर्णः\n"
+
+#: characterswidget.cpp:122
+#, kde-format
+msgid "- A non-space character\n"
+msgstr "- अन्तरिक्षवर्णः\n"
+
+#: characterswidget.cpp:137
+#, kde-format
+msgctxt "a range of characters"
+msgid "- from %1 to %2\n"
+msgstr ""
+
+#: characterswidget.cpp:145
+#, kde-format
+msgid "Any Character Except"
+msgstr "कोऽपि वर्णः व्यतिरिक्तः"
+
+#: characterswidget.cpp:147
+#, kde-format
+msgid "One of Following Characters"
+msgstr "निम्नलिखितपात्रेषु एकः"
+
+#: characterswidget.cpp:265
+#, kde-format
+msgid "Specify Characters"
+msgstr "वर्णाः निर्दिशन्तु"
+
+#: characterswidget.cpp:275
+#, kde-format
+msgctxt "@option:check"
+msgid "Do not match the characters specified here"
+msgstr ""
+
+#: characterswidget.cpp:279
+#, kde-format
+msgid "Predefined Character Ranges"
+msgstr "पूर्वनिर्धारितवर्णपरिधिः"
+
+#: characterswidget.cpp:283
+#, kde-format
+msgctxt "@option:check"
+msgid "A word character"
+msgstr ""
+
+#: characterswidget.cpp:285
+#, kde-format
+msgctxt "@option:check"
+msgid "A digit character"
+msgstr ""
+
+#: characterswidget.cpp:287
+#, kde-format
+msgctxt "@option:check"
+msgid "A space character"
+msgstr ""
+
+#: characterswidget.cpp:290
+#, kde-format
+msgctxt "@option:check"
+msgid "A non-word character"
+msgstr ""
+
+#: characterswidget.cpp:292
+#, kde-format
+msgctxt "@option:check"
+msgid "A non-digit character"
+msgstr ""
+
+#: characterswidget.cpp:294
+#, kde-format
+msgctxt "@option:check"
+msgid "A non-space character"
+msgstr ""
+
+#: characterswidget.cpp:298
+#, kde-format
+msgid "Single Characters"
+msgstr "एकलवर्णाः"
+
+#: characterswidget.cpp:310 characterswidget.cpp:331
+#, kde-format
+msgid "More Entries"
+msgstr "अधिकानि प्रविष्टयः"
+
+#: characterswidget.cpp:318
+#, kde-format
+msgid "Character Ranges"
+msgstr "वर्णपरिधिः"
+
+#: characterswidget.cpp:412
+#, kde-format
+msgid "From:"
+msgstr "इत्यस्मात्‌:"
+
+#: characterswidget.cpp:419
+#, kde-format
+msgctxt "end of range"
+msgid "To:"
+msgstr ""
+
+#: charselector.cpp:49
+#, kde-format
+msgid "Normal Character"
+msgstr "सामान्य चरित्र"
+
+#: charselector.cpp:49
+#, kde-format
+msgid "Unicode Char in Hex."
+msgstr "हेक्स मध्ये यूनिकोड चार।"
+
+#: charselector.cpp:49
+#, kde-format
+msgid "Unicode Char in Oct."
+msgstr "अक्टोबर् मासे यूनिकोड चार।"
+
+#: charselector.cpp:50
+#, kde-format
+msgid "The Bell Character (\\a)"
+msgstr "घण्टा चरित्र (\\क) ९."
+
+#: charselector.cpp:50
+#, kde-format
+msgid "The Form Feed Character (\\f)"
+msgstr "प्रपत्र फीड् वर्णः (\\f) ."
+
+#: charselector.cpp:50
+#, kde-format
+msgid "The Line Feed Character (\\n)"
+msgstr "रेखा फीड वर्ण (\\n) २."
+
+#: charselector.cpp:51
+#, kde-format
+msgid "The Carriage Return Character (\\r)"
+msgstr "गाडी प्रत्यागमन वर्ण (\\r) २."
+
+#: charselector.cpp:51
+#, kde-format
+msgid "The Horizontal Tab Character (\\t)"
+msgstr "क्षैतिज ट्याब वर्ण (\\t) ."
+
+#: charselector.cpp:51
+#, kde-format
+msgid "The Vertical Tab Character (\\v)"
+msgstr "ऊर्ध्वाधर ट्याब् वर्णः (\\v) ."
+
+#: compoundwidget.cpp:35
+#, kde-format
+msgid "&Title:"
+msgstr "&शीर्षक:"
+
+#: compoundwidget.cpp:41
+#, kde-format
+msgid "&Description:"
+msgstr "&वर्णनम्‌:"
+
+#: compoundwidget.cpp:47
+#, kde-format
+msgctxt "@option:check"
+msgid "&Automatically replace using this item"
+msgstr ""
+
+#: compoundwidget.cpp:50
+#, kde-format
+msgid ""
+"When the content of this box is typed in to the ASCII line,<br />this box "
+"will automatically be added around it,<br />if this check box is selected."
+msgstr ""
+"यदा अस्य पेटीयाः सामग्री ASCII रेखायां टङ्किता भवति तदा<br /> इदं पेटी स्वयमेव तस्य "
+"परितः योजितं भविष्यति,<br /> यदि एतत् चेक् बॉक्स् चयनितम् अस्ति।"
+
+#: compoundwidget.cpp:115
+#, kde-format
+msgid "Configure Compound"
+msgstr "यौगिकं विन्यस्तं कुर्वन्तु"
+
+#: emacsregexpconverter.cpp:66
+#, kde-format
+msgid "Look ahead regular expressions not supported in Emacs style"
+msgstr "Emacs शैल्यां समर्थितानि नियमितव्यञ्जनानि अग्रे पश्यन्तु"
+
+#: emacsregexpconverter.cpp:171
+#, kde-format
+msgid "Word boundary and non word boundary is not supported in Emacs syntax"
+msgstr "Emacs वाक्यविन्यासे शब्दसीमा तथा अशब्दसीमा समर्थिता नास्ति"
+
+#: errormap.cpp:37
+#, kde-format
+msgid ""
+"Your regular expression is invalid, due to something preceding a 'line "
+"start'."
+msgstr "भवतः नियमितव्यञ्जनं अमान्यम् अस्ति, 'रेखाप्रारम्भस्य' पूर्वं किमपि कारणात् ।"
+
+#: errormap.cpp:38 errormap.cpp:49 errormap.cpp:60
+#, kde-format
+msgid "Regular Expression Error"
+msgstr "नियमित अभिव्यक्ति त्रुटि"
+
+#: errormap.cpp:48
+#, kde-format
+msgid ""
+"Your regular expression is invalid, due to something following a 'line end'."
+msgstr "भवतः नियमितव्यञ्जनं अमान्यम् अस्ति, 'रेखासमाप्तिम्' अनुसृत्य किमपि कारणात् ।"
+
+#: errormap.cpp:59
+#, kde-format
+msgid ""
+"Your regular expression is invalid. 'Look Ahead' regular expression must be "
+"the last sub expression."
+msgstr ""
+"भवतः नियमितव्यञ्जनम् असिद्धम् अस्ति। 'Look Ahead' नियमितव्यञ्जनं अन्तिमः उपव्यञ्जनः "
+"भवितुमर्हति ।"
+
+#: infopage.cpp:22
+#, kde-format
+msgctxt ""
+"Translators, feel free to add yourself in the text below, asking for a "
+"postcard ;-), also feel free to add a section saying <h2>Translators</h2>. "
+"Kind regards, and thanks for your work - Jesper."
+msgid ""
+"<h1>Regular Expression Editor</h1><p>What you are currently looking at is an "
+"editor for <i>Regular Expressions</i>.</p><p>The upper part in the middle is "
+"the editing area, the lower part is a verification window where you can try "
+"your regular expressions right away. The row of buttons is the editing "
+"actions. This is actually very similar to common drawing programs. Select an "
+"editing tool to start editing your regular expression, and press the mouse "
+"button in the editing area where you want this item inserted.</p><p>For a "
+"more detailed description of this editor see the <a href=\"doc://\">info "
+"pages</a></p><h2>What is a regular expression?</h2>If you do not know what a "
+"regular expression is, then it might be a good idea to read <a href=\"doc://"
+"whatIsARegExp\">the introduction to regular expressions</a>.<br />"
+msgstr ""
+
+#: KMultiFormListBox/ccp.cpp:58
+#, kde-format
+msgid "Cut"
+msgstr "छिन्न"
+
+#: KMultiFormListBox/ccp.cpp:59
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:59
+#, kde-format
+msgid "Copy"
+msgstr "प्रतिलिपि"
+
+#: KMultiFormListBox/ccp.cpp:60
+#, kde-format
+msgid "Paste"
+msgstr "चिनोतु"
+
+#: KMultiFormListBox/ccp.cpp:61
+#, kde-format
+msgid "Insert Blank"
+msgstr "रिक्तं सम्मिलितं कुर्वन्तु"
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:244
+#, kde-format
+msgid "Due to a bug, it is not possible to remove the last element."
+msgstr "दोषस्य कारणात् अन्तिमतत्त्वं निष्कासयितुं न शक्यते ।"
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:244
+#, kde-format
+msgid "Internal Error"
+msgstr "आन्तरिकदोषः"
+
+#: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:266
+#, kde-format
+msgid "There is no element on the clipboard to paste in."
+msgstr "क्लिप्बोर्ड् मध्ये पेस्ट् कर्तुं कोऽपि तत्त्वः नास्ति ।"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:46
+#, kde-format
+msgid "Edit"
+msgstr "सम्पादन"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:53
+#: userdefinedregexps.cpp:142
+#, kde-format
+msgid "Delete"
+msgstr "लुप्"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:66
+#, kde-format
+msgid "Up"
+msgstr "उपरि"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:72
+#, kde-format
+msgid "Down"
+msgstr "अधः"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:152
+#, kde-format
+msgid "Delete item \"%1\"?"
+msgstr "\"%1\" इति मदं विलोपयतु?"
+
+#: KMultiFormListBox/kmultiformlistbox-windowed.cpp:152
+#, kde-format
+msgid "Delete Item"
+msgstr "Delete Item"
+
+#: KMultiFormListBox/kmultiformlistbox.h:63
+#, kde-format
+msgid "Add"
+msgstr "संयोजयति"
+
+#: KMultiFormListBox/widgetwindow.cpp:35
+#, kde-format
+msgid "Widget Configuration"
+msgstr "विजेट् विन्यासः"
+
+#: kregexpeditorprivate.cpp:47
+#, kde-format
+msgid "Compound regular expression:"
+msgstr "समास नियमित अभिव्यक्तिः १."
+
+#: kregexpeditorprivate.cpp:49
+#, kde-format
+msgid ""
+"In this window you will find predefined regular expressions. Both regular "
+"expressions you have developed and saved, and regular expressions shipped "
+"with the system."
+msgstr ""
+"अस्मिन् विण्डो मध्ये भवन्तः पूर्वनिर्धारितनियमितव्यञ्जनानि प्राप्नुवन्ति । भवता विकसितानि "
+"रक्षितानि च नियमितव्यञ्जनानि, प्रणाल्या सह निर्यातितानि नियमितव्यञ्जनानि च ।"
+
+#: kregexpeditorprivate.cpp:59
+#, kde-format
+msgid ""
+"In this window you will develop your regular expressions. Select one of the "
+"actions from the action buttons above, and click the mouse in this window to "
+"insert the given action."
+msgstr ""
+"अस्मिन् विण्डो मध्ये भवान् स्वस्य नियमितव्यञ्जनानि विकसयिष्यति । उपरिष्टात् क्रियाबटनात् एकं "
+"क्रिया चित्वा, दत्तं क्रियां सम्मिलितुं अस्मिन् विण्डो मध्ये मूषकं नुदन्तु ।"
+
+#: kregexpeditorprivate.cpp:68
+#, kde-format
+msgid ""
+"<p>Type in some text in this window, and see what the regular expression you "
+"have developed matches.</p><p>Each second match will be colored in red and "
+"each other match will be colored blue, simply so you can distinguish them "
+"from each other.</p><p>If you select part of the regular expression in the "
+"editor window, then this part will be highlighted - This allows you to "
+"<i>debug</i> your regular expressions</p>"
+msgstr ""
+"<p>अस्मिन् विण्डो मध्ये किञ्चित् पाठं टङ्कयन्तु, भवता विकसितं नियमितव्यञ्जनं किं मेलति इति "
+"पश्यन्तु ।</p><p> प्रत्येकं द्वितीयं मेलनं रक्तवर्णं भविष्यति, परस्परं मेलनं नीलवर्णीयं भविष्यति, "
+"केवलं येन भवन्तः तान् परस्परं भेदं कर्तुं शक्नुवन्ति ।</p><p> यदि भवान् सम्पादकविण्डो मध्ये "
+"नियमितव्यञ्जनस्य भागं चिनोति तर्हि एषः भागः प्रकाशितः भविष्यति - एतेन भवान् स्वस्य "
+"नियमितव्यञ्जनानां <i>त्रुटिनिवारणं</i> कर्तुं शक्नोति</p>"
+
+#: kregexpeditorprivate.cpp:109
+#, kde-format
+msgid "ASCII syntax:"
+msgstr "ASCII वाक्यविन्यासः : १."
+
+#: kregexpeditorprivate.cpp:123
+#, kde-format
+msgid ""
+"<p>This is the regular expression in ASCII syntax. You are likely only to be "
+"interested in this if you are a programmer, and need to develop a regular "
+"expression using QRegExp.</p><p>You may develop your regular expression both "
+"by using the graphical editor, and by typing the regular expression in this "
+"line edit.</p>"
+msgstr ""
+"<p>एतत् ASCII वाक्यविन्यासे नियमितव्यञ्जनम् अस्ति । भवान् केवलं तदा एव अस्मिन् विषये रुचिं "
+"लभते यदा भवान् प्रोग्रामरः अस्ति, तथा च QRegExp इत्यस्य उपयोगेन नियमितव्यञ्जनस्य "
+"विकासस्य आवश्यकता अस्ति ।</p><p> चित्रात्मकसम्पादकस्य उपयोगेन, अस्मिन् पङ्क्तिसम्पादने "
+"नियमितव्यञ्जनं टङ्कयित्वा च भवान् स्वस्य नियमितव्यञ्जनस्य विकासं कर्तुं शक्नोति ।</p>"
+
+#: kregexpeditorprivate.cpp:347
+#, kde-format
+msgid "Could not open file '%1' for reading"
+msgstr "पठनार्थं '%1' सञ्चिकां उद्घाटयितुं न शक्यते"
+
+#: kregexpeditorwindow.cpp:35
+#, kde-format
+msgctxt "@title:window"
+msgid "Regular Expression Editor"
+msgstr ""
+
+#: kregexpeditorwindow.cpp:84
+#, kde-format
+msgid "Verify regular expression"
+msgstr "नियमितव्यञ्जनस्य सत्यापनम्"
+
+#: kregexpeditorwindow.cpp:90
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Load text"
+msgstr ""
+
+#: kregexpeditorwindow.cpp:91
+#, kde-format
+msgid "Load text in the verifier window"
+msgstr "सत्यापनकर्ता विण्डो मध्ये पाठं लोड् कुर्वन्तु"
+
+#: kregexpeditorwindow.cpp:101
+#, kde-format
+msgid "Verify on the Fly"
+msgstr "मक्षिकायां सत्यापयन्तु"
+
+#: kregexpeditorwindow.cpp:108
+#, kde-format
+msgid "Toggle on-the-fly verification of regular expression"
+msgstr "नियमितव्यञ्जनस्य उड्डयनसत्यापनं टॉगलं कुर्वन्तु"
+
+#: kregexpeditorwindow.cpp:110
+#, kde-format
+msgid ""
+"Enabling this option will make the verifier update for each edit. If the "
+"verify window contains much text, or if the regular expression is either "
+"complex or matches a lot of time, this may be very slow."
+msgstr ""
+"एतत् विकल्पं सक्षमीकरणेन प्रत्येकस्य सम्पादनस्य सत्यापनकर्ता अद्यतनं भविष्यति । यदि verify "
+"विण्डो मध्ये बहु पाठः अस्ति, अथवा यदि नियमितव्यञ्जनं जटिलं वा बहुकालं मेलनं वा भवति, तर्हि "
+"एतत् अतीव मन्दं भवितुम् अर्हति ।"
+
+#: kregexpeditorwindow.cpp:115
+#, kde-format
+msgid "Match Greedy"
+msgstr "मेल लोभी"
+
+#: kregexpeditorwindow.cpp:122
+#, kde-format
+msgid "Toggle greedy matching when verifying the regular expression."
+msgstr "नियमितव्यञ्जनस्य सत्यापनकाले लोभीमेलनं टॉगल कुर्वन्तु।"
+
+#: kregexpeditorwindow.cpp:123
+#, kde-format
+msgid ""
+"When this option is enabled, the regular expression will be evaluated on a "
+"so-called greedy way."
+msgstr ""
+"यदा एषः विकल्पः सक्षमः भवति तदा नियमितव्यञ्जनस्य मूल्याङ्कनं तथाकथितेन लोभीमार्गेण "
+"भविष्यति ।"
+
+#: kregexpeditorwindow.cpp:126
+#, kde-format
+msgctxt "@title:menu"
+msgid "RegExp Languages"
+msgstr ""
+
+#: lookaheadwidget.cpp:39
+#, kde-format
+msgid "Pos. Look Ahead"
+msgstr "पोस. अग्रे पश्यन्तु"
+
+#: lookaheadwidget.cpp:41
+#, kde-format
+msgid "Neg. Look Ahead"
+msgstr "नेग. अग्रे पश्यन्तु"
+
+#: main.cpp:26
+#, kde-format
+msgid "RegExp Editor"
+msgstr "RegExp सम्पादक"
+
+#: main.cpp:28
+#, kde-format
+msgid "Editor for Regular Expressions"
+msgstr "नियमितव्यञ्जनानां सम्पादकः"
+
+#: main.cpp:30
+#, kde-format
+msgid "(c) 2002-2003 Jesper K. Pedersen"
+msgstr "(ग) 2002-2003 जेस्पर के पेडरसेन्"
+
+#: main.cpp:31
+#, kde-format
+msgid "Laurent Montel"
+msgstr "लॉरेण्ट् मोंटेल्"
+
+#: main.cpp:31
+#, kde-format
+msgid "Developer"
+msgstr "विकासकः"
+
+#: main.cpp:32
+#, kde-format
+msgctxt "@info:credit"
+msgid "Carl Schwan"
+msgstr ""
+
+#: main.cpp:33
+#, kde-format
+msgctxt "@info:credit"
+msgid "Port to Qt6"
+msgstr ""
+
+#: predefined/General/anything.regexp:5
+#, kde-format
+msgid "anything"
+msgstr "किमपि"
+
+#: predefined/General/anything.regexp:6
+#, kde-format
+msgid "This regular expression matches anything."
+msgstr "इदं नियमितव्यञ्जनं किमपि सङ्गच्छते ।"
+
+#: predefined/General/spaces.regexp:5
+#, kde-format
+msgid "spaces"
+msgstr "रिक्तस्थानानि"
+
+#: predefined/General/spaces.regexp:6
+#, kde-format
+msgid "Matches an arbitrary amount of whitespace."
+msgstr "श्वेतस्थानस्य मनमाना परिमाणं मेलयति ।"
+
+#: qregexpparser.y:205
+#, kde-format
+msgid ""
+"<p>Back reference regular expressions are not supported.</p><p><tt>\\1</tt>, "
+"<tt>\\2</tt>, ... are <i>back references</i>, meaning they refer to previous "
+"matches. Unfortunately this is not supported in the current version of this "
+"editor.</p><p>In the graphical area the text <b>%1</b> has been inserted. "
+"This is however just a workaround to ensure that the application handles the "
+"regexp at all. Therefore, as soon as you edit the regular expression in the "
+"graphical area, the back reference will be replaced by matching the text <b>"
+"%2</b> literally.</p>"
+msgstr ""
+"<p>पृष्ठसन्दर्भनियमितव्यञ्जनानि समर्थितानि न सन्ति ।</p><p> <tt>\\1</tt> , <tt>\\2</"
+"tt> , ... <i>पृष्ठसन्दर्भाः</i> सन्ति , अर्थात् ते पूर्वमेलनानि निर्दिशन्ति । दुर्भाग्येन अस्य "
+"सम्पादकस्य वर्तमानसंस्करणे एतत् समर्थितं नास्ति ।</p><p> चित्रात्मकक्षेत्रे <b>%1</b> इति "
+"पाठः सम्मिलितः अस्ति । तथापि एतत् केवलं कार्यपरिहारः अस्ति यत् अनुप्रयोगः regexp सर्वथा "
+"नियन्त्रयति इति सुनिश्चितं करोति । अतः चित्रात्मकक्षेत्रे नियमितव्यञ्जनं सम्पादयन् एव "
+"पृष्ठसन्दर्भः <b>%2 इति</b> पाठस्य अक्षरशः मेलनं कृत्वा प्रतिस्थापितः भविष्यति ।</p>"
+
+#: qregexpparser.y:214
+#, kde-format
+msgid "Back reference regular expressions not supported"
+msgstr "पृष्ठसन्दर्भ नियमितव्यञ्जनानि समर्थितानि न सन्ति"
+
+#: regexpbuttons.cpp:36
+#, kde-format
+msgid "Selection tool"
+msgstr "चयनसाधनम्"
+
+#: regexpbuttons.cpp:38
+#, kde-format
+msgid ""
+"<p>This will change the state of the editor to <i>selection state</i>.</"
+"p><p>In this state you will not be inserting <i>regexp items</i>, but "
+"instead select them. To select a number of items, press down the left mouse "
+"button and drag it over the items.</p><p>When you have selected a number of "
+"items, you may use cut/copy/paste. These functions are found in the right "
+"mouse button menu.</p>"
+msgstr ""
+"<p>एतेन सम्पादकस्य स्थितिः <i>चयनस्थितिः</i> इति परिवर्तते |</p><p> अस्मिन् अवस्थायां "
+"भवान् <i>regexp वस्तूनि</i> न सम्मिलितं करिष्यति , अपितु तस्य स्थाने तान् चिनोतु । "
+"अनेकवस्तूनि चिन्वितुं वाममूषकस्य बटनं नुत्वा वस्तूनि उपरि कर्षन्तु ।</p><p> यदा भवान् "
+"कतिपयानि वस्तूनि चिनोति तदा भवान् cut/copy/paste इत्यस्य उपयोगं कर्तुं शक्नोति । एतानि "
+"कार्याणि दक्षिणमूषकस्य बटन् मेन्यू मध्ये प्राप्यन्ते ।</p>"
+
+#: regexpbuttons.cpp:49
+#, kde-format
+msgid "Text"
+msgstr "पाठ"
+
+#: regexpbuttons.cpp:50
+#, kde-format
+msgid ""
+"<qt>This will insert a text field, where you may write text. The text you "
+"write will be matched literally. (i.e. you do not need to escape any "
+"characters)</qt>"
+msgstr ""
+"<qt>एतेन पाठक्षेत्रं सम्मिलितं भविष्यति, यत्र भवान् पाठं लिखितुं शक्नोति । भवता लिखितः "
+"पाठः अक्षरशः मेलितः भविष्यति । (अर्थात् भवता कस्यापि वर्णस्य पलायनस्य आवश्यकता नास्ति)</"
+"qt>"
+
+#: regexpbuttons.cpp:56
+#, kde-format
+msgid "A single character specified in a range"
+msgstr "परिधिमध्ये निर्दिष्टः एकः वर्णः"
+
+#: regexpbuttons.cpp:57
+#, kde-format
+msgid ""
+"<p>This will match a single character from a predefined range.</p><p>When "
+"you insert this widget a dialog box will appear, which lets you specify "
+"which characters this <i>regexp item</i> will match.</p>"
+msgstr ""
+"<p>एतेन पूर्वनिर्धारितपरिधितः एकस्य वर्णस्य मेलनं भविष्यति ।</p><p> यदा भवान् एतत् विजेट् "
+"सम्मिलितं करोति तदा संवादपेटिका दृश्यते, यत् भवान् निर्दिष्टुं शक्नोति यत् एतत् <i>regexp "
+"मदं</i> केषां वर्णानाम् मेलनं करिष्यति ।</p>"
+
+#: regexpbuttons.cpp:62
+#, kde-format
+msgid "Any character"
+msgstr "यत्किमपि पात्रम्"
+
+#: regexpbuttons.cpp:62
+#, kde-format
+msgid "<qt>This will match any single character</qt>"
+msgstr "<qt>एतत् कस्यापि एकवर्णस्य</qt>सङ्गतिं करिष्यति"
+
+#: regexpbuttons.cpp:67
+#, kde-format
+msgid "Repeated content"
+msgstr "पुनः पुनः सामग्री"
+
+#: regexpbuttons.cpp:68
+#, kde-format
+msgid ""
+"<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
+"a specified number of times.<br />The number of times to repeat may be "
+"specified using ranges; e.g. it could be specified that it should match from "
+"2 to 4 times, that it should match exactly 5 times, or that it should match "
+"at least one time.<br />Examples:<br />If you specify that it should match "
+"<i>any</i> time, and the content it surrounds is <tt>abc</tt>, then this "
+"<i>regexp item</i> will match the empty string, the string <tt>abc</tt>, the "
+"string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, etc.</qt>"
+msgstr ""
+"<qt>इदं <i>regexp मदं</i> निर्दिष्टसङ्ख्यायां परितः <i>regexp मदं</i> पुनरावृत्तिं "
+"करिष्यति ।<br /> पुनरावृत्तिसमयानां संख्या श्रेणीनां उपयोगेन निर्दिष्टा भवितुम् अर्हति; यथा "
+"२ तः ४ वारं यावत् मेलनं भवेत्, ५ वारं सम्यक् मेलनं भवेत्, न्यूनातिन्यूनम् एकवारं वा मेलनं भवेत् इति "
+"निर्दिष्टुं शक्यते स्म ।<br /> उदाहरणानि : १.<br /> यदि भवान् निर्दिशति यत् एतत् "
+"<i>कदापि</i> मेलनं कर्तव्यम्, तथा च एतत् परितः सामग्री <tt>abc</tt> अस्ति, तर्हि एतत् "
+"<i>regexp मदं</i> रिक्तं स्ट्रिंग्, <tt>abc</tt> स्ट्रिंग्, <tt>abcabc</tt> स्ट्रिंग् , "
+"<tt>abcabcabcabc</tt> स्ट्रिंग् इत्यादिभिः सह मेलनं करिष्यति</qt>"
+
+#: regexpbuttons.cpp:83
+#, kde-format
+msgid ""
+"<p>This <i>regexp item</i> will match any of its alternatives.</"
+"p><p>Alternatives are specified by placing <i>regexp items</i> on top of "
+"each other inside this widget.</p>"
+msgstr ""
+"<p>इदं <i>regexp मदं</i> तस्य कस्यापि विकल्पस्य सङ्गतिं करिष्यति ।</p><p> अस्य विजेट् "
+"इत्यस्य अन्तः <i>regexp वस्तूनि</i> परस्परं उपरि स्थापयित्वा विकल्पाः निर्दिष्टाः भवन्ति ।"
+"</p>"
+
+#: regexpbuttons.cpp:90
+#, kde-format
+msgid "Compound regexp"
+msgstr "समास regexp"
+
+#: regexpbuttons.cpp:91
+#, kde-format
+msgid ""
+"<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
+"for you to collapse a huge <i>regexp item</i> into a small box. This makes "
+"it easier for you to get an overview of large <i>regexp items</i>. This is "
+"especially useful if you load a predefined <i>regexp item</i> that you "
+"perhaps do not care about the inner workings of.</qt>"
+msgstr ""
+"<qt>इदं <i>regexp मदं</i> द्वौ प्रयोजनौ सेवते:<ul><li> एतेन भवतः कृते विशालं <i>regexp "
+"द्रव्यं</i> लघुपेटिकायां पतनं सम्भवं भवति । एतेन भवद्भ्यः बृहत् <i>regexp - वस्तूनाम्</i> "
+"अवलोकनं प्राप्तुं सुकरं भवति | यदि भवान् पूर्वनिर्धारितं <i>regexp मदं</i> लोड् करोति यस्य "
+"आन्तरिककार्यस्य चिन्ता भवान् सम्भवतः न करोति तर्हि एतत् विशेषतया उपयोगी भवति ।</qt>"
+
+#: regexpbuttons.cpp:98
+#, kde-format
+msgid "Beginning of line"
+msgstr "रेखायाः आरम्भः"
+
+#: regexpbuttons.cpp:98
+#, kde-format
+msgid "<qt>This will match the beginning of a line.</qt>"
+msgstr "<qt>एतत् रेखायाः आरम्भस्य सङ्गतिं करिष्यति ।</qt>"
+
+#: regexpbuttons.cpp:101
+#, kde-format
+msgid "End of line"
+msgstr "रेखायाः अन्तः"
+
+#: regexpbuttons.cpp:101
+#, kde-format
+msgid "<qt>This will match the end of a line.</qt>"
+msgstr "<qt>एतत् रेखायाः अन्ते मेलनं करिष्यति।</qt>"
+
+#: regexpbuttons.cpp:106
+#, kde-format
+msgid "Word boundary"
+msgstr "शब्दसीमा"
+
+#: regexpbuttons.cpp:107
+#, kde-format
+msgid ""
+"<qt>This asserts a word boundary (This part does not actually match any "
+"characters)</qt>"
+msgstr ""
+"<qt>एतेन शब्दसीमा प्रतिपाद्यते (अयं भागः वस्तुतः कस्यापि वर्णस्य सङ्गतिं न करोति)</qt>"
+
+#: regexpbuttons.cpp:112
+#, kde-format
+msgid "Non Word boundary"
+msgstr "अशब्दसीमा"
+
+#: regexpbuttons.cpp:113
+#, kde-format
+msgid ""
+"<qt>This asserts a non-word boundary (This part does not actually match any "
+"characters)</qt>"
+msgstr ""
+"<qt>एतेन अशब्दसीमा प्रतिपाद्यते (अयं भागः वस्तुतः कस्यापि वर्णस्य सङ्गतिं न करोति)</qt>"
+
+#: regexpbuttons.cpp:119
+#, kde-format
+msgid "Positive Look Ahead"
+msgstr "सकारात्मकं अग्रे पश्यन्तु"
+
+#: regexpbuttons.cpp:120
+#, kde-format
+msgid ""
+"<qt>This asserts a regular expression (This part does not actually match any "
+"characters). You can only use this at the end of a regular expression.</qt>"
+msgstr ""
+"<qt>एतत् नियमितव्यञ्जनं प्रतिपादयति (अयं भागः वस्तुतः कस्यापि वर्णस्य सङ्गतिं न करोति) । "
+"भवन्तः केवलं नियमितव्यञ्जनस्य अन्ते एव एतत् उपयोक्तुं शक्नुवन्ति ।</qt>"
+
+#: regexpbuttons.cpp:126
+#, kde-format
+msgid "Negative Look Ahead"
+msgstr "नकारात्मकं अग्रे पश्यन्तु"
+
+#: regexpbuttons.cpp:127
+#, kde-format
+msgid ""
+"<qt>This asserts a regular expression that must not match (This part does "
+"not actually match any characters). You can only use this at the end of a "
+"regular expression.</qt>"
+msgstr ""
+"<qt>एतत् नियमितव्यञ्जनं प्रतिपादयति यस्य मेलनं न भवितुमर्हति (अयं भागः वस्तुतः कस्यापि "
+"वर्णस्य मेलनं न करोति) । भवन्तः केवलं नियमितव्यञ्जनस्य अन्ते एव एतत् उपयोक्तुं शक्नुवन्ति ।</qt>"
+
+#: regexpeditorwindow.cpp:203
+#, kde-format
+msgid "There is no selection."
+msgstr "चयनं नास्ति।"
+
+#: regexpeditorwindow.cpp:203
+#, kde-format
+msgid "Missing Selection"
+msgstr "अनुपलब्ध चयन"
+
+#: regexpeditorwindow.cpp:268
+#, kde-format
+msgid "There is no widget under cursor."
+msgstr "कर्सरस्य अधः कोऽपि विजेट् नास्ति ।"
+
+#: regexpeditorwindow.cpp:268
+#, kde-format
+msgid "Invalid Operation"
+msgstr "अमान्य संचालन"
+
+#: regexpeditorwindow.cpp:322
+#, kde-format
+msgid "C&ut"
+msgstr "सी& ."
+
+#: regexpeditorwindow.cpp:325
+#, kde-format
+msgid "&Copy"
+msgstr "&प्रतिलिपि"
+
+#: regexpeditorwindow.cpp:328
+#, kde-format
+msgid "&Paste"
+msgstr "&पेस्ट"
+
+#: regexpeditorwindow.cpp:333
+#, kde-format
+msgid "&Edit"
+msgstr "&सम्पादन"
+
+#: regexpeditorwindow.cpp:336
+#, kde-format
+msgid "&Save Regular Expression..."
+msgstr "&नियमित अभिव्यक्तिं रक्षतु..."
+
+#: regexpeditorwindow.cpp:376
+#, kde-format
+msgid "Name for Regular Expression"
+msgstr "नियमितव्यञ्जनार्थं नाम"
+
+#: regexpeditorwindow.cpp:376
+#, kde-format
+msgid "Enter name:"
+msgstr "नाम प्रविशतु : १."
+
+#: regexpeditorwindow.cpp:381
+#, kde-format
+msgid "Empty name is not supported"
+msgstr "रिक्तं नाम समर्थितं नास्ति"
+
+#: regexpeditorwindow.cpp:381
+#, kde-format
+msgid "Save Regular Expression"
+msgstr "नियमित अभिव्यक्तिं रक्षतु"
+
+#: regexpeditorwindow.cpp:390
+#, kde-format
+msgid "<p>Overwrite named regular expression <b>%1</b></p>"
+msgstr "<p>नामकं नियमितव्यञ्जनं <b>%1</b> अधिलेखयन्तु</p>"
+
+#: regexpeditorwindow.cpp:400
+#, kde-format
+msgid "Could not open file for writing: %1"
+msgstr "लेखनार्थं सञ्चिकां उद्घाटयितुं न शक्यते: %1"
+
+#: repeatregexp.cpp:47 repeatregexp.cpp:58
+#, kde-format
+msgid ""
+"<p>Value for attribute <b>%1</b> was not an integer for element <b>%2</b></"
+"p><p>It contained the value <b>%3</b></p>"
+msgstr ""
+"<p><b>%1</b> विशेषतायाः मूल्यं <b>%2</b> तत्त्वस्य कृते पूर्णाङ्कः नासीत्</p><p> अस्मिन् <b>"
+"%3 इति</b> मूल्यम् आसीत्</p>"
+
+#: repeatregexp.cpp:52 repeatregexp.cpp:63 textrangeregexp.cpp:136
+#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:185
+#: widgetfactory.cpp:194
+#, kde-format
+msgid "Error While Loading From XML File"
+msgstr "XML सञ्चिकातः लोड् करणकाले त्रुटिः"
+
+#: repeatwidget.cpp:62
+#, kde-format
+msgid "Number of Times to Repeat Content"
+msgstr "सामग्रीं पुनरावृत्तिं कर्तुं समयानां संख्या"
+
+#: repeatwidget.cpp:170
+#, kde-format
+msgid "Times to Match"
+msgstr "टाइम्स टू मैच"
+
+#: repeatwidget.cpp:177
+#, kde-format
+msgctxt "@option:radio"
+msgid "Any number of times (including zero times)"
+msgstr ""
+
+#: repeatwidget.cpp:184
+#, kde-format
+msgid "At least"
+msgstr "न्यूनतम"
+
+#: repeatwidget.cpp:185
+#, kde-format
+msgid "At most"
+msgstr "अधिकतया"
+
+#: repeatwidget.cpp:186
+#, kde-format
+msgid "Exactly"
+msgstr "यथातथम्‌"
+
+#: repeatwidget.cpp:189
+#, kde-format
+msgctxt "@option:radio"
+msgid "From"
+msgstr ""
+
+#: repeatwidget.cpp:201
+#, kde-format
+msgid "to"
+msgstr "इत्यस्मै"
+
+#: repeatwidget.cpp:209 repeatwidget.cpp:235
+#, kde-format
+msgid "time(s)"
+msgstr "समय(समयः) २."
+
+#: repeatwidget.cpp:285
+#, kde-format
+msgid "Repeated Any Number of Times"
+msgstr "पुनरावृत्तिः यत्किमपि संख्यायां"
+
+#: repeatwidget.cpp:287
+#, kde-format
+msgid "Repeated at Least 1 Time"
+msgid_plural "Repeated at Least %1 Times"
+msgstr[0] ""
+msgstr[1] ""
+
+#: repeatwidget.cpp:289
+#, kde-format
+msgid "Repeated at Most 1 Time"
+msgid_plural "Repeated at Most %1 Times"
+msgstr[0] ""
+msgstr[1] ""
+
+#: repeatwidget.cpp:291
+#, kde-format
+msgid "Repeated Exactly 1 Time"
+msgid_plural "Repeated Exactly %1 Times"
+msgstr[0] ""
+msgstr[1] ""
+
+#: repeatwidget.cpp:293
+#, kde-format
+msgid "Repeated From %1 to %2 Times"
+msgstr "%1 तः %2 वारं पुनरावृत्तिः"
+
+#: textrangeregexp.cpp:135
+#, kde-format
+msgid ""
+"<p>Invalid sub element to element <b>TextRange</b>. Tag was <b>%1</b></p>"
+msgstr "<p><b>TextRange</b> इति तत्वं प्रति अमान्य उपतत्त्वम् . टैग् <b>%1</b> आसीत्</p>"
+
+#: textregexp.cpp:42
+#, kde-format
+msgid "<p>Element <b>Text</b> did not contain any textual data.</p>"
+msgstr "<p>Element <b>Text इत्यत्र</b> पाठ्यदत्तांशः नासीत् ।</p>"
+
+#: userdefinedregexps.cpp:55
+#, kde-format
+msgid "User Defined"
+msgstr "उपयोक्ता परिभाषितम्"
+
+#: userdefinedregexps.cpp:76
+#, kde-format
+msgid "general"
+msgstr "सामान्य"
+
+#: userdefinedregexps.cpp:90
+#, kde-format
+msgid "Could not open file for reading: %1"
+msgstr "पठनार्थं सञ्चिकां उद्घाटयितुं न शक्यते: %1"
+
+#: userdefinedregexps.cpp:100
+#, kde-format
+msgid "File %1 containing user defined regular expression contained an error"
+msgstr "उपयोक्तृनिर्धारितं नियमितव्यञ्जनं समाविष्टं %1 सञ्चिकायां त्रुटिः आसीत्"
+
+#: userdefinedregexps.cpp:143
+#, kde-format
+msgid "Rename"
+msgstr "पुनर्नाम"
+
+#: userdefinedregexps.cpp:184
+#, kde-format
+msgid "Rename Item"
+msgstr "Item इत्यस्य नामकरणं कुर्वन्तु"
+
+#: userdefinedregexps.cpp:184
+#, kde-format
+msgid "New name:"
+msgstr "नवीनं नाम : १."
+
+#: userdefinedregexps.cpp:191
+#, kde-format
+msgid "<p>Overwrite named regular expression <b>%1</b>?</p>"
+msgstr "<p>नामकं नियमितव्यञ्जनं <b>%1</b> अधिलेखयन्तु ?</p>"
+
+#: userdefinedregexps.cpp:194
+#, kde-format
+msgid "Do Not Overwrite"
+msgstr "अधिलेखनं न कुर्वन्तु"
+
+#: widgetfactory.cpp:152
+#, kde-format
+msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
+msgstr "<p>XML पठन् अज्ञातः टैगः । टैग् <b>%1</b> आसीत्</p>"
+
+#: widgetfactory.cpp:176
+#, kde-format
+msgid "Error while loading regular expression from XML."
+msgstr "XML तः नियमितव्यञ्जनं लोड् कुर्वन् त्रुटिः ।"
+
+#: widgetfactory.cpp:177
+#, kde-format
+msgid "Error While Loading Regular Expression From XML"
+msgstr "XML तः नियमितव्यञ्जनं लोड् कुर्वन् त्रुटिः"
+
+#: widgetfactory.cpp:184
+#, kde-format
+msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
+msgstr "<p>XML सञ्चिकायां <b>%1</b> टैग् नासीत् ।</p>"
+
+#: widgetfactory.cpp:191
+#, kde-format
+msgid ""
+"<p>Error while reading XML file. The element just below the tag <b>%1</b> "
+"was not an element.</p>"
+msgstr ""
+"<p>XML सञ्चिकां पठन् त्रुटिः। <b>%1</b> टैग् इत्यस्य अधः एव यत् तत्त्वं तत् तत्त्वं नासीत् ।</"
+"p>"
+
+#: zerowidgets.cpp:60
+#, kde-format
+msgid ""
+"Any\n"
+"Character"
+msgstr ""
+"कश्चित्‌\n"
+"स्वभावः"
+
+#: zerowidgets.cpp:73
+#, kde-format
+msgid ""
+"Line\n"
+"Start"
+msgstr ""
+"पंक्ति\n"
+"प्रारंभः"
+
+#: zerowidgets.cpp:86
+#, kde-format
+msgid ""
+"Line\n"
+"End"
+msgstr ""
+"पंक्ति\n"
+"अंत"
+
+#: zerowidgets.cpp:99
+#, kde-format
+msgid ""
+"Word\n"
+"Boundary"
+msgstr ""
+"शब्दः\n"
+"सीमा"
+
+#: zerowidgets.cpp:112
+#, kde-format
+msgid ""
+"Non-word\n"
+"Boundary"
+msgstr ""
+"अशब्दः\n"
+"सीमा"
