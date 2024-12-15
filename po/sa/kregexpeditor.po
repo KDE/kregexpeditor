@@ -20,12 +20,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:82
 #, kde-format
@@ -76,7 +76,7 @@ msgstr "- अन्तरिक्षवर्णः\n"
 #, kde-format
 msgctxt "a range of characters"
 msgid "- from %1 to %2\n"
-msgstr ""
+msgstr "- %1 तः %2 पर्यन्तम्\n"
 
 #: characterswidget.cpp:145
 #, kde-format
@@ -97,7 +97,7 @@ msgstr "वर्णाः निर्दिशन्तु"
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not match the characters specified here"
-msgstr ""
+msgstr "अत्र निर्दिष्टैः वर्णैः सह न मेलनं कुर्वन्तु"
 
 #: characterswidget.cpp:279
 #, kde-format
@@ -108,37 +108,37 @@ msgstr "पूर्वनिर्धारितवर्णपरिधिः
 #, kde-format
 msgctxt "@option:check"
 msgid "A word character"
-msgstr ""
+msgstr "शब्दवर्णः"
 
 #: characterswidget.cpp:285
 #, kde-format
 msgctxt "@option:check"
 msgid "A digit character"
-msgstr ""
+msgstr "अङ्कवर्णः"
 
 #: characterswidget.cpp:287
 #, kde-format
 msgctxt "@option:check"
 msgid "A space character"
-msgstr ""
+msgstr "अन्तरिक्षवर्णः"
 
 #: characterswidget.cpp:290
 #, kde-format
 msgctxt "@option:check"
 msgid "A non-word character"
-msgstr ""
+msgstr "अशब्दवर्णः"
 
 #: characterswidget.cpp:292
 #, kde-format
 msgctxt "@option:check"
 msgid "A non-digit character"
-msgstr ""
+msgstr "अङ्कीयः वर्णः"
 
 #: characterswidget.cpp:294
 #, kde-format
 msgctxt "@option:check"
 msgid "A non-space character"
-msgstr ""
+msgstr "अन्तरिक्षवर्णः"
 
 #: characterswidget.cpp:298
 #, kde-format
@@ -164,7 +164,7 @@ msgstr "इत्यस्मात्‌:"
 #, kde-format
 msgctxt "end of range"
 msgid "To:"
-msgstr ""
+msgstr "इत्यस्मै:"
 
 #: charselector.cpp:49
 #, kde-format
@@ -225,7 +225,7 @@ msgstr "&वर्णनम्‌:"
 #, kde-format
 msgctxt "@option:check"
 msgid "&Automatically replace using this item"
-msgstr ""
+msgstr "&एतत् द्रव्यं उपयुज्य स्वयमेव प्रतिस्थापयन्तु"
 
 #: compoundwidget.cpp:50
 #, kde-format
@@ -297,6 +297,15 @@ msgid ""
 "regular expression is, then it might be a good idea to read <a href=\"doc://"
 "whatIsARegExp\">the introduction to regular expressions</a>.<br />"
 msgstr ""
+"<h1>नियमित अभिव्यक्ति सम्पादक</h1><p> सम्प्रति भवान् यत् पश्यति तत् <i>Regular "
+"Expressions</i> इत्यस्य सम्पादकः अस्ति |</p><p> मध्ये उपरिभागः सम्पादनक्षेत्रम् अस्ति, "
+"अधः भागः सत्यापनविण्डो अस्ति यत्र भवान् स्वस्य नियमितव्यञ्जनानि तत्क्षणमेव प्रयतितुं शक्नोति "
+"। बटनपङ्क्तिः सम्पादनक्रियाः सन्ति । एतत् वस्तुतः सामान्यचित्रणकार्यक्रमैः सह बहु सदृशम् "
+"अस्ति । स्वस्य नियमितव्यञ्जनस्य सम्पादनं आरभ्य सम्पादनसाधनं चिनोतु, सम्पादनक्षेत्रे यत्र भवान् "
+"एतत् द्रव्यं सम्मिलितं इच्छति तत्र मूषकस्य बटनं नुदतु ।</p><p> अस्य सम्पादकस्य "
+"अधिकविस्तृतविवरणार्थं <a href=\"doc://\">info पृष्ठानि</a> पश्यन्तु</p><h2> "
+"नियमितव्यञ्जनम् किम् ?</h2> यदि भवान् न जानाति यत् नियमितव्यञ्जनम् किम् अस्ति, तर्हि <a "
+"href=\"doc://whatIsARegExp\">नियमितव्यञ्जनानां परिचयं</a> पठितुं साधु भवेत् .<br />"
 
 #: KMultiFormListBox/ccp.cpp:58
 #, kde-format
@@ -444,7 +453,7 @@ msgstr "पठनार्थं '%1' सञ्चिकां उद्घा�
 #, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
-msgstr ""
+msgstr "नियमित अभिव्यक्ति सम्पादक"
 
 #: kregexpeditorwindow.cpp:84
 #, kde-format
@@ -455,7 +464,7 @@ msgstr "नियमितव्यञ्जनस्य सत्यापन�
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
-msgstr ""
+msgstr "पाठं लोडं कुर्वन्तु"
 
 #: kregexpeditorwindow.cpp:91
 #, kde-format
@@ -506,7 +515,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
-msgstr ""
+msgstr "RegExp भाषाएँ"
 
 #: lookaheadwidget.cpp:39
 #, kde-format
@@ -547,13 +556,13 @@ msgstr "विकासकः"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Carl Schwan"
-msgstr ""
+msgstr "कार्ल स्वान्"
 
 #: main.cpp:33
 #, kde-format
 msgctxt "@info:credit"
 msgid "Port to Qt6"
-msgstr ""
+msgstr "Qt6 यावत् पोर्ट् कुर्वन्तु"
 
 #: predefined/General/anything.regexp:5
 #, kde-format
@@ -897,7 +906,7 @@ msgstr "टाइम्स टू मैच"
 #, kde-format
 msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
-msgstr ""
+msgstr "यत्किमपि वारं (शून्यवारं सहितम्) २."
 
 #: repeatwidget.cpp:184
 #, kde-format
@@ -918,7 +927,7 @@ msgstr "यथातथम्‌"
 #, kde-format
 msgctxt "@option:radio"
 msgid "From"
-msgstr ""
+msgstr "इत्यस्मात्‌"
 
 #: repeatwidget.cpp:201
 #, kde-format
@@ -939,22 +948,22 @@ msgstr "पुनरावृत्तिः यत्किमपि संख�
 #, kde-format
 msgid "Repeated at Least 1 Time"
 msgid_plural "Repeated at Least %1 Times"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "न्यूनातिन्यूनं १ समयं पुनरावृत्तिः"
+msgstr[1] "न्यूनातिन्यूनं %1 वारं पुनरावृत्तिः"
 
 #: repeatwidget.cpp:289
 #, kde-format
 msgid "Repeated at Most 1 Time"
 msgid_plural "Repeated at Most %1 Times"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "अधिकतमं १ समये पुनरावृत्तिः"
+msgstr[1] "अधिकतमं %1 वारं पुनरावृत्तिः"
 
 #: repeatwidget.cpp:291
 #, kde-format
 msgid "Repeated Exactly 1 Time"
 msgid_plural "Repeated Exactly %1 Times"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "पुनरावृत्तिः सम्यक् १ समयः"
+msgstr[1] "पुनरावृत्तिः सम्यक् %1 वारं"
 
 #: repeatwidget.cpp:293
 #, kde-format
