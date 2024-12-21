@@ -3,19 +3,21 @@
 # This file is distributed under the same license as the kregexpeditor package.
 # Kali <EMAIL@ADDRESS>, 2024.
 #
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-29 00:42+0000\n"
-"PO-Revision-Date: 2024-12-13 19:09+0530\n"
-"Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
+"PO-Revision-Date: 2024-12-20 22:01+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: English <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -184,7 +186,7 @@ msgstr "अक्टोबर् मासे यूनिकोड चार।
 #: charselector.cpp:50
 #, kde-format
 msgid "The Bell Character (\\a)"
-msgstr "घण्टा चरित्र (\\क) ९."
+msgstr "घण्टा चरित्र (\\क)"
 
 #: charselector.cpp:50
 #, kde-format
@@ -194,12 +196,12 @@ msgstr "प्रपत्र फीड् वर्णः (\\f) ."
 #: charselector.cpp:50
 #, kde-format
 msgid "The Line Feed Character (\\n)"
-msgstr "रेखा फीड वर्ण (\\n) २."
+msgstr "रेखा फीड वर्ण (\\n)"
 
 #: charselector.cpp:51
 #, kde-format
 msgid "The Carriage Return Character (\\r)"
-msgstr "गाडी प्रत्यागमन वर्ण (\\r) २."
+msgstr "गाडी प्रत्यागमन वर्ण (\\r)"
 
 #: charselector.cpp:51
 #, kde-format
@@ -387,7 +389,7 @@ msgstr "विजेट् विन्यासः"
 #: kregexpeditorprivate.cpp:47
 #, kde-format
 msgid "Compound regular expression:"
-msgstr "समास नियमित अभिव्यक्तिः १."
+msgstr "समास नियमित अभिव्यक्तिः"
 
 #: kregexpeditorprivate.cpp:49
 #, kde-format
@@ -428,7 +430,7 @@ msgstr ""
 #: kregexpeditorprivate.cpp:109
 #, kde-format
 msgid "ASCII syntax:"
-msgstr "ASCII वाक्यविन्यासः : १."
+msgstr "ASCII वाक्यविन्यासः :"
 
 #: kregexpeditorprivate.cpp:123
 #, kde-format
@@ -854,7 +856,7 @@ msgstr "नियमितव्यञ्जनार्थं नाम"
 #: regexpeditorwindow.cpp:376
 #, kde-format
 msgid "Enter name:"
-msgstr "नाम प्रविशतु : १."
+msgstr "नाम प्रविशतु :"
 
 #: regexpeditorwindow.cpp:381
 #, kde-format
@@ -906,7 +908,7 @@ msgstr "टाइम्स टू मैच"
 #, kde-format
 msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
-msgstr "यत्किमपि वारं (शून्यवारं सहितम्) २."
+msgstr "यत्किमपि वारं (शून्यवारं सहितम्)"
 
 #: repeatwidget.cpp:184
 #, kde-format
@@ -937,7 +939,7 @@ msgstr "इत्यस्मै"
 #: repeatwidget.cpp:209 repeatwidget.cpp:235
 #, kde-format
 msgid "time(s)"
-msgstr "समय(समयः) २."
+msgstr "समय(समयः)"
 
 #: repeatwidget.cpp:285
 #, kde-format
@@ -1014,7 +1016,7 @@ msgstr "Item इत्यस्य नामकरणं कुर्वन्�
 #: userdefinedregexps.cpp:184
 #, kde-format
 msgid "New name:"
-msgstr "नवीनं नाम : १."
+msgstr "नवीनं नाम :"
 
 #: userdefinedregexps.cpp:191
 #, kde-format
