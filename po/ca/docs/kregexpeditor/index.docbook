@@ -414,7 +414,7 @@
       <para
 >L'expressió regular, que només coincideix amb un ampersand si no és seguit per les lletres <literal
 >amp;</literal
->, es veu de la següent manera: <literal
+>, es veu de la manera següent: <literal
 >&amp;(?!amp;)</literal
 >. Això és, per descomptat, més fàcil de llegir emprant l'editor d'expressions regulars, on utilitzareu les <link linkend="lookaheadtools"
 >eines de cerca endavant</link
