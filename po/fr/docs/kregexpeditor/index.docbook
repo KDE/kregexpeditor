@@ -424,16 +424,16 @@
 > suivis des lettres <literal
 >amp ; </literal
 >. Vous pouvez faire cela en utilisant les expressions rationnelles avec <emphasis
->la pré-analyse positive</emphasis
+>la préanalyse positive</emphasis
 >. </para>
 
       <para
 >L'expression rationnelle, qui ne cherche qu'un et commercial s'il n'est pas suivi des lettres <literal
->amp;</literal
+>&amp;</literal
 > ressemble à : <literal
 >&amp;(?!amp ; )</literal
 >. Ce qui est, évidemment, plus facile à lire en utilisant l'éditeur d'expressions rationnelles, où vous utiliserez les <link linkend="lookaheadtools"
->outils de pré-analyse</link
+>outils de préanalyse</link
 >.</para>
     </example>
 
