@@ -8,13 +8,13 @@
 # Serhat Demirkol <serhat_demirkol@yahoo.com>, 2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2014, 2017.
 # Yıldız Kardeşler <turkishprogram@xposta.com>, 2003.
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: playground-utils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-29 00:42+0000\n"
-"PO-Revision-Date: 2024-07-30 18:58+0300\n"
+"PO-Revision-Date: 2025-03-04 12:46+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -913,7 +913,7 @@ msgstr "XML Dosyasından Yüklenirken Hata"
 #: repeatwidget.cpp:62
 #, kde-format
 msgid "Number of Times to Repeat Content"
-msgstr "İçeriği Tekrar Etme Sayısı"
+msgstr "İçeriği Yineleme Sayısı"
 
 #: repeatwidget.cpp:170
 #, kde-format
@@ -960,33 +960,33 @@ msgstr "kez"
 #: repeatwidget.cpp:285
 #, kde-format
 msgid "Repeated Any Number of Times"
-msgstr "Hiçbir Sayı için Tekrarlanmadı"
+msgstr "Herhangi Bir Sayıda Yinelendi"
 
 #: repeatwidget.cpp:287
 #, kde-format
 msgid "Repeated at Least 1 Time"
 msgid_plural "Repeated at Least %1 Times"
-msgstr[0] "En Az 1 Kez Tekrarlandı"
-msgstr[1] "En Az %1 Kez Tekrarlandı"
+msgstr[0] "En Az 1 Kez Yinelendi"
+msgstr[1] "En Az %1 Kez Yinelendi"
 
 #: repeatwidget.cpp:289
 #, kde-format
 msgid "Repeated at Most 1 Time"
 msgid_plural "Repeated at Most %1 Times"
-msgstr[0] "En Çok Bir Kez Tekrarlandı"
-msgstr[1] "En Çok %1 Kez Tekrarlandı"
+msgstr[0] "En Çok Bir Kez Yinelendi"
+msgstr[1] "En Çok %1 Kez Yinelendi"
 
 #: repeatwidget.cpp:291
 #, kde-format
 msgid "Repeated Exactly 1 Time"
 msgid_plural "Repeated Exactly %1 Times"
-msgstr[0] "Tam Olarak Bir Kez Tekrarlandı"
-msgstr[1] "Tam Olarak %1 Kez Tekrarlandı"
+msgstr[0] "Tam Olarak Bir Kez Yinelendi"
+msgstr[1] "Tam Olarak %1 Kez Yinelendi"
 
 #: repeatwidget.cpp:293
 #, kde-format
 msgid "Repeated From %1 to %2 Times"
-msgstr "%1 İçin %2 Kere Tekrarlandı"
+msgstr "%1 için %2 Kez Yinelendi"
 
 #: textrangeregexp.cpp:135
 #, kde-format
