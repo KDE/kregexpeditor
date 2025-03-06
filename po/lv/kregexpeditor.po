@@ -3,31 +3,32 @@
 #
 # Rihards Prieditis <RPrieditis@inbox.lv>, 2007.
 # Maris Nartiss <maris.kde@gmail.com>, 2007.
+# SPDX-FileCopyrightText: 2025 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-29 00:42+0000\n"
-"PO-Revision-Date: 2007-12-30 21:09+0200\n"
-"Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
-"Language-Team: Latvian <locale@laka.lv>\n"
+"PO-Revision-Date: 2025-03-04 18:57+0200\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 24.12.2\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Rihards Priedītis"
+msgstr "Rihards Priedītis, Toms Trasūns"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "RPrieditis@inbox.lv"
+msgstr "RPrieditis@inbox.lv, toms.trasuns@posteo.net"
 
 #: altnwidget.cpp:25 altnwidget.cpp:34 regexpbuttons.cpp:82
 #, kde-format
@@ -37,7 +38,7 @@ msgstr "Alternatīvas"
 #: altnwidget.cpp:206
 #, kde-format
 msgid "Selecting several alternatives is currently not supported."
-msgstr "Vairāku alternatīvu atlase pagaidām netiek atbalstīta."
+msgstr "Vairāku alternatīvu atlase pagaidām nav atbalstīta."
 
 #: altnwidget.cpp:208
 #, kde-format
@@ -52,7 +53,7 @@ msgstr "- Vārda rakstzīme\n"
 #: characterswidget.cpp:106
 #, kde-format
 msgid "- A non-word character\n"
-msgstr "- Ne-vārda rakstzīme\n"
+msgstr "- Ne vārda rakstzīme\n"
 
 #: characterswidget.cpp:110
 #, kde-format
@@ -62,7 +63,7 @@ msgstr "- Cipara rakstzīme\n"
 #: characterswidget.cpp:114
 #, kde-format
 msgid "- A non-digit character\n"
-msgstr "- Ne-cipara rakstzīme\n"
+msgstr "- Ne cipara rakstzīme\n"
 
 #: characterswidget.cpp:118
 #, kde-format
@@ -72,18 +73,18 @@ msgstr "- Atstarpes rakstzīme\n"
 #: characterswidget.cpp:122
 #, kde-format
 msgid "- A non-space character\n"
-msgstr "- Ne-atstarpes rakstzīme\n"
+msgstr "- Ne atstarpes rakstzīme\n"
 
 #: characterswidget.cpp:137
 #, kde-format
 msgctxt "a range of characters"
 msgid "- from %1 to %2\n"
-msgstr ""
+msgstr "- no %1 līdz %2\n"
 
 #: characterswidget.cpp:145
 #, kde-format
 msgid "Any Character Except"
-msgstr "Visas rakstzīmes izņemot"
+msgstr "Visas rakstzīmes, izņemot"
 
 #: characterswidget.cpp:147
 #, kde-format
@@ -96,11 +97,10 @@ msgid "Specify Characters"
 msgstr "Norādīt rakstzīmes"
 
 #: characterswidget.cpp:275
-#, fuzzy, kde-format
-#| msgid "Do not match the characters specified here"
+#, kde-format
 msgctxt "@option:check"
 msgid "Do not match the characters specified here"
-msgstr "Nesalīdzināt ar norādītajām rakstzīmēm"
+msgstr "Neatbilst te norādītajām rakstzīmēm"
 
 #: characterswidget.cpp:279
 #, kde-format
@@ -108,46 +108,40 @@ msgid "Predefined Character Ranges"
 msgstr "Definētie rakstzīmju apgabali"
 
 #: characterswidget.cpp:283
-#, fuzzy, kde-format
-#| msgid "A word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A word character"
 msgstr "Vārda rakstzīme"
 
 #: characterswidget.cpp:285
-#, fuzzy, kde-format
-#| msgid "A digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A digit character"
 msgstr "Cipara rakstzīme"
 
 #: characterswidget.cpp:287
-#, fuzzy, kde-format
-#| msgid "A space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A space character"
 msgstr "Atstarpes rakstzīme"
 
 #: characterswidget.cpp:290
-#, fuzzy, kde-format
-#| msgid "A non-word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-word character"
-msgstr "Ne-vārda rakstzīme"
+msgstr "Ne vārda rakstzīme"
 
 #: characterswidget.cpp:292
-#, fuzzy, kde-format
-#| msgid "A non-digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-digit character"
-msgstr "Ne-cipara rakstzīme"
+msgstr "Ne cipara rakstzīme"
 
 #: characterswidget.cpp:294
-#, fuzzy, kde-format
-#| msgid "A non-space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-space character"
-msgstr "Ne-atstarpes rakstzīme"
+msgstr "Ne atstarpes rakstzīme"
 
 #: characterswidget.cpp:298
 #, kde-format
@@ -183,12 +177,12 @@ msgstr "Parasta rakstzīme"
 #: charselector.cpp:49
 #, kde-format
 msgid "Unicode Char in Hex."
-msgstr "Unikoda rakstzīme heksa kodā"
+msgstr "Unikoda rakstzīme heksadecimālā kodā"
 
 #: charselector.cpp:49
 #, kde-format
 msgid "Unicode Char in Oct."
-msgstr "Unikoda rakstzīme astotnieku kodā"
+msgstr "Unikoda rakstzīme oktālā kodā"
 
 #: charselector.cpp:50
 #, kde-format
@@ -203,12 +197,12 @@ msgstr "Formas straumes rakstzīme (\\f)"
 #: charselector.cpp:50
 #, kde-format
 msgid "The Line Feed Character (\\n)"
-msgstr "Rindas plūsmas rakstzīme (\\n)"
+msgstr "Rindpadeves rakstzīme (\\n)"
 
 #: charselector.cpp:51
 #, kde-format
 msgid "The Carriage Return Character (\\r)"
-msgstr "Karietes atgriešanās rakstzīme (\\r)"
+msgstr "Rindatgriezes rakstzīme (\\r)"
 
 #: charselector.cpp:51
 #, kde-format
@@ -231,11 +225,10 @@ msgid "&Description:"
 msgstr "&Apraksts:"
 
 #: compoundwidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "&Automatically replace using this item"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Automatically replace using this item"
-msgstr "&Automātiski aizvietot izmantojot šo vienumu"
+msgstr "&Automātiski aizvietot, izmantojot šo vienumu"
 
 #: compoundwidget.cpp:50
 #, kde-format
@@ -243,8 +236,8 @@ msgid ""
 "When the content of this box is typed in to the ASCII line,<br />this box "
 "will automatically be added around it,<br />if this check box is selected."
 msgstr ""
-"Kad šī lodziņa saturs tiek ievadīts ASCII rindā,<br/>lodziņš automātiski "
-"tiks pievienots apkārt,<br />ja šis lodziņš ir atzīmēts."
+"Ja atzīmēts, šī lodziņā saturu ievadot ASCII rindā,<br/>ap to automātiski "
+"tiks pievienots lodziņš."
 
 #: compoundwidget.cpp:115
 #, kde-format
@@ -254,20 +247,20 @@ msgstr "Konfigurēt apvienojumus"
 #: emacsregexpconverter.cpp:66
 #, kde-format
 msgid "Look ahead regular expressions not supported in Emacs style"
-msgstr ""
-"Uz priekšu skatāmās regulārās izteiksmes netiek atbalstītas Emacs stilā"
+msgstr "„Emacs“ stilā nav atbalstītas uz priekšu skatāmās regulārās izteiksmes"
 
 #: emacsregexpconverter.cpp:171
 #, kde-format
 msgid "Word boundary and non word boundary is not supported in Emacs syntax"
-msgstr "Vārda robeža un ne-vārda robeža netiek atbalstītas Emacs sintaksē"
+msgstr "„Emacs“ sintaksē nav atbalstīta vārda robeža un ne vārda robeža"
 
 #: errormap.cpp:37
 #, kde-format
 msgid ""
 "Your regular expression is invalid, due to something preceding a 'line "
 "start'."
-msgstr "Jūsu regulārajā izteiksmē rindas sākums ir nederīgs."
+msgstr ""
+"Jūsu regulārā izteiksme nav derīga, jo kaut kas atrodas pirms „rinda sākuma“."
 
 #: errormap.cpp:38 errormap.cpp:49 errormap.cpp:60
 #, kde-format
@@ -278,7 +271,7 @@ msgstr "Regulārās izteiksmes kļūda"
 #, kde-format
 msgid ""
 "Your regular expression is invalid, due to something following a 'line end'."
-msgstr "Jūsu regulārajā izteiksmē rindas beigas ir nederīgs."
+msgstr "Jūsu regulārā izteiksme nav derīga, jo kaut kas seko „rindas beigām“."
 
 #: errormap.cpp:59
 #, kde-format
@@ -286,8 +279,8 @@ msgid ""
 "Your regular expression is invalid. 'Look Ahead' regular expression must be "
 "the last sub expression."
 msgstr ""
-"Jūsu regulārā izteiksme ir nederīga. \"Uz priekšu skaties\" regulārai "
-"izteiksmei, jābūt pēdējai apakšizteiksmei."
+"Jūsu regulārā izteiksme nav derīga. „Uz priekšu skaties“ regulārai "
+"izteiksmei jāsatur pēdējo apakšizteiksmi."
 
 #: infopage.cpp:22
 #, kde-format
@@ -310,13 +303,13 @@ msgid ""
 msgstr ""
 "<h1>Regulāro izteiksmju redaktors</h1><p>Tas, ko jūs patreiz redzat, ir "
 "<i>Regulāro izteiksmju</i> redaktors.</p><p>Augšējās daļas vidū ir "
-"rediģēšanas laukums, apakšējā daļā ir verifikācijas logs, kurā jūs varat "
-"izmēģināt savas regulāras izteiksmes. Pogu rindā ir rediģēšanas darbības. "
-"Ļoti līdzīgi, kā zīmēšanas programmās. Norādiet rediģēšanas rīku un ar peles "
-"klikšķi norādiet, kur rediģēšanas laukā vēlaties ievietot vienumu.</"
-"p><p>Detalizētu aprakstu par redaktoru varat atrast <a href=\"doc://\">info "
+"rediģēšanas laukums, apakšējā daļā ir pārbaudes logs, kurā jūs varat "
+"izmēģināt savas regulāras izteiksmes. Pogu rinda satur rediģēšanas darbības. "
+"Tā darbība ir līdzīga zīmēšanas programmām. Atlasiet rediģēšanas rīku un ar "
+"peles klikšķi norādiet, kur rediģēšanas laukā vēlaties ievietot vienumu.</"
+"p><p>Sīkāku redaktora aprakstu varat atrast <a href=\"doc://\">informācijas "
 "lapās</a></p><h2>Kas ir regulāra izteiksme?</h2>Ja jūs nezināt, kas ir "
-"regulāra izteiksme, tad varat izlasīt par to  <a href=\"doc://whatIsARegExp"
+"regulāra izteiksme, par to varat varat izlasīt <a href=\"doc://whatIsARegExp"
 "\">ievadā par regulārajām izteiksmēm.</a>.<br />"
 
 #: KMultiFormListBox/ccp.cpp:58
@@ -343,7 +336,7 @@ msgstr "Ievietot tukšu"
 #: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:244
 #, kde-format
 msgid "Due to a bug, it is not possible to remove the last element."
-msgstr "Kļūdas dēļ, nav iespējams noņemt pēdējo elementu."
+msgstr "Programmas kļūdas dēļ nav iespējams noņemt pēdējo elementu."
 
 #: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:244
 #, kde-format
@@ -374,12 +367,12 @@ msgstr "Augšā"
 #: KMultiFormListBox/kmultiformlistbox-windowed.cpp:72
 #, kde-format
 msgid "Down"
-msgstr "Lejā"
+msgstr "Apakšā"
 
 #: KMultiFormListBox/kmultiformlistbox-windowed.cpp:152
 #, kde-format
 msgid "Delete item \"%1\"?"
-msgstr "Dzēst vienumu \"%1\"?"
+msgstr "Vai dzēst vienumu „%1“?"
 
 #: KMultiFormListBox/kmultiformlistbox-windowed.cpp:152
 #, kde-format
@@ -394,7 +387,7 @@ msgstr "Pievienot"
 #: KMultiFormListBox/widgetwindow.cpp:35
 #, kde-format
 msgid "Widget Configuration"
-msgstr "Logdaļu konfigurācija"
+msgstr "Logdaļas konfigurācija"
 
 #: kregexpeditorprivate.cpp:47
 #, kde-format
@@ -408,8 +401,8 @@ msgid ""
 "expressions you have developed and saved, and regular expressions shipped "
 "with the system."
 msgstr ""
-"Logā jūs atradīsiet definētas izteiksmes. Gan regulāras izteiksmes, kuras "
-"esat izstrādājis un saglabājis, gan regulārās izteiksmes, kas nāk kopā ar "
+"Logā atradīsiet definētas izteiksmes — gan tās regulāras izteiksmes, kuras "
+"izveidojāt un saglabājāt, gan arī tās regulārās izteiksmes, kas nāk kopā ar "
 "sistēmu."
 
 #: kregexpeditorprivate.cpp:59
@@ -419,9 +412,8 @@ msgid ""
 "actions from the action buttons above, and click the mouse in this window to "
 "insert the given action."
 msgstr ""
-"Logā jūs izstrādāsiet savas regulārās izteiksmes. Norādiet vienu no "
-"darbībām, darbību pogu joslā, un uzklikšķiniet ar peli logā, lai ievietotu "
-"darbību."
+"Logā veidosiet savas regulārās izteiksmes. Atlasiet kādu no darbībām darbību "
+"pogu joslā, tad uzklikšķiniet ar peli šajā logā, lai ievietotu darbību."
 
 #: kregexpeditorprivate.cpp:68
 #, kde-format
@@ -433,17 +425,16 @@ msgid ""
 "editor window, then this part will be highlighted - This allows you to "
 "<i>debug</i> your regular expressions</p>"
 msgstr ""
-"<p>Ievadiet tekstu logā, lai redzētu, kādas sakritības regulārā izteiksme "
-"atrod.</p><p>Katra otrā sakritība tiks atzīmēta sarkanā krāsa un katra cita "
-"sakritība, zilā, lai jūs varat viegli atšķirt.</p><p>Ja atlasīsiet daļu no "
-"regulāras izteiksmes redaktora logā, tad tā daļa tiks iekrāsota - Tas ļauj "
-"jums <i>atkļūdot</i> jūsu regulārās izteiksmes.</p>"
+"<p>Rakstiet tekstu logā, lai redzētu, kādas sakritības regulārā izteiksme "
+"atrod.</p><p>Katra otrā sakritība tiks atzīmēta sarkanā krāsa, bet katra "
+"cita sakritība zilā, lai jūs varētu tās viegli atšķirt.</p><p>Ja atlasīsiet "
+"daļu no regulāras izteiksmes redaktora logā, tad programma šo daļu izcels. "
+"Tas ļaus <i>atkļūdot</i> jūsu regulārās izteiksmes.</p>"
 
 #: kregexpeditorprivate.cpp:109
-#, fuzzy, kde-format
-#| msgid "ASCII synta&x:"
+#, kde-format
 msgid "ASCII syntax:"
-msgstr "ASCII sin&takse:"
+msgstr "&ASCII sintakse:"
 
 #: kregexpeditorprivate.cpp:123
 #, kde-format
@@ -454,19 +445,18 @@ msgid ""
 "by using the graphical editor, and by typing the regular expression in this "
 "line edit.</p>"
 msgstr ""
-"<p>Šī ir regulārās izteiksmes ASCII sintakse. Ja jūs esat programmētājs, un "
-"jums ir jāizstrādā regulāra izteiksme, tad jums interesēs tikai šī daļa.</"
+"<p>Šī ir regulārās izteiksmes ASCII sintakse. Ja esat programmētājs un jums "
+"ir jāizstrādā regulāra izteiksme, tad jums interesēs tikai šī daļa.</"
 "p><p>Jūs varat izstrādāt regulārās izteiksmes gan ar grafisko redaktoru, gan "
 "ievadot tekstu.</p>"
 
 #: kregexpeditorprivate.cpp:347
 #, kde-format
 msgid "Could not open file '%1' for reading"
-msgstr "Nevar atvērt failu %1 lasīšanai"
+msgstr "Datni „%1“ nevar atvērt lasīšanai"
 
 #: kregexpeditorwindow.cpp:35
-#, fuzzy, kde-format
-#| msgid "Regular Expression Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "Regulāro izteiksmju redaktors"
@@ -474,28 +464,28 @@ msgstr "Regulāro izteiksmju redaktors"
 #: kregexpeditorwindow.cpp:84
 #, kde-format
 msgid "Verify regular expression"
-msgstr "Verificēt regulāro izteiksmi"
+msgstr "Pārbaudīt regulāro izteiksmi"
 
 #: kregexpeditorwindow.cpp:90
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
-msgstr ""
+msgstr "Ielādēt tekstu"
 
 #: kregexpeditorwindow.cpp:91
 #, kde-format
 msgid "Load text in the verifier window"
-msgstr "Ielādēt tekstu verifikācijas logā"
+msgstr "Ielādēt tekstu pārbaudes logā"
 
 #: kregexpeditorwindow.cpp:101
 #, kde-format
 msgid "Verify on the Fly"
-msgstr "Verificēt pie ievada"
+msgstr "Pārbaudīt rakstīšanas laikā"
 
 #: kregexpeditorwindow.cpp:108
 #, kde-format
 msgid "Toggle on-the-fly verification of regular expression"
-msgstr "Ieslēgt verifikāciju ievada laikā."
+msgstr "Ieslēgt pārbaudīšanu rakstīšanas laikā."
 
 #: kregexpeditorwindow.cpp:110
 #, kde-format
@@ -504,19 +494,19 @@ msgid ""
 "verify window contains much text, or if the regular expression is either "
 "complex or matches a lot of time, this may be very slow."
 msgstr ""
-"Liks verificētājam pārbaudīt, pie katras rediģēšanas darbības. Ja "
-"verifikācijas logs satur tekstu, vai ja regulārā izteiksme ir pārāk "
-"sarežģīta, vai arī sakrīt daudzas reizes, tad verifikācija var būt lēna."
+"Šī opcija liks programmai veikt pārbaudi pie katras rediģēšanas darbības. Ja "
+"pārbaudes logs satur tekstu vai ja regulārā izteiksme ir pārāk sarežģīta, "
+"vai arī izvada daudz sakritību, tad pārbaude var būt lēna."
 
 #: kregexpeditorwindow.cpp:115
 #, kde-format
 msgid "Match Greedy"
-msgstr "Sautīgā sakritība"
+msgstr "Alkatīgā sakritība"
 
 #: kregexpeditorwindow.cpp:122
 #, kde-format
 msgid "Toggle greedy matching when verifying the regular expression."
-msgstr "Ieslēgt sautīgo sakritību, kad verificē regulāru izteiksmi."
+msgstr "Ieslēgt alkatīgo sakritību, kad pārbauda regulāro izteiksmi."
 
 #: kregexpeditorwindow.cpp:123
 #, kde-format
@@ -524,15 +514,14 @@ msgid ""
 "When this option is enabled, the regular expression will be evaluated on a "
 "so-called greedy way."
 msgstr ""
-"Kad šī opcija ir iespējota, regulārā izteiksme tiks novērtēta, saucamajā, "
-"sautīgajā veidā."
+"Kad ir ieslēgta šī opcija, regulārā izteiksme tiks novērtēta tā saucamajā "
+"alkatīgajā veidā."
 
 #: kregexpeditorwindow.cpp:126
-#, fuzzy, kde-format
-#| msgid "RegExp Language"
+#, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
-msgstr "RegExp valoda"
+msgstr "„RegExp“ valodas"
 
 #: lookaheadwidget.cpp:39
 #, kde-format
@@ -547,7 +536,7 @@ msgstr "Negatīva uz priekšu skatīšanās"
 #: main.cpp:26
 #, kde-format
 msgid "RegExp Editor"
-msgstr "RegExp redaktors"
+msgstr "„RegExp“ redaktors"
 
 #: main.cpp:28
 #, kde-format
@@ -557,29 +546,29 @@ msgstr "Regulāro izteiksmju redaktors"
 #: main.cpp:30
 #, kde-format
 msgid "(c) 2002-2003 Jesper K. Pedersen"
-msgstr "(c) 2002-2003 Jesper K. Pedersen"
+msgstr "(c) 2002—2003 Jesper K. Pedersen"
 
 #: main.cpp:31
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: main.cpp:31
 #, kde-format
 msgid "Developer"
-msgstr ""
+msgstr "Izstrādātājs"
 
 #: main.cpp:32
 #, kde-format
 msgctxt "@info:credit"
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
 #: main.cpp:33
 #, kde-format
 msgctxt "@info:credit"
 msgid "Port to Qt6"
-msgstr ""
+msgstr "Ports uz „Qt6“"
 
 #: predefined/General/anything.regexp:5
 #, kde-format
@@ -589,7 +578,7 @@ msgstr "jebkas"
 #: predefined/General/anything.regexp:6
 #, kde-format
 msgid "This regular expression matches anything."
-msgstr "Regulāra izteiksme sakrīt ar jebko."
+msgstr "Regulārā izteiksme sakrīt ar visu."
 
 #: predefined/General/spaces.regexp:5
 #, kde-format
@@ -599,7 +588,7 @@ msgstr "atstarpes"
 #: predefined/General/spaces.regexp:6
 #, kde-format
 msgid "Matches an arbitrary amount of whitespace."
-msgstr "Sakrīt ar pieņemto atstarpju daudzumu."
+msgstr "Sakrīt ar jebkādu atstarpju daudzumu."
 
 #: qregexpparser.y:205
 #, kde-format
@@ -613,13 +602,19 @@ msgid ""
 "graphical area, the back reference will be replaced by matching the text <b>"
 "%2</b> literally.</p>"
 msgstr ""
+"<p>Regulārās izteiksmes ar atsaukšanos atpakaļ nav atbalstītas.</p><p><tt>"
+"\\1</tt>, <tt>\\2</tt>, ... ir <i>atsauces atpakaļ</i>, kas nozīmē, ka tās "
+"norāda uz iepriekšējām atbilsmēm. Diemžēl šī redaktora versija to neatbalsta."
+"</p><p>Grafiskajā apgabalā ir ievietots teksts <b>%1</b>. Šī darbība ir "
+"aprisinājums, lai nodrošinātu, ka programma vispār spēj apstrādāt regulāro "
+"izteiksmi — līdz ar to, tiklīdz grafiskajā apgabalā rediģēsiet regulāro "
+"izteiksmi, atsauce atpakaļ tiks vienkārši aizvietota ar atbilstošu tekstu <b>"
+"%2</b>.</p>"
 
 #: qregexpparser.y:214
-#, fuzzy, kde-format
-#| msgid "Look ahead regular expressions not supported in Emacs style"
+#, kde-format
 msgid "Back reference regular expressions not supported"
-msgstr ""
-"Uz priekšu skatāmās regulārās izteiksmes netiek atbalstītas Emacs stilā"
+msgstr "Regulārās izteiksmes ar atsaukšanos atpakaļ nav atbalstītas"
 
 #: regexpbuttons.cpp:36
 #, kde-format
@@ -637,10 +632,10 @@ msgid ""
 "mouse button menu.</p>"
 msgstr ""
 "<p>Nomainīs redaktora stāvokli uz <i>atlases stāvokli</i>.</p><p>Šai "
-"stāvoklī jūs neievietosiet <i>regulārās izteiksmes vienumus</i>, bet gan "
-"atlasīsiet tos. Lai atlasītu vienumus, nospiediet kreiso peles taustiņu un "
+"stāvoklī jūs neievietosiet <i>regulārās izteiksmes vienumus</i>, bet gan tos "
+"atlasīsiet. Lai atlasītu vienumus, nospiediet kreiso peles taustiņu un "
 "velciet pāri vienumiem.</p><p>Kad jums būs pietiekams daudzums vienumu, jūs "
-"varat izmantot izgriezt/kopēt/ielīmet. Šīs funkcijas atrodas peles labās "
+"varat izmantot izgriezt/kopēt/ielīmēt. Šīs funkcijas atrodas peles labās "
 "pogas izvēlnē.</p>"
 
 #: regexpbuttons.cpp:49
@@ -655,8 +650,8 @@ msgid ""
 "write will be matched literally. (i.e. you do not need to escape any "
 "characters)</qt>"
 msgstr ""
-"<qt>Ievietos teksta lauku, kurā var ievadīt tekstu. Ievadītais teksts tiks "
-"salīdzināts precīzi. (Jums nevajadzēs izlaist nevienu rakstzīmi)</qt>"
+"<qt>Ievietos teksta lauku, kurā varat ierakstīt tekstu. Ierakstītais teksts "
+"tiks meklēts precīzi tāds. (Jums nevajadzēs izbēgt no rakstzīmēm)</qt>"
 
 #: regexpbuttons.cpp:56
 #, kde-format
@@ -670,9 +665,9 @@ msgid ""
 "you insert this widget a dialog box will appear, which lets you specify "
 "which characters this <i>regexp item</i> will match.</p>"
 msgstr ""
-"<p>Salīdzinās vienu rakstzīmi no definēta apgabala.</p><p>Kad jūs "
-"ievietosiet logdaļu, lodziņš atvērsies, kurš ļaus jums norādīt rakstzīmes, "
-"ar kurām <i>regulārās izteiksmes vienumu</i> salīdzināt.</p>"
+"<p>Meklēs vienu rakstzīmi no definēta apgabala.</p><p>Kad jūs ievietosiet "
+"logdaļu, atvērsies lodziņš, kurā varēsiet norādīt rakstzīmes, ar kurām "
+"salīdzināt <i>regulārās izteiksmes vienumu</i>.</p>"
 
 #: regexpbuttons.cpp:62
 #, kde-format
@@ -682,7 +677,7 @@ msgstr "Jebkura rakstzīme"
 #: regexpbuttons.cpp:62
 #, kde-format
 msgid "<qt>This will match any single character</qt>"
-msgstr "<qt>Salīdzinās jebkuru vienu rakstzīmi</qt>"
+msgstr "<qt>Meklēs jebkuru vienu rakstzīmi</qt>"
 
 #: regexpbuttons.cpp:67
 #, kde-format
@@ -690,17 +685,7 @@ msgid "Repeated content"
 msgstr "Atkārtotais saturus"
 
 #: regexpbuttons.cpp:68
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it "
-#| "surrounds a specified number of times.<br />The number of times to repeat "
-#| "may be specified using ranges. e.g. You may specify that it should match "
-#| "from 2 to 4 times, that it should match exactly 5 times, or that it "
-#| "should match at least one time.<br />Examples:<br />If you specify that "
-#| "it should match <i>any</i> time, and the content it surrounds is <tt>abc</"
-#| "tt>, then this <i>regexp item</i> will match the empty string, the string "
-#| "<tt>abc</tt>, the string <tt>abcabc</tt>, the string <tt>abcabcabcabc</"
-#| "tt>, etc.</qt>"
+#, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
 "a specified number of times.<br />The number of times to repeat may be "
@@ -712,28 +697,24 @@ msgid ""
 "string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, etc.</qt>"
 msgstr ""
 "<qt>Šis <i>regulāras izteiksmes vienums</i> atkārtos <i>regulārās izteiksmes "
-"vienumus</i>, kurus ieskauj, norādītu reižu skaitu.<br />Atkārtošanas "
-"daudzumu, var norādīt izmantojot apgabalus. Jūs varat norādīt, ka jāsakrīt "
-"no 2 līdz 4 reizēm, vai precīzi 5 reizes, vai ka jāsakrīt vismaz vienu reizi."
-"<br />Piemēri:<br />Ja jūs norādāt, ka jāsakrīt <i>jebkuru</i> reizi un "
-"saturs, kuru tas iekļauj ir <tt>abc</tt>, tad <i>regulārās izteiksmes "
-"vienums</i> salīdzinās ar tukšu virkni, ar virkni <tt>abc</tt>, ar virkni "
-"<tt>abcabc</tt>, ar virkni<tt>abcabcabcabc</tt>, utt.</qt>"
+"vienumus</i>, kurus ieskauj norādītu reižu skaitu.<br />Atkārtošanas skaitu "
+"varat norādīt, izmantojot apgabalus. Varat norādīt, ka jāsakrīt no 2 līdz 4 "
+"reizēm vai precīzi 5 reizes, vai ka jāsakrīt vismaz vienu reizi.<br /"
+">Piemēri:<br />ja norādāt, ka jāsakrīt <i>jebkuru</i> reižu skaitu, bet "
+"iekļaujošais saturs ir <tt>abc</tt>, tad <i>regulārās izteiksmes vienums</i> "
+"meklēs tukšu virkni, virkni <tt>abc</tt>, tad virkni <tt>abcabc</tt>, tad "
+"virkni<tt>abcabcabcabc</tt> utt.</qt>"
 
 #: regexpbuttons.cpp:83
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>This <i>regexp item</i> will match any of its alternatives.</p><p>You "
-#| "specify alternatives by placing <i>regexp items</i> on top of each other "
-#| "inside this widget.</p>"
+#, kde-format
 msgid ""
 "<p>This <i>regexp item</i> will match any of its alternatives.</"
 "p><p>Alternatives are specified by placing <i>regexp items</i> on top of "
 "each other inside this widget.</p>"
 msgstr ""
-"<p>Šī <i>regulārās izteiksmes vienums</i> salīdzinās visas alternatīvas.</"
-"p><p>Jūs norādiet alternatīvas novietojot <i>regularās izteiksmes vienumus</"
-"i> vienu uz otra, logdaļā.</p>"
+"<p>Šis <i>regulārās izteiksmes vienums</i> salīdzinās visas alternatīvas.</"
+"p><p>Alternatīvas varat norādīt, logdaļā <i>regulārās izteiksmes</i> "
+"novietojot vienu virs otras.</p>"
 
 #: regexpbuttons.cpp:90
 #, kde-format
@@ -741,13 +722,7 @@ msgid "Compound regexp"
 msgstr "Apvienojuma regulāra izteiksme"
 
 #: regexpbuttons.cpp:91
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it "
-#| "possible for you to collapse a huge <i>regexp item</i> into a small box. "
-#| "This makes it easier for you to get an overview of large <i>regexp items</"
-#| "i>. This is especially useful if you load a predefined <i>regexp item</i> "
-#| "you perhaps don't care about the inner workings of.</qt>"
+#, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
 "for you to collapse a huge <i>regexp item</i> into a small box. This makes "
@@ -756,10 +731,10 @@ msgid ""
 "perhaps do not care about the inner workings of.</qt>"
 msgstr ""
 "<qt>Šī <i>regulārā izteiksme</i> kalpo diviem nolūkiem:<ul><li>Ļauj sakļaut "
-"lielu <i>regulārās izteiksmes vienumu</i> mazā lodziņā. Tas ļauj vieglāk "
-"pārskatīt lielus <i>regulāras izteiksmes vienumus</i>. Tas ir īpaši "
-"noderīgi, ja jūs izmantojat jau definētus <i>regulārās izteiksmes vienumus</"
-"i>, par kuru uzbūvi zināt nevēlaties.</qt>"
+"lielu <i>regulārās izteiksmes vienumu</i> mazā lodziņā, lai vieglāk "
+"pārskatītu lielus <i>regulāras izteiksmes vienumus</i>. Tas ir īpaši "
+"noderīgi, ja izmantojat jau definētus <i>regulārās izteiksmes vienumus</i>, "
+"par kuru uzbūvi zināt nevēlaties.</qt>"
 
 #: regexpbuttons.cpp:98
 #, kde-format
@@ -769,7 +744,7 @@ msgstr "Rindas sākums"
 #: regexpbuttons.cpp:98
 #, kde-format
 msgid "<qt>This will match the beginning of a line.</qt>"
-msgstr "<qt>Salīdzinās ar rindas sākumu.</qt>"
+msgstr "<qt>Meklēs rindas sākumu.</qt>"
 
 #: regexpbuttons.cpp:101
 #, kde-format
@@ -779,7 +754,7 @@ msgstr "Rindas beigas"
 #: regexpbuttons.cpp:101
 #, kde-format
 msgid "<qt>This will match the end of a line.</qt>"
-msgstr "<qt>Salīdzinās ar rindas beigām.</qt>"
+msgstr "<qt>Meklēs rindas beigām.</qt>"
 
 #: regexpbuttons.cpp:106
 #, kde-format
@@ -792,12 +767,12 @@ msgid ""
 "<qt>This asserts a word boundary (This part does not actually match any "
 "characters)</qt>"
 msgstr ""
-"<qt>Novērtē vārda robežu (Šī daļa netiek salīdzināta ar rakstzīmēm)</qt>"
+"<qt>Novērtēs vārda robežu. (Šī daļa netiek salīdzināta ar rakstzīmēm)</qt>"
 
 #: regexpbuttons.cpp:112
 #, kde-format
 msgid "Non Word boundary"
-msgstr "Ne-vārdu robeža"
+msgstr "Ne vārdu robeža"
 
 #: regexpbuttons.cpp:113
 #, kde-format
@@ -805,7 +780,7 @@ msgid ""
 "<qt>This asserts a non-word boundary (This part does not actually match any "
 "characters)</qt>"
 msgstr ""
-"<qt>Novērtē ne vārda robežu (Šī daļa netiek salīdzināta ar rakstzīmēm)</qt>"
+"<qt>Novērtēs ne vārda robežu. (Šī daļa netiek salīdzināta ar rakstzīmēm)</qt>"
 
 #: regexpbuttons.cpp:119
 #, kde-format
@@ -818,8 +793,8 @@ msgid ""
 "<qt>This asserts a regular expression (This part does not actually match any "
 "characters). You can only use this at the end of a regular expression.</qt>"
 msgstr ""
-"<qt>Novērtē regulāro izteiksmi (Šī daļa netiek salīdzināta ar rakstzīmēm). "
-"Jūs varat izmantot tikai izteiksmes beigās.</qt>"
+"<qt>Novērtēs regulāro izteiksmi. (Šī daļa netiek salīdzināta ar rakstzīmēm). "
+"Varat izmantot tikai izteiksmes beigās.</qt>"
 
 #: regexpbuttons.cpp:126
 #, kde-format
@@ -833,8 +808,8 @@ msgid ""
 "not actually match any characters). You can only use this at the end of a "
 "regular expression.</qt>"
 msgstr ""
-"<qt>Novērtē regulāro izteiksmi, kura nedrīkst sakrist (Šī daļa netiek "
-"salīdzināta ar rakstzīmēm). Jūs varat izmantot tikai izteiksmes beigās.</qt>"
+"<qt>Novērtēs regulāro izteiksmi, kas nedrīkst sakrist. (Šī daļa netiek "
+"salīdzināta ar rakstzīmēm). Varat izmantot tikai izteiksmes beigās.</qt>"
 
 #: regexpeditorwindow.cpp:203
 #, kde-format
@@ -844,12 +819,12 @@ msgstr "Nav atlases."
 #: regexpeditorwindow.cpp:203
 #, kde-format
 msgid "Missing Selection"
-msgstr "Trūkst atlase"
+msgstr "Trūkst atlases"
 
 #: regexpeditorwindow.cpp:268
 #, kde-format
 msgid "There is no widget under cursor."
-msgstr "Zem kursora nav logdaļa"
+msgstr "Zem kursora nav logdaļas"
 
 #: regexpeditorwindow.cpp:268
 #, kde-format
@@ -889,28 +864,27 @@ msgstr "Regulārās izteiksmes nosaukums"
 #: regexpeditorwindow.cpp:376
 #, kde-format
 msgid "Enter name:"
-msgstr "Ievadiet nosaukumu:"
+msgstr "Ierakstiet nosaukumu:"
 
 #: regexpeditorwindow.cpp:381
 #, kde-format
 msgid "Empty name is not supported"
-msgstr ""
+msgstr "Tukšs nosaukums nav atļauts"
 
 #: regexpeditorwindow.cpp:381
-#, fuzzy, kde-format
-#| msgid "&Save Regular Expression..."
+#, kde-format
 msgid "Save Regular Expression"
-msgstr "&Saglabāt regulāro izteiksmi"
+msgstr "Saglabāt regulāro izteiksmi"
 
 #: regexpeditorwindow.cpp:390
 #, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b></p>"
-msgstr "<p>Pārrakstīt regulāro izteiksmi <b>%1</b></p>"
+msgstr "<p>Pārrakstīt nosaukto regulāro izteiksmi <b>%1</b></p>"
 
 #: regexpeditorwindow.cpp:400
 #, kde-format
 msgid "Could not open file for writing: %1"
-msgstr "Nevar atvērt rakstīšanai failu: %1"
+msgstr "Rakstīšanai nevar atvērt datni: „%1“"
 
 #: repeatregexp.cpp:47 repeatregexp.cpp:58
 #, kde-format
@@ -918,15 +892,15 @@ msgid ""
 "<p>Value for attribute <b>%1</b> was not an integer for element <b>%2</b></"
 "p><p>It contained the value <b>%3</b></p>"
 msgstr ""
-"<p>Atribūta vērtība <b>%1</b> nav skaitlis. Elements <b>%2</b></p><p>Satur "
-"vērtību <b>%3</b></p>"
+"<p>Atribūta vērtība <b>%1</b> nav elementa <b>%2</b> skaitlis.</p><p>Tas "
+"satur vērtību <b>%3</b></p>"
 
 #: repeatregexp.cpp:52 repeatregexp.cpp:63 textrangeregexp.cpp:136
 #: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:185
 #: widgetfactory.cpp:194
 #, kde-format
 msgid "Error While Loading From XML File"
-msgstr "Kļūda ielādējot XML failu"
+msgstr "Kļūda, ielādējot XML datni"
 
 #: repeatwidget.cpp:62
 #, kde-format
@@ -936,14 +910,13 @@ msgstr "Satura atkārtošanas skaits"
 #: repeatwidget.cpp:170
 #, kde-format
 msgid "Times to Match"
-msgstr "Cik reizes sakrist"
+msgstr "Cik reižu sakrist"
 
 #: repeatwidget.cpp:177
-#, fuzzy, kde-format
-#| msgid "Any number of times (including zero times)"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
-msgstr "Vienalga cik reizes (ieskaitot 0 reizes)"
+msgstr "Vienalga, cik reižu (ieskaitot nevienu reizi)"
 
 #: repeatwidget.cpp:184
 #, kde-format
@@ -953,7 +926,7 @@ msgstr "Vismaz"
 #: repeatwidget.cpp:185
 #, kde-format
 msgid "At most"
-msgstr "Augstākais"
+msgstr "Ne vairāk par"
 
 #: repeatwidget.cpp:186
 #, kde-format
@@ -961,8 +934,7 @@ msgid "Exactly"
 msgstr "Tieši"
 
 #: repeatwidget.cpp:189
-#, fuzzy, kde-format
-#| msgid "From"
+#, kde-format
 msgctxt "@option:radio"
 msgid "From"
 msgstr "No"
@@ -970,17 +942,17 @@ msgstr "No"
 #: repeatwidget.cpp:201
 #, kde-format
 msgid "to"
-msgstr "uz"
+msgstr "līdz"
 
 #: repeatwidget.cpp:209 repeatwidget.cpp:235
 #, kde-format
 msgid "time(s)"
-msgstr "reize(s)"
+msgstr "reizi(es)"
 
 #: repeatwidget.cpp:285
 #, kde-format
 msgid "Repeated Any Number of Times"
-msgstr "Atkārtot vienalga cik reižu"
+msgstr "Atkārtot jebkādu reižu skaitu"
 
 #: repeatwidget.cpp:287
 #, kde-format
@@ -1016,8 +988,8 @@ msgstr "Atkārtots no %1 līdz %2 reizēm"
 msgid ""
 "<p>Invalid sub element to element <b>TextRange</b>. Tag was <b>%1</b></p>"
 msgstr ""
-"<p>Nederīgs elementa <b>TekstaApgabala</b> apakšelements. Atzīme: <b>%1</b></"
-"p>"
+"<p>Nederīgs elementa <b>Teksta apgabals</b> apakšelements. Birka bija <b>%1</"
+"b></p>"
 
 #: textregexp.cpp:42
 #, kde-format
@@ -1032,24 +1004,22 @@ msgstr "Lietotāja definēts"
 #: userdefinedregexps.cpp:76
 #, kde-format
 msgid "general"
-msgstr "vispārēji"
+msgstr "pamata"
 
 #: userdefinedregexps.cpp:90
 #, kde-format
 msgid "Could not open file for reading: %1"
-msgstr "Nevar atvērt failu lasīšanai: %1"
+msgstr "Nevar lasīšanai atvērt datni: „%1“"
 
 #: userdefinedregexps.cpp:100
 #, kde-format
 msgid "File %1 containing user defined regular expression contained an error"
-msgstr ""
-"Fails %1, kurš satur lietotāja definētu regulāru izteiksmi, ir ar kļūdu"
+msgstr "Datne „%1“ ar lietotāja definētu regulāro izteiksmi satur kļūdu"
 
 #: userdefinedregexps.cpp:143
-#, fuzzy, kde-format
-#| msgid "Rename..."
+#, kde-format
 msgid "Rename"
-msgstr "Pārdēvēt..."
+msgstr "Pārdēvēt"
 
 #: userdefinedregexps.cpp:184
 #, kde-format
@@ -1064,7 +1034,7 @@ msgstr "Jaunais nosaukums:"
 #: userdefinedregexps.cpp:191
 #, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b>?</p>"
-msgstr "<p>Pārrakstīt regulāro izteiksmi <b>%1</b>?</p>"
+msgstr "<p>Vai pārrakstīt regulāro izteiksmi <b>%1</b>?</p>"
 
 #: userdefinedregexps.cpp:194
 #, kde-format
@@ -1074,23 +1044,22 @@ msgstr "Nepārrakstīt"
 #: widgetfactory.cpp:152
 #, kde-format
 msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
-msgstr "<p>Nezināma atzīme lasot XML. Atzīme: <b>%1</b></p>"
+msgstr "<p>Nezināma birka, lasot XML. Birka: <b>%1</b></p>"
 
 #: widgetfactory.cpp:176
-#, fuzzy, kde-format
-#| msgid "Error While Loading Regular Expression From XML"
+#, kde-format
 msgid "Error while loading regular expression from XML."
-msgstr "Kļūda ielādējot regulāru izteiksmi no XML"
+msgstr "Kļūda, ielādējot regulāro izteiksmi no XML"
 
 #: widgetfactory.cpp:177
 #, kde-format
 msgid "Error While Loading Regular Expression From XML"
-msgstr "Kļūda ielādējot regulāru izteiksmi no XML"
+msgstr "Kļūda, ielādējot regulāro izteiksmi no XML"
 
 #: widgetfactory.cpp:184
 #, kde-format
 msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
-msgstr "<p>XML fails nesatur atzīmi <b>%1</b>.</p>"
+msgstr "<p>XML datne nesatur birku <b>%1</b>.</p>"
 
 #: widgetfactory.cpp:191
 #, kde-format
@@ -1098,7 +1067,7 @@ msgid ""
 "<p>Error while reading XML file. The element just below the tag <b>%1</b> "
 "was not an element.</p>"
 msgstr ""
-"<p>Kļūda lasot XML failu. Elements zem atzīmes <b>%1</b> nav elements.</p>"
+"<p>Kļūda, lasot XML datni. Elements zem birkas <b>%1</b> nav elements.</p>"
 
 #: zerowidgets.cpp:60
 #, kde-format
@@ -1107,7 +1076,7 @@ msgid ""
 "Character"
 msgstr ""
 "Jebkura\n"
-"Rakstzīme"
+"rakstzīme"
 
 #: zerowidgets.cpp:73
 #, kde-format
@@ -1115,8 +1084,8 @@ msgid ""
 "Line\n"
 "Start"
 msgstr ""
-"Rinda\n"
-"Sākt"
+"Rindas\n"
+"sākums"
 
 #: zerowidgets.cpp:86
 #, kde-format
@@ -1124,8 +1093,8 @@ msgid ""
 "Line\n"
 "End"
 msgstr ""
-"Rinda\n"
-"Beigt"
+"Rindas\n"
+"beigas"
 
 #: zerowidgets.cpp:99
 #, kde-format
@@ -1133,8 +1102,8 @@ msgid ""
 "Word\n"
 "Boundary"
 msgstr ""
-"Vārds\n"
-"Robeža"
+"Vārda\n"
+"robeža"
 
 #: zerowidgets.cpp:112
 #, kde-format
@@ -1142,8 +1111,8 @@ msgid ""
 "Non-word\n"
 "Boundary"
 msgstr ""
-"Ne-vārds\n"
-"Robeža"
+"Ne vārda\n"
+"robeža"
 
 #~ msgid ""
 #~ "Shows what part of the regular expression is being matched in the "
