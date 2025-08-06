@@ -7,13 +7,13 @@
 # خالد حسنى <dr.khaled.hosny@gmail.com>, 2006.
 # Fahad Al-Saidi <fahad.alsaidi@gmail.com>, 2007.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
-# SPDX-FileCopyrightText: 2022, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-29 00:42+0000\n"
-"PO-Revision-Date: 2024-08-15 11:54+0400\n"
+"PO-Revision-Date: 2025-08-05 21:31+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -117,37 +117,37 @@ msgstr "نطاقات الرموز المُحَدّدة مسبقاً"
 #, kde-format
 msgctxt "@option:check"
 msgid "A word character"
-msgstr "رمز حرفى"
+msgstr "رمز حرفي"
 
 #: characterswidget.cpp:285
 #, kde-format
 msgctxt "@option:check"
 msgid "A digit character"
-msgstr "رمز رقمى"
+msgstr "رمز رقمي"
 
 #: characterswidget.cpp:287
 #, kde-format
 msgctxt "@option:check"
 msgid "A space character"
-msgstr "رمز فراغى"
+msgstr "رمز فراغي"
 
 #: characterswidget.cpp:290
 #, kde-format
 msgctxt "@option:check"
 msgid "A non-word character"
-msgstr "رمز غير حرفى"
+msgstr "رمز غير حرفي"
 
 #: characterswidget.cpp:292
 #, kde-format
 msgctxt "@option:check"
 msgid "A non-digit character"
-msgstr "رمز غير رقمى"
+msgstr "رمز غير رقمي"
 
 #: characterswidget.cpp:294
 #, kde-format
 msgctxt "@option:check"
 msgid "A non-space character"
-msgstr "رمز غير فراغى"
+msgstr "رمز غير فراغي"
 
 #: characterswidget.cpp:298
 #, kde-format
@@ -183,7 +183,7 @@ msgstr "رمز نمطي"
 #: charselector.cpp:49
 #, kde-format
 msgid "Unicode Char in Hex."
-msgstr "رمز يونيكود بالنظام الست عشرى"
+msgstr "رمز يونيكود بالنظام الست عشري"
 
 #: charselector.cpp:49
 #, kde-format
@@ -242,8 +242,8 @@ msgid ""
 "When the content of this box is typed in to the ASCII line,<br />this box "
 "will automatically be added around it,<br />if this check box is selected."
 msgstr ""
-"عندما يتم كتابة محتوى هذا الصندوق في سطر ASCII،<br /> سيضاف هذا الصندوق حوله "
-"آليّاً،<br /> إن تم تحديد مربّع الاختيار هذا."
+"عندما يكتب محتوى هذا الصندوق في سطر ASCII،<br /> سيضاف هذا الصندوق حوله آليّاً،"
+"<br /> إن حُدد مربّع الاختيار هذا."
 
 #: compoundwidget.cpp:115
 #, kde-format
@@ -253,30 +253,30 @@ msgstr "إعداد المركب"
 #: emacsregexpconverter.cpp:66
 #, kde-format
 msgid "Look ahead regular expressions not supported in Emacs style"
-msgstr "التعابير النمطية استباقية البحث غير مدعومة فى أسلوب Emacs"
+msgstr "التعابير النمطية استباقية البحث غير مدعومة في أسلوب Emacs"
 
 #: emacsregexpconverter.cpp:171
 #, kde-format
 msgid "Word boundary and non word boundary is not supported in Emacs syntax"
-msgstr "حدّ الكلمة وحدّ غير الكلمة غير مدعومان  فى صيغ Emacs"
+msgstr "حدّ الكلمة وحدّ غير الكلمة غير مدعومان  في صيغ Emacs"
 
 #: errormap.cpp:37
 #, kde-format
 msgid ""
 "Your regular expression is invalid, due to something preceding a 'line "
 "start'."
-msgstr "التعبير النمطى الذي كتبت غير صالح، بسبب وجود شيء قبل رمز 'بدء سطر'."
+msgstr "التعبير النمطي الذي كتبت غير صالح، بسبب وجود شيء قبل رمز 'بدء سطر'."
 
 #: errormap.cpp:38 errormap.cpp:49 errormap.cpp:60
 #, kde-format
 msgid "Regular Expression Error"
-msgstr "خطأ في التعبير النمطى"
+msgstr "خطأ في التعبير النمطي"
 
 #: errormap.cpp:48
 #, kde-format
 msgid ""
 "Your regular expression is invalid, due to something following a 'line end'."
-msgstr "التعبير النمطى الذي كتبت غير صالح، بسبب وجود شيء بعد رمز 'نهاية سطر'."
+msgstr "التعبير النمطي الذي كتبت غير صالح، بسبب وجود شيء بعد رمز 'نهاية سطر'."
 
 #: errormap.cpp:59
 #, kde-format
@@ -284,7 +284,7 @@ msgid ""
 "Your regular expression is invalid. 'Look Ahead' regular expression must be "
 "the last sub expression."
 msgstr ""
-"التعبير النمطى الذي كتبت غير صالح. التعابير النمطية استباقية البحث يجب أن "
+"التعبير النمطي الذي كتبت غير صالح. التعابير النمطية استباقية البحث يجب أن "
 "تكون في التعبير الفرعي الأخير."
 
 #: infopage.cpp:22
@@ -310,11 +310,11 @@ msgstr ""
 "النمطية</i>.</p><p>القسم العلوي في الوسط هو منطقة التحرير، والقسم السفلي هو "
 "نافذة تحقّق حيث يمكنك فيها تجربة التعابير النمطية حالاً. صف الأزرار يمثّل "
 "إجراءات التحرير. وهو يشبه كثيراً برامج الرسم التقليدية. اختر أداة تحرير للبدء "
-"بكتابة التعبير النمطى، ثم اضغط زر الفأرة في منطقة التحرير حيث تريد إدراج ذلك "
+"بكتابة التعبير النمطي، ثم اضغط زر الفأرة في منطقة التحرير حيث تريد إدراج ذلك "
 "العنصر.</p><p>للحصول على شرح أكثر تفصيلاً لهذا المحرّر انظر صفحات المعلومات <a "
-"href=\"doc://\">.</a></p><h2>ما هو التعبير النمطى؟</h2>إن كنت لا تعرف ما هو "
-"التعبير النمطى، عندها قد يكون من المستحسن أن تقرأ <a href=\"doc://"
-"whatIsARegExp\">المقدّمة فى التعابير النمطية</a>.<br />"
+"href=\"doc://\">.</a></p><h2>ما هو التعبير النمطي؟</h2>إن كنت لا تعرف ما هو "
+"التعبير النمطي، عندها قد يكون من المستحسن أن تقرأ <a href=\"doc://"
+"whatIsARegExp\">المقدّمة في التعابير النمطية</a>.<br />"
 
 #: KMultiFormListBox/ccp.cpp:58
 #, kde-format
@@ -340,7 +340,7 @@ msgstr "إدراج فراغ"
 #: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:244
 #, kde-format
 msgid "Due to a bug, it is not possible to remove the last element."
-msgstr "لوجود خطأ برمجى، لا يمكن حذف آخر عنصر."
+msgstr "لوجود خطأ برمجي، لا يمكن حذف آخر عنصر."
 
 #: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:244
 #, kde-format
@@ -406,7 +406,7 @@ msgid ""
 "with the system."
 msgstr ""
 "ستجد داخل هذه النافذة تعابير نمطية مسبقة التعريف. وهي تشمل التعابير النمطية "
-"التى قُمتَ بتطويرها وحفظها بنفسك، وتعابير نمطية شُحِنت مع النظام."
+"التي قُمتَ بتطويرها وحفظها بنفسك، وتعابير نمطية شُحِنت مع النظام."
 
 #: kregexpeditorprivate.cpp:59
 #, kde-format
@@ -415,7 +415,7 @@ msgid ""
 "actions from the action buttons above, and click the mouse in this window to "
 "insert the given action."
 msgstr ""
-"ستقوم فى هذه النافذة بتطوير التعابير النمطية الخاصة بك. قم باختيار أحد "
+"ستقوم في هذه النافذة بتطوير التعابير النمطية الخاصة بك. قم باختيار أحد "
 "الإجراءات من أزرار الإجراءات أعلاه، ثم اضغط الفأرة في هذه النافذة لإدراج "
 "الإجراء المُحَدّد."
 
@@ -429,11 +429,11 @@ msgid ""
 "editor window, then this part will be highlighted - This allows you to "
 "<i>debug</i> your regular expressions</p>"
 msgstr ""
-"<p> اكتب بعض النصً في هذه النافذة، ثم انظر ما الذي يطابقه التعبير النمطى الذي "
+"<p> اكتب بعض النص في هذه النافذة، ثم انظر ما الذي يطابقه التعبير النمطي الذي "
 "كتبت.</p><p>سيتم تلوين كل ثاني تعبير مطابق باللون الأحمر وكل تعبير مطابق آخر "
 "باللون الأزرق، وذلك لكي تميّز كل واحد منهم.</p><p>إن قمت بتحديد جزءٍ من "
-"التعبير النمطى في نافذة المُحَرّر، عندها يتم تظليل ذلك الجزء - يسمح لك ذلك "
-"<i>بتتبع أخطاء</i>التعابير النمطية التي كتبت</p>"
+"التعبير النمطي في نافذة المُحَرّر، عندها يظلل ذلك الجزء - يسمح لك ذلك <i>بتتبع "
+"أخطاء</i>التعابير النمطية التي كتبت</p>"
 
 #: kregexpeditorprivate.cpp:109
 #, kde-format
@@ -449,9 +449,9 @@ msgid ""
 "by using the graphical editor, and by typing the regular expression in this "
 "line edit.</p>"
 msgstr ""
-"<p>هذا هو التعبير النمطى بصيغة ASCII. قد تهتم بذلك فقط إن كنت مبرمجاً، واحتجت "
+"<p>هذا هو التعبير النمطي بصيغة ASCII. قد تهتم بذلك فقط إن كنت مبرمجاً، واحتجت "
 "لتطوير تعبير نمطي باستخدام QRegExp.</p><p> بإمكانك تطوير تعبير نمطي باستخدام "
-"كلٍ من المُحَرّر ذي الواجهة الرسومية، وعن طريق كتابته في محرر السطر هذا.</p>>"
+"كلٍ من المُحَرّر ذي الواجهة الرسومية، وعن طريق كتابته في محرر السطر هذا.</p>"
 
 #: kregexpeditorprivate.cpp:347
 #, kde-format
@@ -462,7 +462,7 @@ msgstr "لا يمكن فتح الملف '%1' للقراءة"
 #, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
-msgstr "محرر التعبير النمطى"
+msgstr "محرر التعبير النمطي"
 
 #: kregexpeditorwindow.cpp:84
 #, kde-format
@@ -478,7 +478,7 @@ msgstr "حمّل نص"
 #: kregexpeditorwindow.cpp:91
 #, kde-format
 msgid "Load text in the verifier window"
-msgstr "حمّل النص فى نافذة المُتَحَِِّق"
+msgstr "حمّل النص في نافذة المُتَحَّقق"
 
 #: kregexpeditorwindow.cpp:101
 #, kde-format
@@ -497,9 +497,9 @@ msgid ""
 "verify window contains much text, or if the regular expression is either "
 "complex or matches a lot of time, this may be very slow."
 msgstr ""
-"تمكين هذا الخيار سيجعل المُتَحَقِق يتم تحديثه عند كل تحرير. إن احتوت نافذة "
-"المُتَحَقِق على الكثير من النص، أو إن كان التعبير النمطي إما معقّداً أو يطابق "
-"الكثير من المرات، قد يصبح ذلك بطيئاً جداً."
+"تمكين هذا الخيار سيُحدث المُتَحَقِق عند كل تحرير. إن احتوت نافذة المُتَحَقِق على "
+"الكثير من النص، أو إن كان التعبير النمطي إما معقّداً أو يطابق الكثير من "
+"المرات، قد يصبح ذلك بطيئاً جداً."
 
 #: kregexpeditorwindow.cpp:115
 #, kde-format
@@ -581,7 +581,7 @@ msgstr "أي شيء"
 #: predefined/General/anything.regexp:6
 #, kde-format
 msgid "This regular expression matches anything."
-msgstr "يطابق التعبير النمطى هذا أي شيء"
+msgstr "يطابق التعبير النمطي هذا أي شيء"
 
 #: predefined/General/spaces.regexp:5
 #, kde-format
@@ -632,7 +632,7 @@ msgid ""
 "items, you may use cut/copy/paste. These functions are found in the right "
 "mouse button menu.</p>"
 msgstr ""
-"<p>سيغيّر ذلك حالة المُحًرّر إلى  <i>حالة التحديد</i>.</p><p>في هذه الحالة، لن "
+"<p>سيغيّر ذلك حالة المحرر إلى  <i>حالة التحديد</i>.</p><p>في هذه الحالة، لن "
 "تقوم بإدراج <i>عناصر تعبير نمطى</i>، وإنما ستقوم بتحديدها. لتحديد مجموعة من "
 "العناصر، اضغط زر الفأرة الأيسر ثم اسحبها فوق العناصر.</p><p>بعد تحديدك "
 "لمجموعة من العناصر، بإمكانك استخدام وظائف قص/نسخ/لصق. هذه الوظائف موجودة "
@@ -650,8 +650,8 @@ msgid ""
 "write will be matched literally. (i.e. you do not need to escape any "
 "characters)</qt>"
 msgstr ""
-"<qt>سيدرج ذلك حقلاً نصياً، حيث يمكنك كتابة نص. وسيتم مطابقة النص الذي كتبت "
-"حرفياً. (أي أنك لا تحتاج لتخطّى أية رموز)</qt>"
+"<qt>سيدرج ذلك حقلاً نصياً، حيث يمكنك كتابة نص. وسيطابق النص الذي كتبت حرفياً. "
+"(أي أنك لا تحتاج لتخطّى أية رموز)</qt>"
 
 #: regexpbuttons.cpp:56
 #, kde-format
@@ -666,7 +666,7 @@ msgid ""
 "which characters this <i>regexp item</i> will match.</p>"
 msgstr ""
 "<p>سيطابق هذا رمزاً واحداً من نطاق مُعرّف مسبقاً. </p><p>عند إدراجك لهذه الأداة، "
-"سيظهر مربّع حوار يمكّنك من تحديد الرموز التي سيطابقها <i>عنصر التعبير النمطى</"
+"سيظهر مربّع حوار يمكّنك من تحديد الرموز التي سيطابقها <i>عنصر التعبير النمطي</"
 "i> هذا.</p>"
 
 #: regexpbuttons.cpp:62
@@ -730,7 +730,7 @@ msgid ""
 "especially useful if you load a predefined <i>regexp item</i> that you "
 "perhaps do not care about the inner workings of.</qt>"
 msgstr ""
-"<qt>يخدم <i>عنصر التعبير النمطى</i> هذا غرضين أثنين:<ul><li>يسمح لك بطي "
+"<qt>يخدم <i>عنصر التعبير النمطي</i> هذا غرضين أثنين:<ul><li>يسمح لك بطي "
 "<i>عنصر تعبير نمطي</i> هائل الحجم إلى مربّع صغير. ويسهّل ذلك عليك الحصول على "
 "نظرة عامة على <i>عناصر التعبير النمطي</i> الضخمة. وذلك مفيد خصوصاً إذا قمت "
 "بتحميل <i>عنصر تعبير نمطي </i>مُعَرّف مسبقاً قد لا تكون مهتماً بمعرفة تفاصيله "
@@ -857,7 +857,7 @@ msgstr "ا&حفظ تعبير نمطى..."
 #: regexpeditorwindow.cpp:376
 #, kde-format
 msgid "Name for Regular Expression"
-msgstr "اسم للتعبير النمطى"
+msgstr "اسم للتعبير النمطي"
 
 #: regexpeditorwindow.cpp:376
 #, kde-format
@@ -872,12 +872,12 @@ msgstr "الأسماء الفارغة غير مدعومة"
 #: regexpeditorwindow.cpp:381
 #, kde-format
 msgid "Save Regular Expression"
-msgstr "احفظ التعبير النمطى"
+msgstr "احفظ التعبير النمطي"
 
 #: regexpeditorwindow.cpp:390
 #, kde-format
 msgid "<p>Overwrite named regular expression <b>%1</b></p>"
-msgstr "<p>الكتابة فوق التعبير النمطى المسمى <b>%1</b></p>"
+msgstr "<p>الكتابة فوق التعبير النمطي المسمى <b>%1</b></p>"
 
 #: regexpeditorwindow.cpp:400
 #, kde-format
