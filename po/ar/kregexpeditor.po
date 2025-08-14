@@ -517,7 +517,7 @@ msgid ""
 "When this option is enabled, the regular expression will be evaluated on a "
 "so-called greedy way."
 msgstr ""
-"عندما يكون هذا الخيار ممكن ، التعبير النمطي سيقارن بما يسمى طريقة التطابق "
+"عندما يكون هذا الخيار ممكن، التعبير النمطي سيقارن بما يسمى طريقة التطابق "
 "الكلي."
 
 #: kregexpeditorwindow.cpp:126
