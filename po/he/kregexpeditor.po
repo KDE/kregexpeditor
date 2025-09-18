@@ -8,13 +8,13 @@
 # This translation is subject to the same Open Source
 # license as the program which it accompanies.
 #
-# SPDX-FileCopyrightText: 2023, 2024 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor-3.1-12\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-29 00:42+0000\n"
-"PO-Revision-Date: 2024-07-30 10:04+0300\n"
+"PO-Revision-Date: 2025-09-17 14:44+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -349,7 +349,7 @@ msgstr "שגיאה פנימית"
 #: KMultiFormListBox/kmultiformlistbox-multivisible.cpp:266
 #, kde-format
 msgid "There is no element on the clipboard to paste in."
-msgstr "אין רכיב בלוח העריכה שניתן להדביק."
+msgstr "אין רכיב בלוח הגזירים שניתן להדביק."
 
 #: KMultiFormListBox/kmultiformlistbox-windowed.cpp:46
 #, kde-format
