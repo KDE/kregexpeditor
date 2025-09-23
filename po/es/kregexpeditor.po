@@ -1,18 +1,17 @@
-# translation of kregexpeditor.po to Spanish
-# Translation to spanish
-# Copyright (C) 2001-2002
+# Spanish translations for kregexpeditor.po package.
+# Copyright (C) 2001-2025 This file is copyright:
+# This file is distributed under the same license as the kregexpeditor package.
 #
-# Pablo de Vicente <vicente@oan.es>, 2001-2002.
-# SPDX-FileCopyrightText: 2003, 2004, 2023, 2024 Eloy Cuadra <eloihr2@eresmas.com>
-# Eloy Cuadra <ecuadra@eloihr.net>, 2004, 2005, 2007, 2013, 2014, 2015, 2017.
-# Miguel Angel Quesada Fernandez <kesadalive@gmail.com>, 2009.
-# Kira J. Fernandez <kirajfdez@gmail.com>, 2010, 2011, 2012.
+# SPDX-FileCopyrightText: 2001-2002 Pablo de Vicente <vicente@oan.es>
+# SPDX-FileCopyrightText: 2003, 2004, 2005, 2007, 2013, 2014, 2015, 2017, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2009 Miguel Angel Quesada Fernandez <kesadalive@gmail.com>
+# SPDX-FileCopyrightText: 2010, 2011, 2012 Kira J. Fernandez <kirajfdez@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-29 00:42+0000\n"
-"PO-Revision-Date: 2024-07-30 16:47+0200\n"
+"PO-Revision-Date: 2025-09-22 01:20+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -620,7 +619,7 @@ msgid ""
 "%2</b> literally.</p>"
 msgstr ""
 "<p>Las referencias a expresiones regulares anteriores no están permitidas.</"
-"p><p><tt>\\1</tt>, <tt>\\2</tt>... son <i>referencias anteriores</i>, lo que "
+"p><p><tt>\\1</tt>, <tt>\\2</tt>… son <i>referencias anteriores</i>, lo que "
 "significa que se refieren a coincidencias previas. Desgraciadamente, esto no "
 "se permite en la versión actual de este editor.</p><p>En el área gráfica se "
 "ha insertado el texto <b>%1</b>. Esto solo es una forma de asegurar que la "
@@ -881,7 +880,7 @@ msgstr "&Editar"
 #: regexpeditorwindow.cpp:336
 #, kde-format
 msgid "&Save Regular Expression..."
-msgstr "&Guardar expresión regular..."
+msgstr "&Guardar expresión regular…"
 
 #: regexpeditorwindow.cpp:376
 #, kde-format
@@ -1138,70 +1137,3 @@ msgid ""
 msgstr ""
 "No-límite\n"
 "de palabra"
-
-#~ msgid ""
-#~ "Shows what part of the regular expression is being matched in the "
-#~ "<i>verifier window</i>.(The window below the graphical editor window)."
-#~ msgstr ""
-#~ "Muestra qué parte de la expresión regular está siendo comprobada en la "
-#~ "<i>ventana de verificación</i> (la ventana que hay debajo del editor "
-#~ "gráfico)."
-
-#~ msgid "Verification Settings"
-#~ msgstr "Preferencias de verificaciones"
-
-#~ msgid "config menu"
-#~ msgstr "Menú de configuración"
-
-#~ msgid "RegExp Language"
-#~ msgstr "Lenguaje de expresiones regulares"
-
-#~ msgid "Undo"
-#~ msgstr "Deshacer"
-
-#~ msgid "Redo"
-#~ msgstr "Rehacer"
-
-#~ msgid "Save"
-#~ msgstr "Guardar"
-
-#~ msgid ""
-#~ "<h2>Send the author an electronic postcard</h2>I don't get any money for "
-#~ "working on KRegExpEditor, I therefore appreciate it very much when users "
-#~ "tell me what they think about my work. I would therefore be very happy if "
-#~ "you <a href=\"mailto:blackie@kde.org?subject=KRegExpEditor\">sent me a "
-#~ "short mail</a>, telling me that you use my regular expression editor."
-#~ "<h2>Author</h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> "
-#~ "&lt;<a href=\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt;"
-#~ msgstr ""
-#~ "<h2>Envíe al autor una tarjeta postal electrónica</h2>No cobro por mi "
-#~ "trabajo en KRegExpEditor. Por eso me gusta que los usuarios me digan lo "
-#~ "que piensan de mi trabajo. Me gustaría que me <a href=\"mailto:"
-#~ "blackie@kde.org?subject=KRegExpEditor\">enviara un mensaje</a>, "
-#~ "indicándome que utiliza mi editor de expresiones regulares.<h2>Autor</"
-#~ "h2><a href=\"http://www.blackie.dk/\">Jesper K. Pedersen</a> &lt;<a href="
-#~ "\"mailto:blackie@kde.org\">blackie@kde.org</a>&gt; <h3>Traducción al "
-#~ "español</h3>Eloy Cuadra &lt;<a href=\"mailto:eloihr2@eresmas.com"
-#~ "\">eloihr2@eresmas.com</a>&gt;"
-
-#~ msgid "&Quit"
-#~ msgstr "&Salir"
-
-#~ msgid "&Help"
-#~ msgstr "A&yuda"
-
-#~ msgid "Clear expression"
-#~ msgstr "Borrar la expresión"
-
-#~ msgid "from "
-#~ msgstr "desde "
-
-#~ msgid " to "
-#~ msgstr " a "
-
-#~ msgid ""
-#~ "Error while loading regular expression from XML. Most probably the "
-#~ "regular expression had unmatched tags."
-#~ msgstr ""
-#~ "Error al cargar la expresión regular desde XML. Probablemente la "
-#~ "expresión regular contiene etiquetas sin cerrar."
