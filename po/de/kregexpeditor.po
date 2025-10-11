@@ -1,9 +1,9 @@
-# Marco Wegner <mail@marcowegner.de>, 2002.
-# Gregor Zumstein <zumstein@ssd.ethz.ch>, 2003, 2004, 2005, 2007.
-# Stephan Johach <hunsum@gmx.de>, 2004, 2005.
-# Thomas Reitelbach <tr@erdfunkstelle.de>, 2005.
-# Burkhard Lück <lueck@hube-lueck.de>, 2009, 2011, 2012, 2013, 2015, 2017, 2021.
-# Frederik Schwarzer <schwarzer@kde.org>, 2011, 2012, 2017.
+# SPDX-FileCopyrightText: 2002 Marco Wegner <mail@marcowegner.de>
+# SPDX-FileCopyrightText: 2003, 2004, 2005, 2007 Gregor Zumstein <zumstein@ssd.ethz.ch>
+# SPDX-FileCopyrightText: 2004, 2005 Stephan Johach <hunsum@gmx.de>
+# SPDX-FileCopyrightText: 2005 Thomas Reitelbach <tr@erdfunkstelle.de>
+# SPDX-FileCopyrightText: 2009, 2011, 2012, 2013, 2015, 2017, 2021 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2011, 2012, 2017 Frederik Schwarzer <schwarzer@kde.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
