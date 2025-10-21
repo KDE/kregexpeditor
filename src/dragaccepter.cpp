@@ -1,5 +1,5 @@
 /*
- *  SPDX-FileCopyrightText: 2002-2003 Jesper K. Pedersen <Qt::blackie@kde.org>
+ *  SPDX-FileCopyrightText: 2002-2003 Jesper K. Pedersen <blackie@kde.org>
  *
  *  SPDX-License-Identifier: LGPL-2.0-only
  **/
