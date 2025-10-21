@@ -31,7 +31,7 @@ void QtRegexpHighlighter::highlightBlock(const QString &text)
     regexp.setPatternOptions(options);
 
     QTextCharFormat format;
-    format.setForeground(Qt::black);
+    format.setForeground(qApp->palette().color(QPalette::Text));
     format.setFont(_editor->font());
     setFormat(0, text.length(), format);
 
@@ -40,7 +40,7 @@ void QtRegexpHighlighter::highlightBlock(const QString &text)
     }
 
     // ------------------------------ Process with the regular expression.
-    QColor colors[] = {Qt::red, Qt::blue};
+    QColor colors[] = {qApp->palette().color(QPalette::HighlightedText), qApp->palette().color(QPalette::Highlight)};
     int color = previousBlockState();
     if (color < 0 || color > 1) {
         color = 0;
