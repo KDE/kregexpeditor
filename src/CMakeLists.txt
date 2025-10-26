@@ -176,6 +176,7 @@ install(TARGETS kregexpeditor ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 ########### install files ###############
 
 install(FILES org.kde.kregexpeditor.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+install(FILES org.kde.kregexpeditor.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
 install(FILES
     KMultiFormListBox/kmultiformlistboxentry.h
