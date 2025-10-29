@@ -9,9 +9,30 @@
     <binary>kregexpeditor</binary>
   </provides>
   <name>KRegexpEditor</name>
+  <name xml:lang="ca">KRegexpEditor</name>
+  <name xml:lang="es">KRegexpEditor</name>
+  <name xml:lang="he">KRegexpEditor</name>
+  <name xml:lang="nl">KRegexpEditor</name>
+  <name xml:lang="pt-BR">KRegexpEditor</name>
+  <name xml:lang="tr">K Düzenli İfade Düzenleyicisi</name>
+  <name xml:lang="uk">KRegExpEditor</name>
   <summary>Edit regular expression</summary>
+  <summary xml:lang="ca">Edició d'expressió regular</summary>
+  <summary xml:lang="es">Editar expresión regular</summary>
+  <summary xml:lang="he">עריכת ביטויים רגולריים</summary>
+  <summary xml:lang="nl">Reguliere expressie bewerken</summary>
+  <summary xml:lang="pt-BR">Editor de expressão regular</summary>
+  <summary xml:lang="tr">Düzenli ifadeleri düzenleyin</summary>
+  <summary xml:lang="uk">Редагування формального виразу</summary>
   <description>
     <p>KRegexpEditor is a lightweight KDE application designed to help you create, test, and refine regular expressions with ease. It provides an interactive visual interface that highlights matches in real time, supports common regex syntax features, and offers helpful tools to build complex patterns without memorizing every rule.</p>
+    <p xml:lang="ca">El KRegexpEditor és una aplicació lleugera de KDE dissenyada per a ajudar-vos a crear, provar i refinar expressions regulars amb facilitat. Proporciona una interfície visual interactiva que ressalta les coincidències en temps real, admet funcions comunes de sintaxi d'expressió regular, i ofereix eines útils per construir patrons complexos sense memoritzar cada regla.</p>
+    <p xml:lang="es">KRegexpEditor es una aplicación ligera de KDE diseñada para ayudarle a crear, probar y refinar expresiones regulares con facilidad. Proporciona una interfaz visual interactiva que resalta las coincidencias en tiempo real, permite funciones de sintaxis comunes de expresiones regulares y ofrece útiles herramientas para crear patrones complejos sin necesidad de memorizar todas las reglas.</p>
+    <p xml:lang="he">KRegexpEditor הוא יישום KDE קליל שתוכנן לסייע לך ליצור, לבדוק ולטייב ביטויים רגולריים בקלות. הוא מספק ממשק חזותי אינראקטיבי שמדגיש התאמות בזמן אמת, תומך ביכולות נפוצות של תחביר ביטוי רגולרי ומציע כלים חיוניים לבניית תבניות מורכבות מבלי לזכור את כל אחד מהכללים בעל פה.</p>
+    <p xml:lang="nl">KRegexpEditor is een lichtgewicht KDE toepassing ontworpen om u te helpen bij het gemakkelijk aanmaken, testen en verfijnen van reguliere expressies. Het biedt een interactief visueel interface dat overeenkomsten in realtime accentueert, algemene regex syntaxis-functies accentueert en behulpzame hulpmiddelen biedt om complexe patronen te bouwen zonder elke regel te onthouden.</p>
+    <p xml:lang="pt-BR">O KRegexpEditor é um aplicativo leve do KDE, projetado para ajudar você a criar, testar e refinar expressões regulares com facilidade. Ele oferece uma interface visual interativa que destaca correspondências em tempo real, suporta recursos comuns de sintaxe regex e oferece ferramentas úteis para criar padrões complexos sem precisar memorizar todas as regras.</p>
+    <p xml:lang="tr">K Düzenli İfade Düzenleyicisi, düzenli ifadeleri kolayca oluşturmanıza, sınamanıza ve geliştirmenize yardımcı olmak için tasarlanmış hafif bir KDE uygulamasıdır. Eşleşmeleri gerçek zamanlı olarak vurgulayan etkileşimli bir görsel arayüz sunar, yaygın düzenli ifade sözdizimi özelliklerini destekler ve her kuralı ezberlemeden karmaşık kalıplar oluşturmanıza yardımcı araçlar sunar.</p>
+    <p xml:lang="uk">KRegexpEditor є невибагливою до ресурсів програмою KDE, яку розроблено для допомоги у створенні, перевірці та удосконаленні формальних виразів. У ній реалізовано інтерактивний візуальний інтерфейс, який інтерактивно підсвічує відповідники, підтримує загальні можливості синтаксису формальних виразів і пропонує корисні інструменти для побудови складних взірців без потреби у запам'ятовуванні кожного з правил.</p>
   </description>
   <url type="homepage">https://apps.kde.org/kregexpeditor/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=kregexpeditor</url>
@@ -28,5 +49,5 @@
     <color type="primary" scheme_preference="dark">#17a3ea</color>
   </branding>
   <launchable type="desktop-id">org.kde.kregexpeditor.desktop</launchable>
-  <content_rating type="oars-1.1" />
+  <content_rating type="oars-1.1"/>
 </component>
