@@ -3,7 +3,7 @@
 /*
  *  SPDX-FileCopyrightText: 2002-2003 Jesper K. Pedersen <blackie@kde.org>
  *
- *  SPDX-License-Identifier: LGPL-2.0-only
+ *  SPDX-License-Identifier: LGPL-2.1-only
  **/
 #ifndef __kmultiformlistboxshower
 #define __kmultiformlistboxshower

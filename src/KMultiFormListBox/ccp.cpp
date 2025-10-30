@@ -2,7 +2,7 @@
  *  SPDX-FileCopyrightText: 2002-2003 Jesper K. Pedersen <blackie@kde.org>
  *  SPDX-FileCopyrightText: 2011 Morten A. B. Sjøgren <m_abs@mabs.dk>
  *
- *  SPDX-License-Identifier: LGPL-2.0-only
+ *  SPDX-License-Identifier: LGPL-2.1-only
  **/
 
 //---------------------
