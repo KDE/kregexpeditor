@@ -246,9 +246,9 @@ msgid ""
 "When the content of this box is typed in to the ASCII line,<br />this box "
 "will automatically be added around it,<br />if this check box is selected."
 msgstr ""
-"Lorsque le contenu de cette boîte est saisi dans la ligne de caractères "
-"ASCII,<br /> cette boîte sera automatiquement ajoutée tout autour,<br /> si "
-"cette boîte à cocher est sélectionnée."
+"Lorsque le contenu de cette boite est saisi dans la ligne de caractères "
+"ASCII,<br /> cette boite sera automatiquement ajoutée tout autour,<br /> si "
+"cette boite à cocher est sélectionnée."
 
 #: compoundwidget.cpp:115
 #, kde-format
@@ -702,8 +702,8 @@ msgid ""
 "which characters this <i>regexp item</i> will match.</p>"
 msgstr ""
 "<p>Permet de rechercher un unique caractère à partir d'une plage prédéfinie."
-"</p><p>Lorsque vous insérez ce composant graphique, une boîte de dialogue "
-"apparaîtra vous permettant de spécifier les caractères auxquels cet "
+"</p><p>Lorsque vous insérez ce composant graphique, une boite de dialogue "
+"apparaitra vous permettant de spécifier les caractères auxquels cet "
 "<i>élément d'expression rationnelle</i> correspondra.</p>"
 
 #: regexpbuttons.cpp:62
@@ -741,8 +741,8 @@ msgstr ""
 "présente au moins une fois.<br />Exemples :<br />Si vous spécifiez que "
 "l'expression doit correspondre <i>quel que soit le nombre</i> de fois et que "
 "le contenu qu'elle englobe est <tt>abc</tt>, alors cette <i>expression "
-"rationnelle</i> correspondra à une chaîne vide, la chaîne <tt>abc</tt>, la "
-"chaîne <tt>abcabc</tt>, la chaîne <tt>abcabcabcabc</tt>, etc.</qt>"
+"rationnelle</i> correspondra à une chaine vide, la chaine <tt>abc</tt>, la "
+"chaine <tt>abcabc</tt>, la chaine <tt>abcabcabcabc</tt>, etc.</qt>"
 
 #: regexpbuttons.cpp:83
 #, kde-format
@@ -772,7 +772,7 @@ msgid ""
 msgstr ""
 "<qt>Cet <i>élément d'expression rationnelle</i> a deux buts : <ul> <li>Il "
 "vous permet de placer un <i>élément d'expression rationnelle</i> énorme dans "
-"une petite boîte. Cela vous facilitera la tâche pour avoir une vue générale "
+"une petite boite. Cela vous facilitera la tâche pour avoir une vue générale "
 "de grands <i>éléments d'expression rationnelle</i>. Cela est "
 "particulièrement utile si vous chargez un <i>élément d'expression "
 "rationnelle</i> prédéfini alors que vous ne vous intéressez pas à sa "
