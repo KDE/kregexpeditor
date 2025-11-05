@@ -559,7 +559,7 @@
 >[0-9]</literal
 >, <literal
 >[^a-zA-Z, _]</literal
->. Lorsque vous insérez un élément avec cet outil, une boîte de dialogue apparaîtra, dans laquelle vous spécifierez les domaines de caractères.</para>
+>. Lorsque vous insérez un élément avec cet outil, une boite de dialogue apparaitra, dans laquelle vous spécifierez les domaines de caractères.</para>
         
         <para
 >Consultez la description faite dans le chapitre <link linkend="repeatregexp"
@@ -612,7 +612,7 @@
 ></para>
 
         <para
->C'est l'élément de répétition. Cela inclut ce qui, en syntaxe ASCII, est représenté par l'astérisque (*), un plus (+), un point d'interrogation (?) et par des domaines ([3,5]). Lorsque vous insérez un élément en utilisant cet outil, une boîte de dialogue apparaît vous demandant le nombre de répétitions.</para>
+>C'est l'élément de répétition. Cela inclut ce qui, en syntaxe ASCII, est représenté par l'astérisque (*), un plus (+), un point d'interrogation (?) et par des domaines ([3,5]). Lorsque vous insérez un élément en utilisant cet outil, une boite de dialogue apparait vous demandant le nombre de répétitions.</para>
           
           <para
 >Vous spécifiez alors ce qu'il faut répéter en dessinant le contenu répété dans le rectangle que cet outil insère.</para>
@@ -674,7 +674,7 @@
 ></para>
         
         <para
->L'outil de composition ne représente aucune expression rationnelle. Il est utilisé pour regrouper plusieurs composants dans une boîte, qui peut être facilement réduite à son titre. Cela peut se voir dans la partie droite de la copie d'écran ci-dessus.</para>
+>L'outil de composition ne représente aucune expression rationnelle. Il est utilisé pour regrouper plusieurs composants dans une boite, qui peut être facilement réduite à son titre. Cela peut se voir dans la partie droite de la copie d'écran ci-dessus.</para>
       </simplesect>
 
 
@@ -871,7 +871,7 @@
       <para
 >Le composant d'expressions rationnelles est situé dans le paquet « utils » de &kde;. Si vous n'avez pas installé ce paquet, alors les boutons de l'<emphasis
 >éditeur d'expressions rationnelles</emphasis
-> n'apparaîtront pas dans les programmes.</para>
+> n'apparaitront pas dans les programmes.</para>
     </sect1>
   </chapter>
 
