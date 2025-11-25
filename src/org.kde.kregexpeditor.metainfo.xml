@@ -23,6 +23,7 @@
   <name xml:lang="sl">KRegexpEditor</name>
   <name xml:lang="tr">K Düzenli İfade Düzenleyicisi</name>
   <name xml:lang="uk">KRegExpEditor</name>
+  <name xml:lang="zh-TW">KRegexpEditor</name>
   <summary>Edit regular expression</summary>
   <summary xml:lang="ar">حرر تعبير نمطي</summary>
   <summary xml:lang="ca">Edició d'expressió regular</summary>
@@ -38,6 +39,7 @@
   <summary xml:lang="sl">Urejanje regularnega izraza</summary>
   <summary xml:lang="tr">Düzenli ifadeleri düzenleyin</summary>
   <summary xml:lang="uk">Редагування формального виразу</summary>
+  <summary xml:lang="zh-TW">編輯正則表達式</summary>
   <description>
     <p>KRegexpEditor is a lightweight KDE application designed to help you create, test, and refine regular expressions with ease. It provides an interactive visual interface that highlights matches in real time, supports common regex syntax features, and offers helpful tools to build complex patterns without memorizing every rule.</p>
     <p xml:lang="ar">محرر التعابير النمطية هو تطبيق كيدي خفيف الوزن مصمم لمساعدتك على إنشاء واختبار وتحسين التعبيرات النمطية بسهولة. يوفر واجهة مرئية تفاعلية تُبرز التطابقات آنيًا، ويدعم ميزات بناء الجملة الشائعة للتعبيرات النمطية، ويوفر أدوات مفيدة لبناء أنماط معقدة دون الحاجة إلى حفظ كل قاعدة.</p>
@@ -54,6 +56,7 @@
     <p xml:lang="sl">KRegexpEditor je lahka aplikacija za KDE, zasnovana za enostavno ustvarjanje, testiranje in izpopolnjevanje regularnih izrazov. Ponuja interaktivni vizualni vmesnik, ki sproti označuje ujemanja, podpira običajne funkcije sintakse regularnih izrazov in ponuja uporabna orodja za gradnjo kompleksnih vzorcev, ne da bi si morali zapomniti vsako pravilo.</p>
     <p xml:lang="tr">K Düzenli İfade Düzenleyicisi, düzenli ifadeleri kolayca oluşturmanıza, sınamanıza ve geliştirmenize yardımcı olmak için tasarlanmış hafif bir KDE uygulamasıdır. Eşleşmeleri gerçek zamanlı olarak vurgulayan etkileşimli bir görsel arayüz sunar, yaygın düzenli ifade sözdizimi özelliklerini destekler ve her kuralı ezberlemeden karmaşık kalıplar oluşturmanıza yardımcı araçlar sunar.</p>
     <p xml:lang="uk">KRegexpEditor є невибагливою до ресурсів програмою KDE, яку розроблено для допомоги у створенні, перевірці та удосконаленні формальних виразів. У ній реалізовано інтерактивний візуальний інтерфейс, який інтерактивно підсвічує відповідники, підтримує загальні можливості синтаксису формальних виразів і пропонує корисні інструменти для побудови складних взірців без потреби у запам'ятовуванні кожного з правил.</p>
+    <p xml:lang="zh-TW">KRegexpEditor 是一個設計來幫您建立、測試或修改正則表達式的輕量級 KDE 應用程式。它提供互動式突顯介面，即時突顯相符處，支援常見正則表達式功能，且提供實用工具幫助您建構複雜表達式而不用記住所有規則。</p>
   </description>
   <url type="homepage">https://apps.kde.org/kregexpeditor/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=kregexpeditor</url>
