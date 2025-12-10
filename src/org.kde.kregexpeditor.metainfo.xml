@@ -67,7 +67,7 @@
   <url type="homepage">https://apps.kde.org/kregexpeditor/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=kregexpeditor</url>
   <categories>
-    <category>Utilities</category>
+    <category>Utility</category>
   </categories>
   <developer id="kde.org">
     <name translate="no">KDE</name>
