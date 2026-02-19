@@ -9,19 +9,20 @@
 # Nickolai Shaforostoff <shafff@ukr.net>, 2004.
 # Nick Shaforostoff <shaforostoff@kde.ru>, 2009.
 # Alexander Potashev <aspotashev@gmail.com>, 2017.
+# SPDX-FileCopyrightText: 2026 Alexander Yavorskiy <kekcuha@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:55+0000\n"
-"PO-Revision-Date: 2017-11-28 15:46+0300\n"
-"Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
+"PO-Revision-Date: 2026-02-18 08:54+0200\n"
+"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 25.12.2\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -87,7 +88,7 @@ msgstr "- Не разделитель\n"
 #, kde-format
 msgctxt "a range of characters"
 msgid "- from %1 to %2\n"
-msgstr ""
+msgstr "— от %1 до %2\n"
 
 #: characterswidget.cpp:145
 #, kde-format
@@ -105,11 +106,10 @@ msgid "Specify Characters"
 msgstr "Определённые символы"
 
 #: characterswidget.cpp:275
-#, fuzzy, kde-format
-#| msgid "Do not match the characters specified here"
+#, kde-format
 msgctxt "@option:check"
 msgid "Do not match the characters specified here"
-msgstr "Кроме символов"
+msgstr "Не учитывать указанные здесь символы"
 
 #: characterswidget.cpp:279
 #, kde-format
@@ -117,43 +117,37 @@ msgid "Predefined Character Ranges"
 msgstr "Группы символов"
 
 #: characterswidget.cpp:283
-#, fuzzy, kde-format
-#| msgid "A word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A word character"
 msgstr "Буква"
 
 #: characterswidget.cpp:285
-#, fuzzy, kde-format
-#| msgid "A digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A digit character"
 msgstr "Цифра"
 
 #: characterswidget.cpp:287
-#, fuzzy, kde-format
-#| msgid "A space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A space character"
 msgstr "Пустой разделитель"
 
 #: characterswidget.cpp:290
-#, fuzzy, kde-format
-#| msgid "A non-word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-word character"
-msgstr "Не буква"
+msgstr "Не буква, цифра или символ «_»"
 
 #: characterswidget.cpp:292
-#, fuzzy, kde-format
-#| msgid "A non-digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-digit character"
 msgstr "Не цифра"
 
 #: characterswidget.cpp:294
-#, fuzzy, kde-format
-#| msgid "A non-space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-space character"
 msgstr "Не разделитель"
@@ -240,21 +234,20 @@ msgid "&Description:"
 msgstr "&Описание:"
 
 #: compoundwidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "&Automatically replace using this item"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Automatically replace using this item"
-msgstr "&Заменить"
+msgstr "&Автоматически заменять этим элементом"
 
 #: compoundwidget.cpp:50
-#, fuzzy, kde-format
-#| msgid ""
-#| "When the content of this box is typed in to the ASCII line,<br>this box "
-#| "will automatically be added around it,<br>if this check box is selected."
+#, kde-format
 msgid ""
 "When the content of this box is typed in to the ASCII line,<br />this box "
 "will automatically be added around it,<br />if this check box is selected."
-msgstr "Если данная опция активна, вокруг текста будет добавлена рамка."
+msgstr ""
+"При вводе содержимого этого поля в строку ASCII,<br />оно будет "
+"автоматически добавлено вокруг введённого текста,<br />если этот флажок "
+"установлен."
 
 #: compoundwidget.cpp:115
 #, kde-format
@@ -301,24 +294,7 @@ msgstr ""
 "подвыражением"
 
 #: infopage.cpp:22
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translators, feel free to add yourself in the text below, asking for a "
-#| "postcard ;-), also feel free to add a section saying <h2>Translators</"
-#| "h2>. Kind regards, and thanks for your work - Jesper."
-#| msgid ""
-#| "<h1>Regular Expression Editor</h1><p>What you are currently looking at is "
-#| "an editor for <i>Regular Expressions</i>.</p><p>The upper part in the "
-#| "middle is the editing area, the lower part is a verification window where "
-#| "you can try your regular expressions right away. The row of buttons is "
-#| "the editing actions. This is actually very similar to common drawing "
-#| "programs. Select an editing tool to start editing your regular "
-#| "expression, and press the mouse button in the editing area where you want "
-#| "this item inserted.</p><p>For a more detailed description of this editor "
-#| "see the <a href=\"doc://\">info pages</a></p><h2>What is a regular "
-#| "expression?</h2>If you do not know what a regular expression is, then it "
-#| "might be a good idea to read <a href=\"doc://whatIsARegExp\">the "
-#| "introduction to regular expressions</a>.<p>"
+#, kde-format
 msgctxt ""
 "Translators, feel free to add yourself in the text below, asking for a "
 "postcard ;-), also feel free to add a section saying <h2>Translators</h2>. "
@@ -336,18 +312,18 @@ msgid ""
 "regular expression is, then it might be a good idea to read <a href=\"doc://"
 "whatIsARegExp\">the introduction to regular expressions</a>.<br />"
 msgstr ""
-"<qt><h1>Редактор регулярных выражений</h1><p>Перед вами редактор "
-"<i>регулярных выражений</i >.</p> <p>Большое окно в центре - область "
-"редактирования. Снизу расположена панель проверки, где вы можете сразу "
-"написать готовое регулярное выражение. Панель инструментов содержит элементы "
-"регулярного выражения и инструменты для его редактирования. Всё это очень "
-"похоже на работу с графическим редактором. Выберите элемент регулярного "
-"выражения и просто нажмите на кнопку мыши в области редактирования, чтобы "
-"вставить необходимый элемент.</p><p>За подробным описанием редактора "
-"обратитесь к <a href=\"doc://\">документации</a></p> <h2>Что представляет "
-"собой регулярное выражение?</h2> Если вы не знаете, что такое регулярные "
-"выражения, неплохо для начала прочитать <a href=\"doc://whatIsARegExp"
-"\">введение в регулярные выражения</a>. "
+"<h1>Редактор регулярных выражений</h1> <p>Перед вами редактор <i>регулярных "
+"выражений</i >.</p> <p>Большое окно в центре - область редактирования. Снизу "
+"расположена панель проверки, где вы можете сразу написать готовое регулярное "
+"выражение. Панель инструментов содержит элементы регулярного выражения и "
+"инструменты для его редактирования. Всё это очень похоже на работу с "
+"графическим редактором. Выберите элемент регулярного выражения и просто "
+"нажмите на кнопку мыши в области редактирования, чтобы вставить необходимый "
+"элемент.</p> <p>За подробным описанием редактора обратитесь к <a href="
+"\"doc://\">документации</a> </p> <h2>Что представляет собой регулярное "
+"выражение?</h2> Если вы не знаете, что такое регулярные выражения, неплохо "
+"для начала прочитать <a href=\"doc://whatIsARegExp\">введение в регулярные "
+"выражения</a>.<br />"
 
 #: KMultiFormListBox/ccp.cpp:58
 #, kde-format
@@ -427,7 +403,7 @@ msgid "Widget Configuration"
 msgstr "Настройка элементов управления"
 
 #: kregexpeditorprivate.cpp:47
-#, fuzzy, kde-format
+#, kde-format
 msgid "Compound regular expression:"
 msgstr "Составное регулярное выражение:"
 
@@ -454,14 +430,7 @@ msgstr ""
 "того, чтобы вставить выражение."
 
 #: kregexpeditorprivate.cpp:68
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type in some text in this window, and see what the regular expression you "
-#| "have developed matches.<p>Each second match will be colored in red and "
-#| "each other match will be colored blue, simply so you can distinguish them "
-#| "from each other.<p>If you select part of the regular expression in the "
-#| "editor window, then this part will be highlighted - This allows you to "
-#| "<i>debug</i> your regular expressions"
+#, kde-format
 msgid ""
 "<p>Type in some text in this window, and see what the regular expression you "
 "have developed matches.</p><p>Each second match will be colored in red and "
@@ -470,26 +439,20 @@ msgid ""
 "editor window, then this part will be highlighted - This allows you to "
 "<i>debug</i> your regular expressions</p>"
 msgstr ""
-"Введите текст в этом окне и увидите совпадение регулярного выражения с "
-"частями текста введённой строки. <p>Каждое второе совпадение подсвечивается "
-"красным цветом, а другие - синим, чтобы вы смогли различать совпадения. "
-"<p>Если вы выделили часть регулярного выражения в окне редактора, эта часть "
-"в совпадающем тексте также будет подсвечена - это позволит вам "
-"<i>отлаживать</i> ваши регулярные выражения "
+"</p>Введите текст в этом окне и увидите совпадение регулярного выражения с "
+"частями текста введённой строки.</p> <p>Каждое второе совпадение "
+"подсвечивается красным цветом, а другие - синим, чтобы вы смогли различать "
+"совпадения.</p> <p>Если вы выделили часть регулярного выражения в окне "
+"редактора, эта часть в совпадающем тексте также будет подсвечена - это "
+"позволит вам <i>отлаживать</i> ваши регулярные выражения.</p>"
 
 #: kregexpeditorprivate.cpp:109
-#, fuzzy, kde-format
+#, kde-format
 msgid "ASCII syntax:"
-msgstr "В ASCII виде:"
+msgstr "Синтаксис ASCII:"
 
 #: kregexpeditorprivate.cpp:123
-#, fuzzy, kde-format
-#| msgid ""
-#| "This is the regular expression in ASCII syntax. You are likely only to be "
-#| "interested in this if you are a programmer, and need to develop a regular "
-#| "expression using QRegExp.<p>You may develop your regular expression both "
-#| "by using the graphical editor, and by typing the regular expression in "
-#| "this line edit."
+#, kde-format
 msgid ""
 "<p>This is the regular expression in ASCII syntax. You are likely only to be "
 "interested in this if you are a programmer, and need to develop a regular "
@@ -497,10 +460,10 @@ msgid ""
 "by using the graphical editor, and by typing the regular expression in this "
 "line edit.</p>"
 msgstr ""
-"Редактируемое регулярное выражение в виде строки. Эта возможность может "
+"</p>Редактируемое регулярное выражение в виде строки. Эта возможность может "
 "заинтересовать опытных программистов при разработке регулярных выражений "
-"QRegExp.<p>Вы можете создавать регулярное выражение как в графическом "
-"редакторе, так и в этой строке."
+"QRegExp.</p> <p>Вы можете создавать регулярное выражение как в графическом "
+"редакторе, так и в этой строке.</p>"
 
 #: kregexpeditorprivate.cpp:347
 #, kde-format
@@ -508,8 +471,7 @@ msgid "Could not open file '%1' for reading"
 msgstr "Не удаётся открыть файл '%1'"
 
 #: kregexpeditorwindow.cpp:35
-#, fuzzy, kde-format
-#| msgid "Regular Expression Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "Редактор регулярных выражений"
@@ -523,7 +485,7 @@ msgstr "Проверить регулярное выражение"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
-msgstr ""
+msgstr "Загрузить текст"
 
 #: kregexpeditorwindow.cpp:91
 #, kde-format
@@ -574,11 +536,10 @@ msgstr ""
 "регулярных выражений"
 
 #: kregexpeditorwindow.cpp:126
-#, fuzzy, kde-format
-#| msgid "RegExp Language"
+#, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
-msgstr "Язык регулярных выражений"
+msgstr "Языки регулярных выражений"
 
 #: lookaheadwidget.cpp:39
 #, kde-format
@@ -619,13 +580,13 @@ msgstr "Разработчик"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
 #: main.cpp:33
 #, kde-format
 msgctxt "@info:credit"
 msgid "Port to Qt6"
-msgstr ""
+msgstr "Перенос на Qt6"
 
 #: predefined/General/anything.regexp:5
 #, kde-format
@@ -659,12 +620,19 @@ msgid ""
 "graphical area, the back reference will be replaced by matching the text <b>"
 "%2</b> literally.</p>"
 msgstr ""
+"<p>Обратные ссылки в регулярных выражениях не поддерживаются.</p><p><tt>\\1</"
+"tt>, <tt>\\2</tt> и т. д. являются <i>обратными ссылками</i>, которые "
+"указывают на предыдущие совпадения. К сожалению, эта возможность "
+"не поддерживается в текущей версии редактора.</p><p>В графической области "
+"был вставлен текст <b>%1</b>. Это лишь временное решение, чтобы приложение "
+"могло обработать регулярное выражение. Поэтому при редактировании выражения "
+"в графической области обратная ссылка будет заменена на точное совпадение "
+"с текстом <b>%2</b>.</p>"
 
 #: qregexpparser.y:214
-#, fuzzy, kde-format
-#| msgid "Look ahead regular expressions not supported in Emacs style"
+#, kde-format
 msgid "Back reference regular expressions not supported"
-msgstr "Упреждающий поиск не поддерживается в Emacs"
+msgstr "Обратные ссылки в регулярных выражениях не поддерживаются"
 
 #: regexpbuttons.cpp:36
 #, kde-format
@@ -672,14 +640,7 @@ msgid "Selection tool"
 msgstr "Выделение"
 
 #: regexpbuttons.cpp:38
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This will change the state of the editor to <i>selection state</i>."
-#| "<p>In this state you will not be inserting <i>regexp items</i>, but "
-#| "instead select them. To select a number of items, press down the left "
-#| "mouse button and drag it over the items.<p>When you have selected a "
-#| "number of items, you may use cut/copy/paste. These functions are found in "
-#| "the right mouse button menu.</qt>"
+#, kde-format
 msgid ""
 "<p>This will change the state of the editor to <i>selection state</i>.</"
 "p><p>In this state you will not be inserting <i>regexp items</i>, but "
@@ -688,12 +649,12 @@ msgid ""
 "items, you may use cut/copy/paste. These functions are found in the right "
 "mouse button menu.</p>"
 msgstr ""
-"<qt>Перевод редактора в <i>режим выделения</i>. <p>В этом режиме вы не "
-"сможете вставить метасимволы, но можете их выделить. Для того чтобы выделить "
-"метасимволы, нажмите на левую кнопку мыши и выделите требуемый фрагмент.<p> "
-"После выделения вы можете воспользоваться стандартными функциями вырезать/"
-"копировать/вставить. Эти функции доступны в меню, появляющемся при нажатии "
-"на правую кнопку мыши.</qt>"
+"<p>Перевод редактора в <i>режим выделения</i></p>. <p>В этом режиме вы не "
+"сможете вставить <i>метасимволы</i>, но можете их выделить. Для того чтобы "
+"выделить метасимволы, нажмите на левую кнопку мыши и выделите требуемый "
+"фрагмент.</p> <p> После выделения вы можете воспользоваться стандартными "
+"функциями вырезать/копировать/вставить. Эти функции доступны в меню, "
+"появляющемся при нажатии на правую кнопку мыши.</p>"
 
 #: regexpbuttons.cpp:49
 #, kde-format
@@ -717,19 +678,15 @@ msgid "A single character specified in a range"
 msgstr "Один символ, определённый в диапазоне значений"
 
 #: regexpbuttons.cpp:57
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This will match a single character from a predefined range.<p>When "
-#| "you insert this widget a dialog box will appear, which lets you specify "
-#| "which characters this <i>regexp item</i> will match.</qt>"
+#, kde-format
 msgid ""
 "<p>This will match a single character from a predefined range.</p><p>When "
 "you insert this widget a dialog box will appear, which lets you specify "
 "which characters this <i>regexp item</i> will match.</p>"
 msgstr ""
-"<qt>Здесь вы можете назначить соответствие одному символу из заданного "
-"диапазона.<p>Появится диалоговое окно, которое позволит определить сочетание "
-"символов.</qt>"
+"<p>Здесь вы можете назначить соответствие одному символу из заданного "
+"диапазона.</p><p>Появится диалоговое окно, которое позволит определить "
+"<i>сочетание символов</i>.</p>"
 
 #: regexpbuttons.cpp:62
 #, kde-format
@@ -747,17 +704,7 @@ msgid "Repeated content"
 msgstr "Повторение"
 
 #: regexpbuttons.cpp:68
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it "
-#| "surrounds a specified number of times.<p>The number of times to repeat "
-#| "may be specified using ranges. e.g. You may specify that it should match "
-#| "from 2 to 4 times, that it should match exactly 5 times, or that it "
-#| "should match at least one time.<p>Examples:<br>If you specify that it "
-#| "should match <i>any</i> time, and the content it surrounds is <tt>abc</"
-#| "tt>, then this <i>regexp item</i> will match the empty string, the string "
-#| "<tt>abc</tt>, the string <tt>abcabc</tt>, the string <tt>abcabcabcabc</"
-#| "tt>, etc.</qt>"
+#, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> will repeat the <i>regexp items</i> it surrounds "
 "a specified number of times.<br />The number of times to repeat may be "
@@ -768,26 +715,25 @@ msgid ""
 "<i>regexp item</i> will match the empty string, the string <tt>abc</tt>, the "
 "string <tt>abcabc</tt>, the string <tt>abcabcabcabc</tt>, etc.</qt>"
 msgstr ""
-"<qt>Этот элемент задаёт повторение подвыражений заданное число раз. Число "
-"повторений можно задать в пределах некоторого диапазона значений, к примеру: "
-"от 2 до 4 раз, точно 5 раз, не более одного раза. <p>Примеры:<br>Если вы "
-"зададите <i>любое</i> число повторений, а подвыражение будет <tt>abc</tt>, "
-"то соответствия будут представлять собой: пустую строку, строку <tt>abc</"
-"tt>, строку <tt>abcabc</tt>, строку <tt>abcabcabcabc</tt>, и.т.д.</qt>"
+"<qt>Этот <i>элемент регулярного выражения</i> будет повторять <i>элементы "
+"регулярного выражения</i>, которые он охватывает, заданное количество раз."
+"<br />Количество повторений можно задать с помощью диапазонов; например, "
+"можно указать совпадение от 2 до 4 раз, ровно 5 раз или хотя бы один раз."
+"<br />Примеры:<br />Если указать совпадение <i>любое</i> количество раз, а "
+"охватываемое содержимое — <tt>abc</tt>, то этот <i>элемент регулярного "
+"выражения</i> будет соответствовать пустой строке, строке <tt>abc</tt>, "
+"строке <tt>abcabc</tt>, строке <tt>abcabcabcabc</tt> и так далее.</qt>"
 
 #: regexpbuttons.cpp:83
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This <i>regexp item</i> will match any of its alternatives.</p>You "
-#| "specify alternatives by placing <i>regexp items</i> on top of each other "
-#| "inside this widget.</qt>"
+#, kde-format
 msgid ""
 "<p>This <i>regexp item</i> will match any of its alternatives.</"
 "p><p>Alternatives are specified by placing <i>regexp items</i> on top of "
 "each other inside this widget.</p>"
 msgstr ""
-"<qt>Этот элементы позволяет выбрать одну из указанных альтернатив.</p> Вы "
-"определяете альтернативные варианты, размещая элементы друг над другом.</qt>"
+"<p>Этот <i>элемент регулярного выражения</i> будет соответствовать любому из "
+"своих вариантов.</p><p>Варианты задаются путём размещения <i>элементов "
+"регулярного выражения</i> друг над другом внутри этого виджета.</p>"
 
 #: regexpbuttons.cpp:90
 #, kde-format
@@ -795,13 +741,7 @@ msgid "Compound regexp"
 msgstr "Составное регулярное выражение"
 
 #: regexpbuttons.cpp:91
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it "
-#| "possible for you to collapse a huge <i>regexp item</i> into a small box. "
-#| "This makes it easier for you to get an overview of large <i>regexp items</"
-#| "i>. This is especially useful if you load a predefined <i>regexp item</i> "
-#| "you perhaps don't care about the inner workings of."
+#, kde-format
 msgid ""
 "<qt>This <i>regexp item</i> serves two purposes:<ul><li>It makes it possible "
 "for you to collapse a huge <i>regexp item</i> into a small box. This makes "
@@ -809,12 +749,11 @@ msgid ""
 "especially useful if you load a predefined <i>regexp item</i> that you "
 "perhaps do not care about the inner workings of.</qt>"
 msgstr ""
-"<qt>Этот элемент предоставляет две возможности:<ul><li>разложить "
-"сложное<i>регулярное выражение</i> по нескольким диалогам, что существенно "
-"облегчает восприятие сложных <i>регулярных выражений</i>. Это особенно "
-"полезно, если вас не интересует то, как описаны эти составляющие, т.е., "
-"модулируя задачу, вам нужно знать только выдаваемый результат, а не метод "
-"реализации."
+"<qt>У этого <i>элемента регулярного выражения</i> два назначения:"
+"<ul><li>Позволяет свернуть большой <i>элемент регулярного выражения</i> в "
+"компактный блок. Это упрощает обзор крупных <i>элементов регулярного "
+"выражения</i>. Особенно полезно при загрузке предопределённого <i>элемента</"
+"i>, внутреннее устройство которого может быть несущественным.</qt>"
 
 #: regexpbuttons.cpp:98
 #, kde-format
@@ -953,13 +892,12 @@ msgstr "Введите имя:"
 #: regexpeditorwindow.cpp:381
 #, kde-format
 msgid "Empty name is not supported"
-msgstr ""
+msgstr "Имя не может быть пустым"
 
 #: regexpeditorwindow.cpp:381
-#, fuzzy, kde-format
-#| msgid "&Save Regular Expression..."
+#, kde-format
 msgid "Save Regular Expression"
-msgstr "&Сохранить регулярное выражение..."
+msgstr "Сохранить регулярное выражение"
 
 #: regexpeditorwindow.cpp:390
 #, kde-format
@@ -998,8 +936,7 @@ msgid "Times to Match"
 msgstr "Число совпадений"
 
 #: repeatwidget.cpp:177
-#, fuzzy, kde-format
-#| msgid "Any number of times (including zero times)"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
 msgstr "Несколько раз (включая ноль раз)"
@@ -1020,8 +957,7 @@ msgid "Exactly"
 msgstr "Точно"
 
 #: repeatwidget.cpp:189
-#, fuzzy, kde-format
-#| msgid "From"
+#, kde-format
 msgctxt "@option:radio"
 msgid "From"
 msgstr "От"
@@ -1092,9 +1028,9 @@ msgid "User Defined"
 msgstr "Пользовательские"
 
 #: userdefinedregexps.cpp:76
-#, fuzzy, kde-format
+#, kde-format
 msgid "general"
-msgstr "Общие"
+msgstr "Основные"
 
 #: userdefinedregexps.cpp:90
 #, kde-format
@@ -1108,10 +1044,9 @@ msgstr ""
 "Ошибка в файле %1, содержащем определяемые пользователем регулярные выражения"
 
 #: userdefinedregexps.cpp:143
-#, fuzzy, kde-format
-#| msgid "Rename..."
+#, kde-format
 msgid "Rename"
-msgstr "Переименовать..."
+msgstr "Переименовать"
 
 #: userdefinedregexps.cpp:184
 #, kde-format
@@ -1139,10 +1074,9 @@ msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
 msgstr "<p>Неизвестный тег при чтении файла XML. Тег: <b>%1</b></p>"
 
 #: widgetfactory.cpp:176
-#, fuzzy, kde-format
-#| msgid "Error While Loading Regular Expression From XML"
+#, kde-format
 msgid "Error while loading regular expression from XML."
-msgstr "Ошибка во время загрузки регулярного выражения из XML"
+msgstr "Ошибка загрузки регулярного выражения из XML."
 
 #: widgetfactory.cpp:177
 #, kde-format
