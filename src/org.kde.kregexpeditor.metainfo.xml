@@ -13,6 +13,7 @@
   <name xml:lang="bg">KRegexpEditor</name>
   <name xml:lang="ca">KRegexpEditor</name>
   <name xml:lang="ca-valencia">KRegexpEditor</name>
+  <name xml:lang="cs">KRegexpEditor</name>
   <name xml:lang="es">KRegexpEditor</name>
   <name xml:lang="eu">KRegexpEditor</name>
   <name xml:lang="fi">KRegexpEditor</name>
@@ -33,6 +34,7 @@
   <summary xml:lang="bg">Редактиране на регулярен израз</summary>
   <summary xml:lang="ca">Edició d'expressió regular</summary>
   <summary xml:lang="ca-valencia">Editeu expressió regular</summary>
+  <summary xml:lang="cs">Upravujte regulární výraz</summary>
   <summary xml:lang="es">Editar expresión regular</summary>
   <summary xml:lang="eu">Editatu adierazpen erregularra</summary>
   <summary xml:lang="fi">Muokkaa säännöllistä lauseketta</summary>
