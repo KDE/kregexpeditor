@@ -424,7 +424,7 @@
 > suivis des lettres <literal
 >amp ; </literal
 >. Vous pouvez faire cela en utilisant les expressions rationnelles avec <emphasis
->la préanalyse positive</emphasis
+>la pré-analyse positive</emphasis
 >. </para>
 
       <para
@@ -433,7 +433,7 @@
 > ressemble à : <literal
 >&amp;(?!amp ; )</literal
 >. Ce qui est, évidemment, plus facile à lire en utilisant l'éditeur d'expressions rationnelles, où vous utiliserez les <link linkend="lookaheadtools"
->outils de préanalyse</link
+>outils de pré-analyse</link
 >.</para>
     </example>
 
@@ -477,7 +477,7 @@
       <para
 >Enfin, à gauche de la zone d'édition, vous trouverez un certain nombre d'expressions rationnelles prédéfinies. Elles ont deux buts : (1) Lorsque vous chargez l'éditeur avec une expression rationnelle alors cette expression rationnelle est affichée de façon <emphasis
 >plus belle</emphasis
-> ou plus compréhensible en remplaçant les expressions rationnelles classiques. Dans la copie d'écran ci-dessus, vous pouvez voir comment la syntaxe ASCII « .* » a été remplacée par une zone affichant « quelque chose ». (2) Lorsque vous insérez une expression rationnelle vous trouverez des blocs fabriqués pour vos propres expressions rationnelles dans l'ensemble des expressions rationnelles préfabriquées. Veuillez consulter le chapitre sur <link linkend="userdefinedregexps"
+> ou plus compréhensible en remplaçant les expressions rationnelles classiques. Dans la copie d'écran ci-dessus, vous pouvez voir comment la syntaxe ASCII « .* » a été remplacée par une zone affichant « quelque chose ». (2) Lorsque vous insérez une expression rationnelle vous trouverez des blocs fabriqués pour vos propres expressions rationnelles dans l'ensemble des expressions rationnelles pré-fabriquées. Veuillez consulter le chapitre sur <link linkend="userdefinedregexps"
 >les expressions rationnelles définies par l'utilisateur</link
 > pour apprendre comment enregistrer vos propres expressions rationnelles.</para
 >      
@@ -795,13 +795,13 @@
       <title
 >Expressions rationnelles définies par l'utilisateur</title>
       <para
->À gauche de la zone d'édition se situe une liste contenant les expressions rationnelles définies par l'utilisateur. Certaines expressions rationnelles sont préinstallées avec votre installation de &kde;, alors que d'autre sont enregistrée par vous-même.</para
+>À gauche de la zone d'édition se situe une liste contenant les expressions rationnelles définies par l'utilisateur. Certaines expressions rationnelles sont pré-installées avec votre installation de &kde;, alors que d'autre sont enregistrée par vous-même.</para
 > 
 
       <para
 >Ces expressions rationnelles ont deux buts (<link linkend="screenorganization"
 >consultez la description détaillée</link
->), qui sont (1) de vous offrir un ensemble de blocs préfabriqués et (2) vous faciliter la création d'expressions rationnelles.</para>
+>), qui sont (1) de vous offrir un ensemble de blocs pré-fabriqués et (2) vous faciliter la création d'expressions rationnelles.</para>
 
       <para
 >Il vous est possible d'enregistrer vos propres expressions rationnelles en cliquant avec le bouton droit de la souris dans la zone d'édition, et de choisir <literal
