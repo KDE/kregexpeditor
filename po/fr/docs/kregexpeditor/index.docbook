@@ -477,7 +477,7 @@
       <para
 >Enfin, à gauche de la zone d'édition, vous trouverez un certain nombre d'expressions rationnelles prédéfinies. Elles ont deux buts : (1) Lorsque vous chargez l'éditeur avec une expression rationnelle alors cette expression rationnelle est affichée de façon <emphasis
 >plus belle</emphasis
-> ou plus compréhensible en remplaçant les expressions rationnelles classiques. Dans la copie d'écran ci-dessus, vous pouvez voir comment la syntaxe ASCII « .* » a été remplacée par une zone affichant « quelque chose ». (2) Lorsque vous insérez une expression rationnelle vous trouverez des blocs fabriqués pour vos propres expressions rationnelles dans l'ensemble des expressions rationnelles pré-fabriquées. Veuillez consulter le chapitre sur <link linkend="userdefinedregexps"
+> ou plus compréhensible en remplaçant les expressions rationnelles classiques. Dans la capture d'écran ci-dessus, vous pouvez voir comment la syntaxe ASCII « .* » a été remplacée par une zone affichant « quelque chose ». (2) Lorsque vous insérez une expression rationnelle vous trouverez des blocs fabriqués pour vos propres expressions rationnelles dans l'ensemble des expressions rationnelles pré-fabriquées. Veuillez consulter le chapitre sur <link linkend="userdefinedregexps"
 >les expressions rationnelles définies par l'utilisateur</link
 > pour apprendre comment enregistrer vos propres expressions rationnelles.</para
 >      
@@ -674,7 +674,7 @@
 ></para>
         
         <para
->L'outil de composition ne représente aucune expression rationnelle. Il est utilisé pour regrouper plusieurs composants dans une boite, qui peut être facilement réduite à son titre. Cela peut se voir dans la partie droite de la copie d'écran ci-dessus.</para>
+>L'outil de composition ne représente aucune expression rationnelle. Il est utilisé pour regrouper plusieurs composants dans une boite, qui peut être facilement réduite à son titre. Cela peut se voir dans la partie droite de la capture d'écran ci-dessus.</para>
       </simplesect>
 
 
@@ -703,7 +703,7 @@
 ></para>
 
         <para
->Les outils de début et de fin de lignes correspondent respectivement au début de ligne et à la fin de ligne. L'expression rationnelle dans la copie d'écran ci-dessous recherche donc les lignes composées d'espaces uniquement.</para>
+>Les outils de début et de fin de lignes correspondent respectivement au début de ligne et à la fin de ligne. L'expression rationnelle dans la capture d'écran ci-dessous recherche donc les lignes composées d'espaces uniquement.</para>
         
         <para
 >Consultez la description faite dans le chapitre <link linkend="positionregexp"
@@ -737,7 +737,7 @@
 ></para>
 
         <para
->Les outils de limite correspondent à une limite de mot, respectivement à un contenu de mot. L'expression rationnelle dans la copie d'écran recherche donc des mots démarrant par <literal
+>Les outils de limite correspondent à une limite de mot, respectivement à un contenu de mot. L'expression rationnelle dans la capture d'écran recherche donc des mots démarrant par <literal
 >le</literal
 >. Le mot <literal
 >le</literal
