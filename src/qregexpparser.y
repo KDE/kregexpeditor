@@ -196,7 +196,7 @@ char : TOK_Char {
 RegExp* parseQtRegExp( const QString &qstr, bool* ok ) {
   struct parse_context context;
   yyscan_t scanner;
-  context.result = 0;
+  context.result = nullptr;
   context.nerrs = 0;
   scannerInit( &scanner, &context, qstr );
   (void) yyparse( scanner, &context );
