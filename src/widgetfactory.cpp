@@ -166,14 +166,12 @@ RegExp *WidgetFactory::createRegExp(const QDomElement &node, const QString &vers
 RegExp *WidgetFactory::createRegExp(const QString &str)
 {
     QDomDocument doc;
-    QString error;
-    int errorLine, errorCol;
-    bool ok = doc.setContent(str, &error, &errorLine, &errorCol);
-    if (!ok) {
-        qDebug() << error << "at line" << errorLine << "xml was:";
+    QDomDocument::ParseResult result = doc.setContent(str);
+    if (!result) {
+        qDebug() << result.errorMessage << "at line" << result.errorLine << "xml was:";
         qDebug() << str;
         KMessageBox::error(nullptr,
-                           i18n("Error while loading regular expression from XML.") + QLatin1Char('\n') + error,
+                           i18n("Error while loading regular expression from XML.") + QLatin1Char('\n') + result.errorMessage,
                            i18n("Error While Loading Regular Expression From XML"));
     }
 
