@@ -111,7 +111,7 @@ void RegExpWidget::mousePressEvent(QMouseEvent *event)
             }
         }
 
-        QMouseEvent ev(event->type(), mapTo(_editorWindow, event->pos()), event->button(), event->buttons(), event->modifiers());
+        QMouseEvent ev(event->type(), mapTo(_editorWindow, event->pos()), event->globalPosition(), event->button(), event->buttons(), event->modifiers());
         QApplication::sendEvent(_editorWindow, &ev);
     } else if (event->button() == Qt::RightButton) {
         _editorWindow->showRMBMenu(true);
