@@ -47,9 +47,10 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} )
 
 ############### Find the stuff we need ###############
-ecm_set_disabled_deprecation_versions(QT 6.3
-    KF 6.16.0
-    )
+ecm_set_disabled_deprecation_versions(
+    QT 6.11
+    KF 6.26
+)
 
 add_subdirectory(src)
 
