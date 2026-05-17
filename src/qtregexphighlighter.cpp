@@ -40,7 +40,7 @@ void QtRegexpHighlighter::highlightBlock(const QString &text)
     }
 
     // ------------------------------ Process with the regular expression.
-    QColor colors[] = {qApp->palette().color(QPalette::HighlightedText), qApp->palette().color(QPalette::Highlight)};
+    QColor colors[] = {Qt::red, Qt::blue};
     int color = previousBlockState();
     if (color < 0 || color > 1) {
         color = 0;
