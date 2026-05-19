@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:55+0000\n"
+"POT-Creation-Date: 2026-05-19 00:48+0000\n"
 "PO-Revision-Date: 2021-05-10 06:35+0200\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -917,8 +917,8 @@ msgstr ""
 "Wert. Es enthält den Wert <b>%3</b></p>"
 
 #: repeatregexp.cpp:52 repeatregexp.cpp:63 textrangeregexp.cpp:136
-#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:185
-#: widgetfactory.cpp:194
+#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:183
+#: widgetfactory.cpp:192
 #, kde-format
 msgid "Error While Loading From XML File"
 msgstr "Fehler beim Lesen aus XML-Datei"
@@ -1068,22 +1068,22 @@ msgstr "Nicht überschreiben"
 msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
 msgstr "Unbekannte Formatierung beim Lesen von XML: <b>%1</b>"
 
-#: widgetfactory.cpp:176
+#: widgetfactory.cpp:174
 #, kde-format
 msgid "Error while loading regular expression from XML."
 msgstr "Fehler beim Laden eines regulären Ausdrucks aus einer XML-Datei."
 
-#: widgetfactory.cpp:177
+#: widgetfactory.cpp:175
 #, kde-format
 msgid "Error While Loading Regular Expression From XML"
 msgstr "Fehler beim Laden eines regulären Ausdrucks aus XML-Vorlage"
 
-#: widgetfactory.cpp:184
+#: widgetfactory.cpp:182
 #, kde-format
 msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
 msgstr "<p>XML-Datei enthält keine <b>%1</b>-Formatierung.</p>"
 
-#: widgetfactory.cpp:191
+#: widgetfactory.cpp:189
 #, kde-format
 msgid ""
 "<p>Error while reading XML file. The element just below the tag <b>%1</b> "

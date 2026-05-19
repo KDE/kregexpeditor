@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:55+0000\n"
+"POT-Creation-Date: 2026-05-19 00:48+0000\n"
 "PO-Revision-Date: 2024-08-26 22:09+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -897,8 +897,8 @@ msgstr ""
 "%2</b>.</p><p>Han inneheldt verdien <b>%3</b>.</p>"
 
 #: repeatregexp.cpp:52 repeatregexp.cpp:63 textrangeregexp.cpp:136
-#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:185
-#: widgetfactory.cpp:194
+#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:183
+#: widgetfactory.cpp:192
 #, kde-format
 msgid "Error While Loading From XML File"
 msgstr "Feil ved lasting frå XML-fil"
@@ -1044,22 +1044,22 @@ msgstr "Ikkje skriv over"
 msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
 msgstr "<p>Ukjend tagg ved lesing av XML. Taggen var <b>%1</b>.</p>"
 
-#: widgetfactory.cpp:176
+#: widgetfactory.cpp:174
 #, kde-format
 msgid "Error while loading regular expression from XML."
 msgstr "Feil ved lasting av regulært uttrykk frå XML."
 
-#: widgetfactory.cpp:177
+#: widgetfactory.cpp:175
 #, kde-format
 msgid "Error While Loading Regular Expression From XML"
 msgstr "Feil ved lasting av regulært uttrykk frå XML"
 
-#: widgetfactory.cpp:184
+#: widgetfactory.cpp:182
 #, kde-format
 msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
 msgstr "<p>XML-fila inneheldt ikkje nokon <b>%1</b>-tagg.</p>"
 
-#: widgetfactory.cpp:191
+#: widgetfactory.cpp:189
 #, kde-format
 msgid ""
 "<p>Error while reading XML file. The element just below the tag <b>%1</b> "

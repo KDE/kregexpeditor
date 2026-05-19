@@ -1,4 +1,4 @@
-# Version: $Revision: 1723076 $
+# Version: $Revision: 1737184 $
 # translation of kregexpeditor.po to Polish
 # Copyright (C) 2002, 2003, 2004, 2005, 2006 Free Software Foundation, Inc.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2002, 2003, 2005, 2006.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:55+0000\n"
+"POT-Creation-Date: 2026-05-19 00:48+0000\n"
 "PO-Revision-Date: 2024-08-03 11:55+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -911,8 +911,8 @@ msgstr ""
 "p><p>Zawierał on wartość <b>%3</b></p>"
 
 #: repeatregexp.cpp:52 repeatregexp.cpp:63 textrangeregexp.cpp:136
-#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:185
-#: widgetfactory.cpp:194
+#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:183
+#: widgetfactory.cpp:192
 #, kde-format
 msgid "Error While Loading From XML File"
 msgstr "Błąd podczas wczytywania z pliku XML"
@@ -1064,22 +1064,22 @@ msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
 msgstr ""
 "<p>Nieznany znacznik przy czytaniu z XML. Ten znacznik to <b>%1</b></p>"
 
-#: widgetfactory.cpp:176
+#: widgetfactory.cpp:174
 #, kde-format
 msgid "Error while loading regular expression from XML."
 msgstr "Błąd podczas wczytywania wyrażenie regularnego z XML-a"
 
-#: widgetfactory.cpp:177
+#: widgetfactory.cpp:175
 #, kde-format
 msgid "Error While Loading Regular Expression From XML"
 msgstr "Błąd podczas wczytywania wyrażenie regularnego z XML-a"
 
-#: widgetfactory.cpp:184
+#: widgetfactory.cpp:182
 #, kde-format
 msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
 msgstr "<p>Plik XML nie zawierał znacznika <b>%1</b>.</p>"
 
-#: widgetfactory.cpp:191
+#: widgetfactory.cpp:189
 #, kde-format
 msgid ""
 "<p>Error while reading XML file. The element just below the tag <b>%1</b> "

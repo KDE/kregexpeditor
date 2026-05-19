@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:55+0000\n"
+"POT-Creation-Date: 2026-05-19 00:48+0000\n"
 "PO-Revision-Date: 2002-11-01 15:02SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -910,8 +910,8 @@ msgid ""
 msgstr "<p> Ixabiso leb></b> ye<b></b></p><p><b></b></p>"
 
 #: repeatregexp.cpp:52 repeatregexp.cpp:63 textrangeregexp.cpp:136
-#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:185
-#: widgetfactory.cpp:194
+#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:183
+#: widgetfactory.cpp:192
 #, kde-format
 msgid "Error While Loading From XML File"
 msgstr "Imposiso Ngelixa Ilayisha Ukususela kwifayile yeXML"
@@ -1060,24 +1060,24 @@ msgstr ""
 "<p> Kubekho iphetshana elichazayo elingaziwayo ngelixa kufundwa iXML. "
 "Iphetshana elichazayo beliyi<b></b></p>"
 
-#: widgetfactory.cpp:176
+#: widgetfactory.cpp:174
 #, fuzzy, kde-format
 #| msgid "Error While Loading Regular Expression From XML"
 msgid "Error while loading regular expression from XML."
 msgstr "Kubekho Impazamo Kuyalayishwa Intetho  Yarhoqo Ukususela kwiXML"
 
-#: widgetfactory.cpp:177
+#: widgetfactory.cpp:175
 #, kde-format
 msgid "Error While Loading Regular Expression From XML"
 msgstr "Kubekho Impazamo Kuyalayishwa Intetho  Yarhoqo Ukususela kwiXML"
 
-#: widgetfactory.cpp:184
+#: widgetfactory.cpp:182
 #, fuzzy, kde-format
 msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
 msgstr ""
 "<p>Ifayile yeXML ibingaliqulethanga i<b>%1</b> phetshana elichazayo</p>"
 
-#: widgetfactory.cpp:191
+#: widgetfactory.cpp:189
 #, kde-format
 msgid ""
 "<p>Error while reading XML file. The element just below the tag <b>%1</b> "

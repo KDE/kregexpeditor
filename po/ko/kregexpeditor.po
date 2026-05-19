@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:55+0000\n"
+"POT-Creation-Date: 2026-05-19 00:48+0000\n"
 "PO-Revision-Date: 2024-08-20 00:00+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -874,8 +874,8 @@ msgstr ""
 "<b>%3</b>입니다.</p>"
 
 #: repeatregexp.cpp:52 repeatregexp.cpp:63 textrangeregexp.cpp:136
-#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:185
-#: widgetfactory.cpp:194
+#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:183
+#: widgetfactory.cpp:192
 #, kde-format
 msgid "Error While Loading From XML File"
 msgstr "XML 파일에서 불러오는 중 오류 발생"
@@ -1018,22 +1018,22 @@ msgstr "덮어쓰지 않음"
 msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
 msgstr "<p>XML을 읽는 도중 알 수 없는 태그 발견. 태그는 <b>%1</b>입니다.</p>"
 
-#: widgetfactory.cpp:176
+#: widgetfactory.cpp:174
 #, kde-format
 msgid "Error while loading regular expression from XML."
 msgstr "XML에서 정규 표현식을 불러오는 중 오류가 발생했습니다."
 
-#: widgetfactory.cpp:177
+#: widgetfactory.cpp:175
 #, kde-format
 msgid "Error While Loading Regular Expression From XML"
 msgstr "XML에서 정규 표현식 불러오던 중 오류 발생"
 
-#: widgetfactory.cpp:184
+#: widgetfactory.cpp:182
 #, kde-format
 msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
 msgstr "<p>XML 파일에 <b>%1</b> 태그가 없습니다.</p>"
 
-#: widgetfactory.cpp:191
+#: widgetfactory.cpp:189
 #, kde-format
 msgid ""
 "<p>Error while reading XML file. The element just below the tag <b>%1</b> "

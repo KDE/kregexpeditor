@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:55+0000\n"
+"POT-Creation-Date: 2026-05-19 00:48+0000\n"
 "PO-Revision-Date: 2008-03-31 14:51+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@yahoo.com>\n"
 "Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
@@ -829,8 +829,8 @@ msgid ""
 msgstr ""
 
 #: repeatregexp.cpp:52 repeatregexp.cpp:63 textrangeregexp.cpp:136
-#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:185
-#: widgetfactory.cpp:194
+#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:183
+#: widgetfactory.cpp:192
 #, kde-format
 msgid "Error While Loading From XML File"
 msgstr "एक्सएमएल फ़ाइल से लोड करने में त्रुटि"
@@ -977,23 +977,23 @@ msgstr "मिटाकर नहीं लिखें"
 msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
 msgstr ""
 
-#: widgetfactory.cpp:176
+#: widgetfactory.cpp:174
 #, fuzzy, kde-format
 #| msgid "Error While Loading From XML File"
 msgid "Error while loading regular expression from XML."
 msgstr "एक्सएमएल फ़ाइल से लोड करने में त्रुटि"
 
-#: widgetfactory.cpp:177
+#: widgetfactory.cpp:175
 #, kde-format
 msgid "Error While Loading Regular Expression From XML"
 msgstr ""
 
-#: widgetfactory.cpp:184
+#: widgetfactory.cpp:182
 #, kde-format
 msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
 msgstr ""
 
-#: widgetfactory.cpp:191
+#: widgetfactory.cpp:189
 #, kde-format
 msgid ""
 "<p>Error while reading XML file. The element just below the tag <b>%1</b> "

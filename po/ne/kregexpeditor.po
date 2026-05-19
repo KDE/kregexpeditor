@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:55+0000\n"
+"POT-Creation-Date: 2026-05-19 00:48+0000\n"
 "PO-Revision-Date: 2007-09-04 12:01+0545\n"
 "Last-Translator: Narayan Kumar Magar <narayan@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -955,8 +955,8 @@ msgstr ""
 "b> मान समावेश गर्दथ्यो</p>"
 
 #: repeatregexp.cpp:52 repeatregexp.cpp:63 textrangeregexp.cpp:136
-#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:185
-#: widgetfactory.cpp:194
+#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:183
+#: widgetfactory.cpp:192
 #, kde-format
 msgid "Error While Loading From XML File"
 msgstr "XML फाइलबाट लोड गर्दा त्रुटि"
@@ -1103,23 +1103,23 @@ msgstr "अधिलेखन नगर्नुहोस्"
 msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
 msgstr "<p>XML पढ्दा अज्ञात ट्याग । ट्याग <b>%1</b> थियो</p>"
 
-#: widgetfactory.cpp:176
+#: widgetfactory.cpp:174
 #, fuzzy, kde-format
 #| msgid "Error While Loading Regular Expression From XML"
 msgid "Error while loading regular expression from XML."
 msgstr "XML बाट नियमित अभिव्यक्ति लोड गर्दा त्रुटि"
 
-#: widgetfactory.cpp:177
+#: widgetfactory.cpp:175
 #, kde-format
 msgid "Error While Loading Regular Expression From XML"
 msgstr "XML बाट नियमित अभिव्यक्ति लोड गर्दा त्रुटि"
 
-#: widgetfactory.cpp:184
+#: widgetfactory.cpp:182
 #, kde-format
 msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
 msgstr "<p>XML फाइलले <b>%1</b> ट्याग समावेश गरेन ।</p>"
 
-#: widgetfactory.cpp:191
+#: widgetfactory.cpp:189
 #, kde-format
 msgid ""
 "<p>Error while reading XML file. The element just below the tag <b>%1</b> "

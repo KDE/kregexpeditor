@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:55+0000\n"
+"POT-Creation-Date: 2026-05-19 00:48+0000\n"
 "PO-Revision-Date: 2024-08-01 16:14+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -942,8 +942,8 @@ msgstr ""
 "<b>%2</b></p><p>Il contenait la valeur <b>%3</b></p>"
 
 #: repeatregexp.cpp:52 repeatregexp.cpp:63 textrangeregexp.cpp:136
-#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:185
-#: widgetfactory.cpp:194
+#: textregexp.cpp:42 widgetfactory.cpp:152 widgetfactory.cpp:183
+#: widgetfactory.cpp:192
 #, kde-format
 msgid "Error While Loading From XML File"
 msgstr "Une erreur est survenue lors du chargement à partir d'un fichier XML"
@@ -1092,22 +1092,22 @@ msgid "<p>Unknown tag while reading XML. Tag was <b>%1</b></p>"
 msgstr ""
 "<p>Balise inconnue lors de la lecture du XML. La balise était <b>%1</b></p>"
 
-#: widgetfactory.cpp:176
+#: widgetfactory.cpp:174
 #, kde-format
 msgid "Error while loading regular expression from XML."
 msgstr "Erreur lors du chargement de l'expression rationnelle à partir du XML"
 
-#: widgetfactory.cpp:177
+#: widgetfactory.cpp:175
 #, kde-format
 msgid "Error While Loading Regular Expression From XML"
 msgstr "Erreur lors du chargement de l'expression rationnelle à partir du XML"
 
-#: widgetfactory.cpp:184
+#: widgetfactory.cpp:182
 #, kde-format
 msgid "<p>XML file did not contain a <b>%1</b> tag.</p>"
 msgstr "<p>Le fichier XML ne contient pas de balise <b>%1</b>.</p>"
 
-#: widgetfactory.cpp:191
+#: widgetfactory.cpp:189
 #, kde-format
 msgid ""
 "<p>Error while reading XML file. The element just below the tag <b>%1</b> "
