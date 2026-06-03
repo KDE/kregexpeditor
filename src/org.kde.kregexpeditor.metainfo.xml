@@ -28,6 +28,7 @@
   <name xml:lang="sk">KRegexpEditor</name>
   <name xml:lang="sl">KRegexpEditor</name>
   <name xml:lang="tr">K Düzenli İfade Düzenleyicisi</name>
+  <name xml:lang="ug">KRegexpEditor</name>
   <name xml:lang="uk">KRegExpEditor</name>
   <name xml:lang="zh-TW">KRegexpEditor</name>
   <summary>Edit regular expression</summary>
@@ -50,6 +51,7 @@
   <summary xml:lang="sk">Úprava regulárnych výrazov</summary>
   <summary xml:lang="sl">Urejanje regularnega izraza</summary>
   <summary xml:lang="tr">Düzenli ifadeleri düzenleyin</summary>
+  <summary xml:lang="ug">مۇنتىزىم ئىپادە تەھرىر</summary>
   <summary xml:lang="uk">Редагування формального виразу</summary>
   <summary xml:lang="zh-TW">編輯正則表達式</summary>
   <description>
