@@ -21,6 +21,7 @@
   <name xml:lang="he">KRegexpEditor</name>
   <name xml:lang="it">KRegexpEditor</name>
   <name xml:lang="ka">KRegExpEditor</name>
+  <name xml:lang="ko">KRegexpEditor</name>
   <name xml:lang="nl">KRegexpEditor</name>
   <name xml:lang="nn">KRegexpEditor</name>
   <name xml:lang="pl">KRegexpEditor</name>
@@ -44,6 +45,7 @@
   <summary xml:lang="he">עריכת ביטויים רגולריים</summary>
   <summary xml:lang="it">Modifica le espressioni regolari</summary>
   <summary xml:lang="ka">რეგულარული გამოსახულების ჩასწორება</summary>
+  <summary xml:lang="ko">정규 표현식 편집</summary>
   <summary xml:lang="nl">Reguliere expressie bewerken</summary>
   <summary xml:lang="nn">Rediger regulært uttrykk</summary>
   <summary xml:lang="pl">Edytuj wyrażenie regularne</summary>
