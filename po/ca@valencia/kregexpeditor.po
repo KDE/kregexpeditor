@@ -52,12 +52,12 @@ msgstr "Selecció no vàlida"
 #: characterswidget.cpp:102
 #, kde-format
 msgid "- A word character\n"
-msgstr " - Un caràcter de paraula\n"
+msgstr " – Un caràcter de paraula\n"
 
 #: characterswidget.cpp:106
 #, kde-format
 msgid "- A non-word character\n"
-msgstr " - Un caràcter de no paraula\n"
+msgstr " – Un caràcter de no paraula\n"
 
 #: characterswidget.cpp:110
 #, kde-format
@@ -441,7 +441,7 @@ msgstr ""
 "amb l'expressió regular que heu desenvolupat.</p><p>Cada coincidència es "
 "pintarà de color roig i blau de manera alternativa, de manera que pugueu "
 "distingir les unes de les altres.</p><p>Si trieu part de l'expressió regular "
-"a la finestra de l'editor, llavors esta part es ressaltarà - Açò us permet "
+"a la finestra de l'editor, llavors esta part es ressaltarà – Açò us permet "
 "<i>depurar</i> les expressions regulars</p>"
 
 #: kregexpeditorprivate.cpp:109
