@@ -257,7 +257,7 @@
 >das</literal
 ></title>
       <para
->Angenommen Sie wollen nach den beiden Wörtern <literal
+>Angenommen Sie möchten nach den beiden Wörtern <literal
 >dies</literal
 > und <literal
 >das</literal
@@ -331,7 +331,7 @@
 >, haben wir einen regulären Ausdruck, der jeder beliebigen Anzahl 'a's entspricht.</para>
 
       <para
->Es ist möglich, mehrere reguläre Ausdrücke hintereinander zu stellen, z.B. <literal
+>Es ist möglich, mehrere reguläre Ausdrücke hintereinander zu stellen, z. B. <literal
 >ba(na)*</literal
 >. <footnote
 ><para
@@ -385,7 +385,7 @@
 > geschrieben werden. Das ist ähnlich wie das Escapen in einem regulären Ausdruck.</para>
 
       <para
->Stellen Sie sich vor, Sie hätten in einem gewöhnlichen Editor (z.B. &kate; oder &XEmacs;) ein &HTML;-Dokument erstellt und hätten dabei diese Regel vollkommen vergessen. In diesem Fall müssten Sie also alle Vorkommen von <literal
+>Stellen Sie sich vor, Sie hätten in einem gewöhnlichen Editor (z. B. &kate; oder &XEmacs;) ein &HTML;-Dokument erstellt und hätten dabei diese Regel vollkommen vergessen. In diesem Fall müssten Sie also alle Vorkommen von <literal
 >&amp;</literal
 > durch <literal
 >&amp;amp;</literal
@@ -399,7 +399,7 @@
 > ersetzt würde.</para>
 
       <para
->Sie wollen aber eigentlich, dass alle Vorkommen von <literal
+>Sie möchten aber eigentlich, dass alle Vorkommen von <literal
 >&amp;</literal
 > ersetzt werden, die <emphasis
 > nicht</emphasis
@@ -463,7 +463,7 @@
 >.*</quote
 >durch ein Symbol mit dem Text <quote
 >anything</quote
->dargestellt. (2) Wenn Sie einen regulären Ausdruck erzeugen, können Sie möglicherweise aus der Menge der vordefinierten Ausdrücke einige direkt benutzen. Wie Sie selbst definierte reguläre Ausdrücke speichern können, sehen sie unter <link linkend="userdefinedregexps"
+>dargestellt. (2) Wenn Sie einen regulären Ausdruck erzeugen, können Sie möglicherweise aus der Menge der vordefinierten Ausdrücke einige direkt verwenden. Wie Sie selbst definierte reguläre Ausdrücke speichern können, sehen sie unter <link linkend="userdefinedregexps"
 >Benutzerdefinierte reguläre Ausdrücke</link
 >.</para
 >      
@@ -850,7 +850,7 @@
 
     <sect1 id="question3">
       <title
->Ich bin Entwickler einer &kde;-Anwendung. Wie kann ich dieses GUI-Element in meiner Anwendung benutzen?</title>
+>Ich bin Entwickler einer &kde;-Anwendung. Wie kann ich dieses GUI-Element in meiner Anwendung verwenden?</title>
       <para
 >Vergleichen Sie die Dokumentation für die Klasse  <ulink url="http://developer.kde.org/documentation/library/cvs-api/classref/interfaces/KRegExpEditorInterface.html"
 >KRegExpEditorInterface</ulink
