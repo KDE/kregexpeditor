@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-19 00:48+0000\n"
-"PO-Revision-Date: 2026-07-29 00:28+0200\n"
+"PO-Revision-Date: 2026-08-02 00:36+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -177,12 +177,12 @@ msgstr "Normální znak"
 #: charselector.cpp:49
 #, kde-format
 msgid "Unicode Char in Hex."
-msgstr "Unicode znak v hex kódování"
+msgstr "Unicode znak v hex kódování."
 
 #: charselector.cpp:49
 #, kde-format
 msgid "Unicode Char in Oct."
-msgstr "Unicode znak v oktalovém kódování"
+msgstr "Unicode znak v oktalovém kódování."
 
 #: charselector.cpp:50
 #, kde-format
@@ -733,7 +733,7 @@ msgstr ""
 "malých oken. To vám usnadní získat přehled nad velkými <i>položkami "
 "regulárních výrazů</i>. Toto je především užitečné při načítání "
 "předdefinovaných <i>položek regulárních výrazů</i>. Nemusíte se starat o "
-"skryté činnosti."
+"skryté činnosti.</qt>"
 
 #: regexpbuttons.cpp:98
 #, kde-format
@@ -1016,7 +1016,7 @@ msgstr "Nelze otevřít soubor pro čtení: %1"
 #, kde-format
 msgid "File %1 containing user defined regular expression contained an error"
 msgstr ""
-"V souboru %1 obsahujícím regulární výraz definovaný uživatelem je chyba."
+"V souboru %1 obsahujícím regulární výraz definovaný uživatelem je chyba"
 
 #: userdefinedregexps.cpp:143
 #, kde-format

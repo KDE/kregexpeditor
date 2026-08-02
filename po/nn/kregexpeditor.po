@@ -1,6 +1,7 @@
 # Translation of kregexpeditor to Norwegian Nynorsk
 #
 # Gaute Hvoslef Kvalnes <gaute@verdsveven.com>, 2002, 2004.
+# Karl Ove Hufthammer <karl@huftis.org>, 2007, 2008, 2020, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
