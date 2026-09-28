@@ -277,7 +277,7 @@
 ></para>
 
       <para
->A l'editor d'expressions regulars, no cal que escriviu la barra vertical, sinó que la podreu seleccionar amb una <link linkend="altntool"
+>A l'editor d'expressions regulars, no cal que escrigueu la barra vertical, sinó que la podreu seleccionar amb una <link linkend="altntool"
 >eina alternativa</link
 > i inserir expressions més petites sobre les altres.</para>
     </example>
@@ -358,7 +358,7 @@
 >\.</literal
 ><footnote
 ><para
->Això s'anomena escapament.</para
+>Això s'anomena escapament</para
 ></footnote
 >. En altres paraules, l'expressió regular <literal
 >\.</literal
