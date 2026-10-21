@@ -4,19 +4,21 @@
 # SPDX-FileCopyrightText: 2005 Thomas Reitelbach <tr@erdfunkstelle.de>
 # SPDX-FileCopyrightText: 2009, 2011-2013, 2015, 2017, 2021 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2011-2012, 2017 Frederik Schwarzer <schwarzer@kde.org>
+# SPDX-FileCopyrightText: 2026 Alois Spitzbart <spitz234@hotmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kregexpeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-19 00:48+0000\n"
-"PO-Revision-Date: 2021-05-10 06:35+0200\n"
-"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
+"PO-Revision-Date: 2026-10-18 23:11+0200\n"
+"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 26.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -96,8 +98,7 @@ msgid "Specify Characters"
 msgstr "Zeichen angeben"
 
 #: characterswidget.cpp:275
-#, fuzzy, kde-format
-#| msgid "Do not match the characters specified here"
+#, kde-format
 msgctxt "@option:check"
 msgid "Do not match the characters specified here"
 msgstr "Die angegebenen Zeichen sollen nicht übereinstimmen"
@@ -108,43 +109,37 @@ msgid "Predefined Character Ranges"
 msgstr "Vordefinierte Zeichenbereiche"
 
 #: characterswidget.cpp:283
-#, fuzzy, kde-format
-#| msgid "A word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A word character"
 msgstr "Ein Buchstabe"
 
 #: characterswidget.cpp:285
-#, fuzzy, kde-format
-#| msgid "A digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A digit character"
 msgstr "Eine Ziffer"
 
 #: characterswidget.cpp:287
-#, fuzzy, kde-format
-#| msgid "A space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A space character"
 msgstr "Ein Leerzeichen"
 
 #: characterswidget.cpp:290
-#, fuzzy, kde-format
-#| msgid "A non-word character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-word character"
 msgstr "Kein Buchstabe"
 
 #: characterswidget.cpp:292
-#, fuzzy, kde-format
-#| msgid "A non-digit character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-digit character"
 msgstr "Keine Ziffer"
 
 #: characterswidget.cpp:294
-#, fuzzy, kde-format
-#| msgid "A non-space character"
+#, kde-format
 msgctxt "@option:check"
 msgid "A non-space character"
 msgstr "Kein Leerzeichen"
@@ -231,8 +226,7 @@ msgid "&Description:"
 msgstr "&Beschreibung:"
 
 #: compoundwidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "&Automatically replace using this item"
+#, kde-format
 msgctxt "@option:check"
 msgid "&Automatically replace using this item"
 msgstr "&Automatisch durch diesen Eintrag ersetzen"
@@ -470,8 +464,7 @@ msgid "Could not open file '%1' for reading"
 msgstr "Die Datei „%1“ kann nicht zum Lesen geöffnet werden"
 
 #: kregexpeditorwindow.cpp:35
-#, fuzzy, kde-format
-#| msgid "Regular Expression Editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Regular Expression Editor"
 msgstr "Editor für reguläre Ausdrücke"
@@ -485,7 +478,7 @@ msgstr "Regulären Ausdruck evaluieren"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Load text"
-msgstr ""
+msgstr "Text laden"
 
 #: kregexpeditorwindow.cpp:91
 #, kde-format
@@ -531,11 +524,10 @@ msgid ""
 msgstr "Ist diese Einstellung aktiviert, erfolgt eine laufende Überprüfung."
 
 #: kregexpeditorwindow.cpp:126
-#, fuzzy, kde-format
-#| msgid "RegExp Language"
+#, kde-format
 msgctxt "@title:menu"
 msgid "RegExp Languages"
-msgstr "RegExp Sprache"
+msgstr "RegExp-Sprachen"
 
 #: lookaheadwidget.cpp:39
 #, kde-format
@@ -576,13 +568,13 @@ msgstr "Entwickler"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
 #: main.cpp:33
 #, kde-format
 msgctxt "@info:credit"
 msgid "Port to Qt6"
-msgstr ""
+msgstr "Portierung zu Qt6"
 
 #: predefined/General/anything.regexp:5
 #, kde-format
@@ -934,11 +926,10 @@ msgid "Times to Match"
 msgstr "Anzahl übereinstimmender"
 
 #: repeatwidget.cpp:177
-#, fuzzy, kde-format
-#| msgid "Any number of times (including zero times)"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Any number of times (including zero times)"
-msgstr "Beliebig viele (inkl. Null mal)"
+msgstr "Beliebig oft (inkl. Null Mal)"
 
 #: repeatwidget.cpp:184
 #, kde-format
@@ -956,8 +947,7 @@ msgid "Exactly"
 msgstr "Genau"
 
 #: repeatwidget.cpp:189
-#, fuzzy, kde-format
-#| msgid "From"
+#, kde-format
 msgctxt "@option:radio"
 msgid "From"
 msgstr "Zwischen"
