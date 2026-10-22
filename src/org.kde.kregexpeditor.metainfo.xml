@@ -14,6 +14,7 @@
   <name xml:lang="ca">KRegexpEditor</name>
   <name xml:lang="ca-valencia">KRegexpEditor</name>
   <name xml:lang="cs">KRegexpEditor</name>
+  <name xml:lang="de">KRegexpEditor</name>
   <name xml:lang="es">KRegexpEditor</name>
   <name xml:lang="eu">KRegexpEditor</name>
   <name xml:lang="fi">KRegexpEditor</name>
@@ -38,6 +39,7 @@
   <summary xml:lang="ca">Edició d'expressió regular</summary>
   <summary xml:lang="ca-valencia">Editeu expressió regular</summary>
   <summary xml:lang="cs">Upravujte regulární výraz</summary>
+  <summary xml:lang="de">Regulären Ausdruck bearbeiten</summary>
   <summary xml:lang="es">Editar expresión regular</summary>
   <summary xml:lang="eu">Editatu adierazpen erregularra</summary>
   <summary xml:lang="fi">Muokkaa säännöllistä lauseketta</summary>
@@ -64,6 +66,7 @@
     <p xml:lang="ca">El KRegexpEditor és una aplicació lleugera de KDE dissenyada per a ajudar-vos a crear, provar i refinar expressions regulars amb facilitat. Proporciona una interfície visual interactiva que ressalta les coincidències en temps real, admet funcions comunes de sintaxi d'expressió regular, i ofereix eines útils per construir patrons complexos sense memoritzar cada regla.</p>
     <p xml:lang="ca-valencia">KRegexpEditor és una aplicació lleugera de KDE dissenyada per ajudar-vos a crear, provar i refinar expressions regulars amb facilitat. Proporciona una interfície visual interactiva que ressalta les coincidències en temps real, admet característiques comunes de sintaxi d'expressió regular, i oferix eines útils per a construir patrons complexos sense memoritzar cada regla.</p>
     <p xml:lang="cs">KRegexpEditor je nenáročná aplikace pro prostředí KDE, která vám usnadní vytváření, testování a vylepšování regulárních výrazů. Nabízí interaktivní vizuální rozhraní, které v reálném čase zvýrazňuje nalezené shody, podporuje běžné syntaktické prvky regulárních výrazů a poskytuje užitečné nástroje pro sestavování složitých vzorců, aniž byste si museli pamatovat všechna pravidla.</p>
+    <p xml:lang="de">KRegexpEditor ist eine schlanke KDE-Anwendung, die Ihnen dabei helfen soll, reguläre Ausdrücke mühelos zu erstellen, zu testen und zu verfeinern. Sie bietet eine interaktive, visuelle Benutzeroberfläche, die Übereinstimmungen in Echtzeit hervorhebt, gängige Syntaxfunktionen für reguläre Ausdrücke unterstützt und stellt hilfreiche Werkzeuge bereit, mit denen Sie komplexe Muster erstellen können, ohne sich jede Regel merken zu müssen.</p>
     <p xml:lang="es">KRegexpEditor es una aplicación ligera de KDE diseñada para ayudarle a crear, probar y refinar expresiones regulares con facilidad. Proporciona una interfaz visual interactiva que resalta las coincidencias en tiempo real, permite funciones de sintaxis comunes de expresiones regulares y ofrece útiles herramientas para crear patrones complejos sin necesidad de memorizar todas las reglas.</p>
     <p xml:lang="eu">KRegexpEditor adierazpen erregularrak erraz sortu, probatu, eta fintzeko diseinatuta dagoen KDE aplikazio arin bat da. Ikus-interfaze elkarreragile bat dakar bat etortzeak denbora errealean nabarmentzen dituena, adierazpen erregularren sintaxi ezaugarriak onartzen dituena, eta arau guztiak buruz ikasi beharrik gabe eredu konplexuak eraikitzeko tresna lagungarriak eskaintzen dituena.</p>
     <p xml:lang="fi">KRegexpEditor on kevyt KDE-sovellus, joka on suunniteltu helpoksi avuksi säännöllisiä lausekkeita luotaessa, kokeiltaessa ja paranneltaessa. Sen vuorovaikutteinen käyttöliittymä korostaa osumat tosiaikaisesti, tukee yleisiä syntaksiominaisuuksia ja tarjoaa aputyökalut monimutkaisten lausekkeiden rakentamiseksi opettelematta joka sääntöä ulkoa.</p>
