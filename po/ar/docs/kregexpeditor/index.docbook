@@ -1,0 +1,910 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY % Arabic "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kregexpeditor" lang="&language;">
+
+  <bookinfo>
+    <title
+>دليل محرر التعبير النمطي</title>
+
+    <authorgroup>
+      <author
+><firstname
+>Jesper K.</firstname
+> <surname
+>Pedersen</surname
+> <affiliation
+><address
+>&Jesper.Pedersen.mail;</address
+></affiliation>
+      </author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+    </authorgroup>
+
+    <date
+>2001-07-03</date>
+    <releaseinfo
+>0.1</releaseinfo>
+
+    <legalnotice
+>&underFDL;</legalnotice>
+
+    <copyright>
+      <year
+>2001</year>
+      <holder
+>جيسبر ك. بيدرسن</holder>
+    </copyright>
+
+    <abstract>
+      <para
+>يصف هذا الدليل أداة محرر التعبيرات النمطية</para>
+    </abstract>
+
+    <keywordset>
+      <keyword
+>كيدي</keyword>
+      <keyword
+>تعبير نمطي</keyword>
+    </keywordset>
+  </bookinfo>
+
+  <!-- ====================================================================== -->
+  <!--                               Introduction                             -->
+  <!-- ====================================================================== -->
+  <chapter id="introduction">
+    <title
+>مقدمة</title>
+
+
+    <para
+>محرر التعبيرات النمطية هو محرر لتحرير التعبيرات النمطية بأسلوب رسومي (على عكس صياغة <acronym
+>ASCII</acronym
+>). تقليديًا، كانت التعبيرات النمطية تُكتب بصياغة <acronym
+>ASCII</acronym
+>، والتي تبدو مثل <literal
+>^.*kde\b</literal
+>. العيوب الرئيسة لهذا الأسلوب هي: <itemizedlist>
+        <listitem
+><para
+>يصعب فهمها لغير المبرمجين.</para
+></listitem>
+
+        <listitem
+><para
+>تتطلب أن <emphasis
+>تهرب</emphasis
+> بعض الرموز (لمطابقة نجمة مثلًا، تحتاج إلى كتابة <literal
+>\*</literal
+>). </para
+></listitem>
+
+        <listitem
+><para
+>تتطلب أن تتذكر قواعد <emphasis
+>الأولوية</emphasis
+> (ماذا تطابق <literal
+>x|y*</literal
+>؟ <literal
+>x</literal
+> واحدة أم عدد من <literal
+>y</literal
+>، <emphasis
+>أم</emphasis
+> عدد من <literal
+>x</literal
+> و <literal
+>y</literal
+> ممزوجة؟)</para
+></listitem>
+      </itemizedlist>
+    </para>
+
+    <para
+>من ناحية أخرى، يتيح لك محرر التعبيرات النمطية <emphasis
+>رسم</emphasis
+> تعبيرك النمطي بطريقة لا لبس فيها. يحل المحرر على الأقل البندين الثاني والثالث أعلاه. قد لا يجعل التعبيرات النمطية متاحة لغير المبرمجين، لكن فقط اختبارات المستخدمين يمكنها إثبات ذلك. لذا، إذا كنت غير مبرمج واكتسبت قوة التعبيرات النمطية من هذا المحرر، فيُرجى <ulink url="mailto:blackie@kde.org"
+>إخباري</ulink
+>. </para>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                       What is a Regular Expression                     -->
+  <!-- ====================================================================== -->
+  <chapter id="whatIsARegExp">
+    <title
+>ما هو التعبير النمطي</title>
+
+    <para
+>التعبير النمطي هو طريقة لتحديد <emphasis
+>شروط</emphasis
+> يجب تحقيقها لموقف معين. عادةً عندما تبحث في محرر نصوص، تحدد النص المراد البحث عنه <emphasis
+>حرفيًا</emphasis
+>، بينما باستخدام التعبير النمطي، تخبر كيف ستبدو المطابقة المعطاة. أمثلة على ذلك تشمل <emphasis
+>أبحث عن كلمة &kde;، لكن فقط في بداية السطر</emphasis
+>، أو <emphasis
+>أبحث عن كلمة <literal
+>the</literal
+>، لكن يجب أن تكون مستقلة بذاتها</emphasis
+>، أو <emphasis
+>أبحث عن ملفات تبدأ بكلمة <literal
+>test</literal
+>، متبوعة بعدد من الأرقام، مثل <literal
+>test12</literal
+> و <literal
+>test107</literal
+> و <literal
+>test007</literal
+></emphasis
+></para>
+
+    <para
+>تبني التعبيرات النمطية من تعبيرات نمطية أصغر، تمامًا كما تبني ألعاب ليغو كبيرة من أجزاء فرعية أصغر. كما في عالم ليغو، هناك عدد من اللبنات الأساسية. فيما يلي سأصف كل لبنة أساسية باستخدام عدد من الأمثلة.</para>
+
+    <example>
+      <title
+>البحث عن نص عادي.</title>
+      <para
+>إذا كنت تريد فقط البحث عن نص معين، فإن التعبير النمطي ليس خيارًا جيدًا بالتأكيد. السبب في ذلك هو أن التعبيرات النمطية تعطي معنى خاصًا لبعض الأحرف. يشمل ذلك الأحرف التالية: <literal
+>.*|$</literal
+>. لذا إذا كنت تريد البحث عن النص <literal
+>kde.</literal
+> (أي الأحرف <literal
+>kde</literal
+> متبوعة بنقطة)، فستحتاج إلى تحديد هذا كـ <literal
+>kde\.</literal
+><footnote
+><para
+>يحل محرر التعبيرات النمطية هذه المشكلة من خلال الاهتمام بقواعد الهروب نيابة عنك.</para
+></footnote
+> كتابة <literal
+>\.</literal
+> بدلًا من <literal
+>.</literal
+> فقط تُسمى <emphasis
+>هروبًا</emphasis
+>. </para>
+    </example>
+
+    <example id="positionregexp">
+      <title
+>مطابقة &URL;ات</title>
+      <para
+>عندما تختار شيئًا يشبه &URL; في &kde;، سيعرض البرنامج <command
+>klipper</command
+> بدء <command
+>konqueror</command
+> باستخدام &URL; المحدد.</para>
+
+      <para
+>يقوم <command
+>Klipper</command
+> بذلك بمطابقة التحديد مع عدة تعبيرات نمطية مختلفة، وعندما يطابق أحد التعبيرات النمطية، سيُعرض الأمر المناسب.</para>
+      
+      <para
+>يقول التعبير النمطي لـ &URL;ات (من بين أمور أخرى)، أن التحديد يجب أن يبدأ بالنص <literal
+>http://</literal
+>. يُوصف هذا باستخدام التعبيرات النمطية بإضافة علامة قبعة (الحرف <literal
+>^</literal
+>) قبل النص <literal
+>http://</literal
+>.</para>
+
+      <para
+>ما سبق هو مثال لمطابقة المواضع باستخدام التعبيرات النمطية. بالمثل، يمكن مطابقة الموضع <emphasis
+>نهاية السطر</emphasis
+> باستخدام الحرف <literal
+>$</literal
+> (أي علامة الدولار).</para>
+    </example>
+
+    <example id="boundaryregexp">
+      <title
+>البحث عن كلمة <literal
+>the</literal
+>، ولكن ليس <emphasis
+>the</emphasis
+><literal
+>re</literal
+> أو <literal
+>brea</literal
+><emphasis
+>the</emphasis
+> أو <literal
+>ano</literal
+><emphasis
+>the</emphasis
+><literal
+>r</literal
+></title>
+      <para
+>يمكن مطابقة نوعين إضافيين من المواضع بالطريقة المذكورة أعلاه، وهما <emphasis
+>الموضع عند حد كلمة</emphasis
+>، و <emphasis
+>الموضع عند حد <emphasis
+>غير</emphasis
+> كلمة</emphasis
+>. تُحدد المواضع باستخدام النص <literal
+>\b</literal
+> (لحد الكلمة) و <literal
+>\B</literal
+> (لحد غير الكلمة)</para>
+
+      <para
+>وهكذا، يمكن البحث عن الكلمة <literal
+>the</literal
+> باستخدام التعبير النمطي <literal
+>\bthe\b</literal
+>. يحدد هذا أننا نبحث عن <literal
+>the</literal
+> دون أحرف على كل جانب منها (أي بحد كلمة على كل جانب)</para>
+
+      <para
+>تُدرج تعبيرات المطابقة الموضعية الأربعة في محرر التعبيرات النمطية باستخدام <link linkend="positiontool"
+>أداة المواضع الأربعة المختلفة</link
+></para>
+    </example>
+
+    <example id="altnregexp">
+      <title
+>البحث عن إما <literal
+>this</literal
+> أو <literal
+>that</literal
+></title>
+      <para
+>تخيل أنك تريد التجول في مستندك باحثًا إما عن الكلمة <literal
+>this</literal
+> أو الكلمة <literal
+>that</literal
+>. بطريقة البحث العادية يمكنك فعل ذلك في جولتين، في المرة الأولى ستبحث عن <literal
+>this</literal
+>، وفي المرة الثانية ستبحث عن <literal
+>that</literal
+>.</para>
+
+      <para
+>باستخدام عمليات البحث بالتعبيرات النمطية ستبحث عن كليهما في نفس الجولة. تفعل ذلك بالبحث عن <literal
+>this|that</literal
+>، أي فصل الكلمتين بشريط عمودي.<footnote
+><para
+>لاحظ أن على كل جانب من الشريط العمودي يوجد تعبير نمطي، لذا هذه الميزة ليست فقط للبحث عن نصين مختلفين، بل للبحث عن تعبيرين نمطيين مختلفين.</para
+></footnote
+></para>
+
+      <para
+>في محرر التعبيرات النمطية لا تكتب الشريط العمودي بنفسك، بل بدلًا من ذلك تختار <link linkend="altntool"
+>أداة البديل</link
+>، وتُدرج التعبيرات النمطية الأصغر فوق بعضها البعض.</para>
+    </example>
+
+    <example id="repeatregexp">
+      <title
+>مطابقة أي شيء</title>
+      <para
+>غالبًا ما تُقارن التعبيرات النمطية بمطابقة أحرف البدل في الصدفة - أي القدرة على تحديد عدد من الملفات باستخدام النجمة. على الأرجح ستتعرف على مطابقة أحرف البدل من الأمثلة التالية: <itemizedlist>
+          <listitem
+><para
+><literal
+>ls *.txt</literal
+> - هنا <literal
+>*.txt</literal
+> هو حرف بدل الصدفة المطابق لكل ملف ينتهي بالامتداد <literal
+>.txt</literal
+>.</para
+></listitem>
+          <listitem
+><para
+><literal
+>cat test??.res</literal
+> - مطابقة كل ملف يبدأ بـ <literal
+>test</literal
+> متبوعًا بحرفين عشوائيين، وأخيرًا متبوعًا بـ <literal
+>.res</literal
+></para
+></listitem>
+        </itemizedlist>
+      </para>
+
+      <para
+>في الصدفة تطابق النجمة أي حرف أي عدد من المرات. بعبارة أخرى، تطابق النجمة <emphasis
+>أي شيء</emphasis
+>. يُكتب هذا كـ <literal
+>.*</literal
+> بصيغة التعبير النمطي. تطابق النقطة أي حرف واحد، أي حرف <emphasis
+>واحد</emphasis
+> فقط، وتقول النجمة إن التعبير النمطي الذي قبلها يجب أن يُطابق أي عدد من المرات. معًا يعني هذا أي حرف واحد أي عدد من المرات.</para>
+
+      <para
+>قد يبدو هذا معقدًا للغاية، ولكن عندما ترى الصورة الأكبر ستدرك القوة. دعوني أريكم تعبيرًا نمطيًا أساسيًا آخر: <literal
+>a</literal
+>. الحرف <literal
+>a</literal
+> بمفرده هو تعبير نمطي يطابق حرفًا واحدًا، ألا وهو الحرف <literal
+>a</literal
+>. إذا جمعنا هذا مع النجمة، أي <literal
+>a*</literal
+>، فلدينا تعبير نمطي يطابق أي عدد من حروف a.</para>
+
+      <para
+>يمكننا دمج عدة تعابير نمطية واحدًا تلو الآخر، على سبيل المثال <literal
+>ba(na)*</literal
+>. <footnote
+><para
+><literal
+>(na)*</literal
+> تقول فقط إن ما داخل الأقواس يُكرر أي عدد من المرات.</para
+></footnote
+> تخيل أنك كتبت هذا التعبير النمطي في حقل البحث في محرر نصوص، فستجد الكلمات التالية (من بين أخرى): <literal
+>ba</literal
+>، <literal
+>bana</literal
+>، <literal
+>banana</literal
+>، <literal
+>bananananananana</literal
+> </para>
+
+      <para
+>بالنظر إلى المعلومات أعلاه، أمل ألا يكون من الصعب عليك كتابة حرف بدل الصدفة <literal
+>test??.res</literal
+> كتعبير نمطي. الإجابة: <literal
+>test..\.res</literal
+>. النقطة بمفردها هي أي حرف. لمطابقة نقطة واحدة يجب كتابة <literal
+>\.</literal
+><footnote
+><para
+>يُسمى هذا الهروب</para
+></footnote
+>. بعبارة أخرى، التعبير النمطي <literal
+>\.</literal
+> يطابق نقطة، بينما النقطة بمفردها تطابق أي حرف. </para>
+
+      <para
+>في محرر التعبيرات النمطية، يُنشأ تعبير نمطي مكرر باستخدام <link linkend="repeattool"
+>أداة التكرار</link
+> </para>
+    </example>
+
+    <example id="lookaheadregexp">
+      <title
+>استبدال <literal
+>&amp;</literal
+> بـ <literal
+>&amp;amp;</literal
+> في مستند &HTML;</title
+> <para
+>في &HTML; يجب كتابة الحرف الخاص <literal
+>&amp;</literal
+> كـ <literal
+>&amp;amp;</literal
+> - هذا مشابه للهروب في التعبيرات النمطية.</para>
+
+      <para
+>تخيل أنك كتبت مستند &HTML; في محرر عادي (مثل &XEmacs; أو &kate;)، ونسيت هذه القاعدة تمامًا. ما ستفعله عندما تدرك خطأك هو استبدال كل ظهور لـ <literal
+>&amp;</literal
+> بـ <literal
+>&amp;amp;</literal
+>.</para>
+
+      <para
+>يمكن فعل ذلك بسهولة باستخدام البحث والاستبدال العادي، ولكن هناك خلل واحد. تخيل أنك تذكرت هذه القاعدة - <emphasis
+>قليلًا فقط</emphasis
+> - وفعلتها بشكل صحيح في بعض الأماكن. سيؤدي الاستبدال غير المشروط إلى استبدال <literal
+>&amp;amp;</literal
+> بـ <literal
+>&amp;amp;amp;</literal
+></para>
+
+      <para
+>ما تريد قوله حقًا هو أن <literal
+>&amp;</literal
+> يجب استبداله فقط إذا لم يتبعه الحروف <literal
+>amp;</literal
+>. يمكنك فعل ذلك باستخدام التعبيرات النمطية عبر <emphasis
+>النظر إلى الأمام الإيجابي</emphasis
+>." </para>
+
+      <para
+>التعبير النمطي الذي يطابق علامة العطف فقط إذا لم تتبعها الحروف <literal
+>amp;</literal
+> يبدو كالتالي: <literal
+>&amp;(?!amp;)</literal
+>. هذا بالطبع أسهل للقراءة باستخدام محرر التعبيرات النمطية، حيث ستستخدم <link linkend="lookaheadtools"
+>أدوات النظر إلى الأمام</link
+>.</para>
+    </example>
+
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                    Using the Regular Expression Editor                 -->
+  <!-- ====================================================================== -->
+  <chapter id="theEditor">
+    <title
+>استخدام محرر التعبيرات النمطية</title>
+
+    <para
+>سيخبرك هذا الفصل عن كيفية عمل محرر التعبيرات النمطية. </para>
+
+    <!-- ====================================================================== -->
+    <!--                   The organization of the screen                       -->
+    <!-- ====================================================================== -->
+    <sect1 id="screenorganization">
+      <title
+>تنظيم الشاشة</title>
+
+      <mediaobject>
+        <imageobject
+><imagedata format="PNG" fileref="theEditor.png"/></imageobject>
+      </mediaobject>
+      
+      <para
+>الجزء الأهم من المحرر هو بالطبع منطقة التحرير، هذه هي المنطقة التي ترسم فيها تعبيرك النمطي. هذه المنطقة هي الرمادية الكبيرة في المنتصف.</para>
+
+      <para
+>فوق منطقة التحرير يوجد شريطا أدوات، الأول يحتوي على <link linkend="editingtools"
+>إجراءات التحرير</link
+> - تشبه إلى حد كبير أدوات الرسم في برنامج رسم. شريط الأدوات الثاني يحتوي على زر <emphasis
+>ما هذا؟</emphasis
+>، وأزرار للتراجع وإعادة التنفيذ.</para>
+
+      <para
+>أسفل منطقة التحرير تجد التعبير النمطي المبني حاليًا، فيما يسمى بناء جملة ascii. يُحدّث بناء جملة ascii أثناء تحرير التعبير النمطي في المحرر الرسومي. إذا كنت تفضل تحديث بناء جملة ascii فافعل، يُحدّث المحرر الرسومي فورًا ليعكس تغييراتك.</para>
+
+      <para
+>أخيرًا، إلى يسار منطقة المحرر ستجد عددًا من التعبيرات النمطية المبنية مسبقًا. تخدم غرضين: (1) عند تحميل المحرر بتعبير نمطي، يُجعل هذا التعبير النمطي <emphasis
+>أجمل</emphasis
+> أو أكثر شمولًا باستبدال التعبيرات النمطية الشائعة. في لقطة الشاشة أعلاه، يمكنك رؤية كيف استُبدل بناء جملة ascii ".*" بصندوق يقول "أي شيء". (2) عند إدراج تعبير نمطي، قد تجد لبنات بناء لتعبيرك النمطي الخاص من مجموعة التعبيرات النمطية المبنية مسبقًا. انظر القسم الخاص بـ <link linkend="userdefinedregexps"
+>التعبيرات النمطية المعرفة من قبل المستخدم</link
+> لتعلم كيفية حفظ تعبيراتك النمطية الخاصة.</para
+>      
+    </sect1>
+
+    <!-- ====================================================================== -->
+    <!--                         Editing Tools                                  -->
+    <!-- ====================================================================== -->
+    <sect1 id="editingtools">
+      <title
+>أدوات التحرير</title>
+      <para
+>يفترض النص في هذا القسم أنك قد قرأت الفصل حول <link linkend="whatIsARegExp"
+>ما هو التعبير النمطي</link
+>، أو لديك معرفة سابقة بهذا الموضوع.</para>
+      
+      <para
+>توجد جميع أدوات التحرير في شريط الأدوات فوق منطقة التحرير. سيُوصف كل منها فيما يلي.</para>
+      
+      
+
+      <simplesect id="selecttool">
+        <title
+>أداة التحديد</title>
+	<mediaobject>
+            <imageobject
+><imagedata format="PNG" fileref="select.png"/>
+        </imageobject
+></mediaobject>
+        <para
+>تُستخدم أداة التحديد لتمييز العناصر للقص واللصق والسحب والإفلات. هذا مشابه جدًا لأداة التحديد في أي برنامج رسم.</para>
+      </simplesect>
+        
+      
+
+      <simplesect id="texttool"
+><title
+>أداة النصوص</title>
+      <mediaobject>
+      <imageobject>
+	    <imagedata format="PNG" fileref="text.png"/>
+	</imageobject
+></mediaobject>
+		        
+        <para
+><inlinemediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="texttool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>باستخدام هذه الأداة ستُدرج نصًا عاديًا للمطابقة. يُطابق النص حرفيًا، أي لا داعي للقلق بشأن هروب الأحرف الخاصة. في المثال أعلاه، سيُبنى التعبير النمطي التالي: <literal
+>abc\*\\\)</literal
+></para>
+      </simplesect>
+
+      
+
+      <simplesect id="characterstool"
+><title
+>أداة الحرف</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="characters.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="charactertool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>باستخدام هذه الأداة تُدرج نطاقات أحرف. تتضمن الأمثلة ما يقوله نص ASCII <literal
+>[0-9]</literal
+>، <literal
+>[^a-zA-Z,_]</literal
+>. عند إدراج عنصر بهذه الأداة، سيظهر حوار تحدد فيه نطاقات الأحرف.</para>
+        
+        <para
+>انظر وصف <link linkend="repeatregexp"
+>التعبيرات النمطية المكررة</link
+>.</para>
+      </simplesect>
+
+      
+      
+      <simplesect id="anychartool"
+><title
+>أداة أي حرف</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="anychar.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="anychartool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>هذا هو التعبير النمطي "نقطة" (.). يطابق أي حرف مفرد.</para
+> 
+        
+       
+        
+        </simplesect>
+
+
+
+      <simplesect id="repeattool"
+><title
+>أداة التكرار</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeat.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="repeattool.png"/>
+            </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>هذه هي العناصر المكررة. يتضمن هذا ما يُمثل في بناء جملة ASCII باستخدام علامة نجمية (*)، وعلامة زائد (+)، وعلامة استفهام (?)، ونطاقات ({3,5}). عند إدراج عنصر باستخدام هذه الأداة، سيظهر حوار يطلب عدد مرات التكرار.</para>
+          
+          <para
+>تحدد ما تريد تكراره برسم المحتوى المكرر داخل الصندوق الذي تُدرجه هذه الأداة.</para>
+
+          <para
+>يمكن بناء العناصر المكررة من الخارج إلى الداخل ومن الداخل إلى الخارج. أي يمكنك أولًا رسم ما سيُكرر، وتحديده واستخدام أداة التكرار لتكراره. بدلًا من ذلك، يمكنك أولًا إدراج عنصر التكرار، ورسم ما سيُكرر داخله.</para>
+
+        <para
+>انظر الوصف في <link linkend="repeatregexp"
+>التعبيرات النمطية المكررة</link
+>.</para>
+        </simplesect>
+
+
+
+
+      <simplesect id="altntool"
+><title
+>أداة البديل</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="altn.png"/>
+            </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="altntool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>هذا هو التعبير النمطي البديل (|). تُحدد البدائل برسم كل بديل فوق الآخر داخل المربع الذي تُدرجه هذه الأداة.</para>
+
+        <para
+>انظر الوصف في <link linkend="altnregexp"
+>التعبيرات النمطية البديلة</link
+></para>
+      </simplesect>
+      
+
+
+
+      <simplesect id="compoundtool"
+><title
+>أداة المركب</title>
+        <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="compound.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="compoundtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+        
+        <para
+>لا تمثل أداة المركب أي تعبيرات نمطية. تُستخدم لتجميع الأجزاء الفرعية الأخرى معًا في مربع، يمكن طيّه بسهولة إلى عنوانه فقط. يُرى ذلك في الجزء الأيمن من لقطة الشاشة أعلاه.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="positiontool"
+><title
+>أدوات بداية/نهاية السطر</title>
+        <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="begline.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject>
+              <imagedata format="PNG" fileref="endline.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="linestartendtool.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>تطابق أداتا بداية السطر ونهايته بداية السطر ونهايته على التوالي. وبالتالي، يطابق التعبير النمطي في لقطة الشاشة أعلاه الأسطر التي تطابق المسافات فقط.</para>
+        
+        <para
+>انظر وصف <link linkend="positionregexp"
+>التعبيرات النمطية الموضعية</link
+>.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect
+><title
+>أدوات حدود (لا) الكلمة</title>
+      <mediaobject
+><imageobject>
+            <imagedata format="PNG" fileref="wordboundary.png"/>
+            </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+><imagedata format="PNG" fileref="nonwordboundary.png"/>
+        </imageobject
+></mediaobject>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata format="PNG" fileref="boundarytools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>تطابق أدوات الحدود حد كلمة أو حد لا كلمة على التوالي. وبالتالي، يطابق التعبير النمطي في لقطة الشاشة أي كلمات تبدأ بـ <literal
+>the</literal
+>. أما الكلمة <literal
+>the</literal
+> نفسها فلا تُطابق.</para>
+
+        <para
+>انظر وصف <link linkend="boundaryregexp"
+>التعبيرات النمطية الحدودية</link
+>.</para>
+      </simplesect>
+
+
+
+
+
+      <simplesect id="lookaheadtools"
+><title
+>أدوات التطلع الإيجابي/السلبي</title>
+	  <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="poslookahead.png"/>
+        </imageobject
+></mediaobject>
+          <mediaobject
+><imageobject
+> <imagedata format="PNG" fileref="neglookahead.png"/>
+        </imageobject
+></mediaobject>
+
+        <para
+><inlinemediaobject
+><imageobject
+> <imagedata format="PNG" fileref="lookaheadtools.png"/>
+        </imageobject
+></inlinemediaobject
+></para>
+
+        <para
+>تحدد أدوات التطلع تعبيرًا نمطيًا إيجابيًا أو سلبيًا للمطابقة. ومع ذلك، لا تكون المطابقة جزءًا من المطابقة الكلية.</para>
+
+        <para
+>ملاحظة: يُسمح لك فقط بوضع التطلعات في نهاية التعبيرات النمطية. لا يُفرض ذلك بواسطة أداة محرر التعبير النمطي.</para>
+
+        <para
+>انظر وصف <link linkend="lookaheadregexp"
+>التعبيرات النمطية المتطلعة</link
+>.</para>
+      </simplesect>
+    </sect1>
+
+  <!-- ====================================================================== -->
+  <!--                  User Defined Regular Expressions                      -->
+  <!-- ====================================================================== -->
+    <sect1 id="userdefinedregexps">
+      <title
+>تعبيرات نمطية معرفة من المستخدم</title>
+      <para
+>يوجد على يسار منطقة التحرير مربع قائمة يحتوي على تعبيرات نمطية معرفة من المستخدم. بعض التعبيرات النمطية مُثبّتة مسبقًا مع تثبيت &kde; لديك، بينما يمكنك حفظ البعض الآخر بنفسك.</para
+> 
+
+      <para
+>تخدم هذه التعبيرات النمطية غرضين (<link linkend="screenorganization"
+>انظر الوصف المفصل</link
+>)، وهما (1) تقديم مجموعة من اللبنات الأساسية لك و(2) جعل التعبيرات النمطية الشائعة أجمل.</para>
+
+      <para
+>يمكنك حفظ تعبيراتك النمطية الخاصة بالنقر بزر الفأرة الأيمن في منطقة التحرير، واختيار <literal
+>احفظ التعبير النمطي</literal
+>.</para>
+
+      <para
+>إذا كان التعبير النمطي الذي تحفظه داخل <link linkend="compoundtool"
+>حاوية مركبة</link
+>، فسيشارك التعبير النمطي في جعل التعبيرات النمطية اللاحقة أجمل.</para>
+
+      <para
+>يمكن حذف أو إعادة تسمية التعابير النمطية المعرفة من المستخدم بالضغط بزر الفأرة الأيمن على التعبير النمطي المعني في مربع القائمة.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                  Reporting a bug and Suggesting Features               -->
+  <!-- ====================================================================== -->
+  <chapter id="bugreport">
+    <title
+>الإبلاغ عن الأخطاء واقتراح الميزات</title>
+    <para
+>يجب تقديم تقارير الأخطاء وطلبات الميزات عبر <ulink url="http://bugs.kde.org/"
+>نظام تتبع الأخطاء لكيدي</ulink
+>. <emphasis role="strong"
+>قبل</emphasis
+> الإبلاغ عن خطأ أو اقتراح ميزة، يُرجى التحقق من عدم <ulink url="http://bugs.kde.org/buglist.cgi?quicksearch=kregexpeditor"
+>الإبلاغ عنها/اقتراحها</ulink
+> مسبقًا.</para>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                                 FAQ                                    -->
+  <!-- ====================================================================== -->
+  <chapter id="faq">
+    <title
+>الأسئلة المتكررة</title>
+    <sect1 id="question1">
+      <title
+>هل يدعم محرر التعابير النمطية المراجع الخلفية؟</title>
+      <para
+>لا، هذا غير مدعوم حاليًا. من المخطط دعمه في الإصدار التالي.</para>
+    </sect1>
+
+    <sect1 id="question2">
+      <title
+>هل يدعم محرر التعابير النمطية عرض المطابقات؟</title>
+      <para
+>لا، نأمل أن يكون هذا متاحًا في الإصدار التالي.</para>
+    </sect1>
+
+    <sect1 id="question3">
+      <title
+>أنا مؤلف برنامج كيدي، كيف يمكنني استخدام هذه الأداة في تطبيقي؟</title>
+      <para
+>انظر <ulink url="http://developer.kde.org/documentation/library/cvs-api/classref/interfaces/KRegExpEditorInterface.html"
+>توثيق الصنف KRegExpEditorInterface</ulink
+>.</para>
+    </sect1>
+
+    <sect1 id="question4">
+      <title
+>لا أجد زر <emphasis
+>تحرير التعبير النمطي</emphasis
+> في مثل كونكرور على تثبيت كيدي3 آخر، لماذا؟</title>
+      <para
+>توجد أداة التعبير النمطي في الحزمة كيدي-أدوات. إذا لم تكن هذه الحزمة مثبتة لديك، فلن تظهر أزرار <emphasis
+>تحرير التعابير النمطية</emphasis
+> في البرامج.</para>
+    </sect1>
+  </chapter>
+
+  <!-- ====================================================================== -->
+  <!--                           Credits and Licenses                         -->
+  <!-- ====================================================================== -->
+  <chapter id="credits-and-license">
+    <title
+>الإسهامات والرخصة</title>
+
+    <para
+>التوثيق حقوق نشره 2001، جيسبر ك. بيدرسن &Jesper.Pedersen.mail; </para>
+
+
+<para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+
+</book>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
